@@ -9,6 +9,7 @@ import { makeChat } from './chat.js';
 import { makeTV } from './tv.js';
 import * as audio from './audio.js';
 import { ICON, NET } from './icons.js';
+import { track } from './analytics.js';
 
 const $ = s => document.querySelector(s);
 const PIX = (name, size = 32) => `<img class="ico" src="assets/ui/icons/${name}@${size > 16 ? 4 : 2}x.png" width="${size}" height="${size}" alt="">`;
@@ -41,7 +42,7 @@ function fail(msg) { const e = $('#loader .err'); e.hidden = false; e.innerHTML 
 
 // ---------- social links everywhere ----------
 document.querySelectorAll('.social').forEach(a => { const n = a.dataset.net; a.href = NET[n].url; a.innerHTML = ICON[n]; a.title = NET[n].name; });
-$('#socials .links').innerHTML = Object.entries(NET).map(([n, v]) => `<a href="${v.url}" target="_blank" rel="noopener">${ICON[n]}${v.name}<small>${v.handle}</small></a>`).join('');
+$('#socials .links').innerHTML = Object.entries(NET).map(([n, v]) => `<a href="${v.url}" data-net="${n}" target="_blank" rel="noopener">${ICON[n]}${v.name}<small>${v.handle}</small></a>`).join('');
 
 // ---------- world ----------
 const world = { ready: false };
@@ -106,6 +107,7 @@ function startGame() {
   saxo.play('waving', { loop: false, then: () => saxo.play('happy_idle') });
   showHint();
   const back = store.get('visited', false); store.set('visited', true);
+  track('game_started', { returning: back, look: P.look || 'saxo' });
   setTimeout(() => toast(back ? 'Welcome back! Kob is still hogging the TV.' : "Welcome to Saxo's place! Talk to the gang, hit the dance floor, and check the TV.", 5200), 2600);
 }
 $('#start').onclick = startGame;
@@ -207,6 +209,7 @@ function startDance(name) {
   P.dance = name || danceClips[P.danceIdx++ % danceClips.length];
   saxo.play(P.dance, { fade: 0.3 });
   audio.sfx.sparkle();
+  track('dance_started', { clip: P.dance });
 }
 let gagId = 0;
 function endGag() {
@@ -287,6 +290,7 @@ function talk(who) {
   else { n.faceTo(saxo.pos.x, saxo.pos.z); n.turnRate = 6; }
   hideMarkers(true); closeSheets();
   chat.open(who);
+  track('npc_talk', { npc: who });
 }
 function endTalk(who) {
   const n = npc[who];
@@ -396,8 +400,8 @@ function interactables() {
     { id: 'tv', label: 'Watch Saxo TV', r: 2.6, anchor: () => [pl.tv.x, pl.tv.z], head: () => new THREE.Vector3(pl.tv.x, 2.75, pl.tv.z - 0.6), stand: () => pl.tv.stand, run: () => { saxo.faceTo(pl.tv.x, pl.tv.z); if (P.mode !== 'free' && P.mode !== 'show') return; openTV(); } },
     { id: 'wardrobe', label: 'Dress up', r: 1.9, anchor: () => [pl.wardrobe.x, pl.wardrobe.z], head: () => new THREE.Vector3(pl.wardrobe.x, 2.9, pl.wardrobe.z - 0.4), stand: () => pl.wardrobe.stand, run: () => openSheet('closet') },
     { id: 'sign', label: 'Follow Saxo', r: 2.0, anchor: () => [pl.sign.x, pl.sign.z], head: () => new THREE.Vector3(pl.sign.x, 2.75, pl.sign.z), stand: () => pl.sign.stand, run: () => openSheet('socials') },
-    { id: 'mail', label: 'Check the mail', r: 1.7, anchor: () => [pl.mail.x, pl.mail.z], head: () => new THREE.Vector3(pl.mail.x, 1.55, pl.mail.z), stand: () => pl.mail.stand, run: () => { audio.sfx.blip(0.8); toast(MAIL[mailN++ % MAIL.length], 4200, 'mail'); } },
-    { id: 'towel', label: 'Chill in the sun', r: 1.6, anchor: () => [pl.towel.x, pl.towel.z], head: () => new THREE.Vector3(pl.towel.x, 0.9, pl.towel.z), stand: () => pl.towel.stand, run: chill },
+    { id: 'mail', label: 'Check the mail', r: 1.7, anchor: () => [pl.mail.x, pl.mail.z], head: () => new THREE.Vector3(pl.mail.x, 1.55, pl.mail.z), stand: () => pl.mail.stand, run: () => { audio.sfx.blip(0.8); toast(MAIL[mailN++ % MAIL.length], 4200, 'mail'); track('object_used', { object: 'mail' }); } },
+    { id: 'towel', label: 'Chill in the sun', r: 1.6, anchor: () => [pl.towel.x, pl.towel.z], head: () => new THREE.Vector3(pl.towel.x, 0.9, pl.towel.z), stand: () => pl.towel.stand, run: () => { chill(); track('object_used', { object: 'towel' }); } },
   );
   for (const it of INTER) {
     const m = document.createElement('div'); m.className = 'marker'; m.innerHTML = `<span class="say"></span><span class="tag">${it.label}</span><span class="dot">${PIX(it.id === 'tv' ? 'tv' : ['kob', 'sadi', 'compote'].includes(it.id) ? 'talk' : 'alert', 16)}</span>`;
@@ -456,6 +460,7 @@ function useNearest() { if (nearest) { audio.sfx.blip(); const [x, z] = nearest.
 const LOOKS = [['saxo', 'Saxo'], ['cowboy', 'Cowboy'], ['astronaut', 'Astronaut'], ['dj', 'DJ'], ['beach', 'Beach'], ['moto', 'Moto'], ['sponge', 'Sponge'], ['poop', 'Poop']];
 function openSheet(id) {
   closeSheets(); chat.close(); const el = $('#' + id); el.hidden = false; audio.sfx.open(); P.overlay = true;
+  track('sheet_opened', { sheet: id });
   if (id === 'closet') {
     const box = el.querySelector('.looks'); box.innerHTML = '';
     for (const [k, name] of LOOKS) {
@@ -463,7 +468,7 @@ function openSheet(id) {
       b.onclick = async () => {
         box.querySelectorAll('button').forEach(x => x.disabled = true);
         const file = k === 'saxo' ? 'saxo' : 'saxo_' + k;
-        try { const root = await loadLook(file); closeSheets(); poof(saxo.pos.clone().setY(0.7)); saxo.flash = 0.8; setTimeout(() => { saxo.setLook(root); P.look = k; store.set('look', file); }, 150); toast(k === 'poop' ? 'Why.' : `Looking sharp, ${name === 'Saxo' ? 'Saxo' : name + ' Saxo'}!`); }
+        try { const root = await loadLook(file); closeSheets(); poof(saxo.pos.clone().setY(0.7)); saxo.flash = 0.8; setTimeout(() => { saxo.setLook(root); P.look = k; store.set('look', file); }, 150); track('costume_changed', { look: k }); toast(k === 'poop' ? 'Why.' : `Looking sharp, ${name === 'Saxo' ? 'Saxo' : name + ' Saxo'}!`); }
         catch { toast("That costume is at the dry cleaner's."); box.querySelectorAll('button').forEach(x => x.disabled = false); }
       };
       box.appendChild(b);
@@ -541,7 +546,7 @@ document.querySelectorAll('.who').forEach(b => b.onclick = () => {
   if (Math.hypot(saxo.pos.x - ax, saxo.pos.z - az) < it.r) { saxo.faceTo(ax, az); it.run(); }
   else { const [sx, sz] = it.stand(); goTo(sx, sz, it, true); }
 });
-function toggleSound() { audio.setMuted(!audio.isMuted()); $('#sound').classList.toggle('muted', audio.isMuted()); if (!audio.isMuted()) audio.start(); }
+function toggleSound() { audio.setMuted(!audio.isMuted()); track('sound_toggled', { muted: audio.isMuted() }); $('#sound').classList.toggle('muted', audio.isMuted()); if (!audio.isMuted()) audio.start(); }
 $('#sound').onclick = toggleSound; $('#sound').classList.toggle('muted', audio.isMuted());
 
 // ---------- hint ----------
@@ -553,7 +558,9 @@ function showHint() {
 let hintMoves = 0;
 function hideHintSoon() { if (++hintMoves === 90) $('#hint').classList.add('gone'); }
 
-function openTV(f, id) { chat.close(); closeSheets(); tv.open(f, id); }
+function openTV(f, id) { chat.close(); closeSheets(); tv.open(f, id); track('tv_opened', { filter: f || 'all' }); }
+// the social links (top bar, the Follow Saxo sheet): which network people follow from, and from where
+document.addEventListener('click', e => { const a = e.target.closest?.('a.social, #socials .links a'); if (!a) return; track('social_clicked', { network: a.dataset.net, place: a.classList.contains('social') ? 'bar' : 'sheet' }); });
 // ---------- UI modules ----------
 const chat = makeChat(game);
 const tv = makeTV(game);

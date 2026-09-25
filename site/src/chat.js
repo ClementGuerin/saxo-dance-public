@@ -2,6 +2,7 @@
 // right, reply choices at the bottom. The game hooks in for animation and actions.
 import { PEOPLE, SCRIPTS } from './scripts.js';
 import { babble, sfx } from './audio.js';
+import { track } from './analytics.js';
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -50,7 +51,7 @@ export function makeChat(game) {
     bubble('me', esc(c.text), 'saxo'); babble('saxo', c.text); game.saxoTalk();
     await wait(450);
     if (id !== run) return;
-    if (c.act) { await wait(250); close(); game.act(c.act, who); }
+    if (c.act) { const w = who; await wait(250); close(); game.act(c.act, w); track('chat_action', { action: c.act, npc: w }); }
     else if (c.to) go(c.to);
     else close();
   }

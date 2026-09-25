@@ -2,6 +2,7 @@
 // one card per video with its TikTok / Instagram / YouTube posts, and plays them through the platforms' embeds.
 import { ICON, NET } from './icons.js';
 import { sfx, muffle } from './audio.js';
+import { track } from './analytics.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const ORDER = ['tiktok', 'youtube', 'instagram'];
@@ -38,11 +39,12 @@ export function makeTV(game) {
   }
   function play(p, net = EMBED.find(n => p.links[n] && p.links[n].id)) {
     sfx.blip(); grid.hidden = true; player.hidden = false;
+    track('video_played', { post_id: p.id, title: p.title, platform: net || 'none' });
     frame.innerHTML = net ? `<iframe src="${embed(net, p.links[net])}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="${esc(p.title)}"></iframe>`
       : `<img src="${esc(p.thumb)}" alt="">`;
     const go = ORDER.filter(n => p.links[n]).map(n => `<a href="${esc(safeUrl(p.links[n].url))}" target="_blank" rel="noopener" data-net="${n}" class="${n === net ? 'cur' : ''}">${ICON[n]}Watch on ${NET[n].name}</a>`).join('');
     meta.innerHTML = `<h2>${esc(p.title)}</h2><p>${esc(p.artist)} · ${fmtDate(p.date)}${p.views ? ` · ${fmtViews(p.views)} views` : ''}</p>${p.blurb ? `<p>${esc(p.blurb)}</p>` : ''}<div class="go">${go}</div>`;
-    meta.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) return; e.preventDefault(); play(p, a.dataset.net); }));
+    meta.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) track('video_link_clicked', { post_id: p.id, platform: a.dataset.net }); if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) return; e.preventDefault(); play(p, a.dataset.net); }));
   }
   function back() { frame.innerHTML = ''; player.hidden = true; grid.hidden = false; }
   async function open(f = 'all', postId = null) {
