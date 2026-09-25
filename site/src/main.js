@@ -23,7 +23,7 @@ const store = { get(k, d) { try { const v = localStorage.getItem('saxo.' + k); r
 // ---------- renderer: the PS1 internal resolution, magnified with nearest filtering ----------
 const canvas = $('#game');
 let renderer;
-try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' }); }
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance', preserveDrawingBuffer: true }); }
 catch (e) { fail("Your browser can't run WebGL, so Saxo can't dance here. Catch him on TikTok instead!"); throw e; }
 renderer.setPixelRatio(1); renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 const scene = new THREE.Scene();

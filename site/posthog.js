@@ -7,5 +7,8 @@ if (/(^|\.)saxo\.dance$/.test(location.hostname)) {
         ui_host: 'https://eu.posthog.com',
         defaults: '2026-05-30',
         person_profiles: 'identified_only',
+        // Replay records the DOM, so the WebGL game is a black box without canvas capture (it also needs
+        // preserveDrawingBuffer on the renderer, src/main.js). The canvas is the small PS1 internal resolution: cheap.
+        session_recording: { captureCanvas: { recordCanvas: true, canvasFps: 4, canvasQuality: '0.6' } },
     });
 }
