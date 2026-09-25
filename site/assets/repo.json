@@ -1,14 +1,14 @@
 {
- "updated": "2026-09-25T18:19:11.128Z",
+ "updated": "2026-09-25T19:10:26.430Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-25T18:18:37Z",
- "commits": 12,
- "files": 250,
- "loc": 8472,
+ "pushedAt": "2026-09-25T19:09:31Z",
+ "commits": 16,
+ "files": 251,
+ "loc": 8498,
  "languages": [
   {
    "name": "JavaScript",
@@ -33,6 +33,22 @@
  ],
  "latest": [
   {
+   "sha": "88c7f27",
+   "type": "fix",
+   "scope": "site",
+   "text": "z-fighting on the bridge, the path junctions and the island edges",
+   "date": "2026-09-25T19:09:30Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/88c7f27a0625e5999a9195592715eac70499e65a"
+  },
+  {
+   "sha": "646f39a",
+   "type": "fix",
+   "scope": "site",
+   "text": "the fork gag doesn't promise reuse (the public repo has no licence)",
+   "date": "2026-09-25T18:22:40Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/646f39a18d3c9d3ab01d173caa961a2026cc6922"
+  },
+  {
    "sha": "65b3f68",
    "type": "feat",
    "scope": "site",
@@ -55,22 +71,6 @@
    "text": "Saxo profile picture (Michou shades on the yacht) and ?clean frame flag",
    "date": "2026-09-25T17:19:03Z",
    "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/ef7e5a01e867aa6fe83ee020d1b06fee8d8d6230"
-  },
-  {
-   "sha": "72052bc",
-   "type": "feat",
-   "scope": "site",
-   "text": "record the WebGL canvas in PostHog session replay",
-   "date": "2026-09-25T17:06:24Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/72052bc19719fe503ef859e60b8fac96719c3ae0"
-  },
-  {
-   "sha": "fb60c98",
-   "type": "feat",
-   "scope": "site",
-   "text": "PostHog game events, /ingest reverse proxy, hashed posthog script",
-   "date": "2026-09-25T17:01:19Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/fb60c98bd6812f9b6cfaebcea348ff28219d2bac"
   }
  ],
  "counts": {
