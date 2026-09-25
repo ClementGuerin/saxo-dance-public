@@ -11,6 +11,9 @@
 //     fits, starting when the karaoke shows that line (not the one before it). Up to 0.5 s of the tail may be trimmed
 //     to fit. "Dans le club": 16.07–75.57 s, from "Et tu lèves un bras" (the user found a 32 s cut too short).
 //   --from= --to=: a hand-picked window.
+// A song with no lyrics (an instrumental: no karaoke, the user, 2026-09-26) has an empty window.LYRICS: the cut then
+// falls on the bar lines of the render's beat grid (the kit's episodes/<name>.beats.js next to --lyrics, else
+// src/beats.js; --beats=<file> overrides), with the same start/end rules.
 // A video already under --max is returned as is. Prints the output path on the last line.
 import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -32,12 +35,19 @@ const fps = fn / (fd || 1) || 30;
 if (dur <= MAX) { console.log(`${path.basename(file)} is ${dur.toFixed(2)} s, already a Short`); console.log(file); process.exit(0); }
 
 // Karaoke timings of the render: window.LYRICS = [[[t, word], …] per line], window.LINE_END = [t per line].
-let lines = null;
+let lines = null, bars = null;
 try {
   const window = {};
   const src = opt.lyrics ? fs.readFileSync(opt.lyrics, 'utf8') : REV ? execFileSync('git', ['show', `${REV}:src/lyrics.js`], { cwd: root, encoding: 'utf8' }) : fs.readFileSync(`${root}/src/lyrics.js`, 'utf8');
   const from = opt.lyrics || (REV ? `src/lyrics.js at ${REV}` : 'src/lyrics.js');
   vm.runInNewContext(src, { window });
+  if (Array.isArray(window.LYRICS) && !window.LYRICS.length) {
+    const bf = opt.beats || (opt.lyrics ? opt.lyrics.replace(/\.lyrics\.js$/, '.beats.js') : `${root}/src/beats.js`), bw = {};
+    vm.runInNewContext(fs.readFileSync(bf, 'utf8'), { window: bw });
+    if (Math.abs(bw.BEATS.duration - dur) < 2.5) bars = bw.BEATS.bars.map(x => typeof x === 'number' ? x : x.t);
+    else console.warn(`${bf} lasts ${bw.BEATS.duration} s, the video ${dur.toFixed(2)} s: not this render (pass --beats=)`);
+    throw new Error(bars ? `no lyric lines (an instrumental): cutting on the ${bars.length} bars of ${path.basename(bf)}` : 'no lyric lines and no matching beat grid');
+  }
   // The lyrics must belong to this render: the last line ends with the video (within a hand cut's fade tail).
   if (Math.abs(window.LINE_END.at(-1) - dur) < 2.5) lines = window.LYRICS.map((l, i) => ({ first: l[0][0], last: l.at(-1)[0], end: window.LINE_END[i], text: l.map(w => w[1]).join(' ') }));
   else console.warn(`${from} ends at ${window.LINE_END.at(-1)} s, the video at ${dur.toFixed(2)} s: not this render (pass --lyrics=<kit lyrics> or --rev=<render commit>)`);
@@ -47,6 +57,11 @@ let a = 0, end = MAX, why = 'no lyrics, hard cut', fadeOut = Math.min(0.7, MAX /
 if (opt.from || opt.to) {
   a = +(opt.from || 0); end = Math.min(dur, +(opt.to || dur)); why = 'hand-picked window';
   if (end - a > MAX + 1e-6) { console.error(`window ${a}–${end} s is ${(end - a).toFixed(2)} s, over ${MAX} s`); process.exit(1); }
+  fadeOut = end < dur - 0.05 ? 0.3 : 0;
+} else if (KEEP === 'end' && !lines && bars) {
+  a = bars.find(b => b > 0 && dur - b <= MAX + TAIL);
+  if (a == null) { console.error(`no bar starts late enough to end the cut at ${dur.toFixed(2)} s`); process.exit(1); }
+  end = Math.min(dur, a + MAX); why = `from the bar at ${a.toFixed(2)} s to the end (no lyrics)`;
   fadeOut = end < dur - 0.05 ? 0.3 : 0;
 } else if (KEEP === 'end') {
   if (!lines) { console.error('--keep=end needs this render\'s lyrics (--lyrics=<kit lyrics> or --rev=<commit>)'); process.exit(1); }
@@ -62,6 +77,8 @@ if (opt.from || opt.to) {
   if (!ends.length) { console.error(`no lyric line ends before ${MAX} s`); process.exit(1); }
   const e = ends.at(-1);
   end = e.t; why = `after "${lines[e.i].text}"`; fadeOut = Math.min(0.7, end / 10);
+} else if (bars) {
+  end = bars.filter(b => b <= MAX).at(-1) || MAX; why = `to the bar at ${end.toFixed(2)} s (no lyrics)`; fadeOut = Math.min(0.7, end / 10);
 }
 const len = end - a;
 if (len < 45) console.warn(`the cut is short (${len.toFixed(2)} s)`);

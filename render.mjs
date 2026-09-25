@@ -5,7 +5,7 @@
 //   node render.mjs --sheet=1.2,1.3,1.4 [--cols=3] [--w=640] [--out=out/check/sheet.jpg]   chosen times on one image
 //   node render.mjs --stills=0.5,3.2 [--out=out/stills]    full-resolution PNG stills
 //   node render.mjs --clip=2:5 [--out=out/clip.mp4]        quick MP4 of a range, with audio
-//   node render.mjs --frames[=a:b] [--workers=4]           full-quality JPEG frames → out/frames (parallel, resumable)
+//   node render.mjs --frames[=a:b] [--workers=4] [--fresh] full-quality JPEG frames → out/frames[/<kit or episode>] (parallel, resumable)
 //   node render.mjs --audio                                build out/audio/mix.wav (score + tracks)
 //   node render.mjs --encode [--out=out/video.mp4] [--crf=18]   frames + audio → MP4 (run --frames first)
 //   node render.mjs --qa[=a:b] [--qa-fps=10]            QA gate: floor contact + framing of every dog, exit 1 on failure (also runs before --frames and --clip; --no-qa skips)
@@ -19,7 +19,11 @@ import { mkdirSync, writeFileSync, existsSync, statSync, renameSync, readdirSync
 import { dirname, resolve, extname, join, sep } from 'node:path';
 
 const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, ...v] = a.replace(/^--/, '').split('='); return [k, v.length ? v.join('=') : true]; }));
-const ROOT = process.cwd(), OUT = 'out', FRAMES = join(OUT, 'frames'), MIX = join(OUT, 'audio', 'mix.wav');
+// An episode (or kit) renders into its own frames folder and audio mix, so a run resumed after a stop keeps its frames
+// and two renders at once (a night video and a TikTok re-cut) never mix theirs. A plain dance render keeps out/frames.
+// --fresh clears the folder first.
+const Q = new URLSearchParams(String(args.query === true ? '' : args.query || '')), NAME = (Q.get('kit') || Q.get('episode') || '').replace(/[^\w.-]/g, '');
+const ROOT = process.cwd(), OUT = 'out', FRAMES = join(OUT, 'frames', NAME), MIX = join(OUT, 'audio', NAME ? `mix_${NAME}.wav` : 'mix.wav');
 const run = (cmd, a) => new Promise((ok, bad) => { const p = spawn(cmd, a, { stdio: 'inherit' }); p.on('error', bad); p.on('close', c => c ? bad(new Error(`${cmd} exited ${c}`)) : ok()); });
 const times = s => String(s).split(',').map(Number);
 const pad = (i, n = 5) => String(i).padStart(n, '0');
@@ -148,7 +152,7 @@ const gate = async (a, b) => { if (args['no-qa']) return; if (!(await qa(a, b)) 
 async function buildAudio() {
   const inputs = [];
   if (M.hasScore) {
-    const f = join(OUT, 'audio', 'synth.wav'); mkdirSync(dirname(f), { recursive: true });
+    const f = join(OUT, 'audio', NAME ? `synth_${NAME}.wav` : 'synth.wav'); mkdirSync(dirname(f), { recursive: true });
     writeFileSync(f, Buffer.from(await first.evaluate(() => window.renderAudio()), 'base64'));
     inputs.push({ file: f, gain: 1, start: 0, offset: 0 });
   }
@@ -160,7 +164,7 @@ async function buildAudio() {
   mkdirSync(dirname(MIX), { recursive: true });
   const ins = inputs.flatMap(i => [...(i.offset ? ['-ss', String(i.offset)] : []), '-i', i.file]);
   const chains = inputs.map((i, k) => `[${k}:a]aresample=48000,aformat=channel_layouts=stereo,adelay=${Math.round(i.start * 1000)}:all=1,volume=${i.gain}[a${k}]`);
-  const raw = join(OUT, 'audio', 'mix-raw.wav');
+  const raw = join(OUT, 'audio', NAME ? `mix-raw_${NAME}.wav` : 'mix-raw.wav');
   const mix = `${chains.join(';')};${inputs.map((_, k) => `[a${k}]`).join('')}amix=inputs=${inputs.length}:normalize=0:duration=longest,apad,atrim=0:${M.DUR}[out]`;
   await run('ffmpeg', ['-y', '-loglevel', 'error', ...ins, '-filter_complex', mix, '-map', '[out]', '-c:a', 'pcm_f32le', raw]);
   // Master: two-pass EBU R128 loudness normalisation to a target (default -14 LUFS, what YouTube, Spotify and most
@@ -219,6 +223,7 @@ try {
   } else if (args.frames) {
     const [a, b] = args.frames === true ? [0, M.DUR] : String(args.frames).split(':').map(Number), workers = +(args.workers || 4);
     await gate(a, b);
+    if (args.fresh) rmSync(FRAMES, { recursive: true, force: true });
     mkdirSync(FRAMES, { recursive: true });
     const i0 = Math.round(a * fps), i1 = Math.min(N - 1, Math.round(b * fps) - 1), todo = [];
     for (let i = i0; i <= i1; i++) { const f = `${FRAMES}/f${pad(i)}.jpg`; if (!existsSync(f) || statSync(f).size < 1000) todo.push(i); }
