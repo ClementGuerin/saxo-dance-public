@@ -1,0 +1,1298 @@
+{
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "street",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "kind": "dance",
+   "map": "club",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "dj",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "disco",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "beach",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "macarena",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "kind": "dance",
+   "map": "stadium",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "cheer",
+     "clip": "ymca",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "ymca",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "western",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "cowgirl",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "kind": "dance",
+   "map": "moon",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "astronaut",
+     "clip": "robot",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "highway",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "moto",
+     "clip": "running_man",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "moto",
+     "clip": "running_man",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 14,
+   "kind": "dance",
+   "map": "rooftop",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "twist",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "supermarket",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "hotdog",
+     "clip": "chicken",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "chef",
+     "clip": "chicken",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 18,
+   "kind": "dance",
+   "map": "school",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "arm_wave",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "cheer",
+     "clip": "arm_wave",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "kob",
+     "look": "popstar",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "subway",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ninja",
+     "clip": "robot",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "punk",
+     "clip": "robot",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "bowling",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "booty_step",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 26,
+   "kind": "dance",
+   "map": "arcade",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "dj",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "punk",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "office",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "macarena",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "macarena",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "spaceship",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "astronaut",
+     "clip": "ymca",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "astronaut",
+     "clip": "ymca",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "jungle",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "samba",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "snow",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ninja",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "pyramids",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "cowgirl",
+     "clip": "macarena",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "macarena",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 38,
+   "kind": "dance",
+   "map": "underwater",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "astronaut",
+     "clip": "arm_wave",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "astronaut",
+     "clip": "arm_wave",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "volcano",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "samba",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 42,
+   "kind": "dance",
+   "map": "tokyo",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ninja",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "punk",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "farm",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "chicken",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "cowgirl",
+     "clip": "chicken",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 46,
+   "kind": "dance",
+   "map": "graveyard",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "silly_twist",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "punk",
+     "clip": "silly_twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "pirate",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 50,
+   "kind": "dance",
+   "map": "candy",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "twist",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "beach",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "mars",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "compote",
+     "look": "astronaut",
+     "clip": "robot",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 54,
+   "kind": "dance",
+   "map": "bikini",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "sponge",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "patrick",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "paris",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "kobflat",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "yacht",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "disco",
+     "clip": "shuffle",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 62,
+   "kind": "dance",
+   "map": "lounge",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "techno",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "robot",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "robot",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  }
+ ]
+}

@@ -16,24 +16,36 @@ import { pathToFileURL } from 'node:url';
 const ROOT = execFileSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' }).trim();
 const git = (a, opt = {}) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28, ...opt });
 
-export function counts(rev = 'HEAD') {
-  const files = git(['ls-tree', '-r', '-z', '--name-only', rev]).split('\0').filter(Boolean);
-  const show = p => git(['show', `${rev}:${p}`]);
-  // characters: Saxo (the Mixamo rig) and everyone with a base model; looks: Saxo's rig plus every model of theirs
-  // (saxo_slp.glb is the unrigged source of the rig, not a look)
+const tree = rev => git(['ls-tree', '-r', '-z', '--name-only', rev]).split('\0').filter(Boolean);
+
+// characters: Saxo (the Mixamo rig) and everyone with a base model; looks: their model files, as `<who>_<look>`
+// (Saxo's own look is the rig, `saxo`; saxo_slp.glb is the unrigged source of the rig, not a look)
+export function castLooks(rev = 'HEAD', files = tree(rev)) {
   const glb = files.map(p => p.match(/^assets\/models\/([a-z]+)_([a-z0-9]+)\.glb$/)).filter(Boolean);
   const chars = ['saxo', ...new Set(glb.filter(m => m[2] === 'base').map(m => m[1]))];
-  const looks = 1 + glb.filter(m => chars.includes(m[1]) && !(m[1] === 'saxo' && m[2] === 'slp')).length;
-  // maps: the MAPS registry in src/ps1.js, whose spread builders return their maps at the end of src/maps*.js
+  const looks = ['saxo', ...glb.filter(m => chars.includes(m[1]) && !(m[1] === 'saxo' && m[2] === 'slp')).map(m => `${m[1]}_${m[2]}`)];
+  return { chars, looks };
+}
+
+// maps: the MAPS registry in src/ps1.js, whose spread builders return their maps at the end of src/maps*.js
+export function mapNames(rev = 'HEAD', files = tree(rev)) {
+  const show = p => git(['show', `${rev}:${p}`]);
   const reg = show('src/ps1.js').match(/const MAPS = \{([^\n]*)\};/);
   if (!reg) throw new Error('no MAPS registry in src/ps1.js');
   const builders = files.filter(p => /^src\/maps\d*\.js$/.test(p)).map(show).join('\n');
-  let maps = [...reg[1].matchAll(/\w+: build\w+\(/g)].length;
+  const names = [...reg[1].matchAll(/(\w+): build\w+\(/g)].map(m => m[1]);
   for (const [, b] of reg[1].matchAll(/\.\.\.(build\w+)\(/g)) {
     const m = builders.match(new RegExp(`export function ${b}\\b[\\s\\S]*?\\n  return \\{([^}]*)\\};`));
     if (!m) throw new Error(`can't find the maps ${b}() returns`);
-    maps += [...m[1].matchAll(/\w+:/g)].length;
+    names.push(...[...m[1].matchAll(/(\w+):/g)].map(x => x[1]));
   }
+  return names;
+}
+
+export function counts(rev = 'HEAD') {
+  const files = tree(rev);
+  const show = p => git(['show', `${rev}:${p}`]);
+  const { chars, looks: lookFiles } = castLooks(rev, files), looks = lookFiles.length, maps = mapNames(rev, files).length;
   const clips = files.filter(p => /^assets\/mixamo\/anims\/[^/]+\.fbx$/.test(p)).length;
   const videos = files.includes('site/assets/posts.json') ? JSON.parse(show('site/assets/posts.json')).posts.length : 0;
   // videos a day: the posting slots the night routine fills (SLOTS in tools/night.mjs, which the public mirror lacks)
