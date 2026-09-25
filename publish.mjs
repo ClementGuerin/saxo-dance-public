@@ -46,9 +46,15 @@ if (!file || !fs.existsSync(file)) {
   process.exit(1);
 }
 
-// video.config.js sets window.CONFIG; run it in a sandbox to read the song.
+// The episode id (episodes/<id>.json) ties the post to its tags for tools/metrics.mjs: --episode=, else the MP4 name's prefix.
+const episode = args.episode || path.basename(file).match(/^(\d{4}-\d{2}-\d{2}(?:-\d+)?)/)?.[1] || null;
+// video.config.js sets window.CONFIG; run it in a sandbox to read the song, then the episode's kit
+// (episodes/<id>.config.js) on top: a kit names its own song, and src/ may have moved on to another one since.
 const sandbox = { window: {} };
 vm.runInNewContext(fs.readFileSync(new URL('./video.config.js', import.meta.url), 'utf8'), sandbox);
+sandbox.CONFIG = sandbox.window.CONFIG;
+const kit = episode && new URL(`./episodes/${episode}.config.js`, import.meta.url);
+if (kit && fs.existsSync(kit)) vm.runInNewContext(fs.readFileSync(kit, 'utf8'), sandbox);
 const CONFIG = sandbox.window.CONFIG;
 const song = args.song || CONFIG.song?.title;
 const artist = args.artist || CONFIG.song?.artist;
@@ -64,8 +70,6 @@ const route = p => (args.via === 'postiz' || p === 'instagram' ? 'postiz' : 'zer
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
-// The episode id (episodes/<id>.json) ties the post to its tags for tools/metrics.mjs: --episode=, else the MP4 name's prefix.
-const episode = args.episode || path.basename(file).match(/^(\d{4}-\d{2}-\d{2}(?:-\d+)?)/)?.[1] || null;
 const epFile = n => new URL(`./episodes/${episode}${n}`, import.meta.url);
 const EP = episode && fs.existsSync(epFile('.json')) ? JSON.parse(fs.readFileSync(epFile('.json'), 'utf8')) : null;
 
