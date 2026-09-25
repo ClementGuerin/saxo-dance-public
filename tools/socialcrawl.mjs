@@ -27,11 +27,13 @@ export async function sc(route, params = {}) {
   return body.data;
 }
 
-// Appends one line to research/spend.jsonl (the daily $1 cap counts it).
+// Appends one line to research/spend.jsonl (the per-video $1 cap counts it).
 export function logSpend(item, why) {
   if (!spent.credits) return;
   const line = { date: new Date().toISOString().slice(0, 10), item, socialcrawl_credits: spent.credits,
     usd: +(spent.credits * USD_PER_CREDIT).toFixed(3), why };
+  // The night's caps are per video: SAXO_EPISODE=<id> ties the spend to its episode.
+  if (process.env.SAXO_EPISODE) line.episode = process.env.SAXO_EPISODE;
   fs.appendFileSync(new URL('../research/spend.jsonl', import.meta.url), JSON.stringify(line) + '\n');
 }
 

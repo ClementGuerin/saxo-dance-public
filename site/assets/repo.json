@@ -1,28 +1,28 @@
 {
- "updated": "2026-09-25T19:10:26.430Z",
+ "updated": "2026-09-25T23:19:30.418Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-25T19:09:31Z",
- "commits": 16,
- "files": 251,
- "loc": 8498,
+ "pushedAt": "2026-09-25T23:14:45Z",
+ "commits": 26,
+ "files": 260,
+ "loc": 9155,
  "languages": [
   {
    "name": "JavaScript",
-   "pct": 85.5,
+   "pct": 82.7,
    "color": "#f1e05a"
   },
   {
    "name": "Python",
-   "pct": 8.3,
+   "pct": 11.4,
    "color": "#3572a5"
   },
   {
    "name": "CSS",
-   "pct": 4.6,
+   "pct": 4.4,
    "color": "#663399"
   },
   {
@@ -33,51 +33,52 @@
  ],
  "latest": [
   {
-   "sha": "88c7f27",
+   "sha": "e119480",
+   "type": "fix",
+   "scope": "publish",
+   "text": "caption an episode with its kit's song, not the shared config's",
+   "date": "2026-09-25T22:50:16Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/e1194805d91dbfb84fd2481ec7676af485779030"
+  },
+  {
+   "sha": "13637b1",
+   "type": "feat",
+   "scope": "night",
+   "text": "four videos a night, one at a time, with checkpoints, a watchdog and post checks",
+   "date": "2026-09-25T22:41:01Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/13637b1651ed7d4bd5159ad8095a253d80d6e8d5"
+  },
+  {
+   "sha": "1533f1c",
+   "type": "feat",
+   "scope": "episode",
+   "text": "recut 2026-09-25-3 to start on the drop with a short silent button, schedule it for 08:00",
+   "date": "2026-09-25T21:39:28Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/1533f1c73964fe6acb8d3d77b3cce0998e01cb7f"
+  },
+  {
+   "sha": "9bc5b6d",
+   "type": "feat",
+   "scope": "episode",
+   "text": "2026-09-25-3, 99 Luftballons (Snoblack techno): Kob pulls the plug",
+   "date": "2026-09-25T21:08:13Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/9bc5b6d5805328dc054e8893ed9728ad863ebf2d"
+  },
+  {
+   "sha": "4f72915",
    "type": "fix",
    "scope": "site",
-   "text": "z-fighting on the bridge, the path junctions and the island edges",
-   "date": "2026-09-25T19:09:30Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/88c7f27a0625e5999a9195592715eac70499e65a"
-  },
-  {
-   "sha": "646f39a",
-   "type": "fix",
-   "scope": "site",
-   "text": "the fork gag doesn't promise reuse (the public repo has no licence)",
-   "date": "2026-09-25T18:22:40Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/646f39a18d3c9d3ab01d173caa961a2026cc6922"
-  },
-  {
-   "sha": "65b3f68",
-   "type": "feat",
-   "scope": "site",
-   "text": "the GitHub island, a second island with Saxo's code on a giant computer",
-   "date": "2026-09-25T18:18:36Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/65b3f68b232a608b663267430c3d0ff4aa8d2bde"
-  },
-  {
-   "sha": "f694b0e",
-   "type": "feat",
-   "scope": "",
-   "text": "front-facing Saxo profile picture",
-   "date": "2026-09-25T17:20:11Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/f694b0e36bf7c461008666ce40f6b318d6e31245"
-  },
-  {
-   "sha": "ef7e5a0",
-   "type": "feat",
-   "scope": "",
-   "text": "Saxo profile picture (Michou shades on the yacht) and ?clean frame flag",
-   "date": "2026-09-25T17:19:03Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/ef7e5a01e867aa6fe83ee020d1b06fee8d8d6230"
+   "text": "TV player layout, and the music fades out while the TV is open",
+   "date": "2026-09-25T19:36:17Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/4f72915bab1e007bee18d9888a04b49a8ea0be39"
   }
  ],
  "counts": {
   "characters": 4,
-  "looks": 38,
-  "maps": 32,
+  "looks": 40,
+  "maps": 33,
   "clips": 467,
-  "videos": 4
+  "videos": 4,
+  "perDay": 4
  }
 }

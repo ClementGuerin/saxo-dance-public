@@ -18,7 +18,8 @@ import fs from 'node:fs';
 import { sc, spent, logSpend, args } from './socialcrawl.mjs';
 
 const QUERIES = ['meme', 'funny animation', 'dance trend', '3d animation', 'funny dog', 'ps1', 'brainrot'];
-const date = new Date().toISOString().slice(0, 10);
+// Local date: a night run before 02:00 CEST is still the previous day in UTC and would find that day's scan.
+const date = new Date().toLocaleDateString('sv-SE');
 const R = p => new URL(`../${p}`, import.meta.url);
 const JSON_OUT = R(`research/trends/${date}.json`), MD_OUT = R(`research/trends/${date}.md`);
 const COVERS = R(`out/trends/${date}/`);
