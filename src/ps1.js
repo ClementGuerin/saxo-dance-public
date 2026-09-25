@@ -11,6 +11,7 @@ import { buildIndoorMaps } from './maps2.js';
 import { buildOutdoorMaps } from './maps3.js';
 import { buildSeaMaps } from './maps4.js';
 import { buildClubMaps } from './maps5.js';
+import { buildTechnoMaps } from './maps6.js';
 
 const RW = CONFIG.ps1.w, RH = CONFIG.ps1.h;
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
@@ -557,7 +558,8 @@ function graftHead(T, look, from) {
 }
 function wearOutfit(T, name) { for (const [k, ms] of Object.entries(T.outfits || {})) ms.forEach(m => { m.visible = k === (T.outfits[name] ? name : T.base); }); }
 const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/models/saxo_astronaut.glb', dj: 'assets/models/saxo_dj.glb', beach: 'assets/models/saxo_beach.glb', poop: 'assets/models/saxo_poop.glb', moto: 'assets/models/saxo_moto.glb', sponge: 'assets/models/saxo_sponge.glb',
-  michou: 'assets/models/saxo_michou.glb' };   // white tux with black satin lapels and black shades ("Dans le club", 2026-09-25)
+  michou: 'assets/models/saxo_michou.glb',   // white tux with black satin lapels and black shades ("Dans le club", 2026-09-25)
+  nena: 'assets/models/saxo_nena.glb' };     // Nena's 1983 look: shaggy dark 80s hair, shiny black quilted vest, white shirt, jeans ("99 Luftballons", 2026-09-25)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -566,7 +568,7 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
 const PARTNERS = {
   sadi: { scale: 0.92, models: { sadi: 'assets/models/sadi_base.glb', cowgirl: 'assets/models/sadi_cowgirl.glb', astronaut: 'assets/models/sadi_astronaut.glb',
     disco: 'assets/models/sadi_disco.glb', beach: 'assets/models/sadi_beach.glb', cheer: 'assets/models/sadi_cheer.glb', poop: 'assets/models/sadi_poop.glb', patrick: 'assets/models/sadi_patrick.glb', hotdog: 'assets/models/sadi_hotdog.glb',
-    white: 'assets/models/sadi_white.glb' },
+    white: 'assets/models/sadi_white.glb', rave: 'assets/models/sadi_rave.glb' },   // rave: neon-green mesh top, cargo pants, glow bracelets ("99 Luftballons")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
@@ -597,6 +599,7 @@ const LOOKS = (() => {
   const L = {}, add = (who, look) => (L[who] ||= new Set()).add(look);
   for (const s of EP.shots) {
     if (s.actors) for (const a of s.actors) add(a.who || 'saxo', a.look || a.who || 'saxo');
+    if (s.crowd) add(s.crowd.who, s.crowd.look || s.crowd.who);
     else if (s.outfit && (s.sadiOutfit || s.cast === 'saxo' || !s.cast)) { add('saxo', s.outfit); if (s.sadiOutfit) add(WITH, s.sadiOutfit); }
     else return null;   // a shot that leans on the per-map defaults: keep every look
   }
@@ -637,8 +640,31 @@ if (CHAR === 'tripo') {
   scene.add(tripo.holder); saxo.root.visible = false;
   tripo.shadow = makeShadow(); if (CAST === 'sadi') tripo.shadow.visible = false;
 }
+// ---- crowds (a shot's `crowd`): up to 99 copies of one character's look sharing one pose ("99 Kriegsminister": every
+// neighbour of the building, in her pyjamas). A hidden clone of the skeleton plays the crowd's clip; each copy is a
+// SkinnedMesh bound to that skeleton in detached mode, so its own matrix moves the posed body:
+// M_copy = T_copy · T_src⁻¹ · bindMatrix. One pose for all of them: they move in sync (the joke).
+//   crowd: { who, look, clip, at ('auto'), speed, once, n (≤ 99), cols, x0, z0 (front row centre), dx, dz (spacing),
+//            jitter (m), yaw (deg), face ('camera' | 'world'), mx, mz (a march over the shot), skip: [[x, z, r]] (holes) }
+const CROWDS = {};
+if (tripo && EP) for (const sh of EP.shots) if (sh.crowd) {
+  const c = sh.crowd, look = c.look || c.who, key = c.who + ':' + look, D = CREW[c.who];
+  if (!D || !D.outfits?.[look]?.length) { console.error('crowd: look not loaded', key); continue; }
+  if (!CROWDS[key]) {
+    const root = SkeletonUtils.clone(tripo.root), holder = new THREE.Group(); holder.add(root);
+    root.traverse(o => { if (o.isSkinnedMesh) o.visible = false; });
+    const R = rig(holder, root, tripo.clips, tripo.faceCache); let body = null; root.traverse(o => { if (o.isSkinnedMesh && !body) body = o; });
+    holder.scale.setScalar(D.scale || 1); scene.add(holder);
+    CROWDS[key] = { R, body, D, look, copies: [], shadows: [] };
+  }
+  const C = CROWDS[key];
+  while (C.copies.length < Math.min(99, c.n || 99)) {
+    C.copies.push(D.outfits[look].map(m => { const k = new THREE.SkinnedMesh(m.geometry, m.material); k.bindMode = THREE.DetachedBindMode; k.bind(C.body.skeleton, m.bindMatrix); k.matrixAutoUpdate = false; k.frustumCulled = false; k.visible = false; scene.add(k); return k; }));
+    C.shadows.push(makeShadow());
+  }
+}
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT) };
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -722,7 +748,8 @@ function actorSpec(a, e, map) {
   return { who, look: a.look || (P ? P.byMap[map] || who : e.outfit || MAP_OUTFIT[map] || 'saxo'), clip: a.clip || e.clip || 'gangnam', at: a.at ?? e.at ?? 'auto',
     speed: a.speed ?? 1, once: !!a.once, x: a.x || 0, z: a.z || 0, mx: a.mx || 0, mz: a.mz || 0, face: a.face || 'camera', yaw: (a.yaw || 0) * Math.PI / 180, ground: a.ground || 'toe',
     lift: a.lift || 0, hold: a.hold || null, holdL: a.holdL || null, ride: a.ride || null, star: a.star !== false,
-    arm: a.arm || null, aim: a.aim || 'up', upAt: a.upAt, upEnd: a.upEnd, wave: a.wave || 0 };   // arm: L | R | both, aim: up | toast | phone | [x, y, z], wave: flap
+    arm: a.arm || null, aim: a.aim || 'up', upAt: a.upAt, upEnd: a.upEnd, wave: a.wave || 0,   // arm: L | R | both, aim: up | toast | phone | [x, y, z], wave: flap
+    aim2: a.aim2 || null, aim2At: a.aim2At ?? null, toss: a.toss || null, cable: a.cable || null, holdFrom: a.holdFrom ?? null };   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -760,9 +787,9 @@ const shake = (t, s) => [0, 1, 2].map(a => 0.5 * Math.sin(t * 1.7 + a * 2.1 + s)
 // beat bounce (house style, see research/REFERENCE_ANALYSIS.md rule 5): a zoom punch plus a small bob on every beat,
 // bigger on the bar's downbeat and on the first beat of a shot. ~60 ms attack, exponential decay over the beat.
 const BOUNCE = +(Q.get('bounce') ?? 1);   // 0 disables, 2 doubles
-function bounce(t, t0) {
+function bounce(t, t0, half = false) {   // half: the breakdown punches every other beat only (no kick on the off beats)
   const bp = 60 / BPMv, n = Math.floor((t - B0) / bp + 1e-6), tau = t - (B0 + n * bp);
-  if (n < 0 || BOUNCE === 0) return 0;
+  if (n < 0 || BOUNCE === 0 || (half && n % 2)) return 0;
   const cutHit = Math.abs(B0 + n * bp - t0) < 0.02;   // this beat is the cut
   const amp = (((n % 4) + 4) % 4 === 0 ? 0.06 : 0.03) * (cutHit ? 1.6 : 1) * BOUNCE;
   const att = cutHit ? 1 : Math.min(1, tau / 0.06), env = tau < 0.06 ? att * att * (3 - 2 * att) : Math.exp(-(tau - 0.06) / (bp * 0.28));
@@ -794,6 +821,13 @@ function propMesh(kind) {
     add(box(0.03, 0.014, 0.03, glow(0x8fd8ff)), -0.05, 0.024, 0);
   } else if (kind === 'finger') {  // foam "number one" hand
     add(box(0.17, 0.15, 0.08, M(0xffd43b))); add(box(0.06, 0.22, 0.06, M(0xffd43b)), -0.03, 0.18); add(box(0.18, 0.05, 0.09, M(0xe8173a)), 0, -0.1);
+  } else if (kind === 'balloon') { // a red balloon on a 0.6 m string, held by its end (the group sways around the paw)
+    const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.2, 1), mat({ color: 0xe8243a, unlit: 0.35 })); b.scale.set(1, 1.2, 1); add(b, 0, 0.86); add(new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.05, 4), mat({ color: 0xe8243a, unlit: 0.35 })), 0, 0.62);
+    add(box(0.008, 0.6, 0.008, M(0xf0f0f0)), 0, 0.3);
+  } else if (kind === 'carrot') {  // Compote's carrot: an orange cone, tip down, with a green top
+    add(new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.26, 5), M(0xff7a1a)), 0, -0.02).rotation.x = Math.PI; for (let k = 0; k < 3; k++) add(box(0.02, 0.1, 0.02, M(0x3fae47)), (k - 1) * 0.02, 0.15).rotation.z = (k - 1) * 0.4;
+  } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
+    add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
   }
   return G;
 }
@@ -813,7 +847,7 @@ function jetskiMesh() {
   const wake = box(0.5, 0.012, 3.2, mat({ color: 0xe8f6ff, unlit: 1 })); wake.position.set(0, -0.095, -2.3); G.add(wake);
   return G;
 }
-function propFor(D, kind) { const key = D.base + ':' + kind; if (!PROPS[key]) { PROPS[key] = kind === 'jetski' ? jetskiMesh() : propMesh(kind); scene.add(PROPS[key]); } return PROPS[key]; }
+function propFor(D, kind) { const key = D.base + ':' + kind; if (!PROPS[key]) { PROPS[key] = kind === 'jetski' ? jetskiMesh() : kind.endsWith(':flying') ? new THREE.Group() : propMesh(kind); scene.add(PROPS[key]); } return PROPS[key]; }
 function palm(D, side) {   // world point in the middle of a paw
   const h = D['hand' + side], m = D['mid' + side], f = D['fore' + side]; if (!h) return null;
   h.getWorldPosition(_pa);
@@ -831,6 +865,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
+  if (kind === 'balloon') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
@@ -869,7 +904,10 @@ function aimBone(bone, child, dir, w) {
 }
 function aimArms(D, A, bodyYaw, since) {
   const w = cl((since - (A.upAt || 0)) / 0.15) * (A.upEnd != null ? cl((A.upEnd - since) / 0.15) : 1); if (w <= 0) return;
-  const d0 = Array.isArray(A.aim) ? A.aim : AIMS[A.aim] || AIMS.up, cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
+  let d0 = Array.isArray(A.aim) ? A.aim : AIMS[A.aim] || AIMS.up; const cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
+  if (A.aim2 && A.aim2At != null && since > A.aim2At) {   // a second aim from aim2At s, snapped in over 0.08 s (a yank)
+    const d2 = Array.isArray(A.aim2) ? A.aim2 : AIMS[A.aim2] || AIMS.up, k2 = sm((since - A.aim2At) / 0.08); d0 = d0.map((v, i) => v + (d2[i] - v) * k2);
+  }
   for (const side of A.arm === 'both' ? ['L', 'R'] : [A.arm]) {
     // wave: a slow flap of the aim's height (wings in the wind), the two arms a little out of phase; pure in `since`
     const dy = d0[1] + (A.wave || 0) * Math.sin(since * 2.4 + (side === 'L' ? 0 : 0.7));
@@ -877,6 +915,25 @@ function aimArms(D, A, bodyYaw, since) {
     const up = side === 'L' ? D.L : D.R, fore = D['fore' + side], hand = D['hand' + side];
     aimBone(up, fore, v, w); aimBone(fore, hand, v, w);
   }
+}
+// A thrown prop (an actor's `toss: { at, to: [x, y, z], dur }`): from `at` s into the shot the held prop leaves the paw
+// and flies on an arc to `to`, spinning. The release point sits by the throwing shoulder (not the posed paw), so the arc
+// is pure in t without posing the clip twice.
+function tossProp(D, A, bodyYaw, since) {
+  const g = propFor(D, A.hold + ':flying'), s = D.scale || 1, T = A.toss, u = cl((since - T.at) / (T.dur || 0.6));
+  if (!g.userData.kind) { const m = propMesh(A.hold); g.add(m); g.userData.kind = A.hold; }
+  g.visible = u < 1; if (!g.visible) return; const big = T.scale || 1.6;   // a thrown prop is drawn bigger so its arc reads
+  const fx = Math.sin(bodyYaw), fz = Math.cos(bodyYaw), rx = Math.cos(bodyYaw), rz = -Math.sin(bodyYaw);
+  const x0 = D.holder.position.x - rx * 0.22 * s + fx * 0.15 * s, y0 = D.holder.position.y + 1.0 * s, z0 = D.holder.position.z - rz * 0.22 * s + fz * 0.15 * s;
+  g.position.set(x0 + (T.to[0] - x0) * u, y0 + (T.to[1] - y0) * u + (T.arc ?? 0.9) * 4 * u * (1 - u), z0 + (T.to[2] - z0) * u);
+  g.rotation.set(u * 14, bodyYaw, u * 5); g.scale.setScalar(s * 1.25 * big);
+}
+// The held plug's cable: a thick black run from the paw to where it goes into the booth (`cable: [x, y, z]`)
+function plugCable(D, to) {
+  const key = D.base + ':cable'; if (!PROPS[key]) { PROPS[key] = new THREE.Mesh(new THREE.BoxGeometry(0.055, 1, 0.055), mat({ color: 0xff7a1a, unlit: 0.25 })); scene.add(PROPS[key]); }   // the orange lead, like the map's
+  const c = PROPS[key], p = palm(D, 'R'); if (!p) return;
+  const a = p.clone(), b = new THREE.Vector3(...to), d = b.clone().sub(a);
+  c.visible = true; c.position.copy(a).add(b).multiplyScalar(0.5); c.scale.set(1, d.length(), 1); c.quaternion.setFromUnitVectors(_up, d.normalize());
 }
 function placeActors(P, t, t0, t1, camAng, map) {
   for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.deck = 0; }
@@ -910,8 +967,11 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadow.value = SHADOW * Math.max(0.35, 1 - up);
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
-    if (A.hold) holdProp(D, A.hold, 'R', bodyYaw, t);
+    const tossed = A.toss && t - t0 >= A.toss.at, holding = A.holdFrom == null || t - t0 >= A.holdFrom;
+    if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL) holdProp(D, A.holdL, 'L', bodyYaw, t);
+    if (tossed) tossProp(D, A, bodyYaw, t - t0);
+    if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
@@ -920,6 +980,47 @@ function placeActors(P, t, t0, t1, camAng, map) {
   else if (!window.STARS.length) window.STARS = [P.actors[0]?.who || 'saxo'];
 }
 
+const _cm = new THREE.Matrix4(), _cm2 = new THREE.Matrix4(), _cmL = new THREE.Matrix4(), _cq = new THREE.Quaternion(), _cp = new THREE.Vector3(), _cs = new THREE.Vector3(), _ch = new THREE.Vector3();
+function crowdSpots(c) {   // the grid, front row first, with holes where the real characters stand; pure in the shot's spec
+  const n = Math.min(99, c.n || 99), cols = c.cols || 11, out = [];
+  for (let r = 0; r < 40 && out.length < n; r++) for (let q = 0; q < cols && out.length < n; q++) {
+    const j = c.jitter ?? 0.15, x = (c.x0 || 0) + (q - (cols - 1) / 2) * (c.dx || 0.9) + (hash2(r, q, 1) - 0.5) * 2 * j, z = (c.z0 || 0) - r * (c.dz || 0.85) + (hash2(r, q, 2) - 0.5) * 2 * j;
+    if ((c.skip || []).some(([sx, sz, sr]) => (x - sx) ** 2 + (z - sz) ** 2 < sr * sr)) continue;
+    out.push([x, z, (hash2(r, q, 3) - 0.5) * 0.18]);
+  }
+  return out;
+}
+function hash2(a, b, c) { const x = Math.sin(a * 127.1 + b * 311.7 + c * 74.7) * 43758.5453; return x - Math.floor(x); }
+function placeCrowd(P, t, t0, t1, camAng) {
+  for (const C of Object.values(CROWDS)) { C.copies.forEach(ps => ps.forEach(k => { k.visible = false; })); C.shadows.forEach(sh => { sh.visible = false; }); }
+  const c = P && P.crowd; if (!c) return;
+  const C = CROWDS[c.who + ':' + (c.look || c.who)]; if (!C) return;
+  const R = C.R, s = C.D.scale || 1, len = t1 - t0, speed = c.speed ?? 1, span = Math.max(0.1, len * speed);
+  const n = R.actions[c.clip] ? c.clip : Object.keys(R.actions)[0];
+  const at = c.at == null || c.at === 'auto' ? steadiestOffset(tripo, n, span) : c.at;
+  const fyaw = c.face === 'world' ? 0 : clipFacing(tripo, n, at, span).yaw, yaw = (c.face === 'world' ? 0 : -fyaw + camAng) + (c.yaw || 0) * Math.PI / 180;
+  const ground = clipGround(tripo, n, at, span);
+  for (const [k, a] of Object.entries(R.actions)) a.weight = k === n ? 1 : 0;
+  const d = R.clips[n].duration, tc = at + (t - t0) * speed; R.actions[n].time = c.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d;
+  R.mixer.update(0); R.holder.rotation.y = 0; R.holder.position.set(0, ground * s, 0); R.holder.updateMatrixWorld(true);
+  const inv = _cm2.copy(R.holder.matrixWorld).invert(), u = cl((t - t0) / len), mx = (c.mx || 0) * u, mz = (c.mz || 0) * u;
+  const spots = crowdSpots(c);
+  const place = (i, lift) => {
+    const [x, z, jy] = spots[i], parts = C.copies[i]; if (!parts) return null;
+    _cq.setFromAxisAngle(_up, yaw + jy); _cm.compose(_cp.set(x + mx, ground * s + lift, z + mz), _cq, _cs.setScalar(s)).multiply(inv);
+    for (const k of parts) { k.matrix.multiplyMatrices(_cm, k.bindMatrix); k.matrixWorldNeedsUpdate = true; k.updateMatrixWorld(true); k.visible = true; }
+    return _cm;
+  };
+  // never sink: the lowest point of the first copy (they share the pose) sets a lift for all of them
+  let low = Infinity; if (spots.length && place(0, 0)) for (const k of C.copies[0]) { const nv = k.geometry.attributes.position.count; for (let v = 0; v < nv; v += 4) { k.getVertexPosition(v, _qv); _qv.applyMatrix4(k.matrixWorld); if (_qv.y < low) low = _qv.y; } }
+  const lift = low < 0 ? -low : 0;
+  R.hips.getWorldPosition(_ch);
+  spots.forEach((_, i) => {
+    const M = place(i, lift); if (!M) return;
+    const sh = C.shadows[i], hp = _qv.copy(_ch).applyMatrix4(M); sh.visible = true; sh.position.set(hp.x, 0.012, hp.z); sh.scale.setScalar(s);
+    sh.material.uniforms.uShadow.value = SHADOW * 0.9; sh.material.uniforms.uShadowCol.value.set(curMap?.shadowCol || 0x333333);
+  });
+}
 // a duo seen from the side lines up and one hides the other, so its camera swings less (orbits span ±54°, not ±120°)
 let curMap = null;
 function danceFrame(t) {
@@ -931,7 +1032,7 @@ function danceFrame(t) {
   for (const m of Object.values(MAPS)) m.group.visible = m === map;   // set every frame: episode scenes switch maps too
   scene.background = map.sky; curMap = map;
   map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
-  const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0) * (P.still ? 0 : 1);
+  const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0, !!P.half) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
   const lerp = x => Array.isArray(x) ? x[0] + (x[1] - x[0]) * k : x, ang = lerp(cam.ang) * ANG_K * Math.PI / 180, r = lerp(cam.r) * WIDE;   // a duo needs a wider frame
   camera.position.set(FX + Math.sin(ang) * r + sh[0] * 0.05, FY + lerp(cam.h) + sh[1] * 0.04 - bo * 0.6, FZ + Math.cos(ang) * r + sh[2] * 0.04);
@@ -940,9 +1041,12 @@ function danceFrame(t) {
   camera.lookAt(FX + saxo.root.position.x * 0.6 + sh[1] * 0.03 + (cam.lookX || 0), FY + lerp(cam.look), FZ);
   // whip-in: the first ~0.25 s pans fast into place; the 2D layer smears the frame by window.WHIP
   const whip = cam.whip ? Math.exp(-(t - t0) * 16) : 0; camera.rotateY(whip * 0.9); window.WHIP = whip;
+  // jolt: the bass through the walls kicks the whole frame on every beat (a drop and a small roll, decaying through the beat)
+  if (P.jolt) { const bpS = 60 / BPMv, nb = Math.floor((t - B0) / bpS + 1e-6), f = (t - B0) / bpS - nb, j = nb >= 0 ? Math.exp(-f * 7) : 0; camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * (nb % 2 ? 1 : -1)); }
   applyPose(saxo, poseAt(t));
   for (const g of Object.values(PROPS)) g.visible = false;
   if (tripo && ACT) placeActors(P, t, t0, t1, (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180, map);
+  if (tripo) placeCrowd(ACT ? P : null, t, t0, t1, (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180);
   else if (tripo) {
     // each shot names a clip and a start offset into it; unknown names fall back to the first clip
     const [clipName, clipAt] = SHOT_CLIPS[i] || ['dance_01', 0], n = tripo.actions[clipName] ? clipName : Object.keys(tripo.actions)[0];
@@ -1034,7 +1138,7 @@ if (EP) {
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
-      for (const g of Object.values(PROPS)) g.visible = false;
+      for (const g of Object.values(PROPS)) g.visible = false; placeCrowd(null, t, 0, 1, 0);
       window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);
     }
     window.SCENE_FX = null; const frame = danceFrame(t); window.SCENE_FX = danceFx(p, t); return frame;

@@ -1,5 +1,5 @@
 // tools/beats.mjs: analyse a music track so shots can land on its beats.
-//   node tools/beats.mjs assets/audio/song.mp3 [--min=70] [--max=180] [--bpm=<exact, skips the estimate>] [--out=src/beats.js]
+//   node tools/beats.mjs assets/audio/song.mp3 [--min=70] [--max=180] [--bpm=<exact, skips the estimate>] [--offset=<s, beat 0>] [--out=src/beats.js]
 // Writes window.BEATS = { bpm, offset, onsets, bars } where offset is the time of beat 0, onsets are strong
 // transients (hits worth animating) and bars holds loudness per bar (find the drop and the quiet intro).
 // The estimate is good for steady pop, electronic and rock tracks; check it by ear in the preview and nudge
@@ -46,7 +46,9 @@ const lag = opt.bpm ? 60 / (+opt.bpm * hopT) : best.lag + (den ? .5 * (y0 - y2) 
 // Phase: the offset whose beat grid collects the most onset strength.
 let bestP = { s: -1, p: 0 };
 for (let p = 0; p < lag; p++) { let s = 0; for (let k = p; k < nF; k += lag) s += on[Math.round(k)] || 0; if (s > bestP.s) bestP = { s, p }; }
-const offset = +(bestP.p * hopT + FRAME / 2 / SR).toFixed(3);
+// --offset=<s> pins beat 0 by hand: in techno the off-beat open hats outweigh the kick in the full band, so the
+// estimate can land half a beat late ("99 Luftballons": 0.163 s for a kick at 0.000 s; measure the kick's transients).
+const offset = opt.offset != null ? +opt.offset : +(bestP.p * hopT + FRAME / 2 / SR).toFixed(3);
 
 // Strong onsets: local peaks above mean + 1.5 sd, at least 100 ms apart.
 const mean = on.reduce((a, b) => a + b, 0) / nF, sd = Math.sqrt(on.reduce((a, b) => a + (b - mean) ** 2, 0) / nF);

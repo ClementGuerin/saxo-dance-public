@@ -1,7 +1,8 @@
 // maps5.js: the "Dans le club" maps (Michou, 2026-09-25). Same contract as the other map files, pure in t:
 //   kobflat  Kob's flat at night: a low floor sofa (seat top 0.1 m: the seated clips sit hips 0.16-0.2 m up), a TV with
 //            a game running, a big window on the harbour where the yacht party flashes (FOMO), a cat tree. Shot flags:
-//            `shake` (the bass through the walls: frames and lamp jump on each beat), `empty` (the pad left on the sofa).
+//            `shake` (the bass through the walls: frames and lamp jump on each beat), `empty` (the pad left on the sofa),
+//            `ufo` (balloons drift up past the window: "99 Luftballons"), `scope` (a telescope on a tripod aimed out of it).
 //   yacht    a white yacht moored stern-to at a Saint-Tropez quay at sunset: teak aft deck (y = 0) with a DJ booth, string
 //            lights, the VIP table (milk, juice, carrots: "pas d'bouteilles sur la table"), white sofas, a velvet rope at
 //            the passerelle, pet party guests in white, jet-skis circling in the harbour, pastel houses and a bell tower
@@ -102,6 +103,17 @@ export function buildClubMaps(K) {
     const fireworks = []; for (let f = 0; f < 3; f++) { const fw = new THREE.Group(); for (let s = 0; s < 8; s++) { const a = s / 8 * TAU; fw.add(at(box(0.05, 0.05, 0.01, glow([0xff5fa2, 0xffd43b, 0x3fd4ff][f])), Math.cos(a) * 0.14, Math.sin(a) * 0.14, 0)); } win.add(at(fw, -0.7 + f * 0.6, 0.55, 0.012)); fireworks.push(fw); }
     for (const s of [-1, 1]) win.add(at(box(0.5, 2.3, 0.08, M(0x8a4a6a)), s * 1.6, 0, 0.08));   // curtains
     win.position.set(3.2, 1.55, -2.55); G.add(win);
+    // "99 Luftballons" (2026-09-25): glowing balloons drifting up past the window (`ufo`: Kob takes them for UFOs), flat so
+    // they stay inside the view, and a brass telescope on a tripod aimed out of it (`scope`)
+    const ufos = []; for (let i = 0; i < 7; i++) { const b = new THREE.Group(), c = [0xff5fa8, 0xffd43b, 0x3fd4ff, 0xe8243a, 0xf6f4f0][i % 5], m = glow(c);
+      const bb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.2, 1), m); bb.scale.set(1, 1.2, 0.08); b.add(bb); b.add(at(box(0.01, 0.4, 0.004, M(0xd8d8e0)), 0, -0.44, 0));
+      const halo = new THREE.Mesh(new THREE.CircleGeometry(0.34, 10), mat({ color: c, unlit: 1 })); halo.material.uniforms.uCol.value.multiplyScalar(0.35); halo.position.z = -0.004; b.add(halo);   // a glow ring: UFO lights
+      b.position.z = 0.016; win.add(b); ufos.push(b); }
+    const scope = new THREE.Group(), brass = M(0xc8a040), legM = M(0x3a2a24);
+    const tube = new THREE.Group(); tube.add(rot(at(cyl(0.05, 0.065, 0.75, 8, brass), 0, 0, 0), PI / 2, 0, 0)); tube.add(rot(at(cyl(0.07, 0.07, 0.06, 8, M(0x2a2a30)), 0, 0, -0.38), PI / 2, 0, 0)); tube.add(rot(at(cyl(0.025, 0.025, 0.08, 6, M(0x2a2a30)), 0, 0, 0.4), PI / 2, 0, 0));
+    tube.position.set(0, 0.98, 0); tube.rotation.x = 0.35; tube.scale.setScalar(1.25); scope.add(tube);
+    for (let q = 0; q < 3; q++) { const a = q / 3 * TAU; scope.add(rot(at(box(0.03, 1.05, 0.03, legM), Math.sin(a) * 0.18, 0.5, Math.cos(a) * 0.18), Math.cos(a) * 0.2, 0, -Math.sin(a) * 0.2)); }
+    scope.position.set(3.4, 0, -1.6); scope.rotation.y = 0.15; G.add(scope);   // beside Kob's spot at the window (2.95, -1.2), on her right
     // floor lamp (warm), a cat tree, frames on the wall, a shelf of books, a plant
     const lamp = new THREE.Group(); lamp.add(at(cyl(0.18, 0.2, 0.04, 8, M(0x2a2a30)), 0, 0.02, 0)); lamp.add(at(cyl(0.02, 0.02, 1.6, 4, M(0x2a2a30)), 0, 0.8, 0)); lamp.add(at(cyl(0.18, 0.28, 0.34, 8, mat({ color: 0xffe2a8, unlit: 1 })), 0, 1.7, 0));
     lamp.position.set(-3.9, 0, -2.0); G.add(lamp); shakers.push([lamp, 0.02, 0.6]);
@@ -135,6 +147,9 @@ export function buildClubMaps(K) {
         const sh = P.shake ? hit(t) : 0;
         shakers.forEach(([o, a, s]) => { o.userData.p ||= o.position.clone(); o.position.copy(o.userData.p); o.position.y += sh * a * 2; o.rotation.z = sh * s * (beatN(t) % 2 ? 1 : -1); });
         leftPad.visible = !!P.empty; blanket.visible = !P.empty;
+        scope.visible = !!P.scope;
+        // they rise through the middle of the window (local x -0.8..0.7, y -0.6..0.45: the part a camera over her shoulder sees)
+        ufos.forEach((b, i) => { const y = -0.75 + fr(t * 0.16 + i * 0.143) * 1.35; b.visible = !!P.ufo && y > -0.62 && y < 0.45; b.position.set(-0.8 + ((i * 0.53) % 1.5) + 0.1 * Math.sin(t * 0.9 + i), y, 0.016); b.rotation.z = 0.2 * Math.sin(t * 1.3 + i); });
       },
     };
   }

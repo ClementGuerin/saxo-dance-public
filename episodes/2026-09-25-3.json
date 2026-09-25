@@ -1,0 +1,1489 @@
+{
+ "date": "2026-09-25",
+ "n": 3,
+ "song": {
+  "title": "99 Luftballons (Techno)",
+  "artist": "Snoblack",
+  "window": [
+   22.025,
+   90.207
+  ],
+  "bpm": 176,
+  "tail": 1.64
+ },
+ "logline": "Saxo's techno night: 99 balloons rain on the dance floor, Compote the bouncer fights them, Kob upstairs takes them for UFOs, walks in on the break with 99 neighbours in pyjamas, and pulls the plug on the last word, right where the music stops dead.",
+ "new": [
+  "techno map (warehouse club: DJ stage under a 99 neon, lasers, CO2 jets, confetti cannons, a balloon drop net, paper planes, the booth plug)",
+  "crowds: 99 copies of a character in one pose (detached skinned copies)",
+  "Kob's flat: balloons past the window, a telescope",
+  "props: balloon, carrot (thrown), plug with its cable",
+  "a second arm aim (the yank), half-time beat bounce for a breakdown",
+  "costumes: Saxo nena (Nena 1983), Sadi rave"
+ ],
+ "notes": "Clip brief (Nena, 1983): a foggy heath at dawn with log barriers, the band in coloured smoke, Nena in a black quilted vest over a white shirt, jeans, big dark hair; at night giant glowing balloons; it ends on a single red balloon in the dark. The user asked for the 'Dans le club' style and not to follow the clip strictly: the world is a techno club (the Snoblack version), Saxo wears Nena's look, and the last image is the clip's single red balloon. The story stays on the balloons: no war imagery. Whole cast: Saxo (DJ, lead), Sadi (dance partner, takes the battle ring), Compote (the bouncer: running thread), Kob (never goes out: part 2 of 'Dans le club', this time she ends the party; GAGS: she unplugs things).",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "angrily_pumping_fists_forward",
+  "angry_forward_gesture",
+  "being_surprised_and_looking_right",
+  "being_terrified_while_standing",
+  "bored_idle",
+  "celebrating_after_a_win",
+  "female_hip_hop_arm_wave_dancing",
+  "female_hip_hop_body_wave_dancing",
+  "female_hip_hop_raise_the_roof_dancing",
+  "high_enthusiasm_fist_pump",
+  "hip_hop_dancing_side_to_side",
+  "hip_hop_just_listening_dancing_variation",
+  "house_dance_variation_3",
+  "house_dance_variation_four",
+  "jumping_in_place",
+  "pointing_onward_charge",
+  "quickly_pointing_angrily_forward",
+  "shaking_head_no_dismissively",
+  "throwing_and_object",
+  "yelling_in_anger"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "hip_hop_just_listening_dancing_variation",
+     "x": 0,
+     "z": -5.25,
+     "lift": 0.9,
+     "arm": "both",
+     "aim": [
+      0.3,
+      -0.5,
+      0.8
+     ],
+     "upAt": 0,
+     "at": 0,
+     "speed": 0.5
+    }
+   ],
+   "focus": [
+    0,
+    -5.25,
+    0.9
+   ],
+   "still": true,
+   "signDim": 0.7,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     -6,
+     2
+    ],
+    "r": [
+     2.9,
+     2.6
+    ],
+    "h": [
+     0.75,
+     0.75
+    ],
+    "look": 0.85,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "celebrating_after_a_win",
+     "x": 0,
+     "z": -5.25,
+     "lift": 0.9,
+     "arm": "both",
+     "upAt": 0.1
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "jumping_in_place",
+     "x": 0.5,
+     "z": 0.3
+    }
+   ],
+   "focus": [
+    0,
+    -1.5
+   ],
+   "co2": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "cam": {
+    "ang": [
+     0,
+     3
+    ],
+    "r": [
+     6.4,
+     5.6
+    ],
+    "h": [
+     0.45,
+     0.6
+    ],
+    "look": [
+     2.7,
+     1.8
+    ],
+    "fov": 58,
+    "ease": "out"
+   }
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "house_dance_variation_3",
+     "x": -0.45,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 0.5,
+     "z": -0.15
+    }
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "cam": {
+    "ang": [
+     -14,
+     10
+    ],
+    "r": [
+     3.7,
+     3.3
+    ],
+    "h": [
+     1,
+     0.95
+    ],
+    "look": 1,
+    "fov": 52,
+    "ease": "lin"
+   }
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "kobflat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "bored_idle",
+     "x": 2.95,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 185,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.2,
+      0.85
+     ],
+     "upAt": 0.2
+    }
+   ],
+   "focus": [
+    3.1,
+    -1.7
+   ],
+   "ufo": true,
+   "scope": true,
+   "shake": true,
+   "jolt": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     -26,
+     -22
+    ],
+    "r": [
+     2.3,
+     2.1
+    ],
+    "h": [
+     1.2,
+     1.18
+    ],
+    "look": 1.1,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "quickly_pointing_angrily_forward",
+     "x": 6.4,
+     "z": 2.6,
+     "at": 0.2,
+     "arm": "R",
+     "aim": [
+      0.85,
+      0.5,
+      0.2
+     ],
+     "upAt": 1.2
+    }
+   ],
+   "focus": [
+    6.4,
+    2.6
+   ],
+   "key": [
+    5.2,
+    2.2,
+    3.2,
+    0.9,
+    1.3,
+    0.8
+   ],
+   "stars": [
+    "compote"
+   ],
+   "cam": {
+    "ang": [
+     -100,
+     -92
+    ],
+    "r": [
+     2.8,
+     2.5
+    ],
+    "h": [
+     0.85,
+     0.82
+    ],
+    "look": 0.9,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.45,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_arm_wave_dancing",
+     "x": 0.5,
+     "z": -0.15
+    }
+   ],
+   "planes": {
+    "n": 9,
+    "at": 12.073,
+    "pass": [
+     [
+      -4.5,
+      2.9,
+      -2.5
+     ],
+     [
+      4.5,
+      2.1,
+      1
+     ]
+    ],
+    "dur": 1.8,
+    "size": 1.3
+   },
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "cam": {
+    "ang": [
+     8,
+     0
+    ],
+    "r": [
+     4.8,
+     4.3
+    ],
+    "h": [
+     0.55,
+     0.6
+    ],
+    "look": [
+     2,
+     1.25
+    ],
+    "fov": 60
+   }
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "shuffle",
+     "x": -0.45,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "high_enthusiasm_fist_pump",
+     "x": 0.5,
+     "z": -0.15
+    }
+   ],
+   "alarm": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "cam": {
+    "ang": [
+     -10,
+     6
+    ],
+    "r": [
+     4.6,
+     4.2
+    ],
+    "h": [
+     2.5,
+     2.1
+    ],
+    "look": 0.9,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "being_surprised_and_looking_right",
+     "x": 0.35,
+     "z": 0.5
+    },
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "house_dance_variation_3",
+     "x": -0.95,
+     "z": -1.3
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 0.9,
+     "z": -1.4
+    }
+   ],
+   "key": [
+    0.6,
+    2.2,
+    2,
+    0.9,
+    0.8,
+    1
+   ],
+   "stars": [
+    "compote"
+   ],
+   "cam": {
+    "ang": [
+     6,
+     2
+    ],
+    "r": [
+     4,
+     3.6
+    ],
+    "h": [
+     0.95,
+     0.9
+    ],
+    "look": 0.95,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "yelling_in_anger",
+     "x": 0,
+     "z": 0.4,
+     "hold": "balloon",
+     "face": "world",
+     "yaw": 40,
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.35,
+      0.87
+     ],
+     "upAt": 0
+    }
+   ],
+   "key": [
+    0.2,
+    2,
+    1.8,
+    0.8,
+    0.8,
+    1
+   ],
+   "stars": [
+    "compote"
+   ],
+   "cam": {
+    "ang": [
+     -12,
+     -6
+    ],
+    "r": [
+     2.6,
+     2.3
+    ],
+    "h": [
+     0.95,
+     0.92
+    ],
+    "look": 1,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "jumping_in_place",
+     "x": -0.45,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "jumping_in_place",
+     "x": 0.5,
+     "z": -0.15,
+     "at": 0.25
+    }
+   ],
+   "planes": {
+    "n": 11,
+    "at": 22.881999999999998,
+    "pass": [
+     [
+      4.5,
+      2.6,
+      -3
+     ],
+     [
+      -4.5,
+      2,
+      0.5
+     ]
+    ],
+    "dur": 1.4,
+    "size": 1.2
+   },
+   "co2": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "cam": {
+    "ang": [
+     0,
+     4
+    ],
+    "r": [
+     4.4,
+     4
+    ],
+    "h": [
+     1,
+     0.95
+    ],
+    "look": 1.3,
+    "fov": 56
+   }
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "high_enthusiasm_fist_pump",
+     "x": 0,
+     "z": 0
+    }
+   ],
+   "ring": true,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     4,
+     0
+    ],
+    "r": [
+     5,
+     4.3
+    ],
+    "h": [
+     1.5,
+     1.4
+    ],
+    "look": 0.95,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "spaceship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "astronaut",
+     "clip": "pointing_onward_charge",
+     "x": 0,
+     "z": 0,
+     "at": 1.2,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     36,
+     30
+    ],
+    "r": [
+     3,
+     2.7
+    ],
+    "h": [
+     0.5,
+     0.55
+    ],
+    "look": 1.1,
+    "fov": 55
+   }
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0.1,
+     "z": 0.3
+    },
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "bored_idle",
+     "x": -1.15,
+     "z": -1.6,
+     "star": false
+    }
+   ],
+   "ring": true,
+   "confetti": 32.727,
+   "co2": true,
+   "stars": [
+    "sadi",
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     -6,
+     4
+    ],
+    "r": [
+     4.8,
+     4.4
+    ],
+    "h": [
+     1.3,
+     1.25
+    ],
+    "look": 0.95,
+    "fov": 54
+   }
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "kobflat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.2,
+     "z": -0.9,
+     "at": 0.3
+    }
+   ],
+   "focus": [
+    -0.2,
+    -0.9
+   ],
+   "shake": true,
+   "jolt": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     -34,
+     -30
+    ],
+    "r": [
+     2.7,
+     2.4
+    ],
+    "h": [
+     0.85,
+     0.82
+    ],
+    "look": 0.85,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "kobflat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "angrily_pumping_fists_forward",
+     "x": -0.2,
+     "z": -0.9
+    }
+   ],
+   "focus": [
+    -0.2,
+    -0.9
+   ],
+   "shake": true,
+   "jolt": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     -10,
+     -6
+    ],
+    "r": [
+     2.2,
+     2
+    ],
+    "h": [
+     0.7,
+     0.72
+    ],
+    "look": 0.85,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "throwing_and_object",
+     "x": 1,
+     "z": 1.2,
+     "at": 1.1,
+     "face": "world",
+     "yaw": 200,
+     "hold": "carrot",
+     "toss": {
+      "at": 0.9,
+      "to": [
+       -0.7,
+       2.3,
+       -3.5
+      ],
+      "dur": 1,
+      "arc": 0.8
+     },
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.9,
+      0.3
+     ],
+     "upAt": 0.55,
+     "upEnd": 1.3
+    }
+   ],
+   "focus": [
+    1,
+    1.1
+   ],
+   "key": [
+    1.6,
+    2.2,
+    2.4,
+    0.8,
+    0.8,
+    1
+   ],
+   "stars": [
+    "compote"
+   ],
+   "cam": {
+    "ang": [
+     72,
+     78
+    ],
+    "r": [
+     3,
+     2.8
+    ],
+    "h": [
+     1.6,
+     1.5
+    ],
+    "look": 0.95,
+    "fov": 56
+   }
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.45,
+     "z": 0,
+     "hold": "balloon"
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 0.5,
+     "z": -0.15
+    }
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "cam": {
+    "ang": [
+     12,
+     -6
+    ],
+    "r": [
+     3.7,
+     3.4
+    ],
+    "h": [
+     1,
+     0.95
+    ],
+    "look": 1.05,
+    "fov": 52,
+    "ease": "lin"
+   }
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "bored_idle",
+     "x": 6.9,
+     "z": 2.6,
+     "face": "world",
+     "yaw": -90,
+     "hold": "milk"
+    }
+   ],
+   "focus": [
+    6.9,
+    2.6
+   ],
+   "doorOpen": true,
+   "freeze": 45,
+   "still": true,
+   "key": [
+    5.6,
+    1.8,
+    2.6,
+    1,
+    0.9,
+    0.75
+   ],
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     -94,
+     -90
+    ],
+    "r": [
+     2.9,
+     2.7
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": 0.82,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "angrily_pumping_fists_forward",
+     "x": 0,
+     "z": 2.1,
+     "hold": "milk"
+    }
+   ],
+   "focus": [
+    0,
+    1.2
+   ],
+   "crowd": {
+    "who": "kob",
+    "look": "pyjama",
+    "clip": "angrily_pumping_fists_forward",
+    "n": 99,
+    "cols": 20,
+    "x0": 0,
+    "z0": 1.6,
+    "dx": 0.78,
+    "dz": 0.8,
+    "jitter": 0.1,
+    "skip": [
+     [
+      0,
+      2.1,
+      0.6
+     ]
+    ]
+   },
+   "noguests": true,
+   "half": true,
+   "doorOpen": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4,
+     5.6
+    ],
+    "h": [
+     0.8,
+     3.4
+    ],
+    "look": [
+     1,
+     0.7
+    ],
+    "fov": 52,
+    "ease": "out"
+   }
+  },
+  {
+   "beat": 144,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "angry_forward_gesture",
+     "x": 0,
+     "z": 2.1,
+     "hold": "milk"
+    }
+   ],
+   "focus": [
+    0,
+    1.4
+   ],
+   "crowd": {
+    "who": "kob",
+    "look": "pyjama",
+    "clip": "hip_hop_just_listening_dancing_variation",
+    "n": 99,
+    "cols": 20,
+    "x0": 0,
+    "z0": 1.6,
+    "dx": 0.78,
+    "dz": 0.8,
+    "jitter": 0.1,
+    "skip": [
+     [
+      0,
+      2.1,
+      0.6
+     ]
+    ]
+   },
+   "noguests": true,
+   "half": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     -24,
+     -14
+    ],
+    "r": [
+     3.6,
+     3.2
+    ],
+    "h": [
+     0.6,
+     0.65
+    ],
+    "look": 0.9,
+    "fov": 56
+   }
+  },
+  {
+   "beat": 152,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "shaking_head_no_dismissively",
+     "x": 0,
+     "z": 2.1,
+     "hold": "milk"
+    }
+   ],
+   "focus": [
+    0,
+    0.4
+   ],
+   "crowd": {
+    "who": "kob",
+    "look": "pyjama",
+    "clip": "house_dance_variation_four",
+    "n": 99,
+    "cols": 20,
+    "x0": 0,
+    "z0": 1.6,
+    "dx": 0.78,
+    "dz": 0.8,
+    "jitter": 0.1,
+    "skip": [
+     [
+      0,
+      2.1,
+      0.6
+     ]
+    ]
+   },
+   "noguests": true,
+   "half": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     0,
+     8
+    ],
+    "r": [
+     6.6,
+     6.2
+    ],
+    "h": [
+     2.9,
+     2.7
+    ],
+    "look": 0.8,
+    "fov": 52
+   }
+  },
+  {
+   "beat": 160,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "being_surprised_and_looking_right",
+     "x": -1.4999999999999998,
+     "z": -2.72,
+     "at": 0
+    }
+   ],
+   "focus": [
+    -1.8499999999999999,
+    -2.62
+   ],
+   "half": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     14,
+     8
+    ],
+    "r": [
+     2.5,
+     2.3
+    ],
+    "h": [
+     0.95,
+     0.92
+    ],
+    "look": 0.8,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 168,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "yelling_in_anger",
+     "x": -2.3,
+     "z": -2.87,
+     "arm": "R",
+     "aim": [
+      0.2,
+      -0.62,
+      0.76
+     ],
+     "upAt": 0.3
+    }
+   ],
+   "focus": [
+    -2.3,
+    -2.67
+   ],
+   "half": true,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     16,
+     10
+    ],
+    "r": [
+     2.3,
+     2.1
+    ],
+    "h": [
+     1.25,
+     1.2
+    ],
+    "look": 0.72,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 176,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "shaking_head_no_dismissively",
+     "x": 0,
+     "z": -5.25,
+     "lift": 0.9,
+     "arm": "both",
+     "aim": [
+      0.3,
+      -0.5,
+      0.8
+     ],
+     "upAt": 0
+    }
+   ],
+   "focus": [
+    0,
+    -5.25,
+    0.9
+   ],
+   "half": true,
+   "signDim": 0.6,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     -8,
+     -4
+    ],
+    "r": [
+     2.5,
+     2.3
+    ],
+    "h": [
+     0.8,
+     0.78
+    ],
+    "look": 0.88,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 184,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "angry_forward_gesture",
+     "x": -2.3,
+     "z": -2.87,
+     "arm": "R",
+     "aim": [
+      0.2,
+      -0.62,
+      0.76
+     ],
+     "upAt": 0
+    },
+    {
+     "who": "saxo",
+     "look": "nena",
+     "clip": "being_terrified_while_standing",
+     "x": 0,
+     "z": -5.25,
+     "lift": 0.9,
+     "at": 0.7,
+     "speed": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 1.5,
+     "z": 2.2
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "angrily_pumping_fists_forward",
+     "x": 0.3,
+     "z": 2.3
+    }
+   ],
+   "focus": [
+    0,
+    -1
+   ],
+   "crowd": {
+    "who": "kob",
+    "look": "pyjama",
+    "clip": "house_dance_variation_four",
+    "n": 99,
+    "cols": 20,
+    "x0": 0,
+    "z0": 1.6,
+    "dx": 0.78,
+    "dz": 0.8,
+    "jitter": 0.1,
+    "skip": [
+     [
+      1.5,
+      2.2,
+      0.6
+     ],
+     [
+      0.3,
+      2.3,
+      0.6
+     ]
+    ]
+   },
+   "noguests": true,
+   "half": true,
+   "stars": [
+    "kob",
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     22,
+     16
+    ],
+    "r": [
+     8.6,
+     8
+    ],
+    "h": [
+     3.2,
+     3
+    ],
+    "look": 1.1,
+    "fov": 52,
+    "ease": "lin"
+   }
+  },
+  {
+   "beat": 192,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "angry_forward_gesture",
+     "x": -2.3,
+     "z": -2.87,
+     "arm": "R",
+     "aim": [
+      0.2,
+      -0.62,
+      0.76
+     ],
+     "upAt": 0,
+     "aim2": [
+      0.35,
+      0.85,
+      -0.3
+     ],
+     "aim2At": 2.547,
+     "hold": "plug",
+     "holdFrom": 2.547,
+     "cable": [
+      -2.3,
+      0.03,
+      -2.86
+     ]
+    }
+   ],
+   "focus": [
+    -2.3,
+    -2.67
+   ],
+   "half": true,
+   "unplugAt": 68.002,
+   "blackout": 68.182,
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     20,
+     14
+    ],
+    "r": [
+     2.2,
+     2
+    ],
+    "h": [
+     0.9,
+     0.88
+    ],
+    "look": 0.8,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 200,
+   "kind": "dance",
+   "map": "techno",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "bored_idle",
+     "x": -2.3,
+     "z": -2.87,
+     "hold": "plug",
+     "cable": [
+      -2.3,
+      0.03,
+      -2.86
+     ],
+     "arm": "R",
+     "aim": [
+      0.15,
+      0.1,
+      0.95
+     ],
+     "upAt": 0
+    }
+   ],
+   "focus": [
+    -2.3,
+    -2.5700000000000003
+   ],
+   "unplugAt": 0,
+   "blackout": 68.182,
+   "last": [
+    -1.7999999999999998,
+    -3.37,
+    67.58200000000001
+   ],
+   "still": true,
+   "freeze": 68.182,
+   "key": [
+    -2.0999999999999996,
+    1.9,
+    -1.4700000000000002,
+    0.9,
+    0.85,
+    0.75
+   ],
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     2,
+     0
+    ],
+    "r": [
+     3.1,
+     3
+    ],
+    "h": [
+     1,
+     1.05
+    ],
+    "look": [
+     0.9,
+     1.15
+    ],
+    "fov": 52,
+    "ease": "lin"
+   }
+  }
+ ],
+ "tags": {
+  "structure": "interruption",
+  "scenes": [
+   "crowd"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "techno",
+   "kobflat",
+   "spaceship"
+  ],
+  "ref": "none",
+  "lyric_literal": "L00 the balloons, L02 UFOs, L04 the squadron, L05 the alarm, L08 99 jets, L10 Captain Kirk, L11 the firework, L16 99 ministers",
+  "experiment": "Does an ending that explains the music stopping (Kob pulls the plug on the last beat) hold viewers to the end better than a musical ending?"
+ }
+}
