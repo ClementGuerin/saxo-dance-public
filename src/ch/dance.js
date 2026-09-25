@@ -36,7 +36,7 @@ function layout(words, hook = -1) {
 // punches on the beat; c = whole line shown, pink sweeps across each word as it is sung, words drop out at the end;
 // d (default, user's pick 2026-09-25) = b's motion in chunky PS1 extruded type drawn at 1/3 res, the word being sung
 // yellow and the rest pink. ?klabel=1 prints the style name (A/B tests).
-const Q_K = new URLSearchParams(location.search), KSTYLE = Q_K.get('kstyle') || 'd', KLABEL = Q_K.has('klabel');
+const Q_K = new URLSearchParams(location.search), CLEAN = Q_K.has('clean'), KSTYLE = Q_K.get('kstyle') || 'd', KLABEL = Q_K.has('klabel');
 const KNAMES = { a: 'A · current', b: 'B · pop-in + hook', c: 'C · sweep + drop', d: 'D · PS1 chunky' };
 const YELLOW = '#ffd43b';
 const spring = u => u <= 0 ? 0 : 1 - Math.exp(-8 * u) * Math.cos(18 * u);          // 0 → ~1.25 overshoot → 1
@@ -181,6 +181,7 @@ chapter('dance', 0, DUR, [[0, function danceFloor(t) {
     if (wp > 0.04) { g.save(); for (let k = 1; k <= 4; k++) { g.globalAlpha = 0.28; g.drawImage(f, -wp * k * 55, 0, W, H); } g.restore(); }
   }
   g.imageSmoothingEnabled = true;
+  if (CLEAN) return;   // ?clean: the bare 3D frame (profile pictures, thumbnails)
   watermark();
   // a standalone scene replaces the karaoke; in an episode the lyrics keep going and the FX sit on top
   if (window.EPISODE || !window.SCENE_FX) karaoke(t);
