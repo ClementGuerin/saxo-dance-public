@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Saxo Dance</title>
+<meta name="description" content="Walk into Saxo's place: play Saxo, chat with Sadi, Kob and Compote, and watch every Saxo Dance video on the TV.">
+<meta name="theme-color" content="#ff5fa2">
+<meta property="og:title" content="Saxo Dance">
+<meta property="og:description" content="Play Saxo in his PS1 house. Talk to the gang. Watch every video on the TV.">
+<meta property="og:image" content="https://saxo.dance/assets/og.jpg">
+<meta property="og:url" content="https://saxo.dance/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/ui/favicon.png">
+<link rel="preload" href="assets/fonts/Fredoka.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css">
+<!-- dev only: tools/site_build.mjs bundles src/ into app.js and drops this import map -->
+<script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }</script>
+</head>
+<body>
+<canvas id="game" aria-label="Saxo's house, a 3D game"></canvas>
+
+<div id="hud">
+  <div id="markers"></div>
+  <div id="prompt" class="bubble" hidden></div>
+  <div id="fx" aria-hidden="true"></div>
+
+  <div id="bar-left" class="pill">
+    <a class="brand" href="https://saxo.dance" aria-label="saxo.dance"><img src="assets/ui/saxo.png" alt=""><span>saxo<b>.dance</b></span></a>
+    <button id="sound" class="icon" aria-label="Sound"><svg viewBox="0 0 24 24"><g class="on"><rect x="3" y="10" width="3" height="6" rx="1"/><rect x="8.5" y="6" width="3" height="14" rx="1"/><rect x="14" y="9" width="3" height="8" rx="1"/><rect x="19.5" y="4" width="2.5" height="16" rx="1"/></g><g class="off"><rect x="3" y="12" width="3" height="2" rx="1"/><rect x="8.5" y="12" width="3" height="2" rx="1"/><rect x="14" y="12" width="3" height="2" rx="1"/><rect x="19.5" y="12" width="2.5" height="2" rx="1"/></g></svg></button>
+    <span class="sep"></span>
+    <a class="icon social" data-net="tiktok" target="_blank" rel="noopener" aria-label="TikTok"></a>
+    <a class="icon social" data-net="instagram" target="_blank" rel="noopener" aria-label="Instagram"></a>
+    <a class="icon social" data-net="youtube" target="_blank" rel="noopener" aria-label="YouTube"></a>
+  </div>
+
+  <div id="bar-right">
+    <button class="who" data-go="sadi" aria-label="Talk to Sadi"><img src="assets/ui/sadi.png" alt=""><span>Sadi</span></button>
+    <button class="who" data-go="kob" aria-label="Talk to Kob"><img src="assets/ui/kob.png" alt=""><span>Kob</span></button>
+    <button class="who" data-go="compote" aria-label="Talk to Compote"><img src="assets/ui/compote.png" alt=""><span>Compote</span></button>
+    <button class="who tvbtn" data-go="tv" aria-label="Saxo TV: every video"><span class="tvpix"></span><span>TV</span></button>
+  </div>
+
+  <div id="actions">
+    <button id="dance-btn" class="chunky"><img class="ico" src="assets/ui/icons/disco@4x.png" alt="">Dance</button>
+    <button id="use-btn" class="chunky yellow" hidden></button>
+  </div>
+  <div id="hint" class="bubble"></div>
+  <div id="toast" class="bubble" hidden></div>
+</div>
+
+<aside id="chat" hidden aria-live="polite">
+  <header><img class="av" alt=""><div><b class="nm"></b><small class="role"></small></div><button class="x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="log"></div>
+  <div class="choices"></div>
+</aside>
+
+<section id="tv" hidden aria-label="Saxo TV">
+  <div class="set">
+    <div class="screen">
+      <header>
+        <div class="tvtitle"><span class="onair"></span>SAXO<b>TV</b><small class="ch">CH 01</small></div>
+        <nav class="tabs"><button data-f="all" class="on">All</button><button data-f="tiktok">TikTok</button><button data-f="instagram">Instagram</button><button data-f="youtube">YouTube</button></nav>
+        <button class="x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </header>
+      <div class="grid"></div>
+      <div class="player" hidden><button class="back">‹ All videos</button><div class="frame"></div><div class="meta"></div></div>
+      <div class="scan"></div>
+    </div>
+    <div class="knobs"><span></span><span></span><em>SAXO</em></div>
+  </div>
+</section>
+
+<section id="closet" class="sheet" hidden aria-label="Wardrobe">
+  <header><b>Dress up</b><button class="x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="looks"></div>
+</section>
+
+<section id="socials" class="sheet" hidden aria-label="Follow Saxo">
+  <header><b>Follow @saxo.dance</b><button class="x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="links"></div>
+</section>
+
+<div id="loader">
+  <div class="inner">
+    <img class="spin" src="assets/ui/saxo.png" alt="">
+    <h1>saxo<b>.dance</b></h1>
+    <div class="bar"><i></i></div>
+    <button id="start" class="chunky" hidden>PRESS START</button>
+    <p class="how">Walk with <kbd>WASD</kbd> or click · <kbd>E</kbd> to talk · <kbd>Space</kbd> to dance</p>
+    <p class="err" hidden></p>
+  </div>
+</div>
+<noscript><p style="font:20px sans-serif;padding:24px">Saxo's house needs JavaScript and WebGL. Meanwhile: <a href="https://www.tiktok.com/@saxo.dance">@saxo.dance on TikTok</a>.</p></noscript>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

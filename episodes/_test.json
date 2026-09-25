@@ -1,0 +1,58 @@
+{
+ "name": "engine test",
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "street",
+   "move": "push",
+   "clip": "gangnam"
+  },
+  {
+   "beat": 8,
+   "kind": "action",
+   "scene": "skate",
+   "who": "saxo",
+   "cam": 2,
+   "from": 5.3
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "club",
+   "move": "arc",
+   "clip": "macarena",
+   "cast": "duo",
+   "whip": true
+  },
+  {
+   "beat": 24,
+   "kind": "action",
+   "scene": "fight",
+   "cam": 0,
+   "from": 0
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "beach",
+   "move": "low",
+   "clip": "ymca",
+   "cast": "sadi"
+  },
+  {
+   "beat": 40,
+   "kind": "action",
+   "scene": "skate",
+   "cam": 3,
+   "from": 8.2
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "moon",
+   "move": "orbit",
+   "clip": "chicken"
+  }
+ ]
+}

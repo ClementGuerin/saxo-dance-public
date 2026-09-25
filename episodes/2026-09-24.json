@@ -1,0 +1,222 @@
+{
+ "date": "2026-09-24",
+ "song": {
+  "title": "hate that i made you love me",
+  "artist": "Ariana Grande",
+  "window": [
+   5,
+   67.5
+  ],
+  "bpm": 95.86
+ },
+ "logline": "Saxo barely tries (a lazy skate, a few moves) and Sadi falls for him anyway, until she sees right through him and floors him. They dance the whole chorus together regardless.",
+ "new": [
+  "mixed episode format (dance + action on one beat grid)",
+  "Saxo rides the skateboard (only Sadi did before)"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "action",
+   "scene": "skate",
+   "who": "saxo",
+   "cam": 0,
+   "from": 0.4
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "street",
+   "move": "push",
+   "clip": "gangnam"
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "club",
+   "move": "arc",
+   "clip": "macarena",
+   "cast": "duo",
+   "whip": true
+  },
+  {
+   "beat": 24,
+   "kind": "action",
+   "scene": "skate",
+   "who": "saxo",
+   "cam": 2,
+   "from": 5.5,
+   "word": "EASY."
+  },
+  {
+   "beat": 28,
+   "kind": "action",
+   "scene": "skate",
+   "who": "saxo",
+   "cam": 3,
+   "from": 8
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "beach",
+   "move": "crane",
+   "clip": "shimmy",
+   "cast": "duo"
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "western",
+   "move": "orbit",
+   "clip": "ymca"
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "rooftop",
+   "move": "arc",
+   "clip": "chicken"
+  },
+  {
+   "beat": 52,
+   "kind": "action",
+   "scene": "fight",
+   "cam": 0,
+   "from": 0,
+   "wide": 1.35
+  },
+  {
+   "beat": 56,
+   "kind": "action",
+   "scene": "fight",
+   "cam": 1,
+   "from": 3.4,
+   "wide": 1.35
+  },
+  {
+   "beat": 60,
+   "kind": "action",
+   "scene": "fight",
+   "cam": 3,
+   "from": 11.4,
+   "wide": 1.35
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "stadium",
+   "move": "locked",
+   "clip": "robot"
+  },
+  {
+   "beat": 65,
+   "kind": "dance",
+   "map": "moon",
+   "move": "locked",
+   "clip": "twist"
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "club",
+   "move": "locked",
+   "clip": "shuffle"
+  },
+  {
+   "beat": 67,
+   "kind": "dance",
+   "map": "highway",
+   "move": "locked",
+   "clip": "running_man"
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "stadium",
+   "move": "high",
+   "clip": "gangnam",
+   "cast": "duo",
+   "whip": true
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "moon",
+   "move": "low",
+   "clip": "macarena"
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "club",
+   "move": "push",
+   "clip": "ymca",
+   "cast": "duo",
+   "whip": true
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "beach",
+   "move": "dolly",
+   "clip": "silly_twist"
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "highway",
+   "move": "push",
+   "clip": "shopping_cart",
+   "whip": true
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "western",
+   "move": "arcL",
+   "clip": "charleston",
+   "cast": "duo"
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "street",
+   "move": "push",
+   "clip": "booty_step",
+   "whip": true
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "rooftop",
+   "move": "closer",
+   "clip": "arm_wave",
+   "cast": "duo"
+  }
+ ],
+ "tags": {
+  "structure": "reversal",
+  "scenes": [
+   "skate",
+   "fight"
+  ],
+  "cast": [
+   "saxo",
+   "sadi"
+  ],
+  "hook": "action",
+  "maps": [
+   "street",
+   "club",
+   "beach",
+   "western",
+   "rooftop",
+   "stadium",
+   "moon",
+   "highway"
+  ],
+  "ref": "none",
+  "experiment": "mixed format (dance + gags) vs pure dance"
+ }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "code-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview": "node render.mjs --serve",
+    "shots": "node render.mjs --shots",
+    "frames": "node render.mjs --frames --workers=4",
+    "encode": "node render.mjs --encode",
+    "render": "node render.mjs --frames --workers=4 && node render.mjs --encode"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0",
+    "puppeteer-core": "^24.0.0",
+    "three": "^0.186.0"
+  }
+}

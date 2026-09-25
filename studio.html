@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Studio</title>
+<style>
+  /* Local fonts render reliably in headless Chrome. Drop .woff2 files in assets/fonts and declare them here,
+     then list them in CONFIG.fonts.load so the renderer waits for them. */
+  @font-face { font-family: "Cute"; src: url("assets/fonts/Fredoka.ttf") format("truetype"); font-weight: 300 700; }
+  html, body { margin: 0; height: 100%; background: #111; color: #ddd; font: 13px/1.4 system-ui, sans-serif; }
+  main { height: 100%; box-sizing: border-box; padding: 12px; display: grid; grid-template-rows: 1fr auto; gap: 8px; }
+  .stage { min-height: 0; display: grid; place-items: center; }
+  #out { max-width: 100%; max-height: 100%; background: #000; }
+  .bar { display: flex; gap: 10px; align-items: center; }
+  .bar input[type=range] { flex: 1; }
+  .bar button { font: inherit; padding: 6px 12px; }
+  #clock, #shot { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  body.render main { padding: 0; }
+  body.render .bar { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <div class="stage"><canvas id="out"></canvas></div>
+  <div class="bar">
+    <button id="play" type="button">Play</button>
+    <button id="snd" type="button">Sound off</button>
+    <input id="scrub" type="range" min="0" step="0.001" value="0" aria-label="Seek">
+    <span id="clock"></span>
+    <span id="shot"></span>
+  </div>
+</main>
+
+<script src="video.config.js"></script>
+<script src="src/beats.js"></script>
+<script src="src/core.js"></script>
+<script src="src/timeline.js"></script>
+<script src="src/audio.js"></script>
+<!-- shared kit: characters, props, brand pieces reused across chapters -->
+<!-- chapters: one file each, registered with chapter(); add new files here in time order -->
+<!-- synthesised soundtrack (optional): defines score(S) -->
+<script src="src/lyrics.js"></script>
+<script src="src/ch/dance.js"></script>
+<script src="src/boot.js"></script>
+<script type="importmap">{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }</script>
+<script type="module" src="src/ps1.js"></script>
+</body>
+</html>

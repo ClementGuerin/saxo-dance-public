@@ -1,0 +1,70 @@
+{
+ "updated": "2026-09-25T13:57:28.830Z",
+ "posts": [
+  {
+   "id": "2026-09-25",
+   "title": "Nicole Kidman",
+   "artist": "ADÉLA",
+   "date": "2026-09-25T12:07:55.305Z",
+   "thumb": "assets/posts/2026-09-25.jpg",
+   "links": {
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/vEgVRZTwdHM",
+     "id": "vEgVRZTwdHM"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689461858545175830",
+     "id": "7689461858545175830"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdtbUzfk69K/",
+     "id": "DdtbUzfk69K"
+    }
+   }
+  },
+  {
+   "id": "2026-09-24",
+   "title": "hate that i made you love me",
+   "artist": "Ariana Grande",
+   "date": "2026-09-24T19:07:40.645Z",
+   "thumb": "assets/posts/2026-09-24.jpg",
+   "links": {
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/gL5xK5SXiMc",
+     "id": "gL5xK5SXiMc"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689180577014025505",
+     "id": "7689180577014025505"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdrmWrPgRGv/",
+     "id": "DdrmWrPgRGv"
+    }
+   },
+   "views": 234
+  },
+  {
+   "id": "the-one-that-got-away",
+   "title": "The One That Got Away",
+   "artist": "Katy Perry",
+   "date": "2026-09-24T16:08:40.495Z",
+   "thumb": "assets/posts/the-one-that-got-away.jpg",
+   "links": {
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/27xaUhV-uLY",
+     "id": "27xaUhV-uLY"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdrVXv-D_u_/",
+     "id": "DdrVXv-D_u_"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689143396421602582",
+     "id": "7689143396421602582"
+    }
+   },
+   "views": 852
+  }
+ ]
+}

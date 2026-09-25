@@ -1,0 +1,431 @@
+{
+ "date": "2026-09-25",
+ "song": {
+  "title": "Nicole Kidman",
+  "artist": "ADÉLA",
+  "window": [
+   41.6,
+   110.4
+  ],
+  "bpm": 142.23
+ },
+ "logline": "Saxo spends hours in front of the mirror choosing his Nicole Kidman look, picks the poop suit, and works the red carpet in it while Kob refuses to be impressed.",
+ "new": [
+  "stage map (first published use)",
+  "supermarket map (first published use)",
+  "poop costume (first published use)",
+  "dance-shot FX: comic words and paparazzi flashes on dance shots"
+ ],
+ "with": "kob",
+ "clips": [
+  "flexing_muscles",
+  "blowing_a_kiss",
+  "shoulder_shrug",
+  "taunting_throwing_arms_back",
+  "waving",
+  "jumping_in_place"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arcL",
+   "clip": "flexing_muscles",
+   "outfit": "saxo"
+  },
+  {
+   "beat": 1,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arc",
+   "clip": "blowing_a_kiss",
+   "outfit": "cowboy"
+  },
+  {
+   "beat": 2,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arcL",
+   "clip": "shoulder_shrug",
+   "outfit": "astronaut"
+  },
+  {
+   "beat": 3,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arc",
+   "clip": "taunting_throwing_arms_back",
+   "outfit": "dj"
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arcL",
+   "clip": "flexing_muscles",
+   "outfit": "beach"
+  },
+  {
+   "beat": 5,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arc",
+   "clip": "blowing_a_kiss",
+   "outfit": "sponge"
+  },
+  {
+   "beat": 6,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arcL",
+   "clip": "shoulder_shrug",
+   "outfit": "moto"
+  },
+  {
+   "beat": 7,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arc",
+   "clip": "taunting_throwing_arms_back",
+   "outfit": "cowboy"
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arcL",
+   "clip": "flexing_muscles",
+   "outfit": "astronaut"
+  },
+  {
+   "beat": 9,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arc",
+   "clip": "blowing_a_kiss",
+   "outfit": "dj"
+  },
+  {
+   "beat": 10,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arcL",
+   "clip": "shoulder_shrug",
+   "outfit": "beach"
+  },
+  {
+   "beat": 11,
+   "kind": "dance",
+   "map": "stage",
+   "move": "arc",
+   "clip": "taunting_throwing_arms_back",
+   "outfit": "sponge"
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "clip": "blowing_a_kiss",
+   "outfit": "poop",
+   "word": "SLAY.",
+   "wordAt": 1
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "stage",
+   "move": "dolly",
+   "clip": "shoulder_shrug",
+   "outfit": "poop",
+   "cast": "kob",
+   "sadiOutfit": "kob",
+   "word": "EW.",
+   "wordAt": 4.5
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "clip": "blowing_a_kiss",
+   "outfit": "poop",
+   "whip": true,
+   "flash": true
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "stage",
+   "move": "orbit",
+   "clip": "shimmy",
+   "outfit": "poop"
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "beach",
+   "move": "push",
+   "clip": "flexing_muscles",
+   "outfit": "poop",
+   "word": "XXL",
+   "wordAt": 5
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "club",
+   "move": "push",
+   "clip": "arm_wave",
+   "outfit": "poop",
+   "cast": "duo"
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "highway",
+   "move": "track",
+   "clip": "running_man",
+   "outfit": "poop"
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "highway",
+   "move": "push",
+   "clip": "moonwalk",
+   "outfit": "poop",
+   "whip": true
+  },
+  {
+   "beat": 62,
+   "kind": "dance",
+   "map": "highway",
+   "move": "arcL",
+   "clip": "gangnam",
+   "outfit": "poop",
+   "cast": "duo"
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "paris",
+   "move": "push",
+   "clip": "blowing_a_kiss",
+   "outfit": "poop",
+   "flash": true,
+   "word": "SNAP!",
+   "wordAt": 1
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "paris",
+   "move": "arc",
+   "clip": "twist",
+   "outfit": "poop",
+   "flash": true
+  },
+  {
+   "beat": 83,
+   "kind": "dance",
+   "map": "paris",
+   "move": "push",
+   "clip": "waving",
+   "outfit": "poop"
+  },
+  {
+   "beat": 90,
+   "kind": "dance",
+   "map": "stage",
+   "move": "locked",
+   "clip": "robot",
+   "outfit": "poop",
+   "flash": true
+  },
+  {
+   "beat": 91,
+   "kind": "dance",
+   "map": "club",
+   "move": "locked",
+   "clip": "shuffle",
+   "outfit": "poop",
+   "flash": true
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "rooftop",
+   "move": "locked",
+   "clip": "chicken",
+   "outfit": "poop",
+   "flash": true
+  },
+  {
+   "beat": 93,
+   "kind": "dance",
+   "map": "paris",
+   "move": "locked",
+   "clip": "ymca",
+   "outfit": "poop",
+   "flash": true
+  },
+  {
+   "beat": 94,
+   "kind": "dance",
+   "map": "club",
+   "move": "push",
+   "clip": "gangnam",
+   "outfit": "poop",
+   "cast": "duo",
+   "whip": true
+  },
+  {
+   "beat": 98,
+   "kind": "dance",
+   "map": "stadium",
+   "move": "arc",
+   "clip": "shimmy",
+   "outfit": "poop"
+  },
+  {
+   "beat": 102,
+   "kind": "dance",
+   "map": "western",
+   "move": "arc",
+   "clip": "samba",
+   "outfit": "poop",
+   "whip": true
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "paris",
+   "move": "low",
+   "clip": "charleston",
+   "outfit": "poop",
+   "cast": "duo",
+   "sadiOutfit": "kob"
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "paris",
+   "move": "push",
+   "clip": "silly_twist",
+   "outfit": "poop"
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "clip": "booty_step",
+   "outfit": "poop",
+   "whip": true
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "clip": "ymca",
+   "outfit": "poop",
+   "cast": "duo"
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "rooftop",
+   "move": "arc",
+   "clip": "arm_wave",
+   "outfit": "poop",
+   "whip": true
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "rooftop",
+   "move": "arc",
+   "clip": "twist",
+   "outfit": "poop"
+  },
+  {
+   "beat": 134,
+   "kind": "dance",
+   "map": "supermarket",
+   "move": "high",
+   "clip": "shopping_cart",
+   "outfit": "poop",
+   "cast": "duo",
+   "whip": true
+  },
+  {
+   "beat": 139,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "clip": "jumping_in_place",
+   "outfit": "poop",
+   "word": "WHEE!",
+   "wordAt": 1.5
+  },
+  {
+   "beat": 146,
+   "kind": "dance",
+   "map": "paris",
+   "move": "push",
+   "clip": "blowing_a_kiss",
+   "outfit": "poop",
+   "flash": true
+  },
+  {
+   "beat": 150,
+   "kind": "dance",
+   "map": "paris",
+   "move": "dolly",
+   "clip": "shoulder_shrug",
+   "outfit": "poop",
+   "cast": "kob",
+   "sadiOutfit": "kob",
+   "whip": true,
+   "word": "EW.",
+   "wordAt": 2.5
+  },
+  {
+   "beat": 156,
+   "kind": "dance",
+   "map": "stage",
+   "move": "push",
+   "clip": "blowing_a_kiss",
+   "outfit": "poop",
+   "flash": true,
+   "word": "ICON.",
+   "wordAt": 2
+  }
+ ],
+ "tags": {
+  "structure": "mismatch",
+  "scenes": [],
+  "cast": [
+   "saxo",
+   "kob"
+  ],
+  "hook": "dance",
+  "maps": [
+   "stage",
+   "beach",
+   "club",
+   "highway",
+   "paris",
+   "rooftop",
+   "stadium",
+   "western",
+   "supermarket"
+  ],
+  "ref": "none",
+  "lyric_literal": "Should I wear Louboutins or Jimmy Choos? Try 'em in the mirror",
+  "experiment": "Does a rapid costume-flip hook (12 cuts in 5 s) and one running costume gag hold viewers better than map-driven outfits?"
+ }
+}
