@@ -995,7 +995,9 @@ function qaDog(D, who) {
       B[0] = Math.min(B[0], x); B[1] = Math.min(B[1], y); B[2] = Math.max(B[2], x); B[3] = Math.max(B[3], y);
     }
   });
-  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)) };
+  // the head bone on screen (0..1): where the face is, for the framing rules (an arm past the edge reads fine, a face doesn't)
+  const h = D.head ? D.head.getWorldPosition(_qv).project(camera) : null;
+  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null };
 }
 window.QA_PROBE = t => {
   window.render3d(t);

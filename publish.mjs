@@ -7,10 +7,14 @@
 //
 // Options: --song= --artist= (default: CONFIG.song in video.config.js), --caption= (hook line), --tags=a,b (extra
 // hashtags), --only=tiktok,instagram,youtube, --via=postiz (send everything through Postiz instead), --rev=<commit> (only for
-// an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk).
+// an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
+// --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below).
 //
-// YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, ending on a lyric line): it blocks worldwide any Short
+// YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, never inside a lyric line): it blocks worldwide any Short
 // over 60 s with a Content ID claim, and every label-owned song gets one. TikTok and Instagram get the full render.
+// Which 60 s: the episode's `yt` field ("start", "end", or [from, to] in seconds), else "end" for an episode (story
+// episodes end on their payoff: keep it) and "start" for a plain dance render. A kit's episodes/<id>.lyrics.js gives
+// the karaoke timings when it exists.
 //
 // Routes. Our own TikTok and YouTube apps are unaudited (TikTok could only reach the inbox, YouTube locked uploads to
 // private), so those two go through Zernio (zernio.com, free for 2 accounts), whose audited apps post publicly:
@@ -60,10 +64,21 @@ const route = p => (args.via === 'postiz' || p === 'instagram' ? 'postiz' : 'zer
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
-// The YouTube file: the render itself when it is already 59.5 s or less, else its _yt cut.
-const ytFile = only.includes('youtube')
-  ? execFileSync('node', [new URL('./tools/yt_cut.mjs', import.meta.url).pathname, file, ...(args.rev ? [`--rev=${args.rev}`] : [])], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] }).trim().split('\n').at(-1)
+// The episode id (episodes/<id>.json) ties the post to its tags for tools/metrics.mjs: --episode=, else the MP4 name's prefix.
+const episode = args.episode || path.basename(file).match(/^(\d{4}-\d{2}-\d{2}(?:-\d+)?)/)?.[1] || null;
+const epFile = n => new URL(`./episodes/${episode}${n}`, import.meta.url);
+const EP = episode && fs.existsSync(epFile('.json')) ? JSON.parse(fs.readFileSync(epFile('.json'), 'utf8')) : null;
+
+// The YouTube file: the render itself when it is already 59.5 s or less, else its _yt cut (window: --yt, the episode's
+// `yt`, else the ending for an episode and the start otherwise).
+const yt = typeof args.yt === 'string' ? (/^[\d.]+-[\d.]+$/.test(args.yt) ? args.yt.split('-').map(Number) : args.yt) : EP?.yt ?? (EP ? 'end' : 'start');
+const ytArgs = [...(Array.isArray(yt) ? [`--from=${yt[0]}`, `--to=${yt[1]}`] : [`--keep=${yt}`]),
+  ...(episode && fs.existsSync(epFile('.lyrics.js')) ? [`--lyrics=${epFile('.lyrics.js').pathname}`] : args.rev ? [`--rev=${args.rev}`] : [])];
+const ytOut = only.includes('youtube')
+  ? execFileSync('node', [new URL('./tools/yt_cut.mjs', import.meta.url).pathname, file, ...ytArgs], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] }).trim().split('\n')
   : null;
+if (ytOut?.length > 1) console.log(`YouTube cut (${Array.isArray(yt) ? yt.join('–') + ' s' : yt}): ${ytOut.slice(0, -1).join(' ')}`);   // check it in the dry run
+const ytFile = ytOut?.at(-1) ?? null;
 const fileFor = p => (p === 'youtube' ? ytFile : file);
 
 const tags = p => buildHashtags({ song, artist, extra, platform: p });
@@ -197,8 +212,6 @@ for (const [name, fn] of [['postiz', viaPostiz], ['zernio', viaZernio]]) {
 if (type !== 'draft' && Object.values(runs).some(Boolean)) {
   let commit = null;
   try { commit = execSync('git rev-parse --short HEAD', { cwd: path.dirname(new URL(import.meta.url).pathname) }).toString().trim(); } catch {}
-  // The episode id (episodes/<id>.json) ties the post to its tags for tools/metrics.mjs: --episode=, else the MP4 name's prefix.
-  const episode = args.episode || path.basename(file).match(/^(\d{4}-\d{2}-\d{2}(?:-\d+)?)/)?.[1] || null;
   fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), file: path.basename(file), ...(ytFile && ytFile !== file ? { ytFile: path.basename(ytFile) } : {}), episode, song, artist, type, date, only, commit, runs }) + '\n');
 }
 if (only.includes('tiktok') && route('tiktok') === 'postiz' && type !== 'draft')

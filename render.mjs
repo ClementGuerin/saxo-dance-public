@@ -93,29 +93,54 @@ const fps = +(args.fps || M.fps), N = Math.round(M.DUR * fps);
 // ---------- QA gate: checks the 3D frames automatically, so an unattended daily render can't ship a broken one ----------
 // Rules (per visible dog, sampled at --qa-fps): never sink into the floor (lowest mesh point < -4 cm); never float
 // (> 5 cm) unless the shot marks it airborne, or for longer than a jump (0.6 s); never leave the frame for over 0.5 s.
-const QA = { sink: -0.04, float: 0.05, jump: 0.6, gone: 0.5 };
+// Framing (calibrated on "Dans le club", 2026-09-25): the face (head bone) never within 5% of a side of the frame, and
+// the top of the head never in the lyric rows (the top 25%) while a line is on screen, each for over 0.5 s. An arm or a
+// hem past the edge is fine (the whole-body box flagged 12 of those on a video the user was happy with).
+// Episode rules (the user's calls, 2026-09-25): no bind pose on screen (`clip: "tpose"` reads as a broken rig) and,
+// from 2026-09-26 on, no comic word badges (`word`).
+const QA = { sink: -0.04, float: 0.05, jump: 0.6, gone: 0.5, faceEdge: 0.05, lyricTop: 0.25, framing: 0.5 };
 async function qa(a, b) {
   if (!(await first.evaluate(() => typeof window.QA_PROBE === 'function'))) { console.log('qa: no QA_PROBE on this page, skipped'); return true; }
   const qfps = +(args['qa-fps'] || 10), rows = [];
   for (let t = a; t < b - 1e-6; t += 1 / qfps) rows.push({ t: +t.toFixed(3), dogs: await first.evaluate(t => window.QA_PROBE(t), t) });
+  const K = await first.evaluate(() => ({ lyrics: (window.LYRICS || []).map(l => l[0][0]), ends: window.LINE_END || [], plan: (window.PS1_PLAN || []).map(p => +p.split(' ')[0]),
+    ep: window.EPISODE ? { name: new URLSearchParams(location.search).get('episode') || '', shots: window.EPISODE.shots.map(s => ({ word: s.word || '', clips: [s.clip, ...(s.actors || []).map(x => x.clip)].filter(Boolean) })) } : null }));
+  const lyricOn = t => K.lyrics.some((t0, i) => t >= t0 - 0.35 && t < K.ends[i]);   // dance.js shows a line from 0.35 s before its first word
   const fails = [], runs = {};
-  const flag = (rule, who, t0, t1, worst) => fails.push({ rule, who, from: +t0.toFixed(2), to: +t1.toFixed(2), worst });
-  for (const { t, dogs } of rows) for (const d of dogs) {
-    if (d.low < QA.sink) flag('sinks into the floor', d.who, t, t, d.low);
-    const off = d.box[2] < 0 || d.box[0] > 1 || d.box[3] < 0 || d.box[1] > 1;
-    for (const [rule, bad, lim] of [['floats above the floor', d.low > QA.float && !d.air, QA.jump], ['out of frame', off, QA.gone]]) {
-      const k = d.who + rule, r = runs[k];
-      if (bad) { if (r) { r.t1 = t; r.worst = Math.max(r.worst, d.low); } else runs[k] = { t0: t, t1: t, worst: d.low }; }
-      else if (r) { if (r.t1 - r.t0 + 1 / qfps > lim) flag(rule, d.who, r.t0, r.t1, +r.worst.toFixed(3)); delete runs[k]; }
+  const flag = (rule, who, t0, t1, worst, unit = 'm') => fails.push({ rule, who, from: +t0.toFixed(2), to: +t1.toFixed(2), worst, unit });
+  const off = d => d.box[2] < 0 || d.box[0] > 1 || d.box[3] < 0 || d.box[1] > 1;
+  const RUNS = [   // [rule, is this sample bad, how bad, longest allowed run, unit]
+    ['floats above the floor', d => d.low > QA.float && !d.air, d => d.low, QA.jump, 'm'],
+    ['out of frame', off, () => 0, QA.gone, ''],
+    ['face at the frame edge', d => !off(d) && d.head && (d.head[0] < QA.faceEdge || d.head[0] > 1 - QA.faceEdge), d => Math.max(QA.faceEdge - d.head[0], d.head[0] - 1 + QA.faceEdge), QA.framing, 'of the width past the 5% margin'],
+    ['head in the lyric rows', (d, t) => !off(d) && lyricOn(t) && d.box[1] < QA.lyricTop, d => QA.lyricTop - d.box[1], QA.framing, 'of the height too high'],
+  ];
+  const close = (k, r) => { if (r.t1 - r.t0 + 1 / qfps > r.lim) flag(r.rule, r.who, r.t0, r.t1, +r.worst.toFixed(3), r.unit); delete runs[k]; };
+  for (const { t, dogs } of rows) {
+    const seen = new Set();
+    for (const d of dogs) {
+      if (d.low < QA.sink) flag('sinks into the floor', d.who, t, t, d.low);
+      for (const [rule, bad, how, lim, unit] of RUNS) {
+        if (!bad(d, t)) continue;
+        const k = d.who + '|' + rule, r = runs[k], v = how(d); seen.add(k);
+        if (r) { r.t1 = t; r.worst = Math.max(r.worst, v); } else runs[k] = { rule, who: d.who, t0: t, t1: t, worst: v, lim, unit };
+      }
     }
+    for (const [k, r] of Object.entries(runs)) if (!seen.has(k)) close(k, r);   // fixed, or the dog left the shot
   }
-  for (const [k, r] of Object.entries(runs)) { const rule = k.includes('floats') ? 'floats above the floor' : 'out of frame', lim = rule === 'out of frame' ? QA.gone : QA.jump;
-    if (r.t1 - r.t0 + 1 / qfps > lim) flag(rule, k.replace(rule, ''), r.t0, r.t1, +r.worst.toFixed(3)); }
+  for (const [k, r] of Object.entries(runs)) close(k, r);
+  // the episode's own rules, checked on the shot list (times from the plan)
+  if (K.ep) K.ep.shots.forEach((s, i) => {
+    const t0 = K.plan[i] ?? 0, t1 = K.plan[i + 1] ?? b;
+    if (t1 <= a || t0 >= b) return;
+    if (s.clips.includes('tpose')) flag('bind pose on screen (clip "tpose")', `shot ${i}`, t0, t1, 'pick a pose, not the rig', '');
+    if (s.word && K.ep.name >= '2026-09-26') flag(`comic word badge "${s.word}"`, `shot ${i}`, t0, t1, 'no word badges', '');
+  });
   // merge single-frame sink flags into ranges
-  const merged = []; for (const f of fails) { const m = merged.at(-1); if (m && m.rule === f.rule && m.who === f.who && f.from - m.to <= 1.5 / qfps) { m.to = f.to; m.worst = Math.min(m.worst, f.worst); } else merged.push({ ...f }); }
+  const merged = []; for (const f of fails) { const m = merged.at(-1); if (m && f.rule === 'sinks into the floor' && m.rule === f.rule && m.who === f.who && f.from - m.to <= 1.5 / qfps) { m.to = f.to; m.worst = Math.min(m.worst, f.worst); } else merged.push({ ...f }); }
   const report = { range: [a, b], fps: qfps, samples: rows.length, pass: !merged.length, fails: merged, lowest: rows.flatMap(r => r.dogs.map(d => d.low)).reduce((m, v) => Math.min(m, v), Infinity) };
   mkdirSync(join(OUT, 'check'), { recursive: true }); writeFileSync(join(OUT, 'check', 'qa.json'), JSON.stringify({ ...report, rows }, null, 1));
-  console.log(report.pass ? `qa PASS: ${rows.length} samples, every dog on the floor and in frame` : `qa FAIL (${merged.length}):\n` + merged.map(f => `  ${f.who} ${f.rule} ${f.from}–${f.to}s (worst ${f.worst} m)`).join('\n') + '\n  details: out/check/qa.json');
+  console.log(report.pass ? `qa PASS: ${rows.length} samples, every dog on the floor, in frame and clear of the lyrics` : `qa FAIL (${merged.length}):\n` + merged.map(f => `  ${f.who} ${f.rule} ${f.from}–${f.to}s (worst ${f.worst}${f.unit ? ' ' + f.unit : ''})`).join('\n') + '\n  details: out/check/qa.json');
   return report.pass;
 }
 const gate = async (a, b) => { if (args['no-qa']) return; if (!(await qa(a, b)) && !args.force) { console.log('render stopped by the QA gate: fix it, or pass --force to render anyway'); process.exitCode = 1; throw new Error('qa failed'); } };
