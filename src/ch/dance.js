@@ -7,16 +7,20 @@ const LYRICS = window.LYRICS, LINE_END = window.LINE_END;
 
 // The dancer's emoji face (assets/ui/<name>_sticker.png, Qwen, Android emoji style) hops onto each word as it is sung.
 // ps1.js sets window.STARS each frame to who is on screen; a duo gets both faces side by side.
+// 8-bit versions by default (the user's call, 2026-09-25: assets/ui/pixel/<name>_8bit_32.png, 32 px, 9 colours, drawn at an
+// exact 4x solo / 3x in a duo with smoothing off, so the pixels stay square); ?sticker=hd brings back the Qwen originals.
+const PIX = new URLSearchParams(location.search).get('sticker') !== 'hd';
 const STICKERS = Object.fromEntries(['saxo', 'sadi', 'kob', 'compote'].map(n => {
-  const im = new Image(); LOADING.push(new Promise(ok => { im.onload = im.onerror = ok; })); im.src = `assets/ui/${n}_sticker.png`; return [n, im];
+  const im = new Image(); LOADING.push(new Promise(ok => { im.onload = im.onerror = ok; })); im.src = PIX ? `assets/ui/pixel/${n}_8bit_32.png` : `assets/ui/${n}_sticker.png`; return [n, im];
 }));
 
 const PINK = '#ff5fa2', PINK_DARK = '#8a1452', SIZE = 84, HOP = 0.3;   // HOP: seconds a word-to-word jump takes
 
 // word boxes for one line: centre x, baseline y, width (wrapped to the frame width)
-function layout(words) {
+function layout(words, hook = -1) {
   g.font = `700 ${SIZE}px ${CONFIG.fonts.cute}`;
-  const gap = SIZE * 0.34, widths = words.map(w => g.measureText(w[1]).width), y0 = H * 0.23;
+  // the hook word is drawn 1.28x (and shakes), so it is laid out at that width or it covers its neighbours' letters
+  const gap = SIZE * 0.34, widths = words.map((w, i) => g.measureText(w[1]).width * (i === hook ? 1.3 : 1)), y0 = H * 0.23;
   const rows = []; let row = [], rw = 0;
   words.forEach((w, i) => { if (rw + widths[i] > W * 0.84 && row.length) { rows.push(row); row = []; rw = 0; } row.push(i); rw += widths[i] + gap; });
   rows.push(row);
@@ -47,10 +51,13 @@ function lowCtx() {   // 1/3-res buffer for the PS1 type, upscaled nearest-neigh
 function karaoke(t) {
   const li = LYRICS.findIndex((l, i) => t >= l[0][0] - 0.35 && t < LINE_END[i]);
   if (li < 0) return;
-  const words = LYRICS[li], box = layout(words), end = LINE_END[li];
-  const appear = clamp((t - (words[0][0] - 0.35)) / 0.18), out = clamp((end - t) / 0.15);   // line pops in and out
+  const words = LYRICS[li], end = LINE_END[li];
   const durs = words.map(([ws], i) => (i + 1 < words.length ? words[i + 1][0] : end) - ws);
   let hook = 0; durs.forEach((d, i) => { if (d >= durs[hook]) hook = i; });            // longest-held word
+  const box = layout(words, hook);
+  // a line followed at once by the next one is swapped, not faded: fading it ate its last word ("...qui sortent pas")
+  const next = LYRICS[li + 1], cont = next && next[0][0] - end < 0.3;
+  const appear = clamp((t - (words[0][0] - 0.35)) / 0.18), out = cont ? 1 : clamp((end - t) / 0.15);   // line pops in and out
   const beatK = 1 + 0.045 * pulse(t, 7);
   let cur = -1; words.forEach(([ws], i) => { if (t >= ws) cur = i; });                // the word being sung                                               // line punch on each beat
   const main = g;
@@ -120,12 +127,14 @@ function karaoke(t) {
   const sway = side * 0.16 * (1 - p) + side * 0.06, sq = 0.14 * p;           // lean left/right on alternate beats
   const faces = (window.STARS || ['saxo']).map(n => STICKERS[n]).filter(im => im && im.width);
   if (!faces.length && STICKERS.saxo.width) faces.push(STICKERS.saxo);
-  const half = (faces.length > 1 ? 112 * 1.42 : 132) / 2 + 24; x = clamp(x, half, W - half);   // keep the faces in frame
+  const SW = PIX ? (faces.length > 1 ? 96 : 128) : (faces.length > 1 ? 112 : 132);   // 8-bit: whole multiples of 32 px
+  const half = (faces.length > 1 ? SW * 1.42 : SW) / 2 + 24; x = clamp(x, half, W - half);   // keep the faces in frame
   faces.forEach((im, j) => {
-    const sw = faces.length > 1 ? 112 : 132, sh = sw * im.height / im.width, dx = (j - (faces.length - 1) / 2) * sw * 0.92;
+    const sw = SW, sh = sw * im.height / im.width, dx = (j - (faces.length - 1) / 2) * sw * 0.92;
     const s2 = j % 2 ? -1 : 1;   // a duo leans in opposite directions
     g.save(); g.translate(x + dx, y - hop - bob); g.rotate(sway * s2); g.scale(1 + sq, 1 - sq);
-    g.shadowColor = 'rgba(0,0,0,.35)'; g.shadowBlur = 10; g.shadowOffsetY = 6;
+    if (PIX) { g.imageSmoothingEnabled = false; g.shadowColor = 'rgba(0,0,0,.4)'; g.shadowBlur = 0; g.shadowOffsetX = 6; g.shadowOffsetY = 6; }   // a hard pixel drop shadow
+    else { g.shadowColor = 'rgba(0,0,0,.35)'; g.shadowBlur = 10; g.shadowOffsetY = 6; }
     g.drawImage(im, -sw / 2, -sh, sw, sh); g.restore();
   });
   g.restore();

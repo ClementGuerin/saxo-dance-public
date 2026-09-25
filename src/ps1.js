@@ -10,6 +10,7 @@ import { buildMoreMaps } from './maps.js';
 import { buildIndoorMaps } from './maps2.js';
 import { buildOutdoorMaps } from './maps3.js';
 import { buildSeaMaps } from './maps4.js';
+import { buildClubMaps } from './maps5.js';
 
 const RW = CONFIG.ps1.w, RH = CONFIG.ps1.h;
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
@@ -412,7 +413,9 @@ function rig(holder, root, clips, faceCache = {}) {
   const byEnd = re => { let f = null; root.traverse(o => { if (!f && o.isBone && re.test(o.name)) f = o; }); return f; };
   const L = byEnd(/(^L_Upperarm|LeftArm)$/), R = byEnd(/(^R_Upperarm|RightArm)$/), head = byEnd(/Head$/);
   const feet = [byEnd(/(LeftToeBase|L_ToeBase)$/), byEnd(/(RightToeBase|R_ToeBase)$/)].filter(Boolean);
-  const T = { holder, root, mixer, actions, clips, L, R, head, feet, faceCache, base: 'saxo' };
+  const T = { holder, root, mixer, actions, clips, L, R, head, feet, faceCache, base: 'saxo', hips: byEnd(/Hips$/),
+    handL: byEnd(/LeftHand$/), handR: byEnd(/RightHand$/), foreL: byEnd(/LeftForeArm$/), foreR: byEnd(/RightForeArm$/),
+    midL: byEnd(/LeftHandMiddle1$/), midR: byEnd(/RightHandMiddle1$/) };   // paws and forearms carry the props
   holder.rotation.y = 0; holder.updateMatrixWorld(true); T.restYaw = L && R ? shoulderYaw(T) : 0; T.restFoot = footY(T); T.restHead = head ? head.getWorldPosition(_a).y : 0;   // bind pose (no clip applied yet); unrigged previews have no bones
   return T;
 }
@@ -529,8 +532,32 @@ async function addOutfit(T, name, url) {
   (T.outfits ||= { [T.base]: body })[name] = [out];
   console[Q.has('fitlog') ? 'warn' : 'log'](`outfit ${name}: ${n} verts, yaw ${Math.round(best.yaw * 180 / Math.PI)}°, fit error ${best.e.toFixed(3)} m`);
 }
+// Head graft: Tripo sometimes bakes a costume's head badly (Sadi's white dress came back with a faceless grey dome), so
+// a look can borrow the head of another: triangles skinned mostly to the Head bone come from `from`, the rest from the
+// look itself. Both are SkinnedMeshes on the same skeleton, so the grafted head follows every clip. No re-roll needed.
+function trianglesBy(mesh, keep) {
+  const g = mesh.geometry, n = g.attributes.position.count, out = new THREE.BufferGeometry(), idx = [];
+  for (let t = 0; t + 2 < n; t += 3) if (keep(t)) idx.push(t, t + 1, t + 2);
+  for (const [k, a] of Object.entries(g.attributes)) {
+    const arr = new a.array.constructor(idx.length * a.itemSize);
+    idx.forEach((v, j) => { for (let c = 0; c < a.itemSize; c++) arr[j * a.itemSize + c] = a.array[v * a.itemSize + c]; });
+    out.setAttribute(k, new THREE.BufferAttribute(arr, a.itemSize, a.normalized));
+  }
+  return out;
+}
+function graftHead(T, look, from) {
+  const [body] = T.outfits?.[look] || [], [src] = T.outfits?.[from] || []; if (!body || !src) return;
+  const isHead = body.skeleton.bones.map(b => /Head(Top_End)?$/.test(b.name));
+  const headW = (m, i) => { const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight; let w = 0; for (let c = 0; c < 4; c++) if (isHead[si.getComponent(i, c)]) w += sw.getComponent(i, c); return w; };
+  const tri = (m, t) => (headW(m, t) + headW(m, t + 1) + headW(m, t + 2)) / 3;
+  body.geometry = trianglesBy(body, t => tri(body, t) < 0.5);
+  const head = new THREE.SkinnedMesh(trianglesBy(src, t => tri(src, t) >= 0.5), src.material);
+  head.frustumCulled = false; src.parent.add(head); head.position.copy(src.position); head.quaternion.copy(src.quaternion); head.scale.copy(src.scale);
+  head.bind(src.skeleton, src.bindMatrix); head.visible = false; T.outfits[look].push(head);
+}
 function wearOutfit(T, name) { for (const [k, ms] of Object.entries(T.outfits || {})) ms.forEach(m => { m.visible = k === (T.outfits[name] ? name : T.base); }); }
-const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/models/saxo_astronaut.glb', dj: 'assets/models/saxo_dj.glb', beach: 'assets/models/saxo_beach.glb', poop: 'assets/models/saxo_poop.glb', moto: 'assets/models/saxo_moto.glb', sponge: 'assets/models/saxo_sponge.glb' };
+const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/models/saxo_astronaut.glb', dj: 'assets/models/saxo_dj.glb', beach: 'assets/models/saxo_beach.glb', poop: 'assets/models/saxo_poop.glb', moto: 'assets/models/saxo_moto.glb', sponge: 'assets/models/saxo_sponge.glb',
+  michou: 'assets/models/saxo_michou.glb' };   // white tux with black satin lapels and black shades ("Dans le club", 2026-09-25)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -538,14 +565,18 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
 // Compote (an always-angry grey dwarf bunny girl in a plum hoodie, sheets in assets/ref/compote/) is the fourth.
 const PARTNERS = {
   sadi: { scale: 0.92, models: { sadi: 'assets/models/sadi_base.glb', cowgirl: 'assets/models/sadi_cowgirl.glb', astronaut: 'assets/models/sadi_astronaut.glb',
-    disco: 'assets/models/sadi_disco.glb', beach: 'assets/models/sadi_beach.glb', cheer: 'assets/models/sadi_cheer.glb', poop: 'assets/models/sadi_poop.glb', patrick: 'assets/models/sadi_patrick.glb', hotdog: 'assets/models/sadi_hotdog.glb' },
+    disco: 'assets/models/sadi_disco.glb', beach: 'assets/models/sadi_beach.glb', cheer: 'assets/models/sadi_cheer.glb', poop: 'assets/models/sadi_poop.glb', patrick: 'assets/models/sadi_patrick.glb', hotdog: 'assets/models/sadi_hotdog.glb',
+    white: 'assets/models/sadi_white.glb' },
+    heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
-    popstar: 'assets/models/kob_popstar.glb', beach: 'assets/models/kob_beach.glb', ninja: 'assets/models/kob_ninja.glb', witch: 'assets/models/kob_witch.glb', chef: 'assets/models/kob_chef.glb', poop: 'assets/models/kob_poop.glb', moto: 'assets/models/kob_moto.glb' },
+    popstar: 'assets/models/kob_popstar.glb', beach: 'assets/models/kob_beach.glb', ninja: 'assets/models/kob_ninja.glb', witch: 'assets/models/kob_witch.glb', chef: 'assets/models/kob_chef.glb', poop: 'assets/models/kob_poop.glb', moto: 'assets/models/kob_moto.glb',
+    pyjama: 'assets/models/kob_pyjama.glb' },
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
   compote: { scale: 0.92, models: { compote: 'assets/models/compote_base.glb', astronaut: 'assets/models/compote_astronaut.glb', cowgirl: 'assets/models/compote_cowgirl.glb',
-    punk: 'assets/models/compote_punk.glb', beach: 'assets/models/compote_beach.glb', boxer: 'assets/models/compote_boxer.glb', poop: 'assets/models/compote_poop.glb' },
+    punk: 'assets/models/compote_punk.glb', beach: 'assets/models/compote_beach.glb', boxer: 'assets/models/compote_boxer.glb', poop: 'assets/models/compote_poop.glb',
+    bouncer: 'assets/models/compote_bouncer.glb' },
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
 };
@@ -555,10 +586,27 @@ const PARTNER = Q.get('with') || (Q.get('cast') !== 'sadi' && PARTNERS[Q.get('ca
 const SCENE = Q.get('scene');
 // ?episode=<name> renders episodes/<name>.json: a shot list on the beat grid mixing dance shots and action scenes
 const EP = Q.get('episode') ? await (await fetch(`episodes/${Q.get('episode')}.json`)).json() : null;
-const WITH = PARTNERS[PARTNER || EP?.with] ? PARTNER || EP.with : 'sadi', { models: SADI, byMap: SADI_OUTFIT, scale: SADI_SCALE } = PARTNERS[WITH];
+// "with" names the partner, or several: ["sadi", "kob", "compote"] loads them all at once (the first one fills the
+// partner slot that `cast` and the scenes use; every one of them can be placed by a shot's `actors`)
+const EP_WITH = [].concat(EP?.with || []);
+const WITH = PARTNERS[PARTNER || EP_WITH[0]] ? PARTNER || EP_WITH[0] : 'sadi', { models: SADI, byMap: SADI_OUTFIT, scale: SADI_SCALE } = PARTNERS[WITH];
+// An episode built from `actors` shots loads only the looks it uses (each look costs load time in every render tab);
+// null = load everything (the older episodes and the planner)
+const LOOKS = (() => {
+  if (!EP || !EP.shots.some(s => s.actors)) return null;
+  const L = {}, add = (who, look) => (L[who] ||= new Set()).add(look);
+  for (const s of EP.shots) {
+    if (s.actors) for (const a of s.actors) add(a.who || 'saxo', a.look || a.who || 'saxo');
+    else if (s.outfit && (s.sadiOutfit || s.cast === 'saxo' || !s.cast)) { add('saxo', s.outfit); if (s.sadiOutfit) add(WITH, s.sadiOutfit); }
+    else return null;   // a shot that leans on the per-map defaults: keep every look
+  }
+  return L;
+})();
+const wantLook = (who, look) => !LOOKS || !!LOOKS[who]?.has(look);
 const slot = c => PARTNERS[c] ? 'sadi' : c;   // 'sadi' in cast logic means "the partner", whoever it is
 const CAST = slot(Q.get('cast')) || (EP ? 'duo' : SCENE === 'skate' ? 'sadi' : SCENE === 'fight' ? 'duo' : 'saxo'), DUO_X = 0.42;   // an episode loads both dogs; each shot says who's in it
 let sadi = null;
+const CREW = {};   // every loaded character by name (saxo, the partner, and any extra partners an episode brings)
 function makeShadow() { const s = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.9), mat({ shadow: 0.7 })); s.rotation.x = -Math.PI / 2; s.position.y = 0.012; scene.add(s); return s; }
 if (CHAR === 'tripo') {
   const MIXAMO = ['twist', 'macarena', 'silly_twist', 'chicken', 'twerk', 'ymca', 'robot', 'shopping_cart', 'running_man', 'moonwalk', 'shuffle', 'tut', 'booty_step', 'arm_wave', 'snake', 'shimmy', 'thriller_1', 'thriller_2', 'thriller_3', 'thriller_4', 'charleston', 'samba', 'belly', 'northern_soul_spin',
@@ -566,24 +614,31 @@ if (CHAR === 'tripo') {
     ...(EP?.clips || [])];   // an episode can list extra clips from the local library (assets/mixamo/anims/<slug>.fbx)
   tripo = Q.get('model') ? await loadTripo(Q.get('model'))
     : await loadTripo('assets/mixamo/saxo_skin_gangnam.fbx', MIXAMO.map(n => [n, `assets/mixamo/anims/${n}.fbx`]), 'gangnam', 'assets/mixamo/saxo_mixamo/saxo_mixamo.jpg');
-  if (!Q.get('model') && CAST !== 'sadi') for (const [n, u] of Object.entries(OUTFITS)) await addOutfit(tripo, n, u).catch(e => console.error('outfit failed', n, e));
-  if (!Q.get('model') && CAST !== 'saxo') {
-    // clone before any outfit is worn on it; the clone's own skeleton, sharing Saxo's clips and facing cache
-    const root = SkeletonUtils.clone(tripo.root), holder = new THREE.Group(); holder.add(root);
+  if (!Q.get('model') && CAST !== 'sadi') for (const [n, u] of Object.entries(OUTFITS)) if (wantLook('saxo', n)) await addOutfit(tripo, n, u).catch(e => console.error('outfit failed', n, e));
+  // clone before any partner look is worn on it: the clone's own skeleton, sharing Saxo's clips and facing cache
+  const partner = async name => {
+    const P = PARTNERS[name], root = SkeletonUtils.clone(tripo.root), holder = new THREE.Group(); holder.add(root);
     root.traverse(o => { if (o.isSkinnedMesh) o.visible = false; });
-    sadi = rig(holder, root, tripo.clips, tripo.faceCache); sadi.base = WITH; sadi.outfits = { [WITH]: [] };
-    root.traverse(o => { if (o.isSkinnedMesh && !sadi.body) sadi.body = o; });
-    for (const [n, u] of Object.entries(SADI)) await addOutfit(sadi, n, u).catch(e => console.error('sadi outfit failed', n, e));
-    holder.scale.setScalar(SADI_SCALE); scene.add(holder); sadi.shadow = makeShadow();
+    const D = rig(holder, root, tripo.clips, tripo.faceCache); D.base = name; D.outfits = { [name]: [] }; D.scale = P.scale;
+    root.traverse(o => { if (o.isSkinnedMesh && !D.body) D.body = o; });
+    for (const [n, u] of Object.entries(P.models)) if (n === name || wantLook(name, n)) await addOutfit(D, n, u).catch(e => console.error(name + ' outfit failed', n, e));
+    for (const [look, from] of Object.entries(P.heads || {})) graftHead(D, look, from);
+    holder.scale.setScalar(P.scale); scene.add(holder); D.shadow = makeShadow();
+    return D;
+  };
+  if (!Q.get('model') && CAST !== 'saxo') {
+    sadi = await partner(WITH); CREW[WITH] = sadi;
+    for (const n of EP_WITH.slice(1)) if (PARTNERS[n] && !CREW[n]) CREW[n] = await partner(n);
     if (CAST === 'sadi') tripo.holder.visible = false;
   }
+  tripo.scale = 1; CREW.saxo = tripo;
   window.DBG = { tripo, clipFacing, shoulderYaw, steadiestOffset, camera, get sadi() { return sadi; } };
   window.SAXO_CLIPS = Object.fromEntries(Object.entries(tripo.clips).map(([n, c]) => [n, c.duration]));
   scene.add(tripo.holder); saxo.root.visible = false;
   tripo.shadow = makeShadow(); if (CAST === 'sadi') tripo.shadow.visible = false;
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT) };
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -650,9 +705,24 @@ function episodeShots() {
   return EP.shots.map((e, i) => {
     const t0 = i ? beatT(e.beat) : 0, map = e.map || 'street', move = e.move || 'push';
     if (e.kind === 'action') return { ...e, sceneCam: e.cam, t0, map: e.scene === 'fight' ? 'stadium' : 'street', cam: CAM_MOVES.locked, move: e.scene, clip: e.scene, outfit: 'saxo', sadiOutfit: WITH, cast: 'scene' };
-    return { ...e, t0, map, kind: 'dance', cam: { ...CAM_MOVES[move], whip: !!e.whip }, move, clip: e.clip || DANCES[i % DANCES.length],
-      cast: slot(e.cast) || 'saxo', outfit: e.outfit || MAP_OUTFIT[map] || 'saxo', sadiOutfit: e.sadiOutfit || SADI_OUTFIT[map] || WITH };
+    const actors = e.actors && e.actors.map(a => actorSpec(a, e, map));
+    return { ...e, t0, map, kind: 'dance', cam: { ...CAM_MOVES[move], ...(e.cam || {}), whip: !!e.whip }, move, clip: e.clip || DANCES[i % DANCES.length],
+      cast: actors ? 'actors' : slot(e.cast) || 'saxo', actors, outfit: e.outfit || MAP_OUTFIT[map] || 'saxo', sadiOutfit: e.sadiOutfit || SADI_OUTFIT[map] || WITH };
   });
+}
+// A shot's `actors` place any loaded characters by hand, each with its own clip and look:
+//   { who: saxo|sadi|kob|compote, look, clip (a clip name, or "tpose" for the bind pose), at (s into the clip, or
+//     "auto"), speed, once (hold the last frame instead of looping), x, z (world m), face: "camera" (default: turn
+//     to the shot's camera, cancelling the clip's own heading) | "world" (yaw is absolute), yaw (deg, added),
+//     ground: "toe" (default, jumps survive) | "mesh" (lowest vertex on the floor every frame: lying, falling),
+//     lift (m, on top of the ground: a stage, a seat), hold / holdL (a prop in the right / left paw: glass, milk,
+//     phone, pad, finger), ride ("jetski"), star (false keeps the face off the karaoke), mx / mz (m walked over the shot) }
+function actorSpec(a, e, map) {
+  const who = a.who || 'saxo', P = PARTNERS[who];
+  return { who, look: a.look || (P ? P.byMap[map] || who : e.outfit || MAP_OUTFIT[map] || 'saxo'), clip: a.clip || e.clip || 'gangnam', at: a.at ?? e.at ?? 'auto',
+    speed: a.speed ?? 1, once: !!a.once, x: a.x || 0, z: a.z || 0, mx: a.mx || 0, mz: a.mz || 0, face: a.face || 'camera', yaw: (a.yaw || 0) * Math.PI / 180, ground: a.ground || 'toe',
+    lift: a.lift || 0, hold: a.hold || null, holdL: a.holdL || null, ride: a.ride || null, star: a.star !== false,
+    arm: a.arm || null, aim: a.aim || 'up', upAt: a.upAt, upEnd: a.upEnd };   // arm: L | R | both, aim: up | toast | phone | [x, y, z]
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -699,27 +769,179 @@ function bounce(t, t0) {
   return amp * env;
 }
 
+// ---- hand-placed actors (a shot's `actors`, see actorSpec) with props in their paws ----
+// Props are low-poly primitives, one per character and kind, placed in world space from the paw bones every frame
+// (so they stay pure in t): drinks stay upright like a real glass, the phone is held screen-in, the pad sits between
+// both paws, the foam finger follows the forearm. A jet-ski is fitted under a seated rider from his hips and paws.
+const PROPS = {};
+const _pa = new THREE.Vector3(), _pb = new THREE.Vector3(), _pc = new THREE.Vector3(), _pd = new THREE.Vector3(), _up = new THREE.Vector3(0, 1, 0);
+function propMesh(kind) {
+  const G = new THREE.Group(), M = c => mat({ color: c }), glow = c => mat({ color: c, unlit: 1 });
+  const cyl = (rt, rb, h, m, seg = 6) => new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
+  const add = (m, x = 0, y = 0, z = 0) => { m.position.set(x, y, z); G.add(m); return m; };
+  if (kind === 'glass') {          // a tall glass of orange juice, pink straw, a lemon slice on the rim
+    add(cyl(0.05, 0.04, 0.15, M(0xff9a2e)), 0, 0.075); add(cyl(0.053, 0.053, 0.02, M(0xf4fbff)), 0, 0.155);
+    add(cyl(0.008, 0.008, 0.14, M(0xff5fa2), 4), 0.02, 0.2).rotation.z = -0.3; add(box(0.06, 0.014, 0.03, M(0xffd43b)), -0.045, 0.15).rotation.z = 0.5;
+  } else if (kind === 'milk') {    // a glass of milk (Kob stays in)
+    add(cyl(0.052, 0.044, 0.16, M(0x6aa8e8)), 0, 0.08); add(cyl(0.046, 0.046, 0.02, M(0xffffff)), 0, 0.15); add(cyl(0.008, 0.008, 0.13, M(0xff5fa2), 4), 0.018, 0.2).rotation.z = -0.3;   // blue glass, white milk: a white glass vanished on her pyjamas
+  } else if (kind === 'phone') {   // held up filming: screen towards the holder, flash on the back
+    add(box(0.11, 0.2, 0.02, M(0xff4f9a))); add(box(0.094, 0.18, 0.004, glow(0x8fd8ff)), 0, 0, -0.012);   // a pink case: a black phone vanished against the shades
+    G.userData.led = add(box(0.03, 0.03, 0.004, glow(0xffffff)), -0.028, 0.07, 0.012);
+  } else if (kind === 'pad') {     // game controller
+    add(box(0.18, 0.036, 0.085, M(0x2a2d36)));
+    for (const s of [-1, 1]) { const h = add(cyl(0.032, 0.032, 0.075, M(0x2a2d36)), s * 0.08, -0.012, 0.03); h.rotation.x = Math.PI / 2; }
+    [[0.05, 0xe8173a], [0.07, 0x3fae47], [0.06, 0xffd43b]].forEach(([x, c], k) => add(box(0.016, 0.014, 0.016, glow(c)), x, 0.024, -0.012 + k * 0.012));
+    add(box(0.03, 0.014, 0.03, glow(0x8fd8ff)), -0.05, 0.024, 0);
+  } else if (kind === 'finger') {  // foam "number one" hand
+    add(box(0.17, 0.15, 0.08, M(0xffd43b))); add(box(0.06, 0.22, 0.06, M(0xffd43b)), -0.03, 0.18); add(box(0.18, 0.05, 0.09, M(0xe8173a)), 0, -0.1);
+  }
+  return G;
+}
+function jetskiMesh() {
+  const G = new THREE.Group(), white = mat({ color: 0xf2f4f8 }), pink = mat({ color: 0xff3d8a }), dark = mat({ color: 0x23263a }), seat = mat({ color: 0x15151b });
+  const hull = box(0.66, 0.32, 1.35, white); hull.position.set(0, -0.14, -0.1); G.add(hull);
+  const bow = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.33, 0.62, 4, 1), pink); bow.rotation.set(Math.PI / 2, Math.PI / 4, 0); bow.scale.set(1, 1, 0.55); bow.position.set(0, -0.08, 0.86); G.add(bow);
+  const stripe = box(0.68, 0.06, 1.2, pink); stripe.position.set(0, -0.05, -0.12); G.add(stripe);
+  const saddle = box(0.3, 0.14, 0.62, seat); saddle.position.set(0, 0.05, -0.32); G.add(saddle);
+  const well = box(0.6, 0.02, 0.5, dark); well.position.set(0, 0.012, 0.2); G.add(well);
+  const cowl = box(0.44, 0.2, 0.3, pink); cowl.position.set(0, 0.06, 0.58); G.add(cowl);
+  G.userData.bar = new THREE.Group(); const bar = box(0.5, 0.035, 0.035, dark); G.userData.bar.add(bar); G.add(G.userData.bar);
+  G.userData.col = box(0.05, 1, 0.05, dark); G.add(G.userData.col);
+  // spray: white chunks thrown back and up from the stern, looping with t
+  const spM = mat({ color: 0xf4fbff, unlit: 1 }); G.userData.spray = [];
+  for (let k = 0; k < 26; k++) { const s = box(0.09, 0.09, 0.09, spM); G.add(s); G.userData.spray.push(s); }
+  const wake = box(0.5, 0.012, 3.2, mat({ color: 0xe8f6ff, unlit: 1 })); wake.position.set(0, -0.095, -2.3); G.add(wake);
+  return G;
+}
+function propFor(D, kind) { const key = D.base + ':' + kind; if (!PROPS[key]) { PROPS[key] = kind === 'jetski' ? jetskiMesh() : propMesh(kind); scene.add(PROPS[key]); } return PROPS[key]; }
+function palm(D, side) {   // world point in the middle of a paw
+  const h = D['hand' + side], m = D['mid' + side], f = D['fore' + side]; if (!h) return null;
+  h.getWorldPosition(_pa);
+  if (m) m.getWorldPosition(_pb); else if (f) { f.getWorldPosition(_pb); _pb.sub(_pa).multiplyScalar(-0.35).add(_pa); } else _pb.copy(_pa);
+  return _pc.copy(_pa).lerp(_pb, 0.85);
+}
+function holdProp(D, kind, side, bodyYaw, t) {
+  const g = propFor(D, kind), s = D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25);   // a little oversized so it reads at 270x480
+  if (kind === 'pad') {
+    const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(0.35, bodyYaw, 0); return;
+  }
+  const p = palm(D, side); if (!p) return;
+  if (kind === 'finger') {   // along the forearm, pointing where the paw points
+    D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
+    g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
+  }
+  g.rotation.set(0, bodyYaw, 0);
+  g.position.copy(p).addScaledVector(_up, kind === 'phone' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
+  if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
+}
+function rideJetski(D, bodyYaw, base, t) {   // base: the rider's footwell height (the harbour water sits 0.16 m lower)
+  const g = propFor(D, 'jetski'), s = D.scale || 1, fwd = _pd.set(Math.sin(bodyYaw), 0, Math.cos(bodyYaw));
+  g.visible = true; D.hips.getWorldPosition(_pa);
+  g.position.set(_pa.x + fwd.x * 0.3 * s, base, _pa.z + fwd.z * 0.3 * s); g.rotation.set(0.04 * Math.sin(t * 2.3), bodyYaw, 0.05 * Math.sin(t * 1.7)); g.scale.setScalar(s);
+  g.updateMatrixWorld(true);
+  const a = palm(D, 'L')?.clone(), b = palm(D, 'R');   // handlebar in the paws, its column down to the cowl
+  if (a && b) {
+    const mid = a.clone().add(b).multiplyScalar(0.5), loc = g.worldToLocal(mid.clone()), bar = g.userData.bar, col = g.userData.col;
+    bar.position.copy(loc); bar.rotation.set(0, Math.atan2(g.worldToLocal(b.clone()).z - g.worldToLocal(a.clone()).z, g.worldToLocal(b.clone()).x - g.worldToLocal(a.clone()).x) * -1, 0);
+    const base = new THREE.Vector3(0, 0.12, 0.55), d = loc.clone().sub(base);
+    col.position.copy(base).add(loc).multiplyScalar(0.5); col.scale.set(1, d.length(), 1); col.quaternion.setFromUnitVectors(_up, d.normalize());
+  }
+  g.userData.spray.forEach((c, k) => {   // pure in t: each chunk loops through its own 0.7 s arc
+    const age = ((t * 1.45 + k * 0.618) % 1 + 1) % 1, side = (k % 2 ? 1 : -1) * (0.15 + 0.35 * ((k * 0.37) % 1));
+    c.position.set(side * (0.5 + age * 1.6), -0.08 + Math.sin(age * Math.PI) * (0.35 + 0.3 * ((k * 0.53) % 1)), -0.75 - age * 2.2);
+    c.scale.setScalar(1.3 * (1 - age) + 0.2); c.visible = age < 0.92;
+  });
+}
+// Procedural arm aims on top of any clip (the song's own moves: "tu lèves un bras, deux bras"): the upper arm and
+// forearm are turned in world space so they point along a direction in the body's frame (x = the character's left,
+// y up, z forward), blended in over 0.15 s from `upAt` s into the shot. Their chibi arms stop at chin height in the
+// clips, so "arm up" is a Y that clears the big head. Pure in t: recomputed from the posed clip every frame.
+const AIMS = { up: [0.64, 0.77, 0.05], toast: [0.2, 0.62, 0.76], phone: [0.18, 0.8, 0.57] };
+const _aq = new THREE.Quaternion(), _aq2 = new THREE.Quaternion(), _aq3 = new THREE.Quaternion(), _av = new THREE.Vector3(), _aw = new THREE.Vector3();
+function aimBone(bone, child, dir, w) {
+  if (!bone || !child) return;
+  bone.getWorldPosition(_av); child.getWorldPosition(_aw); const cur = _aw.sub(_av).normalize();
+  const keep = bone.quaternion.clone();
+  _aq.setFromUnitVectors(cur, dir).multiply(bone.getWorldQuaternion(_aq2));          // the bone's new world rotation
+  bone.quaternion.copy(bone.parent.getWorldQuaternion(_aq3).invert().multiply(_aq));  // back into its parent's space
+  bone.quaternion.copy(keep.slerp(bone.quaternion, w)); bone.updateMatrixWorld(true);
+}
+function aimArms(D, A, bodyYaw, since) {
+  const w = cl((since - (A.upAt || 0)) / 0.15) * (A.upEnd != null ? cl((A.upEnd - since) / 0.15) : 1); if (w <= 0) return;
+  const d0 = Array.isArray(A.aim) ? A.aim : AIMS[A.aim] || AIMS.up, cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
+  for (const side of A.arm === 'both' ? ['L', 'R'] : [A.arm]) {
+    const sx = side === 'L' ? 1 : -1, bx = d0[0] * sx, v = new THREE.Vector3(bx * cy + d0[2] * sy, d0[1], -bx * sy + d0[2] * cy).normalize();   // body frame → world
+    const up = side === 'L' ? D.L : D.R, fore = D['fore' + side], hand = D['hand' + side];
+    aimBone(up, fore, v, w); aimBone(fore, hand, v, w);
+  }
+}
+function placeActors(P, t, t0, t1, camAng, map) {
+  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.deck = 0; }
+  const len = t1 - t0, plans = [];
+  // pass 1: facing, start offset and ground are measured on Saxo's rig (shared caches) before anyone is posed this frame
+  for (const A of P.actors) {
+    const D = CREW[A.who]; if (!D) continue;
+    const n = A.clip === 'tpose' ? null : tripo.actions[A.clip] ? A.clip : Object.keys(tripo.actions)[0], span = Math.max(0.1, len * A.speed);
+    const at = !n ? 0 : A.at === 'auto' ? steadiestOffset(tripo, n, span) : A.at;
+    const fyaw = n && A.face === 'camera' ? clipFacing(tripo, n, at, span).yaw : 0;
+    plans.push({ A, D, n, at, fyaw, yaw: A.face === 'world' ? A.yaw : -fyaw + camAng + A.yaw, ground: n && A.ground === 'toe' ? clipGround(tripo, n, at, span) : 0 });
+  }
+  // pass 2: pose, place and ground each one, then its props
+  const stars = [];
+  for (const { A, D, n, at, fyaw, yaw, ground } of plans) {
+    const s = D.scale || 1, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0, lift = A.lift + bob;
+    wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride;
+    for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
+    if (n) { const d = D.clips[n].duration, tc = at + (t - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
+    D.mixer.update(0);
+    const u = cl((t - t0) / len);   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned)
+    D.holder.rotation.y = yaw; D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u); D.holder.updateMatrixWorld(true);
+    if (A.arm) aimArms(D, A, yaw + fyaw, t - t0);
+    // the toes set the shot's floor, but a hem, a paw or a big head can reach lower: never let the mesh sink;
+    // "mesh" grounding keeps the lowest point on the floor every frame (lying down, falling)
+    const low = meshLow(D, 3) - lift; if (A.ground === 'mesh' || low < 0) { D.holder.position.y -= low; D.holder.updateMatrixWorld(true); }
+    D.deck = lift;
+    const up = Math.max(0, footY(D) / s - D.restFoot - lift / s);
+    const hp = D.hips ? D.hips.getWorldPosition(_pb) : D.holder.position;
+    D.shadow.position.set(hp.x, 0.012 + lift, hp.z); D.shadow.scale.setScalar(s * Math.max(0.5, 1 - up * 0.8) * (A.ground === 'mesh' ? 1.5 : 1));
+    D.shadow.material.uniforms.uShadow.value = SHADOW * Math.max(0.35, 1 - up);
+    D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
+    const bodyYaw = yaw + fyaw;
+    if (A.hold) holdProp(D, A.hold, 'R', bodyYaw, t);
+    if (A.holdL) holdProp(D, A.holdL, 'L', bodyYaw, t);
+    if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
+    if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
+  }
+  window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics
+  if (P.stars) window.STARS = P.stars;   // a shot can name the faces itself (Kob's empty sofa shows hers)
+  else if (!window.STARS.length) window.STARS = [P.actors[0]?.who || 'saxo'];
+}
+
 // a duo seen from the side lines up and one hides the other, so its camera swings less (orbits span ±54°, not ±120°)
 let curMap = null;
 function danceFrame(t) {
-  const i = shotIndex(t), [t0, mapName, cam, outfit, sadiOutfit, CAST] = SHOTS[i], t1 = i + 1 < SHOTS.length ? SHOTS[i + 1][0] : CONFIG.duration;
-  const ANG_K = CAST === 'duo' ? 0.45 : 1;
+  const i = shotIndex(t), [t0, mapName, cam, outfit, sadiOutfit, CAST] = SHOTS[i], t1 = i + 1 < SHOTS.length ? SHOTS[i + 1][0] : CONFIG.duration, P = PLAN[i];
+  const ACT = CAST === 'actors';   // a shot that places its characters by hand (`actors`) sets its own framing
+  const ANG_K = ACT ? P.angK ?? 1 : CAST === 'duo' ? 0.45 : 1, WIDE = ACT ? P.wide ?? 1 : CAST === 'duo' ? 1.2 : 1, [FX, FZ, FY = 0] = P.focus || [0, 0];   // focus: [x, z, floor y] the camera orbits
   window.STARS = CAST === 'sadi' ? [WITH] : CAST === 'duo' && sadi ? ['saxo', WITH] : ['saxo'];   // whose emoji face rides the karaoke (dance.js)
   const map = MAPS[mapName];
   for (const m of Object.values(MAPS)) m.group.visible = m === map;   // set every frame: episode scenes switch maps too
   scene.background = map.sky; curMap = map;
-  map.light(); map.anim(t);
-  const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0);
+  map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
+  const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
-  const lerp = x => Array.isArray(x) ? x[0] + (x[1] - x[0]) * k : x, ang = lerp(cam.ang) * ANG_K * Math.PI / 180, r = lerp(cam.r) * (CAST === 'duo' ? 1.2 : 1);   // a duo needs a wider frame
-  camera.position.set(Math.sin(ang) * r + sh[0] * 0.05, lerp(cam.h) + sh[1] * 0.04 - bo * 0.6, Math.cos(ang) * r + sh[2] * 0.04);
-  const fov = cam.frame ? 2 * Math.atan(cam.frame * (CAST === 'duo' ? 1.2 : 1) / 2 / r) * 180 / Math.PI : lerp(cam.fov);
+  const lerp = x => Array.isArray(x) ? x[0] + (x[1] - x[0]) * k : x, ang = lerp(cam.ang) * ANG_K * Math.PI / 180, r = lerp(cam.r) * WIDE;   // a duo needs a wider frame
+  camera.position.set(FX + Math.sin(ang) * r + sh[0] * 0.05, FY + lerp(cam.h) + sh[1] * 0.04 - bo * 0.6, FZ + Math.cos(ang) * r + sh[2] * 0.04);
+  const fov = cam.frame ? 2 * Math.atan(cam.frame * WIDE / 2 / r) * 180 / Math.PI : lerp(cam.fov);
   camera.fov = fov * (1 - bo); camera.updateProjectionMatrix();
-  camera.lookAt(saxo.root.position.x * 0.6 + sh[1] * 0.03, lerp(cam.look), 0);
+  camera.lookAt(FX + saxo.root.position.x * 0.6 + sh[1] * 0.03 + (cam.lookX || 0), FY + lerp(cam.look), FZ);
   // whip-in: the first ~0.25 s pans fast into place; the 2D layer smears the frame by window.WHIP
   const whip = cam.whip ? Math.exp(-(t - t0) * 16) : 0; camera.rotateY(whip * 0.9); window.WHIP = whip;
   applyPose(saxo, poseAt(t));
-  if (tripo) {
+  for (const g of Object.values(PROPS)) g.visible = false;
+  if (tripo && ACT) placeActors(P, t, t0, t1, (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180, map);
+  else if (tripo) {
     // each shot names a clip and a start offset into it; unknown names fall back to the first clip
     const [clipName, clipAt] = SHOT_CLIPS[i] || ['dance_01', 0], n = tripo.actions[clipName] ? clipName : Object.keys(tripo.actions)[0];
     if (!n) { tripo.holder.rotation.y = 0.35 * Math.sin(t * 0.8); } else {
@@ -728,7 +950,7 @@ function danceFrame(t) {
       const camAng = (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180, yaw = -clipFacing(tripo, n, at, t1 - t0).yaw + camAng;   // orbits average out to the front
       const ground = clipGround(tripo, n, at, t1 - t0);
       const cast = CAST === 'sadi' ? [[sadi, 0, sadiOutfit]] : CAST === 'duo' && sadi ? [[tripo, -DUO_X, outfit], [sadi, DUO_X, sadiOutfit]] : [[tripo, 0, outfit]];
-      for (const D of [tripo, sadi]) if (D) { const on = cast.some(c => c[0] === D); D.holder.visible = on; D.shadow.visible = on; D.air = false; D.deck = 0; }
+      for (const D of Object.values(CREW)) { const on = cast.some(c => c[0] === D); D.holder.visible = on; D.shadow.visible = on; D.air = false; D.deck = 0; }
       for (const [D, x, look] of cast) {
         const s = D === sadi ? SADI_SCALE : 1;
         wearOutfit(D, look);
@@ -775,7 +997,22 @@ function qaDog(D, who) {
 }
 window.QA_PROBE = t => {
   window.render3d(t);
-  return [[tripo, 'saxo'], [sadi, WITH]].filter(([D]) => D && D.holder.visible && D.holder.parent).map(([D, w]) => qaDog(D, w)).filter(d => isFinite(d.low));
+  return Object.entries(CREW).filter(([, D]) => D && D.holder.visible && D.holder.parent).map(([w, D]) => qaDog(D, w)).filter(d => isFinite(d.low));
+};
+// Debug probe for staging props around a clip (node render.mjs --eval="CLIP_PROBE('gaming', [0, 1], 'kob')"): the
+// character posed in the clip on the origin at yaw 0, lowest vertex on the floor; key points in metres, rounded to cm.
+window.CLIP_PROBE = (name, ts = [0], who = 'saxo', look) => {
+  const D = CREW[who]; if (!D) return 'no ' + who;
+  wearOutfit(D, look || D.base); D.holder.visible = true;
+  const r = v => v.toArray().map(x => Math.round(x * 100) / 100), w = b => b ? r(b.getWorldPosition(new THREE.Vector3())) : null;
+  return ts.map(t => {
+    for (const [k, a] of Object.entries(D.actions)) a.weight = k === name ? 1 : 0;
+    if (D.actions[name]) D.actions[name].time = t % D.clips[name].duration;
+    D.mixer.update(0); D.holder.rotation.y = 0; D.holder.position.set(0, 0, 0); D.holder.updateMatrixWorld(true);
+    D.holder.position.y = -meshLow(D, 1); D.holder.updateMatrixWorld(true);
+    const bb = new THREE.Box3(); D.root.traverse(o => { if (o.isSkinnedMesh && o.visible) { const n = o.geometry.attributes.position.count, v = new THREE.Vector3(); for (let i = 0; i < n; i += 3) { o.getVertexPosition(i, v); bb.expandByPoint(v.applyMatrix4(o.matrixWorld)); } } });
+    return { t, dur: D.clips[name]?.duration, lift: Math.round(D.holder.position.y * 100) / 100, hips: w(D.hips), head: w(D.head), toeL: w(D.feet[0]), toeR: w(D.feet[1]), handL: w(D.handL), handR: w(D.handR), box: [r(bb.min), r(bb.max)] };
+  });
 };
 const sceneKit = () => ({ THREE, scene, camera, renderer, MAPS, tripo, sadi, mat, box, U, SADI_SCALE, SHADOW, footY, clipGround, shake, wearOutfit, bounce: t => bounce(t, -1) });
 if (SCENE) {
@@ -791,7 +1028,11 @@ if (EP) {
   window.render3d = t => {
     const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
-    if (p.kind === 'action') { window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null); }
+    if (p.kind === 'action') {
+      for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
+      for (const g of Object.values(PROPS)) g.visible = false;
+      window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);
+    }
     window.SCENE_FX = null; const frame = danceFrame(t); window.SCENE_FX = danceFx(p, t); return frame;
   };
   // dance shots can carry FX too: `word` (a comic burst beside the dancer's head, popping `wordAt` beats into the shot, default 1)
@@ -805,9 +1046,13 @@ if (EP) {
       const since = t - (p.t0 + (p.wordAt ?? 1) * bp);
       if (since > 0) {
         fx.pow = Math.min(1, since / 0.12) * Math.exp(-since * 0.9); fx.word = p.word;
-        const D = p.cast === 'sadi' ? sadi : tripo; D.holder.getWorldPosition(_fv); _fv.y += 1.7 * (D === sadi ? SADI_SCALE : 1); _fv.project(camera);
+        const who = p.actors ? CREW[p.wordWho || p.actors[0]?.who] : null;
+        if (p.actors && !who) { fx.x = p.wordX ?? 0.5; fx.y = p.wordY ?? 0.5; return fx.flash > 0.01 || fx.pow > 0.01 ? fx : null; }   // nobody to point at: the shot places it
+        const D = who || (p.cast === 'sadi' ? sadi : tripo), s = D.scale || (D === sadi ? SADI_SCALE : 1);
+        if (who && D.head) { D.head.getWorldPosition(_fv); _fv.y += 0.35 * s; } else { D.holder.getWorldPosition(_fv); _fv.y += 1.7 * s; }
+        _fv.project(camera);
         // beside the head, never on the face: the burst is ~a quarter of the frame wide
-        const hx = (_fv.x + 1) / 2; fx.x = p.cast === 'duo' ? 0.5 : hx + (hx <= 0.5 ? 0.26 : -0.26); fx.y = (1 - _fv.y) / 2 - 0.1;
+        const hx = (_fv.x + 1) / 2; fx.x = p.wordX ?? (p.cast === 'duo' ? 0.5 : hx + (hx <= 0.5 ? 0.26 : -0.26)); fx.y = p.wordY ?? (1 - _fv.y) / 2 - 0.1;
       }
     }
     return fx.flash > 0.01 || fx.pow > 0.01 ? fx : null;

@@ -1,16 +1,16 @@
 // video.config.js: the one place for format, timing and audio. Read by the page and by render.mjs.
 window.CONFIG = {
-  title: 'Saxo dance — Nicole Kidman',   // audio: tools/cut_song.mjs picks the window
-  song: { title: 'Nicole Kidman', artist: 'ADÉLA' },   // read by publish.mjs for captions and hashtags
+  title: 'Saxo dance — Dans le club',   // audio: hand-cut, see ~/personal/saxo-video/songs/dans-le-club/make_lyrics.py
+  song: { title: 'Dans le club', artist: 'Michou' },   // read by publish.mjs for captions and hashtags
   width: 1080,
   height: 1920,
   scale: 1,
   fps: 30,
-  duration: 68.8,   // hand-cut 41.6–110.4 s of full.mp3 (verse 1, pre-chorus, first chorus), ends before the bridge
+  duration: 75.6,   // hand-cut 8.40–82.60 s of full.mp3 (muffled spoken intro, chorus 1, verse 1, pre-chorus, chorus 2) + 1.4 s of silence after "j'dead ça"
   ps1: { w: 270, h: 480, snap: [135, 240] },   // internal 3D resolution (4x upscale, nearest) and vertex snap grid
   background: '#000000',
-  bpm: 142.2,
-  beatOffset: 0.441,
+  bpm: 115,
+  beatOffset: 0.255,
   boil: 12,
   fonts: {
     display: '"Arial Black", Impact, sans-serif',

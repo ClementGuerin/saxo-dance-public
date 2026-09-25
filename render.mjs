@@ -9,6 +9,7 @@
 //   node render.mjs --audio                                build out/audio/mix.wav (score + tracks)
 //   node render.mjs --encode [--out=out/video.mp4] [--crf=18]   frames + audio → MP4 (run --frames first)
 //   node render.mjs --qa[=a:b] [--qa-fps=10]            QA gate: floor contact + framing of every dog, exit 1 on failure (also runs before --frames and --clip; --no-qa skips)
+//   node render.mjs --eval="CLIP_PROBE('gaming', [0, 1])"  print a page expression as JSON (probes, debugging)
 //   node render.mjs --gif=0:4 [--w=480] [--gif-fps=15] [--out=out/loop.gif]   looping GIF
 // Options: --chrome=<path> (or CHROME_PATH), --fps=<n> overrides the config, --gl=<angle backend> (metal, d3d11, swiftshader).
 import puppeteer from 'puppeteer-core';
@@ -233,6 +234,8 @@ try {
     }
     ff.stdin.end(); await new Promise(r => ff.on('close', r));
     console.log('wrote ' + out);
+  } else if (args.eval) {   // print a page expression (debug probes like CLIP_PROBE), JSON-encoded
+    console.log(JSON.stringify(await first.evaluate(e => (0, eval)(e), String(args.eval)), null, 1));
   } else if (args.gif) {
     const [a, b] = String(args.gif).split(':').map(Number), gf = +(args['gif-fps'] || 15), w = +(args.w || 480);
     const out = args.out || join(OUT, 'loop.gif'), tmp = join(OUT, 'gif-frames');

@@ -1,5 +1,5 @@
 // tools/beats.mjs: analyse a music track so shots can land on its beats.
-//   node tools/beats.mjs assets/audio/song.mp3 [--min=70] [--max=180] [--out=src/beats.js]
+//   node tools/beats.mjs assets/audio/song.mp3 [--min=70] [--max=180] [--bpm=<exact, skips the estimate>] [--out=src/beats.js]
 // Writes window.BEATS = { bpm, offset, onsets, bars } where offset is the time of beat 0, onsets are strong
 // transients (hits worth animating) and bars holds loudness per bar (find the drop and the quiet intro).
 // The estimate is good for steady pop, electronic and rock tracks; check it by ear in the preview and nudge
@@ -39,7 +39,9 @@ for (let lag = Math.floor(60 / (maxB * hopT)); lag <= Math.ceil(60 / (minB * hop
   if (s > best.s) best = { s, lag };
 }
 const [y0, y1, y2] = [ac(best.lag - 1), ac(best.lag), ac(best.lag + 1)], den = y0 - 2 * y1 + y2;
-const lag = best.lag + (den ? .5 * (y0 - y2) / den : 0), bpm = 60 / (lag * hopT);
+// --bpm=<exact> skips the estimate: autocorrelation can be ~0.4 BPM off ("Dans le club": 115.4 for a true 115.0),
+// which drifts a full beat over a minute. Measure it from two repeats of the chorus (their offset is whole bars).
+const lag = opt.bpm ? 60 / (+opt.bpm * hopT) : best.lag + (den ? .5 * (y0 - y2) / den : 0), bpm = 60 / (lag * hopT);
 
 // Phase: the offset whose beat grid collects the most onset strength.
 let bestP = { s: -1, p: 0 };

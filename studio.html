@@ -32,7 +32,15 @@
 </main>
 
 <script src="video.config.js"></script>
+<script>
+  // ?kit=<name> swaps in an episode's own cut, loaded right after each default: episodes/<name>.config.js (duration,
+  // audio, song), .beats.js and .lyrics.js. The daily run rewrites src/ every day; a kit keeps an episode re-renderable.
+  window.KIT = new URLSearchParams(location.search).get('kit');
+  window.kitScript = part => { if (KIT) document.write(`<script src="episodes/${KIT}.${part}.js"><\/script>`); };
+  kitScript('config');
+</script>
 <script src="src/beats.js"></script>
+<script>kitScript('beats')</script>
 <script src="src/core.js"></script>
 <script src="src/timeline.js"></script>
 <script src="src/audio.js"></script>
@@ -40,6 +48,7 @@
 <!-- chapters: one file each, registered with chapter(); add new files here in time order -->
 <!-- synthesised soundtrack (optional): defines score(S) -->
 <script src="src/lyrics.js"></script>
+<script>kitScript('lyrics')</script>
 <script src="src/ch/dance.js"></script>
 <script src="src/boot.js"></script>
 <script type="importmap">{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }</script>

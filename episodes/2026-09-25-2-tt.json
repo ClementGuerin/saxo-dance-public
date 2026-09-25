@@ -1,0 +1,810 @@
+{
+ "date": "2026-09-25",
+ "n": "2-tt",
+ "tiktok_sound": {
+  "music_id": "6856788296605911042",
+  "window": [
+   120,
+   152.37
+  ],
+  "videos": 67738
+ },
+ "song": {
+  "title": "Dans le club",
+  "artist": "Michou",
+  "window": [
+   120,
+   152.37
+  ],
+  "bpm": 115
+ },
+ "logline": "TikTok cut on the official sound: the squad parties on the yacht, every 'j'dead ça' kills more of the party, they lie there wrecked on 'j'suis fatigué', and Kob, who stayed in, goes to bed.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "air_squat_workout",
+  "death_falling_backwards",
+  "dying_falling_backward",
+  "female_hip_hop_body_wave_dancing",
+  "female_hip_hop_raise_the_roof_dancing",
+  "gaming",
+  "hip_hop_dancing_side_to_side",
+  "hip_hop_just_listening_dancing_variation",
+  "house_dance_variation_3",
+  "knocked_out_falling_to_back",
+  "laying_idle",
+  "pointing_while_seated"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "hip_hop_just_listening_dancing_variation",
+     "x": 0,
+     "z": 0,
+     "hold": "glass"
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": -0.85,
+     "z": -0.95
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "house_dance_variation_3",
+     "x": 0.9,
+     "z": -1
+    }
+   ],
+   "cam": {
+    "ang": [
+     -10,
+     2
+    ],
+    "r": [
+     3.7,
+     2.9
+    ],
+    "h": [
+     0.45,
+     0.55
+    ],
+    "look": 1.05,
+    "fov": 60
+   }
+  },
+  {
+   "beat": 6,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "hip_hop_just_listening_dancing_variation",
+     "x": 0,
+     "z": 0,
+     "hold": "glass",
+     "arm": "R",
+     "aim": "toast",
+     "upAt": 0.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     14,
+     10
+    ],
+    "r": [
+     3,
+     2.7
+    ],
+    "h": [
+     1,
+     0.95
+    ],
+    "look": 1.05,
+    "fov": 50,
+    "lookX": 0.15
+   }
+  },
+  {
+   "beat": 8.5,
+   "kind": "dance",
+   "map": "kobflat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "pointing_while_seated",
+     "x": -0.2,
+     "z": -1.4,
+     "hold": "milk",
+     "at": 0.3,
+     "arm": "R",
+     "aim": "toast",
+     "upAt": 0.25,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "focus": [
+    -0.2,
+    -1.4
+   ],
+   "stars": [
+    "kob"
+   ],
+   "cam": {
+    "ang": [
+     -10,
+     -6
+    ],
+    "r": [
+     2.5,
+     2.25
+    ],
+    "h": [
+     0.95,
+     0.9
+    ],
+    "look": 0.82,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 10,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": 0,
+     "z": 0.1,
+     "arm": "R",
+     "upAt": 0.45
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.62,
+     "z": -0.5,
+     "arm": "R",
+     "upAt": 0.45
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": 0.62,
+     "z": -0.5,
+     "arm": "R",
+     "upAt": 0.45
+    }
+   ],
+   "whip": true,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     0,
+     4
+    ],
+    "r": [
+     4.6,
+     4.3
+    ],
+    "h": [
+     0.95,
+     0.9
+    ],
+    "look": 0.95,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 14,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0,
+     "z": 0.1,
+     "arm": "both",
+     "upAt": 0.45
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": -0.62,
+     "z": -0.5,
+     "arm": "both",
+     "upAt": 0.45
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0.62,
+     "z": -0.5,
+     "arm": "both",
+     "upAt": 0.45
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     -10,
+     -4
+    ],
+    "r": [
+     4.3,
+     4
+    ],
+    "h": [
+     0.45,
+     0.5
+    ],
+    "look": 1.05,
+    "fov": 58
+   }
+  },
+  {
+   "beat": 18,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "air_squat_workout",
+     "x": 0,
+     "z": 0.1,
+     "at": 1.63
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "air_squat_workout",
+     "x": -0.62,
+     "z": -0.5,
+     "at": 1.63
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "air_squat_workout",
+     "x": 0.62,
+     "z": -0.5,
+     "at": 1.63
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     22,
+     16
+    ],
+    "r": [
+     4.6,
+     4.3
+    ],
+    "h": [
+     1.25,
+     1.15
+    ],
+    "look": 0.8,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "death_falling_backwards",
+     "x": 0,
+     "z": 0.1,
+     "at": 1.35,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 20,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "knocked_out_falling_to_back",
+     "x": -0.62,
+     "z": -0.5,
+     "at": 1.25,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": -25,
+     "speed": 1
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "dying_falling_backward",
+     "x": 0.62,
+     "z": -0.5,
+     "at": 0,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 60,
+     "speed": 1
+    }
+   ],
+   "focus": [
+    0,
+    -0.75
+   ],
+   "word": "RIP",
+   "wordAt": 2.3,
+   "wordWho": "saxo",
+   "wordX": 0.78,
+   "wordY": 0.5,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     -4,
+     6
+    ],
+    "r": [
+     4.4,
+     4.7
+    ],
+    "h": [
+     3,
+     2.8
+    ],
+    "look": -0.35,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "death_falling_backwards",
+     "x": 0,
+     "z": 0.1,
+     "at": 4.48,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 20,
+     "speed": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "knocked_out_falling_to_back",
+     "x": -0.62,
+     "z": -0.5,
+     "at": 4.38,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": -25,
+     "speed": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "dying_falling_backward",
+     "x": 0.62,
+     "z": -0.5,
+     "at": 3.13,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 60,
+     "speed": 0.3
+    }
+   ],
+   "focus": [
+    -0.6,
+    -1.4
+   ],
+   "guestsDie": 14.438,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     30,
+     8
+    ],
+    "r": [
+     6.4,
+     6
+    ],
+    "h": [
+     2.2,
+     2
+    ],
+    "look": 0.3,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [],
+   "focus": [
+    -2.9,
+    0.4
+   ],
+   "guestsDie": 16.325000000000003,
+   "stars": [
+    "saxo"
+   ],
+   "word": "RIP",
+   "wordAt": 1.6,
+   "wordX": 0.55,
+   "wordY": 0.52,
+   "cam": {
+    "ang": [
+     -38,
+     -30
+    ],
+    "r": [
+     3.6,
+     3.2
+    ],
+    "h": [
+     1.5,
+     1.4
+    ],
+    "look": 0.35,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "death_falling_backwards",
+     "x": 0,
+     "z": 0.1,
+     "at": 8.65,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 20,
+     "speed": 0.2
+    },
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "knocked_out_falling_to_back",
+     "x": -0.62,
+     "z": -0.5,
+     "at": 8.55,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": -25,
+     "speed": 0.2
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "dying_falling_backward",
+     "x": 0.62,
+     "z": -0.5,
+     "at": 7.3,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 60,
+     "speed": 0.2
+    }
+   ],
+   "focus": [
+    0,
+    -1
+   ],
+   "guestsDie": 14.438,
+   "still": false,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     0,
+     30
+    ],
+    "r": [
+     7,
+     7.4
+    ],
+    "h": [
+     6,
+     7
+    ],
+    "look": 0,
+    "fov": 52,
+    "ease": "lin"
+   }
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "kobflat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "gaming",
+     "x": -0.2,
+     "z": -1.4,
+     "hold": "pad",
+     "at": 2.2,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "focus": [
+    -0.2,
+    -1.4
+   ],
+   "stars": [
+    "kob"
+   ],
+   "word": "BOF.",
+   "wordAt": 1,
+   "wordWho": "kob",
+   "cam": {
+    "ang": [
+     16,
+     12
+    ],
+    "r": [
+     2.5,
+     2.3
+    ],
+    "h": [
+     0.95,
+     0.9
+    ],
+    "look": 0.82,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0.25,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "guestsDie": 14.438,
+   "calm": true,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     8,
+     0
+    ],
+    "r": [
+     0.95,
+     0.8
+    ],
+    "h": [
+     2.5,
+     2.3
+    ],
+    "look": 0.1,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "white",
+     "clip": "laying_idle",
+     "x": -0.42,
+     "z": 0.25,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": -8,
+     "at": 4
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "laying_idle",
+     "x": 0.45,
+     "z": 0.2,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 10,
+     "at": 8
+    }
+   ],
+   "guestsDie": 14.438,
+   "calm": true,
+   "stars": [
+    "sadi",
+    "compote"
+   ],
+   "cam": {
+    "ang": [
+     -6,
+     0
+    ],
+    "r": [
+     1.2,
+     1
+    ],
+    "h": [
+     2.9,
+     2.7
+    ],
+    "look": 0.1,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0.3,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0,
+     "at": 3
+    }
+   ],
+   "guestsDie": 14.438,
+   "calm": true,
+   "stars": [
+    "saxo"
+   ],
+   "cam": {
+    "ang": [
+     4,
+     0
+    ],
+    "r": [
+     0.55,
+     0.45
+    ],
+    "h": [
+     1.75,
+     1.6
+    ],
+    "look": 0.1,
+    "fov": 50
+   }
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "kobflat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "laying_idle",
+     "x": -0.1,
+     "z": -1.5,
+     "lift": 0.1,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 90
+    }
+   ],
+   "focus": [
+    -0.25,
+    -1.45
+   ],
+   "stars": [
+    "kob"
+   ],
+   "word": "ZZZ",
+   "wordAt": 3,
+   "wordWho": "kob",
+   "wordX": 0.7,
+   "cam": {
+    "ang": [
+     12,
+     8
+    ],
+    "r": [
+     3.1,
+     2.8
+    ],
+    "h": [
+     1.6,
+     1.5
+    ],
+    "look": 0.45,
+    "fov": 50
+   }
+  }
+ ],
+ "tags": {
+  "structure": "copycat",
+  "scenes": [],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "lyric",
+  "maps": [
+   "yacht",
+   "kobflat",
+   "lounge"
+  ],
+  "ref": "none",
+  "lyric_literal": "j'dead ça",
+  "experiment": "TikTok's most-used official sound for the song (67k videos) instead of the 60 s one"
+ }
+}
