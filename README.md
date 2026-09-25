@@ -33,7 +33,7 @@
 </div>
 
 > [!NOTE]
-> **Public mirror.** This is the public copy of a private repo: the renderer, the maps, the website and the tools are all here. The songs, lyrics, Mixamo clips, 3D models and research notes stay private, so the renderer won't run out of the box.
+> **Public mirror.** This is the public copy of a private repo, updated on every push: the renderer, the maps, the website and the tools are all here. The songs, lyrics, Mixamo clips, 3D models and research notes stay private, so the renderer won't run out of the box.
 
 ## What a video looks like
 
