@@ -8,7 +8,7 @@ import json, os
 
 YACHT = {'ROPE': [2.6, 5.7], 'BOW': [0, -26.5], 'SEA': [9.5, -6], 'WATER': -1.6, 'TABLE': [2.55, -1.2, 0.3], 'KOB': [-0.2, -1.4]}
 KX, KZ = YACHT['KOB']
-ME, SA, KO, CO = 'michou', 'white', 'pyjama', 'bouncer'   # the looks of the night
+ME, SA, KO, CO = 'michou', 'disco', 'pyjama', 'bouncer'   # the looks of the night (Sadi's white dress looked broken: disco, the user's call)
 def A(who, clip, x=0, z=0, **o):
     look = {'saxo': ME, 'sadi': SA, 'kob': KO, 'compote': CO}[who]
     return {'who': who, 'look': o.pop('look', look), 'clip': clip, 'x': x, 'z': z, **o}
@@ -123,12 +123,14 @@ shots = [
   shot(94, 'yacht', [A('saxo', 'talking', -0.42, 0, yaw=35), A('sadi', 'bored_idle', 0.42, -0.1, yaw=-40, arm='R', aim=[0.15, 0.4, 0.9], upAt=0.85)],
        "Non, parle pas (b95.7-98.1): she stops him",
        cam([8, 4], [3.5, 3.2], [1.0, 0.95], 0.98), stars=['saxo', 'sadi'], noguests=True),
-  shot(98, 'yacht', [A('saxo', 'salsa_dancing_side_to_side', -0.45, -26.4, face='world', yaw=150), A('sadi', 'salsa_dancing_twirl_and_clap', 0.45, -26.6, face='world', yaw=210)],
+  shot(98, 'yacht', [A('saxo', 'salsa_dancing_side_to_side', -0.45, -25.3, face='world', yaw=150), A('sadi', 'salsa_dancing_twirl_and_clap', 0.45, -25.5, face='world', yaw=210)],
        "chica, danse avec moi (b98.3-101.8): then she dances with him, on the foredeck at sunset",
-       cam([150, 170], [3.6, 3.3], [0.95, 0.9], 0.98), focus=[0, -26.5], spot='bow', stars=['saxo', 'sadi']),
-  shot(102, 'yacht', [A('sadi', 'tpose', -0.05, -27.0, face='world', yaw=180), A('saxo', 'tpose', 0.5, -26.25, face='world', yaw=180)],
-       "S'te plaît regarde-moi, j'reste avec toi ce soir (b102-109.8): Titanic at the bow",
-       cam([164, 196], [3.3, 3.0], [1.0, 0.95], 1.0, 52, 'lin'), focus=[0.15, -26.75], spot='bow', stars=['sadi', 'saxo']),
+       cam([150, 170], [3.6, 3.3], [0.95, 0.9], 0.98), focus=[0, -25.4], spot='bow', stars=['saxo', 'sadi']),
+  # was a Titanic pose: arms out read as the T-pose glitch (the user: "a t pose bug lol"), even alive and flapping.
+  # Now a date: side by side on the bow sunpad at sunset, turned to each other.
+  shot(102, 'yacht', [A('saxo', 'sitting_talking', -0.3, -27.2, face='world', yaw=172, at=6), A('sadi', 'sitting_talking', 0.3, -27.2, face='world', yaw=196, at=20)],
+       "S'te plaît regarde-moi, j'reste avec toi ce soir (b102-109.8): a date on the bow sunpad at sunset",
+       cam([170, 192], [3.0, 2.6], [0.85, 0.8], 0.72, 52, 'lin'), focus=[0, -27.2], spot='bow', stars=['saxo', 'sadi']),
   # ---------------- chorus 2 ----------------
   shot(110, 'yacht', [A('saxo', 'male_driving_a_car', YACHT['SEA'][0], YACHT['SEA'][1], lift=YACHT['WATER'] + 0.16, face='world', yaw=180, ride='jetski')],
        "Et j'suis posé dans le club, normal (b110-116): Saxo on a jet-ski past the yacht",
@@ -165,6 +167,10 @@ shots = [
        cam([4, 2], [4.6, 4.3], [2.45, 2.25], 0.3), focus=[-0.1, -0.9], still=True, calm=True, stars=['kob'], guestsDie=72.95, word='BOF.', wordAt=1.2, wordWho='kob'),
 ]
 
+# No comic word bursts (NON., BOF., RIP, MDR, AAAH!...): the user, 2026-09-25, "cringier than funnier". The shot
+# list keeps them as notes; they are stripped here, so the engine never draws one.
+for sh in shots:
+    for k in [k for k in sh if k.startswith('word')]: del sh[k]
 BASE = {'tpose', 'gangnam', 'twist', 'macarena', 'silly_twist', 'chicken', 'twerk', 'ymca', 'robot', 'shopping_cart', 'running_man', 'moonwalk', 'shuffle', 'tut', 'booty_step', 'arm_wave', 'snake', 'shimmy', 'charleston', 'samba', 'belly', 'northern_soul_spin'}
 ep = {
   'date': '2026-09-25', 'n': 2,

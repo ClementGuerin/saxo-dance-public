@@ -53,6 +53,7 @@
   "salsa_dancing_side_to_side",
   "salsa_dancing_twirl_and_clap",
   "shoulder_shrug",
+  "sitting_talking",
   "talking",
   "taunting_throwing_arms_back",
   "timid_dancing",
@@ -188,9 +189,6 @@
    "stars": [
     "kob"
    ],
-   "word": "NON.",
-   "wordAt": 2.5,
-   "wordWho": "kob",
    "cam": {
     "ang": [
      6,
@@ -240,9 +238,6 @@
    "stars": [
     "saxo"
    ],
-   "word": "BON.",
-   "wordAt": 0.8,
-   "wordWho": "saxo",
    "cam": {
     "ang": [
      16,
@@ -275,7 +270,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_body_wave_dancing",
      "x": -0.9,
      "z": -0.7
@@ -405,7 +400,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_body_wave_dancing",
      "x": -0.85,
      "z": -0.3
@@ -442,7 +437,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "hip_hop_just_listening_dancing_variation",
      "x": -0.72,
      "z": -0.25,
@@ -507,9 +502,6 @@
    "stars": [
     "kob"
    ],
-   "word": "BOF.",
-   "wordAt": 0.8,
-   "wordWho": "kob",
    "cam": {
     "ang": [
      16,
@@ -543,7 +535,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "hip_hop_dancing_side_to_side",
      "x": -0.72,
      "z": -0.25,
@@ -597,7 +589,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_raise_the_roof_dancing",
      "x": -0.72,
      "z": -0.25,
@@ -657,7 +649,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "air_squat_workout",
      "x": -0.72,
      "z": -0.25,
@@ -728,7 +720,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "knocked_out_falling_to_back",
      "x": -0.72,
      "z": -0.25,
@@ -757,11 +749,6 @@
     0,
     -0.75
    ],
-   "word": "RIP",
-   "wordAt": 2.3,
-   "wordWho": "saxo",
-   "wordX": 0.74,
-   "wordY": 0.52,
    "stars": [
     "saxo"
    ],
@@ -796,7 +783,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_body_wave_dancing",
      "x": -0.8,
      "z": -0.2
@@ -845,7 +832,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "happy_walk",
      "x": -0.72,
      "z": -0.9,
@@ -900,7 +887,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "hip_hop_just_listening_dancing_variation",
      "x": -0.72,
      "z": -0.25,
@@ -1002,17 +989,13 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "laughing_standing",
      "x": -0.5,
      "z": -0.45,
      "yaw": 25
     }
    ],
-   "word": "MDR",
-   "wordAt": 2,
-   "wordWho": "sadi",
-   "wordX": 0.24,
    "stars": [
     "saxo",
     "sadi"
@@ -1051,9 +1034,6 @@
    "stars": [
     "compote"
    ],
-   "word": "AAAH!",
-   "wordAt": 0.6,
-   "wordWho": "compote",
    "cam": {
     "ang": [
      10,
@@ -1087,7 +1067,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "celebrating_after_a_win",
      "x": -0.72,
      "z": -0.25,
@@ -1142,9 +1122,6 @@
    "stars": [
     "compote"
    ],
-   "word": "AAAH!",
-   "wordAt": 0.4,
-   "wordWho": "compote",
    "cam": {
     "ang": [
      -14,
@@ -1176,7 +1153,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "gangnam",
      "x": -0.72,
      "z": -0.25
@@ -1219,7 +1196,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_body_wave_dancing",
      "x": 3.25,
      "z": 0.4,
@@ -1265,7 +1242,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_salsa_dancing",
      "x": 0.46,
      "z": 0,
@@ -1318,10 +1295,6 @@
    "stars": [
     "kob"
    ],
-   "word": "BOUM",
-   "wordAt": 1.5,
-   "wordWho": "kob",
-   "wordX": 0.7,
    "cam": {
     "ang": [
      12,
@@ -1397,7 +1370,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "bored_idle",
      "x": 0.42,
      "z": -0.1,
@@ -1443,23 +1416,23 @@
      "look": "michou",
      "clip": "salsa_dancing_side_to_side",
      "x": -0.45,
-     "z": -26.4,
+     "z": -25.3,
      "face": "world",
      "yaw": 150
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "salsa_dancing_twirl_and_clap",
      "x": 0.45,
-     "z": -26.6,
+     "z": -25.5,
      "face": "world",
      "yaw": 210
     }
    ],
    "focus": [
     0,
-    -26.5
+    -25.4
    ],
    "spot": "bow",
    "stars": [
@@ -1489,47 +1462,49 @@
    "map": "yacht",
    "actors": [
     {
-     "who": "sadi",
-     "look": "white",
-     "clip": "tpose",
-     "x": -0.05,
-     "z": -27,
-     "face": "world",
-     "yaw": 180
-    },
-    {
      "who": "saxo",
      "look": "michou",
-     "clip": "tpose",
-     "x": 0.5,
-     "z": -26.25,
+     "clip": "sitting_talking",
+     "x": -0.3,
+     "z": -27.2,
      "face": "world",
-     "yaw": 180
+     "yaw": 172,
+     "at": 6
+    },
+    {
+     "who": "sadi",
+     "look": "disco",
+     "clip": "sitting_talking",
+     "x": 0.3,
+     "z": -27.2,
+     "face": "world",
+     "yaw": 196,
+     "at": 20
     }
    ],
    "focus": [
-    0.15,
-    -26.75
+    0,
+    -27.2
    ],
    "spot": "bow",
    "stars": [
-    "sadi",
-    "saxo"
+    "saxo",
+    "sadi"
    ],
    "cam": {
     "ang": [
-     164,
-     196
+     170,
+     192
     ],
     "r": [
-     3.3,
-     3
+     3,
+     2.6
     ],
     "h": [
-     1,
-     0.95
+     0.85,
+     0.8
     ],
-    "look": 1,
+    "look": 0.72,
     "fov": 52,
     "ease": "lin"
    }
@@ -1634,7 +1609,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_body_wave_dancing",
      "x": -0.8,
      "z": -0.25
@@ -1798,7 +1773,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "hip_hop_dancing_side_to_side",
      "x": -0.95,
      "z": -0.45,
@@ -1858,7 +1833,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "female_hip_hop_raise_the_roof_dancing",
      "x": -0.95,
      "z": -0.45,
@@ -1934,7 +1909,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "air_squat_workout",
      "x": -0.95,
      "z": -0.45,
@@ -2005,7 +1980,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "knocked_out_falling_to_back",
      "x": -0.95,
      "z": -0.45,
@@ -2042,11 +2017,6 @@
     0,
     -1.05
    ],
-   "word": "RIP",
-   "wordAt": 2.3,
-   "wordWho": "saxo",
-   "wordX": 0.8,
-   "wordY": 0.47,
    "stars": [
     "kob"
    ],
@@ -2088,7 +2058,7 @@
     },
     {
      "who": "sadi",
-     "look": "white",
+     "look": "disco",
      "clip": "knocked_out_falling_to_back",
      "x": -0.95,
      "z": -0.45,
@@ -2132,9 +2102,6 @@
     "kob"
    ],
    "guestsDie": 72.95,
-   "word": "BOF.",
-   "wordAt": 1.2,
-   "wordWho": "kob",
    "cam": {
     "ang": [
      4,

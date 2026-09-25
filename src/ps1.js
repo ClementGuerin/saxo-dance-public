@@ -722,7 +722,7 @@ function actorSpec(a, e, map) {
   return { who, look: a.look || (P ? P.byMap[map] || who : e.outfit || MAP_OUTFIT[map] || 'saxo'), clip: a.clip || e.clip || 'gangnam', at: a.at ?? e.at ?? 'auto',
     speed: a.speed ?? 1, once: !!a.once, x: a.x || 0, z: a.z || 0, mx: a.mx || 0, mz: a.mz || 0, face: a.face || 'camera', yaw: (a.yaw || 0) * Math.PI / 180, ground: a.ground || 'toe',
     lift: a.lift || 0, hold: a.hold || null, holdL: a.holdL || null, ride: a.ride || null, star: a.star !== false,
-    arm: a.arm || null, aim: a.aim || 'up', upAt: a.upAt, upEnd: a.upEnd };   // arm: L | R | both, aim: up | toast | phone | [x, y, z]
+    arm: a.arm || null, aim: a.aim || 'up', upAt: a.upAt, upEnd: a.upEnd, wave: a.wave || 0 };   // arm: L | R | both, aim: up | toast | phone | [x, y, z], wave: flap
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -871,7 +871,9 @@ function aimArms(D, A, bodyYaw, since) {
   const w = cl((since - (A.upAt || 0)) / 0.15) * (A.upEnd != null ? cl((A.upEnd - since) / 0.15) : 1); if (w <= 0) return;
   const d0 = Array.isArray(A.aim) ? A.aim : AIMS[A.aim] || AIMS.up, cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
   for (const side of A.arm === 'both' ? ['L', 'R'] : [A.arm]) {
-    const sx = side === 'L' ? 1 : -1, bx = d0[0] * sx, v = new THREE.Vector3(bx * cy + d0[2] * sy, d0[1], -bx * sy + d0[2] * cy).normalize();   // body frame → world
+    // wave: a slow flap of the aim's height (wings in the wind), the two arms a little out of phase; pure in `since`
+    const dy = d0[1] + (A.wave || 0) * Math.sin(since * 2.4 + (side === 'L' ? 0 : 0.7));
+    const sx = side === 'L' ? 1 : -1, bx = d0[0] * sx, v = new THREE.Vector3(bx * cy + d0[2] * sy, dy, -bx * sy + d0[2] * cy).normalize();   // body frame → world
     const up = side === 'L' ? D.L : D.R, fore = D['fore' + side], hand = D['hand' + side];
     aimBone(up, fore, v, w); aimBone(fore, hand, v, w);
   }

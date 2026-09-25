@@ -166,6 +166,8 @@ export function buildClubMaps(K) {
     const rail = (x0, z0, x1, z1, y) => { const d = Math.hypot(x1 - x0, z1 - z0), r = at(cyl(0.022, 0.022, d, 4, chrome), (x0 + x1) / 2, y, (z0 + z1) / 2); r.rotation.set(PI / 2, 0, 0); r.rotation.y = Math.atan2(x1 - x0, z1 - z0); r.rotation.order = 'YXZ'; r.rotation.set(PI / 2, Math.atan2(x1 - x0, z1 - z0), 0); G.add(r); };
     for (const s of [-1, 1]) { for (let z = 6; z > -26; z -= 2) railPost(s * 4.12, z); rail(s * 4.12, 6.2, s * 4.12, -26, 0.72); rail(s * 4.12, 6.2, s * 4.12, -26, 0.38); rail(s * 4.12, -26, 0, -31.2, 0.72); rail(s * 4.12, -26, 0, -31.2, 0.38); for (let f = 1; f < 4; f++) railPost(s * 4.12 * (1 - f / 4), -26 - 5.2 * f / 4); }
     railPost(0, -31.1);
+    // the bow sunpad (a date spot at sunset): seat top at 0.1 m like Kob's sofa, its front edge at z -27.25
+    G.add(at(box(2.4, 0.1, 1.2, cushion), 0, 0.05, -26.65)); G.add(at(box(2.5, 0.03, 1.3, M(0x2a4a7a)), 0, 0.012, -26.65));
     // ---- the superstructure: the saloon (the lounge map is its inside), flybridge, radar arch ----
     const winT = tex(32, 16, (x, r) => { px(x, '#f4f4f0', 0, 0, 32, 16); px(x, '#1a2433', 1, 3, 30, 9); for (let X = 2; X < 30; X += 4) px(x, 'rgba(255,120,210,0.8)', X, 5 + (X % 3), 2, 5); px(x, '#3a4a66', 1, 3, 30, 1); selfLit(x, 32, 16); }, 514);
     const saloon = new THREE.Group();

@@ -35,9 +35,7 @@ shots = [
   shot(28, 'yacht', dead(TRIO, extra=3.13, speed=0.3),
        "J'dead ça, j'dead ça (b29, b31): the guests go down in two waves", cam([30, 8], [6.4, 6.0], [2.2, 2.0], 0.3), focus=[-0.6, -1.4],
        guestsDie=T(29) + 0.05, stars=['saxo']),
-  shot(32, 'yacht', [],
-       "eh, eh (b33-34): the rest of the party goes down", cam([-38, -30], [3.6, 3.2], [1.5, 1.4], 0.35), focus=[-2.9, 0.4], guestsDie=T(33) - 0.15, stars=['saxo'],
-       word='RIP', wordAt=1.6, wordX=0.55, wordY=0.52),
+  # (an empty railing shot at b32 was cut: without its RIP badge it was a dead frame; the wide shot runs on)
   shot(36, 'yacht', dead(TRIO, extra=7.3, speed=0.2),
        "J'dead ça, j'dead ça (b37, b39): the wreckage from above", cam([0, 30], [7.0, 7.4], [6.0, 7.0], 0.0, 52, 'lin'), focus=[0, -1.0],
        guestsDie=T(29) + 0.05, still=False, stars=['saxo']),
@@ -53,6 +51,10 @@ shots = [
   shot(56, 'kobflat', [A('kob', 'laying_idle', KX + 0.1, KZ - 0.1, lift=0.1, ground='mesh', face='world', yaw=90)],
        "j'ai trop dansé, frère (b56-end): Kob, who stayed in, goes to bed: ZZZ", cam([12, 8], [3.1, 2.8], [1.6, 1.5], 0.45), focus=[-0.25, -1.45], stars=['kob'], word='ZZZ', wordAt=3, wordWho='kob', wordX=0.7),
 ]
+# No comic word bursts (NON., BOF., RIP, MDR, AAAH!...): the user, 2026-09-25, "cringier than funnier". The shot
+# list keeps them as notes; they are stripped here, so the engine never draws one.
+for sh in shots:
+    for k in [k for k in sh if k.startswith('word')]: del sh[k]
 ep = {
   'date': '2026-09-25', 'n': '2-tt', 'tiktok_sound': {'music_id': '6856788296605911042', 'window': [120.0, 152.37], 'videos': 67738},
   'song': {'title': 'Dans le club', 'artist': 'Michou', 'window': [120.0, 152.37], 'bpm': 115.0},
