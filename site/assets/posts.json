@@ -1,6 +1,19 @@
 {
- "updated": "2026-09-25T13:57:28.830Z",
+ "updated": "2026-09-25T15:48:03.838Z",
  "posts": [
+  {
+   "id": "2026-09-25-2",
+   "title": "Dans le club",
+   "artist": "Michou",
+   "date": "2026-09-25T15:44:20.849Z",
+   "thumb": "assets/posts/2026-09-25-2.jpg",
+   "links": {
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/Swf5r3FoFjU",
+     "id": "Swf5r3FoFjU"
+    }
+   }
+  },
   {
    "id": "2026-09-25",
    "title": "Nicole Kidman",
