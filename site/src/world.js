@@ -77,8 +77,9 @@ export function buildWorld(scene) {
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
     const top = new THREE.Mesh(g, mat({ map: T.grass })); top.userData.noTess = true; G.add(top);
   }
-  // dirt sides and a grass lip, then rocks hanging underneath
-  const side = (w, x, z, ry) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, 2.4), mat({ map: T.dirt, rep: [w / 3, 1] })); m.position.set(x, -1.2, z); m.rotation.y = ry; G.add(m); };
+  // dirt sides and a grass lip, then rocks hanging underneath. The dirt stops 12 cm down, behind the lip: level with
+  // the grass, its top edge poked through the grass border as a dotted line wherever vertex snapping lifted it a pixel.
+  const side = (w, x, z, ry) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, 2.28), mat({ map: T.dirt, rep: [w / 3, 0.95] })); m.position.set(x, -1.26, z); m.rotation.y = ry; G.add(m); };
   side(2 * IX, 0, IZ, 0); side(2 * IX, 0, -IZ, PI); side(2 * IZ, IX, 0, PI / 2); side(2 * IZ, -IX, 0, -PI / 2);
   const lip = mat({ map: T.grass, rep: [15, 0.1] });
   for (const [w, d, x, z] of [[2 * IX + 0.3, 0.3, 0, IZ], [2 * IX + 0.3, 0.3, 0, -IZ], [0.3, 2 * IZ, IX, 0], [0.3, 2 * IZ, -IX, 0]]) G.add(at(box(w, 0.22, d, lip), x, -0.125, z));
@@ -90,11 +91,31 @@ export function buildWorld(scene) {
   }
 
   // ---------- paths ----------
-  const pathM = w => mat({ map: T.path, rep: [w / 1.6, 1] });
-  const path = (x0, z0, x1, z1) => { const w = Math.abs(x1 - x0), d = Math.abs(z1 - z0), m = mat({ map: T.path, rep: [w / 1.6, d / 1.6] }); G.add(flat(w, d, m, (x0 + x1) / 2, 0.006, (z0 + z1) / 2)); };
-  path(-1.6, -1.2, 0.2, IZ - 0.2);     // entrance path from the south edge
-  path(-13, -1.4, IX - 0.2, 0.2);       // the east-west lane between the rooms and the gardens, to the bridge
-  path(3.6, 0.2, 4.6, 7.2);             // down to the pool deck
+  // An island's paths are one mesh on a shared grid (lines on every rect edge, cells under ~1.5 m for the affine UVs),
+  // with world-space UVs so the paving runs on across a junction. As separate quads, the lane and the entrance path
+  // overlapped at the same height with the same polygon offset and fought, and quads that only touch crack apart
+  // under vertex snapping.
+  const paths = rects => {
+    const lines = k => {
+      const v = [...new Set(rects.flatMap(r => [r[k], r[k + 2]]).map(a => Math.round(a * 1000) / 1000))].sort((a, b) => a - b), out = [v[0]];
+      for (let i = 1; i < v.length; i++) { const n = Math.ceil((v[i] - v[i - 1]) / 1.5 - 1e-6); for (let s = 1; s <= n; s++) out.push(v[i - 1] + (v[i] - v[i - 1]) * s / n); }
+      return out;
+    };
+    const xs = lines(0), zs = lines(1), pos = [], uv = [], idx = [], ids = new Map();
+    const vert = (i, j) => { const k = i * zs.length + j; if (!ids.has(k)) { ids.set(k, pos.length / 3); pos.push(xs[i], 0, zs[j]); uv.push(xs[i] / 1.6, -zs[j] / 1.6); } return ids.get(k); };
+    for (let i = 0; i + 1 < xs.length; i++) for (let j = 0; j + 1 < zs.length; j++) {
+      const cx = (xs[i] + xs[i + 1]) / 2, cz = (zs[j] + zs[j + 1]) / 2;
+      if (!rects.some(([x0, z0, x1, z1]) => cx > x0 && cx < x1 && cz > z0 && cz < z1)) continue;
+      const a = vert(i, j), b = vert(i + 1, j), c = vert(i, j + 1), d = vert(i + 1, j + 1); idx.push(a, c, b, b, c, d);
+    }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
+    G.add(decal(at(new THREE.Mesh(g, mat({ map: T.path })), 0, 0.006, 0)));
+  };
+  paths([
+    [-13, -1.4, IX + 0.2, 0.2],   // the east-west lane between the rooms and the gardens, onto the bridge's first plank
+    [-1.6, 0.2, 0.2, IZ - 0.2],   // the entrance path from the south edge
+    [3.6, 0.2, 4.6, 7.2],         // down to the pool deck
+  ]);
 
   // ---------- living room (north-west) ----------
   const HX0 = -14.5, HX1 = -3, HZ0 = -10.5, HZ1 = -2;
@@ -352,15 +373,18 @@ export function buildWorld(scene) {
     const r = 1.3 + hash(i, 60) * 1.5, h = 1.8 + hash(i, 61) * 3.2, c = cone(r, h, 5, under); c.rotation.x = PI;
     c.position.set(GX0 + 1.8 + hash(i, 62) * (GW - 3.6), -2.4 - h / 2, GZ0 + 1.6 + hash(i, 63) * (GD - 3.2)); G.add(c);
   }
-  // the bridge: planks on two beams across the gap, rope rails on posts
-  const BZ = -0.6, BX0 = IX - 0.3, BX1 = GX0 + 0.3, plankM = mat({ map: T.wood, rep: [0.3, 1], color: 0xd9a066 }), barkM = mat({ map: T.bark });
-  for (let x = BX0 + 0.15, i = 0; x < BX1; x += 0.3, i++) G.add(at(box(0.26, 0.08, 1.7, plankM), x, -0.036 - (i % 2) * 0.008, BZ));
+  // the bridge: planks on two beams across the gap, rope rails on posts. The deck only spans the gap between the two
+  // lips, level with the grass (its planks used to run 30 cm onto each island, where they fought the grass, the lip
+  // and the lane, all within 2 cm of them); each island's path runs a few cm onto its end plank and wins by its offset.
+  const BZ = -0.6, BX0 = IX - 0.3, BX1 = GX0 + 0.3, DX0 = IX + 0.15, DX1 = GX0 - 0.15, NP = 7, PP = (DX1 - DX0) / NP;
+  const plankM = mat({ map: T.wood, rep: [0.3, 1], color: 0xd9a066 }), barkM = mat({ map: T.bark });
+  for (let i = 0; i < NP; i++) G.add(at(box(PP - 0.04, 0.08, 1.7, plankM), DX0 + (i + 0.5) * PP, -0.036 - (i % 2) * 0.008, BZ));
   for (const s of [-1, 1]) {
     G.add(at(box(BX1 - BX0, 0.14, 0.12, barkM), (BX0 + BX1) / 2, -0.15, BZ + s * 0.72));
     for (const x of [BX0 + 0.25, BX1 - 0.25]) G.add(at(box(0.1, 0.8, 0.1, barkM), x, 0.38, BZ + s * 0.86));
     G.add(at(box(BX1 - BX0 - 0.5, 0.05, 0.05, mat({ color: 0xc8a06a })), (BX0 + BX1) / 2, 0.66, BZ + s * 0.86));
   }
-  path(GX0 - 0.1, BZ - 0.8, GX0 + 2.1, BZ + 0.8);
+  paths([[GX0 - 0.2, BZ - 0.8, GX0 + 2, BZ + 0.8]]);   // from the last plank up to the contribution plaza (under its border, same offset, they fought)
   // a signpost at the bridge head, on the main island
   const ghSign = tex(128, 36, x => {
     px(x, '#ffe7a3', 0, 0, 128, 36); x.drawImage(markPixels(24, '#2a1636'), 8, 6);
@@ -533,8 +557,8 @@ export function buildWorld(scene) {
 
   // blob shadows are tinted to a darker ground colour (a black shadow reads as a stain)
   const inR = (x, z, x0, z0, x1, z1) => x > x0 && x < x1 && z > z0 && z < z1;
-  const islandShadow = (x, z) => inR(x, z, QX0, QZ0, QX0 + 9 * QC, QZ0 + 7 * QC) ? 0x2f6b3a : inR(x, z, KX0, KZ0, KX0 + KNX * KC, KZ0 + KNZ * KC) ? 0x8f846a : x < GX0 + 2.1 && Math.abs(z - BZ) < 0.8 ? 0x938a88 : 0x5a9a50;
-  const shadowCol = (x, z) => x > GX0 - 0.2 ? islandShadow(x, z) : x > IX - 0.3 ? 0x6e4a2e : x > HX0 && x < HX1 && z > HZ0 && z < HZ1 ? 0x9c6a42 : x > floorRect[0] && x < floorRect[2] && z > floorRect[1] && z < floorRect[3] ? 0x0e0816 : (Math.abs(z + 0.6) < 0.8 && x > -13 && x < IX - 0.2) || (x > -1.6 && x < 0.2 && z > -1.2) ? 0x938a88 : 0x5a9a50;
+  const islandShadow = (x, z) => inR(x, z, QX0, QZ0, QX0 + 9 * QC, QZ0 + 7 * QC) ? 0x2f6b3a : inR(x, z, KX0, KZ0, KX0 + KNX * KC, KZ0 + KNZ * KC) ? 0x8f846a : x < GX0 + 2 && Math.abs(z - BZ) < 0.8 ? 0x938a88 : 0x5a9a50;
+  const shadowCol = (x, z) => x > GX0 - 0.2 ? islandShadow(x, z) : x > IX + 0.2 ? 0x6e4a2e : x > HX0 && x < HX1 && z > HZ0 && z < HZ1 ? 0x9c6a42 : x > floorRect[0] && x < floorRect[2] && z > floorRect[1] && z < floorRect[3] ? 0x0e0816 : (Math.abs(z + 0.6) < 0.8 && x > -13 && x < IX + 0.2) || (x > -1.6 && x < 0.2 && z > -1.2) ? 0x938a88 : 0x5a9a50;
 
   // where things are, for the game logic
   const places = {
