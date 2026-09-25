@@ -1,6 +1,7 @@
-// readme_stats.mjs: the numbers in README.md (characters, looks, maps, clips, videos posted), counted from a commit so
-// they can't drift from the code. The public-mirror workflow runs it with --commit on every push to main, so both
-// READMEs (this repo and the public mirror) follow the code; tools/site_repo.mjs shows the same counts on saxo.dance.
+// readme_stats.mjs: the numbers in README.md (characters, looks, maps, clips, videos posted, videos a day), counted
+// from a commit so they can't drift from the code. The public-mirror workflow runs it with --commit on every push to
+// main, so both READMEs (this repo and the public mirror) follow the code; tools/site_repo.mjs shows the same counts
+// on saxo.dance. Only the numbers: the README's text and images are kept current by hand (CLAUDE.md).
 //   node tools/readme_stats.mjs              print the counts, rewrite README.md in the working tree
 //   node tools/readme_stats.mjs --check      exit 1 if README.md at --rev is stale
 //   node tools/readme_stats.mjs --commit     rewrite README.md and commit it alone if a number changed (the workflow)
@@ -35,16 +36,25 @@ export function counts(rev = 'HEAD') {
   }
   const clips = files.filter(p => /^assets\/mixamo\/anims\/[^/]+\.fbx$/.test(p)).length;
   const videos = files.includes('site/assets/posts.json') ? JSON.parse(show('site/assets/posts.json')).posts.length : 0;
-  return { characters: chars.length, looks, maps, clips, videos };
+  // videos a day: the posting slots the night routine fills (SLOTS in tools/night.mjs, which the public mirror lacks)
+  let perDay;
+  if (files.includes('tools/night.mjs')) {
+    const s = show('tools/night.mjs').match(/const SLOTS = \[([^\]]*)\]/);
+    if (!s) throw new Error('no SLOTS in tools/night.mjs');
+    perDay = s[1].split(',').filter(x => x.trim()).length;
+  }
+  return { characters: chars.length, looks, maps, clips, videos, perDay };
 }
 
-const UNITS = { characters: 'characters', looks: 'looks', maps: 'maps', clips: '(?:dance and action )?clips', videos: 'videos posted' };
+const UNITS = { characters: 'characters', looks: 'looks', maps: 'maps', clips: '(?:dance and action )?clips', videos: 'videos posted', perDay: 'videos? a day' };
+const label = k => ({ perDay: 'videos a day' })[k] || k;
 export function refresh(text, c) {
   const changes = new Set(), missing = [];
   for (const [k, unit] of Object.entries(UNITS)) {
+    if (c[k] === undefined) continue;   // not countable from this tree
     let hits = 0;
-    text = text.replace(new RegExp(`\\b\\d+(?=(?:</h3>)?\\s*${unit}\\b)`, 'g'), n => { hits++; if (+n !== c[k]) changes.add(`${c[k]} ${k}`); return String(c[k]); });
-    if (!hits) missing.push(k);
+    text = text.replace(new RegExp(`\\b\\d+(?=(?:</h3>)?\\s*${unit}\\b)`, 'g'), n => { hits++; if (+n !== c[k]) changes.add(`${c[k]} ${label(k)}`); return String(c[k]); });
+    if (!hits) missing.push(label(k));
   }
   return { text, changes: [...changes], missing };
 }
@@ -54,7 +64,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   const rev = args.rev || 'HEAD', c = counts(rev), file = join(ROOT, 'README.md');
   const before = args.check ? git(['show', `${rev}:README.md`]) : readFileSync(file, 'utf8');
   const { text, changes, missing } = refresh(before, c);
-  console.log(`counts at ${rev}: ${Object.entries(c).map(([k, v]) => `${v} ${k}`).join(', ')}`);
+  console.log(`counts at ${rev}: ${Object.entries(c).filter(([, v]) => v !== undefined).map(([k, v]) => `${v} ${label(k)}`).join(', ')}`);
   if (missing.length) console.warn(`README.md never gives the ${missing.join(', ')} count`);
   if (!changes.length) { console.log('README numbers up to date'); process.exit(0); }
   console.log(`README numbers stale: now ${changes.join(', ')}`);

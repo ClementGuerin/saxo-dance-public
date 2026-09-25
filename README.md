@@ -4,7 +4,8 @@
 
 <p align="center">
   <b>A scruffy grey terrier in a check suit dances to pop hits in PlayStation&nbsp;1 worlds.</b><br>
-  One video a day, made entirely in code: three.js draws every frame, ffmpeg cuts it, a scheduled run posts it.
+  4 videos a day, made entirely in code: three.js draws every frame, ffmpeg cuts it, and a routine that runs all night
+  makes and schedules them.
 </p>
 
 <p align="center">
@@ -27,8 +28,8 @@
       <td align="center"><h3>33</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
       <td align="center"><h3>4</h3>videos posted</td>
-      <td align="center"><h3>1</h3>video a day</td>
-      <td align="center"><h3>$0</h3>per video</td>
+      <td align="center"><h3>4</h3>videos a day</td>
+      <td align="center"><h3>$0</h3>to render</td>
     </tr>
   </table>
 </div>
@@ -41,19 +42,21 @@
 <table>
   <tr>
     <td width="290" valign="top">
-      <img src="docs/readme/episode.gif" width="270" alt="The opening of the 25 September episode: Saxo changes outfit on every beat, a SLAY. burst, then Kob">
-      <br><sub>25 Sept, "Nicole Kidman" (ADÉLA): a try-on montage cut on the beat, then Kob's verdict.</sub>
+      <img src="docs/readme/episode.gif" width="270" alt="From the 25 September episode: Saxo leaves Kob at home for a yacht party, and each toast cuts back to her sofa">
+      <br><sub>25 Sept, "Dans le club" (Michou): a yacht party in Saint-Tropez, and every toast cuts back to Kob, who never goes out.</sub>
     </td>
     <td valign="top">
-      <p><b>The format.</b> A pop hit, cut to at least 62 seconds on a section boundary, never mid-line. Every cut lands
-      on a beat: a one-bar hook, verse shots with a drone, crane, orbit or track, four one-beat flash cuts into the drop,
-      then a new map on every bar of the chorus. The camera punches in on every beat.</p>
+      <p><b>The format.</b> A short story on a hit song, cut to at least 62 seconds on section boundaries, never
+      mid-line. Each episode parodies the song's own music video with our cast: a hook in the first two seconds, a
+      running gag that comes back changed each time, a payoff in the last chorus, and one silent beat to end on. Every
+      cut lands on a beat, and the camera punches in on every beat.</p>
       <p><b>The karaoke.</b> Each word springs in as it is sung, in chunky PS1 type: the sung word yellow, the rest pink,
-      the longest-held word bigger and shaking. The singer's emoji face hops from word to word.</p>
-      <p><b>The jokes.</b> Costume changes on the beat, comic bursts (<i>SLAY.</i>, <i>EW.</i>, <i>POW!</i>), a fight
-      with a slow-motion replay, skate tricks, and running gags between four characters who each have one job.</p>
-      <p><b>The loop.</b> Comments and trends go in; views, likes and shares come back out into a playbook that the next
-      video reads.</p>
+      the longest-held word bigger and shaking. The singer's 8-bit face hops from word to word.</p>
+      <p><b>The jokes.</b> Every lyric that names an action is acted out on the word. Four characters who each have one
+      job keep their running gags going from video to video, plus costume changes on the beat, crowds, thrown props, a
+      fight with a slow-motion replay and skate tricks.</p>
+      <p><b>The loop.</b> Trends go in; views, likes and shares come back out into a playbook that the next video
+      reads.</p>
     </td>
   </tr>
 </table>
@@ -89,42 +92,50 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
-beat. The club floor flashes, a subway train passes every 16 beats, a locker bangs open every bar, the volcano erupts,
-the bowling ball strikes every two bars, and in Paris the fountains fire on the beat while the Eiffel Tower sparkles on
-each bar.
+beat; each episode adds one to three for its story. The club floor flashes, a subway train passes every 16 beats, a
+locker bangs open every bar, the volcano erupts, the bowling ball strikes every two bars, in Paris the fountains fire
+on the beat while the Eiffel Tower sparkles on each bar, and the techno club's ceiling net lets its balloons go on the
+drop.
 
 ## How a video gets made
 
 ```mermaid
 flowchart LR
-    A(["Comments"]) --> B(["Trends"]) --> C(["Song"]) --> D(["Episode"]) --> E(["Render"]) --> F{"QA"}
+    A(["Trends"]) --> C(["Song"]) --> D(["Story"]) --> E(["Render"]) --> F{"QA"}
     F -- fix --> D
-    F -- pass --> G(["Post"]) --> H(["Measure"])
+    F -- pass --> G(["Schedule"]) --> H(["Measure"])
     H -. playbook .-> A
     classDef step fill:#ff5fa2,stroke:#2a1636,stroke-width:2px,color:#ffffff
     classDef gate fill:#ffd43b,stroke:#2a1636,stroke-width:2px,color:#2a1636
-    class A,B,C,D,E,G,H step
+    class A,C,D,E,G,H step
     class F gate
 ```
 
-Every day at 13:00 a scheduled run follows `research/DAILY_ROUTINE.md` from start to
-finish, with no approval step and a hard budget.
+Every night a scheduled run wakes every 30 minutes, asks `tools/night.mjs` whether anything is
+due, and follows `research/DAILY_ROUTINE.md` to make one video at a time, with no
+approval step and a budget per video. The first starts at 21:00 and the others no earlier than 23:00, 01:00 and 03:00;
+each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20:00.
 
-1. **Listen.** [`tools/feedback.mjs`](tools/feedback.mjs) reads the week's comments and
-   [`tools/trends.mjs`](tools/trends.mjs) scans what is going viral in our niches. What people asked for lands in
-   `research/AUDIENCE.md`; live meme formats in `research/MEMES.md`.
+1. **Scout.** [`tools/trends.mjs`](tools/trends.mjs) scans what is going viral in our niches, and live meme formats
+   land in `research/MEMES.md`. Songs asked for in
+   `research/SONG_QUEUE.md` come first, then a trending song, then a throwback that trends
+   again.
 2. **Song.** [`tools/cut_song.mjs`](tools/cut_song.mjs) takes the track and a word-level transcript and picks a window of
    62 s or more that starts and ends on section boundaries, preferring to end on the chorus. It writes the audio and
    the karaoke timings; [`tools/beats.mjs`](tools/beats.mjs) finds the BPM, the first beat and the bars.
-3. **Episode.** A shot list on the beat grid ([`episodes/`](episodes/)): for each shot a map, a camera move, a dance,
-   who is in it and what they wear, plus comic words, paparazzi flashes and action scenes. Without an episode, the shot
-   planner builds one from the song.
+3. **Story.** The song's official video is studied frame by frame, then parodied: four to six story beats over the
+   song's sections, the whole cast placed shot by shot, and new maps and costumes made for it. A generator script
+   writes the shot list on the beat grid ([`episodes/`](episodes/)): for each shot a map, a camera move, a dance, who
+   is in it, what they wear and hold, plus crowds and action scenes. Without an episode, the shot planner builds one
+   from the song.
 4. **Render.** [`render.mjs`](render.mjs) drives [`studio.html`](studio.html) in headless Chrome across four tabs, then
    ffmpeg encodes the frames with the song, loudness-normalised to −14 LUFS.
-5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, a visual review
-   of zoomed stills, and a critic's score before anything is posted.
-6. **Ship.** [`publish.mjs`](publish.mjs) posts to TikTok, Instagram Reels and YouTube Shorts with per-platform
-   captions and hashtags. Each platform gets the cut its rules need: YouTube's is 60 s or less and ends on a lyric line.
+5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, zoomed stills,
+   an independent reviewer that sees one frame per shot, and a critic's score before anything is posted.
+6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels and YouTube Shorts for its
+   slot, with per-platform captions and hashtags. YouTube gets a cut of 60 s or less that keeps the episode's ending.
+   Ten minutes after each post goes out, `tools/post_check.mjs` checks it is live, public and
+   audible.
 7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post at 24 h and 72 h against the channel
    median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
 
@@ -152,14 +163,16 @@ Only Saxo is rigged (Mixamo). Every other character and every costume is an unri
 turnaround sheet is drawn from a photo, then turned into 3D ([`tools/character.mjs`](tools/character.mjs)). When the
 page loads, each model is fitted over Saxo's body (arm-span scale, feet aligned, best of four orientations) and every
 vertex copies the bone weights of its six nearest body vertices. The partners ride clones of his skeleton, so all
-467 clips in `assets/mixamo/anims/` play on anyone, with no Blender and no re-rigging.
+467 clips in `assets/mixamo/anims/` play on anyone, with no Blender and no re-rigging. A crowd
+goes further: up to 99 copies of one look share a single hidden skeleton, so a whole room dances in sync for the price
+of one pose.
 
 ### A QA gate that can say no
 
 `node render.mjs --qa` samples every frame at 10 fps and measures each character's **skinned mesh**, not its bones:
 nobody may sink more than 4 cm into the floor, float more than 5 cm for longer than a jump, or leave the frame for
 more than half a second. `--frames` and `--clip` run the gate first and refuse to render on a failure. Every new failure
-found by eye becomes a new rule.
+found by eye becomes a new rule: a leftover T-pose and a comic word badge now fail it too.
 
 ### Deterministic frames
 
@@ -223,7 +236,7 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 | [`src/ch/dance.js`](src/ch/dance.js) | the 2D layer: karaoke, stickers, comic bursts, watermark |
 | [`episodes/`](episodes/) | one shot list per posted video |
 | [`assets/`](assets/) | the stickers, pixel icons, profile pictures and the font (the rig, clips, 3D models and songs are private) |
-| [`tools/`](tools/) | song cutting, beats, the character pipeline, stickers, metrics, trends, the website tools |
+| [`tools/`](tools/) | song cutting, beats, the character pipeline, stickers, metrics, trends, the night's state and post checks, the website tools |
 | [`publish.mjs`](publish.mjs) | posts a render to TikTok, Instagram and YouTube |
 | [`site/`](site/) | saxo.dance |
 
@@ -231,12 +244,13 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 
 | What | Cost |
 |---|---|
-| **Each video** | **$0**: three.js and ffmpeg on a laptop |
+| **Rendering a video** | **$0**: three.js and ffmpeg on a laptop |
 | A new character or costume | $0.50 for the 3D model, $0.04 per reference image |
+| A new map | free: built from primitives in code |
 | Dance and action clips | free (Mixamo): 467 clips on disk |
-| Daily caps | $1 of images and APIs, plus $1 of 3D models, logged in `research/spend.jsonl` |
+| Caps per video | $1 of images and APIs, plus up to four new looks ($2 of 3D models), logged in `research/spend.jsonl` |
 
-Pay once for reusable assets, never per video: that rule is what makes one video a day sustainable.
+Pay once for reusable assets, never for a render: every look a video buys joins the wardrobe for the next ones.
 
 <p align="center">
   <br>
