@@ -4,6 +4,7 @@
 // textures with the videos' PS1 material. x runs east, z south (towards the camera), y up; Saxo is 1.25 m tall.
 import * as THREE from 'three';
 import { mat, tex, px, noise, selfLit, U, tessellate } from './ps1.js';
+import { markPixels } from './icons.js';
 
 const TAU = Math.PI * 2, PI = Math.PI;
 const box = (w, h, d, m) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m);
@@ -90,7 +91,7 @@ export function buildWorld(scene) {
   const pathM = w => mat({ map: T.path, rep: [w / 1.6, 1] });
   const path = (x0, z0, x1, z1) => { const w = Math.abs(x1 - x0), d = Math.abs(z1 - z0), m = mat({ map: T.path, rep: [w / 1.6, d / 1.6] }); G.add(flat(w, d, m, (x0 + x1) / 2, 0.006, (z0 + z1) / 2)); };
   path(-1.6, -1.2, 0.2, IZ - 0.2);     // entrance path from the south edge
-  path(-13, -1.4, 13.5, 0.2);           // the east-west lane between the rooms and the gardens
+  path(-13, -1.4, IX - 0.2, 0.2);       // the east-west lane between the rooms and the gardens, to the bridge
   path(3.6, 0.2, 4.6, 7.2);             // down to the pool deck
 
   // ---------- living room (north-west) ----------
@@ -336,6 +337,117 @@ export function buildWorld(scene) {
   for (let i = 0; i < 7; i++) { const lf = new THREE.Group(); lf.rotation.y = i / 7 * TAU; crown.add(lf); const bl = box(1.6, 0.02, 0.4, i % 2 ? leafDark : leafLight); bl.material.side = THREE.DoubleSide; bl.position.x = 0.75; bl.rotation.z = -0.45; lf.add(bl); }
   round(13.4, 3.4, 0.3);
 
+  // ---------- the GitHub island (east, over a plank bridge at the end of the lane): all this code is public ----------
+  // A giant beige computer whose screen scrolls code and flashes the GitHub mark (main.js opens "Saxo's code" there),
+  // a keyboard you walk on (keys light up and play notes), a contribution-graph plaza, a fork stuck in the ground and a
+  // spinning star.
+  const GX0 = 17.5, GX1 = 27.5, GZ0 = -5.4, GZ1 = 3.6, GW = GX1 - GX0, GD = GZ1 - GZ0, GCX = (GX0 + GX1) / 2, GCZ = (GZ0 + GZ1) / 2;
+  G.add(flat(GW, GD, mat({ map: T.grass, rep: [GW / 2, GD / 2] }), GCX, 0, GCZ));
+  side(GW, GCX, GZ1, 0); side(GW, GCX, GZ0, PI); side(GD, GX1, GCZ, PI / 2); side(GD, GX0, GCZ, -PI / 2);
+  for (const [w, d, x, z] of [[GW + 0.3, 0.3, GCX, GZ1], [GW + 0.3, 0.3, GCX, GZ0], [0.3, GD, GX1, GCZ], [0.3, GD, GX0, GCZ]]) G.add(at(box(w, 0.22, d, lip), x, -0.125, z));
+  G.add(at(box(GW - 0.2, 0.2, GD - 0.2, under), GCX, -2.4, GCZ));
+  for (let i = 0; i < 6; i++) {
+    const r = 1.3 + hash(i, 60) * 1.5, h = 1.8 + hash(i, 61) * 3.2, c = cone(r, h, 5, under); c.rotation.x = PI;
+    c.position.set(GX0 + 1.8 + hash(i, 62) * (GW - 3.6), -2.4 - h / 2, GZ0 + 1.6 + hash(i, 63) * (GD - 3.2)); G.add(c);
+  }
+  // the bridge: planks on two beams across the gap, rope rails on posts
+  const BZ = -0.6, BX0 = IX - 0.3, BX1 = GX0 + 0.3, plankM = mat({ map: T.wood, rep: [0.3, 1], color: 0xd9a066 }), barkM = mat({ map: T.bark });
+  for (let x = BX0 + 0.15, i = 0; x < BX1; x += 0.3, i++) G.add(at(box(0.26, 0.08, 1.7, plankM), x, -0.036 - (i % 2) * 0.008, BZ));
+  for (const s of [-1, 1]) {
+    G.add(at(box(BX1 - BX0, 0.14, 0.12, barkM), (BX0 + BX1) / 2, -0.15, BZ + s * 0.72));
+    for (const x of [BX0 + 0.25, BX1 - 0.25]) G.add(at(box(0.1, 0.8, 0.1, barkM), x, 0.38, BZ + s * 0.86));
+    G.add(at(box(BX1 - BX0 - 0.5, 0.05, 0.05, mat({ color: 0xc8a06a })), (BX0 + BX1) / 2, 0.66, BZ + s * 0.86));
+  }
+  path(GX0 - 0.1, BZ - 0.8, GX0 + 2.1, BZ + 0.8);
+  // a signpost at the bridge head, on the main island
+  const ghSign = tex(128, 36, x => {
+    px(x, '#ffe7a3', 0, 0, 128, 36); x.drawImage(markPixels(24, '#2a1636'), 8, 6);
+    x.font = '700 22px Fredoka'; x.textBaseline = 'middle'; x.lineJoin = 'round';
+    x.strokeStyle = '#ffffff'; x.lineWidth = 5; x.strokeText('GitHub', 38, 19); x.fillStyle = '#ff5fa2'; x.fillText('GitHub', 38, 19);
+    px(x, '#2a1636', 111, 17, 7, 3); for (let i = 0; i < 5; i++) px(x, '#2a1636', 116 + i, 14 + i, 1, 9 - 2 * i);   // → (east)
+  });
+  const gp = new THREE.Group(); gp.position.set(IX - 1.1, 0, BZ - 1.7); gp.rotation.y = 0.72; G.add(gp);
+  gp.add(at(box(0.1, 1.5, 0.1, barkM), 0, 0.75, 0));
+  const gpb = new THREE.Group(); gpb.position.set(0, 1.62, 0.02); gpb.rotation.x = -0.2; gp.add(gpb);
+  gpb.add(at(box(1.9, 0.62, 0.08, mat({ color: 0xc98c52 })), 0, 0, 0));
+  gpb.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(1.76, 0.5), mat({ map: ghSign })), 0, 0, 0.05), 2));
+  round(IX - 1.1, BZ - 1.7, 0.25);
+
+  // the giant computer at the back, facing the plaza: a beige 90s CRT on a foot
+  const PCX = GCX, PCZ = GZ0 + 1.4, beige = mat({ color: 0xe8dcc0 }), beigeD = mat({ color: 0xcdbf9f });
+  G.add(at(box(1.5, 0.18, 1.1, beigeD), PCX, 0.09, PCZ - 0.2));
+  G.add(at(box(0.5, 0.32, 0.5, beigeD), PCX, 0.34, PCZ - 0.2));
+  G.add(at(box(2.8, 2.1, 1.2, beige), PCX, 1.55, PCZ));
+  G.add(at(box(1.9, 1.5, 0.6, beige), PCX, 1.55, PCZ - 0.9));
+  const CODE_COLS = ['#ff5fa2', '#ffd43b', '#5fe0ff', '#b18cff', '#8ee07a', '#e8e8f0'];
+  const codeT = tex(64, 96, (x, r) => {
+    px(x, '#1b1028', 0, 0, 64, 96);
+    let ind = 3;
+    for (let y = 2; y < 96; y += 4) {
+      if (r() < 0.12) continue;
+      ind = Math.max(3, Math.min(19, ind + (r() < 0.3 ? 4 : r() < 0.3 ? -4 : 0)));
+      for (let k = 0, cx = ind, n = 1 + Math.floor(r() * 4); k < n && cx < 58; k++) { const w = 3 + Math.floor(r() * 10); px(x, CODE_COLS[Math.floor(r() * CODE_COLS.length)], cx, y, Math.min(w, 61 - cx), 2); cx += w + 2; }
+    }
+  }, 64);
+  const splashT = tex(64, 48, x => { px(x, '#1b1028', 0, 0, 64, 48); x.drawImage(markPixels(30, '#ffffff'), 17, 5); px(x, '#ff5fa2', 24, 39, 16, 3); });
+  const codeM = mat({ map: codeT, rep: [1, 0.5], unlit: 1 }), splashM = mat({ map: splashT, unlit: 1 });
+  const codeScreen = decal(at(new THREE.Mesh(new THREE.PlaneGeometry(2.3, 1.5), codeM), PCX, 1.72, PCZ + 0.605), 2); G.add(codeScreen);
+  const splash = decal(at(new THREE.Mesh(new THREE.PlaneGeometry(2.3, 1.5), splashM), PCX, 1.72, PCZ + 0.61), 3); splash.visible = false; G.add(splash);
+  G.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(0.72, 0.18), mat({ map: label('SAXO PC', { w: 64, h: 16, size: 11, fg: '#9a8c6c', stroke: null }) })), PCX - 0.85, 0.7, PCZ + 0.605), 2));
+  G.add(at(box(0.09, 0.06, 0.02, mat({ color: 0x5fe07a, unlit: 1 })), PCX + 1.12, 0.7, PCZ + 0.61));
+  // its neon, on two posts behind it
+  const neonT = tex(128, 32, x => {
+    x.drawImage(markPixels(24, '#ffd43b'), 8, 4);
+    x.font = '700 24px Fredoka'; x.textBaseline = 'middle'; x.lineJoin = 'round';
+    x.strokeStyle = '#ffd43b'; x.lineWidth = 3; x.strokeText('GitHub', 40, 17); x.fillStyle = '#ff5fa2'; x.fillText('GitHub', 40, 17);
+    const d = x.getImageData(0, 0, 128, 32); for (let i = 3; i < d.data.length; i += 4) if (d.data[i] > 100) d.data[i] = 204; x.putImageData(d, 0, 0);
+  });
+  for (const s of [-1, 1]) G.add(at(box(0.12, 4.1, 0.12, mat({ color: 0x9aa0b8 })), PCX + s * 1.75, 2.05, PCZ - 0.75));
+  G.add(at(box(3.8, 1.0, 0.1, mat({ color: 0x2d1b45 })), PCX, 3.55, PCZ - 0.75));
+  G.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(3.6, 0.9), mat({ map: neonT })), PCX, 3.55, PCZ - 0.69), 2));
+  block(PCX - 1.45, PCZ - 1.25, PCX + 1.45, PCZ + 0.62); round(PCX - 1.75, PCZ - 0.75, 0.1); round(PCX + 1.75, PCZ - 0.75, 0.1);
+  // the keyboard in front of it: a walkable mat of keys (keyAt says which one Saxo stands on)
+  const KC = 0.34, KNX = 10, KNZ = 3, KX0 = PCX - KNX * KC / 2, KZ0 = PCZ + 0.85, keys = [];
+  G.add(decal(flat(KNX * KC + 0.2, KNZ * KC + 0.2, mat({ color: 0xcdbf9f }), PCX, 0.012, KZ0 + KNZ * KC / 2), 1));
+  const KEY = new THREE.Color(0xf6efe0), KEY_ON = new THREE.Color(0xff5fa2);
+  for (let j = 0; j < KNZ; j++) for (let i = 0; i < KNX; i++) {
+    const m = mat({ color: 0xf6efe0 }); G.add(decal(flat(KC - 0.07, KC - 0.07, m, KX0 + (i + 0.5) * KC, 0.022, KZ0 + (j + 0.5) * KC), 2));
+    keys.push({ m, at: -9 });
+  }
+  const keyAt = (x, z) => { const i = Math.floor((x - KX0) / KC), j = Math.floor((z - KZ0) / KC); return i >= 0 && i < KNX && j >= 0 && j < KNZ ? j * KNX + i : -1; };
+  // the plaza: a contribution graph (9 weeks × 7 days) in GitHub's greens, a commit column sweeping it on the beat
+  const GREENS = [0xe3e6d9, 0x9be9a8, 0x40c463, 0x30a14e, 0x216e39].map(c => new THREE.Color(c));
+  const QC = 0.64, QX0 = PCX - 4.5 * QC, QZ0 = KZ0 + KNZ * KC + 0.42, cells = [];
+  G.add(decal(flat(9 * QC + 0.24, 7 * QC + 0.24, mat({ color: 0xd9dccb }), PCX, 0.012, QZ0 + 3.5 * QC), 1));
+  for (let i = 0; i < 9; i++) for (let j = 0; j < 7; j++) {
+    const m = mat({ color: 0xffffff, unlit: 0.6 }); G.add(decal(flat(QC - 0.1, QC - 0.1, m, QX0 + (i + 0.5) * QC, 0.022, QZ0 + (j + 0.5) * QC), 2));
+    cells.push({ m, i, j, base: [0, 0, 0, 1, 1, 1, 2, 2, 3, 4][Math.floor(hash(i, j + 70) * 10)] });
+  }
+  // a giant fork planted handle first, tines up ("fork me"), with its sign
+  const FKX = GX0 + 1.2, FKZ = GZ1 - 1.2, steel = mat({ color: 0xdfe3ee }), fork = new THREE.Group(); fork.position.set(FKX, 0, FKZ); fork.rotation.set(0, 0.72, 0.08); G.add(fork);
+  fork.add(at(cyl(0.07, 0.09, 1.5, 6, steel), 0, 0.75, 0));
+  fork.add(at(box(0.2, 0.34, 0.08, steel), 0, 1.62, 0)); fork.add(at(box(0.72, 0.16, 0.08, steel), 0, 1.84, 0));
+  for (const dx of [-0.3, -0.1, 0.1, 0.3]) fork.add(at(box(0.08, 0.72, 0.08, steel), dx, 2.28, 0));
+  const forkSign = new THREE.Group(); forkSign.position.set(FKX + 0.55, 0, FKZ + 0.45); forkSign.rotation.y = 0.72; G.add(forkSign);
+  forkSign.add(at(box(0.07, 0.8, 0.07, barkM), 0, 0.4, 0));
+  forkSign.add(at(new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.45), mat({ map: label('FORK ME', { w: 64, h: 32, size: 14, fg: '#2a1636', stroke: null, bg: '#f4e2c0' }), side: THREE.DoubleSide })), 0, 0.8, 0.05));
+  round(FKX, FKZ, 0.35); round(FKX + 0.55, FKZ + 0.45, 0.12);
+  // a gold star on a plinth
+  const starShape = new THREE.Shape();
+  for (let k = 0; k < 10; k++) { const a = PI / 2 + k * PI / 5, r = k % 2 ? 0.2 : 0.46; if (k) starShape.lineTo(Math.cos(a) * r, Math.sin(a) * r); else starShape.moveTo(Math.cos(a) * r, Math.sin(a) * r); }
+  const starGeo = new THREE.ExtrudeGeometry(starShape, { depth: 0.14, bevelEnabled: false }); starGeo.center();
+  const STX = GX1 - 1.3, STZ = GZ1 - 1.2, star = at(new THREE.Mesh(starGeo, mat({ color: 0xffd43b, unlit: 0.35 })), STX, 1.55, STZ); G.add(star);
+  G.add(at(box(0.56, 0.9, 0.56, mat({ color: 0xfff1e0 })), STX, 0.45, STZ)); G.add(at(box(0.7, 0.08, 0.7, mat({ color: 0xff5fa2 })), STX, 0.94, STZ));
+  block(STX - 0.35, STZ - 0.35, STX + 0.35, STZ + 0.35);
+  // a server rack, its lights blinking on the beat
+  const RKX = GX1 - 1.3, RKZ = PCZ - 0.2, leds = [];
+  G.add(at(box(0.8, 2.1, 0.8, mat({ color: 0x3b3a48 })), RKX, 1.05, RKZ));
+  for (let k = 0; k < 8; k++) { const m = mat({ color: 0x5fe07a, unlit: 1 }); G.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(0.12, 0.06), m), RKX - 0.18 + (k % 2) * 0.36, 0.55 + Math.floor(k / 2) * 0.38, RKZ + 0.405), 2)); leds.push(m); }
+  block(RKX - 0.45, RKZ - 0.45, RKX + 0.45, RKZ + 0.45);
+  // walkable: the main island, the bridge deck and this island (the nav bounds span both; the gaps are walls)
+  block(IX - 0.5, -IZ - 1, GX0 + 0.3, BZ - 0.7); block(IX - 0.5, BZ + 0.7, GX0 + 0.3, IZ + 1);
+  block(GX0 + 0.3, -IZ - 1, GX1 + 1, GZ0 + 0.3); block(GX0 + 0.3, GZ1 - 0.2, GX1 + 1, IZ + 1);
+
   // ---------- clouds drifting around the island, and the sky ----------
   const cloudM = mat({ color: 0xffffff, unlit: 1 }), cloudP = mat({ color: 0xffd9ec, unlit: 1 }), clouds = [];
   for (let i = 0; i < 16; i++) {
@@ -360,8 +472,21 @@ export function buildWorld(scene) {
   // ---------- animation, driven by time and the music's beat ----------
   const PAL = [[1, 0.37, 0.64], [1, 0.83, 0.23], [0.37, 0.88, 1], [0.7, 0.55, 1], [0.55, 0.95, 0.5]];
   const tvLight = new THREE.Color();
-  function update(t, beat, dancing) {
+  function update(t, beat, dancing, pos = null) {
     const b = Math.max(0, Math.floor(beat)), f = Math.max(0, beat - b), hit = Math.exp(-f * 5), bar = Math.floor(b / 4);
+    // the GitHub island: code scrolls a line at a time, the mark every fourth bar; keys glow where Saxo stepped; a commit
+    // column sweeps the graph on the beat and the tile under Saxo lights up; the star spins; the rack blinks
+    const onSplash = bar % 4 === 3; splash.visible = onSplash; codeScreen.visible = !onSplash;
+    codeM.uniforms.uOff.value.y = -Math.floor(t * 3) * 4 / 96;
+    const kk = pos ? keyAt(pos.x, pos.z) : -1; if (kk >= 0) keys[kk].at = t;
+    for (const key of keys) key.m.uniforms.uCol.value.copy(KEY).lerp(KEY_ON, Math.exp(-(t - key.at) * 2.5));
+    const qi = pos ? Math.floor((pos.x - QX0) / QC) : -9, qj = pos ? Math.floor((pos.z - QZ0) / QC) : -9;
+    for (const c of cells) {
+      const lv = c.i === qi && c.j === qj ? 4 : c.base + (c.i === b % 9 ? Math.round(2 * hit) : 0) + ((c.i * 7 + c.j * 3 + bar) % 23 ? 0 : 2);
+      c.m.uniforms.uCol.value.copy(GREENS[Math.min(4, lv)]);
+    }
+    star.rotation.y = t * 1.4; star.position.y = 1.55 + Math.sin(t * 2) * 0.06; star.scale.setScalar(1 + 0.12 * hit * (b % 4 === 0));
+    leds.forEach((m, i) => m.uniforms.uCol.value.setHex((i * 5 + b) % 3 ? 0x5fe07a : 0x1f3a2a));
     waterM.uniforms.uOff.value.set(t * 0.05, t * 0.02);
     donut.position.y = -0.18 + Math.sin(t * 1.6) * 0.04; donut.rotation.z = t * 0.2;
     beach.position.y = -0.05 + Math.sin(t * 1.3 + 1) * 0.05; beach.rotation.y = t * 0.3;
@@ -405,7 +530,9 @@ export function buildWorld(scene) {
   }
 
   // blob shadows are tinted to a darker ground colour (a black shadow reads as a stain)
-  const shadowCol = (x, z) => x > HX0 && x < HX1 && z > HZ0 && z < HZ1 ? 0x9c6a42 : x > floorRect[0] && x < floorRect[2] && z > floorRect[1] && z < floorRect[3] ? 0x0e0816 : (Math.abs(z + 0.6) < 0.8 && x > -13 && x < 13.5) || (x > -1.6 && x < 0.2 && z > -1.2) ? 0x938a88 : 0x5a9a50;
+  const inR = (x, z, x0, z0, x1, z1) => x > x0 && x < x1 && z > z0 && z < z1;
+  const islandShadow = (x, z) => inR(x, z, QX0, QZ0, QX0 + 9 * QC, QZ0 + 7 * QC) ? 0x2f6b3a : inR(x, z, KX0, KZ0, KX0 + KNX * KC, KZ0 + KNZ * KC) ? 0x8f846a : x < GX0 + 2.1 && Math.abs(z - BZ) < 0.8 ? 0x938a88 : 0x5a9a50;
+  const shadowCol = (x, z) => x > GX0 - 0.2 ? islandShadow(x, z) : x > IX - 0.3 ? 0x6e4a2e : x > HX0 && x < HX1 && z > HZ0 && z < HZ1 ? 0x9c6a42 : x > floorRect[0] && x < floorRect[2] && z > floorRect[1] && z < floorRect[3] ? 0x0e0816 : (Math.abs(z + 0.6) < 0.8 && x > -13 && x < IX - 0.2) || (x > -1.6 && x < 0.2 && z > -1.2) ? 0x938a88 : 0x5a9a50;
 
   // where things are, for the game logic
   const places = {
@@ -420,8 +547,11 @@ export function buildWorld(scene) {
     mail: { x: -3.3, z: 9.6, stand: [-3.1, 8.5] },
     carrots: { x: bedX, z: bedZ },
     posters: posterSpots,
+    code: { x: PCX, z: PCZ + 0.62, stand: [PCX, KZ0 + 0.5] },   // the GitHub island's computer
+    fork: { x: FKX, z: FKZ, stand: [FKX + 0.3, FKZ - 1.0] },
+    island: { x: GCX, z: GCZ, x0: GX0 },
     spawn: [-0.8, 1.6],
-    bounds: [-IX + 0.5, -IZ + 0.6, IX - 0.5, IZ - 0.4],
+    bounds: [-IX + 0.5, -IZ + 0.6, GX1 - 0.4, IZ - 0.4],   // both islands; the blocks above wall off the gaps
   };
-  return { group: G, colliders, places, update, setTvVideo, setPosters, light, screen, shadowCol };
+  return { group: G, colliders, places, update, setTvVideo, setPosters, light, screen, shadowCol, keyAt };
 }

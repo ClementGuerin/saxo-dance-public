@@ -1,0 +1,83 @@
+{
+ "updated": "2026-09-25T18:10:54.530Z",
+ "name": "ClementGuerin/saxo-dance-public",
+ "url": "https://github.com/ClementGuerin/saxo-dance-public",
+ "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
+ "stars": 0,
+ "forks": 0,
+ "pushedAt": "2026-09-25T17:47:59Z",
+ "commits": 11,
+ "files": 246,
+ "loc": 8073,
+ "languages": [
+  {
+   "name": "JavaScript",
+   "pct": 85.7,
+   "color": "#f1e05a"
+  },
+  {
+   "name": "Python",
+   "pct": 8.8,
+   "color": "#3572a5"
+  },
+  {
+   "name": "CSS",
+   "pct": 4,
+   "color": "#663399"
+  },
+  {
+   "name": "HTML",
+   "pct": 1.5,
+   "color": "#e34c26"
+  }
+ ],
+ "latest": [
+  {
+   "sha": "f694b0e",
+   "type": "feat",
+   "scope": "",
+   "text": "front-facing Saxo profile picture",
+   "date": "2026-09-25T17:20:11Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/f694b0e36bf7c461008666ce40f6b318d6e31245"
+  },
+  {
+   "sha": "ef7e5a0",
+   "type": "feat",
+   "scope": "",
+   "text": "Saxo profile picture (Michou shades on the yacht) and ?clean frame flag",
+   "date": "2026-09-25T17:19:03Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/ef7e5a01e867aa6fe83ee020d1b06fee8d8d6230"
+  },
+  {
+   "sha": "72052bc",
+   "type": "feat",
+   "scope": "site",
+   "text": "record the WebGL canvas in PostHog session replay",
+   "date": "2026-09-25T17:06:24Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/72052bc19719fe503ef859e60b8fac96719c3ae0"
+  },
+  {
+   "sha": "fb60c98",
+   "type": "feat",
+   "scope": "site",
+   "text": "PostHog game events, /ingest reverse proxy, hashed posthog script",
+   "date": "2026-09-25T17:01:19Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/fb60c98bd6812f9b6cfaebcea348ff28219d2bac"
+  },
+  {
+   "sha": "1083575",
+   "type": "feat",
+   "scope": "site",
+   "text": "add PostHog analytics (EU), CSP allows PostHog hosts",
+   "date": "2026-09-25T16:02:54Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/108357533cefa006024ac4de5799309e9e37dae7"
+  }
+ ],
+ "counts": {
+  "characters": 4,
+  "looks": 38,
+  "maps": 32,
+  "clips": 467,
+  "videos": 4
+ }
+}

@@ -23,9 +23,10 @@
   <table>
     <tr>
       <td align="center"><h3>4</h3>characters</td>
-      <td align="center"><h3>34</h3>looks</td>
-      <td align="center"><h3>29</h3>maps</td>
+      <td align="center"><h3>38</h3>looks</td>
+      <td align="center"><h3>32</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
+      <td align="center"><h3>4</h3>videos posted</td>
       <td align="center"><h3>1</h3>video a day</td>
       <td align="center"><h3>$0</h3>per video</td>
     </tr>
@@ -81,10 +82,10 @@
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
 in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic; an episode has to ask for it.
 
-## 29 maps, and counting
+## 32 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="All 29 maps, from the street, club and moon to Tokyo, Bikini Bottom and Paris, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Bikini Bottom and Paris, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
@@ -177,7 +178,8 @@ renders. Frames can be drawn out of order in parallel tabs, and an interrupted r
 
 A playable version of the channel in the same PS1 look. Walk Saxo around a floating diorama (the living room, the club,
 Compote's carrot garden, the pool), talk to the gang in branching chats, dress up in every costume, and watch every
-video on **Saxo TV**. It is plain ES modules and three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house
+video on **Saxo TV**. Across the bridge east of the pool, the GitHub island's giant computer opens this
+repository. It is plain ES modules and three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house
 loop synthesised in the browser: no audio files.
 
 ## Quick start
@@ -231,7 +233,7 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 |---|---|
 | **Each video** | **$0**: three.js and ffmpeg on a laptop |
 | A new character or costume | $0.50 for the 3D model, $0.04 per reference image |
-| Dance and action clips | free (Mixamo), 467 already on disk |
+| Dance and action clips | free (Mixamo): 467 clips on disk |
 | Daily caps | $1 of images and APIs, plus $1 of 3D models, logged in `research/spend.jsonl` |
 
 Pay once for reusable assets, never per video: that rule is what makes one video a day sustainable.

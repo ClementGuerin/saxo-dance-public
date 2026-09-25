@@ -7,8 +7,9 @@ import { loadLook, loadClips, Character } from './chars.js';
 import { makeNav } from './nav.js';
 import { makeChat } from './chat.js';
 import { makeTV } from './tv.js';
+import { makeCode } from './code.js';
 import * as audio from './audio.js';
-import { ICON, NET } from './icons.js';
+import { ICON, NET, markPixels } from './icons.js';
 import { track } from './analytics.js';
 
 const $ = s => document.querySelector(s);
@@ -43,6 +44,9 @@ function fail(msg) { const e = $('#loader .err'); e.hidden = false; e.innerHTML 
 // ---------- social links everywhere ----------
 document.querySelectorAll('.social').forEach(a => { const n = a.dataset.net; a.href = NET[n].url; a.innerHTML = ICON[n]; a.title = NET[n].name; });
 $('#socials .links').innerHTML = Object.entries(NET).map(([n, v]) => `<a href="${v.url}" data-net="${n}" target="_blank" rel="noopener">${ICON[n]}${v.name}<small>${v.handle}</small></a>`).join('');
+// the GitHub mark as pixel art: the GitHub island's HUD button (32 px at 2×) and its marker (16 px)
+$('.ghpix').style.backgroundImage = `url(${markPixels(32, '#ffffff', null, 4).toDataURL()})`;
+const MARK16 = markPixels(16, '#2a1636').toDataURL();
 
 // ---------- world ----------
 const world = { ready: false };
@@ -132,7 +136,7 @@ function updateCamera(dt) {
     az = sideView(Math.atan2(a.x - b.x, a.z - b.z), 1.0); el = 0.5; dist = 7.6;
   } else if (P.mode === 'show') { T.copy(P.showAt); az = P.showAz ?? FOLLOW.az; el = 0.6; dist = P.showDist || 9; }
   else {
-    T.set(clamp(saxo.pos.x, -10, 10), 0.7, clamp(saxo.pos.z + 0.4, -6.8, 7.2));
+    T.set(clamp(saxo.pos.x, -10, 22), 0.7, clamp(saxo.pos.z + 0.4, -6.8, 7.2));
   }
   const k = cam.intro > 0 ? 1.1 : 3.2;
   if (cam.intro > 0) { cam.intro = Math.max(0, cam.intro - dt / 2.6); }
@@ -175,7 +179,7 @@ function updatePlayer(dt) {
   if (P.mode === 'talk' || P.mode === 'busy' || P.overlay || P.lock) { P.speed = 0; return; }
   const inp = moveInput();
   let dir = null, run = false;
-  if (inp) { dir = inp; run = inp.run; P.path = null; P.goal = null; if (P.mode !== 'free') leaveMode(); }
+  if (inp) { dir = inp; run = inp.run; P.path = null; P.goal = null; trip = null; if (P.mode !== 'free') leaveMode(); }
   else if (P.path && P.path.length) {
     const p = P.path[0], dx = p.x - saxo.pos.x, dz = p.z - saxo.pos.z, d = Math.hypot(dx, dz);
     if (d < 0.18) { P.path.shift(); if (!P.path.length) { P.path = null; arrive(); } }
@@ -307,6 +311,7 @@ function endTalk(who) {
 const ACTIONS = {
   tv: () => setTimeout(() => openTV(), 250),
   socials: () => openSheet('socials'),
+  code: () => setTimeout(() => goToThing('code', 'chat'), 250),
   duo() {
     const s = npc.sadi;
     const name = danceClips.length ? danceClips[(P.danceIdx++ * 5) % danceClips.length] : 'happy_idle';
@@ -390,6 +395,8 @@ function toast(msg, ms = 3200, icon = null) { const t = $('#toast'); t.textConte
 // ---------- things to do: talk, TV, wardrobe, sign, mail, towel ----------
 const MAIL = ['"Dear Saxo, please stop dancing on my car." (the neighbour)', '"Your macarena changed my life." (Grandma, 89)', '"Can Kob be in EVERY video?" (a Kob fan)', '"Compote, give the farmer his carrots back." (the farmer)', '"Your moonwalk is illegal in 3 countries." (Dance Police)', '"Nice suit. Where do I get one?" (a big fan)'];
 let mailN = 0;
+const FORK = ['Fork me on GitHub! (Copy the code, make your own Saxo.)', "Not that kind of fork. Compote checked: no carrots.", 'A fork is a copy of the code. This one is a copy of a fork.'];
+let forkN = 0;
 const INTER = [];
 function interactables() {
   const pl = W.places, near = (n, d) => { const v = npc[n].pos, s = saxo.pos, a = Math.atan2(s.x - v.x, s.z - v.z); return [v.x + Math.sin(a) * d, v.z + Math.cos(a) * d]; };
@@ -402,9 +409,12 @@ function interactables() {
     { id: 'sign', label: 'Follow Saxo', r: 2.0, anchor: () => [pl.sign.x, pl.sign.z], head: () => new THREE.Vector3(pl.sign.x, 2.75, pl.sign.z), stand: () => pl.sign.stand, run: () => openSheet('socials') },
     { id: 'mail', label: 'Check the mail', r: 1.7, anchor: () => [pl.mail.x, pl.mail.z], head: () => new THREE.Vector3(pl.mail.x, 1.55, pl.mail.z), stand: () => pl.mail.stand, run: () => { audio.sfx.blip(0.8); toast(MAIL[mailN++ % MAIL.length], 4200, 'mail'); track('object_used', { object: 'mail' }); } },
     { id: 'towel', label: 'Chill in the sun', r: 1.6, anchor: () => [pl.towel.x, pl.towel.z], head: () => new THREE.Vector3(pl.towel.x, 0.9, pl.towel.z), stand: () => pl.towel.stand, run: () => { chill(); track('object_used', { object: 'towel' }); } },
+    { id: 'code', label: "Read Saxo's code", r: 2.3, anchor: () => [pl.code.x, pl.code.z], head: () => new THREE.Vector3(pl.code.x, 2.95, pl.code.z - 0.6), stand: () => pl.code.stand, run: () => { openCode(trip || 'walk'); trip = null; } },
+    { id: 'fork', label: 'Fork me', r: 1.7, anchor: () => [pl.fork.x, pl.fork.z], head: () => new THREE.Vector3(pl.fork.x, 3.0, pl.fork.z), stand: () => pl.fork.stand, run: () => { audio.sfx.blip(1.2); toast(FORK[forkN++ % FORK.length], 4200, 'star'); track('object_used', { object: 'fork' }); } },
   );
   for (const it of INTER) {
-    const m = document.createElement('div'); m.className = 'marker'; m.innerHTML = `<span class="say"></span><span class="tag">${it.label}</span><span class="dot">${PIX(it.id === 'tv' ? 'tv' : ['kob', 'sadi', 'compote'].includes(it.id) ? 'talk' : 'alert', 16)}</span>`;
+    const icon = it.id === 'code' ? `<img class="ico" src="${MARK16}" width="16" height="16" alt="">` : PIX(it.id === 'tv' ? 'tv' : ['kob', 'sadi', 'compote'].includes(it.id) ? 'talk' : 'alert', 16);
+    const m = document.createElement('div'); m.className = 'marker'; m.innerHTML = `<span class="say"></span><span class="tag">${it.label}</span><span class="dot">${icon}</span>`;
     $('#markers').appendChild(m); it.el = m;
   }
 }
@@ -475,7 +485,7 @@ function openSheet(id) {
     }
   }
 }
-function closeSheets() { let was = false; document.querySelectorAll('.sheet').forEach(s => { if (!s.hidden) was = true; s.hidden = true; }); if (was) { audio.sfx.close(); P.overlay = !$('#tv').hidden; } }
+function closeSheets() { let was = false; document.querySelectorAll('.sheet').forEach(s => { if (!s.hidden) was = true; s.hidden = true; }); if (was) { audio.sfx.close(); P.overlay = !$('#tv').hidden || code.isOpen; } }
 document.querySelectorAll('.sheet .x').forEach(x => x.onclick = closeSheets);
 
 // ---------- input ----------
@@ -497,6 +507,7 @@ function pick(cx, cy) {
 function clickAt(cx, cy) {
   if (!world.ready || !P.started || P.overlay || P.lock || P.mode === 'talk' || P.mode === 'busy') return;
   const p = pick(cx, cy); if (!p) return;
+  trip = null;
   if (p.it) {
     const [ax, az] = p.it.anchor(), d = Math.hypot(saxo.pos.x - ax, saxo.pos.z - az);
     if (d < p.it.r) { saxo.faceTo(ax, az); P.path = null; audio.sfx.blip(); p.it.run(); }
@@ -526,7 +537,7 @@ addEventListener('keydown', e => {
   if (e.target.closest && e.target.closest('input, textarea')) return;
   const k = e.key.toLowerCase();
   if (k === 'escape') { closeSheets(); return; }
-  if (!P.started || !$('#chat').hidden || !$('#tv').hidden) return;
+  if (!P.started || !$('#chat').hidden || !$('#tv').hidden || code.isOpen) return;
   if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ShiftLeft', 'ShiftRight'].includes(e.code)) { P.keys.add(e.code); e.preventDefault(); }
   if ((k === 'e' || k === 'enter') && !e.repeat) { e.preventDefault(); if (document.querySelector('.sheet:not([hidden])')) return; useNearest(); }
   if (e.code === 'Space' && !e.repeat) { e.preventDefault(); if (P.mode === 'free') { P.path = null; startDance(); } }
@@ -540,12 +551,19 @@ $('#use-btn').onclick = useNearest;
 document.querySelectorAll('.who').forEach(b => b.onclick = () => {
   audio.sfx.blip(); const g = b.dataset.go;
   if (g === 'tv') { openTV(); return; }
-  const it = INTER.find(i => i.id === g); if (!it || P.mode === 'talk' || P.mode === 'busy') return;
+  goToThing(g, 'hud');
+});
+// run to an interactable (a person, the GitHub island's computer) and use it on arrival; `trip` says how the run
+// started (the HUD, a chat) for analytics, and any manual move cancels it
+let trip = null;
+function goToThing(id, via = null) {
+  trip = via;
+  const it = INTER.find(i => i.id === id); if (!it || P.mode === 'talk' || P.mode === 'busy') return;
   closeSheets();
   const [ax, az] = it.anchor();
   if (Math.hypot(saxo.pos.x - ax, saxo.pos.z - az) < it.r) { saxo.faceTo(ax, az); it.run(); }
   else { const [sx, sz] = it.stand(); goTo(sx, sz, it, true); }
-});
+}
 function toggleSound() { audio.setMuted(!audio.isMuted()); track('sound_toggled', { muted: audio.isMuted() }); $('#sound').classList.toggle('muted', audio.isMuted()); if (!audio.isMuted()) audio.start(); }
 $('#sound').onclick = toggleSound; $('#sound').classList.toggle('muted', audio.isMuted());
 
@@ -558,26 +576,32 @@ function showHint() {
 let hintMoves = 0;
 function hideHintSoon() { if (++hintMoves === 90) $('#hint').classList.add('gone'); }
 
-function openTV(f, id) { chat.close(); closeSheets(); tv.open(f, id); track('tv_opened', { filter: f || 'all' }); }
+function openTV(f, id) { chat.close(); closeSheets(); code.close(); tv.open(f, id); track('tv_opened', { filter: f || 'all' }); }
+function openCode(from) { if (P.mode !== 'free' && P.mode !== 'show') return; chat.close(); closeSheets(); tv.close(); code.open(from); }
 // the social links (top bar, the Follow Saxo sheet): which network people follow from, and from where
 document.addEventListener('click', e => { const a = e.target.closest?.('a.social, #socials .links a'); if (!a) return; track('social_clicked', { network: a.dataset.net, place: a.classList.contains('social') ? 'bar' : 'sheet' }); });
 // ---------- UI modules ----------
 const chat = makeChat(game);
 const tv = makeTV(game);
+const code = makeCode(game);
 
 // ---------- the loop ----------
-let last = performance.now(), T = 0, frames = 0;
+let last = performance.now(), T = 0, frames = 0, lastKey = -1;
+const PENTA = [0.5, 0.595, 0.667, 0.749, 0.891, 1, 1.189, 1.335, 1.498, 1.782];   // A C D E G, two octaves (blip is 880 Hz × p)
 function frame(now) {
   requestAnimationFrame(frame);
   const dt = Math.min(0.05, (now - last) / 1000); last = now;
-  if (P.overlay && !$('#tv').hidden && (frames++ % 4)) return;   // the TV covers the screen: render at a quarter rate
+  if (P.overlay && (!$('#tv').hidden || code.isOpen) && (frames++ % 4)) return;   // the TV or the code covers the screen: render at a quarter rate
   T += dt;
   const beat = audio.beatNow();
   if (!INTER.length && W) interactables();
   updatePlayer(dt); updateNPCs(dt, T); saxo.update(dt); saxo.shadow.material.uniforms.uShadowCol.value.set(W.shadowCol(saxo.pos.x, saxo.pos.z));
   const onFloor = inRect(saxo.pos, W.places.floor.rect), clubD = Math.hypot(saxo.pos.x - W.places.floor.x, saxo.pos.z - W.places.floor.z);
   audio.setClub(clamp(1 - (clubD - 3) / 9, 0, 1));
-  W.update(T, beat, onFloor && !!P.dance || P.duo);
+  W.update(T, beat, onFloor && !!P.dance || P.duo, saxo.pos);
+  // the GitHub island's keyboard: each key Saxo steps on plays a note of the loop's A minor pentatonic
+  const key = W.keyAt(saxo.pos.x, saxo.pos.z);
+  if (key !== lastKey) { lastKey = key; if (key >= 0 && P.started) audio.sfx.blip(PENTA[key % PENTA.length]); }
   updateCamera(dt); updateInteract(); updateBarks(T); notes(beat);
   renderer.render(scene, camera);
 }
