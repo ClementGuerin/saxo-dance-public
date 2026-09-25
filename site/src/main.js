@@ -395,7 +395,7 @@ function toast(msg, ms = 3200, icon = null) { const t = $('#toast'); t.textConte
 // ---------- things to do: talk, TV, wardrobe, sign, mail, towel ----------
 const MAIL = ['"Dear Saxo, please stop dancing on my car." (the neighbour)', '"Your macarena changed my life." (Grandma, 89)', '"Can Kob be in EVERY video?" (a Kob fan)', '"Compote, give the farmer his carrots back." (the farmer)', '"Your moonwalk is illegal in 3 countries." (Dance Police)', '"Nice suit. Where do I get one?" (a big fan)'];
 let mailN = 0;
-const FORK = ['Fork me on GitHub! (Copy the code, make your own Saxo.)', "Not that kind of fork. Compote checked: no carrots.", 'A fork is a copy of the code. This one is a copy of a fork.'];
+const FORK = ['Fork me on GitHub! (A fork is your own copy of the repo.)', "Not that kind of fork. Compote checked: no carrots.", 'A fork is a copy of the code. This one is a copy of a fork.'];
 let forkN = 0;
 const INTER = [];
 function interactables() {
