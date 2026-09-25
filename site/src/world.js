@@ -14,8 +14,10 @@ const at = (o, x, y, z) => { o.position.set(x, y, z); return o; };
 const rotY = (o, a) => { o.rotation.y = a; return o; };
 const flat = (w, d, m, x = 0, y = 0, z = 0) => { const p = new THREE.Mesh(new THREE.PlaneGeometry(w, d), m); p.rotation.x = -PI / 2; p.position.set(x, y, z); return p; };
 // decals: a clear gap from the surface under them is not enough once the PS1 vertex snap moves their corners by a
-// few cm, so each stacking layer also gets its own depth offset (layer 1 = on the ground, 2 = on a layer-1 decal…)
-const decal = (m, layer = 1) => { const ms = Array.isArray(m.material) ? m.material : [m.material]; for (const x of ms) { x.polygonOffset = true; x.polygonOffsetFactor = -2 * layer; x.polygonOffsetUnits = -4 * layer; } m.userData.noTess = true; return m; };
+// few cm, so each stacking layer also gets its own depth offset (layer 1 = on the ground, 2 = on a layer-1 decal…).
+// Screens, signs and posters stay one quad; floors pass `tess` to be split into ~1.5 m cells like any big plane (as
+// one quad, the living room's 11 m floor folded its planks along the diagonal under the affine UVs).
+const decal = (m, layer = 1, tess = false) => { const ms = Array.isArray(m.material) ? m.material : [m.material]; for (const x of ms) { x.polygonOffset = true; x.polygonOffsetFactor = -2 * layer; x.polygonOffsetUnits = -4 * layer; } m.userData.noTess = !tess; return m; };
 const hash = (a, b = 0) => { const x = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return x - Math.floor(x); };
 
 // text on a canvas, drawn small and magnified with nearest filtering (pixel type, like the videos' karaoke)
@@ -97,7 +99,7 @@ export function buildWorld(scene) {
   // ---------- living room (north-west) ----------
   const HX0 = -14.5, HX1 = -3, HZ0 = -10.5, HZ1 = -2;
   const woodM = mat({ map: T.wood, rep: [(HX1 - HX0) / 2, (HZ1 - HZ0) / 2] });
-  G.add(decal(flat(HX1 - HX0, HZ1 - HZ0, woodM, (HX0 + HX1) / 2, 0.01, (HZ0 + HZ1) / 2), 1));
+  G.add(decal(flat(HX1 - HX0, HZ1 - HZ0, woodM, (HX0 + HX1) / 2, 0.01, (HZ0 + HZ1) / 2), 1, true));
   const skirt = mat({ color: 0xc98c52 });
   G.add(at(box(HX1 - HX0, 0.12, 0.12, skirt), (HX0 + HX1) / 2, 0.06, HZ1));   // floor edge trim, facing the camera
   G.add(at(box(0.12, 0.12, HZ1 - HZ0, skirt), HX1, 0.06, (HZ0 + HZ1) / 2));
@@ -316,7 +318,7 @@ export function buildWorld(scene) {
   const beach = at(new THREE.Mesh(new THREE.IcosahedronGeometry(0.26, 1), mat({ map: T.stripe, rep: [2, 1] })), 10.4, -0.05, 5.4); G.add(beach);
   // deck: two loungers, an umbrella, the towel (Saxo's chill spot), a palm
   const deck = mat({ map: T.wood, rep: [2, 1], color: 0xf0c490 });
-  G.add(decal(flat(7.2, 2.6, deck, 8.5, 0.012, 8.4), 1));
+  G.add(decal(flat(7.2, 2.6, deck, 8.5, 0.012, 8.4), 1, true));
   const lounger = (x, z) => {
     const g = new THREE.Group(); g.position.set(x, 0, z); G.add(g);
     const w = mat({ color: 0xffffff }), c = mat({ map: T.stripe, rep: [1, 2] });
