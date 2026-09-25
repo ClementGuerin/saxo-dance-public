@@ -88,7 +88,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 33 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Bikini Bottom and Paris, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht and the techno club, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
@@ -186,7 +186,7 @@ renders. Frames can be drawn out of order in parallel tabs, and an interrupted r
 </p>
 
 <p align="center">
-  <img src="docs/readme/site.jpg" width="100%" alt="Saxo TV with every posted video, the dress-up wardrobe, and a chat with Compote in her carrot garden">
+  <img src="docs/readme/site.jpg" width="100%" alt="Saxo TV with every posted video, the dress-up wardrobe, a chat with Compote in her carrot garden, and the GitHub island">
 </p>
 
 A playable version of the channel in the same PS1 look. Walk Saxo around a floating diorama (the living room, the club,
