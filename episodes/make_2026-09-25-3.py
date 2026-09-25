@@ -5,19 +5,22 @@
 # in her pyjamas; on "99 Kriegsminister" 99 neighbours in pyjamas stand behind her, and they end up raving in sync.
 # Kob isn't having it: she finds the booth's plug and yanks it on the last word, the moment the music stops dead.
 # Button: silence, the club in the dark, one red balloon floating up (the clip's last image).
-# Beats count from B0 = 0.000 s at 176 BPM (cut time = b * 0.3409): the kick measured on the transients; the cut is
-# 22.025-90.207 s of the song (the downbeat before the drop -> the breakdown's last beat) + 1.64 s of silence.
+# Beats count from B0 = 0.000 s at 176 BPM (cut time = b * 0.3409): the kick measured on the transients. The shots are
+# written on the first cut's grid (b0 = 22.025 s of the song, one bar before the drop); the user's recut starts on the drop
+# (song 23.389 s = b4) and keeps 0.64 s of silence after the stop, so SHIFT moves every beat and time back one bar and
+# the pre-drop shot is dropped.
 # Lyric lines are named by number (L00-L23, see episodes/2026-09-25-3.lyrics.js): the lyrics stay in their files.
 import json, os
 
 P = 60 / 176.0
-T = lambda b: round(b * P, 3)                      # beat -> cut seconds
+SHIFT = 4                                          # the recut starts on the drop, one bar in
+T = lambda b: round((b - SHIFT) * P, 3)            # (first-cut) beat -> cut seconds
 TECHNO = {'STAGE': 0.9, 'BOOTH': [0, -5.25], 'DOOR': [6.4, 2.6], 'SOCKET': [-2.3, 0.4, -2.55], 'CABLE': [-2.3, 0.03, -2.86], 'PLUG': [-2.3, -2.87]}   # = src/maps6.js
 S, BX, BZ = TECHNO['STAGE'], *TECHNO['BOOTH']
 DX, DZ = TECHNO['DOOR']
 PX, PZ = TECHNO['PLUG']
 KX, KZ = -0.2, -0.9                                # Kob's spot in her flat, in front of the sofa
-END, STOP = 69.82, T(200)                          # the video's end; the music stops dead at b200 (68.182 s)
+END, STOP = 67.45, T(200)                          # the video's end; the music stops dead at b200 (66.818 s)
 ME, SA, KO, CO = 'nena', 'rave', 'pyjama', 'bouncer'   # the looks of the night
 def A(who, clip, x=0, z=0, **o):
     look = {'saxo': ME, 'sadi': SA, 'kob': KO, 'compote': CO}[who]
@@ -44,7 +47,7 @@ shots = [
   shot(0, 'techno', [A('saxo', 'hip_hop_just_listening_dancing_variation', **DJ, **DECKS, at=0, speed=0.5)],   # slowed: the head turn comes after the cut
        "(pre-drop bar, b0-4, the intro music has just stopped) Saxo at the decks in Nena's hair under the 99 neon: wait for it",
        cam([-6, 2], [2.9, 2.6], [0.75, 0.75], 0.85), focus=[BX, BZ, S], still=True, signDim=0.7, stars=['saxo']),
-  shot(4, 'techno', [A('saxo', 'celebrating_after_a_win', **DJ, arm='both', upAt=0.1), A('sadi', 'jumping_in_place', 0.5, 0.3)],
+  shot(4, 'techno', [A('saxo', 'celebrating_after_a_win', **DJ, arm='both', upAt=0.1), A('sadi', 'jumping_in_place', 0.8, 0.3)],   # Sadi aside: Saxo at the booth stays visible
        "L00 (b4 = the drop): the net opens, 99 balloons rain on the crowd, CO2 blasts; the title line lands on them",
        cam([0, 3], [6.4, 5.6], [0.45, 0.6], [2.7, 1.8], 58, 'out'), focus=[0, -1.5], co2=True, stars=['saxo', 'sadi']),
   # ---------------- verse A: the balloons, the UFOs, the bouncer ----------------
@@ -66,9 +69,9 @@ shots = [
   shot(52, 'techno', [A('compote', 'being_surprised_and_looking_right', 0.35, 0.5), A('saxo', 'house_dance_variation_3', -0.95, -1.3), A('sadi', 'female_hip_hop_body_wave_dancing', 0.9, -1.4)],
        "L06 (b51.7-58.9, 'but on the horizon there were'): Compote on the floor, scanning for the enemy",
        cam([6, 2], [4.0, 3.6], [0.95, 0.9], 0.95), key=[0.6, 2.2, 2.0, 0.9, 0.8, 1.0], stars=['compote']),
-  shot(60, 'techno', [A('compote', 'yelling_in_anger', 0, 0.4, hold='balloon', face='world', yaw=40, arm='R', aim=[0.35, 0.35, 0.87], upAt=0)],
+  shot(60, 'techno', [A('compote', 'yelling_in_anger', 0, 0.4, hold='balloon', arm='R', aim=[0.8, 0.55, 0.15], upAt=0)],   # the balloon up beside her head: held in front, its string ran through her face
        "L07 (b59.2-67.5, 'only 99 balloons'): she has caught one: it's a balloon. She yells at it",
-       cam([-12, -6], [2.6, 2.3], [0.95, 0.92], 1.0), key=[0.2, 2.0, 1.8, 0.8, 0.8, 1.0], stars=['compote']),   # she faces 40°, the balloon at arm's length: a 3/4 on her glare
+       cam([-6, -2], [2.8, 2.5], [0.95, 0.92], 1.02), key=[0.2, 2.0, 1.8, 0.8, 0.8, 1.0], stars=['compote']),
   # ---------------- verse B: the squadron, the battle, the neighbour ----------------
   shot(68, 'techno', [A('saxo', 'jumping_in_place', -0.45, 0), A('sadi', 'jumping_in_place', 0.5, -0.15, at=0.25)],
        "L08 (b67.8-76.6, '99 jets'): the CO2 jets blast on every bar, a V of paper planes crosses, everyone jumps",
@@ -131,6 +134,8 @@ shots = [
        cam([2, 0], [3.1, 3.0], [1.0, 1.05], [0.9, 1.15], 52, 'lin'), focus=[PX, PZ + 0.3], unplugAt=0, blackout=STOP, last=[PX + 0.5, PZ - 0.5, STOP - 0.6], still=True, freeze=STOP, key=[PX + 0.2, 1.9, PZ + 1.4, 0.9, 0.85, 0.75], stars=['kob']),
 ]
 
+shots = [sh for sh in shots if sh['beat'] >= SHIFT]   # the recut starts on the drop: the pre-drop shot goes
+for sh in shots: sh['beat'] -= SHIFT
 # No comic word bursts and no bind pose (the user's calls; the QA gate fails both)
 for sh in shots:
     assert not any(k.startswith('word') for k in sh), sh['lyric']
@@ -139,7 +144,7 @@ BASE = {'tpose', 'gangnam', 'twist', 'macarena', 'silly_twist', 'chicken', 'twer
 clips = {a['clip'] for s in shots for a in s['actors']} | {s['crowd']['clip'] for s in shots if 'crowd' in s}
 ep = {
   'date': '2026-09-25', 'n': 3,
-  'song': {'title': '99 Luftballons (Techno)', 'artist': 'Snoblack', 'window': [22.025, 90.207], 'bpm': 176.0, 'tail': 1.64},
+  'song': {'title': '99 Luftballons (Techno)', 'artist': 'Snoblack', 'window': [23.389, 90.207], 'bpm': 176.0, 'tail': 0.64},
   'logline': "Saxo's techno night: 99 balloons rain on the dance floor, Compote the bouncer fights them, Kob upstairs takes them for UFOs, "
              "walks in on the break with 99 neighbours in pyjamas, and pulls the plug on the last word, right where the music stops dead.",
   'new': ['techno map (warehouse club: DJ stage under a 99 neon, lasers, CO2 jets, confetti cannons, a balloon drop net, paper planes, the booth plug)',

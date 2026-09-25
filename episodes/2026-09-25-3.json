@@ -5,11 +5,11 @@
   "title": "99 Luftballons (Techno)",
   "artist": "Snoblack",
   "window": [
-   22.025,
+   23.389,
    90.207
   ],
   "bpm": 176,
-  "tail": 1.64
+  "tail": 0.64
  },
  "logline": "Saxo's techno night: 99 balloons rain on the dance floor, Compote the bouncer fights them, Kob upstairs takes them for UFOs, walks in on the break with 99 neighbours in pyjamas, and pulls the plug on the last word, right where the music stops dead.",
  "new": [
@@ -57,56 +57,6 @@
     {
      "who": "saxo",
      "look": "nena",
-     "clip": "hip_hop_just_listening_dancing_variation",
-     "x": 0,
-     "z": -5.25,
-     "lift": 0.9,
-     "arm": "both",
-     "aim": [
-      0.3,
-      -0.5,
-      0.8
-     ],
-     "upAt": 0,
-     "at": 0,
-     "speed": 0.5
-    }
-   ],
-   "focus": [
-    0,
-    -5.25,
-    0.9
-   ],
-   "still": true,
-   "signDim": 0.7,
-   "stars": [
-    "saxo"
-   ],
-   "cam": {
-    "ang": [
-     -6,
-     2
-    ],
-    "r": [
-     2.9,
-     2.6
-    ],
-    "h": [
-     0.75,
-     0.75
-    ],
-    "look": 0.85,
-    "fov": 50
-   }
-  },
-  {
-   "beat": 4,
-   "kind": "dance",
-   "map": "techno",
-   "actors": [
-    {
-     "who": "saxo",
-     "look": "nena",
      "clip": "celebrating_after_a_win",
      "x": 0,
      "z": -5.25,
@@ -118,7 +68,7 @@
      "who": "sadi",
      "look": "rave",
      "clip": "jumping_in_place",
-     "x": 0.5,
+     "x": 0.8,
      "z": 0.3
     }
    ],
@@ -153,7 +103,7 @@
    }
   },
   {
-   "beat": 12,
+   "beat": 8,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -195,7 +145,7 @@
    }
   },
   {
-   "beat": 20,
+   "beat": 16,
    "kind": "dance",
    "map": "kobflat",
    "actors": [
@@ -245,7 +195,7 @@
    }
   },
   {
-   "beat": 28,
+   "beat": 24,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -298,7 +248,7 @@
    }
   },
   {
-   "beat": 36,
+   "beat": 32,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -319,7 +269,7 @@
    ],
    "planes": {
     "n": 9,
-    "at": 12.073,
+    "at": 10.709000000000001,
     "pass": [
      [
       -4.5,
@@ -360,7 +310,7 @@
    }
   },
   {
-   "beat": 44,
+   "beat": 40,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -402,7 +352,7 @@
    }
   },
   {
-   "beat": 52,
+   "beat": 48,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -457,7 +407,7 @@
    }
   },
   {
-   "beat": 60,
+   "beat": 56,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -468,13 +418,11 @@
      "x": 0,
      "z": 0.4,
      "hold": "balloon",
-     "face": "world",
-     "yaw": 40,
      "arm": "R",
      "aim": [
-      0.35,
-      0.35,
-      0.87
+      0.8,
+      0.55,
+      0.15
      ],
      "upAt": 0
     }
@@ -492,23 +440,23 @@
    ],
    "cam": {
     "ang": [
-     -12,
-     -6
+     -6,
+     -2
     ],
     "r": [
-     2.6,
-     2.3
+     2.8,
+     2.5
     ],
     "h": [
      0.95,
      0.92
     ],
-    "look": 1,
+    "look": 1.02,
     "fov": 50
    }
   },
   {
-   "beat": 68,
+   "beat": 64,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -530,7 +478,7 @@
    ],
    "planes": {
     "n": 11,
-    "at": 22.881999999999998,
+    "at": 21.518,
     "pass": [
      [
       4.5,
@@ -569,7 +517,7 @@
    }
   },
   {
-   "beat": 76,
+   "beat": 72,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -603,7 +551,7 @@
    }
   },
   {
-   "beat": 84,
+   "beat": 80,
    "kind": "dance",
    "map": "spaceship",
    "actors": [
@@ -639,7 +587,7 @@
    }
   },
   {
-   "beat": 92,
+   "beat": 88,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -660,7 +608,7 @@
     }
    ],
    "ring": true,
-   "confetti": 32.727,
+   "confetti": 31.364,
    "co2": true,
    "stars": [
     "sadi",
@@ -684,7 +632,7 @@
    }
   },
   {
-   "beat": 100,
+   "beat": 96,
    "kind": "dance",
    "map": "kobflat",
    "actors": [
@@ -724,7 +672,7 @@
    }
   },
   {
-   "beat": 108,
+   "beat": 104,
    "kind": "dance",
    "map": "kobflat",
    "actors": [
@@ -763,7 +711,7 @@
    }
   },
   {
-   "beat": 116,
+   "beat": 112,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -830,7 +778,7 @@
    }
   },
   {
-   "beat": 124,
+   "beat": 120,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -873,7 +821,7 @@
    }
   },
   {
-   "beat": 132,
+   "beat": 128,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -893,7 +841,7 @@
     2.6
    ],
    "doorOpen": true,
-   "freeze": 45,
+   "freeze": 43.636,
    "still": true,
    "key": [
     5.6,
@@ -924,7 +872,7 @@
    }
   },
   {
-   "beat": 136,
+   "beat": 132,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -988,7 +936,7 @@
    }
   },
   {
-   "beat": 144,
+   "beat": 140,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1047,7 +995,7 @@
    }
   },
   {
-   "beat": 152,
+   "beat": 148,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1106,7 +1054,7 @@
    }
   },
   {
-   "beat": 160,
+   "beat": 156,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1145,7 +1093,7 @@
    }
   },
   {
-   "beat": 168,
+   "beat": 164,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1190,7 +1138,7 @@
    }
   },
   {
-   "beat": 176,
+   "beat": 172,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1238,7 +1186,7 @@
    }
   },
   {
-   "beat": 184,
+   "beat": 180,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1334,7 +1282,7 @@
    }
   },
   {
-   "beat": 192,
+   "beat": 188,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1371,8 +1319,8 @@
     -2.67
    ],
    "half": true,
-   "unplugAt": 68.002,
-   "blackout": 68.182,
+   "unplugAt": 66.638,
+   "blackout": 66.818,
    "stars": [
     "kob"
    ],
@@ -1394,7 +1342,7 @@
    }
   },
   {
-   "beat": 200,
+   "beat": 196,
    "kind": "dance",
    "map": "techno",
    "actors": [
@@ -1424,14 +1372,14 @@
     -2.5700000000000003
    ],
    "unplugAt": 0,
-   "blackout": 68.182,
+   "blackout": 66.818,
    "last": [
     -1.7999999999999998,
     -3.37,
-    67.58200000000001
+    66.218
    ],
    "still": true,
-   "freeze": 68.182,
+   "freeze": 66.818,
    "key": [
     -2.0999999999999996,
     1.9,

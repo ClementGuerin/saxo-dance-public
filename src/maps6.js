@@ -12,7 +12,7 @@
 //           (the breakdown: the ravers sway at half time), `noguests`, `noballoons`.
 import { mapKit } from './mapkit.js';
 
-export const TECHNO = { STAGE: 0.9, BOOTH: [0, -5.25], DOOR: [6.4, 2.6], SOCKET: [-2.3, 0.32, -2.55], CABLE: [-2.3, 0.03, -2.86], PLUGSPOT: [-2.3, -2.87], DROP: 1.364 };
+export const TECHNO = { STAGE: 0.9, BOOTH: [0, -5.25], DOOR: [6.4, 2.6], SOCKET: [-2.3, 0.32, -2.55], CABLE: [-2.3, 0.03, -2.86], PLUGSPOT: [-2.3, -2.87], DROP: 0 };   // DROP: cut seconds (the episode starts on the drop)
 
 export function buildTechnoMaps(K) {
   const k = mapKit(K);
@@ -146,7 +146,7 @@ export function buildTechnoMaps(K) {
       if (!helium && Math.abs(x0) < 1.8 && z0 > -1.6) z0 -= 2.0;
       if (!helium && (x0 - TECHNO.SOCKET[0]) ** 2 + (z0 - TECHNO.SOCKET[2] + 0.2) ** 2 < 2.6) x0 = TECHNO.SOCKET[0] + (x0 < TECHNO.SOCKET[0] ? -1.7 : 1.7) + (x0 - TECHNO.SOCKET[0]) * 0.3;
       const hf = helium ? 2.5 + hash(i, 4) * 0.9 : 0.24;
-      b.userData = { x0, z0, yN, hf, helium, d: hash(i, 5) * 0.5, v: 0.9 + hash(i, 6) * 0.6, ph: hash(i, 7) * TAU, lie: (hash(i, 9) - 0.5) * 2.4 };
+      b.userData = { x0, z0, yN, hf, helium, d: hash(i, 5) * 0.35, v: 2.2 + hash(i, 6) * 1.2, ph: hash(i, 7) * TAU, lie: (hash(i, 9) - 0.5) * 2.4 };   // v: they rain (2.2-3.4 m/s): a real balloon's slow drift hung in the ceiling band for the whole hook
       G.add(b); balloons.push(b);
     }
     const net = new THREE.Group(); for (let q = 0; q < 12; q++) { net.add(at(box(11.5, 0.02, 0.02, strM), 0, 5.75, -3.6 + q * 0.58)); net.add(at(box(0.02, 0.02, 6.6, strM), -5.7 + q * 1.04, 5.75, -0.4)); } G.add(net);
@@ -219,7 +219,7 @@ export function buildTechnoMaps(K) {
           const U2 = b.userData; b.visible = !P.noballoons;
           if (!b.visible) return;
           b.children[0].material.uniforms.uUnlit.value = out ? 0.02 : 0.35;   // dark once the lights die: only the last one glows
-          const tt = out ? P.blackout : t, dt = tt - TECHNO.DROP - U2.d;
+          const tt = out ? P.blackout : t, dt = tt - (P.drop ?? TECHNO.DROP) - U2.d;   // drop: a shot can move the release (the TikTok cut's drop is 6.3 s in)
           if (dt < 0) { b.position.set(U2.x0, U2.yN, U2.z0); b.rotation.set(0, 0, 0); return; }
           const fallY = U2.yN - dt * U2.v, drift = Math.min(dt, 3) / 3, landed = !U2.helium && fallY <= U2.hf;
           // kicked by the crowd: every other bar a few of them get knocked up (a metre up in the air, a hop on the floor)
