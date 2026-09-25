@@ -134,6 +134,8 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
 #tv .tabs { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; }
 #tv .tabs button { border: 2px solid rgba(255, 255, 255, .5); background: transparent; color: #fff; border-radius: 999px; padding: 4px 14px; font-weight: 600; font-size: 14px; }
 #tv .tabs button.on, #tv .tabs button:hover { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+#tv .tabs .back { background: var(--yellow); color: var(--ink); border-color: #000; font-weight: 700; }   /* stands in for the tabs while a video plays */
+#tv .tabs .back:hover { background: #fff; border-color: #000; }
 #tv header .x { margin-left: auto; background: var(--pink); color: #fff; border-color: #000; box-shadow: 3px 3px 0 #000; }   /* top right, also when the tabs wrap to their own row (phones) */
 #tv .grid { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; padding: 6px 18px 22px; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px; align-content: start; }
 .card { position: relative; border: 0; background: none; padding: 0; text-align: left; color: #fff; animation: pop .3s both; }
@@ -151,11 +153,10 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
 .card p { margin: 2px 0 0; font-size: 13px; opacity: .75; }
 .card .views { color: var(--yellow); opacity: 1; font-weight: 600; }
 #tv .empty { grid-column: 1 / -1; text-align: center; opacity: .8; padding: 40px; font-size: 18px; }
-#tv .player { flex: 1; display: flex; gap: 20px; padding: 0 18px 20px; min-height: 0; align-items: stretch; }
-#tv .player .back { position: absolute; left: 18px; top: 70px; z-index: 3; background: var(--yellow); color: var(--ink); border: 2px solid #000; border-radius: 999px; padding: 4px 14px; font-weight: 700; }
-#tv .frame { flex: none; height: 100%; aspect-ratio: 9 / 16; max-width: 55%; border-radius: 14px; overflow: hidden; border: 3px solid #000; background: #000; margin: 34px auto 0; }
+#tv .player { flex: 1; display: flex; gap: 20px; padding: 6px 18px 22px; min-height: 0; align-items: stretch; }   /* the grid's padding, so the video keeps clear of the screen's edge */
+#tv .frame { flex: none; height: 100%; aspect-ratio: 9 / 16; max-width: 55%; border-radius: 14px; overflow: hidden; border: 3px solid #000; background: #000; margin: 0 auto; }
 #tv .frame iframe, #tv .frame img { width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
-#tv .meta { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; justify-content: center; padding-top: 34px; }
+#tv .meta { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
 #tv .meta h2 { margin: 0; font-size: 30px; line-height: 1.1; color: var(--yellow); text-shadow: 3px 3px 0 #000; }
 #tv .meta p { margin: 0; opacity: .85; font-size: 16px; }
 #tv .meta .go { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
@@ -268,10 +269,8 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
   .tvtitle { font-size: 22px; }
   #tv .tabs { order: 3; flex-basis: 100%; }
   #tv .grid { grid-template-columns: repeat(2, 1fr); padding: 4px 12px 16px; gap: 12px; }
-  #tv .player { flex-direction: column; padding: 0 12px 12px; overflow-y: auto; }
-  #tv .frame { max-width: 100%; width: min(100%, 52vh); height: auto; margin-top: 40px; flex: none; }
-  #tv .player .back { top: 110px; }
-  #tv .meta { padding-top: 0; }
+  #tv .player { flex-direction: column; padding: 4px 12px 16px; overflow-y: auto; }
+  #tv .frame { max-width: 100%; width: min(100%, 52vh); height: auto; flex: none; }
   #tv .meta h2 { font-size: 24px; }
   .looks { grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 10px; }
   #code { padding: 0; }

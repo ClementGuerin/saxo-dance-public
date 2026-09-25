@@ -1,8 +1,8 @@
 // audio.js: everything you hear, synthesised with WebAudio (no files): a PS1-era house loop whose drums swell near
 // the club, character babble (Animal Crossing style), footsteps and UI blips. The music's clock is the world's beat.
 export const BPM = 112;
-let ctx = null, master = null, musicBus = null, drumBus = null, musicLP = null, sfxBus = null, noiseBuf = null;
-let muted = false, t0 = 0, nextStep = 0, step = 0, timer = null;
+let ctx = null, master = null, musicBus = null, drumBus = null, musicLP = null, musicFade = null, sfxBus = null, noiseBuf = null;
+let muted = false, t0 = 0, nextStep = 0, step = 0, timer = null, musicEnd = Infinity;
 const SPB = 60 / BPM, S16 = SPB / 4;
 try { muted = localStorage.getItem('saxo.muted') === '1'; } catch {}
 
@@ -22,7 +22,8 @@ export function start() {
   const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 4;
   master.connect(comp).connect(ctx.destination);
   musicLP = ctx.createBiquadFilter(); musicLP.type = 'lowpass'; musicLP.frequency.value = 18000;
-  musicBus = ctx.createGain(); musicBus.gain.value = 0.55; musicBus.connect(musicLP).connect(master);
+  musicFade = ctx.createGain();
+  musicBus = ctx.createGain(); musicBus.gain.value = 0.55; musicBus.connect(musicLP).connect(musicFade).connect(master);
   drumBus = ctx.createGain(); drumBus.gain.value = 0.3; drumBus.connect(musicBus);
   sfxBus = ctx.createGain(); sfxBus.gain.value = 0.8; sfxBus.connect(master);
   noiseBuf = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
@@ -32,9 +33,19 @@ export function start() {
   document.addEventListener('visibilitychange', () => { if (!ctx) return; document.hidden ? ctx.suspend() : ctx.resume(); });
 }
 
-// club proximity 0..1 brings the drums in; muffle() dips the music under an overlay
+// club proximity 0..1 brings the drums in
 export function setClub(k) { if (drumBus) drumBus.gain.setTargetAtTime(0.22 + 0.78 * k, ctx.currentTime, 0.3); }
-export function muffle(on) { if (musicLP) musicLP.frequency.setTargetAtTime(on ? 700 : 18000, ctx.currentTime, 0.15); if (musicBus) musicBus.gain.setTargetAtTime(on ? 0.35 : 0.55, ctx.currentTime, 0.2); }
+// musicOff() fades the loop out (muffling as it goes) while Saxo TV is open, so the videos play alone, and back in when
+// it closes. The TV can't follow a video's own play/pause: TikTok's embed sent none of its documented player events
+// (onPlayerReady, onStateChange) when we tried (2026-09-25), and Instagram's has none.
+// Once faded, no notes are scheduled, but the steps keep counting: the loop comes back on the world's beat.
+export function musicOff(off) {
+  if (!ctx) return;
+  const t = ctx.currentTime;
+  musicFade.gain.setTargetAtTime(off ? 0 : 1, t, off ? 0.5 : 0.3);
+  musicLP.frequency.setTargetAtTime(off ? 500 : 18000, t, off ? 0.3 : 0.2);
+  musicEnd = off ? t + 3 : Infinity;
+}
 
 // ---------- the loop: Am F C G, 16th-note grid ----------
 const N = n => 440 * Math.pow(2, (n - 69) / 12);
@@ -43,7 +54,7 @@ const BASS = [0, null, 0, null, 12, null, 0, 7, 0, null, 0, 12, null, 7, 12, nul
 const ARP = [0, 1, 2, 1, 2, 0, 1, 2, 0, 2, 1, 2, 0, 1, 2, 1];
 function schedule() {
   if (!ctx) return;
-  while (nextStep < ctx.currentTime + 0.12) { playStep(step, nextStep); nextStep += S16; step++; }
+  while (nextStep < ctx.currentTime + 0.12) { if (nextStep < musicEnd) playStep(step, nextStep); nextStep += S16; step++; }
 }
 function playStep(s, t) {
   const bar = Math.floor(s / 16) % 8, i = s % 16, ch = CHORDS[bar % 4], phrase = Math.floor(s / 128) % 2;

@@ -1,7 +1,7 @@
 // tv.js: Saxo TV, the overlay that lists every post we published (assets/posts.json, built by tools/site_posts.mjs),
 // one card per video with its TikTok / Instagram / YouTube posts, and plays them through the platforms' embeds.
 import { ICON, NET } from './icons.js';
-import { sfx, muffle } from './audio.js';
+import { sfx, musicOff } from './audio.js';
 import { track } from './analytics.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -21,8 +21,10 @@ function embed(net, p) {
 
 export function makeTV(game) {
   const el = document.getElementById('tv'), grid = el.querySelector('.grid'), player = el.querySelector('.player');
-  const frame = player.querySelector('.frame'), meta = player.querySelector('.meta'), tabs = el.querySelectorAll('.tabs button');
+  const frame = player.querySelector('.frame'), meta = player.querySelector('.meta'), tabs = el.querySelectorAll('.tabs [data-f]'), backBtn = el.querySelector('.tabs .back');
   let posts = null, filter = 'all';
+  // a video takes the grid's place, and "All videos" the filter tabs' place in the header
+  const view = playing => { grid.hidden = playing; player.hidden = !playing; tabs.forEach(t => t.hidden = playing); backBtn.hidden = !playing; };
   const load = () => posts ??= fetch('assets/posts.json', { cache: 'no-cache' }).then(r => r.json()).then(j => j.posts || []).catch(() => []);
 
   function render(list) {
@@ -38,7 +40,7 @@ export function makeTV(game) {
     });
   }
   function play(p, net = EMBED.find(n => p.links[n] && p.links[n].id)) {
-    sfx.blip(); grid.hidden = true; player.hidden = false;
+    sfx.blip(); view(true);
     track('video_played', { post_id: p.id, title: p.title, platform: net || 'none' });
     frame.innerHTML = net ? `<iframe src="${embed(net, p.links[net])}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="${esc(p.title)}"></iframe>`
       : `<img src="${esc(p.thumb)}" alt="">`;
@@ -46,18 +48,18 @@ export function makeTV(game) {
     meta.innerHTML = `<h2>${esc(p.title)}</h2><p>${esc(p.artist)} · ${fmtDate(p.date)}${p.views ? ` · ${fmtViews(p.views)} views` : ''}</p>${p.blurb ? `<p>${esc(p.blurb)}</p>` : ''}<div class="go">${go}</div>`;
     meta.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) track('video_link_clicked', { post_id: p.id, platform: a.dataset.net }); if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) return; e.preventDefault(); play(p, a.dataset.net); }));
   }
-  function back() { frame.innerHTML = ''; player.hidden = true; grid.hidden = false; }
+  function back() { frame.innerHTML = ''; view(false); }
   async function open(f = 'all', postId = null) {
     filter = f; tabs.forEach(t => t.classList.toggle('on', t.dataset.f === f));
-    el.hidden = false; back(); sfx.tvOn(); muffle(true); game.overlay(true);
+    el.hidden = false; back(); sfx.tvOn(); musicOff(true); game.overlay(true);
     grid.innerHTML = '<p class="empty">Tuning in…</p>';
     const list = await load(); render(list);
     if (postId) { const p = list.find(x => x.id === postId); if (p) play(p); }
   }
-  function close() { if (el.hidden) return; back(); el.hidden = true; sfx.close(); muffle(false); game.overlay(false); }
+  function close() { if (el.hidden) return; back(); el.hidden = true; sfx.close(); musicOff(false); game.overlay(false); }
   tabs.forEach(t => t.onclick = async () => { filter = t.dataset.f; tabs.forEach(x => x.classList.toggle('on', x === t)); sfx.blip(); back(); render(await load()); });
   el.querySelector('.x').onclick = close;
-  player.querySelector('.back').onclick = () => { sfx.blip(); back(); };
+  backBtn.onclick = () => { sfx.blip(); back(); };
   el.addEventListener('click', e => { if (e.target === el) close(); });
   window.addEventListener('keydown', e => { if (!el.hidden && e.key === 'Escape') { player.hidden ? close() : back(); e.preventDefault(); } });
   return { open, close, load, get isOpen() { return !el.hidden; } };
