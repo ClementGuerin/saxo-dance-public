@@ -1,28 +1,28 @@
 {
- "updated": "2026-09-25T18:10:54.530Z",
+ "updated": "2026-09-25T18:19:11.128Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-25T17:47:59Z",
- "commits": 11,
- "files": 246,
- "loc": 8073,
+ "pushedAt": "2026-09-25T18:18:37Z",
+ "commits": 12,
+ "files": 250,
+ "loc": 8472,
  "languages": [
   {
    "name": "JavaScript",
-   "pct": 85.7,
+   "pct": 85.5,
    "color": "#f1e05a"
   },
   {
    "name": "Python",
-   "pct": 8.8,
+   "pct": 8.3,
    "color": "#3572a5"
   },
   {
    "name": "CSS",
-   "pct": 4,
+   "pct": 4.6,
    "color": "#663399"
   },
   {
@@ -32,6 +32,14 @@
   }
  ],
  "latest": [
+  {
+   "sha": "65b3f68",
+   "type": "feat",
+   "scope": "site",
+   "text": "the GitHub island, a second island with Saxo's code on a giant computer",
+   "date": "2026-09-25T18:18:36Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/65b3f68b232a608b663267430c3d0ff4aa8d2bde"
+  },
   {
    "sha": "f694b0e",
    "type": "feat",
@@ -63,14 +71,6 @@
    "text": "PostHog game events, /ingest reverse proxy, hashed posthog script",
    "date": "2026-09-25T17:01:19Z",
    "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/fb60c98bd6812f9b6cfaebcea348ff28219d2bac"
-  },
-  {
-   "sha": "1083575",
-   "type": "feat",
-   "scope": "site",
-   "text": "add PostHog analytics (EU), CSP allows PostHog hosts",
-   "date": "2026-09-25T16:02:54Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/108357533cefa006024ac4de5799309e9e37dae7"
   }
  ],
  "counts": {
