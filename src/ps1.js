@@ -813,7 +813,10 @@ function actorSpec(a, e, map) {
     // scale: a giant (the sea monster is a 16x Compote), my: metres risen (+) or sunk (-) from myAt s over myDur s
     // (smoothstep; default the whole shot), holdScale: the held prop's size (a carrot pinched in a giant's paw), noShadow
     fg: !!a.fg, reveal: a.reveal || 0, scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air,
-    hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180 };   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180,
+    // the beat-locked swings and sway (SWINGS, swayRoll), and holdAt: the actor freezes that many seconds into the shot
+    // (clip, swing and sway), caught mid-move (2026-09-27; until then these fields never reached the actors)
+    flap: a.flap ?? null, flapEvery: a.flapEvery || null, flapPh: a.flapPh || 0, sway: a.sway || 0, swayEvery: a.swayEvery || null, swayPh: a.swayPh || 0, holdAt: a.holdAt ?? null };   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -904,12 +907,14 @@ function propMesh(kind) {
     [[0.11, 0, 0.13], [-0.1, 0.05, 0.1], [0.02, 0.12, 0.2], [-0.04, -0.12, 0.08]].forEach(([x, z, l]) => add(box(0.028, l, 0.028, M(0xff8a1a)), x, 0.18 + l / 2, z));   // drips past the rim: down the head once flipped
   } else if (kind === 'ticket') {  // a boarding pass held up: white card, a pink band, a black barcode (it must read at 270x480)
     add(box(0.17, 0.25, 0.012, M(0xfafafa))); add(box(0.172, 0.07, 0.014, M(0xff5fa2)), 0, 0.085); for (let k = 0; k < 5; k++) add(box(0.012, 0.07, 0.016, M(0x1a1a1a)), -0.05 + k * 0.025, -0.07);
-  } else if (kind === 'bachi') {   // a taiko stick along the forearm, pale wood with a darker grip (festival drummer, 2026-09-27)
-    add(box(0.036, 0.4, 0.036, M(0xe8cf9a)), 0, 0.16); add(box(0.044, 0.1, 0.044, M(0x8a5a2a)), 0, -0.02);
+  } else if (kind === 'bachi') {   // a taiko stick along the forearm, red lacquer with a white grip (festival drummer, 2026-09-27; pale wood vanished against the shoji)
+    add(box(0.04, 0.42, 0.04, mat({ color: 0xb8241a, unlit: 0.3 })), 0, 0.17); add(box(0.048, 0.1, 0.048, M(0xf4f0e8)), 0, -0.02);
   } else if (kind === 'goldfish') {   // a festival goldfish in a water bag, hanging from the paw by its knot (it must read at 270x480: a bright fish)
-    const bag = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 1), mat({ color: 0xbfe8ff, unlit: 0.35 })); bag.scale.set(1, 1.15, 0.9); add(bag, 0, -0.16);
-    add(box(0.07, 0.04, 0.035, mat({ color: 0xff6a1a, unlit: 0.8 })), 0.01, -0.17, 0.06); add(box(0.03, 0.035, 0.02, mat({ color: 0xff3a1a, unlit: 0.8 })), -0.04, -0.17, 0.06);
-    add(box(0.03, 0.06, 0.03, M(0xff5fa2)), 0, -0.04);
+    const bag = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 1), mat({ color: 0xe4f6ff, unlit: 0.45 })); bag.scale.set(1, 1.2, 0.7); add(bag, 0, -0.17);
+    add(box(0.15, 0.012, 0.075, mat({ color: 0x8fd8ff, unlit: 0.5 })), 0, -0.12, 0.0);   // the water line
+    add(box(0.1, 0.055, 0.02, mat({ color: 0xff6a10, unlit: 0.9 })), 0.012, -0.19, 0.078); add(box(0.04, 0.05, 0.02, mat({ color: 0xff3010, unlit: 0.9 })), -0.058, -0.19, 0.078);   // the fish, on the bag's front
+    add(box(0.016, 0.016, 0.02, M(0x101010)), 0.045, -0.18, 0.09);
+    add(box(0.035, 0.07, 0.035, M(0xff5fa2)), 0, -0.04);
   } else if (kind === 'wata') {   // cotton candy: a big pink cloud on a stick
     add(box(0.016, 0.26, 0.016, M(0xf4f0e8)), 0, 0.08);
     for (const [x, y, z, r] of [[0, 0.3, 0, 0.12], [0.07, 0.26, 0.02, 0.08], [-0.07, 0.27, -0.01, 0.085], [0.01, 0.37, 0.02, 0.07]]) add(new THREE.Mesh(new THREE.IcosahedronGeometry(r, 0), mat({ color: 0xffb0d8, unlit: 0.4 })), x, y, z);
@@ -934,7 +939,8 @@ function jetskiMesh() {
   const wake = box(0.5, 0.012, 3.2, mat({ color: 0xe8f6ff, unlit: 1 })); wake.position.set(0, -0.095, -2.3); G.add(wake);
   return G;
 }
-function propFor(D, kind) { const key = D.base + ':' + kind; if (!PROPS[key]) { PROPS[key] = kind === 'jetski' ? jetskiMesh() : kind.endsWith(':flying') ? new THREE.Group() : propMesh(kind); scene.add(PROPS[key]); } return PROPS[key]; }
+// slot: the same prop in both paws needs two meshes (Compote's two taiko sticks shared one, and the left paw's moved it, 2026-09-27)
+function propFor(D, kind, slot = '') { const key = D.base + ':' + kind + slot; if (!PROPS[key]) { PROPS[key] = kind === 'jetski' ? jetskiMesh() : kind.endsWith(':flying') ? new THREE.Group() : propMesh(kind); scene.add(PROPS[key]); } return PROPS[key]; }
 function palm(D, side) {   // world point in the middle of a paw
   const h = D['hand' + side], m = D['mid' + side], f = D['fore' + side]; if (!h) return null;
   h.getWorldPosition(_pa);
@@ -942,7 +948,7 @@ function palm(D, side) {   // world point in the middle of a paw
   return _pc.copy(_pa).lerp(_pb, 0.85);
 }
 function holdProp(D, kind, side, bodyYaw, t) {
-  const g = propFor(D, kind), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
+  const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
   if (kind === 'pad' || kind === 'book') {
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
     g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'book' ? -0.75 : 0.35, bodyYaw, 0, 'YXZ'); return;   // the book tilts its pages up to the reader
@@ -1001,13 +1007,15 @@ function aimBone(bone, child, dir, w) {
 }
 // Beat-locked arm swings (2026-09-27, "Caramelldansen"), `aim: <preset>` with `arm: "both" | "L" | "R"`: each arm
 // blends from pose A to pose B (the upper arm and the forearm aimed separately, body frame as for AIMS) and back once
-// per `flapEvery` beats, peaking on the beat. caramell: each paw straight up by the head, the forearm flapping forward
-// like a floppy ear (one arm of it, `arm: "R"`, is the maneki-neko's beckon); taiko: both arms up and down onto a drum
+// per `flapEvery` beats, peaking on the beat. caramell: each paw straight up by the head, the forearm flapping out and
+// forward like a floppy ear (flapped straight forward, the paw foreshortened into a flipper seen from the front: the
+// reviewer, 2026-09-27); maneki: the lucky cat's beckon, the forearm curling forward (`arm: "R"`); taiko: both arms up and down onto a drum
 // in front, the right arm a beat after the left; clap: both paws meet in front of the chest on every beat. flap: how far (1; 0 holds pose A: a statue's raised paw), flapPh: the
 // phase in beats (a real cat among the statues beckons a hair off the beat). The body's `sway` roll (D.roll) tilts the
 // aims with it. Pure in t.
 const SWINGS = {
-  caramell: { up: [[0.5, 0.86, 0.1], [0.5, 0.86, 0.1]], fore: [[0.5, 0.86, 0.1], [0.3, 0.32, 0.9]], alt: 0, every: 1 },
+  caramell: { up: [[0.5, 0.86, 0.1], [0.5, 0.86, 0.1]], fore: [[0.5, 0.86, 0.1], [0.62, 0.55, 0.56]], alt: 0, every: 1 },
+  maneki: { up: [[0.5, 0.86, 0.1], [0.5, 0.86, 0.1]], fore: [[0.5, 0.86, 0.1], [0.3, 0.32, 0.9]], alt: 0, every: 1 },
   taiko: { up: [[0.32, 0.6, 0.73], [0.2, -0.05, 0.98]], fore: [[0.22, 0.82, 0.53], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
   clap: { up: [[0.55, 0.2, 0.81], [0.2, 0.15, 0.97]], fore: [[0.45, 0.3, 0.84], [-0.55, 0.18, 0.82]], alt: 0, every: 1 },
 }, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
@@ -1167,13 +1175,14 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air; D.fg = A.fg || t - t0 < A.reveal;
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
-    if (n) { const d = D.clips[n].duration, tc = at + (t - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
+    const th = A.holdAt != null ? Math.min(t, t0 + A.holdAt) : t;   // holdAt: frozen from there on
+    if (n) { const d = D.clips[n].duration, tc = at + (th - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
     D.mixer.update(0);
     const u = cl((t - t0 - A.moveAt) / Math.max(0.01, len - A.moveAt));   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned), from moveAt s
     D.holder.rotation.set(0, yaw, 0); D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u);
-    D.roll = swayRoll(A, t); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);   // sway: tilted side to side on the beat, pivoting on the feet
+    D.roll = swayRoll(A, th); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);   // sway: tilted side to side on the beat, pivoting on the feet
     D.holder.updateMatrixWorld(true);
-    if (A.arm) { D.aimSaved = [D.L, D.R, D.foreL, D.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); aimArms(D, A, yaw + fyaw, t - t0, t); }
+    if (A.arm) { D.aimSaved = [D.L, D.R, D.foreL, D.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); aimArms(D, A, yaw + fyaw, th - t0, th); }
     // the toes set the shot's floor, but a hem, a paw or a big head can reach lower: never let the mesh sink;
     // "mesh" grounding keeps the lowest point on the floor every frame (falling); a flat body touching the floor is
     // grounded on its torso instead, the head through the floor (see LIE_SINK)

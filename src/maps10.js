@@ -215,8 +215,8 @@ export function buildMatsuriMaps(K) {
     const ringOrder = ring.map((p, i) => [hash(i, 1141) + (p.R > 4.8 ? 1 : p.R > 3.8 ? 0.5 : 0), i]).sort((a, c) => a[0] - c[0]).map(p => p[1]);   // inner rings fill first
     ring.forEach((p, i) => { p.rank = ringOrder.indexOf(i); });
     // ---- fireworks over the shrine: a burst on every bar of a shot that asks for them ----
-    const FW = [0, 1].map(() => { const g = new THREE.Group(), parts = [], m = mat({ color: 0xffffff, unlit: 1, nofog: 1 }); for (let q = 0; q < 44; q++) { const s = box(0.42, 0.42, 0.42, m); g.add(s); parts.push(s); } G.add(g); return { g, parts, m }; });
-    const DIRS = Array.from({ length: 44 }, (_, q) => { const y = 1 - 2 * (q + 0.5) / 44, r = Math.sqrt(1 - y * y), a = q * 2.39996; return [Math.cos(a) * r, y, Math.sin(a) * r]; });
+    const FW = [0, 1].map(() => { const g = new THREE.Group(), parts = [], m = mat({ color: 0xffffff, unlit: 1, nofog: 1 }); for (let q = 0; q < 60; q++) { const s = box(1.0, 1.0, 1.0, m); g.add(s); parts.push(s); } G.add(g); return { g, parts, m }; });   // big sparks: 0.4 m ones read as specks at 45 m
+    const DIRS = Array.from({ length: 60 }, (_, q) => { const y = 1 - 2 * (q + 0.5) / 60, r = Math.sqrt(1 - y * y), a = q * 2.39996; return [Math.cos(a) * r, y, Math.sin(a) * r]; });
     const FWC = [0xff5a9a, 0xffd23f, 0x5ad8ff, 0xb46aff, 0x7aff8a, 0xff8a3a];
 
     return {
@@ -266,7 +266,7 @@ export function buildMatsuriMaps(K) {
             const F = FW[((bar % 2) + 2) % 2], grow = 1 - Math.exp(-age * 2.4), fade = 1 - sm((age - 1.4) / 1.0);
             const [fx, fz] = Array.isArray(P.fw) ? P.fw : [0, -47], cx = fx - 9 + 18 * hash(bar, 1150), cy = 17 + 7 * hash(bar, 1151), cz = fz + 3 - 6 * hash(bar, 1152);
             F.g.visible = true; F.m.uniforms.uCol.value.set(FWC[((bar % FWC.length) + FWC.length) % FWC.length]);
-            F.parts.forEach((s, q) => { const [dx, dy, dz] = DIRS[q], R = 7 * grow; s.position.set(cx + dx * R, cy + dy * R - 1.6 * age * age, cz + dz * R); s.scale.setScalar(Math.max(0.01, fade)); });
+            F.parts.forEach((s, q) => { const [dx, dy, dz] = DIRS[q], R = 10 * grow; s.position.set(cx + dx * R, cy + dy * R - 1.6 * age * age, cz + dz * R); s.scale.setScalar(Math.max(0.01, fade)); });
           }
         }
       },

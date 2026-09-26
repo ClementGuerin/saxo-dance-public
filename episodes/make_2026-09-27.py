@@ -23,7 +23,7 @@ from cam import view, swoop, low, deadpan, orbit, reveal
 
 P, B0 = 60 / 164.732, 0.02
 T = lambda b: round(B0 + b * P, 3)                 # beat -> cut seconds
-END, STOP = 71.8, 71.207
+END, STOP = 72.1, 71.207                           # 0.9 s of silence after the stop (the critic: she dances one beat into it)
 STOP_B = round((STOP - B0) / P, 3)                 # 195.45: the music stops dead
 LOOK = {'saxo': 'sailor', 'sadi': 'yukata', 'kob': 'maneki', 'compote': 'happi'}
 # ---- the festival (src/maps10.js MATSURI) ----
@@ -43,11 +43,11 @@ def sadi(x, z, clip='hip_hop_dancing_side_to_side', **o): return A('sadi', clip,
 def compote_drum(**o):                             # Compote at her taiko on the tower, a stick in each paw
     return A('compote', 'bored_idle', *DRUMMER, lift=PLAT, face='world', yaw=0, **{'arm': 'both', 'aim': 'taiko', 'hold': 'bachi', 'holdL': 'bachi', **o})
 def kob(**o):                                      # Kob among the statues, in her lucky-cat suit, beckoning like them
-    return A('kob', 'bored_idle', *KOB, at=1.0, speed=0, lift=KOB_Y, face='world', yaw=0, **{'arm': 'R', 'aim': 'caramell', 'flapEvery': 2, **o})
+    return A('kob', 'bored_idle', *KOB, at=1.0, speed=0, lift=KOB_Y, face='world', yaw=0, **{'arm': 'R', 'aim': 'maneki', 'flapEvery': 2, **o})
 STATUE = {'who': 'kob', 'look': 'maneki', 'clip': 'bored_idle', 'at': 1.0, 'speed': 0, 'n': 51, 'cols': 13, 'x0': DISP[0], 'z0': DISP[1],
           'dx': 0.72, 'dz': TIER[2], 'y0': TIER[0], 'dy': TIER[1], 'jitter': 0.02, 'face': 'world', 'yaw': 0, 'pale': 0.85, 'skip': [[KOB[0], KOB[1], 0.3]]}
 def statues(**o):                                   # the porcelain lucky cats: a raised paw beckoning on every other beat, in sync
-    return {**STATUE, 'arm': 'R', 'aim': 'caramell', 'flapEvery': 2, **o}
+    return {**STATUE, 'arm': 'R', 'aim': 'maneki', 'flapEvery': 2, **o}
 def yaw_to(a, b): return round(math.degrees(math.atan2(b[0] - a[0], b[1] - a[1])), 1)
 
 def clear_for(v, actors):                          # hide the festival pets round every low lens position and every mark
@@ -66,10 +66,10 @@ def clear_for(v, actors):                          # hide the festival pets roun
         out.append([a['x'], a['z'], 0.8])
         if a.get('mx') or a.get('mz'): out.append([round(a['x'] + a.get('mx', 0), 2), round(a['z'] + a.get('mz', 0), 2), 0.8])
     return out
-def fw_at(v):                                       # the fireworks' centre: 50 m out along the camera's line of sight
+def fw_at(v):                                       # the fireworks' centre: 42 m out along the camera's line of sight
     c, focus = v; a, r = math.radians(c['ang'][0]), c['r'][0]
     cx, cz = focus[0] + math.sin(a) * r, focus[1] + math.cos(a) * r; d = math.hypot(focus[0] - cx, focus[1] - cz) or 1
-    return [round(cx + (focus[0] - cx) / d * 50, 1), round(cz + (focus[1] - cz) / d * 50, 1)]
+    return [round(cx + (focus[0] - cx) / d * 42, 1), round(cz + (focus[1] - cz) / d * 42, 1)]
 def shot(beat, actors, lyric, v, **o):
     c, focus = v
     if o.get('fw') is True: o['fw'] = fw_at(v)
@@ -77,11 +77,14 @@ def shot(beat, actors, lyric, v, **o):
 
 shots = [
   # ================= the hook bar and chorus 1: the outbreak starts in the stall lane (L00-L07) =================
-  shot(0, [saxo(*LANE)],
-       "hook (the synth riff) + L00 ('dance with us' 1.49): over the goldfish tub, diving down the lane to Saxo in the clip's sailor uniform, alone, already doing the Caramelldansen; the festival pets stare",
+  shot(0, [A('compote', 'bored_idle', 7.75, -5.3, face='world', yaw=yaw_to((7.75, -5.3), KOB), arm='R', aim=[0.5, 0.5, 0.7], hold='bachi', fg=True), kob(flapEvery=1, flapPh=0.4)],
+       "cold open (the synth hook): the shrine's wall of porcelain lucky cats beckoning in sync, one grey face among them off the beat, and Compote's stick pointing into the wall from the lens: one of these cats is real",
+       view((8.35, 1.1, -4.4), (9.0, 1.15, -7.5), 48), crowd=statues(flapEvery=1), stars=['kob']),
+  shot(4, [saxo(*LANE)],
+       "L00 ('dance with us' 1.49): over the goldfish tub, diving down the lane to Saxo in the clip's sailor uniform, alone, already doing the Caramelldansen; the festival pets stare",
        swoop([(-1.9, 0.52, 12.45), (-1.55, 0.58, 11.55), (-0.85, 0.26, 10.95), (-0.55, 0.2, 10.75)], (0.35, 0.72, 10.0), fov=60),
        lane=0, look=list(LANE), stars=['saxo']),
-  shot(7, [A('sadi', 'bored_idle', *SADI_L, arm='both', aim='clap', holdL='goldfish', yaw=35)],   # only who the lens sees: Saxo sat on the edge (the gate)
+  shot(8, [A('sadi', 'bored_idle', *SADI_L, arm='both', aim='clap', holdL='goldfish', yaw=35)],   # only who the lens sees: Saxo sat on the edge (the gate)
        "L01 ('clap' 2.81, 'hands' 3.59): Sadi in her yukata, a goldfish bag in her paw, watching him: she claps along on every beat",
        low((-1.1, 0.34, 12.75), (-0.45, 0.98, 10.25), (-1.05, 0.32, 12.45), fov=56, roll=(-8, -5)), lane=0, look=list(LANE), stars=['sadi']),
   shot(12, [saxo(*LANE), sadi(*SADI_L, holdL='goldfish')],
@@ -90,25 +93,25 @@ shots = [
   shot(16, [saxo(*LANE, clip='hip_hop_dancing_side_to_side', sway=0, mx=-0.5), sadi(*SADI_L, holdL='goldfish', mx=-0.5)],
        "L03 ('steps' 6.07, 'left' 6.65): the whole front of the lane takes its steps to the left, paws up",
        view((0.9, 1.25, 14.2), (-0.35, 0.75, 10.1), 56, p1=(0.6, 1.2, 13.9)), lane=6),
-  shot(20, [compote_drum(arm='R', aim=[0.58, 0.55, 0.6], upAt=round(8.17 - T(20), 2), hold=None)],
+  shot(20, [compote_drum(arm='R', aim=[0.55, 0.8, 0.35], upAt=round(8.17 - T(20), 2))],
        "L04 ('listen' 7.15, 'learn' 8.17): up on the festival tower, Compote the taiko drummer stops drumming and glares down the lane... on 'learn' she points: dance",
        deadpan(DRUMMER, 1.98, 6.4, cam_y=2.02, push=0.3, fov=30), ring=0, stars=['compote']),
   shot(24, [saxo(*LANE), sadi(*SADI_L, holdL='goldfish')],
        "L05 ('miss' 8.81): the lane pets pile in, ten of them dancing round the pair",
-       orbit((-0.12, 10.15), 2.5, 0.35, -32, 22, 0.8, fov=62), lane=10),
+       view((1.5, 2.25, 12.9), (-0.1, 0.75, 9.8), 56, p1=(1.35, 2.2, 12.6)), lane=10),   # from between the stalls, above the pets
   shot(28, [saxo(*LANE), sadi(*SADI_L, holdL='goldfish')],
        "L06 ('now we're here' 10.13): pulling up and back over the stall lane: the whole lane dancing",
        reveal((0.2, 1.35, 12.1), (0.0, 0.6, 9.4), (0.5, 4.3, 15.6)), lane=14),
   shot(32, [saxo(*LANE)],
        "L07 (the title 11.47): from the ground among the raised paws, up at the lanterns: the first firework bursts over the shrine",
-       view((0.95, 0.28, 11.75), (0.1, 1.5, 8.4), 60, p1=(0.85, 0.3, 11.55)), lane=14, fw=True, stars=['saxo']),
+       view((1.35, 0.95, 12.85), (0.25, 1.35, 9.9), 58, p1=(1.25, 0.95, 12.6)), lane=14, fw=True, stars=['saxo']),
   # ================= the chant: it spreads to the whole festival (L08-L11) =================
   shot(36, [compote_drum()],
        "L08 (13.07): the plaza: the festival forms the Bon Odori ring round the tower, 24 dancing, Compote drumming the beat up top",
        view((0.5, 2.55, 6.6), (0.0, 0.6, -2.0), 54, p1=(0.3, 2.85, 7.2)), ring=36),   # the lane's axis: clear of the stalls' awnings
-  shot(44, [compote_drum(fg=True, arm='R', aim=[0.5, 0.25, 0.83], upAt=0.2, hold=None)],
-       "L09: over Compote's shoulder on the tower: she points her stick at the stragglers below, and the ring doubles",
-       view((0.55, 2.55, -3.15), (0.0, 0.45, 2.6), 54, p1=(0.45, 2.5, -3.0)), ring=44),
+  shot(44, [compote_drum(arm='R', aim=[0.75, -0.05, 0.66], upAt=0.2)],
+       "L09: from below the tower, among the dancers: Compote points her stick straight down at the lens (at whoever isn't dancing: you), and the ring doubles",
+       view((0.55, 0.85, 1.45), (0.0, 2.05, -2.3), 50, p1=(0.5, 0.82, 1.25)), ring=44),
   shot(52, [kob(flapPh=0.4)],
        "L10 (18.09): the shrine's lucky-cat display: rows of porcelain cats beckoning in sync... and one of them is Kob in a lucky-cat suit, her grey face among the white, beckoning a hair off the beat",
        deadpan(KOB, KOB_FACE, 4.6, cam_y=1.25, push=0.35, fov=38), crowd=statues(), stars=['kob']),
@@ -125,28 +128,28 @@ shots = [
   shot(82, [kob(flapEvery=1)],
        "L14 ('come' 30.21): the lucky cats beckon 'come' on every beat, Kob in sync with them now",
        view((9.0, 1.3, -5.2), (9.0, KOB_FACE, -7.5), 40), crowd=statues(flapEvery=1), stars=['kob']),
-  shot(88, [A('compote', 'happy_walk', 6.2, 1.3, mx=0.9, mz=-2.6, face='world', yaw=yaw_to((6.2, 1.3), (7.1, -1.3)), speed=1.0, holdL='bachi')],
+  shot(88, [A('compote', 'happy_walk', 6.2, 1.3, mx=0.7, mz=-2.0, face='world', yaw=yaw_to((6.2, 1.3), (6.9, -0.7)), speed=1.0, holdL='bachi')],
        "L15 (31.70-): Compote has left her drum: she marches round the ring's edge, glaring at every dancer",
-       low((8.45, 0.4, 0.95), (6.6, 0.98, 0.0), (8.25, 0.38, 0.15), fov=62, roll=(8, 5)), ring=66),
+       low((7.75, 0.5, -3.1), (6.6, 0.95, 0.3), (7.7, 0.5, -2.9), fov=58, roll=(8, 5)), ring=66),
   shot(92, [A('compote', 'shaking_head_no_dismissively', 7.1, -1.3, face='world', yaw=yaw_to((7.1, -1.3), (3.0, 1.0)), holdL='bachi')],
        "L15 (-35.84): she stops and counts them: everybody's dancing... so who's missing?",
        view((8.3, 1.25, 1.1), (7.1, 1.0, -1.3), 48), ring=66, stars=['compote']),
   # ================= pre-chorus 2: the search (L16-L20) =================
   shot(100, [A('compote', 'happy_walk', 7.9, -2.9, mz=2.2, face='world', yaw=0, speed=1.0, fg=True)],
        "L16 ('feet' 37.21): at the gravel's level, her feet stomp towards the lens, straight for the display",
-       view((7.95, 0.12, 1.3), (7.9, 0.16, -2.0), 20, p1=(7.95, 0.12, 1.1)), ring=66),
+       view((7.95, 0.12, 1.3), (7.9, 0.3, -2.0), 24, p1=(7.95, 0.12, 1.1)), ring=66),
   shot(108, [saxo(*R_SAXO, sway=14, swayEvery=0.5), sadi(*R_SADI, sway=14, swayEvery=0.5, clip='happy_idle', holdL='goldfish')],
        "L17 ('wiggle' 39.29, 'hips' 39.99): the pair wiggle their hips, twice as fast",
-       low((0.0, 0.4, 4.7), (0.0, 0.95, 1.3), (0.0, 0.38, 4.3), fov=62, roll=(10, 6)), ring=66),
+       low((0.0, 0.78, 4.6), (0.0, 0.86, 1.3), (0.0, 0.75, 4.2), fov=60, roll=(8, 5)), ring=66),
   shot(116, [A('compote', 'happy_walk', 7.65, -6.62, mx=1.05, face='world', yaw=90, speed=0.75), kob()],
        "L18 ('do as we do' 42.05): Compote walks along the display, eyeing every lucky cat; Kob beckons exactly as they do",
        view((8.6, 1.3, -3.3), (8.4, 1.1, -7.3), 50, p1=(8.75, 1.3, -3.5)), crowd=statues(), stars=['compote', 'kob']),
   shot(124, [A('compote', 'angry_forward_gesture', 9.0, -6.85, face='world', yaw=180, at=0.3, fg=True), kob()],
        "L19 (44.15-46.51): nose to nose: over Compote's ears, up at Kob; she beckons in perfect sync, deadpan",
-       view((9.9, 1.3, -5.7), (9.0, KOB_FACE, -7.5), 42), crowd=statues(), stars=['kob']),
-  shot(128, [kob(flapEvery=1)],
-       "L20 ('come' 47.27): Kob, close: 'come', in sync... and Compote walks off",
-       view((9.0, 1.25, -5.75), (9.0, KOB_FACE, -7.5), 40), crowd=statues(flapEvery=1), petals=0, stars=['kob']),
+       view((7.7, 1.25, -5.8), (9.0, KOB_FACE, -7.5), 42), crowd=statues(), stars=['kob']),
+  shot(128, [kob(flapEvery=1), A('compote', 'happy_walk', 9.55, -6.6, mx=-1.1, mz=0.4, face='world', yaw=yaw_to((9.55, -6.6), (8.45, -6.2)), speed=0.8, fg=True)],
+       "L20 ('come' 47.27): Compote walks off past the lens, satisfied; behind her Kob beckons 'come' in perfect sync",
+       view((7.9, 1.2, -5.1), (8.95, 1.1, -7.3), 48), crowd=statues(flapEvery=1), petals=0, stars=['kob']),
   # ================= chorus 2: the whole festival (L21-L28) =================
   shot(132, [saxo(*T_SAXO, lift=PLAT), sadi(*T_SADI, lift=PLAT, holdL='goldfish'), compote_drum()],
        "L21 ('dance with us' 48.17): the tower: Saxo and Sadi up on the platform either side of Compote's drum, the whole ring dancing below",
@@ -165,10 +168,10 @@ shots = [
        view((9.0, 1.45, -3.9), (9.0, 1.2, -7.6), 46), crowd=statues(flap=0, lookAt=[YAG[0], YAG[1]]), stars=['kob']),
   shot(152, [saxo(*T_SAXO, lift=PLAT), sadi(*T_SADI, lift=PLAT, holdL='goldfish'), compote_drum()],
        "L26 ('miss' 55.41): from the plaza's edge, low: the ring, the tower and a big firework",
-       view((-4.6, 0.42, 5.6), (-0.3, 2.3, -4.0), 60, p1=(-4.3, 0.42, 5.2)), ring=66, fw=True),
+       view((-3.4, 1.3, 4.8), (0.0, 2.3, -2.2), 56, p1=(-3.2, 1.3, 4.5)), ring=66, fw=True),
   shot(156, [saxo(*T_SAXO, lift=PLAT), sadi(*T_SADI, lift=PLAT, holdL='goldfish'), A('compote', 'happy_idle', *DRUMMER, lift=PLAT, **CARA)],
        "L27 ('now we're here' 56.73): the clip's three girls: Saxo, Sadi and Compote (angry face and all) in a row on the tower, all doing it",
-       view((0.0, 2.0, 3.7), (0.0, 1.98, -1.9), 40), ring=66),
+       view((0.0, 2.0, 5.2), (0.0, 1.98, -1.9), 44), ring=66),
   shot(160, [saxo(*T_SAXO, lift=PLAT), sadi(*T_SADI, lift=PLAT, holdL='goldfish'), A('compote', 'happy_idle', *DRUMMER, lift=PLAT, **CARA)],
        "L28 (the title 58.15): the whole festival from above the lane: the lanterns, the ring, the tower, the fireworks",
        view((0.5, 5.6, 11.2), (0.0, 1.4, -5.5), 58, p1=(0.4, 5.9, 11.6)), ring=66, lane=14, fw=True),
@@ -178,25 +181,26 @@ shots = [
        view((9.0, 1.4, -3.6), (9.0, 1.2, -7.6), 44), crowd=statues(), stars=['kob']),
   shot(166, [kob(flap=0)],
        "(60.48) ...and on the beat every porcelain cat bursts into the Caramelldansen, both paws up, swaying; all but one, frozen with her paw up",
-       view((9.0, 1.4, -3.9), (9.0, 1.2, -7.6), 44, p1=(9.0, 1.38, -4.4)), crowd=statues(arm='both', sway=6, flapEvery=1), stars=['kob']),
+       view((7.7, 0.7, -4.7), (9.0, 1.3, -7.6), 50, p1=(7.8, 0.72, -4.9), roll=[-10, -6]), crowd=statues(arm='both', aim='caramell', sway=6, flapEvery=1), stars=['kob']),
   shot(172, [kob(flap=0)],
        "(62.67) Kob, close: the only still thing at the festival, dancing paws flapping all round her deadpan face",
-       view((9.0, 1.25, -5.75), (9.0, KOB_FACE, -7.5), 38), crowd=statues(arm='both', sway=6, flapEvery=1), petals=0, stars=['kob']),
-  shot(176, [A('compote', 'being_surprised_and_looking_right', 7.3, -5.4, face='world', yaw=-90, at=0.1)],
+       view((9.0, 1.3, -5.3), (9.0, KOB_FACE, -7.5), 44), crowd=statues(arm='both', aim='caramell', sway=6, flapEvery=1), petals=0, stars=['kob']),
+  shot(176, [A('compote', 'being_surprised_and_looking_right', 7.3, -5.4, yaw=40, at=0.1)],
        "(64.12) Compote, passing by, stops dead: her head turns to the display",
-       view((5.4, 1.15, -5.0), (7.3, 1.0, -5.4), 46), crowd=statues(arm='both', sway=6, flapEvery=1), stars=['compote']),
-  shot(180, [A('compote', 'bored_idle', 8.55, -6.1, face='world', yaw=yaw_to((8.55, -6.1), KOB), arm='R', aim=[0.5, 0.45, 0.74], upAt=0.25, fg=True), kob(flap=0)],
+       view((5.4, 1.15, -5.0), (7.3, 1.0, -5.4), 46), crowd=statues(arm='both', aim='caramell', sway=6, flapEvery=1), stars=['compote']),
+  shot(180, [A('compote', 'bored_idle', 8.55, -6.1, face='world', yaw=yaw_to((8.55, -6.1), KOB), arm='L', aim=[0.58, 0.62, 0.53], upAt=0.25, holdL='bachi', fg=True), kob(flap=0)],
        "(65.58) over her shoulder: her paw points straight up at the one lucky cat that isn't dancing",
-       view((8.1, 1.3, -4.85), (9.0, 1.15, -7.5), 44), crowd=statues(arm='both', sway=6, flapEvery=1), stars=['kob']),
-  shot(184, [kob(arm='both', sway=9, flapEvery=1, flapPh=0)],
+       view((7.55, 0.95, -5.25), (9.0, 1.2, -7.5), 46), crowd=statues(arm='both', aim='caramell', sway=6, flapEvery=1), stars=['kob']),
+  shot(184, [kob(arm='both', aim='caramell', sway=9, flapEvery=1, flapPh=0)],
        "(67.04) Kob gives in: the second paw goes up and she does the Caramelldansen better than every statue round her, still deadpan",
-       view((9.0, 1.3, -4.4), (9.0, 1.2, -7.5), 42, p1=(9.0, 1.25, -5.4)), crowd=statues(arm='both', sway=6, flapEvery=1), stars=['kob']),
-  shot(192, [kob(arm='both', sway=9, flapEvery=1)],
+       view((9.0, 1.3, -4.4), (9.0, 1.2, -7.5), 42, p1=(9.0, 1.25, -5.4)), crowd=statues(arm='both', aim='caramell', sway=6, flapEvery=1), stars=['kob']),
+  shot(192, [kob(arm='both', aim='caramell', sway=9, flapEvery=1)],
        "(69.95) pulling back from her to the whole wall of lucky cats, every one of them dancing",
-       view((9.0, 1.3, -5.3), (9.0, 1.35, -8.0), 50, p1=(9.0, 2.1, -1.6), ly1=1.55, ease='out'), crowd=statues(arm='both', sway=6, flapEvery=1)),
-  shot(STOP_B, [kob(flap=0)],
-       "(71.21, silence) the music stops dead and every lucky cat freezes back into a statue, paw up, Kob too, as if nothing happened",
-       view((9.0, 1.4, -3.9), (9.0, 1.2, -7.6), 44), crowd=statues(flap=0), still=True, freeze=STOP, stars=['kob']),
+       view((9.0, 1.3, -5.3), (9.0, 1.35, -8.0), 50, p1=(9.0, 2.1, -1.6), ly1=1.55, ease='out'), crowd=statues(arm='both', aim='caramell', sway=6, flapEvery=1)),
+  shot(STOP_B, [kob(arm='both', aim='caramell', sway=9, flapEvery=1, holdAt=round(P, 3)),
+                 A('compote', 'bored_idle', 7.75, -6.3, face='world', yaw=yaw_to((7.75, -6.3), KOB), holdL='bachi', fg=True)],
+       "(71.21, silence) the music stops dead: every lucky cat snaps back into a statue, paw up... but Kob, into it by now, dances one more beat into the silence and freezes mid-move, caught, low over Compote's shoulder",
+       view((7.4, 1.0, -5.0), (9.0, 1.25, -7.5), 42), crowd=statues(flap=0), still=True, freeze=STOP, stars=['kob']),
 ]
 for sh in shots:                                   # drop empty paw slots (hold=None clears the default stick)
     for a in sh['actors']:
@@ -208,10 +212,11 @@ BASE = {'tpose', 'gangnam', 'twist', 'macarena', 'silly_twist', 'chicken', 'twer
 clips = {a['clip'] for s in shots for a in s['actors']} | {s['crowd']['clip'] for s in shots if s.get('crowd')}
 ep = {
   'date': '2026-09-27', 'n': 1,
-  'song': {'title': 'Caramelldansen', 'artist': 'Caramella Girls', 'window': [49.873, 121.08], 'bpm': 164.732, 'tail': 0.593},
+  'song': {'title': 'Caramelldansen', 'artist': 'Caramella Girls', 'window': [49.873, 121.08], 'bpm': 164.732, 'tail': 0.893},
   'logline': "Saxo starts the Caramelldansen at a Japanese cherry-blossom festival and it spreads one line at a time, with "
              "Compote the taiko drummer pointing at anyone not dancing; Kob hides among the porcelain lucky cats... until "
-             "even the statues start dancing and she's the only one left with a paw up.",
+             "even the statues start dancing and she's the only one left with a paw up; when the music stops, she's the one "
+             "still dancing.",
   'new': ['matsuri map (a shrine\'s night cherry-blossom festival: a stall lane with kana signs and a goldfish tub, a torii, a '
           'yagura tower with a taiko drum and lantern strings, the shrine hall, a pagoda, glowing cherry trees and falling '
           'petals, fireworks on the bar, a tiered lucky-cat display with red felt steps; kawaii festival pets in yukata that '
