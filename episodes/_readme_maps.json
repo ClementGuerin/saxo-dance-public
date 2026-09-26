@@ -1416,6 +1416,88 @@
      "z": 0.3
     }
    ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "chapel",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "booty_step",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "booty_step",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "village",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }

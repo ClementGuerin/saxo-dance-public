@@ -83,7 +83,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, Michou's white tux, Kob's pyjamas, the pirates, the tourist, the air hostess and the poop suit">
+  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender and the poop suit">
 </p>
 
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
@@ -92,7 +92,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 38 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship and the plane, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club and the desert village, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
@@ -115,10 +115,11 @@ flowchart LR
     class F gate
 ```
 
-Every night a scheduled run wakes every 30 minutes, asks `tools/night.mjs` whether anything is
+A scheduled run wakes every 30 minutes, asks `tools/night.mjs` whether anything is
 due, and follows `research/DAILY_ROUTINE.md` to make one video at a time, with no
 approval step and a budget per video. The first starts at 21:00 and the others no earlier than 23:00, 01:00 and 03:00;
-each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20:00.
+each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20:00. Every wake also refreshes
+saxo.dance and checks this README against the code, rebuilding any image that no longer matches it.
 
 1. **Scout.** [`tools/trends.mjs`](tools/trends.mjs) scans what is going viral in our niches, and live meme formats
    land in `research/MEMES.md`. Songs asked for in
@@ -138,9 +139,10 @@ each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20
 5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, zoomed stills,
    an independent reviewer that sees one frame per shot, and a critic's score before anything is posted.
 6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels, YouTube Shorts and X for its
-   slot, with per-platform captions and hashtags. YouTube gets a cut of 60 s or less that keeps the episode's ending.
-   Ten minutes after each post goes out, `tools/post_check.mjs` checks it is live, public and
-   audible.
+   slot, with per-platform captions and hashtags (X gets the video alone). YouTube gets a cut of 60 s or less that
+   keeps the episode's ending. Ten minutes after each post goes out, `tools/post_check.mjs`
+   checks it is live, public and audible; when TikTok mutes a song, the video is re-cut to that song's official
+   TikTok sound.
 7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post at 24 h and 72 h against the channel
    median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
 
@@ -192,7 +194,7 @@ renders. Frames can be drawn out of order in parallel tabs, and an interrupted r
 </p>
 
 <p align="center">
-  <img src="docs/readme/site.jpg" width="100%" alt="Saxo TV with every posted video, the dress-up wardrobe, a chat with Compote in her carrot garden, and the GitHub island">
+  <img src="docs/readme/site.jpg" width="100%" alt="Saxo TV with every posted video, a chat with Compote in her carrot garden, the GitHub island, and the stats island with its scoreboard, bar chart, pie and podium">
 </p>
 
 A playable version of the channel in the same PS1 look. Walk Saxo around a floating diorama (the living room, the club,
@@ -200,7 +202,7 @@ Compote's carrot garden, the pool), talk to the gang in branching chats, dress u
 video on **Saxo TV**. Across the bridge east of the pool, the GitHub island's giant computer opens this
 repository; across the one west of the living room, the stats island counts every view, like and follower: a stadium
 scoreboard, a bar chart of the latest videos stacked by platform, a pie chart you walk on and a podium of the three
-most-watched videos, refreshed at every deploy from the platforms' free public numbers. It is plain ES modules and
+most-watched videos, refreshed every 30 minutes from the platforms' free public numbers. It is plain ES modules and
 three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house loop synthesised in the browser: no audio files.
 
 ## Quick start
