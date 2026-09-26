@@ -12,6 +12,7 @@ import { buildOutdoorMaps } from './maps3.js';
 import { buildSeaMaps } from './maps4.js';
 import { buildClubMaps } from './maps5.js';
 import { buildTechnoMaps } from './maps6.js';
+import { buildPirateMaps } from './maps7.js';
 
 const RW = CONFIG.ps1.w, RH = CONFIG.ps1.h;
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
@@ -56,7 +57,7 @@ void main() {
   gl_Position = cp;
 }`;
 const FS = /* glsl */`
-uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol;
+uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog;
 varying vec3 vLight; varying vec3 vUvw; varying float vFogD;
 float bayer(vec2 p) {
   int x = int(mod(p.x, 4.0)), y = int(mod(p.y, 4.0));
@@ -74,16 +75,16 @@ void main() {
   float glow = max(uUnlit, step(tx.a, 0.9));                     // alpha ~0.8 in a texture = self-lit (windows, lamps)
   vec3 lit = mix(vLight, vec3(1.0), uLift);                       // uLift > 0 keeps the hero readable in dark maps
   vec3 c = tx.rgb * uCol * mix(lit, vec3(1.0), glow);
-  c = mix(c, uFogCol, smoothstep(uFog.x, uFog.y, vFogD));
+  c = mix(c, uFogCol, smoothstep(uFog.x, uFog.y, vFogD) * (1.0 - uNoFog));   // nofog: the moon and the stars, far beyond the fog
   c = floor(clamp(c, 0.0, 1.0) * 31.0 + bayer(gl_FragCoord.xy)) / 31.0;   // 15-bit colour, ordered dither
   gl_FragColor = vec4(c, 1.0);
 }`;
 
-function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, shadow = 0, side = THREE.FrontSide } = {}) {
+function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, shadow = 0, side = THREE.FrontSide, nofog = 0 } = {}) {
   return new THREE.ShaderMaterial({
     vertexShader: VS, fragmentShader: FS, side,
     uniforms: { ...U, map: { value: map }, uUseMap: { value: map ? 1 : 0 }, uCol: { value: new THREE.Color(color) },
-      uRep: { value: new THREE.Vector2(...rep) }, uOff: { value: new THREE.Vector2() }, uUnlit: { value: unlit }, uLift: { value: lift }, uShadow: { value: shadow }, uShadowCol: { value: new THREE.Color(0.22, 0.2, 0.24) } },
+      uRep: { value: new THREE.Vector2(...rep) }, uOff: { value: new THREE.Vector2() }, uUnlit: { value: unlit }, uLift: { value: lift }, uShadow: { value: shadow }, uShadowCol: { value: new THREE.Color(0.22, 0.2, 0.24) }, uNoFog: { value: nofog } },
   });
 }
 
@@ -559,7 +560,8 @@ function graftHead(T, look, from) {
 function wearOutfit(T, name) { for (const [k, ms] of Object.entries(T.outfits || {})) ms.forEach(m => { m.visible = k === (T.outfits[name] ? name : T.base); }); }
 const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/models/saxo_astronaut.glb', dj: 'assets/models/saxo_dj.glb', beach: 'assets/models/saxo_beach.glb', poop: 'assets/models/saxo_poop.glb', moto: 'assets/models/saxo_moto.glb', sponge: 'assets/models/saxo_sponge.glb',
   michou: 'assets/models/saxo_michou.glb',   // white tux with black satin lapels and black shades ("Dans le club", 2026-09-25)
-  nena: 'assets/models/saxo_nena.glb' };     // Nena's 1983 look: shaggy dark 80s hair, shiny black quilted vest, white shirt, jeans ("99 Luftballons", 2026-09-25)
+  nena: 'assets/models/saxo_nena.glb',      // Nena's 1983 look: shaggy dark 80s hair, shiny black quilted vest, white shirt, jeans ("99 Luftballons", 2026-09-25)
+  pirate: 'assets/models/saxo_pirate.glb' };   // the pirate captain: tricorn over a red bandana, short beaded dreadlocks, kohl, linen shirt, waistcoat, red sash ("He's A Pirate", 2026-09-26)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -568,7 +570,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
 const PARTNERS = {
   sadi: { scale: 0.92, models: { sadi: 'assets/models/sadi_base.glb', cowgirl: 'assets/models/sadi_cowgirl.glb', astronaut: 'assets/models/sadi_astronaut.glb',
     disco: 'assets/models/sadi_disco.glb', beach: 'assets/models/sadi_beach.glb', cheer: 'assets/models/sadi_cheer.glb', poop: 'assets/models/sadi_poop.glb', patrick: 'assets/models/sadi_patrick.glb', hotdog: 'assets/models/sadi_hotdog.glb',
-    white: 'assets/models/sadi_white.glb', rave: 'assets/models/sadi_rave.glb' },   // rave: neon-green mesh top, cargo pants, glow bracelets ("99 Luftballons")
+    white: 'assets/models/sadi_white.glb', rave: 'assets/models/sadi_rave.glb',   // rave: neon-green mesh top, cargo pants, glow bracelets ("99 Luftballons")
+    pirate: 'assets/models/sadi_pirate.glb' },   // pirate heroine: red bandana, gold hoops, white blouse, laced corset vest, red sash, boots ("He's A Pirate")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
@@ -635,7 +638,7 @@ if (CHAR === 'tripo') {
     if (CAST === 'sadi') tripo.holder.visible = false;
   }
   tripo.scale = 1; CREW.saxo = tripo;
-  window.DBG = { tripo, clipFacing, shoulderYaw, steadiestOffset, camera, get sadi() { return sadi; } };
+  window.DBG = { tripo, clipFacing, shoulderYaw, steadiestOffset, camera, CREW, get sadi() { return sadi; } };
   window.SAXO_CLIPS = Object.fromEntries(Object.entries(tripo.clips).map(([n, c]) => [n, c.duration]));
   scene.add(tripo.holder); saxo.root.visible = false;
   tripo.shadow = makeShadow(); if (CAST === 'sadi') tripo.shadow.visible = false;
@@ -664,7 +667,7 @@ if (tripo && EP) for (const sh of EP.shots) if (sh.crowd) {
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT) };
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -742,14 +745,19 @@ function episodeShots() {
 //     to the shot's camera, cancelling the clip's own heading) | "world" (yaw is absolute), yaw (deg, added),
 //     ground: "toe" (default, jumps survive) | "mesh" (lowest vertex on the floor every frame: lying, falling),
 //     lift (m, on top of the ground: a stage, a seat), hold / holdL (a prop in the right / left paw: glass, milk,
-//     phone, pad, finger), ride ("jetski"), star (false keeps the face off the karaoke), mx / mz (m walked over the shot) }
+//     phone, pad, finger), ride ("jetski"), star (false keeps the face off the karaoke), mx / mz (m walked over the shot),
+//     scale (a giant: 16 = a 18 m Compote rising from the sea), my / myAt / myDur (a rise or a sink, m), holdScale,
+//     holdTo (the held prop goes at that second: it has been taken), noShadow }
 function actorSpec(a, e, map) {
   const who = a.who || 'saxo', P = PARTNERS[who];
   return { who, look: a.look || (P ? P.byMap[map] || who : e.outfit || MAP_OUTFIT[map] || 'saxo'), clip: a.clip || e.clip || 'gangnam', at: a.at ?? e.at ?? 'auto',
     speed: a.speed ?? 1, once: !!a.once, x: a.x || 0, z: a.z || 0, mx: a.mx || 0, mz: a.mz || 0, face: a.face || 'camera', yaw: (a.yaw || 0) * Math.PI / 180, ground: a.ground || 'toe',
     lift: a.lift || 0, hold: a.hold || null, holdL: a.holdL || null, ride: a.ride || null, star: a.star !== false,
     arm: a.arm || null, aim: a.aim || 'up', upAt: a.upAt, upEnd: a.upEnd, wave: a.wave || 0,   // arm: L | R | both, aim: up | toast | phone | [x, y, z], wave: flap
-    aim2: a.aim2 || null, aim2At: a.aim2At ?? null, toss: a.toss || null, cable: a.cable || null, holdFrom: a.holdFrom ?? null };   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    aim2: a.aim2 || null, aim2At: a.aim2At ?? null, toss: a.toss || null, cable: a.cable || null, holdFrom: a.holdFrom ?? null, holdTo: a.holdTo ?? null,
+    // scale: a giant (the sea monster is a 16x Compote), my: metres risen (+) or sunk (-) from myAt s over myDur s
+    // (smoothstep; default the whole shot), holdScale: the held prop's size (a carrot pinched in a giant's paw), noShadow
+    scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air };   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -776,6 +784,7 @@ function planShots() {
   });
 }
 const PLAN = planShots();
+PLAN.forEach((p, i) => { p.t1 = i + 1 < PLAN.length ? PLAN[i + 1].t0 : CONFIG.duration; });   // a map flag can run across its shot (a boat, a wake)
 const SHOTS = PLAN.map(p => [p.t0, p.map, p.cam, p.outfit, p.sadiOutfit, p.cast || CAST]);
 window.PS1_SHOTS = SHOTS.map(s => s[0]); window.PS1_PLAN = PLAN.map(p => `${p.t0.toFixed(2)} ${p.kind} ${p.map} ${p.move} ${p.clip} ${p.outfit}/${p.sadiOutfit}`);
 // per shot: [clip name, seconds into the clip or 'auto' = the steadiest-facing window].
@@ -800,10 +809,10 @@ function bounce(t, t0, half = false) {   // half: the breakdown punches every ot
 // Props are low-poly primitives, one per character and kind, placed in world space from the paw bones every frame
 // (so they stay pure in t): drinks stay upright like a real glass, the phone is held screen-in, the pad sits between
 // both paws, the foam finger follows the forearm. A jet-ski is fitted under a seated rider from his hips and paws.
-const PROPS = {};
+const PROPS = {}; if (window.DBG) window.DBG.PROPS = PROPS;
 const _pa = new THREE.Vector3(), _pb = new THREE.Vector3(), _pc = new THREE.Vector3(), _pd = new THREE.Vector3(), _up = new THREE.Vector3(0, 1, 0);
 function propMesh(kind) {
-  const G = new THREE.Group(), M = c => mat({ color: c }), glow = c => mat({ color: c, unlit: 1 });
+  const G = new THREE.Group(), M = c => mat({ color: c }), glow = c => mat({ color: c, unlit: 1 }), at3 = (m, x, y, z) => { m.position.set(x, y, z); return m; };
   const cyl = (rt, rb, h, m, seg = 6) => new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
   const add = (m, x = 0, y = 0, z = 0) => { m.position.set(x, y, z); G.add(m); return m; };
   if (kind === 'glass') {          // a tall glass of orange juice, pink straw, a lemon slice on the rim
@@ -826,6 +835,13 @@ function propMesh(kind) {
     add(box(0.008, 0.6, 0.008, M(0xf0f0f0)), 0, 0.3);
   } else if (kind === 'carrot') {  // Compote's carrot: an orange cone, tip down, with a green top
     add(new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.26, 5), M(0xff7a1a)), 0, -0.02).rotation.x = Math.PI; for (let k = 0; k < 3; k++) add(box(0.02, 0.1, 0.02, M(0x3fae47)), (k - 1) * 0.02, 0.15).rotation.z = (k - 1) * 0.4;
+  } else if (kind === 'gcarrot') { // the cursed treasure: a golden carrot, self-lit so it glows gold (not orange) in the moonlight, green top
+    add(new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.3, 5), mat({ color: 0xffe23a, unlit: 1 })), 0, -0.03).rotation.x = Math.PI;
+    add(box(0.012, 0.16, 0.02, mat({ color: 0xfffbe0, unlit: 1 })), 0.03, -0.02, 0.03).rotation.z = 0.12;   // a glint
+    for (let k = 0; k < 3; k++) add(box(0.022, 0.11, 0.022, mat({ color: 0x5ad84a, unlit: 0.4 })), (k - 1) * 0.022, 0.16).rotation.z = (k - 1) * 0.45;
+  } else if (kind === 'book') {    // Kob's book, open between both paws: two page halves in a V over a red cover (a flat slab read as a board)
+    for (const s of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.13, 0.012, 0.19, M(0xc8243a)), s * 0.065, 0, 0)); h.add(at3(box(0.12, 0.02, 0.17, M(0xfaf4e4)), s * 0.062, 0.015, 0));
+      for (let k = 0; k < 3; k++) h.add(at3(box(0.08, 0.004, 0.012, M(0x7a7a8a)), s * 0.065, 0.027, -0.05 + k * 0.045)); h.rotation.z = -s * 0.32; G.add(h); }
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
     add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
   }
@@ -855,10 +871,10 @@ function palm(D, side) {   // world point in the middle of a paw
   return _pc.copy(_pa).lerp(_pb, 0.85);
 }
 function holdProp(D, kind, side, bodyYaw, t) {
-  const g = propFor(D, kind), s = D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25);   // a little oversized so it reads at 270x480
-  if (kind === 'pad') {
+  const g = propFor(D, kind), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
+  if (kind === 'pad' || kind === 'book') {
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
-    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(0.35, bodyYaw, 0); return;
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'book' ? -0.75 : 0.35, bodyYaw, 0, 'YXZ'); return;   // the book tilts its pages up to the reader
   }
   const p = palm(D, side); if (!p) return;
   if (kind === 'finger') {   // along the forearm, pointing where the paw points
@@ -920,7 +936,7 @@ function aimArms(D, A, bodyYaw, since) {
 // and flies on an arc to `to`, spinning. The release point sits by the throwing shoulder (not the posed paw), so the arc
 // is pure in t without posing the clip twice.
 function tossProp(D, A, bodyYaw, since) {
-  const g = propFor(D, A.hold + ':flying'), s = D.scale || 1, T = A.toss, u = cl((since - T.at) / (T.dur || 0.6));
+  const g = propFor(D, A.hold + ':flying'), s = D.curScale || D.scale || 1, T = A.toss, u = cl((since - T.at) / (T.dur || 0.6));
   if (!g.userData.kind) { const m = propMesh(A.hold); g.add(m); g.userData.kind = A.hold; }
   g.visible = u < 1; if (!g.visible) return; const big = T.scale || 1.6;   // a thrown prop is drawn bigger so its arc reads
   const fx = Math.sin(bodyYaw), fz = Math.cos(bodyYaw), rx = Math.cos(bodyYaw), rz = -Math.sin(bodyYaw);
@@ -936,7 +952,7 @@ function plugCable(D, to) {
   c.visible = true; c.position.copy(a).add(b).multiplyScalar(0.5); c.scale.set(1, d.length(), 1); c.quaternion.setFromUnitVectors(_up, d.normalize());
 }
 function placeActors(P, t, t0, t1, camAng, map) {
-  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.deck = 0; }
+  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
   const len = t1 - t0, plans = [];
   // pass 1: facing, start offset and ground are measured on Saxo's rig (shared caches) before anyone is posed this frame
   for (const A of P.actors) {
@@ -949,8 +965,10 @@ function placeActors(P, t, t0, t1, camAng, map) {
   // pass 2: pose, place and ground each one, then its props
   const stars = [];
   for (const { A, D, n, at, fyaw, yaw, ground } of plans) {
-    const s = D.scale || 1, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0, lift = A.lift + bob;
-    wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride;
+    const s = (D.scale || 1) * A.scale, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
+    const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, lift = A.lift + bob + A.my * um;   // my: a rise or a sink
+    D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air;
+    wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
     if (n) { const d = D.clips[n].duration, tc = at + (t - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
     D.mixer.update(0);
@@ -967,7 +985,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadow.value = SHADOW * Math.max(0.35, 1 - up);
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
-    const tossed = A.toss && t - t0 >= A.toss.at, holding = A.holdFrom == null || t - t0 >= A.holdFrom;
+    const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL) holdProp(D, A.holdL, 'L', bodyYaw, t);
     if (tossed) tossProp(D, A, bodyYaw, t - t0);
@@ -1056,7 +1074,7 @@ function danceFrame(t) {
       const camAng = (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180, yaw = -clipFacing(tripo, n, at, t1 - t0).yaw + camAng;   // orbits average out to the front
       const ground = clipGround(tripo, n, at, t1 - t0);
       const cast = CAST === 'sadi' ? [[sadi, 0, sadiOutfit]] : CAST === 'duo' && sadi ? [[tripo, -DUO_X, outfit], [sadi, DUO_X, sadiOutfit]] : [[tripo, 0, outfit]];
-      for (const D of Object.values(CREW)) { const on = cast.some(c => c[0] === D); D.holder.visible = on; D.shadow.visible = on; D.air = false; D.deck = 0; }
+      for (const D of Object.values(CREW)) { const on = cast.some(c => c[0] === D); D.holder.visible = on; D.shadow.visible = on; D.air = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
       for (const [D, x, look] of cast) {
         const s = D === sadi ? SADI_SCALE : 1;
         wearOutfit(D, look);
@@ -1101,7 +1119,7 @@ function qaDog(D, who) {
   });
   // the head bone on screen (0..1): where the face is, for the framing rules (an arm past the edge reads fine, a face doesn't)
   const h = D.head ? D.head.getWorldPosition(_qv).project(camera) : null;
-  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null };
+  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2 };
 }
 window.QA_PROBE = t => {
   window.render3d(t);

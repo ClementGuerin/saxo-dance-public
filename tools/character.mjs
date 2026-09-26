@@ -26,7 +26,8 @@ const PUB = 'https://pub-<bucket-id>.r2.dev';
 const run = (bin, args, o = {}) => execFileSync(bin, args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26, ...o });
 const die = m => { console.error(m); process.exit(1); };
 const today = new Date().toISOString().slice(0, 10);
-const spend = (item, extra) => appendFileSync(join(ROOT, 'research/spend.jsonl'), JSON.stringify({ date: today, item, ...extra, why: `character ${name}` }) + '\n');
+// SAXO_EPISODE=<id> ties the spend to the night's video (its caps are per video)
+const spend = (item, extra) => appendFileSync(join(ROOT, 'research/spend.jsonl'), JSON.stringify({ date: today, item, ...extra, why: `character ${name}`, ...(process.env.SAXO_EPISODE ? { episode: process.env.SAXO_EPISODE } : {}) }) + '\n');
 
 // Qwen only reads public https URLs: put the reference in the public R2 bucket
 function publish(file) {
