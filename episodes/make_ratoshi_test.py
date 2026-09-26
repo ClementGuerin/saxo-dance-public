@@ -15,27 +15,11 @@ T = lambda b: round(-0.742 + b * 60 / 115, 3)
 def A(who, clip, x=0, z=0, **o):
     look = {'saxo': ME, 'sadi': SA, 'kob': KO, 'compote': CO}[who]
     return {'who': who, 'look': o.pop('look', look), 'clip': clip, 'x': x, 'z': z, **o}
-def view(p0, l, fov=50, p1=None, ly1=None, ease=None, fy=0.0, **o):
-    """A camera at p0 = (x, y, z) looking at l = (x, y, z), moving to p1 by the cut (the look point's height to ly1).
-    The engine's camera is polar round the shot's focus: focus = the look point on the floor, ang/r from the offset."""
-    def polar(p): dx, dz = p[0] - l[0], p[2] - l[2]; return round(math.degrees(math.atan2(dx, dz)), 2), round(math.hypot(dx, dz), 3), round(p[1] - fy, 3)
-    a0, r0, h0 = polar(p0); a1, r1, h1 = polar(p1 or p0)
-    if a1 - a0 > 180: a1 -= 360
-    if a0 - a1 > 180: a1 += 360
-    c = {'ang': [a0, a1], 'r': [r0, r1], 'h': [h0, h1], 'look': [round(l[1] - fy, 3), round((ly1 if ly1 is not None else l[1]) - fy, 3)], 'fov': fov, **o}
-    if ease: c['ease'] = ease
-    return c, [l[0], l[2]] + ([fy] if fy else [])
-def vpath(ps, l, fov=50, looks=None, ease=None, **o):
-    """A camera along a path of positions ps = [(x, y, z), ...] (keyframes spread evenly over the move's easing), all
-    looking at l; looks = the look point's height at each key (default l's)."""
-    def polar(p): dx, dz = p[0] - l[0], p[2] - l[2]; return round(math.degrees(math.atan2(dx, dz)), 2), round(math.hypot(dx, dz), 3), round(p[1], 3)
-    P = [polar(p) for p in ps]
-    c = {'ang': [a for a, _, _ in P], 'r': [r for _, r, _ in P], 'h': [h for _, _, h in P], 'look': looks or [l[1]] * len(ps), 'fov': fov, **o}
-    if ease: c['ease'] = ease
-    return c, [l[0], l[2]]
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cam import view, vpath, swoop, low, deadpan, backs, reveal   # the house camera (episodes/cam.py)
 def shot(beat, map_, actors, lyric, v, **o):
     c, focus = v
-    c = {'steady': True, **c}
     return {'beat': beat, 'kind': 'dance', 'map': map_, 'actors': actors, 'lyric': lyric, 'cam': c, 'focus': focus, **o}
 SEATED = dict(face='world', yaw=0)
 # the trio seen from the stern side (cameras at +z, the party behind them) and from the DJ side (cameras at -z, the
@@ -50,6 +34,7 @@ def dead(form, extra=0.0, speed=1, yaw={'saxo': 20, 'sadi': -25, 'compote': 60},
             for w, (x, z) in form.items() if w in FALL and (only is None or w in only)]
 DJ = dict(spot='bow')   # a camera on the DJ side sees faces turned to -z: light them from there (the yacht's `spot` flag)
 GONE = T(29) + 0.05     # the guests keel over in two waves from here (the map's guestsDie)
+BL, BR, BYAW, BV = backs((0.0, 0.0))   # shot 4: Sadi and Compote across the lens, facing Saxo
 
 shots = [
   # 0 ---- hook: the swoop. From behind the DJ booth (its top and the turntables across the bottom of the frame), Saxo
@@ -57,8 +42,7 @@ shots = [
   # pushing in on him and rolling through the dive. He is alone: the crew comes in on "un bras" (the escalation).
   shot(0, 'yacht', [A('saxo', 'hip_hop_just_listening_dancing_variation', *TRIO_R['saxo'], hold='glass')],
        "J'suis pose dans l'club, normal (b2-5): SWOOP from behind the DJ booth to deck level",
-       vpath([(0.3, 1.1, -4.02), (0.3, 1.06, -3.45), (0.28, 0.86, -2.7), (0.25, 0.2, -1.55)], (0.0, 0.75, 0.0), 62,
-             looks=[0.78, 0.78, 0.78, 0.78], roll=[0, -3, -12, -4], hand=0.15), stars=['saxo'], **DJ),
+       swoop([(0.3, 1.1, -4.02), (0.3, 1.06, -3.45), (0.28, 0.86, -2.7), (0.25, 0.2, -1.55)], (0.0, 0.78, 0.0)), stars=['saxo'], **DJ),
   # 1 ---- deck level, the glass raised at the lens: dutch, handheld
   shot(6.5, 'yacht', [A('saxo', 'hip_hop_just_listening_dancing_variation', *TRIO_R['saxo'], hold='glass', arm='R', aim='toast', upAt=0.15)],
        "Et j'leve mon verre (b6.6-8): deck level, dutch, handheld",
@@ -66,17 +50,17 @@ shots = [
   # 2 ---- the watcher: Kob at home raises her milk back, dead still (a flat, frontal, locked-off insert: the deadpan)
   shot(8.5, 'kobflat', [A('kob', 'pointing_while_seated', KX, KZ, hold='milk', at=0.3, arm='R', aim='toast', upAt=0.25, **SEATED)],
        "a tous ceux qui sortent pas (b8.5-10): Kob deadpan, static",
-       view((KX, 0.8, KZ + 2.3), (KX, 0.74, KZ), 42, p1=(KX, 0.8, KZ + 2.18), ease='lin'), stars=['kob']),
+       deadpan((KX, KZ), 0.74, 2.3, cam_y=0.8), stars=['kob']),
   # 3 ---- the crew line, from the party side: lens 20 cm off the deck, a dolly in along the line, dutch
   shot(10, 'yacht', line2(TRIO, 'hip_hop_dancing_side_to_side', arm='R', upAt=0.45),
        "Et tu leves un bras (b10.2-14): deck-level dolly-in on the line",
-       view((-1.15, 0.2, 3.45), (0.0, 0.72, 0.0), 64, p1=(-0.8, 0.22, 2.45), roll=[-10, -6], hand=0.3), stars=['saxo']),
+       low((-1.15, 0.2, 3.45), (0.0, 0.72, 0.0), (-0.8, 0.22, 2.45)), stars=['saxo']),
   # 4 ---- between the backs: Sadi and Compote face Saxo across the lens (foreground bodies), he raises the roof beyond
   shot(14, 'yacht', [A('saxo', 'female_hip_hop_raise_the_roof_dancing', 0, 0, arm='both', upAt=0.45),
-                     A('sadi', 'female_hip_hop_raise_the_roof_dancing', -0.63, 1.22, face='world', yaw=180, fg=True, arm='both', upAt=0.45),
-                     A('compote', 'female_hip_hop_raise_the_roof_dancing', 0.48, 1.32, face='world', yaw=180, fg=True, arm='both', upAt=0.45)],
+                     A('sadi', 'female_hip_hop_raise_the_roof_dancing', *BL, face='world', yaw=BYAW, fg=True, arm='both', upAt=0.45),
+                     A('compote', 'female_hip_hop_raise_the_roof_dancing', *BR, face='world', yaw=BYAW, fg=True, arm='both', upAt=0.45)],
        "deux bras (b15-18): between Sadi's and Compote's backs (low, so their heads stay above his face), a slow push",
-       view((0.0, 0.5, 2.4), (0.0, 0.85, 0.0), 60, p1=(0.0, 0.48, 2.1), roll=[4, 1], hand=0.35), stars=['saxo']),
+       BV, stars=['saxo']),
   # 5 ---- the solo dancer, handheld: a low orbit round Saxo going down
   shot(18, 'yacht', [A('saxo', 'air_squat_workout', 0, 0, at=1.63)],
        "en bas (b19-22): handheld low orbit",
@@ -88,11 +72,11 @@ shots = [
   # 7 ---- the watcher again, gaming, unimpressed
   shot(26, 'kobflat', [A('kob', 'gaming', KX, KZ, hold='pad', at=1.0, **SEATED)],
        "(b26-28): Kob deadpan, gaming",
-       view((KX, 0.8, KZ + 2.3), (KX, 0.72, KZ), 44, p1=(KX, 0.8, KZ + 2.18), ease='lin'), stars=['kob']),
+       deadpan((KX, KZ), 0.72, 2.3, cam_y=0.8, fov=44), stars=['kob']),
   # 8 ---- the reveal: from right over Saxo's face, pull back and up over the wreck while the guests go down in waves
   shot(28, 'yacht', [dict(a, reveal=1.6) if a['who'] != 'saxo' else a for a in dead(TRIO, extra=3.13, speed=0.3)],
        "J'dead ca, j'dead ca (b29, b31): from his face to a wide pull-back reveal",
-       view((0.2, 1.0, 0.2), (0.0, 0.3, -0.6), 60, p1=(0.9, 3.4, 5.4), ease='lin', roll=[7, 0], hand=0.15), guestsDie=GONE, stars=['saxo']),
+       reveal((0.2, 1.0, 0.2), (0.0, 0.3, -0.6), (0.9, 3.4, 5.4)), guestsDie=GONE, stars=['saxo']),
   # 9 ---- the wreck from straight above, turning
   shot(36, 'yacht', dead(TRIO, extra=7.3, speed=0.2),
        "J'dead ca, j'dead ca (b37, b39): top-down, spinning",
@@ -100,7 +84,7 @@ shots = [
   # 10 --- the watcher, closer, still nothing
   shot(40, 'kobflat', [A('kob', 'gaming', KX, KZ, hold='pad', at=2.2, **SEATED)],
        "eh, eh (b41-42): Kob close, deadpan",
-       view((KX, 0.84, KZ + 1.9), (KX, 0.8, KZ), 40, p1=(KX, 0.84, KZ + 1.75), ease='lin'), stars=['kob']),
+       deadpan((KX, KZ), 0.8, 1.9, cam_y=0.84, push=0.15, fov=40), stars=['kob']),
   # 11 --- Saxo flat on the deck, from above, drifting across him: dutch, handheld (a lying body from the side is a lump)
   shot(44, 'yacht', [A('saxo', 'laying_idle', 0, 0.25, ground='mesh', face='world', yaw=0)],
        "On a bien danse la gros (b44-46): from above, drifting across him, dutch, handheld",

@@ -49,8 +49,10 @@
     <td valign="top">
       <p><b>The format.</b> A short story on a hit song, cut to at least 62 seconds on section boundaries, never
       mid-line. Each episode parodies the song's own music video with our cast: a hook in the first two seconds, a
-      running gag that comes back changed each time, a payoff in the last chorus, and one silent beat to end on. Every
-      cut lands on a beat, and the camera punches in on every beat.</p>
+      running gag that comes back changed each time, a payoff in the last chorus, and one silent beat to end on. The
+      camera films as if someone were there: a lens a few centimetres off the floor, tilted horizons, bodies across the
+      lens, a swoop down to the dancers for the hook and deadpan stares at whoever refuses to dance. Every cut lands on
+      a beat, and the camera punches in on every beat.</p>
       <p><b>The karaoke.</b> Each word springs in as it is sung, in chunky PS1 type: the sung word yellow, the rest pink,
       the longest-held word bigger and shaking. The singer's 8-bit face hops from word to word.</p>
       <p><b>The jokes.</b> Every lyric that names an action is acted out on the word. Four characters who each have one
@@ -127,8 +129,9 @@ each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20
    the karaoke timings; [`tools/beats.mjs`](tools/beats.mjs) finds the BPM, the first beat and the bars.
 3. **Story.** The song's official video is studied frame by frame, then parodied: four to six story beats over the
    song's sections, the whole cast placed shot by shot, and new maps and costumes made for it. A generator script
-   writes the shot list on the beat grid ([`episodes/`](episodes/)): for each shot a map, a camera move, a dance, who
-   is in it, what they wear and hold, plus crowds and action scenes. Without an episode, the shot planner builds one
+   writes the shot list on the beat grid ([`episodes/`](episodes/)): for each shot a map, a camera placed by position
+   ([`episodes/cam.py`](episodes/cam.py)), a dance, who is in it, what they wear and hold, plus crowds and action
+   scenes. Without an episode, the shot planner builds one
    from the song.
 4. **Render.** [`render.mjs`](render.mjs) drives [`studio.html`](studio.html) in headless Chrome across four tabs, then
    ffmpeg encodes the frames with the song, loudness-normalised to −14 LUFS.
