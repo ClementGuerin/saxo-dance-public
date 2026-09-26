@@ -1539,6 +1539,84 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 78,
+   "kind": "dance",
+   "map": "shore",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "twist",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "paris",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "bus",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     168,
+     168
+    ],
+    "r": [
+     2,
+     2
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": 0.8,
+    "fov": 54
+   },
+   "focus": [
+    0.45,
+    -3.9
+   ],
+   "actors": [
+    {
+     "who": "kob",
+     "look": "driver",
+     "clip": "robot",
+     "at": "auto",
+     "x": 0.45,
+     "z": -3.9
+    }
+   ]
   }
  ]
 }

@@ -54,7 +54,8 @@
       lens, a swoop down to the dancers for the hook and deadpan stares at whoever refuses to dance. Every cut lands on
       a beat, and the camera punches in on every beat.</p>
       <p><b>The karaoke.</b> Each word springs in as it is sung, in chunky PS1 type: the sung word yellow, the rest pink,
-      the longest-held word bigger and shaking. The singer's 8-bit face hops from word to word.</p>
+      the longest-held word bigger and shaking. The singer's 8-bit face hops from word to word. Swear words are masked
+      on screen, first and last letters kept; the song itself is untouched.</p>
       <p><b>The jokes.</b> Every lyric that names an action is acted out on the word. Four characters who each have one
       job keep their running gags going from video to video, plus costume changes on the beat, crowds, giants (a
       19-metre bunny rising from the sea), a flight through turbulence over erupting volcanoes, thrown props, a fight
@@ -92,7 +93,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 41 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village and the blossom festival, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk and the night bus, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
