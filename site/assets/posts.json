@@ -1,6 +1,24 @@
 {
- "updated": "2026-09-26T18:17:46.795Z",
+ "updated": "2026-09-26T19:47:02.169Z",
  "posts": [
+  {
+   "id": "2026-09-26-3-tt",
+   "title": "Die Young",
+   "artist": "Kesha",
+   "date": "2026-09-26T19:20:35.541Z",
+   "thumb": "assets/posts/2026-09-26-3-tt.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdwoN_xDVa_/",
+     "id": "DdwoN_xDVa_"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/LhLVKcxLVfI",
+     "id": "LhLVKcxLVfI"
+    }
+   },
+   "views": 6
+  },
   {
    "id": "2026-09-26-3",
    "title": "Die Young",
@@ -9,8 +27,8 @@
    "thumb": "assets/posts/2026-09-26-3.jpg",
    "links": {
     "tiktok": {
-     "url": "https://www.tiktok.com/@saxo.dance/video/7689905783353380129",
-     "id": "7689905783353380129"
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689928927438998806",
+     "id": "7689928927438998806"
     },
     "youtube": {
      "url": "https://www.youtube.com/shorts/LhLVKcxLVfI",
@@ -49,7 +67,30 @@
      "url": "https://x.com/saxodance/status/2103847398510309608",
      "id": "2103847398510309608"
     }
-   }
+   },
+   "views": 671
+  },
+  {
+   "id": "2026-09-26-tt",
+   "title": "He's A Pirate (Save Me)",
+   "artist": "Gabry Ponte, Steve Aoki, KEL",
+   "date": "2026-09-26T10:49:04.490Z",
+   "thumb": "assets/posts/2026-09-26-tt.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689804830163963138",
+     "id": "7689804830163963138"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdvxSQfFaYx/",
+     "id": "DdvxSQfFaYx"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/zD7PY_qLTkw",
+     "id": "zD7PY_qLTkw"
+    }
+   },
+   "views": 832
   },
   {
    "id": "2026-09-26",
@@ -99,7 +140,8 @@
      "url": "https://x.com/saxodance/status/2103775716248633804",
      "id": "2103775716248633804"
     }
-   }
+   },
+   "views": 372
   },
   {
    "id": "2026-09-25-2",
@@ -125,7 +167,7 @@
      "id": "2103774479495106916"
     }
    },
-   "views": 419
+   "views": 495
   },
   {
    "id": "2026-09-25",
@@ -151,7 +193,7 @@
      "id": "2103773105726316612"
     }
    },
-   "views": 773
+   "views": 1567
   },
   {
    "id": "2026-09-24",
@@ -177,7 +219,7 @@
      "id": "2103771898001727674"
     }
    },
-   "views": 1234
+   "views": 1213
   },
   {
    "id": "the-one-that-got-away",
@@ -203,7 +245,7 @@
      "id": "7689143396421602582"
     }
    },
-   "views": 1721
+   "views": 1711
   }
  ]
 }
