@@ -1498,6 +1498,47 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "matsuri",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "sailor",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "yukata",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }

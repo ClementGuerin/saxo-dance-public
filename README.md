@@ -83,7 +83,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender and the poop suit">
+  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat and the poop suit">
 </p>
 
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
@@ -92,7 +92,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 39 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club and the desert village, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village and the blossom festival, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
@@ -173,7 +173,10 @@ page loads, each model is fitted over Saxo's body (arm-span scale, feet aligned,
 vertex copies the bone weights of its six nearest body vertices. The partners ride clones of his skeleton, so all
 467 clips in `assets/mixamo/anims/` play on anyone, with no Blender and no re-rigging. A crowd
 goes further: up to 99 copies of one look share a single hidden skeleton, so a whole room dances in sync for the price
-of one pose. Any of them can also be scaled up into a giant that rises out of the sea and sinks back.
+of one pose, in rows, in a ring or on tiered shelves, even washed to porcelain white (a shrine's display of lucky-cat
+statues, with the real cat hiding among them). Any character can also be scaled up into a giant that rises out of the
+sea and sinks back, and arm poses lock to the beat on top of any clip: paws flapping by the ears, a lucky cat's
+beckon, sticks beating a taiko.
 
 ### A QA gate that can say no
 
