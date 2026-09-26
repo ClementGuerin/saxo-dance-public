@@ -1293,6 +1293,129 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "cave",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "pearl",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     4,
+     4
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": 1.2,
+    "fov": 56
+   },
+   "focus": [
+    -1.2,
+    -6.5
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "ymca",
+     "at": "auto",
+     "x": -1.2,
+     "z": -7.1
+    },
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "ymca",
+     "at": "auto",
+     "x": -1.2,
+     "z": -5.9
+    }
+   ]
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "plane",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": 0.95,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "hostess",
+     "clip": "macarena",
+     "at": "auto",
+     "x": 0,
+     "z": 0.3
+    }
+   ]
   }
  ]
 }
