@@ -1008,8 +1008,88 @@ function plugCable(D, to) {
   const a = p.clone(), b = new THREE.Vector3(...to), d = b.clone().sub(a);
   c.visible = true; c.position.copy(a).add(b).multiplyScalar(0.5); c.scale.set(1, d.length(), 1); c.quaternion.setFromUnitVectors(_up, d.normalize());
 }
+// ---- A lying body rests on its torso (the user, 2026-09-26: "the head can be in the ground, it's ok, but the body needs
+// to be the closest to the ground; a bit in the ground is ok"). The chibi head is wider than the torso is thick, so a
+// Mixamo lying pose (made for human proportions) grounded on its lowest point balanced the body on the back of its head:
+// the torso 10-25 cm and the legs up to 35 cm in the air, the shadow off to one side. A body whose spine lies flat is
+// grounded on its torso, LIE_SINK into the floor, and its head goes through the floor; `spineFlat` blends it in as the
+// spine tips over in a fall. Parts come from each vertex's heaviest bone (cached per mesh: the weights never change).
+const LIE_SINK = 0.015, _lv = new THREE.Vector3(), _lw = new THREE.Vector3(), _parts = new WeakMap();
+const PART = n => { n = n.replace(/^mixamorig:?/, ''); return /^(Neck|Head)/.test(n) ? 'head' : /^Left(UpLeg|Leg|Foot|Toe)/.test(n) ? 'legL' : /^Right(UpLeg|Leg|Foot|Toe)/.test(n) ? 'legR' : /^Left(Arm|ForeArm|Hand)/.test(n) ? 'armL' : /^Right(Arm|ForeArm|Hand)/.test(n) ? 'armR' : 'torso'; };
+function partsOf(o) {   // { part: [vertex indices] } of a skinned mesh, every second vertex (like the QA)
+  let P = _parts.get(o); if (P) return P;
+  P = {}; const si = o.geometry.attributes.skinIndex, sw = o.geometry.attributes.skinWeight, n = o.geometry.attributes.position.count, names = o.skeleton.bones.map(b => PART(b.name));
+  for (let i = 0; i < n; i += 2) { let bi = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; bi = si.getComponent(i, k); } } (P[names[bi]] ||= []).push(i); }
+  _parts.set(o, P); return P;
+}
+function partLows(D) {   // lowest world y of each body part over the visible skinned meshes
+  const L = { head: Infinity, torso: Infinity, legL: Infinity, legR: Infinity, armL: Infinity, armR: Infinity };
+  D.root.traverse(o => { if (!o.isSkinnedMesh || !o.visible) return; for (const [p, ix] of Object.entries(partsOf(o))) for (const i of ix) { o.getVertexPosition(i, _lv); _lv.applyMatrix4(o.matrixWorld); if (_lv.y < L[p]) L[p] = _lv.y; } });
+  return L;
+}
+function boneOf(D, re) { const k = 'bone:' + re.source; if (!(k in D)) { D[k] = null; D.root.traverse(o => { if (!D[k] && o.isBone && re.test(o.name)) D[k] = o; }); } return D[k]; }
+function spineFlat(D) {   // 0 while the hips-to-neck line is within 45 deg of upright, 1 once it lies within 20 deg of the floor
+  const neck = boneOf(D, /Neck$/); if (!D.hips || !neck) return 0;
+  D.hips.getWorldPosition(_lv); neck.getWorldPosition(_lw).sub(_lv);
+  return sm((Math.acos(Math.min(1, Math.abs(_lw.y) / (_lw.length() || 1))) * 180 / Math.PI - 45) / 25);
+}
+const _lc = new THREE.Vector3(), _lq = new THREE.Quaternion(), _lqw = new THREE.Quaternion(), _lqp = new THREE.Quaternion(), _lax = new THREE.Vector3();
+function partLow1(D, part, c) {   // lowest world y of one body part (its centroid into c when given)
+  let low = Infinity, n = 0; if (c) c.set(0, 0, 0);
+  D.root.traverse(o => { if (!o.isSkinnedMesh || !o.visible) return; for (const i of partsOf(o)[part] || []) { o.getVertexPosition(i, _lv); _lv.applyMatrix4(o.matrixWorld); if (_lv.y < low) low = _lv.y; if (c) { c.add(_lv); n++; } } });
+  if (c && n) c.divideScalar(n); return low;
+}
+// A limb lying beside a round torso floats (a thin leg off the hip joint sat 10-20 cm up): turn it down at its root
+// joint, about the level axis across it, until its lowest point has dropped by `drop` m (at most `max` rad; bisection).
+// The mixer only writes a bone whose clip value changed since its last update, so on a held pose (a `once` clip's last
+// frame, a still track) a turn carried into the next frame and stacked up (the swung legs then read as standing and
+// the body floated 15 cm): every turned bone is put back to its clip rotation before the next frame poses anyone.
+const SWUNG = [];
+function unswing() { for (const [b, q] of SWUNG) b.quaternion.copy(q); SWUNG.length = 0; }
+function swingDown(D, part, bone, drop, max) {
+  if (!bone || drop < 0.01) return;
+  const low0 = partLow1(D, part, _lc); _lax.crossVectors(_up, _lc.sub(bone.getWorldPosition(_lw))); if (_lax.lengthSq() < 1e-8) return; _lax.normalize();
+  SWUNG.push([bone, bone.quaternion.clone()]); bone.getWorldQuaternion(_lqw); bone.parent.getWorldQuaternion(_lqp).invert();
+  const turn = a => { bone.quaternion.copy(_lqp).multiply(_lq.setFromAxisAngle(_lax, a)).multiply(_lqw); bone.updateMatrixWorld(true); };
+  let lo = 0, hi = max; turn(hi); if (low0 - partLow1(D, part) <= drop) return;   // not enough even at the limit: keep the limit
+  for (let k = 0; k < 8; k++) { const m = (lo + hi) / 2; turn(m); if (low0 - partLow1(D, part) >= drop) hi = m; else lo = m; }
+  turn(hi);
+}
+// How much a body lies on the floor (0..1): its spine flat, a thigh off the vertical (a knee up still counts), no upper
+// arm propping it up, and its head or torso below its feet. Standing, bowing, twerking and kneeling keep both thighs
+// under the hips, crawling and push-ups prop the body on the arms, and a squat keeps the head above the feet, so they
+// all stay on their limbs ("Die Young": Compote crawling, her big head lower than her knees, sank 12 cm when only the
+// spine and the head were checked). In a fall it ramps in over the 10 cm the head drops below the feet.
+const down = (a, b) => { if (!a || !b) return 0; a.getWorldPosition(_lc); b.getWorldPosition(_lw).sub(_lc); return -_lw.y / (_lw.length() || 1); };   // 1: b hangs straight below a
+function lyingWeight(D, L, s) {
+  const f = spineFlat(D); if (f <= 0) return 0;
+  const legs = Math.max(...[['Left', 'L'], ['Right', 'R']].map(([k]) => 1 - sm((down(boneOf(D, new RegExp(k + 'UpLeg$')), boneOf(D, new RegExp(k + 'Leg$'))) - 0.7) / 0.2)));
+  const propped = Math.max(sm((down(D.L, D.foreL) - 0.75) / 0.15), sm((down(D.R, D.foreR) - 0.75) / 0.15));
+  const low = sm((Math.min(L.legL, L.legR) - Math.min(L.head, L.torso)) / (0.1 * s));
+  D.lyingWhy = [f, legs, propped, low].map(v => +v.toFixed(2)); return f * legs * (1 - propped) * low;   // for LIE_PROBE
+}
+// Settle a lying body (weight w, part lows L): its legs, and the arms the shot doesn't use, swing down to the torso's
+// level, unless they're above the hips (a leg crossed over, a paw on the belly: pushed down they'd go into the body).
+// Returns the height to ground on (world y): the lowest point blended into the torso's, LIE_SINK in, by w.
+function settleLying(D, A, w, s, L) {
+  const hy = D.hips.getWorldPosition(_lw).y, limbs = [['legL', /LeftUpLeg$/, 0.9], ['legR', /RightUpLeg$/, 0.9]];
+  if (!A.arm && !A.hold && !A.holdL) limbs.push(['armL', /LeftArm$/, 0.7], ['armR', /RightArm$/, 0.7]);
+  for (const [p, re, max] of limbs) if (L[p] < hy) swingDown(D, p, boneOf(D, re), (L[p] - L.torso) * w, max);
+  const M = partLows(D), all = Math.min(M.head, M.torso, M.legL, M.legR, M.armL, M.armR);
+  return all + (M.torso + LIE_SINK * s - all) * w;   // the holder drops by this: the torso ends LIE_SINK under the floor
+}
+function lieShadow(D, w) {   // the blob stretched under a lying body: an ellipse on its footprint (x, z moments of the vertices), blended in by w
+  let n = 0, mx = 0, mz = 0, xx = 0, zz = 0, xz = 0;
+  D.root.traverse(o => { if (!o.isSkinnedMesh || !o.visible) return; const c = o.geometry.attributes.position.count;
+    for (let i = 0; i < c; i += 9) { o.getVertexPosition(i, _lv); _lv.applyMatrix4(o.matrixWorld); n++; mx += _lv.x; mz += _lv.z; xx += _lv.x * _lv.x; zz += _lv.z * _lv.z; xz += _lv.x * _lv.z; } });
+  if (!n) return;
+  mx /= n; mz /= n; const a = xx / n - mx * mx, c = zz / n - mz * mz, b = xz / n - mx * mz, m = (a + c) / 2, d = Math.sqrt(((a - c) / 2) ** 2 + b * b);
+  const S = D.shadow, r0 = S.scale.x * 0.45, ax = r => (r0 + (2.2 * Math.sqrt(Math.max(0, r)) + 0.06 - r0) * w) / 0.45;   // the plane is 0.9 m: its disc has a 0.45 m radius
+  S.position.x += (mx - S.position.x) * w; S.position.z += (mz - S.position.z) * w;
+  S.rotation.z = -0.5 * Math.atan2(2 * b, a - c); S.scale.set(ax(m + d), ax(m - d), 1);   // local x = the major axis (the plane lies flat: local y is world -z)
+}
 function placeActors(P, t, t0, t1, camAng, map) {
-  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.fg = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
+  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.fg = false; D.deck = 0; D.lying = 0; D.lyingWhy = null; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
   const len = t1 - t0, plans = [];
   // pass 1: facing, start offset and ground are measured on Saxo's rig (shared caches) before anyone is posed this frame
   for (const A of P.actors) {
@@ -1034,12 +1114,17 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.holder.rotation.y = yaw; D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u); D.holder.updateMatrixWorld(true);
     if (A.arm) aimArms(D, A, yaw + fyaw, t - t0);
     // the toes set the shot's floor, but a hem, a paw or a big head can reach lower: never let the mesh sink;
-    // "mesh" grounding keeps the lowest point on the floor every frame (lying down, falling)
-    const low = meshLow(D, 3) - lift; if (A.ground === 'mesh' || low < 0) { D.holder.position.y -= low; D.holder.updateMatrixWorld(true); }
+    // "mesh" grounding keeps the lowest point on the floor every frame (falling); a flat body touching the floor is
+    // grounded on its torso instead, the head through the floor (see LIE_SINK)
+    let low = meshLow(D, 3) - lift;
+    let flat = 0;
+    if ((A.ground === 'mesh' || low < 0.1 * s) && spineFlat(D) > 0) { const L = partLows(D); flat = lyingWeight(D, L, s); if (flat > 0) low = settleLying(D, A, flat, s, L) - lift; D.lying = flat; }
+    if (A.ground === 'mesh' || low < 0 || flat > 0) { D.holder.position.y -= low; D.holder.updateMatrixWorld(true); }
     D.deck = lift;
-    const up = Math.max(0, footY(D) / s - D.restFoot - lift / s);
+    const up = Math.max(0, footY(D) / s - D.restFoot - lift / s) * (1 - flat);
     const hp = D.hips ? D.hips.getWorldPosition(_pb) : D.holder.position;
-    D.shadow.position.set(hp.x, 0.012 + lift, hp.z); D.shadow.scale.setScalar(s * Math.max(0.5, 1 - up * 0.8) * (A.ground === 'mesh' ? 1.5 : 1));
+    D.shadow.position.set(hp.x, 0.012 + lift, hp.z); D.shadow.rotation.z = 0; D.shadow.scale.setScalar(s * Math.max(0.5, 1 - up * 0.8) * (A.ground === 'mesh' ? 1.5 : 1));
+    if (flat > 0) lieShadow(D, flat);
     D.shadow.material.uniforms.uShadow.value = SHADOW * Math.max(0.35, 1 - up);
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
@@ -1102,6 +1187,7 @@ function placeCrowd(P, t, t0, t1, camAng) {
 // a duo seen from the side lines up and one hides the other, so its camera swings less (orbits span ±54°, not ±120°)
 let curMap = null;
 function danceFrame(t) {
+  unswing();   // last frame's lying limbs back to their clip rotations (see swingDown)
   const i = shotIndex(t), [t0, mapName, cam, outfit, sadiOutfit, CAST] = SHOTS[i], t1 = i + 1 < SHOTS.length ? SHOTS[i + 1][0] : CONFIG.duration, P = PLAN[i];
   const ACT = CAST === 'actors';   // a shot that places its characters by hand (`actors`) sets its own framing
   const ANG_K = ACT ? P.angK ?? 1 : CAST === 'duo' ? 0.45 : 1, WIDE = ACT ? P.wide ?? 1 : CAST === 'duo' ? 1.2 : 1, [FX, FZ, FY = 0] = P.focus || [0, 0];   // focus: [x, z, floor y] the camera orbits
@@ -1190,19 +1276,30 @@ function qaDog(D, who) {
       B[0] = Math.min(B[0], x); B[1] = Math.min(B[1], y); B[2] = Math.max(B[2], x); B[3] = Math.max(B[3], y);
     }
   });
+  // a lying body may put its head through the floor (LIE_SINK), so its lowest point leaves the head out, and once the
+  // spine is flat its torso must touch the floor (`lie`, the rule "lies above the floor")
+  let lie = null;
+  if (spineFlat(D) > 0) { const L = partLows(D), w = lyingWeight(D, L, D.curScale || 1); if (w > 0) low = Math.min(L.torso, L.legL, L.legR, L.armL, L.armR); if (w > 0.99) lie = +(L.torso - (D.deck || 0)).toFixed(3); }
   // the head bone on screen (0..1): where the face is, for the framing rules (an arm past the edge reads fine, a face doesn't)
   const h = D.head ? D.head.getWorldPosition(_qv).project(camera) : null;
-  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2, fg: !!D.fg };
+  return { who, low: +(low - (D.deck || 0)).toFixed(3), lie, air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2, fg: !!D.fg };
 }
 window.QA_PROBE = t => {
   window.render3d(t);
   return Object.entries(CREW).filter(([, D]) => D && D.holder.visible && D.holder.parent).map(([w, D]) => qaDog(D, w)).filter(d => isFinite(d.low));
 };
+// Debug probe for lying bodies (node render.mjs --eval="LIE_PROBE([12.5, 22.8])"): each visible actor's lowest point per
+// body part above its floor (m; a lying body's head may be negative, through the floor), how flat its spine lies and the
+// lying weight its grounding used (0..1)
+window.LIE_PROBE = ts => ts.flatMap(t => { window.render3d(t); return Object.entries(CREW).filter(([, D]) => D.holder.visible && D.holder.parent).map(([w, D]) => {
+  const L = partLows(D), r = v => +(v - (D.deck || 0)).toFixed(3);
+  return { t, w, flat: +spineFlat(D).toFixed(2), lying: +(D.lying || 0).toFixed(2), why: D.lyingWhy, torso: r(L.torso), head: r(L.head), legs: r(Math.min(L.legL, L.legR)), arms: r(Math.min(L.armL, L.armR)) };
+}); });
 // Debug probe for staging props around a clip (node render.mjs --eval="CLIP_PROBE('gaming', [0, 1], 'kob')"): the
 // character posed in the clip on the origin at yaw 0, lowest vertex on the floor; key points in metres, rounded to cm.
 window.CLIP_PROBE = (name, ts = [0], who = 'saxo', look) => {
   const D = CREW[who]; if (!D) return 'no ' + who;
-  wearOutfit(D, look || D.base); D.holder.visible = true;
+  unswing(); wearOutfit(D, look || D.base); D.holder.visible = true;
   const r = v => v.toArray().map(x => Math.round(x * 100) / 100), w = b => b ? r(b.getWorldPosition(new THREE.Vector3())) : null;
   return ts.map(t => {
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === name ? 1 : 0;
@@ -1225,7 +1322,7 @@ if (EP) {
   for (const p of PLAN) if (p.kind === 'action') { const k = p.scene + ':' + (p.who || '') + ':' + (p.word || '') + ':' + (p.wide || ''); p.key = k; R[k] ||= sceneRenderer(p.scene, sceneKit(), { who: p.who, look: p.look, word: p.word, wide: p.wide }); }
   window.EPISODE = EP; window.SCENE_END = undefined;
   window.render3d = t => {
-    const p = PLAN[shotIndex(t)];
+    unswing(); const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner

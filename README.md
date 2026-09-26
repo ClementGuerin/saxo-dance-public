@@ -176,7 +176,8 @@ of one pose. Any of them can also be scaled up into a giant that rises out of th
 
 `node render.mjs --qa` samples every frame at 10 fps and measures each character's **skinned mesh**, not its bones:
 nobody may sink more than 4 cm into the floor, float more than 5 cm for longer than a jump, or leave the frame for
-more than half a second. `--frames` and `--clip` run the gate first and refuse to render on a failure. Every new failure
+more than half a second, and a body lying down must rest on its torso (a chibi head is wider than the torso is thick,
+so the head is allowed through the floor). `--frames` and `--clip` run the gate first and refuse to render on a failure. Every new failure
 found by eye becomes a new rule: a leftover T-pose and a comic word badge now fail it too.
 
 ### Deterministic frames

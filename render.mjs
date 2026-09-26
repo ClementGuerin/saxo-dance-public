@@ -97,7 +97,8 @@ const fps = +(args.fps || M.fps), N = Math.round(M.DUR * fps);
 // ---------- QA gate: checks the 3D frames automatically, so an unattended daily render can't ship a broken one ----------
 // Rules (per visible dog, sampled at --qa-fps): never sink into the floor (lowest mesh point < -4 cm); never float
 // (> 5 cm) unless the shot marks it airborne, or for longer than a jump (0.6 s); never leave the frame for over 0.5 s.
-// Framing (calibrated on "Dans le club", 2026-09-25): the face (head bone) never within 5% of a side of the frame, and
+// A body lying down (2026-09-26) rests on its torso: the torso within 5 cm of the floor, its head out of the sink rule
+// (the head may go through the floor, the user's call). Framing (calibrated on "Dans le club", 2026-09-25): the face (head bone) never within 5% of a side of the frame, and
 // the top of the head never in the lyric rows (the top 25%) while a line is on screen, each for over 0.5 s. An arm or a
 // hem past the edge is fine (the whole-body box flagged 12 of those on a video the user was happy with). A giant (an
 // actor's `scale` > 2, 2026-09-26) is judged by its face: the head bone stays below 30% of the height. An actor marked
@@ -117,6 +118,9 @@ async function qa(a, b) {
   const off = d => d.box[2] < 0 || d.box[0] > 1 || d.box[3] < 0 || d.box[1] > 1;
   const RUNS = [   // [rule, is this sample bad, how bad, longest allowed run, unit]
     ['floats above the floor', d => d.low > QA.float && !d.air, d => d.low, QA.jump, 'm'],
+    // a flat body rests on its torso, the head may go through the floor (2026-09-26: bodies balanced on the backs of
+    // their big heads read as floating in every lying shot, while the lowest point sat on the floor)
+    ['lies above the floor', d => d.lie != null && d.lie > QA.float && !d.air, d => d.lie, QA.framing, 'm (torso)'],
     ['out of frame', d => off(d) && !d.fg, () => 0, QA.gone, ''],
     ['face at the frame edge', d => !off(d) && !d.fg && d.head && (d.head[0] < QA.faceEdge || d.head[0] > 1 - QA.faceEdge), d => Math.max(QA.faceEdge - d.head[0], d.head[0] - 1 + QA.faceEdge), QA.framing, 'of the width past the 5% margin'],
     // a giant (an actor's `scale` > 2, the sea monster) fills the frame by design: its face must stay below the lyric rows, its ears may reach them

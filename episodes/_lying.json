@@ -1,0 +1,570 @@
+{
+ "date": "2026-09-26",
+ "n": "lying-test",
+ "test": true,
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "death_falling_backwards",
+  "dying_falling_backward",
+  "knocked_out_falling_to_back",
+  "laying_idle"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "death_falling_backwards",
+     "x": 0,
+     "z": 0,
+     "at": 4.2,
+     "speed": 0.2,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.1,
+     0.1
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "death_falling_backwards",
+     "x": 0,
+     "z": 0,
+     "at": 4.2,
+     "speed": 0.2,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.38,
+     34.38
+    ],
+    "r": [
+     2.302,
+     2.302
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "disco",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": 0,
+     "at": 4,
+     "speed": 0.2,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.1,
+     0.1
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "disco",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": 0,
+     "at": 4,
+     "speed": 0.2,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.38,
+     34.38
+    ],
+    "r": [
+     2.302,
+     2.302
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "dying_falling_backward",
+     "x": 0,
+     "z": 0,
+     "at": 3.2,
+     "speed": 0.2,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.1,
+     0.1
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "dying_falling_backward",
+     "x": 0,
+     "z": 0,
+     "at": 3.2,
+     "speed": 0.2,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.38,
+     34.38
+    ],
+    "r": [
+     2.302,
+     2.302
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0,
+     "at": 0,
+     "speed": 1,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.1,
+     0.1
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "michou",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0,
+     "at": 0,
+     "speed": 1,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.38,
+     34.38
+    ],
+    "r": [
+     2.302,
+     2.302
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0,
+     "at": 4,
+     "speed": 1,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.1,
+     0.1
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0,
+     "at": 4,
+     "speed": 1,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.38,
+     34.38
+    ],
+    "r": [
+     2.302,
+     2.302
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0,
+     "at": 8,
+     "speed": 1,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.1,
+     0.1
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "yacht",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 0,
+     "at": 8,
+     "speed": 1,
+     "once": true,
+     "ground": "mesh",
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.38,
+     34.38
+    ],
+    "r": [
+     2.302,
+     2.302
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "still": true,
+   "noguests": true
+  }
+ ]
+}
