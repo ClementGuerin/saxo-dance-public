@@ -11,7 +11,7 @@ import { makeCode } from './code.js';
 import { makeStats } from './stats.js';
 import * as audio from './audio.js';
 import { ICON, NET, markPixels, chartPixels } from './icons.js';
-import { track } from './analytics.js';
+import { track, setVersion } from './analytics.js';
 
 const $ = s => document.querySelector(s);
 const PIX = (name, size = 32) => `<img class="ico" src="assets/ui/icons/${name}@${size > 16 ? 4 : 2}x.png" width="${size}" height="${size}" alt="">`;
@@ -497,11 +497,13 @@ function updateInteract() {
 function useNearest() { if (nearest) { audio.sfx.blip(); const [x, z] = nearest.anchor(); saxo.faceTo(x, z); nearest.run(); } }
 
 // ---------- sheets: wardrobe and socials ----------
-const LOOKS = [['saxo', 'Saxo'], ['cowboy', 'Cowboy'], ['astronaut', 'Astronaut'], ['dj', 'DJ'], ['beach', 'Beach'], ['moto', 'Moto'], ['sponge', 'Sponge'], ['poop', 'Poop']];
+// the wardrobe: assets/looks.json, [look, name] in order, which tools/site_looks.mjs keeps in step with the costumes
+let LOOKS = [['saxo', 'Saxo']];
+const looksReady = fetch('assets/looks.json', { cache: 'no-cache' }).then(r => r.json()).then(l => { if (l?.length) LOOKS = l; }).catch(() => {});
 function openSheet(id) {
   closeSheets(); chat.close(); const el = $('#' + id); el.hidden = false; audio.sfx.open(); P.overlay = true;
   track('sheet_opened', { sheet: id });
-  if (id === 'closet') {
+  if (id === 'closet') looksReady.then(() => {
     const box = el.querySelector('.looks'); box.innerHTML = '';
     for (const [k, name] of LOOKS) {
       const b = document.createElement('button'); b.className = 'look' + (P.look === k ? ' on' : ''); b.innerHTML = `<img src="assets/ui/looks/${k}.png" width="64" height="64" alt=""><span>${name}</span>`;
@@ -513,7 +515,7 @@ function openSheet(id) {
       };
       box.appendChild(b);
     }
-  }
+  });
 }
 function closeSheets() { let was = false; document.querySelectorAll('.sheet').forEach(s => { if (!s.hidden) was = true; s.hidden = true; }); if (was) { audio.sfx.close(); P.overlay = !$('#tv').hidden || code.isOpen || stats.isOpen; } }
 document.querySelectorAll('.sheet .x').forEach(x => x.onclick = closeSheets);
@@ -642,5 +644,13 @@ function frame(now) {
   renderer.render(scene, camera);
 }
 
+// ---------- the version and the last update: build.json, written at each deploy by tools/site_refresh.mjs ----------
+fetch('build.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(b => {
+  if (!b?.version) return;   // a local preview has no build.json
+  const d = new Date(b.updated), p2 = n => String(n).padStart(2, '0'), el = $('#ver');
+  el.textContent = `v${b.version} · updated ${d.getDate()} ${'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[d.getMonth()]}, ${p2(d.getHours())}:${p2(d.getMinutes())}`;
+  el.title = `saxo.dance v${b.version}, updated ${d.toString()}`; el.hidden = false;
+  setVersion(b.version);
+}).catch(() => {});
 boot().catch(e => { console.error(e); fail("Saxo tripped over a cable while loading. Try reloading the page."); });
 window.SAXO = { get saxo() { return saxo; }, npc, get W() { return W; }, cam, P, get clips() { return clips; }, camera, renderer, get speeds() { return { WALK_CLIP, RUN_CLIP }; }, state, toast, stats, get INTER() { return INTER; } };

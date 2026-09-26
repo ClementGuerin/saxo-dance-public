@@ -3,3 +3,7 @@
 export function track(event, props) {
   try { window.posthog?.capture?.(event, props); } catch {}
 }
+// every event after this carries site_version (PostHog super property), so a change can be read version by version
+export function setVersion(v) {
+  try { window.posthog?.register?.({ site_version: v }); } catch {}
+}

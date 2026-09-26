@@ -1,14 +1,18 @@
 // site_bake.mjs: bakes the website's characters and clips (tools/site/bake.js in headless Chrome) into site/assets/.
-// Run from the project root after a new character, costume or clip: node tools/site_bake.mjs
+//   node tools/site_bake.mjs              only what's missing (a new costume in site/assets/looks.json, a new pack)
+//   node tools/site_bake.mjs --only=pirate,tourist   those costumes again
+//   node tools/site_bake.mjs --all        everything again (after a change to a clip pack or to the baking itself)
+// Saxo's costumes are the wardrobe's list, site/assets/looks.json (tools/site_looks.mjs adds to it). Rebaking a file
+// that's already live changes it under the same name, which Cloudflare keeps for a day: the next release purges it.
 // Outputs: site/assets/chars/<look>.glb, site/assets/anims/<pack>.{bin,json}. Free: no API calls.
 import puppeteer from 'puppeteer-core';
 import http from 'node:http';
-import { existsSync, statSync, createReadStream, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, statSync, createReadStream, mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve, extname, dirname, sep } from 'node:path';
 
 const ROOT = process.cwd(), OUT = 'site/assets';
 const SPEC = {
-  costumes: { cowboy: 'saxo_cowboy', astronaut: 'saxo_astronaut', dj: 'saxo_dj', beach: 'saxo_beach', poop: 'saxo_poop', moto: 'saxo_moto', sponge: 'saxo_sponge' },
+  costumes: Object.fromEntries(JSON.parse(readFileSync(`${OUT}/looks.json`, 'utf8')).filter(([k]) => k !== 'saxo').map(([k]) => [k, `saxo_${k}`])),
   partners: { sadi: 'sadi_base', kob: 'kob_base', compote: 'compote_base' },
   packs: {
     // everything the world needs before the first frame: locomotion, talking, sitting, reactions, the Compote gag
@@ -19,11 +23,19 @@ const SPEC = {
     dance: [['gangnam', '@gangnam'], 'macarena', 'ymca', 'chicken', 'twist', 'running_man', 'shuffle', 'robot', 'arm_wave', 'charleston', 'samba', 'shimmy', 'silly_twist', 'booty_step'],
   },
 };
+const arg = n => process.argv.find(a => a.startsWith(`--${n}=`))?.slice(n.length + 3);
+const all = process.argv.includes('--all'), only = arg('only')?.split(',');
+if (only) for (const k of only) if (!SPEC.costumes[k]) throw new Error(`${k} isn't in site/assets/looks.json (add it with node tools/site_looks.mjs)`);
+const want = (file, key) => all || (only ? only.includes(key) : !existsSync(`${OUT}/${file}`));
+const pick = (o, file) => Object.fromEntries(Object.entries(o).filter(([k]) => want(file(k), k)));
 const spec = {
-  costumes: Object.fromEntries(Object.entries(SPEC.costumes).map(([k, f]) => [k, `/assets/models/${f}.glb`])),
-  partners: Object.fromEntries(Object.entries(SPEC.partners).map(([k, f]) => [k, `/assets/models/${f}.glb`])),
-  packs: Object.fromEntries(Object.entries(SPEC.packs).map(([k, l]) => [k, l.map(c => typeof c === 'string' ? [c, c] : c)])),
+  costumes: Object.fromEntries(Object.entries(pick(SPEC.costumes, k => `chars/saxo_${k}.glb`)).map(([k, f]) => [k, `/assets/models/${f}.glb`])),
+  partners: only ? {} : Object.fromEntries(Object.entries(pick(SPEC.partners, k => `chars/${k}.glb`)).map(([k, f]) => [k, `/assets/models/${f}.glb`])),
+  packs: only ? {} : Object.fromEntries(Object.entries(pick(SPEC.packs, k => `anims/${k}.bin`)).map(([k, l]) => [k, l.map(c => typeof c === 'string' ? [c, c] : c)])),
 };
+const todo = [...Object.keys(spec.costumes).map(k => `saxo_${k}`), ...Object.keys(spec.partners), ...Object.keys(spec.packs).map(k => `${k} clips`)];
+if (!todo.length && !want('chars/saxo.glb')) { console.log('nothing to bake: every look and clip pack is in site/assets (--all rebakes them)'); process.exit(0); }
+console.log(`baking ${todo.join(', ') || 'saxo'}`);
 
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.glb': 'model/gltf-binary', '.fbx': 'application/octet-stream' };
 const server = http.createServer((req, res) => {
@@ -42,6 +54,7 @@ try {
   const { files, log } = await page.evaluate(s => window.BAKE(s), spec);
   log.forEach(l => console.log(l));
   for (const [name, data] of Object.entries(files)) {
+    if (name === 'chars/saxo.glb' && !want(name)) continue;   // always baked (the rig the costumes fit on), kept unless missing or --all
     const p = `${OUT}/${name}`; mkdirSync(dirname(p), { recursive: true });
     const buf = Buffer.from(data, 'base64'); writeFileSync(p, buf); console.log(`${p}  ${(buf.length / 1024).toFixed(0)} KB`);
   }

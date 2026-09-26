@@ -11,3 +11,6 @@ assets/mixamo/*.zip
 .tripo/
 # site build output (tools/site_build.mjs)
 site/dist/
+# regenerated on every refresh (tools/site_refresh.mjs): the GitHub and stats islands' data
+site/assets/repo.json
+site/assets/stats.json
