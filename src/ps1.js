@@ -12,6 +12,7 @@ import { buildOutdoorMaps } from './maps3.js';
 import { buildSeaMaps } from './maps4.js';
 import { buildClubMaps } from './maps5.js';
 import { buildTechnoMaps } from './maps6.js';
+import { buildMatsuriMaps } from './maps10.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
 import { buildDieYoungMaps } from './maps9.js';
@@ -60,7 +61,7 @@ void main() {
   gl_Position = cp;
 }`;
 const FS = /* glsl */`
-uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog;
+uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog; uniform float uPale;
 varying vec3 vLight; varying vec3 vUvw; varying float vFogD;
 float bayer(vec2 p) {
   int x = int(mod(p.x, 4.0)), y = int(mod(p.y, 4.0));
@@ -75,6 +76,7 @@ void main() {
   }
   vec4 tx = uUseMap > 0.5 ? texture2D(map, vUvw.xy / vUvw.z) : vec4(1.0);
   if (tx.a < 0.4) discard;
+  tx.rgb = mix(tx.rgb, 0.74 + 0.26 * tx.rgb, uPale);             // pale: porcelain (a crowd of lucky-cat statues); 0 on every other material
   float glow = max(uUnlit, step(tx.a, 0.9));                     // alpha ~0.8 in a texture = self-lit (windows, lamps)
   vec3 lit = mix(vLight, vec3(1.0), uLift);                       // uLift > 0 keeps the hero readable in dark maps
   vec3 c = tx.rgb * uCol * mix(lit, vec3(1.0), glow);
@@ -87,7 +89,8 @@ function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, 
   return new THREE.ShaderMaterial({
     vertexShader: VS, fragmentShader: FS, side,
     uniforms: { ...U, map: { value: map }, uUseMap: { value: map ? 1 : 0 }, uCol: { value: new THREE.Color(color) },
-      uRep: { value: new THREE.Vector2(...rep) }, uOff: { value: new THREE.Vector2() }, uUnlit: { value: unlit }, uLift: { value: lift }, uShadow: { value: shadow }, uShadowCol: { value: new THREE.Color(0.22, 0.2, 0.24) }, uNoFog: { value: nofog } },
+      uRep: { value: new THREE.Vector2(...rep) }, uOff: { value: new THREE.Vector2() }, uUnlit: { value: unlit }, uLift: { value: lift }, uShadow: { value: shadow }, uShadowCol: { value: new THREE.Color(0.22, 0.2, 0.24) }, uNoFog: { value: nofog },
+      uPale: { value: 0 } },   // every material uploads its own 0: a GL uniform keeps the last value set on the shared program, so the porcelain crowd's paleness leaked onto every character drawn after it (2026-09-27)
   });
 }
 
@@ -461,11 +464,11 @@ function footY(T) { let m = Infinity; for (const f of T.feet) { f.getWorldPositi
 function clipGround(T, name, a, len) {
   const key = 'g:' + name + '@' + a + '+' + len.toFixed(2); if (key in T.faceCache) return T.faceCache[key];
   if (!T.feet.length) return T.faceCache[key] = 0;
-  const act = T.actions[name], d = T.clips[name].duration, ky = T.holder.rotation.y, py = T.holder.position.y;
-  T.holder.rotation.y = 0; T.holder.position.y = 0; for (const x of Object.values(T.actions)) x.weight = x === act ? 1 : 0;
+  const act = T.actions[name], d = T.clips[name].duration, kq = T.holder.quaternion.clone(), py = T.holder.position.y;   // the whole rotation: a swaying body is tilted too
+  T.holder.rotation.set(0, 0, 0); T.holder.position.y = 0; for (const x of Object.values(T.actions)) x.weight = x === act ? 1 : 0;
   let m = Infinity;
   for (let i = 0; i < 24; i++) { act.time = (a + len * i / 23) % d; T.mixer.update(0); T.holder.updateMatrixWorld(true); m = Math.min(m, footY(T)); }
-  T.holder.rotation.y = ky; T.holder.position.y = py;
+  T.holder.quaternion.copy(kq); T.holder.position.y = py;
   return T.faceCache[key] = T.restFoot - m;
 }
 // Body heading from the shoulder line (left → right upper arm) in world xz; skeleton-axis independent.
@@ -475,21 +478,21 @@ function shoulderYaw(T) { T.L.getWorldPosition(_a); T.R.getWorldPosition(_b); re
 // Deterministic: depends only on the clip and the range, so caching it keeps frames pure.
 function clipFacing(T, name, a, len) {
   const key = name + '@' + a + '+' + len.toFixed(2); if (key in T.faceCache) return T.faceCache[key];
-  const act = T.actions[name], d = T.clips[name].duration, keep = T.holder.rotation.y;
-  T.holder.rotation.y = 0; for (const x of Object.values(T.actions)) x.weight = x === act ? 1 : 0;
+  const act = T.actions[name], d = T.clips[name].duration, keep = T.holder.quaternion.clone();
+  T.holder.rotation.set(0, 0, 0); for (const x of Object.values(T.actions)) x.weight = x === act ? 1 : 0;
   let sx = 0, sz = 0;
   for (let i = 0; i < 12; i++) { act.time = (a + len * i / 11) % d; T.mixer.update(0); T.holder.updateMatrixWorld(true); const y = shoulderYaw(T) - T.restYaw; sx += Math.sin(y); sz += Math.cos(y); }
-  T.holder.rotation.y = keep;
+  T.holder.quaternion.copy(keep);
   return T.faceCache[key] = { yaw: Math.atan2(sx, sz), R: Math.hypot(sx, sz) / 12 };   // R near 1 = steady heading, low = spinning
 }
 // Lowest head height over a window, as a fraction of the standing head height (1 = upright, ~0.6 = crouched).
 function headLow(T, name, a, len) {
   if (!T.head) return 1;
   const key = 'h:' + name + '@' + a + '+' + len.toFixed(2); if (key in T.faceCache) return T.faceCache[key];
-  const act = T.actions[name], d = T.clips[name].duration, ky = T.holder.rotation.y, py = T.holder.position.y;
-  T.holder.rotation.y = 0; T.holder.position.y = 0; for (const x of Object.values(T.actions)) x.weight = x === act ? 1 : 0;
+  const act = T.actions[name], d = T.clips[name].duration, kq = T.holder.quaternion.clone(), py = T.holder.position.y;   // the whole rotation: a swaying body is tilted too
+  T.holder.rotation.set(0, 0, 0); T.holder.position.y = 0; for (const x of Object.values(T.actions)) x.weight = x === act ? 1 : 0;
   let m = Infinity; for (let i = 0; i < 12; i++) { act.time = (a + len * i / 11) % d; T.mixer.update(0); T.holder.updateMatrixWorld(true); m = Math.min(m, T.head.getWorldPosition(_a).y - footY(T) + T.restFoot); }
-  T.holder.rotation.y = ky; T.holder.position.y = py;
+  T.holder.quaternion.copy(kq); T.holder.position.y = py;
   return T.faceCache[key] = m / T.restHead;
 }
 // Pick the start offset in a clip whose [a, a+len] window turns the least (highest R), scanning in 0.5 s steps.
@@ -598,7 +601,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   nena: 'assets/models/saxo_nena.glb',      // Nena's 1983 look: shaggy dark 80s hair, shiny black quilted vest, white shirt, jeans ("99 Luftballons", 2026-09-25)
   pirate: 'assets/models/saxo_pirate.glb',   // the pirate captain: tricorn over a red bandana, short beaded dreadlocks, kohl, linen shirt, waistcoat, red sash ("He's A Pirate", 2026-09-26)
   tourist: 'assets/models/saxo_tourist.glb',   // the tourist: turquoise hibiscus shirt, orange travel neck pillow, red instant camera, khaki cargo shorts ("Voyage Voyage", 2026-09-26)
-  kesha: 'assets/models/saxo_kesha.glb' };   // the pop-star disguise: messy platinum shag wig, eyeliner, gold glitter, red lips, studded black biker jacket, chains ("Die Young", 2026-09-26)
+  kesha: 'assets/models/saxo_kesha.glb',   // the pop-star disguise: messy platinum shag wig, eyeliner, gold glitter, red lips, studded black biker jacket, chains ("Die Young", 2026-09-26)
+  sailor: 'assets/models/saxo_sailor.glb' };   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -609,18 +613,21 @@ const PARTNERS = {
     disco: 'assets/models/sadi_disco.glb', beach: 'assets/models/sadi_beach.glb', cheer: 'assets/models/sadi_cheer.glb', poop: 'assets/models/sadi_poop.glb', patrick: 'assets/models/sadi_patrick.glb', hotdog: 'assets/models/sadi_hotdog.glb',
     white: 'assets/models/sadi_white.glb', rave: 'assets/models/sadi_rave.glb',   // rave: neon-green mesh top, cargo pants, glow bracelets ("99 Luftballons")
     pirate: 'assets/models/sadi_pirate.glb',   // pirate heroine: red bandana, gold hoops, white blouse, laced corset vest, red sash, boots ("He's A Pirate")
-    hostess: 'assets/models/sadi_hostess.glb' },   // flight attendant: navy jacket with gold buttons and wings, red scarf, pillbox hat, her pink bow ("Voyage Voyage")
+    hostess: 'assets/models/sadi_hostess.glb',   // flight attendant: navy jacket with gold buttons and wings, red scarf, pillbox hat, her pink bow ("Voyage Voyage")
+    yukata: 'assets/models/sadi_yukata.glb' },   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
     popstar: 'assets/models/kob_popstar.glb', beach: 'assets/models/kob_beach.glb', ninja: 'assets/models/kob_ninja.glb', witch: 'assets/models/kob_witch.glb', chef: 'assets/models/kob_chef.glb', poop: 'assets/models/kob_poop.glb', moto: 'assets/models/kob_moto.glb',
     pyjama: 'assets/models/kob_pyjama.glb',
-    bartender: 'assets/models/kob_bartender.glb' },   // the bartender: white shirt, sleeves rolled, black waistcoat and bow tie, her bell collar ("Die Young")
+    bartender: 'assets/models/kob_bartender.glb',   // the bartender: white shirt, sleeves rolled, black waistcoat and bow tie, her bell collar ("Die Young")
+    maneki: 'assets/models/kob_maneki.glb' },   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
   compote: { scale: 0.92, models: { compote: 'assets/models/compote_base.glb', astronaut: 'assets/models/compote_astronaut.glb', cowgirl: 'assets/models/compote_cowgirl.glb',
     punk: 'assets/models/compote_punk.glb', beach: 'assets/models/compote_beach.glb', boxer: 'assets/models/compote_boxer.glb', poop: 'assets/models/compote_poop.glb',
-    bouncer: 'assets/models/compote_bouncer.glb' },
+    bouncer: 'assets/models/compote_bouncer.glb',
+    happi: 'assets/models/compote_happi.glb' },   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
 };
@@ -640,8 +647,9 @@ const LOOKS = (() => {
   if (!EP || !EP.shots.some(s => s.actors)) return null;
   const L = {}, add = (who, look) => (L[who] ||= new Set()).add(look);
   for (const s of EP.shots) {
-    if (s.actors) for (const a of s.actors) add(a.who || 'saxo', a.look || a.who || 'saxo');
-    if (s.crowd) add(s.crowd.who, s.crowd.look || s.crowd.who);
+    // actors and crowds name their looks (a crowd can be a list); until 2026-09-27 a bare `if (s.crowd)` sat inside
+    // this chain, so every actors shot without a crowd fell through to `return null` and loaded every look
+    if (s.actors || s.crowd) { for (const a of s.actors || []) add(a.who || 'saxo', a.look || a.who || 'saxo'); for (const c of [].concat(s.crowd || [])) add(c.who, c.look || c.who); }
     else if (s.outfit && (s.sadiOutfit || s.cast === 'saxo' || !s.cast)) { add('saxo', s.outfit); if (s.sadiOutfit) add(WITH, s.sadiOutfit); }
     else return null;   // a shot that leans on the per-map defaults: keep every look
   }
@@ -688,25 +696,32 @@ if (CHAR === 'tripo') {
 // M_copy = T_copy · T_src⁻¹ · bindMatrix. One pose for all of them: they move in sync (the joke).
 //   crowd: { who, look, clip, at ('auto'), speed, once, n (≤ 99), cols, x0, z0 (front row centre), dx, dz (spacing),
 //            jitter (m), yaw (deg), face ('camera' | 'world'), mx, mz (a march over the shot), skip: [[x, z, r]] (holes) }
-const CROWDS = {};
-if (tripo && EP) for (const sh of EP.shots) if (sh.crowd) {
-  const c = sh.crowd, look = c.look || c.who, key = c.who + ':' + look, D = CREW[c.who];
+// More (2026-09-27, "Caramelldansen"): a shot's `crowd` can be a list (each its own pool and pose); `ring: [cx, cz, r]`
+// puts n copies on `rows` circles `dr` m apart round a point (a Bon Odori ring round the festival tower), facing
+// `face`: 'in' (the centre), 'out', 'cw' / 'ccw' (walking round it), `a0` (deg) turns the ring and `spin` (deg over the
+// shot) walks it round; `lookAt: [x, z]` turns every copy to one point (the stare); `y0` + `dy` raise the rows onto
+// tiered shelves (row r stands at y0 + r * dy: the lucky-cat display); `arm`/`aim`/`flap`/`sway` as for actors.
+const CROWDS = {}, crowdKey = (c, i) => c.who + ':' + (c.look || c.who) + (c.pale ? '~' + c.pale : '') + '#' + i;   // one pool per look (and paleness) and per slot in the shot's list
+if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.crowd || []).entries()) {
+  const look = c.look || c.who, key = crowdKey(c, ci), D = CREW[c.who];
   if (!D || !D.outfits?.[look]?.length) { console.error('crowd: look not loaded', key); continue; }
   if (!CROWDS[key]) {
     const root = SkeletonUtils.clone(tripo.root), holder = new THREE.Group(); holder.add(root);
     root.traverse(o => { if (o.isSkinnedMesh) o.visible = false; });
     const R = rig(holder, root, tripo.clips, tripo.faceCache); let body = null; root.traverse(o => { if (o.isSkinnedMesh && !body) body = o; });
     holder.scale.setScalar(D.scale || 1); scene.add(holder);
-    CROWDS[key] = { R, body, D, look, copies: [], shadows: [] };
+    // pale: porcelain statues, the look washed towards white (own materials that still share the scene's light uniforms)
+    const mats = new Map(D.outfits[look].map(m => [m, !c.pale ? m.material : new THREE.ShaderMaterial({ vertexShader: m.material.vertexShader, fragmentShader: m.material.fragmentShader, side: m.material.side, uniforms: { ...m.material.uniforms, uPale: { value: c.pale } } })]));
+    CROWDS[key] = { R, body, D, look, mats, copies: [], shadows: [] };
   }
   const C = CROWDS[key];
   while (C.copies.length < Math.min(99, c.n || 99)) {
-    C.copies.push(D.outfits[look].map(m => { const k = new THREE.SkinnedMesh(m.geometry, m.material); k.bindMode = THREE.DetachedBindMode; k.bind(C.body.skeleton, m.bindMatrix); k.matrixAutoUpdate = false; k.frustumCulled = false; k.visible = false; scene.add(k); return k; }));
+    C.copies.push(D.outfits[look].map(m => { const k = new THREE.SkinnedMesh(m.geometry, C.mats.get(m)); k.bindMode = THREE.DetachedBindMode; k.bind(C.body.skeleton, m.bindMatrix); k.matrixAutoUpdate = false; k.frustumCulled = false; k.visible = false; scene.add(k); return k; }));
     C.shadows.push(makeShadow());
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT) };
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -889,6 +904,15 @@ function propMesh(kind) {
     [[0.11, 0, 0.13], [-0.1, 0.05, 0.1], [0.02, 0.12, 0.2], [-0.04, -0.12, 0.08]].forEach(([x, z, l]) => add(box(0.028, l, 0.028, M(0xff8a1a)), x, 0.18 + l / 2, z));   // drips past the rim: down the head once flipped
   } else if (kind === 'ticket') {  // a boarding pass held up: white card, a pink band, a black barcode (it must read at 270x480)
     add(box(0.17, 0.25, 0.012, M(0xfafafa))); add(box(0.172, 0.07, 0.014, M(0xff5fa2)), 0, 0.085); for (let k = 0; k < 5; k++) add(box(0.012, 0.07, 0.016, M(0x1a1a1a)), -0.05 + k * 0.025, -0.07);
+  } else if (kind === 'bachi') {   // a taiko stick along the forearm, pale wood with a darker grip (festival drummer, 2026-09-27)
+    add(box(0.036, 0.4, 0.036, M(0xe8cf9a)), 0, 0.16); add(box(0.044, 0.1, 0.044, M(0x8a5a2a)), 0, -0.02);
+  } else if (kind === 'goldfish') {   // a festival goldfish in a water bag, hanging from the paw by its knot (it must read at 270x480: a bright fish)
+    const bag = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 1), mat({ color: 0xbfe8ff, unlit: 0.35 })); bag.scale.set(1, 1.15, 0.9); add(bag, 0, -0.16);
+    add(box(0.07, 0.04, 0.035, mat({ color: 0xff6a1a, unlit: 0.8 })), 0.01, -0.17, 0.06); add(box(0.03, 0.035, 0.02, mat({ color: 0xff3a1a, unlit: 0.8 })), -0.04, -0.17, 0.06);
+    add(box(0.03, 0.06, 0.03, M(0xff5fa2)), 0, -0.04);
+  } else if (kind === 'wata') {   // cotton candy: a big pink cloud on a stick
+    add(box(0.016, 0.26, 0.016, M(0xf4f0e8)), 0, 0.08);
+    for (const [x, y, z, r] of [[0, 0.3, 0, 0.12], [0.07, 0.26, 0.02, 0.08], [-0.07, 0.27, -0.01, 0.085], [0.01, 0.37, 0.02, 0.07]]) add(new THREE.Mesh(new THREE.IcosahedronGeometry(r, 0), mat({ color: 0xffb0d8, unlit: 0.4 })), x, y, z);
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
     add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
   }
@@ -924,11 +948,11 @@ function holdProp(D, kind, side, bodyYaw, t) {
     g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'book' ? -0.75 : 0.35, bodyYaw, 0, 'YXZ'); return;   // the book tilts its pages up to the reader
   }
   const p = palm(D, side); if (!p) return;
-  if (kind === 'finger') {   // along the forearm, pointing where the paw points
+  if (kind === 'finger' || kind === 'bachi') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
-  if (kind === 'balloon') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
+  if (kind === 'balloon' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
@@ -975,9 +999,40 @@ function aimBone(bone, child, dir, w) {
   bone.quaternion.copy(bone.parent.getWorldQuaternion(_aq3).invert().multiply(_aq));  // back into its parent's space
   bone.quaternion.copy(keep.slerp(bone.quaternion, w)); bone.updateMatrixWorld(true);
 }
-function aimArms(D, A, bodyYaw, since) {
+// Beat-locked arm swings (2026-09-27, "Caramelldansen"), `aim: <preset>` with `arm: "both" | "L" | "R"`: each arm
+// blends from pose A to pose B (the upper arm and the forearm aimed separately, body frame as for AIMS) and back once
+// per `flapEvery` beats, peaking on the beat. caramell: each paw straight up by the head, the forearm flapping forward
+// like a floppy ear (one arm of it, `arm: "R"`, is the maneki-neko's beckon); taiko: both arms up and down onto a drum
+// in front, the right arm a beat after the left; clap: both paws meet in front of the chest on every beat. flap: how far (1; 0 holds pose A: a statue's raised paw), flapPh: the
+// phase in beats (a real cat among the statues beckons a hair off the beat). The body's `sway` roll (D.roll) tilts the
+// aims with it. Pure in t.
+const SWINGS = {
+  caramell: { up: [[0.5, 0.86, 0.1], [0.5, 0.86, 0.1]], fore: [[0.5, 0.86, 0.1], [0.3, 0.32, 0.9]], alt: 0, every: 1 },
+  taiko: { up: [[0.32, 0.6, 0.73], [0.2, -0.05, 0.98]], fore: [[0.22, 0.82, 0.53], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
+  clap: { up: [[0.55, 0.2, 0.81], [0.2, 0.15, 0.97]], fore: [[0.45, 0.3, 0.84], [-0.55, 0.18, 0.82]], alt: 0, every: 1 },
+}, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
+function swingK(A, t, side) {   // 1 at pose B (on the beat), 0 at pose A half a swing later
+  const S = SWINGS[A.aim], b = (bp(t) - (A.flapPh || 0) - (side === 'R' ? S.alt : 0)) / (A.flapEvery || S.every);
+  return (A.flap ?? 1) * Math.pow(0.5 + 0.5 * Math.cos(TAU * b), 1.4);
+}
+function swayRoll(A, t) {   // the body's side-to-side tilt (rad): one side on each beat (swayEvery beats per side)
+  if (!A.sway) return 0;
+  const c = Math.cos(Math.PI * (bp(t) - (A.swayPh || 0)) / (A.swayEvery || 1));
+  return A.sway * Math.PI / 180 * Math.sign(c) * Math.pow(Math.abs(c), 0.7);
+}
+function aimArms(D, A, bodyYaw, since, t = 0) {
   const w = cl((since - (A.upAt || 0)) / 0.15) * (A.upEnd != null ? cl((A.upEnd - since) / 0.15) : 1); if (w <= 0) return;
-  let d0 = Array.isArray(A.aim) ? A.aim : AIMS[A.aim] || AIMS.up; const cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
+  const cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
+  if (D.roll) _rq.setFromAxisAngle(_rf.set(sy, 0, cy), D.roll);   // the sway tilts the aims with the body
+  if (SWINGS[A.aim]) {
+    const S = SWINGS[A.aim], mix = (p, k) => p[0].map((u, i) => u + (p[1][i] - u) * k);
+    for (const side of A.arm === 'both' ? ['L', 'R'] : [A.arm]) {
+      const sx = side === 'L' ? 1 : -1, k = swingK(A, t, side), W = d => { const bx = d[0] * sx, v = new THREE.Vector3(bx * cy + d[2] * sy, d[1], -bx * sy + d[2] * cy).normalize(); return D.roll ? v.applyQuaternion(_rq) : v; };
+      aimBone(side === 'L' ? D.L : D.R, D['fore' + side], W(mix(S.up, k)), w); aimBone(D['fore' + side], D['hand' + side], W(mix(S.fore, k)), w);
+    }
+    return;
+  }
+  let d0 = Array.isArray(A.aim) ? A.aim : AIMS[A.aim] || AIMS.up;
   if (A.aim2 && A.aim2At != null && since > A.aim2At) {   // a second aim from aim2At s, snapped in over 0.08 s (a yank)
     const d2 = Array.isArray(A.aim2) ? A.aim2 : AIMS[A.aim2] || AIMS.up, k2 = sm((since - A.aim2At) / 0.08); d0 = d0.map((v, i) => v + (d2[i] - v) * k2);
   }
@@ -985,6 +1040,7 @@ function aimArms(D, A, bodyYaw, since) {
     // wave: a slow flap of the aim's height (wings in the wind), the two arms a little out of phase; pure in `since`
     const dy = d0[1] + (A.wave || 0) * Math.sin(since * 2.4 + (side === 'L' ? 0 : 0.7));
     const sx = side === 'L' ? 1 : -1, bx = d0[0] * sx, v = new THREE.Vector3(bx * cy + d0[2] * sy, dy, -bx * sy + d0[2] * cy).normalize();   // body frame → world
+    if (D.roll) v.applyQuaternion(_rq);
     const up = side === 'L' ? D.L : D.R, fore = D['fore' + side], hand = D['hand' + side];
     aimBone(up, fore, v, w); aimBone(fore, hand, v, w);
   }
@@ -1089,6 +1145,9 @@ function lieShadow(D, w) {   // the blob stretched under a lying body: an ellips
   S.rotation.z = -0.5 * Math.atan2(2 * b, a - c); S.scale.set(ax(m + d), ax(m - d), 1);   // local x = the major axis (the plane lies flat: local y is world -z)
 }
 function placeActors(P, t, t0, t1, camAng, map) {
+  // the mixer only rewrites a bone whose clip value changed, so on a held clip (speed 0: a statue) last frame's arm aims
+  // stayed on: Kob kept a raised paw into the next shot (2026-09-27). Put the aimed bones back before anyone is posed.
+  for (const D of Object.values(CREW)) if (D.aimSaved) { for (const [bone, q] of D.aimSaved) bone.quaternion.copy(q); D.aimSaved = null; }
   for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.fg = false; D.deck = 0; D.lying = 0; D.lyingWhy = null; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
   const len = t1 - t0, plans = [];
   // pass 1: facing, start offset and ground are measured on Saxo's rig (shared caches) before anyone is posed this frame
@@ -1111,8 +1170,10 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (n) { const d = D.clips[n].duration, tc = at + (t - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
     D.mixer.update(0);
     const u = cl((t - t0 - A.moveAt) / Math.max(0.01, len - A.moveAt));   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned), from moveAt s
-    D.holder.rotation.y = yaw; D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u); D.holder.updateMatrixWorld(true);
-    if (A.arm) aimArms(D, A, yaw + fyaw, t - t0);
+    D.holder.rotation.set(0, yaw, 0); D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u);
+    D.roll = swayRoll(A, t); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);   // sway: tilted side to side on the beat, pivoting on the feet
+    D.holder.updateMatrixWorld(true);
+    if (A.arm) { D.aimSaved = [D.L, D.R, D.foreL, D.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); aimArms(D, A, yaw + fyaw, t - t0, t); }
     // the toes set the shot's floor, but a hem, a paw or a big head can reach lower: never let the mesh sink;
     // "mesh" grounding keeps the lowest point on the floor every frame (falling); a flat body touching the floor is
     // grounded on its torso instead, the head through the floor (see LIE_SINK)
@@ -1144,43 +1205,76 @@ function placeActors(P, t, t0, t1, camAng, map) {
 }
 
 const _cm = new THREE.Matrix4(), _cm2 = new THREE.Matrix4(), _cmL = new THREE.Matrix4(), _cq = new THREE.Quaternion(), _cp = new THREE.Vector3(), _cs = new THREE.Vector3(), _ch = new THREE.Vector3();
-function crowdSpots(c) {   // the grid, front row first, with holes where the real characters stand; pure in the shot's spec
-  const n = Math.min(99, c.n || 99), cols = c.cols || 11, out = [];
+function crowdSpots(c) {   // pure in the shot's spec: { x, z, jy (a small yaw jitter), row, a, r (ring spots) }
+  const n = Math.min(99, c.n || 99), j = c.jitter ?? 0.15, out = [], holed = (x, z) => (c.skip || []).some(([sx, sz, sr]) => (x - sx) ** 2 + (z - sz) ** 2 < sr * sr);
+  if (c.ring) {   // concentric circles round [cx, cz, r0], n shared out by circumference, alternate rows staggered
+    const [cx, cz, r0] = c.ring, rows = c.rows || 1, dr = c.dr || 0.9, rs = Array.from({ length: rows }, (_, k) => r0 + k * dr), sum = rs.reduce((p, q) => p + q, 0);
+    let left = n;
+    rs.forEach((r, k) => {
+      const m = k === rows - 1 ? left : Math.round(n * r / sum); left -= m;
+      for (let q = 0; q < m; q++) {
+        const ang = (q + 0.5 * (k % 2)) / m * TAU + (c.a0 || 0) * Math.PI / 180 + (hash2(k, q, 4) - 0.5) * 0.08, rr = r + (hash2(k, q, 1) - 0.5) * 2 * j;
+        const x = cx + Math.sin(ang) * rr, z = cz + Math.cos(ang) * rr;
+        if (!holed(x, z)) out.push({ x, z, jy: (hash2(k, q, 3) - 0.5) * 0.18, row: k, a: ang, r: rr });
+      }
+    });
+    return out;
+  }
+  const cols = c.cols || 11;
   for (let r = 0; r < 40 && out.length < n; r++) for (let q = 0; q < cols && out.length < n; q++) {
-    const j = c.jitter ?? 0.15, x = (c.x0 || 0) + (q - (cols - 1) / 2) * (c.dx || 0.9) + (hash2(r, q, 1) - 0.5) * 2 * j, z = (c.z0 || 0) - r * (c.dz || 0.85) + (hash2(r, q, 2) - 0.5) * 2 * j;
-    if ((c.skip || []).some(([sx, sz, sr]) => (x - sx) ** 2 + (z - sz) ** 2 < sr * sr)) continue;
-    out.push([x, z, (hash2(r, q, 3) - 0.5) * 0.18]);
+    const x = (c.x0 || 0) + (q - (cols - 1) / 2) * (c.dx || 0.9) + (hash2(r, q, 1) - 0.5) * 2 * j, z = (c.z0 || 0) - r * (c.dz || 0.85) + (hash2(r, q, 2) - 0.5) * 2 * j;
+    if (!holed(x, z)) out.push({ x, z, jy: (hash2(r, q, 3) - 0.5) * 0.18, row: r });
   }
   return out;
 }
 function hash2(a, b, c) { const x = Math.sin(a * 127.1 + b * 311.7 + c * 74.7) * 43758.5453; return x - Math.floor(x); }
 function placeCrowd(P, t, t0, t1, camAng) {
   for (const C of Object.values(CROWDS)) { C.copies.forEach(ps => ps.forEach(k => { k.visible = false; })); C.shadows.forEach(sh => { sh.visible = false; }); }
-  const c = P && P.crowd; if (!c) return;
-  const C = CROWDS[c.who + ':' + (c.look || c.who)]; if (!C) return;
+  if (P && P.crowd) [].concat(P.crowd).forEach((c, i) => placeOneCrowd(c, CROWDS[crowdKey(c, i)], t, t0, t1, camAng));
+}
+const _cr = new THREE.Quaternion(), _cf = new THREE.Vector3();
+function placeOneCrowd(c, C, t, t0, t1, camAng) {
+  if (!C) return;
   const R = C.R, s = C.D.scale || 1, len = t1 - t0, speed = c.speed ?? 1, span = Math.max(0.1, len * speed);
+  // the mixer only rewrites a bone whose clip value changed, so last frame's arm aims would stay on a held clip: undo them first
+  if (C.saved) { for (const [bone, q] of C.saved) bone.quaternion.copy(q); C.saved = null; }
   const n = R.actions[c.clip] ? c.clip : Object.keys(R.actions)[0];
   const at = c.at == null || c.at === 'auto' ? steadiestOffset(tripo, n, span) : c.at;
-  const fyaw = c.face === 'world' ? 0 : clipFacing(tripo, n, at, span).yaw, yaw = (c.face === 'world' ? 0 : -fyaw + camAng) + (c.yaw || 0) * Math.PI / 180;
+  const clipYaw = clipFacing(tripo, n, at, span).yaw, fyaw = c.face === 'world' ? 0 : clipYaw, yaw = (c.face === 'world' ? 0 : -fyaw + camAng) + (c.yaw || 0) * Math.PI / 180;
   const ground = clipGround(tripo, n, at, span);
   for (const [k, a] of Object.entries(R.actions)) a.weight = k === n ? 1 : 0;
   const d = R.clips[n].duration, tc = at + (t - t0) * speed; R.actions[n].time = c.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d;
-  R.mixer.update(0); R.holder.rotation.y = 0; R.holder.position.set(0, ground * s, 0); R.holder.updateMatrixWorld(true);
+  R.mixer.update(0); R.holder.rotation.set(0, 0, 0); R.holder.position.set(0, ground * s, 0); R.holder.updateMatrixWorld(true);
+  if (c.arm) { C.saved = [R.L, R.R, R.foreL, R.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); R.roll = 0; aimArms(R, c, clipYaw, t - t0, t); }
   const inv = _cm2.copy(R.holder.matrixWorld).invert(), u = cl((t - t0) / len), mx = (c.mx || 0) * u, mz = (c.mz || 0) * u;
-  const spots = crowdSpots(c);
+  const spots = crowdSpots(c), roll = swayRoll(c, t), spin = (c.spin || 0) * Math.PI / 180 * u, yb = sp => (c.y0 || 0) + sp.row * (c.dy || 0);
+  _cr.setFromAxisAngle(_cf.set(Math.sin(clipYaw), 0, Math.cos(clipYaw)), roll);   // the sway, about the body's own forward axis
+  const spot = sp => {   // where a copy stands and which way its holder turns
+    let x = sp.x, z = sp.z;
+    if (c.ring && spin) { x = c.ring[0] + Math.sin(sp.a + spin) * sp.r; z = c.ring[1] + Math.cos(sp.a + spin) * sp.r; }
+    let y = yaw;
+    if (c.ring && c.face !== 'camera' && c.face !== 'world') {
+      const inward = Math.atan2(c.ring[0] - x, c.ring[1] - z);
+      y = inward + ({ in: 0, out: Math.PI, cw: -Math.PI / 2, ccw: Math.PI / 2 }[c.face || 'in'] || 0) - clipYaw + (c.yaw || 0) * Math.PI / 180;
+    }
+    if (c.lookAt) y = Math.atan2(c.lookAt[0] - x, c.lookAt[1] - z) - clipYaw + (c.yaw || 0) * Math.PI / 180;
+    return [x + mx, z + mz, y];
+  };
   const place = (i, lift) => {
-    const [x, z, jy] = spots[i], parts = C.copies[i]; if (!parts) return null;
-    _cq.setFromAxisAngle(_up, yaw + jy); _cm.compose(_cp.set(x + mx, ground * s + lift, z + mz), _cq, _cs.setScalar(s)).multiply(inv);
+    const sp = spots[i], parts = C.copies[i]; if (!parts) return null;
+    const [x, z, y] = spot(sp);
+    _cq.setFromAxisAngle(_up, y + sp.jy).multiply(_cr); _cm.compose(_cp.set(x, ground * s + lift + yb(sp), z), _cq, _cs.setScalar(s)).multiply(inv);
     for (const k of parts) { k.matrix.multiplyMatrices(_cm, k.bindMatrix); k.matrixWorldNeedsUpdate = true; k.updateMatrixWorld(true); k.visible = true; }
     return _cm;
   };
-  // never sink: the lowest point of the first copy (they share the pose) sets a lift for all of them
+  // never sink: the lowest point of the first copy (they share the pose) sets a lift for all of them, from its own row's floor
   let low = Infinity; if (spots.length && place(0, 0)) for (const k of C.copies[0]) { const nv = k.geometry.attributes.position.count; for (let v = 0; v < nv; v += 4) { k.getVertexPosition(v, _qv); _qv.applyMatrix4(k.matrixWorld); if (_qv.y < low) low = _qv.y; } }
+  low -= spots.length ? yb(spots[0]) : 0;
   const lift = low < 0 ? -low : 0;
   R.hips.getWorldPosition(_ch);
-  spots.forEach((_, i) => {
+  spots.forEach((sp, i) => {
     const M = place(i, lift); if (!M) return;
-    const sh = C.shadows[i], hp = _qv.copy(_ch).applyMatrix4(M); sh.visible = true; sh.position.set(hp.x, 0.012, hp.z); sh.scale.setScalar(s);
+    const sh = C.shadows[i], hp = _qv.copy(_ch).applyMatrix4(M); sh.visible = true; sh.position.set(hp.x, yb(sp) + 0.012, hp.z); sh.scale.setScalar(s);
     sh.material.uniforms.uShadow.value = SHADOW * 0.9; sh.material.uniforms.uShadowCol.value.set(curMap?.shadowCol || 0x333333);
   });
 }
