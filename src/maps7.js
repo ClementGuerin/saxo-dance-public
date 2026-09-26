@@ -45,7 +45,7 @@ export function buildPirateMaps(K) {
     g.add(at(box(1.2, 0.42, 0.08, wood), 0, 0.3, 1.15)); g.add(rot(at(cone(0.62, 0.9, 4, wood), 0, 0.3, -1.55), -PI / 2, PI / 4, 0));
     g.add(at(box(1.0, 0.06, 0.28, wood), 0, 0.34, 0.35));
     for (const s of [-1, 1]) g.add(rot(at(box(0.05, 0.05, 1.8, M(0xb08a5a)), s * 0.75, 0.42, 0.1), 0.1, 0, s * 0.5));   // the oars
-    g.add(at(box(0.05, 0.5, 0.05, dark), 0, 0.55, 1.05)); g.add(at(box(0.16, 0.2, 0.16, glow(0xffc050)), 0, 0.85, 1.05));   // a lantern on a pole at the stern
+    g.add(at(box(0.05, 0.5, 0.05, dark), 0.42, 0.55, -1.0)); g.add(at(box(0.16, 0.2, 0.16, glow(0xffc050)), 0.42, 0.85, -1.0));   // a lantern on a pole at the far end, to the side (at the near end it covered the rower's face)
     return g;
   }
   // a black ship far away (the cave mouth's view), bow to the right

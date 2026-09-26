@@ -11,10 +11,13 @@ export const slug = (s = '') => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLow
 
 export function buildHashtags({ song, artist, extra = [], platform }) {
   const byViews = (a, b) => (b.views || 0) - (a.views || 0);
+  // "He's A Pirate (Save Me)" -> hesapirate (the tag people use), "Gabry Ponte, Steve Aoki, KEL" -> gabryponte, steveaoki
+  const title = slug(song.replace(/\s*[([].*?[)\]]\s*/g, ' ')) || slug(song);
+  const artists = artist.split(/\s*(?:,|&|\bfeat\.?|\bft\.?|\bx\b|\band\b)\s*/i).map(slug).filter(Boolean).slice(0, 2);
   const tags = [
     ...POOL.always,
-    slug(song),
-    slug(artist),
+    title,
+    ...artists,
     ...extra.map(slug),
     ...POOL.trending.map(slug),
     ...[...POOL.niche].sort(byViews).map(t => t.tag),

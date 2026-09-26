@@ -1,37 +1,53 @@
 {
- "updated": "2026-09-25T23:19:30.418Z",
+ "updated": "2026-09-26T02:06:30.791Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-25T23:14:45Z",
- "commits": 26,
- "files": 260,
- "loc": 9155,
+ "pushedAt": "2026-09-26T01:26:28Z",
+ "commits": 29,
+ "files": 266,
+ "loc": 9682,
  "languages": [
   {
    "name": "JavaScript",
-   "pct": 82.7,
+   "pct": 81.2,
    "color": "#f1e05a"
   },
   {
    "name": "Python",
-   "pct": 11.4,
+   "pct": 13.4,
    "color": "#3572a5"
   },
   {
    "name": "CSS",
-   "pct": 4.4,
+   "pct": 4.1,
    "color": "#663399"
   },
   {
    "name": "HTML",
-   "pct": 1.5,
+   "pct": 1.3,
    "color": "#e34c26"
   }
  ],
  "latest": [
+  {
+   "sha": "df59ad5",
+   "type": "feat",
+   "scope": "episode",
+   "text": "He's A Pirate, the cursed grotto and the black ship with a giant Compote",
+   "date": "2026-09-26T01:26:27Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/df59ad53dec1ad0976dd3d0de09b71061d9d4ed1"
+  },
+  {
+   "sha": "74861ef",
+   "type": "feat",
+   "scope": "readme",
+   "text": "rebuild the README's images from the code, with a daily check",
+   "date": "2026-09-25T23:22:45Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/74861ef39eec19e3a91bbd3857539e62b440d0a1"
+  },
   {
    "sha": "e119480",
    "type": "fix",
@@ -55,28 +71,12 @@
    "text": "recut 2026-09-25-3 to start on the drop with a short silent button, schedule it for 08:00",
    "date": "2026-09-25T21:39:28Z",
    "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/1533f1c73964fe6acb8d3d77b3cce0998e01cb7f"
-  },
-  {
-   "sha": "9bc5b6d",
-   "type": "feat",
-   "scope": "episode",
-   "text": "2026-09-25-3, 99 Luftballons (Snoblack techno): Kob pulls the plug",
-   "date": "2026-09-25T21:08:13Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/9bc5b6d5805328dc054e8893ed9728ad863ebf2d"
-  },
-  {
-   "sha": "4f72915",
-   "type": "fix",
-   "scope": "site",
-   "text": "TV player layout, and the music fades out while the TV is open",
-   "date": "2026-09-25T19:36:17Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/4f72915bab1e007bee18d9888a04b49a8ea0be39"
   }
  ],
  "counts": {
   "characters": 4,
-  "looks": 40,
-  "maps": 33,
+  "looks": 42,
+  "maps": 35,
   "clips": 467,
   "videos": 4,
   "perDay": 4

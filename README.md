@@ -53,8 +53,8 @@
       <p><b>The karaoke.</b> Each word springs in as it is sung, in chunky PS1 type: the sung word yellow, the rest pink,
       the longest-held word bigger and shaking. The singer's 8-bit face hops from word to word.</p>
       <p><b>The jokes.</b> Every lyric that names an action is acted out on the word. Four characters who each have one
-      job keep their running gags going from video to video, plus costume changes on the beat, crowds, thrown props, a
-      fight with a slow-motion replay and skate tricks.</p>
+      job keep their running gags going from video to video, plus costume changes on the beat, crowds, giants (a
+      19-metre bunny rising from the sea), thrown props, a fight with a slow-motion replay and skate tricks.</p>
       <p><b>The loop.</b> Trends go in; views, likes and shares come back out into a playbook that the next video
       reads.</p>
     </td>
@@ -165,7 +165,7 @@ page loads, each model is fitted over Saxo's body (arm-span scale, feet aligned,
 vertex copies the bone weights of its six nearest body vertices. The partners ride clones of his skeleton, so all
 467 clips in `assets/mixamo/anims/` play on anyone, with no Blender and no re-rigging. A crowd
 goes further: up to 99 copies of one look share a single hidden skeleton, so a whole room dances in sync for the price
-of one pose.
+of one pose. Any of them can also be scaled up into a giant that rises out of the sea and sinks back.
 
 ### A QA gate that can say no
 

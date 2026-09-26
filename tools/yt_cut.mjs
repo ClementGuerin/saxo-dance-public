@@ -48,8 +48,12 @@ try {
     else console.warn(`${bf} lasts ${bw.BEATS.duration} s, the video ${dur.toFixed(2)} s: not this render (pass --beats=)`);
     throw new Error(bars ? `no lyric lines (an instrumental): cutting on the ${bars.length} bars of ${path.basename(bf)}` : 'no lyric lines and no matching beat grid');
   }
-  // The lyrics must belong to this render: the last line ends with the video (within a hand cut's fade tail).
-  if (Math.abs(window.LINE_END.at(-1) - dur) < 2.5) lines = window.LYRICS.map((l, i) => ({ first: l[0][0], last: l.at(-1)[0], end: window.LINE_END[i], text: l.map(w => w[1]).join(' ') }));
+  // The lyrics must belong to this render: the last line ends with the video (within a hand cut's fade tail), or
+  // they are a kit's (episodes/<id>.lyrics.js) whose own config has this render's length (an episode can end on an
+  // instrumental outro: "He's A Pirate" has 8 s after its last line). Lines are named by number, never by their words.
+  const kitCfg = opt.lyrics && /\.lyrics\.js$/.test(opt.lyrics) ? opt.lyrics.replace(/\.lyrics\.js$/, '.config.js') : null;
+  const kitDur = kitCfg && fs.existsSync(kitCfg) ? +(fs.readFileSync(kitCfg, 'utf8').match(/duration:\s*([\d.]+)/) || [])[1] : NaN;
+  if (Math.abs(window.LINE_END.at(-1) - dur) < 2.5 || Math.abs(kitDur - dur) < 0.5) lines = window.LYRICS.map((l, i) => ({ first: l[0][0], last: l.at(-1)[0], end: window.LINE_END[i], text: `line ${i}` }));
   else console.warn(`${from} ends at ${window.LINE_END.at(-1)} s, the video at ${dur.toFixed(2)} s: not this render (pass --lyrics=<kit lyrics> or --rev=<render commit>)`);
 } catch (e) { console.warn(`no lyrics${REV ? ' at ' + REV : ''}: ${e.message.split('\n')[0]}`); }
 
