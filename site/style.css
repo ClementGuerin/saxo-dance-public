@@ -74,6 +74,9 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
 /* the GitHub island's button: the GitHub mark as pixel art (main.js draws it, 32 px shown at 2×) */
 .ghbtn { background: var(--ink); }
 .ghpix { width: 64px; height: 64px; display: block; background: center / 64px no-repeat; image-rendering: pixelated; }
+/* the stats island's button: a pixel bar chart (main.js draws it, 32 px shown at 2×) */
+.stbtn { background: var(--lav); }
+.stpix { width: 64px; height: 64px; display: block; background: center / 64px no-repeat; image-rendering: pixelated; }
 
 #actions { position: absolute; right: 16px; bottom: 96px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 #hint { position: absolute; left: 50%; top: 16px; transform: translateX(-50%); font-weight: 500; font-size: 14px; transition: opacity .6s; }
@@ -214,6 +217,65 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
 #code .chin em { font-style: normal; font-weight: 700; letter-spacing: .15em; font-size: 13px; color: #9a8c6c; }
 #code .led { width: 12px; height: 12px; border-radius: 50%; background: #5fe07a; border: 2px solid var(--ink); box-shadow: 0 0 8px #5fe07a; }
 
+/* ---------- Saxo's stats: the stats island's scoreboard up close, a stadium screen with bulbs chasing round it ---------- */
+#stats { position: fixed; inset: 0; z-index: 20; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; background: rgba(42, 22, 54, .55); padding: 16px; animation: fade .2s; }
+#stats .board { position: relative; width: min(800px, 100%); height: min(780px, 100%); background: #2d1b45; border: var(--line); border-radius: 26px; box-shadow: 8px 8px 0 var(--ink); padding: 24px 20px; display: flex; flex-direction: column; animation: tvon .35s cubic-bezier(.2, 1.2, .4, 1); }
+#stats .board::before, #stats .board::after { content: ''; position: absolute; left: 24px; right: 24px; height: 12px; background: radial-gradient(circle, #ffd43b 0 3.5px, transparent 4.5px) 0 50% / 20px 12px repeat-x, radial-gradient(circle, #6e5418 0 3.5px, transparent 4.5px) 10px 50% / 20px 12px repeat-x; animation: chase .5s steps(1, end) infinite; }
+#stats .board::before { top: 6px; } #stats .board::after { bottom: 6px; }
+@keyframes chase { 50% { background-position: 10px 50%, 0 50%; } }
+#stats .scr { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; background: var(--cream); border: var(--line); border-radius: 16px; overflow: hidden; }
+#stats .scan { pointer-events: none; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(42, 22, 54, .05) 0 2px, transparent 2px 4px); box-shadow: inset 0 0 50px rgba(42, 22, 54, .18); }
+#stats header { display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 16px; background: var(--ink); color: #fff; }
+#stats header .chart { width: 32px; height: 32px; flex: none; background: center / 32px no-repeat; image-rendering: pixelated; }
+#stats header div { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.15; }
+#stats header b { font-size: 21px; }
+#stats header small { font-size: 13px; opacity: .75; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#stats .live { font-style: normal; font-weight: 700; font-size: 12px; letter-spacing: .08em; color: #fff; background: #e63c46; border-radius: 999px; padding: 2px 10px 2px 8px; display: flex; align-items: center; gap: 5px; }
+#stats .live i { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: blink 1.2s steps(2) infinite; }
+#stats header .x { background: var(--pink); color: #fff; border-color: #000; box-shadow: 3px 3px 0 #000; }
+#stats .body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 14px; }
+#stats .body > * { flex: none; }   /* scroll the screen rather than squash the lists */
+#stats .lead { margin: 0; font-size: 18px; line-height: 1.35; font-weight: 500; }
+#stats .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+#stats .nums span { background: #fff; border: var(--line); border-radius: 14px; box-shadow: var(--drop-s); padding: 8px 6px 6px; text-align: center; font-weight: 600; font-size: 14px; line-height: 1.2; }
+#stats .nums b { display: block; font-size: 28px; line-height: 1.1; color: var(--pink); font-variant-numeric: tabular-nums; }
+#stats h3 { margin: 4px 0 -4px; font-size: 16px; }
+#stats h3 small { font-weight: 500; font-size: 13px; opacity: .6; margin-left: 4px; }
+#stats .split { display: flex; height: 14px; border: 2px solid var(--ink); border-radius: 999px; overflow: hidden; background: #fff; }
+#stats .split i { display: block; height: 100%; }
+#stats .plats { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border: var(--line); border-radius: 14px; overflow: hidden; font-size: 14px; }
+#stats .plats th, #stats .plats td { padding: 7px 10px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#stats .plats thead th { font-size: 12px; font-weight: 600; opacity: .6; padding-bottom: 0; }
+#stats .plats tbody th { text-align: left; font-weight: 700; }
+#stats .plats tbody tr > * { border-top: 2px dashed rgba(42, 22, 54, .15); }
+#stats .plats a { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); text-decoration: none; }
+#stats .plats a:hover { color: var(--pink); }
+#stats .plats a i { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
+#stats .plats .nx a i { background: var(--ink); }
+#stats .plats svg { width: 18px; height: 18px; fill: currentColor; }
+#stats .plats small { font-weight: 500; opacity: .6; }
+#stats .plats .nx td { text-align: left; white-space: normal; }
+#stats .vids { margin: 0; padding: 0; list-style: none; background: #fff; border: var(--line); border-radius: 14px; overflow: hidden; }
+#stats .vids li + li { border-top: 2px dashed rgba(42, 22, 54, .15); }
+#stats .vids button { width: 100%; display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: none; border: 0; text-align: left; color: var(--ink); }
+#stats .vids button:hover { background: #ffe3ee; }
+#stats .vids img { width: 36px; height: 64px; flex: none; object-fit: cover; border: 2px solid var(--ink); border-radius: 6px; }
+#stats .vids .t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+#stats .vids b { font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#stats .vids small { font-size: 12px; opacity: .65; }
+#stats .vids .bar { display: flex; height: 10px; min-width: 8px; border: 2px solid var(--ink); border-radius: 999px; overflow: hidden; background: #fff; }
+#stats .vids .bar i { display: block; height: 100%; }
+#stats .vids em { flex: none; min-width: 52px; font-style: normal; font-weight: 700; font-size: 18px; color: var(--pink); text-align: right; font-variant-numeric: tabular-nums; }
+#stats .spark { margin: 0; background: #fff; border: var(--line); border-radius: 14px; padding: 12px 14px 8px; }
+#stats .spark svg { display: block; width: 100%; height: auto; overflow: visible; }
+#stats .spark polygon { fill: #ffd6e8; }
+#stats .spark polyline { fill: none; stroke: var(--pink); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+#stats .spark circle { fill: #fff; stroke: var(--ink); stroke-width: 2.5; }
+#stats .spark figcaption { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-top: 6px; }
+#stats .spark figcaption span:first-child { opacity: .6; }
+#stats .meta { margin: -4px 0 0; font-size: 13px; opacity: .7; }
+#stats .go { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2px; }
+
 /* ---------- sheets: wardrobe, socials ---------- */
 .sheet { position: fixed; z-index: 15; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); background: var(--cream); border: var(--line); border-radius: 22px; box-shadow: 6px 6px 0 var(--ink); overflow: hidden; animation: up .25s cubic-bezier(.2, 1.3, .4, 1); }
 @keyframes up { from { transform: translate(-50%, 120%); } }
@@ -253,7 +315,7 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
   .brand { margin-right: 0; }
   .icon { width: 32px; height: 32px; }
   #bar-right { right: 10px; top: 10px; bottom: auto; flex-direction: column; gap: 8px; }
-  .who { width: 56px; height: 56px; } .who img, .who .tvpix, .who .ghpix { width: 64px; height: 64px; margin: -4px; }
+  .who { width: 56px; height: 56px; } .who img, .who .tvpix, .who .ghpix, .who .stpix { width: 64px; height: 64px; margin: -4px; }
   #actions { right: 10px; bottom: 10px; flex-direction: column-reverse; align-items: flex-end; gap: 8px; }   /* the talk / use button above Dance: in one row a long label ran over the social bar */
   .chunky { padding: 10px 16px; font-size: 16px; }
   #hint { top: auto; bottom: 124px; font-size: 13px; white-space: normal; text-align: center; width: max-content; max-width: calc(100vw - 24px); }
@@ -280,6 +342,14 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
   #code .lead { font-size: 16px; }
   #code .nums { grid-template-columns: repeat(2, 1fr); }
   #code .dirs { grid-template-columns: 1fr; }
+  #stats { padding: 0; }
+  #stats .board { height: 100%; border: 0; border-radius: 0; box-shadow: none; padding: 20px 10px; }
+  #stats .board::before, #stats .board::after { left: 14px; right: 14px; }
+  #stats .board::before { top: 4px; } #stats .board::after { bottom: 4px; }
+  #stats .body { padding: 14px 14px 18px; }
+  #stats .lead { font-size: 16px; }
+  #stats .nums { grid-template-columns: repeat(2, 1fr); }
+  #stats .plats th, #stats .plats td { padding: 6px 7px; }
   #loader h1 { font-size: 42px; }
   #loader .how { display: none; }
 }
@@ -287,6 +357,16 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
    link leaves it (the right column's GitHub button is there on phones); narrow phones tighten it (360 px) and drop the
    brand (320 px) */
 @media (max-width: 420px) { #bar-left .social[data-net="github"] { display: none; } }
+/* six round buttons since the stats island (2026-09-26): in landscape on a phone they take two columns, or the column ran
+   under the Dance button; from 940 px down on desktop they shrink to the phone size and the brand drops its name, so the
+   bottom row fits down to 721 px (the two bars met below ~930 px); the chart icon is drawn at 3× there to stay in its circle */
+@media (max-width: 720px) and (max-height: 540px) { #bar-right { display: grid; grid-template-columns: repeat(2, 56px); } }
+@media (min-width: 721px) and (max-width: 940px) {
+  .brand span { display: none; } .brand { margin-right: 0; }
+  #bar-right { gap: 8px; }
+  .who { width: 56px; height: 56px; } .who img, .who .tvpix, .who .ghpix, .who .stpix { width: 64px; height: 64px; margin: -4px; }
+}
+@media (max-width: 940px) { .who .stpix { background-size: 48px; } }
 @media (max-width: 380px) { #bar-left { gap: 2px; } .icon { width: 30px; height: 30px; } .sep { margin: 0 2px; } }
 @media (max-width: 340px) { .brand { display: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }

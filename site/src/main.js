@@ -8,8 +8,9 @@ import { makeNav } from './nav.js';
 import { makeChat } from './chat.js';
 import { makeTV } from './tv.js';
 import { makeCode } from './code.js';
+import { makeStats } from './stats.js';
 import * as audio from './audio.js';
-import { ICON, NET, markPixels } from './icons.js';
+import { ICON, NET, markPixels, chartPixels } from './icons.js';
 import { track } from './analytics.js';
 
 const $ = s => document.querySelector(s);
@@ -47,6 +48,9 @@ $('#socials .links').innerHTML = Object.entries(NET).map(([n, v]) => `<a href="$
 // the GitHub mark as pixel art: the GitHub island's HUD button (32 px at 2×) and its marker (16 px)
 $('.ghpix').style.backgroundImage = `url(${markPixels(32, '#ffffff', null, 4).toDataURL()})`;
 const MARK16 = markPixels(16, '#2a1636').toDataURL();
+// the stats island's: a pixel bar chart (32 px at 2×) and its marker (16 px)
+$('.stpix').style.backgroundImage = `url(${chartPixels(32).toDataURL()})`;
+const CHART16 = chartPixels(16).toDataURL();
 
 // ---------- world ----------
 const world = { ready: false };
@@ -60,6 +64,8 @@ const game = {
   chatClosed: who => endTalk(who),
   act: (a, who) => ACTIONS[a] && ACTIONS[a](who),
   overlay: on => { P.overlay = on; },
+  openTV: id => openTV('all', id),
+  follow: () => { stats.close(); openSheet('socials'); },
 };
 
 // ---------- loading ----------
@@ -88,12 +94,23 @@ async function boot() {
       if (!INTER.length) return setTimeout(addPosters, 300);
       posters.forEach((p, i) => {
         const s = W.places.posters[i]; if (!s) return;
-        const it = { id: 'poster' + i, label: 'Watch “' + p.title + '”', r: 2.2, noMarker: true, anchor: () => [s.x, s.z + 0.3], head: () => new THREE.Vector3(s.x, s.y + 0.95, s.z + 0.1), stand: () => [s.x, s.z + 1.6], run: () => openTV('all', p.id) };
-        const m = document.createElement('div'); m.className = 'marker hide'; m.innerHTML = `<span class="tag"></span><span class="dot">${PIX('play', 16)}</span>`; m.querySelector('.tag').textContent = it.label;
-        $('#markers').appendChild(m); it.el = m; INTER.push(it);
+        addItem({ id: 'poster' + i, label: 'Watch “' + p.title + '”', r: 2.2, noMarker: true, anchor: () => [s.x, s.z + 0.3], head: () => new THREE.Vector3(s.x, s.y + 0.95, s.z + 0.1), stand: () => [s.x, s.z + 1.6], run: () => openTV('all', p.id) });
       });
     };
     addPosters();
+  });
+  // the stats island's numbers: the board, the bars, the pie and the podium; each bar and poster opens its video
+  stats.load().then(d => {
+    if (!d) return;
+    W.setStats(d); statsData = d;
+    const views = n => `${fmtN(n)} view${n === 1 ? '' : 's'}`;
+    const addBars = () => {
+      if (!INTER.length) return setTimeout(addBars, 300);
+      const { bars, podium } = W.statsItems();
+      for (const b of bars) addItem({ id: 'bar-' + b.id, label: `“${b.title}”: ${views(b.views)}`, r: 1.1, noMarker: true, nearTag: true, anchor: () => [b.x + 0.3, b.z], head: () => new THREE.Vector3(b.x, 0.06 + (b.top - 0.06) * b.g.scale.y + 0.3, b.z), stand: () => [b.x + 1.25, b.z], run: () => { track('stats_link_clicked', { target: 'bar', post_id: b.id }); openTV('all', b.id); } });
+      for (const p of podium) addItem({ id: 'podium' + p.rank, label: `#${p.rank} “${p.title}”: ${views(p.views)}`, r: 1.5, noMarker: true, nearTag: true, anchor: () => [p.x, p.z], head: () => new THREE.Vector3(p.x, p.top + 0.3, p.z), stand: () => [p.x + 0.86, p.z + 0.98], run: () => { track('stats_link_clicked', { target: 'podium', post_id: p.id }); openTV('all', p.id); } });
+    };
+    addBars();
   });
   const v = document.createElement('video'); v.src = 'assets/tv.mp4'; v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true; v.crossOrigin = 'anonymous';
   v.addEventListener('canplay', () => { W.setTvVideo(v); v.play().catch(() => {}); }, { once: true }); tvVideo = v;
@@ -101,7 +118,13 @@ async function boot() {
   requestAnimationFrame(frame);
   loadClips('dance').then(d => { Object.assign(clips, d); danceClips = Object.keys(d); }).catch(() => {});
 }
-let posters = [], tvVideo = null;
+let posters = [], tvVideo = null, statsData = null;
+const fmtN = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.0', '') + 'M' : n >= 1e4 ? (n / 1e3).toFixed(1).replace('.0', '') + 'K' : n.toLocaleString('en-US');
+// a marker for something added after the world loaded (the wall posters, the stats island's bars and podium)
+function addItem(it, icon = 'play') {
+  const m = document.createElement('div'); m.className = 'marker hide'; m.innerHTML = `<span class="tag"></span><span class="dot">${PIX(icon, 16)}</span>`; m.querySelector('.tag').textContent = it.label;
+  $('#markers').appendChild(m); it.el = m; INTER.push(it);
+}
 
 function startGame() {
   if (P.started) return; P.started = true;
@@ -136,7 +159,7 @@ function updateCamera(dt) {
     az = sideView(Math.atan2(a.x - b.x, a.z - b.z), 1.0); el = 0.5; dist = 7.6;
   } else if (P.mode === 'show') { T.copy(P.showAt); az = P.showAz ?? FOLLOW.az; el = 0.6; dist = P.showDist || 9; }
   else {
-    T.set(clamp(saxo.pos.x, -10, 22), 0.7, clamp(saxo.pos.z + 0.4, -6.8, 7.2));
+    T.set(clamp(saxo.pos.x, -25, 22), 0.7, clamp(saxo.pos.z + 0.4, -6.8, 7.2));
   }
   const k = cam.intro > 0 ? 1.1 : 3.2;
   if (cam.intro > 0) { cam.intro = Math.max(0, cam.intro - dt / 2.6); }
@@ -312,6 +335,7 @@ const ACTIONS = {
   tv: () => setTimeout(() => openTV(), 250),
   socials: () => openSheet('socials'),
   code: () => setTimeout(() => goToThing('code', 'chat'), 250),
+  stats: () => setTimeout(() => goToThing('stats', 'chat'), 250),
   duo() {
     const s = npc.sadi;
     const name = danceClips.length ? danceClips[(P.danceIdx++ * 5) % danceClips.length] : 'happy_idle';
@@ -397,6 +421,9 @@ const MAIL = ['"Dear Saxo, please stop dancing on my car." (the neighbour)', '"Y
 let mailN = 0;
 const FORK = ['Fork me on GitHub! (A fork is your own copy of the repo.)', "Not that kind of fork. Compote checked: no carrots.", 'A fork is a copy of the code. This one is a copy of a fork.'];
 let forkN = 0;
+const DISH = ['Beep. Boop. One new view. (It was Saxo. Again.)', 'Tuned to TikTok, YouTube and Instagram. X is out of range.', "It counts every view. Even Kob's. Especially Kob's."];
+let dishN = 0;
+const incident = () => { const n = statsData?.site?.punches; return `Days since the last carrot incident: 0.${n ? ` Compote has uppercut Saxo ${n} time${n === 1 ? '' : 's'} on this website.` : ' Compote resets it every morning.'}`; };
 const INTER = [];
 function interactables() {
   const pl = W.places, near = (n, d) => { const v = npc[n].pos, s = saxo.pos, a = Math.atan2(s.x - v.x, s.z - v.z); return [v.x + Math.sin(a) * d, v.z + Math.cos(a) * d]; };
@@ -410,10 +437,13 @@ function interactables() {
     { id: 'mail', label: 'Check the mail', r: 1.7, anchor: () => [pl.mail.x, pl.mail.z], head: () => new THREE.Vector3(pl.mail.x, 1.55, pl.mail.z), stand: () => pl.mail.stand, run: () => { audio.sfx.blip(0.8); toast(MAIL[mailN++ % MAIL.length], 4200, 'mail'); track('object_used', { object: 'mail' }); } },
     { id: 'towel', label: 'Chill in the sun', r: 1.6, anchor: () => [pl.towel.x, pl.towel.z], head: () => new THREE.Vector3(pl.towel.x, 0.9, pl.towel.z), stand: () => pl.towel.stand, run: () => { chill(); track('object_used', { object: 'towel' }); } },
     { id: 'code', label: "Read Saxo's code", r: 2.3, anchor: () => [pl.code.x, pl.code.z], head: () => new THREE.Vector3(pl.code.x, 2.95, pl.code.z - 0.6), stand: () => pl.code.stand, run: () => { openCode(trip || 'walk'); trip = null; } },
+    { id: 'stats', label: 'Check the stats', r: 2.6, anchor: () => [pl.stats.x, pl.stats.z], head: () => new THREE.Vector3(pl.stats.x, 5.0, pl.stats.z - 0.3), stand: () => pl.stats.stand, run: () => { openStats(trip || 'walk'); trip = null; } },
+    { id: 'dish', label: 'Listen to the dish', r: 1.7, anchor: () => [pl.dish.x, pl.dish.z], head: () => new THREE.Vector3(pl.dish.x, 2.75, pl.dish.z), stand: () => pl.dish.stand, run: () => { audio.sfx.blip(1.5); toast(DISH[dishN++ % DISH.length], 4200, 'sparkle'); track('object_used', { object: 'dish' }); } },
+    { id: 'incident', label: 'Read the sign', r: 1.8, anchor: () => [pl.incident.x, pl.incident.z], head: () => new THREE.Vector3(pl.incident.x, 2.3, pl.incident.z), stand: () => pl.incident.stand, run: () => { audio.sfx.blip(0.7); toast(incident(), 4800, 'alert'); track('object_used', { object: 'incident' }); } },
     { id: 'fork', label: 'Fork me', r: 1.7, anchor: () => [pl.fork.x, pl.fork.z], head: () => new THREE.Vector3(pl.fork.x, 3.0, pl.fork.z), stand: () => pl.fork.stand, run: () => { audio.sfx.blip(1.2); toast(FORK[forkN++ % FORK.length], 4200, 'star'); track('object_used', { object: 'fork' }); } },
   );
   for (const it of INTER) {
-    const icon = it.id === 'code' ? `<img class="ico" src="${MARK16}" width="16" height="16" alt="">` : PIX(it.id === 'tv' ? 'tv' : ['kob', 'sadi', 'compote'].includes(it.id) ? 'talk' : 'alert', 16);
+    const icon = it.id === 'code' ? `<img class="ico" src="${MARK16}" width="16" height="16" alt="">` : it.id === 'stats' ? `<img class="ico" src="${CHART16}" width="16" height="16" alt="">` : PIX(it.id === 'tv' ? 'tv' : ['kob', 'sadi', 'compote'].includes(it.id) ? 'talk' : 'alert', 16);
     const m = document.createElement('div'); m.className = 'marker'; m.innerHTML = `<span class="say"></span><span class="tag">${it.label}</span><span class="dot">${icon}</span>`;
     $('#markers').appendChild(m); it.el = m;
   }
@@ -458,7 +488,7 @@ function updateInteract() {
   for (const it of INTER) {
     const [sx, sy] = screenOf(it.head()), on = !markersHidden && P.started && !P.overlay && P.mode !== 'show';
     it.el.style.transform = `translate(${sx.toFixed(1)}px, ${sy.toFixed(1)}px) translate(-50%, -100%)`;
-    it.el.classList.toggle('near', it === nearest || it === P.hover); it.el.classList.toggle('hide', !on || !!it.noMarker && it !== P.hover);
+    it.el.classList.toggle('near', it === nearest || it === P.hover); it.el.classList.toggle('hide', !on || !!it.noMarker && it !== P.hover && !(it.nearTag && it === nearest));
   }
   const pr = $('#prompt'), ub = $('#use-btn');
   if (nearest && P.started) { pr.hidden = TOUCH; pr.innerHTML = `<kbd>E</kbd> ${nearest.label}`; ub.hidden = !TOUCH; ub.textContent = nearest.label; }
@@ -485,7 +515,7 @@ function openSheet(id) {
     }
   }
 }
-function closeSheets() { let was = false; document.querySelectorAll('.sheet').forEach(s => { if (!s.hidden) was = true; s.hidden = true; }); if (was) { audio.sfx.close(); P.overlay = !$('#tv').hidden || code.isOpen; } }
+function closeSheets() { let was = false; document.querySelectorAll('.sheet').forEach(s => { if (!s.hidden) was = true; s.hidden = true; }); if (was) { audio.sfx.close(); P.overlay = !$('#tv').hidden || code.isOpen || stats.isOpen; } }
 document.querySelectorAll('.sheet .x').forEach(x => x.onclick = closeSheets);
 
 // ---------- input ----------
@@ -537,7 +567,7 @@ addEventListener('keydown', e => {
   if (e.target.closest && e.target.closest('input, textarea')) return;
   const k = e.key.toLowerCase();
   if (k === 'escape') { closeSheets(); return; }
-  if (!P.started || !$('#chat').hidden || !$('#tv').hidden || code.isOpen) return;
+  if (!P.started || !$('#chat').hidden || !$('#tv').hidden || code.isOpen || stats.isOpen) return;
   if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ShiftLeft', 'ShiftRight'].includes(e.code)) { P.keys.add(e.code); e.preventDefault(); }
   if ((k === 'e' || k === 'enter') && !e.repeat) { e.preventDefault(); if (document.querySelector('.sheet:not([hidden])')) return; useNearest(); }
   if (e.code === 'Space' && !e.repeat) { e.preventDefault(); if (P.mode === 'free') { P.path = null; startDance(); } }
@@ -576,22 +606,25 @@ function showHint() {
 let hintMoves = 0;
 function hideHintSoon() { if (++hintMoves === 90) $('#hint').classList.add('gone'); }
 
-function openTV(f, id) { chat.close(); closeSheets(); code.close(); tv.open(f, id); track('tv_opened', { filter: f || 'all' }); }
-function openCode(from) { if (P.mode !== 'free' && P.mode !== 'show') return; chat.close(); closeSheets(); tv.close(); code.open(from); }
+function openTV(f, id) { chat.close(); closeSheets(); code.close(); stats.close(); tv.open(f, id); track('tv_opened', { filter: f || 'all' }); }
+function openCode(from) { if (P.mode !== 'free' && P.mode !== 'show') return; chat.close(); closeSheets(); tv.close(); stats.close(); code.open(from); }
+function openStats(from) { if (P.mode !== 'free' && P.mode !== 'show') return; chat.close(); closeSheets(); tv.close(); code.close(); stats.open(from); }
 // the social links (top bar, the Follow Saxo sheet): which network people follow from, and from where
 document.addEventListener('click', e => { const a = e.target.closest?.('a.social, #socials .links a'); if (!a) return; track('social_clicked', { network: a.dataset.net, place: a.classList.contains('social') ? 'bar' : 'sheet' }); });
 // ---------- UI modules ----------
 const chat = makeChat(game);
 const tv = makeTV(game);
 const code = makeCode(game);
+const stats = makeStats(game);
 
 // ---------- the loop ----------
-let last = performance.now(), T = 0, frames = 0, lastKey = -1;
+let last = performance.now(), T = 0, frames = 0, lastKey = -1, lastSlice = null;
+const PIE_NOTE = { tiktok: 1, youtube: 0.667, instagram: 0.891 };
 const PENTA = [0.5, 0.595, 0.667, 0.749, 0.891, 1, 1.189, 1.335, 1.498, 1.782];   // A C D E G, two octaves (blip is 880 Hz × p)
 function frame(now) {
   requestAnimationFrame(frame);
   const dt = Math.min(0.05, (now - last) / 1000); last = now;
-  if (P.overlay && (!$('#tv').hidden || code.isOpen) && (frames++ % 4)) return;   // the TV or the code covers the screen: render at a quarter rate
+  if (P.overlay && (!$('#tv').hidden || code.isOpen || stats.isOpen) && (frames++ % 4)) return;   // the TV, the code or the stats cover the screen: render at a quarter rate
   T += dt;
   const beat = audio.beatNow();
   if (!INTER.length && W) interactables();
@@ -602,9 +635,12 @@ function frame(now) {
   // the GitHub island's keyboard: each key Saxo steps on plays a note of the loop's A minor pentatonic
   const key = W.keyAt(saxo.pos.x, saxo.pos.z);
   if (key !== lastKey) { lastKey = key; if (key >= 0 && P.started) audio.sfx.blip(PENTA[key % PENTA.length]); }
+  // the stats island's pie: stepping onto a slice says whose views it is
+  const slice = W.pieAt(saxo.pos.x, saxo.pos.z);
+  if (slice !== lastSlice) { lastSlice = slice; if (slice && P.started) { audio.sfx.blip(PIE_NOTE[slice.net]); toast(`${NET[slice.net].name}: ${Math.round(slice.share * 100)}% of all the views (${slice.views.toLocaleString('en-US')})`, 2600); } }
   updateCamera(dt); updateInteract(); updateBarks(T); notes(beat);
   renderer.render(scene, camera);
 }
 
 boot().catch(e => { console.error(e); fail("Saxo tripped over a cable while loading. Try reloading the page."); });
-window.SAXO = { get saxo() { return saxo; }, npc, get W() { return W; }, cam, P, get clips() { return clips; }, camera, renderer, get speeds() { return { WALK_CLIP, RUN_CLIP }; }, state, toast };
+window.SAXO = { get saxo() { return saxo; }, npc, get W() { return W; }, cam, P, get clips() { return clips; }, camera, renderer, get speeds() { return { WALK_CLIP, RUN_CLIP }; }, state, toast, stats, get INTER() { return INTER; } };

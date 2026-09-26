@@ -31,3 +31,15 @@ export function markPixels(n, fg, bg = null, pad = 0) {
   x.putImageData(d, 0, 0);
   return c;
 }
+
+// a bar chart as hard-edged pixel art on a 16-cell grid, n = 16 × k px: three bars (short, tall, middle, like the chart
+// emoji) with ink outlines on an ink baseline, kept inside cols 2-13 and rows 3-13 so it fits a round button. The stats
+// island's HUD button, marker, signpost and panel use it.
+export function chartPixels(n, bg = null) {
+  const c = document.createElement('canvas'); c.width = c.height = n;
+  const x = c.getContext('2d'), s = n / 16, R = (i, j, w, h, col) => { x.fillStyle = col; x.fillRect(i * s, j * s, w * s, h * s); };
+  if (bg) R(0, 0, 16, 16, bg);
+  [[3, 8, '#ff5fa2'], [7, 3, '#ffd43b'], [11, 6, '#5fe0ff']].forEach(([l, t, col]) => { R(l, t, 3, 13 - t, '#2a1636'); R(l + 1, t + 1, 1, 12 - t, col); });
+  R(2, 13, 12, 1, '#2a1636');
+  return c;
+}

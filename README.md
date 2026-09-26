@@ -197,8 +197,10 @@ renders. Frames can be drawn out of order in parallel tabs, and an interrupted r
 A playable version of the channel in the same PS1 look. Walk Saxo around a floating diorama (the living room, the club,
 Compote's carrot garden, the pool), talk to the gang in branching chats, dress up in every costume, and watch every
 video on **Saxo TV**. Across the bridge east of the pool, the GitHub island's giant computer opens this
-repository. It is plain ES modules and three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house
-loop synthesised in the browser: no audio files.
+repository; across the one west of the living room, the stats island counts every view, like and follower: a stadium
+scoreboard, a bar chart of the latest videos stacked by platform, a pie chart you walk on and a podium of the three
+most-watched videos, refreshed at every deploy from the platforms' free public numbers. It is plain ES modules and
+three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house loop synthesised in the browser: no audio files.
 
 ## Quick start
 

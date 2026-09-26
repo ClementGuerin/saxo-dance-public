@@ -4,7 +4,7 @@
 // textures with the videos' PS1 material. x runs east, z south (towards the camera), y up; Saxo is 1.25 m tall.
 import * as THREE from 'three';
 import { mat, tex, px, noise, selfLit, U, tessellate } from './ps1.js';
-import { markPixels } from './icons.js';
+import { markPixels, chartPixels } from './icons.js';
 
 const TAU = Math.PI * 2, PI = Math.PI;
 const box = (w, h, d, m) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m);
@@ -112,7 +112,7 @@ export function buildWorld(scene) {
     G.add(decal(at(new THREE.Mesh(g, mat({ map: T.path })), 0, 0.006, 0)));
   };
   paths([
-    [-13, -1.4, IX + 0.2, 0.2],   // the east-west lane between the rooms and the gardens, onto the bridge's first plank
+    [-IX - 0.2, -1.4, IX + 0.2, 0.2],   // the east-west lane between the rooms and the gardens, onto both bridges' end planks
     [-1.6, 0.2, 0.2, IZ - 0.2],   // the entrance path from the south edge
     [3.6, 0.2, 4.6, 7.2],         // down to the pool deck
   ]);
@@ -373,17 +373,22 @@ export function buildWorld(scene) {
     const r = 1.3 + hash(i, 60) * 1.5, h = 1.8 + hash(i, 61) * 3.2, c = cone(r, h, 5, under); c.rotation.x = PI;
     c.position.set(GX0 + 1.8 + hash(i, 62) * (GW - 3.6), -2.4 - h / 2, GZ0 + 1.6 + hash(i, 63) * (GD - 3.2)); G.add(c);
   }
-  // the bridge: planks on two beams across the gap, rope rails on posts. The deck only spans the gap between the two
-  // lips, level with the grass (its planks used to run 30 cm onto each island, where they fought the grass, the lip
-  // and the lane, all within 2 cm of them); each island's path runs a few cm onto its end plank and wins by its offset.
-  const BZ = -0.6, BX0 = IX - 0.3, BX1 = GX0 + 0.3, DX0 = IX + 0.15, DX1 = GX0 - 0.15, NP = 7, PP = (DX1 - DX0) / NP;
-  const plankM = mat({ map: T.wood, rep: [0.3, 1], color: 0xd9a066 }), barkM = mat({ map: T.bark });
-  for (let i = 0; i < NP; i++) G.add(at(box(PP - 0.04, 0.08, 1.7, plankM), DX0 + (i + 0.5) * PP, -0.036 - (i % 2) * 0.008, BZ));
-  for (const s of [-1, 1]) {
-    G.add(at(box(BX1 - BX0, 0.14, 0.12, barkM), (BX0 + BX1) / 2, -0.15, BZ + s * 0.72));
-    for (const x of [BX0 + 0.25, BX1 - 0.25]) G.add(at(box(0.1, 0.8, 0.1, barkM), x, 0.38, BZ + s * 0.86));
-    G.add(at(box(BX1 - BX0 - 0.5, 0.05, 0.05, mat({ color: 0xc8a06a })), (BX0 + BX1) / 2, 0.66, BZ + s * 0.86));
-  }
+  // the bridges (this one, and the stats island's at the lane's west end): planks on two beams across the gap between
+  // two island edges xa < xb, rope rails on posts. The deck only spans the gap between the two lips, level with the
+  // grass (its planks used to run 30 cm onto each island, where they fought the grass, the lip and the lane, all within
+  // 2 cm of them); each island's path runs a few cm onto its end plank and wins by its offset.
+  const BZ = -0.6, NP = 7;
+  const plankM = mat({ map: T.wood, rep: [0.3, 1], color: 0xd9a066 }), barkM = mat({ map: T.bark }), ropeM = mat({ color: 0xc8a06a });
+  const bridge = (xa, xb) => {
+    const B0 = xa - 0.3, B1 = xb + 0.3, D0 = xa + 0.15, D1 = xb - 0.15, PP = (D1 - D0) / NP;
+    for (let i = 0; i < NP; i++) G.add(at(box(PP - 0.04, 0.08, 1.7, plankM), D0 + (i + 0.5) * PP, -0.036 - (i % 2) * 0.008, BZ));
+    for (const s of [-1, 1]) {
+      G.add(at(box(B1 - B0, 0.14, 0.12, barkM), (B0 + B1) / 2, -0.15, BZ + s * 0.72));
+      for (const x of [B0 + 0.25, B1 - 0.25]) G.add(at(box(0.1, 0.8, 0.1, barkM), x, 0.38, BZ + s * 0.86));
+      G.add(at(box(B1 - B0 - 0.5, 0.05, 0.05, ropeM), (B0 + B1) / 2, 0.66, BZ + s * 0.86));
+    }
+  };
+  bridge(IX, GX0);
   paths([[GX0 - 0.2, BZ - 0.8, GX0 + 2, BZ + 0.8]]);   // from the last plank up to the contribution plaza (under its border, same offset, they fought)
   // a signpost at the bridge head, on the main island
   const ghSign = tex(128, 36, x => {
@@ -474,6 +479,204 @@ export function buildWorld(scene) {
   block(IX - 0.5, -IZ - 1, GX0 + 0.3, BZ - 0.7); block(IX - 0.5, BZ + 0.7, GX0 + 0.3, IZ + 1);
   block(GX0 + 0.3, -IZ - 1, GX1 + 1, GZ0 + 0.3); block(GX0 + 0.3, GZ1 - 0.2, GX1 + 1, IZ + 1);
 
+  // ---------- the stats island (west, over a plank bridge at the lane's other end): the channel's numbers ----------
+  // A stadium scoreboard turning through the views, likes and followers (main.js opens "Saxo's stats" there), a bar
+  // chart of the latest videos' views stacked by platform, a pie you walk on (each platform's share of the views), a
+  // podium with the three most-watched videos, a satellite dish and Compote's incident board. The numbers arrive from
+  // assets/stats.json (tools/site_stats.mjs) through setStats(); until then the board says hello and the chart is empty.
+  const SX0 = -29.5, SX1 = -17.5, SZ0 = -5.9, SZ1 = 4.1, SW = SX1 - SX0, SD = SZ1 - SZ0, SCX = (SX0 + SX1) / 2, SCZ = (SZ0 + SZ1) / 2;
+  // colours given as they should look, not converted from sRGB like mat()'s hex colours (which render darker), so the
+  // bars, the pie and the podium match the stats panel's legend
+  const raw = h => new THREE.Color().setHex(parseInt(h.slice(1), 16), THREE.LinearSRGBColorSpace);
+  G.add(flat(SW, SD, mat({ map: T.grass, rep: [SW / 2, SD / 2] }), SCX, 0, SCZ));
+  side(SW, SCX, SZ1, 0); side(SW, SCX, SZ0, PI); side(SD, SX1, SCZ, PI / 2); side(SD, SX0, SCZ, -PI / 2);
+  for (const [w, d, x, z] of [[SW + 0.3, 0.3, SCX, SZ1], [SW + 0.3, 0.3, SCX, SZ0], [0.3, SD, SX1, SCZ], [0.3, SD, SX0, SCZ]]) G.add(at(box(w, 0.22, d, lip), x, -0.125, z));
+  G.add(at(box(SW - 0.2, 0.2, SD - 0.2, under), SCX, -2.4, SCZ));
+  for (let i = 0; i < 7; i++) {
+    const r = 1.3 + hash(i, 80) * 1.6, h = 1.8 + hash(i, 81) * 3.4, c = cone(r, h, 5, under); c.rotation.x = PI;
+    c.position.set(SX0 + 1.8 + hash(i, 82) * (SW - 3.6), -2.4 - h / 2, SZ0 + 1.6 + hash(i, 83) * (SD - 3.2)); G.add(c);
+  }
+  bridge(SX1, -IX);
+  const SBX = -22.6, SBZ = SZ0 + 1.4, SBY = 2.35;   // the scoreboard's centre, and its screen's height
+  const statsPaths = [
+    [SX0 + 2.9, BZ - 0.8, SX1 + 0.2, BZ + 0.8],     // from the bridge's end plank to the chart
+    [SX0 + 1.9, SZ0 + 0.6, SX0 + 3.1, SZ1 - 0.6],   // the walk along the chart
+    [SBX - 2.4, SBZ + 0.45, SBX + 2.4, BZ - 0.8],   // the scoreboard's plaza
+  ];
+  paths(statsPaths);
+  // a signpost at the bridge head, on the main island (south of the lane, the living room fills the north side; far
+  // enough south that the tree by the lane doesn't hide it from the camera)
+  const stSign = tex(112, 36, x => {
+    px(x, '#ffe7a3', 0, 0, 112, 36); x.drawImage(chartPixels(32), 18, 2);
+    px(x, '#2a1636', 8, 17, 7, 3); for (let i = 0; i < 5; i++) px(x, '#2a1636', 8 - i, 14 + i, 1, 9 - 2 * i);   // ← (west)
+    x.font = '700 22px Fredoka'; x.textBaseline = 'middle'; x.lineJoin = 'round';
+    x.strokeStyle = '#ffffff'; x.lineWidth = 5; x.strokeText('Stats', 55, 19); x.fillStyle = '#ff5fa2'; x.fillText('Stats', 55, 19);
+  });
+  const sp = new THREE.Group(); sp.position.set(-IX + 0.6, 0, BZ + 2.5); sp.rotation.y = 0.72; G.add(sp);
+  sp.add(at(box(0.1, 1.5, 0.1, barkM), 0, 0.75, 0));
+  const spb = new THREE.Group(); spb.position.set(0, 1.62, 0.02); spb.rotation.x = -0.2; sp.add(spb);
+  spb.add(at(box(1.56, 0.6, 0.08, mat({ color: 0xc98c52 })), 0, 0, 0));
+  spb.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(1.42, 0.46), mat({ map: stSign })), 0, 0, 0.05), 2));
+  round(-IX + 0.6, BZ + 2.5, 0.25);
+
+  // the scoreboard at the back, facing the plaza: a stadium screen on two legs, bulbs round it, a neon on top. Its
+  // screen is a 96 × 48 canvas redrawn a page at a time (drawBoard), the text thresholded to hard pixels
+  const steelM = mat({ color: 0x9aa0b8 }), frameM = mat({ color: 0x2d1b45 });
+  for (const s of [-1, 1]) G.add(at(box(0.3, SBY - 1.35, 0.3, steelM), SBX + s * 1.7, (SBY - 1.35) / 2, SBZ - 0.05));
+  G.add(at(box(5.0, 2.7, 0.5, frameM), SBX, SBY, SBZ));
+  G.add(at(box(5.1, 0.12, 0.6, mat({ color: 0xff5fa2 })), SBX, SBY + 1.41, SBZ));
+  const boardT = tex(96, 48, x => px(x, '#1b1028', 0, 0, 96, 48));
+  G.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(4.4, 2.2), mat({ map: boardT, unlit: 1 })), SBX, SBY, SBZ + 0.255), 2));
+  const ring = [];   // the bulbs, in order round the screen so they can chase
+  for (let k = 0; k <= 10; k++) ring.push([SBX - 2.36 + k * 0.472, SBY + 1.225]);
+  for (let k = 1; k <= 4; k++) ring.push([SBX + 2.36, SBY + 1.225 - k * 0.49]);
+  for (let k = 10; k >= 0; k--) ring.push([SBX - 2.36 + k * 0.472, SBY - 1.225]);
+  for (let k = 4; k >= 1; k--) ring.push([SBX - 2.36, SBY + 1.225 - k * 0.49]);
+  const bulbs = ring.map(([x, y]) => { const m = mat({ color: raw('#ffd43b'), unlit: 1 }); G.add(at(box(0.11, 0.11, 0.05, m), x, y, SBZ + 0.285)); return m; });
+  G.add(at(box(4.3, 0.95, 0.12, frameM), SBX, SBY + 1.945, SBZ - 0.1));
+  G.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(4.1, 0.85), mat({ map: label('SAXO STATS', { w: 128, h: 26, size: 22, fg: '#5fe0ff', stroke: '#ff5fa2', sw: 3, glow: true }) })), SBX, SBY + 1.945, SBZ - 0.035), 2));
+  block(SBX - 2.55, SBZ - 0.3, SBX + 2.55, SBZ + 0.3);
+  const PLAT = { tiktok: '#5fe0ff', youtube: '#ff5a5a', instagram: '#b18cff' }, NETS = ['tiktok', 'youtube', 'instagram'];
+  const big = n => n < 1e5 ? n.toLocaleString('en-US') : n < 1e6 ? Math.round(n / 1e3) + 'K' : (n / 1e6).toFixed(1).replace('.0', '') + 'M';
+  const scratch = document.createElement('canvas'); scratch.width = 96; scratch.height = 48;
+  const sctx = scratch.getContext('2d', { willReadFrequently: true }), rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  function pixText(x, text, cx, cy, size, col) {   // drawn white, then each pixel either the colour or nothing
+    sctx.clearRect(0, 0, 96, 48); sctx.font = `700 ${size}px Fredoka`;
+    while (size > 8 && sctx.measureText(text).width > 90) sctx.font = `700 ${--size}px Fredoka`;
+    sctx.textAlign = 'center'; sctx.textBaseline = 'middle'; sctx.fillStyle = '#ffffff'; sctx.fillText(text, cx, cy);
+    const d = sctx.getImageData(0, 0, 96, 48), c = rgb(col);
+    for (let i = 0; i < d.data.length; i += 4) { const on = d.data[i + 3] >= 120; d.data[i] = c[0]; d.data[i + 1] = c[1]; d.data[i + 2] = c[2]; d.data[i + 3] = on ? 255 : 0; }
+    sctx.putImageData(d, 0, 0); x.drawImage(scratch, 0, 0);
+  }
+  let pages = [{ label: 'SAXO', value: 'STATS', col: '#ffd43b' }], page = -1;
+  function drawBoard(p) {
+    const x = boardT.image.getContext('2d'); px(x, '#1b1028', 0, 0, 96, 48);
+    for (let j = 1; j < 48; j += 2) px(x, '#23153a', 0, j, 96, 1);   // scanlines
+    if (p.chart) {   // the latest videos' views, stacked by platform like the bars
+      const vids = p.chart, max = Math.max(1, ...vids.map(v => v.views || 0)), w = Math.max(3, Math.floor(84 / vids.length));
+      vids.forEach((v, i) => { let y = 42; for (const net of NETS) { const h = Math.round((v.by?.[net]?.views || 0) / max * 36); if (h) { px(x, PLAT[net], 6 + i * w + 1, y - h, w - 2, h); y -= h; } } });
+      px(x, '#e8e8f0', 4, 43, 88, 1);
+    } else { pixText(x, p.label, 48, 11, 11, '#e8e8f0'); pixText(x, p.value, 48, 30, 24, p.col); }
+    boardT.needsUpdate = true;
+  }
+
+  // the chart along the west edge: a gridded board (lines at a quarter, half, three quarters and all of the tallest
+  // bar), and the latest videos' bars in front of it, oldest to newest from south to north (left to right from the
+  // camera), each stacked TikTok, YouTube, Instagram; the tallest is 3 m. They grow the first time Saxo comes over.
+  const CH = { x: SX0 + 1.25, bx: SX0 + 0.5, z0: SZ0 + 0.5, z1: SZ1 - 0.5, gap: 1.05, max: 3.0, n: 8 }, CL = CH.z1 - CH.z0, CZ = (CH.z0 + CH.z1) / 2;
+  const gridT = tex(8, 68, x => { px(x, '#fff8f1', 0, 0, 8, 68); for (const k of [1, 2, 3, 4]) px(x, '#dccbf7', 0, Math.round(68 - (0.06 + k * 0.75) / 3.4 * 68), 8, 1); });
+  G.add(at(box(0.12, 3.4, CL, mat({ map: gridT, rep: [CL / 0.5, 1] })), CH.bx, 1.7, CZ));
+  G.add(at(box(0.22, 0.1, CL + 0.12, mat({ color: 0xff5fa2 })), CH.bx, 3.45, CZ));
+  G.add(at(box(0.8, 0.06, CL - 0.3, mat({ color: 0x2a1636 })), CH.x, 0.03, CZ));
+  block(CH.bx - 0.12, CH.z0 - 0.08, CH.x + 0.45, CH.z1 + 0.08);
+  const chartG = new THREE.Group(); G.add(chartG);
+  let bars = [], growAt = null;
+
+  // the pie: each platform's share of all the views, a slice each; the one Saxo stands on lights up (main.js says which)
+  const PIE = { x: -23.6, z: 2.15, r: 1.5 };
+  const pieBase = new THREE.Mesh(new THREE.CircleGeometry(PIE.r + 0.12, 24), mat({ color: 0x2a1636 })); pieBase.rotation.x = -PI / 2; pieBase.position.set(PIE.x, 0.012, PIE.z); G.add(decal(pieBase, 1));
+  const pieG = new THREE.Group(); G.add(pieG);
+  let slices = [];
+  function pieAt(x, z) {
+    const dx = x - PIE.x, dz = z - PIE.z; if (!slices.length || dx * dx + dz * dz > PIE.r * PIE.r) return null;
+    let a = Math.atan2(-dz, dx); while (a < slices[0].a0) a += TAU; while (a >= slices[0].a0 + TAU) a -= TAU;
+    return slices.find(s => a >= s.a0 && a < s.a1) || null;
+  }
+
+  // the podium, turned to the camera like the signs: the three most-watched videos on their steps (#2 on the left, #3
+  // on the right), a podCrown spinning over the winner
+  const POD = { x: -19.9, z: 2.5, yaw: 0.72 }, pod = new THREE.Group(); pod.position.set(POD.x, 0, POD.z); pod.rotation.y = POD.yaw; G.add(pod);
+  const STEPS = [[0, 0.78, 0.9, '#ffd43b'], [-0.86, 0.54, 0.82, '#dfe3ee'], [0.86, 0.38, 0.82, '#e8a06a']];   // x, height, width, colour of #1, #2, #3
+  STEPS.forEach(([sx, h, w, c], i) => {
+    pod.add(at(box(w, h, 0.8, mat({ color: raw(c) })), sx, h / 2, 0));
+    const n = Math.min(0.46, h - 0.1);
+    pod.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(n, n), mat({ map: label(String(i + 1), { w: 16, h: 16, size: 15, fg: '#2a1636', stroke: null }) })), sx, h / 2, 0.405), 2));
+    round(POD.x + sx * Math.cos(POD.yaw), POD.z - sx * Math.sin(POD.yaw), 0.5);
+  });
+  const podG = new THREE.Group(); pod.add(podG);
+  const goldM = mat({ color: raw('#ffd43b'), unlit: 0.4, side: THREE.DoubleSide }), podCrown = new THREE.Group(), CROWN_Y = STEPS[0][1] + 1.52;
+  podCrown.position.set(0, CROWN_Y, -0.1); podCrown.visible = false; pod.add(podCrown);
+  podCrown.add(new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.21, 0.16, 10, 1, true), goldM));   // an open band, five points, a pink gem
+  for (let k = 0; k < 5; k++) { const a = k / 5 * TAU; podCrown.add(at(cone(0.065, 0.22, 4, goldM), Math.cos(a) * 0.235, 0.18, Math.sin(a) * 0.235)); }
+  podCrown.add(at(new THREE.Mesh(new THREE.IcosahedronGeometry(0.055, 0), mat({ color: raw('#ff5fa2'), unlit: 0.6 })), 0, 0, 0.235));
+  let podium = [];
+
+  // a satellite dish in the corner, panning, its light blinking: where the numbers come in
+  const DSX = -18.7, DSZ = -4.5, dish = new THREE.Group(); dish.position.set(DSX, 0, DSZ); G.add(dish);
+  dish.add(at(box(0.7, 0.3, 0.7, steelM), 0, 0.15, 0));
+  dish.add(at(cyl(0.07, 0.09, 1.3, 6, steelM), 0, 0.95, 0));
+  const pan = new THREE.Group(); pan.position.y = 1.6; dish.add(pan);
+  const tilt = new THREE.Group(); tilt.rotation.x = 0.6; pan.add(tilt);
+  const bowl = new THREE.Mesh(new THREE.SphereGeometry(0.75, 10, 3, 0, TAU, 0, PI / 3.2), mat({ color: 0xf2f2f8, side: THREE.DoubleSide }));
+  bowl.rotation.x = PI; bowl.position.y = 0.75; tilt.add(bowl);
+  tilt.add(at(cyl(0.02, 0.02, 0.62, 4, steelM), 0, 0.33, 0));
+  const dishLed = mat({ color: 0xff3b4a, unlit: 1 }); tilt.add(at(box(0.08, 0.08, 0.08, dishLed), 0, 0.66, 0));
+  round(DSX, DSZ, 0.5);
+
+  // Compote's incident board by the bridge head: days since the last carrot incident, always zero
+  const INX = -19.3, INZ = -2.3, inc = new THREE.Group(); inc.position.set(INX, 0, INZ); inc.rotation.y = 0.72; G.add(inc);
+  for (const s of [-1, 1]) inc.add(at(box(0.08, 1.3, 0.08, barkM), s * 0.7, 0.65, 0));
+  inc.add(at(box(1.6, 1.0, 0.08, mat({ color: 0x2f6b3a })), 0, 1.35, 0.03));
+  const incT = tex(64, 40, x => {
+    px(x, '#fff8f1', 0, 0, 64, 40);
+    px(x, '#2a1636', 3, 3, 26, 34); px(x, '#ffffff', 5, 5, 22, 30);   // the counter
+    x.font = '700 30px Fredoka'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = '#d8262f'; x.fillText('0', 16, 21);
+    x.font = '700 13px Fredoka'; x.fillStyle = '#2a1636'; x.fillText('DAYS', 46, 10);
+    for (let r = 0; r < 11; r++) px(x, r % 4 === 2 ? '#d96a14' : '#ff8a2a', 43 - Math.floor((10 - r) / 3), 22 + r, 2 + Math.floor((10 - r) / 2.5), 1);   // a carrot, point down
+    px(x, '#46b84a', 44, 16, 2, 6); px(x, '#46b84a', 41, 17, 2, 4); px(x, '#46b84a', 47, 17, 2, 4);
+  });
+  inc.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.9), mat({ map: incT })), 0, 1.35, 0.075), 2));
+  round(INX - 0.52, INZ + 0.46, 0.12); round(INX + 0.52, INZ - 0.46, 0.12);
+
+  // the numbers: the board's pages, the bars, the pie's slices and the podium's posters
+  const loader = new THREE.TextureLoader();
+  const nearest = t => { t.colorSpace = THREE.NoColorSpace; t.magFilter = t.minFilter = THREE.NearestFilter; t.generateMipmaps = false; return t; };
+  function setStats(d) {
+    const tot = d.totals || {}, vids = d.videos || [];
+    pages = [
+      { label: 'VIEWS', value: big(tot.views || 0), col: '#ffd43b' },
+      { label: 'LIKES', value: big(tot.likes || 0), col: '#ff5fa2' },
+      { chart: vids.slice(0, 12).reverse() },
+      { label: 'FOLLOWERS', value: big(tot.followers || 0), col: '#5fe0ff' },
+      d.site?.visitors ? { label: 'VISITORS', value: big(d.site.visitors), col: '#8ee07a' } : { label: 'VIDEOS', value: big(tot.videos || 0), col: '#b18cff' },
+    ];
+    page = -1;
+    chartG.clear(); bars = [];
+    const shown = vids.slice(0, CH.n).reverse(), max = Math.max(1, ...shown.map(v => v.views || 0));
+    shown.forEach((v, i) => {
+      const z = CZ + ((shown.length - 1) / 2 - i) * CH.gap, g = new THREE.Group(); g.position.set(CH.x, 0.06, z); chartG.add(g);
+      let y = 0;
+      for (const net of NETS) { const h = (v.by?.[net]?.views || 0) / max * CH.max; if (h < 0.005) continue; g.add(at(box(0.55, h, 0.55, mat({ color: raw(PLAT[net]) })), 0, y + h / 2, 0)); y += h; }
+      const cap = mat({ color: 0xffffff, unlit: 1 }); g.add(at(box(0.6, 0.05, 0.6, cap), 0, y + 0.025, 0));
+      bars.push({ g, cap, id: v.id, title: v.title, views: v.views || 0, x: CH.x, z, top: 0.06 + y + 0.05 });
+    });
+    tessellate(chartG); bars.forEach(b => { b.g.scale.y = 0.001; });   // tessellated at full height, then folded down to grow
+    pieG.clear(); slices = [];
+    const P0 = d.platforms || {}, all = NETS.reduce((s, n) => s + (P0[n]?.views || 0), 0);
+    let a0 = PI / 2;
+    if (all) for (const net of NETS) {
+      const v = P0[net]?.views || 0; if (!v) continue;
+      const len = v / all * TAU, gap = Math.min(0.05, len * 0.25), m = mat({ color: raw(PLAT[net]), unlit: 0.5 });
+      const s = new THREE.Mesh(new THREE.CircleGeometry(PIE.r, Math.max(2, Math.round(len / TAU * 36)), a0 + gap / 2, len - gap), m);
+      s.rotation.x = -PI / 2; s.position.set(PIE.x, 0.022, PIE.z); pieG.add(decal(s, 2));
+      slices.push({ net, m, a0, a1: a0 + len, share: v / all, views: v, col: raw(PLAT[net]), shadow: raw(PLAT[net]).multiplyScalar(0.45).getHex(THREE.LinearSRGBColorSpace) });
+      a0 += len;
+    }
+    podG.clear(); podium = [];
+    pod.updateMatrixWorld(true);
+    [...vids].filter(v => v.views > 0).sort((a, b) => b.views - a.views).slice(0, 3).forEach((v, i) => {
+      const [sx, h] = STEPS[i], g = new THREE.Group(); g.position.set(sx, h, -0.1); podG.add(g);
+      g.add(at(box(0.66, 1.14, 0.05, mat({ color: 0xffffff })), 0, 0.59, 0));
+      g.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(0.56, 1.0), mat({ map: nearest(loader.load(v.thumb)), unlit: 0.6 })), 0, 0.59, 0.03), 2));
+      const w = pod.localToWorld(new THREE.Vector3(sx, h, -0.1));
+      podium.push({ id: v.id, title: v.title, views: v.views, rank: i + 1, x: w.x, z: w.z, top: h + 1.2 });
+    });
+    podCrown.visible = podium.length > 0;
+  }
+  // walkable: this island and its bridge deck too (the nav bounds reach it; the gap and its north and south are walls)
+  block(SX1 - 0.3, -IZ - 1, -IX + 0.5, BZ - 0.7); block(SX1 - 0.3, BZ + 0.7, -IX + 0.5, IZ + 1);
+  block(SX0 - 1, -IZ - 1, SX1 - 0.3, SZ0 + 0.3); block(SX0 - 1, SZ1 - 0.2, SX1 - 0.3, IZ + 1);
+
   // ---------- clouds drifting around the island, and the sky ----------
   const cloudM = mat({ color: 0xffffff, unlit: 1 }), cloudP = mat({ color: 0xffd9ec, unlit: 1 }), clouds = [];
   for (let i = 0; i < 16; i++) {
@@ -513,6 +716,21 @@ export function buildWorld(scene) {
     }
     star.rotation.y = t * 1.4; star.position.y = 1.55 + Math.sin(t * 2) * 0.06; star.scale.setScalar(1 + 0.12 * hit * (b % 4 === 0));
     leds.forEach((m, i) => m.uniforms.uCol.value.setHex((i * 5 + b) % 3 ? 0x5fe07a : 0x1f3a2a));
+    // the stats island: the board turns a page every two bars and its bulbs chase on the beat; the bars grow the first
+    // time Saxo heads for the bridge (hidden until then) and a cap flashes along them on the beat; the slice under Saxo
+    // lights up; the dish pans
+    const pg = Math.floor(bar / 2) % pages.length; if (pg !== page) { page = pg; drawBoard(pages[pg]); }
+    bulbs.forEach((m, i) => m.uniforms.uCol.value.setHex((i + b) % 3 === 0 ? 0xffffff : (i + b) % 3 === 1 ? 0xffd43b : 0x6e5418, THREE.LinearSRGBColorSpace));
+    if (growAt === null && bars.length && pos && pos.x < -IX + 2) growAt = t;
+    bars.forEach((br, i) => {
+      const k = growAt === null ? 0 : Math.min(1, Math.max(0, (t - growAt - i * 0.12) / 1.1));
+      br.g.scale.y = Math.max(0.001, 1 + 2.2 * (k - 1) ** 3 + 1.2 * (k - 1) ** 2); br.g.visible = k > 0;   // ease out, a little overshoot
+      br.cap.uniforms.uCol.value.setHex(i === b % bars.length ? 0xff5fa2 : 0xffffff);
+    });
+    const onSlice = pos ? pieAt(pos.x, pos.z) : null;
+    for (const s of slices) s.m.uniforms.uCol.value.copy(s.col).multiplyScalar(s === onSlice ? 1.15 : 0.8 + 0.12 * hit);
+    pan.rotation.y = 0.72 + Math.sin(t * 0.4) * 0.7; dishLed.uniforms.uCol.value.setHex(Math.floor(t * 1.5) % 2 ? 0xff3b4a : 0x4a1016);
+    podCrown.rotation.y = t * 1.2; podCrown.position.y = CROWN_Y + Math.sin(t * 2) * 0.05;
     waterM.uniforms.uOff.value.set(t * 0.05, t * 0.02);
     donut.position.y = -0.18 + Math.sin(t * 1.6) * 0.04; donut.rotation.z = t * 0.2;
     beach.position.y = -0.05 + Math.sin(t * 1.3 + 1) * 0.05; beach.rotation.y = t * 0.3;
@@ -558,7 +776,8 @@ export function buildWorld(scene) {
   // blob shadows are tinted to a darker ground colour (a black shadow reads as a stain)
   const inR = (x, z, x0, z0, x1, z1) => x > x0 && x < x1 && z > z0 && z < z1;
   const islandShadow = (x, z) => inR(x, z, QX0, QZ0, QX0 + 9 * QC, QZ0 + 7 * QC) ? 0x2f6b3a : inR(x, z, KX0, KZ0, KX0 + KNX * KC, KZ0 + KNZ * KC) ? 0x8f846a : x < GX0 + 2 && Math.abs(z - BZ) < 0.8 ? 0x938a88 : 0x5a9a50;
-  const shadowCol = (x, z) => x > GX0 - 0.2 ? islandShadow(x, z) : x > IX + 0.2 ? 0x6e4a2e : x > HX0 && x < HX1 && z > HZ0 && z < HZ1 ? 0x9c6a42 : x > floorRect[0] && x < floorRect[2] && z > floorRect[1] && z < floorRect[3] ? 0x0e0816 : (Math.abs(z + 0.6) < 0.8 && x > -13 && x < IX + 0.2) || (x > -1.6 && x < 0.2 && z > -1.2) ? 0x938a88 : 0x5a9a50;
+  const statsShadow = (x, z) => pieAt(x, z)?.shadow ?? (statsPaths.some(r => inR(x, z, ...r)) ? 0x938a88 : 0x5a9a50);
+  const shadowCol = (x, z) => x < SX1 + 0.2 ? statsShadow(x, z) : x < -IX - 0.2 ? 0x6e4a2e : x > GX0 - 0.2 ? islandShadow(x, z) : x > IX + 0.2 ? 0x6e4a2e : x > HX0 && x < HX1 && z > HZ0 && z < HZ1 ? 0x9c6a42 : x > floorRect[0] && x < floorRect[2] && z > floorRect[1] && z < floorRect[3] ? 0x0e0816 : (Math.abs(z + 0.6) < 0.8 && x > -13 && x < IX + 0.2) || (x > -1.6 && x < 0.2 && z > -1.2) ? 0x938a88 : 0x5a9a50;
 
   // where things are, for the game logic
   const places = {
@@ -576,8 +795,13 @@ export function buildWorld(scene) {
     code: { x: PCX, z: PCZ + 0.62, stand: [PCX, KZ0 + 0.5] },   // the GitHub island's computer
     fork: { x: FKX, z: FKZ, stand: [FKX + 0.3, FKZ - 1.0] },
     island: { x: GCX, z: GCZ, x0: GX0 },
+    stats: { x: SBX, z: SBZ + 0.3, stand: [SBX, SBZ + 1.7] },   // the stats island's scoreboard
+    dish: { x: DSX, z: DSZ, stand: [DSX + 0.66, DSZ + 0.9] },
+    incident: { x: INX, z: INZ, stand: [INX + 0.72, INZ + 0.85] },
+    statsIsland: { x: SCX, z: SCZ, x1: SX1 },
     spawn: [-0.8, 1.6],
-    bounds: [-IX + 0.5, -IZ + 0.6, GX1 - 0.4, IZ - 0.4],   // both islands; the blocks above wall off the gaps
+    bounds: [SX0 + 0.4, -IZ + 0.6, GX1 - 0.4, IZ - 0.4],   // all three islands; the blocks above wall off the gaps
   };
-  return { group: G, colliders, places, update, setTvVideo, setPosters, light, screen, shadowCol, keyAt };
+  const statsItems = () => ({ bars, podium });
+  return { group: G, colliders, places, update, setTvVideo, setPosters, light, screen, shadowCol, keyAt, setStats, pieAt, statsItems };
 }
