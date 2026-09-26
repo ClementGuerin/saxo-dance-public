@@ -1,0 +1,1826 @@
+{
+ "date": "2026-09-26",
+ "n": 2,
+ "song": {
+  "title": "Voyage Voyage (Techno)",
+  "artist": "Hyper Duck",
+  "window": [
+   0,
+   62.44
+  ],
+  "bpm": 150,
+  "tail": 0
+ },
+ "logline": "The squad goes on holiday and Saxo steals Compote's spot at every stop: her window seat, her Eiffel Tower selfie, the only daybed in the shade. The fourth time he leaps into her giant rubber-duck float, and she shoves it out to sea.",
+ "new": [
+  "plane map (a wide-body airliner in flight: seats, aisle, bins, window holes through the walls and the shell, the galley, pet passengers, a drinks trolley, the wing and engines, a pink tail with a paw; the world scrolls past: clouds, smoking volcanoes through them, or the open sea; turbulence, the climb, the dusk flight home)",
+  "the airliner as a fly-over in Paris and at the beach (`jet` flag), the beach daybed, towels and a rubber-duck float",
+  "engine: `ride: \"duck\"` (a rider in the float, `rideY` for the float's own height, `rideYaw` to turn it), `hat` (a prop on the head from `hatFrom`: `juicehat`), `bump` (turbulence jolts on the beat), `moveAt` (a walk that starts later in the shot), the boarding-pass prop",
+  "costumes: Saxo tourist (hibiscus shirt, travel neck pillow, instant camera), Sadi hostess (the flight attendant)"
+ ],
+ "notes": "The user's queue entry: don't follow any clip; make an airplane map and use the Paris and beach maps, for the 'voyage'. The song (a techno remix of the 1986 French hit) is a call to travel ever further: verse 1 flies over old volcanoes and gliding wings, through clouds, wind and rain, up into the heights; the pre-chorus flies over the capitals and says to look at the ocean; the chorus goes further than night and day, into love. The cut is the song's first 62.4 s: verse 2 carries a line not for our screen, so the story ends on the drop's instrumental half and the break's fading stabs. Structure: the broken rule of three (he takes her spot three times, the fourth fails). Whole cast: Saxo (the lead, the spot thief), Compote (always angry, violent over a stolen spot: here one calm shove), Sadi (the flight attendant and his date, the romance; her kiss knocks him flat), Kob (never goes out: she came, never looked up from her phone and never got off the plane). Two reviews reshaped it: the hook opens on the boarding pass (the conflict and the faces first), and the shove visibly sends the float off.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "angry_forward_gesture",
+  "being_surprised_and_looking_right",
+  "big_vegas_pointing_gesture",
+  "blowing_a_kiss",
+  "bored_idle",
+  "celebrating_after_a_win_while_seated",
+  "clap_while_seated",
+  "female_hip_hop_body_wave_dancing",
+  "female_salsa_dancing",
+  "gaming",
+  "happy_idle",
+  "happy_walk",
+  "high_enthusiasm_fist_pump",
+  "hip_hop_dancing_side_to_side",
+  "jumping_forward",
+  "laying_idle",
+  "male_front_snap_kick_with_the_lead_foot",
+  "male_salsa_variation_eight",
+  "pointing_behind_with_thumb",
+  "sitting_talking",
+  "super_excited",
+  "waving_someone_over_while_seated"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": -2.25,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "gaming",
+     "x": -0.85,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 1.6,
+     "speed": 0.25,
+     "hold": "phone",
+     "star": false
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "angry_forward_gesture",
+     "x": -0.45,
+     "z": -2.95,
+     "face": "world",
+     "yaw": 150,
+     "hold": "ticket",
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.5,
+      0.8
+     ],
+     "upAt": 0.15
+    }
+   ],
+   "cam": {
+    "ang": [
+     143.97,
+     142.59
+    ],
+    "r": [
+     3.4,
+     3.21
+    ],
+    "h": [
+     1.3,
+     1.28
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -1.45,
+    -2.15
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [],
+   "cam": {
+    "ang": [
+     -117.55,
+     -117.08
+    ],
+    "r": [
+     51.884,
+     49.419
+    ],
+    "h": [
+     -12,
+     -11.4
+    ],
+    "look": [
+     -3,
+     -3
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    2
+   ],
+   "erupt": 1.9,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [],
+   "cam": {
+    "ang": [
+     -136.97,
+     -137.12
+    ],
+    "r": [
+     20.518,
+     19.105
+    ],
+    "h": [
+     9,
+     8.6
+    ],
+    "look": [
+     -0.5,
+     -0.5
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -3,
+    4
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "clap_while_seated",
+     "x": -2.25,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "sitting_talking",
+     "x": -1.55,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "speed": 0.8
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "gaming",
+     "x": -0.85,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 1.6,
+     "speed": 0.25,
+     "hold": "phone",
+     "star": false
+    }
+   ],
+   "cam": {
+    "ang": [
+     179.27,
+     179.23
+    ],
+    "r": [
+     3.95,
+     3.7
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -1.55,
+    -1.95
+   ],
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": -2.25,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 1.5
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "sitting_talking",
+     "x": -1.55,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 8,
+     "speed": 0.15
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "gaming",
+     "x": -0.85,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 1.6,
+     "speed": 0.25,
+     "hold": "phone",
+     "star": false
+    }
+   ],
+   "cam": {
+    "ang": [
+     139.4,
+     137.66
+    ],
+    "r": [
+     3.227,
+     3.044
+    ],
+    "h": [
+     1.35,
+     1.32
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.5,
+    -1.9
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [],
+   "cam": {
+    "ang": [
+     36.25,
+     36.87
+    ],
+    "r": [
+     37.202,
+     35
+    ],
+    "h": [
+     6,
+     5.6
+    ],
+    "look": [
+     0.5,
+     0.5
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "hostess",
+     "clip": "happy_walk",
+     "x": 0.05,
+     "z": 1.3,
+     "mz": -2.4,
+     "speed": 0.9,
+     "face": "world",
+     "yaw": 180
+    }
+   ],
+   "cam": {
+    "ang": [
+     174.05,
+     173.91
+    ],
+    "r": [
+     4.826,
+     4.526
+    ],
+    "h": [
+     1.9,
+     1.85
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.2,
+    -0.8
+   ],
+   "trolley": [
+    0.75,
+    -1.65
+   ],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "clap_while_seated",
+     "x": -2.25,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "hold": "glass",
+     "bump": 0.07
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "sitting_talking",
+     "x": -1.55,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 3,
+     "bump": 0.07
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "gaming",
+     "x": -0.85,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 1.6,
+     "speed": 0.25,
+     "hold": "phone",
+     "star": false,
+     "bump": 0.05
+    }
+   ],
+   "cam": {
+    "ang": [
+     179.27,
+     179.23
+    ],
+    "r": [
+     3.95,
+     3.7
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -1.55,
+    -1.95
+   ],
+   "bumpy": true,
+   "jolt": true,
+   "trolley": [
+    -1.65,
+    -1.65
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 42,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": -2.25,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 0.8,
+     "hold": "glass",
+     "holdTo": 0.25,
+     "toss": {
+      "at": 0.25,
+      "to": [
+       -1.55,
+       1.28,
+       -1.9200000000000002
+      ],
+      "dur": 0.4,
+      "arc": 0.35
+     },
+     "bump": 0.07
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "sitting_talking",
+     "x": -1.55,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 12,
+     "speed": 0.3,
+     "hat": "juicehat",
+     "hatFrom": 0.65,
+     "bump": 0.07
+    }
+   ],
+   "cam": {
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.95,
+     2.95
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.9,
+    -1.95
+   ],
+   "bumpy": true,
+   "jolt": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.22,
+     "z": -0.6,
+     "face": "camera",
+     "bump": 0.05
+    },
+    {
+     "who": "sadi",
+     "look": "hostess",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 0.3,
+     "z": 0.95,
+     "face": "camera",
+     "bump": 0.05
+    }
+   ],
+   "cam": {
+    "ang": [
+     178.47,
+     178.32
+    ],
+    "r": [
+     5.602,
+     5.102
+    ],
+    "h": [
+     1.5,
+     1.45
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.1,
+    1
+   ],
+   "bumpy": true,
+   "jolt": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 53,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [],
+   "cam": {
+    "ang": [
+     -35.54,
+     -35.94
+    ],
+    "r": [
+     51.614,
+     49.406
+    ],
+    "h": [
+     3,
+     3.2
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    2
+   ],
+   "climb": 14,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "paris",
+   "actors": [],
+   "cam": {
+    "ang": [
+     0.28,
+     0.22
+    ],
+    "r": [
+     104.001,
+     103.201
+    ],
+    "h": [
+     1.4,
+     1.3
+    ],
+    "look": [
+     22,
+     22
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -100
+   ],
+   "jet": [
+    -62,
+    31,
+    -120,
+    48,
+    35,
+    -110
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "paris",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -7.7,
+     "face": "camera",
+     "hold": "phone",
+     "arm": "R",
+     "aim": "phone",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "ang": [
+     1.68,
+     0.95
+    ],
+    "r": [
+     1.701,
+     1.8
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 55
+   },
+   "focus": [
+    0.3,
+    -7.7
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "paris",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -7.55,
+     "face": "camera",
+     "hold": "phone",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.45,
+      0.75
+     ],
+     "upAt": 0,
+     "at": 1
+    },
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "big_vegas_pointing_gesture",
+     "x": 0.95,
+     "z": -7.95,
+     "face": "camera",
+     "at": 0.4
+    },
+    {
+     "who": "sadi",
+     "look": "hostess",
+     "clip": "blowing_a_kiss",
+     "x": -0.4,
+     "z": -8.05,
+     "face": "camera",
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.5,
+     3.5
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.3,
+    -7.8
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "paris",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -7,
+     "face": "camera",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.55,
+      0.56
+     ],
+     "upAt": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "hostess",
+     "clip": "happy_idle",
+     "x": 1.1,
+     "z": -7.35,
+     "face": "camera",
+     "at": 1
+    }
+   ],
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.6,
+    -7.1
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "high_enthusiasm_fist_pump",
+     "x": -0.2,
+     "z": -9.8,
+     "face": "camera"
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "super_excited",
+     "x": 0.75,
+     "z": -9.6,
+     "face": "camera",
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     3.41,
+     3.01
+    ],
+    "r": [
+     4.207,
+     3.805
+    ],
+    "h": [
+     1.15,
+     1.12
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.25,
+    -9.8
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "happy_walk",
+     "x": 0.9,
+     "z": -1.6,
+     "mx": -1,
+     "mz": -1.2,
+     "face": "world",
+     "yaw": -140
+    }
+   ],
+   "cam": {
+    "ang": [
+     -170.13,
+     -170.13
+    ],
+    "r": [
+     4.669,
+     4.669
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.2,
+    -3
+   ],
+   "sunbed": true,
+   "towels": true,
+   "still": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "laying_idle",
+     "x": -0.7,
+     "z": -4.3,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.75,
+     "my": -0.45,
+     "myAt": 0,
+     "myDur": 0.18,
+     "ground": "mesh",
+     "at": 1,
+     "speed": 0.4
+    }
+   ],
+   "cam": {
+    "ang": [
+     178.06,
+     178.06
+    ],
+    "r": [
+     2.952,
+     2.952
+    ],
+    "h": [
+     2.9,
+     2.9
+    ],
+    "look": [
+     0.35,
+     0.35
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.7,
+    -3.6500000000000004
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "pointing_behind_with_thumb",
+     "x": 0.4,
+     "z": -2.2,
+     "face": "camera",
+     "at": 0.2
+    },
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "booty_step",
+     "x": -0.7,
+     "z": -4.2,
+     "face": "camera",
+     "lift": 0.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     18.43,
+     18.43
+    ],
+    "r": [
+     3.795,
+     3.795
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -3
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.7,
+     "z": -4.2,
+     "face": "camera",
+     "lift": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": 0.45,
+     "z": -3.9,
+     "face": "camera",
+     "at": 0.6
+    }
+   ],
+   "cam": {
+    "ang": [
+     1.33,
+     1.33
+    ],
+    "r": [
+     4.301,
+     4.301
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.1,
+    -4.1
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 98,
+   "kind": "dance",
+   "map": "paris",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "tourist",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.35,
+     "z": -7.2,
+     "face": "camera"
+    },
+    {
+     "who": "sadi",
+     "look": "hostess",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": 0.65,
+     "z": -7,
+     "face": "camera",
+     "at": 0.6
+    }
+   ],
+   "cam": {
+    "ang": [
+     -0.72,
+     -0.72
+    ],
+    "r": [
+     4,
+     4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.15,
+    -7.1
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.7,
+     "z": -4.2,
+     "face": "camera",
+     "lift": 0.3,
+     "at": 0.8
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": 0.45,
+     "z": -3.9,
+     "face": "camera",
+     "at": 1.4
+    }
+   ],
+   "cam": {
+    "ang": [
+     12.38,
+     8.97
+    ],
+    "r": [
+     4.198,
+     3.847
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -4
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "male_salsa_variation_eight",
+     "x": -1,
+     "z": -4.2,
+     "face": "world",
+     "yaw": 55,
+     "lift": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "female_salsa_dancing",
+     "x": -0.3,
+     "z": -4.15,
+     "face": "world",
+     "yaw": -55,
+     "lift": 0.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     15.33,
+     -19.29
+    ],
+    "r": [
+     3.214,
+     3.178
+    ],
+    "h": [
+     1.5,
+     1.45
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.6499999999999999,
+    -4.2
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 118,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "ymca",
+     "x": -0.7,
+     "z": -4.2,
+     "face": "camera",
+     "lift": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "ymca",
+     "x": 0.65,
+     "z": -3.9,
+     "face": "camera"
+    }
+   ],
+   "cam": {
+    "ang": [
+     -16.46,
+     -16.46
+    ],
+    "r": [
+     4.588,
+     4.588
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.1,
+    -3.4
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "happy_walk",
+     "x": 1.6,
+     "z": -8.4,
+     "mx": -0.7,
+     "mz": -2,
+     "face": "world",
+     "yaw": -160
+    }
+   ],
+   "cam": {
+    "ang": [
+     12.91,
+     12.91
+    ],
+    "r": [
+     4.924,
+     4.924
+    ],
+    "h": [
+     0.9,
+     0.9
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.8,
+    -10.4
+   ],
+   "duck": [
+    0.6,
+    -11.2,
+    3
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "jumping_forward",
+     "x": 2.6,
+     "z": -11.1,
+     "mx": -1.6,
+     "face": "world",
+     "yaw": -90,
+     "air": true,
+     "at": 0.2
+    },
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "being_surprised_and_looking_right",
+     "x": 0.3,
+     "z": -10.3,
+     "face": "world",
+     "yaw": 120
+    }
+   ],
+   "cam": {
+    "ang": [
+     2.39,
+     2.39
+    ],
+    "r": [
+     4.804,
+     4.804
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 58
+   },
+   "focus": [
+    1.2,
+    -10.8
+   ],
+   "duck": [
+    0.6,
+    -11.2,
+    3.14
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "sitting_talking",
+     "x": 0.6,
+     "z": -11.5,
+     "face": "world",
+     "yaw": 190,
+     "lift": 0.12,
+     "ride": "duck",
+     "rideY": -0.05,
+     "at": 3
+    },
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "bored_idle",
+     "x": 1.3,
+     "z": -10.1,
+     "face": "world",
+     "yaw": 200
+    }
+   ],
+   "cam": {
+    "ang": [
+     168.31,
+     168.31
+    ],
+    "r": [
+     2.961,
+     2.961
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.6,
+    -11.4
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "male_front_snap_kick_with_the_lead_foot",
+     "x": 0.75,
+     "z": -10.3,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.5
+    },
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": 0.75,
+     "z": -11.1,
+     "mz": -0.9,
+     "moveAt": 0.5,
+     "face": "world",
+     "yaw": 90,
+     "lift": 0.12,
+     "ride": "duck",
+     "rideY": -0.05,
+     "at": 2
+    }
+   ],
+   "cam": {
+    "ang": [
+     88.18,
+     93.69
+    ],
+    "r": [
+     3.152,
+     4.66
+    ],
+    "h": [
+     0.75,
+     0.85
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.75,
+    -10.8
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 140,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "bored_idle",
+     "x": 0.9,
+     "z": -10.4,
+     "face": "world",
+     "yaw": 180
+    },
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "waving_someone_over_while_seated",
+     "x": 0.6,
+     "z": -13.5,
+     "mz": -9,
+     "face": "world",
+     "yaw": 15,
+     "lift": 0.12,
+     "ride": "duck",
+     "rideY": -0.05
+    }
+   ],
+   "cam": {
+    "ang": [
+     8.02,
+     8.02
+    ],
+    "r": [
+     7.17,
+     7.17
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.6,
+    -14.5
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 144,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": -0.7,
+     "z": -4.5,
+     "face": "world",
+     "yaw": 0,
+     "lift": 0.3
+    },
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "happy_idle",
+     "x": 0.9,
+     "z": -30,
+     "face": "world",
+     "yaw": 10,
+     "lift": -0.12,
+     "ride": "duck",
+     "rideY": -0.05,
+     "arm": "both",
+     "aim": [
+      0.42,
+      0.86,
+      0.3
+     ],
+     "wave": 0.35,
+     "upAt": 0.1
+    }
+   ],
+   "cam": {
+    "ang": [
+     6.34,
+     6.34
+    ],
+    "r": [
+     2.717,
+     2.717
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.7,
+    -4.5
+   ],
+   "sunbed": true,
+   "towels": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 148,
+   "kind": "dance",
+   "map": "plane",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "clap_while_seated",
+     "x": -2.25,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "hold": "glass",
+     "arm": "R",
+     "aim": "toast",
+     "upAt": 0.3,
+     "at": 0.3,
+     "speed": 0.3
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "gaming",
+     "x": -0.85,
+     "z": -1.87,
+     "face": "world",
+     "yaw": 180,
+     "lift": 0.28,
+     "at": 1.6,
+     "speed": 0.25,
+     "hold": "phone",
+     "star": false
+    }
+   ],
+   "cam": {
+    "ang": [
+     179.27,
+     179.23
+    ],
+    "r": [
+     3.95,
+     3.7
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -1.55,
+    -1.95
+   ],
+   "ground": "sea",
+   "dusk": true,
+   "half": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 152,
+   "kind": "dance",
+   "map": "beach",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beach",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -60,
+     "face": "world",
+     "yaw": 180,
+     "lift": -0.12,
+     "ride": "duck",
+     "rideY": -0.05,
+     "rideYaw": 180,
+     "arm": "both",
+     "aim": [
+      0.42,
+      0.86,
+      0.3
+     ],
+     "wave": 0.35,
+     "upAt": 0.05
+    }
+   ],
+   "cam": {
+    "ang": [
+     4.69,
+     4.69
+    ],
+    "r": [
+     6.12,
+     6.12
+    ],
+    "h": [
+     0.75,
+     0.75
+    ],
+    "look": [
+     2.6,
+     2.6
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -63
+   ],
+   "jet": [
+    -26,
+    20,
+    -108,
+    26,
+    24,
+    -103
+   ],
+   "still": true,
+   "stars": [
+    "saxo"
+   ]
+  }
+ ],
+ "tags": {
+  "structure": "broken rule of three",
+  "scenes": [],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "lyric",
+  "maps": [
+   "plane",
+   "paris",
+   "beach"
+  ],
+  "ref": "none",
+  "lyric_literal": "L00 the volcanoes (the plane over an erupting one), L01 the wings (the window over the wing), L05 wind then rain (the turbulence, the juice raining on Compote), L07 fly in the heights (the climb), L08 over the capitals (the plane over the Eiffel Tower), L09 ideas (his idea: the photobomb), L10 look at the ocean (he points; the beach), L12 night and day (the flash cut to Paris by night and back), L13 love (the salsa, the kiss)",
+  "experiment": "Does a relatable travel gag (the spot thief, three times then the payback) with a callback ending (her window seat on the flight home) beat our spectacle episodes on shares?"
+ }
+}

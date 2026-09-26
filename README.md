@@ -24,8 +24,8 @@
   <table>
     <tr>
       <td align="center"><h3>4</h3>characters</td>
-      <td align="center"><h3>42</h3>looks</td>
-      <td align="center"><h3>35</h3>maps</td>
+      <td align="center"><h3>44</h3>looks</td>
+      <td align="center"><h3>36</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
       <td align="center"><h3>4</h3>videos posted</td>
       <td align="center"><h3>4</h3>videos a day</td>
@@ -54,7 +54,8 @@
       the longest-held word bigger and shaking. The singer's 8-bit face hops from word to word.</p>
       <p><b>The jokes.</b> Every lyric that names an action is acted out on the word. Four characters who each have one
       job keep their running gags going from video to video, plus costume changes on the beat, crowds, giants (a
-      19-metre bunny rising from the sea), thrown props, a fight with a slow-motion replay and skate tricks.</p>
+      19-metre bunny rising from the sea), a flight through turbulence over erupting volcanoes, thrown props, a fight
+      with a slow-motion replay and skate tricks.</p>
       <p><b>The loop.</b> Trends go in; views, likes and shares come back out into a playbook that the next video
       reads.</p>
     </td>
@@ -85,7 +86,7 @@
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
 in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic; an episode has to ask for it.
 
-## 35 maps, and counting
+## 36 maps, and counting
 
 <p align="center">
   <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht and the techno club, each with the cast in costume">

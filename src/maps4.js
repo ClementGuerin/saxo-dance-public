@@ -2,6 +2,7 @@
 // a burger shack, flower clouds in the sky, jellyfish fields, a boat-car driving past. Same contract as maps3.js,
 // pure in t; landmarks at -z, nothing taller than ~0.3 m within 7.5 m of Saxo except behind him (z < -3, r >= 4).
 import { mapKit } from './mapkit.js';
+import { jetModel } from './maps8.js';
 
 export function buildSeaMaps(K) {
   const k = mapKit(K);
@@ -252,12 +253,16 @@ export function buildSeaMaps(K) {
     // pigeons pecking on the beat behind Saxo, and a red balloon drifting up
     const pigeons = []; for (let i = 0; i < 7; i++) { const p = new THREE.Group(), pm = mat({ color: 0xc8ccd8 }); p.add(at(box(0.18, 0.16, 0.3, pm), 0, 0.12, 0)); p.add(at(box(0.11, 0.11, 0.11, mat({ color: 0x6a8a9a })), 0, 0.25, 0.15)); p.add(at(box(0.04, 0.04, 0.06, mat({ color: 0xe8a040 })), 0, 0.24, 0.23)); G.add(rot(at(p, (i - 3) * 1.1, 0, -5 - (i % 3) * 0.8), 0, hash(i, 442) * TAU, 0)); pigeons.push([p, i]); }
     const balloon = new THREE.Group(); balloon.add(at(sph(0.38, 8, 6, mat({ color: 0xe8222a })), 0, 0, 0)); balloon.add(at(box(0.02, 1.2, 0.02, mat({ color: 0xeeeeee })), 0, -0.95, 0)); G.add(balloon);
+    // flag `jet` ([x0, y0, z0, x1, y1, z1] over the shot, "Voyage Voyage"): our airliner flying over Paris, nose first
+    const jet = jetModel(k); jet.scale.setScalar(1.0); G.add(jet); const jv = new THREE.Vector3();
 
     return {
       group: G, sky: grad([[0, '#141c48'], [0.45, '#3a3a7a'], [0.8, '#a86a8a'], [1, '#f0a070']]), shadowCol: 0x5a5c6a,
       light() { lights(0x7a7498, 0xffb888, [-0.5, -0.5, 0.6], 0x5a5a88, [60, 260], 9); lampPos.forEach(([x, z], i) => pt(i, x, 4, z, 1.4, 1.1, 0.6)); },
-      anim(t) {
+      anim(t, P = {}) {
         const n = Math.floor(t * 10), b = barHit(t), h = hit(t);
+        jet.visible = !!P.jet;
+        if (P.jet) { const [x0, y0, z0, x1, y1, z1] = P.jet, u = Math.max(0, Math.min(1, (t - P.t0) / Math.max(0.1, P.t1 - P.t0))); jet.position.set(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, z0 + (z1 - z0) * u); jv.set(x1 - x0, y1 - y0, z1 - z0); jet.rotation.set(0, Math.atan2(-jv.x, -jv.z), 0); jet.rotateX(Math.atan2(jv.y, Math.hypot(jv.x, jv.z))); jet.rotateZ(-0.12); (jet.userData.fans || []).forEach(f => { f.rotation.z = t * 31; }); }
         spk.forEach(([s, i]) => { s.visible = hash(i, n) < 0.12 + 0.55 * b; });
         beacon.rotation.y = t * 0.7;
         jets.forEach(([j, i, big]) => { const hh = big ? 1 + 9 * b : 0.6 + 4.5 * hit(t - i * 0.04); j.scale.y = hh; j.position.y = hh / 2; });

@@ -13,6 +13,8 @@ import { buildSeaMaps } from './maps4.js';
 import { buildClubMaps } from './maps5.js';
 import { buildTechnoMaps } from './maps6.js';
 import { buildPirateMaps } from './maps7.js';
+import { buildPlaneMaps, jetModel } from './maps8.js';
+import { mapKit } from './mapkit.js';
 
 const RW = CONFIG.ps1.w, RH = CONFIG.ps1.h;
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
@@ -318,6 +320,7 @@ function buildStreet() {
   };
 }
 
+export const BEACH = { SUNBED: [-0.7, -4.2], BED: 0.3, DUCK: [0.6, -11.2], SEA: -0.05, KOB: [-2.95, -5.0] };   // the daybed's centre and pad height, the duck float's wait, Kob's towel   // the lounger's centre and pad height, where the duck float waits
 function buildBeach() {
   const G = new THREE.Group();
   const sandT = tex(32, 32, (x, r) => { px(x, '#e6cf92', 0, 0, 32, 32); noise(x, r, 32, 32, ['#d9bf80', '#f0dca6', '#cdb175'], 320); }, 31);
@@ -358,6 +361,19 @@ function buildBeach() {
   }
   const sun = new THREE.Mesh(new THREE.CircleGeometry(3, 8), mat({ color: 0xfff3b0, unlit: 1 })); sun.position.set(9, 8, -22); G.add(sun);
   const sky = tex(4, 64, (x) => { const gr = x.createLinearGradient(0, 0, 0, 64); gr.addColorStop(0, '#2b7fd8'); gr.addColorStop(0.75, '#8fd0f5'); gr.addColorStop(1, '#d9f1ff'); x.fillStyle = gr; x.fillRect(0, 0, 4, 64); });
+  // "Voyage Voyage" story props, off unless a shot's flags ask (BEACH spots): `sunbed` (the lounger under the umbrella),
+  // `towels`, `duck` ([x, z]: Compote's giant rubber-duck float waiting at the water's edge), `jet` ([x0, y0, z0, x1, y1, z1]:
+  // the airliner crossing the sky over the shot)
+  const bedM = mat({ map: tex(16, 4, x => { for (let i = 0; i < 16; i += 4) { px(x, '#2a8ad8', i, 0, 2, 4); px(x, '#f6f1e6', i + 2, 0, 2, 4); } }), rep: [1, 3] });
+  const sunbed = new THREE.Group(), frameM = mat({ color: 0xf2f2f2 });
+  const bedPad = box(1.4, 0.1, 2.0, bedM); bedPad.position.set(0, BEACH.BED - 0.05, 0); sunbed.add(bedPad);   // a flat striped daybed: lying, sitting or dancing on it
+  for (const [x, z] of [[-0.62, -0.9], [0.62, -0.9], [-0.62, 0.9], [0.62, 0.9]]) { const l = box(0.08, BEACH.BED - 0.1, 0.08, frameM); l.position.set(x, (BEACH.BED - 0.1) / 2, z); sunbed.add(l); }
+  sunbed.position.set(BEACH.SUNBED[0], 0, BEACH.SUNBED[1]); G.add(sunbed);
+  const towels = new THREE.Group();
+  for (const [x, z, c, r] of [[-2.95, -5.0, 0xb05ad8, 0.1], [1.7, -6.9, 0xff8a3a, -0.2]]) { const tw = box(0.95, 0.02, 1.7, mat({ map: tex(8, 8, xx => { px(xx, '#' + c.toString(16).padStart(6, '0'), 0, 0, 8, 8); px(xx, '#ffffff', 0, 1, 8, 1); px(xx, '#ffffff', 0, 6, 8, 1); }) })); tw.position.set(x, 0.012, z); tw.rotation.y = r; towels.add(tw); }
+  G.add(towels);
+  const duck = duckFloat(); G.add(duck);
+  const jet = jetModel(mapKit(MAP_KIT)); G.add(jet); const jv = new THREE.Vector3();
   return {
     group: G, sky, shadowCol: 0x9c7c48,
     light() {
@@ -365,8 +381,26 @@ function buildBeach() {
       U.uFogCol.value.set(0xc9ecff); U.uFog.value.set(25, 110); U.uPtRange.value = 1;
       U.uPtCol.value.forEach(c => c.setRGB(0, 0, 0));
     },
-    anim(t) { seaM.uniforms.uOff.value.set(t * 0.12, t * 0.05); palms.forEach((c, i) => { c.rotation.z = 0.06 * Math.sin(t * 1.3 + i); c.rotation.x = 0.04 * Math.sin(t * 0.9 + i * 2); }); },
+    anim(t, P = {}) {
+      seaM.uniforms.uOff.value.set(t * 0.12, t * 0.05); palms.forEach((c, i) => { c.rotation.z = 0.06 * Math.sin(t * 1.3 + i); c.rotation.x = 0.04 * Math.sin(t * 0.9 + i * 2); });
+      sunbed.visible = !!P.sunbed; towels.visible = !!P.towels; duck.visible = !!P.duck;
+      if (P.duck) { duck.position.set(P.duck[0], 0.02 + 0.03 * Math.sin(t * 2.1), P.duck[1]); duck.rotation.set(0.03 * Math.sin(t * 1.7), P.duck[2] ?? 0, 0.04 * Math.sin(t * 1.3)); }
+      jet.visible = !!P.jet;
+      if (P.jet) { const [x0, y0, z0, x1, y1, z1] = P.jet, u = cl((t - P.t0) / Math.max(0.1, P.t1 - P.t0)); jet.position.set(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, z0 + (z1 - z0) * u); jv.set(x1 - x0, y1 - y0, z1 - z0); jet.rotation.set(0, Math.atan2(-jv.x, -jv.z), 0); jet.rotateX(Math.atan2(jv.y, Math.hypot(jv.x, jv.z))); jet.rotateZ(-0.1); }
+    },
   };
+}
+// Compote's giant rubber duck float ("Voyage Voyage"): a yellow ring with a duck's head and beak at the front (-z) and a
+// tail at the back; the rider sits in the ring (`ride: "duck"`), or it waits at the water's edge (the beach's `duck` flag)
+function duckFloat() {
+  const G = new THREE.Group(), yel = mat({ color: 0xffd21f }), org = mat({ color: 0xff8a1a }), blk = mat({ color: 0x151515 }), wht = mat({ color: 0xffffff });
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.52, 0.2, 6, 12), yel); ring.rotation.x = Math.PI / 2; ring.position.y = 0.14; G.add(ring);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 0.55, 8), yel); neck.position.set(0, 0.4, -0.62); neck.rotation.x = -0.25; G.add(neck);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.26, 8, 6), yel); head.position.set(0, 0.74, -0.7); G.add(head);
+  const beak = box(0.26, 0.09, 0.2, org); beak.position.set(0, 0.7, -0.95); G.add(beak);
+  for (const s of [-1, 1]) { const e = box(0.08, 0.1, 0.03, wht); e.position.set(s * 0.12, 0.8, -0.93); G.add(e); const p = box(0.045, 0.06, 0.02, blk); p.position.set(s * 0.12, 0.8, -0.95); G.add(p); }
+  const tail = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.34, 6), yel); tail.position.set(0, 0.36, 0.66); tail.rotation.x = 0.9; G.add(tail);
+  return G;
 }
 
 // ---------- scene, shots, handheld camera ----------
@@ -561,7 +595,8 @@ function wearOutfit(T, name) { for (const [k, ms] of Object.entries(T.outfits ||
 const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/models/saxo_astronaut.glb', dj: 'assets/models/saxo_dj.glb', beach: 'assets/models/saxo_beach.glb', poop: 'assets/models/saxo_poop.glb', moto: 'assets/models/saxo_moto.glb', sponge: 'assets/models/saxo_sponge.glb',
   michou: 'assets/models/saxo_michou.glb',   // white tux with black satin lapels and black shades ("Dans le club", 2026-09-25)
   nena: 'assets/models/saxo_nena.glb',      // Nena's 1983 look: shaggy dark 80s hair, shiny black quilted vest, white shirt, jeans ("99 Luftballons", 2026-09-25)
-  pirate: 'assets/models/saxo_pirate.glb' };   // the pirate captain: tricorn over a red bandana, short beaded dreadlocks, kohl, linen shirt, waistcoat, red sash ("He's A Pirate", 2026-09-26)
+  pirate: 'assets/models/saxo_pirate.glb',   // the pirate captain: tricorn over a red bandana, short beaded dreadlocks, kohl, linen shirt, waistcoat, red sash ("He's A Pirate", 2026-09-26)
+  tourist: 'assets/models/saxo_tourist.glb' };   // the tourist: turquoise hibiscus shirt, orange travel neck pillow, red instant camera, khaki cargo shorts ("Voyage Voyage", 2026-09-26)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -571,7 +606,8 @@ const PARTNERS = {
   sadi: { scale: 0.92, models: { sadi: 'assets/models/sadi_base.glb', cowgirl: 'assets/models/sadi_cowgirl.glb', astronaut: 'assets/models/sadi_astronaut.glb',
     disco: 'assets/models/sadi_disco.glb', beach: 'assets/models/sadi_beach.glb', cheer: 'assets/models/sadi_cheer.glb', poop: 'assets/models/sadi_poop.glb', patrick: 'assets/models/sadi_patrick.glb', hotdog: 'assets/models/sadi_hotdog.glb',
     white: 'assets/models/sadi_white.glb', rave: 'assets/models/sadi_rave.glb',   // rave: neon-green mesh top, cargo pants, glow bracelets ("99 Luftballons")
-    pirate: 'assets/models/sadi_pirate.glb' },   // pirate heroine: red bandana, gold hoops, white blouse, laced corset vest, red sash, boots ("He's A Pirate")
+    pirate: 'assets/models/sadi_pirate.glb',   // pirate heroine: red bandana, gold hoops, white blouse, laced corset vest, red sash, boots ("He's A Pirate")
+    hostess: 'assets/models/sadi_hostess.glb' },   // flight attendant: navy jacket with gold buttons and wings, red scarf, pillbox hat, her pink bow ("Voyage Voyage")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
@@ -667,7 +703,7 @@ if (tripo && EP) for (const sh of EP.shots) if (sh.crowd) {
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT) };
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -757,7 +793,8 @@ function actorSpec(a, e, map) {
     aim2: a.aim2 || null, aim2At: a.aim2At ?? null, toss: a.toss || null, cable: a.cable || null, holdFrom: a.holdFrom ?? null, holdTo: a.holdTo ?? null,
     // scale: a giant (the sea monster is a 16x Compote), my: metres risen (+) or sunk (-) from myAt s over myDur s
     // (smoothstep; default the whole shot), holdScale: the held prop's size (a carrot pinched in a giant's paw), noShadow
-    scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air };   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air,
+    hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180 };   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -842,6 +879,12 @@ function propMesh(kind) {
   } else if (kind === 'book') {    // Kob's book, open between both paws: two page halves in a V over a red cover (a flat slab read as a board)
     for (const s of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.13, 0.012, 0.19, M(0xc8243a)), s * 0.065, 0, 0)); h.add(at3(box(0.12, 0.02, 0.17, M(0xfaf4e4)), s * 0.062, 0.015, 0));
       for (let k = 0; k < 3; k++) h.add(at3(box(0.08, 0.004, 0.012, M(0x7a7a8a)), s * 0.065, 0.027, -0.05 + k * 0.045)); h.rotation.z = -s * 0.32; G.add(h); }
+  } else if (kind === 'juicehat') { // the juice glass upside down on a head (worn flipped): clear glass, the orange juice spilt round its rim, drips down
+    add(cyl(0.048, 0.058, 0.16, mat({ color: 0xd8f0ff, unlit: 0.3 })), 0, 0.09); add(cyl(0.05, 0.05, 0.02, M(0xbfe4ff)), 0, 0.005);   // the glass, its base at y = 0 (up in the air once worn)
+    add(cyl(0.14, 0.13, 0.03, M(0xff9a2e)), 0, 0.172); add(cyl(0.045, 0.055, 0.05, M(0xff9a2e)), 0, 0.14);   // juice spilt round the rim and the last of it inside
+    [[0.11, 0, 0.13], [-0.1, 0.05, 0.1], [0.02, 0.12, 0.2], [-0.04, -0.12, 0.08]].forEach(([x, z, l]) => add(box(0.028, l, 0.028, M(0xff8a1a)), x, 0.18 + l / 2, z));   // drips past the rim: down the head once flipped
+  } else if (kind === 'ticket') {  // a boarding pass held up: white card, a pink band, a black barcode (it must read at 270x480)
+    add(box(0.17, 0.25, 0.012, M(0xfafafa))); add(box(0.172, 0.07, 0.014, M(0xff5fa2)), 0, 0.085); for (let k = 0; k < 5; k++) add(box(0.012, 0.07, 0.016, M(0x1a1a1a)), -0.05 + k * 0.025, -0.07);
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
     add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
   }
@@ -883,8 +926,18 @@ function holdProp(D, kind, side, bodyYaw, t) {
   }
   if (kind === 'balloon') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
-  g.position.copy(p).addScaledVector(_up, kind === 'phone' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
+  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
+}
+function rideDuck(D, bodyYaw, base, t) {   // the rider sits in the ring of Compote's duck float, leaning back on the duck's neck
+  const key = D.base + ':duck'; if (!PROPS[key]) { PROPS[key] = duckFloat(); scene.add(PROPS[key]); }
+  const g = PROPS[key], s = D.scale || 1; g.visible = true; D.hips.getWorldPosition(_pa);
+  g.position.set(_pa.x, base - 0.15, _pa.z); g.rotation.set(0.04 * Math.sin(t * 1.9), bodyYaw, 0.05 * Math.sin(t * 1.4)); g.scale.setScalar(s);   // the duck's head behind him, a backrest: his face stays clear from the front
+}
+function wearHat(D, kind, bodyYaw, y) {   // a prop on top of the head (a glass upside down after the spill)
+  const key = D.base + ':hat:' + kind; if (!PROPS[key]) { PROPS[key] = propMesh(kind); scene.add(PROPS[key]); }
+  const g = PROPS[key], s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.7);   // bigger than in a paw: it must read on top of a head
+  D.head.getWorldPosition(_pa); g.position.copy(_pa).addScaledVector(_up, y * s); g.rotation.set(Math.PI, bodyYaw, 0.2);
 }
 function rideJetski(D, bodyYaw, base, t) {   // base: the rider's footwell height (the harbour water sits 0.16 m lower)
   const g = propFor(D, 'jetski'), s = D.scale || 1, fwd = _pd.set(Math.sin(bodyYaw), 0, Math.cos(bodyYaw));
@@ -966,13 +1019,14 @@ function placeActors(P, t, t0, t1, camAng, map) {
   const stars = [];
   for (const { A, D, n, at, fyaw, yaw, ground } of plans) {
     const s = (D.scale || 1) * A.scale, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
-    const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, lift = A.lift + bob + A.my * um;   // my: a rise or a sink
+    const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, bb = bp(t), jolt = A.bump && bb >= 0 ? A.bump * Math.exp(-fr(bb) * 7) : 0;
+    const lift = A.lift + bob + A.my * um + jolt;   // my: a rise or a sink; bump: turbulence jolts on the beat
     D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air;
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
     if (n) { const d = D.clips[n].duration, tc = at + (t - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
     D.mixer.update(0);
-    const u = cl((t - t0) / len);   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned)
+    const u = cl((t - t0 - A.moveAt) / Math.max(0.01, len - A.moveAt));   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned), from moveAt s
     D.holder.rotation.y = yaw; D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u); D.holder.updateMatrixWorld(true);
     if (A.arm) aimArms(D, A, yaw + fyaw, t - t0);
     // the toes set the shot's floor, but a hem, a paw or a big head can reach lower: never let the mesh sink;
@@ -991,6 +1045,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (tossed) tossProp(D, A, bodyYaw, t - t0);
     if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
+    if (A.ride === 'duck') rideDuck(D, bodyYaw + A.rideYaw, A.rideY != null ? A.rideY + 0.15 + bob : lift, t);   // rideY: the float's base (standing in the ring, legs in the water)
+    if (A.hat && (A.hatFrom == null || t - t0 >= A.hatFrom) && D.head) wearHat(D, A.hat, bodyYaw, A.hatY);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
   window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics
