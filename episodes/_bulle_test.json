@@ -1,0 +1,598 @@
+{
+ "date": "_test",
+ "n": 0,
+ "song": {
+  "title": "test",
+  "artist": "test"
+ },
+ "logline": "regression sheet for the Dans ma bulle pieces",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "blowing_a_kiss",
+  "celebrating_after_a_win_while_seated",
+  "happy_idle",
+  "hip_hop_dancing_really_twirl",
+  "male_driving_a_car",
+  "sitting_talking",
+  "throwing_frisbee_forward",
+  "bored_idle"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "bored_idle",
+     "x": 0,
+     "z": -1.3,
+     "gum": [
+      0.15,
+      1.3,
+      0.3,
+      1.55
+     ],
+     "buds": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.55,
+     1.55
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0,
+    -1.3
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "hip_hop_dancing_really_twirl",
+     "x": 0,
+     "z": -1.3,
+     "bubble": {
+      "r": 0.95,
+      "at": 0,
+      "full": 0.5,
+      "pop": 1.6
+     },
+     "my": 1.4,
+     "air": true,
+     "buds": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.5,
+     5.5
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.9,
+     1.9
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -1.3
+   ],
+   "night": true
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "bus",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": 0.97,
+     "z": 1.03,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 180,
+     "splat": 0,
+     "buds": true
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "bored_idle",
+     "x": 0.02,
+     "z": 0.92,
+     "face": "world",
+     "yaw": 90,
+     "hold": "carrot"
+    },
+    {
+     "who": "kob",
+     "look": "driver",
+     "clip": "male_driving_a_car",
+     "x": -0.72,
+     "z": -4.62,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 180
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -173.19,
+     -173.19
+    ],
+    "r": [
+     3.374,
+     3.374
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.5,
+    0.95
+   ],
+   "stare": [
+    0.97,
+    0.9
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "paris",
+     "clip": "sitting_talking",
+     "x": 12,
+     "z": -59.37,
+     "lift": 2.9,
+     "face": "world",
+     "yaw": 0
+    },
+    {
+     "who": "kob",
+     "look": "driver",
+     "clip": "bored_idle",
+     "x": 16.4,
+     "z": -56.75,
+     "lift": 2.6,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -4.24,
+     -4.24
+    ],
+    "r": [
+     5.415,
+     5.415
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54
+   },
+   "focus": [
+    13.6,
+    -58.6,
+    2.6
+   ],
+   "night": true
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "paris",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "bored_idle",
+     "x": -4.6,
+     "z": -2,
+     "hold": "wallet",
+     "moth": 0.4,
+     "face": "world",
+     "yaw": 90,
+     "arm": "both",
+     "aim": [
+      -0.05,
+      0.3,
+      0.95
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": -5.9,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 90
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     79.51,
+     79.51
+    ],
+    "r": [
+     2.746,
+     2.746
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -4.9,
+    -1.6
+   ],
+   "boutique": true
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "throwing_frisbee_forward",
+     "x": 0,
+     "z": -1.3,
+     "hold": "stone",
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "once": true,
+     "toss": {
+      "at": 0.55,
+      "to": [
+       0.4,
+       -0.02,
+       -8
+      ],
+      "dur": 0.6,
+      "arc": 0.5,
+      "splash": true
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11.13,
+     11.13
+    ],
+    "r": [
+     6.217,
+     6.217
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.2,
+    -3.5
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "bus",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "trench",
+     "clip": "sitting_talking",
+     "x": 0.97,
+     "z": 1.03,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 180,
+     "buds": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -27.41,
+     -27.41
+    ],
+    "r": [
+     1.521,
+     1.521
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 46
+   },
+   "focus": [
+    1.15,
+    0.25
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "paris",
+     "clip": "bored_idle",
+     "x": 0,
+     "z": -1.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.7,
+     1.7
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0,
+    -1.3
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "bus",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "driver",
+     "clip": "male_driving_a_car",
+     "x": -0.72,
+     "z": -4.62,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 180
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     173.52,
+     173.52
+    ],
+    "r": [
+     0.886,
+     0.886
+    ],
+    "h": [
+     1.22,
+     1.22
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.72,
+    -4.62
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "driver",
+     "clip": "bored_idle",
+     "x": 16.4,
+     "z": -56.75,
+     "lift": 2.6,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.45,
+     2.45
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 46
+   },
+   "focus": [
+    16.4,
+    -56.75,
+    2.6
+   ],
+   "night": true
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "paris",
+     "clip": "blowing_a_kiss",
+     "x": 0,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.05,
+     2.05
+    ],
+    "h": [
+     0.92,
+     0.92
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 34
+   },
+   "focus": [
+    0,
+    -1.3
+   ],
+   "noguests": true
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "shore",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "paris",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.05,
+     2.05
+    ],
+    "h": [
+     0.92,
+     0.92
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 34
+   },
+   "focus": [
+    0,
+    -1.3
+   ],
+   "noguests": true
+  }
+ ]
+}

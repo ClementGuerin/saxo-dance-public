@@ -25,8 +25,8 @@
   <table>
     <tr>
       <td align="center"><h3>4</h3>characters</td>
-      <td align="center"><h3>50</h3>looks</td>
-      <td align="center"><h3>39</h3>maps</td>
+      <td align="center"><h3>53</h3>looks</td>
+      <td align="center"><h3>41</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
       <td align="center"><h3>10</h3>videos posted</td>
       <td align="center"><h3>4</h3>videos a day</td>
@@ -89,7 +89,7 @@
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
 in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic; an episode has to ask for it.
 
-## 39 maps, and counting
+## 41 maps, and counting
 
 <p align="center">
   <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village and the blossom festival, each with the cast in costume">

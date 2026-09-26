@@ -13,6 +13,7 @@ import { buildSeaMaps } from './maps4.js';
 import { buildClubMaps } from './maps5.js';
 import { buildTechnoMaps } from './maps6.js';
 import { buildMatsuriMaps } from './maps10.js';
+import { buildBubbleMaps } from './maps11.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
 import { buildDieYoungMaps } from './maps9.js';
@@ -61,7 +62,7 @@ void main() {
   gl_Position = cp;
 }`;
 const FS = /* glsl */`
-uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog; uniform float uPale;
+uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog; uniform float uPale; uniform float uSee;
 varying vec3 vLight; varying vec3 vUvw; varying float vFogD;
 float bayer(vec2 p) {
   int x = int(mod(p.x, 4.0)), y = int(mod(p.y, 4.0));
@@ -74,6 +75,7 @@ void main() {
     if (a <= bayer(gl_FragCoord.xy)) discard;
     gl_FragColor = vec4(mix(uShadowCol, uFogCol, smoothstep(uFog.x, uFog.y, vFogD)), 1.0); return;
   }
+  if (uSee > 0.0 && bayer(gl_FragCoord.xy) < uSee) discard;         // see: screen-door see-through (a soap bubble), dithered like the PS1's own
   vec4 tx = uUseMap > 0.5 ? texture2D(map, vUvw.xy / vUvw.z) : vec4(1.0);
   if (tx.a < 0.4) discard;
   tx.rgb = mix(tx.rgb, 0.74 + 0.26 * tx.rgb, uPale);             // pale: porcelain (a crowd of lucky-cat statues); 0 on every other material
@@ -85,12 +87,12 @@ void main() {
   gl_FragColor = vec4(c, 1.0);
 }`;
 
-function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, shadow = 0, side = THREE.FrontSide, nofog = 0 } = {}) {
+function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, shadow = 0, side = THREE.FrontSide, nofog = 0, see = 0 } = {}) {
   return new THREE.ShaderMaterial({
     vertexShader: VS, fragmentShader: FS, side,
     uniforms: { ...U, map: { value: map }, uUseMap: { value: map ? 1 : 0 }, uCol: { value: new THREE.Color(color) },
       uRep: { value: new THREE.Vector2(...rep) }, uOff: { value: new THREE.Vector2() }, uUnlit: { value: unlit }, uLift: { value: lift }, uShadow: { value: shadow }, uShadowCol: { value: new THREE.Color(0.22, 0.2, 0.24) }, uNoFog: { value: nofog },
-      uPale: { value: 0 } },   // every material uploads its own 0: a GL uniform keeps the last value set on the shared program, so the porcelain crowd's paleness leaked onto every character drawn after it (2026-09-27)
+      uPale: { value: 0 }, uSee: { value: see } },   // every material uploads its own 0: a GL uniform keeps the last value set on the shared program, so the porcelain crowd's paleness leaked onto every character drawn after it (2026-09-27)
   });
 }
 
@@ -602,7 +604,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   pirate: 'assets/models/saxo_pirate.glb',   // the pirate captain: tricorn over a red bandana, short beaded dreadlocks, kohl, linen shirt, waistcoat, red sash ("He's A Pirate", 2026-09-26)
   tourist: 'assets/models/saxo_tourist.glb',   // the tourist: turquoise hibiscus shirt, orange travel neck pillow, red instant camera, khaki cargo shorts ("Voyage Voyage", 2026-09-26)
   kesha: 'assets/models/saxo_kesha.glb',   // the pop-star disguise: messy platinum shag wig, eyeliner, gold glitter, red lips, studded black biker jacket, chains ("Die Young", 2026-09-26)
-  sailor: 'assets/models/saxo_sailor.glb' };   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
+  sailor: 'assets/models/saxo_sailor.glb',   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
+  trench: 'assets/models/saxo_trench.glb' };   // the French film look: a camel trench coat belted over a black turtleneck, grey trousers, brown shoes ("Dans ma bulle", 2026-09-27)   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -614,14 +617,16 @@ const PARTNERS = {
     white: 'assets/models/sadi_white.glb', rave: 'assets/models/sadi_rave.glb',   // rave: neon-green mesh top, cargo pants, glow bracelets ("99 Luftballons")
     pirate: 'assets/models/sadi_pirate.glb',   // pirate heroine: red bandana, gold hoops, white blouse, laced corset vest, red sash, boots ("He's A Pirate")
     hostess: 'assets/models/sadi_hostess.glb',   // flight attendant: navy jacket with gold buttons and wings, red scarf, pillbox hat, her pink bow ("Voyage Voyage")
-    yukata: 'assets/models/sadi_yukata.glb' },   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
+    yukata: 'assets/models/sadi_yukata.glb',   // a pink cherry-blossom yukata ("Caramelldansen")
+    paris: 'assets/models/sadi_paris.glb' },   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
     popstar: 'assets/models/kob_popstar.glb', beach: 'assets/models/kob_beach.glb', ninja: 'assets/models/kob_ninja.glb', witch: 'assets/models/kob_witch.glb', chef: 'assets/models/kob_chef.glb', poop: 'assets/models/kob_poop.glb', moto: 'assets/models/kob_moto.glb',
     pyjama: 'assets/models/kob_pyjama.glb',
     bartender: 'assets/models/kob_bartender.glb',   // the bartender: white shirt, sleeves rolled, black waistcoat and bow tie, her bell collar ("Die Young")
-    maneki: 'assets/models/kob_maneki.glb' },   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
+    maneki: 'assets/models/kob_maneki.glb',   // the lucky-cat suit ("Caramelldansen")
+    driver: 'assets/models/kob_driver.glb' },   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
   compote: { scale: 0.92, models: { compote: 'assets/models/compote_base.glb', astronaut: 'assets/models/compote_astronaut.glb', cowgirl: 'assets/models/compote_cowgirl.glb',
@@ -721,7 +726,12 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT) };
+try {
+  const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
+  pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
+  const u = MAPS.bus.posterMat.uniforms; u.map.value = pt; u.uUseMap.value = 1; u.uCol.value.set(0xffffff);
+} catch (e) { console.warn('bus poster: none yet'); }
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -816,7 +826,8 @@ function actorSpec(a, e, map) {
     hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180,
     // the beat-locked swings and sway (SWINGS, swayRoll), and holdAt: the actor freezes that many seconds into the shot
     // (clip, swing and sway), caught mid-move (2026-09-27; until then these fields never reached the actors)
-    flap: a.flap ?? null, flapEvery: a.flapEvery || null, flapPh: a.flapPh || 0, sway: a.sway || 0, swayEvery: a.swayEvery || null, swayPh: a.swayPh || 0, holdAt: a.holdAt ?? null };   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    flap: a.flap ?? null, flapEvery: a.flapEvery || null, flapPh: a.flapPh || 0, sway: a.sway || 0, swayEvery: a.swayEvery || null, swayPh: a.swayPh || 0, holdAt: a.holdAt ?? null,
+    gum: a.gum || null, splat: a.splat ?? null, buds: a.buds ?? null, bubble: a.bubble || null, moth: a.moth ?? null };   // "Dans ma bulle": bubble gum, its splat, earbuds, the dream bubble, a moth out of the wallet   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -918,6 +929,12 @@ function propMesh(kind) {
   } else if (kind === 'wata') {   // cotton candy: a big pink cloud on a stick
     add(box(0.016, 0.26, 0.016, M(0xf4f0e8)), 0, 0.08);
     for (const [x, y, z, r] of [[0, 0.3, 0, 0.12], [0.07, 0.26, 0.02, 0.08], [-0.07, 0.27, -0.01, 0.085], [0.01, 0.37, 0.02, 0.07]]) add(new THREE.Mesh(new THREE.IcosahedronGeometry(r, 0), mat({ color: 0xffb0d8, unlit: 0.4 })), x, y, z);
+  } else if (kind === 'carrotpoke') {   // Compote's carrot held like a pin, tip first along the forearm ("Dans ma bulle": she pops his bubble with it)
+    add(new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.26, 5), M(0xff7a1a)), 0, 0.2); for (let k = 0; k < 3; k++) add(box(0.02, 0.1, 0.02, M(0x3fae47)), (k - 1) * 0.02, 0.03).rotation.z = (k - 1) * 0.4;
+  } else if (kind === 'stone') {   // a flat grey pebble for skimming (2026-09-27, "Dans ma bulle": it sinks at once)
+    const p = new THREE.Mesh(new THREE.IcosahedronGeometry(0.085, 0), mat({ color: 0xe4ded2, unlit: 0.45 })); p.scale.set(1, 0.45, 0.85); add(p);   // pale and a little self-lit: a grey one vanished against the coat at night
+  } else if (kind === 'wallet') {  // an open wallet between both paws, empty: two red leather halves in a V (a brown one vanished on the black turtleneck), pale card slots
+    for (const sd of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.11, 0.014, 0.085, M(0xc8322a)), sd * 0.056, 0, 0)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, -0.022)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, 0.012)); h.rotation.z = -sd * 0.35; G.add(h); }
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
     add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
   }
@@ -949,12 +966,14 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'book') {
+  if (kind === 'pad' || kind === 'book' || kind === 'wallet') {
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
-    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'book' ? -0.75 : 0.35, bodyYaw, 0, 'YXZ'); return;   // the book tilts its pages up to the reader
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : -0.75, bodyYaw, 0, 'YXZ');   // the book and the wallet tilt open towards the holder
+    if (kind === 'wallet') D.walletAt = g.position.clone();
+    return;
   }
   const p = palm(D, side); if (!p) return;
-  if (kind === 'finger' || kind === 'bachi') {   // along the forearm, pointing where the paw points
+  if (kind === 'finger' || kind === 'bachi' || kind === 'carrotpoke') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
@@ -1059,11 +1078,92 @@ function aimArms(D, A, bodyYaw, since, t = 0) {
 function tossProp(D, A, bodyYaw, since) {
   const g = propFor(D, A.hold + ':flying'), s = D.curScale || D.scale || 1, T = A.toss, u = cl((since - T.at) / (T.dur || 0.6));
   if (!g.userData.kind) { const m = propMesh(A.hold); g.add(m); g.userData.kind = A.hold; }
-  g.visible = u < 1; if (!g.visible) return; const big = T.scale || 1.6;   // a thrown prop is drawn bigger so its arc reads
+  g.visible = u < 1;
+  if (!g.visible) { if (T.splash) splashAt(D, T.to, since - T.at - (T.dur || 0.6)); return; }
+  const big = T.scale || 1.6;   // a thrown prop is drawn bigger so its arc reads
   const fx = Math.sin(bodyYaw), fz = Math.cos(bodyYaw), rx = Math.cos(bodyYaw), rz = -Math.sin(bodyYaw);
   const x0 = D.holder.position.x - rx * 0.22 * s + fx * 0.15 * s, y0 = D.holder.position.y + 1.0 * s, z0 = D.holder.position.z - rz * 0.22 * s + fz * 0.15 * s;
   g.position.set(x0 + (T.to[0] - x0) * u, y0 + (T.to[1] - y0) * u + (T.arc ?? 0.9) * 4 * u * (1 - u), z0 + (T.to[2] - z0) * u);
   g.rotation.set(u * 14, bodyYaw, u * 5); g.scale.setScalar(s * 1.25 * big);
+}
+// ---- "Dans ma bulle" (2026-09-27): bubble gum blown from the mouth (`gum`: [at, full, r, pop], seconds into the shot
+// and the full radius in m; pop: it bursts into pink bits), the gum left on the face (`splat`: from s), earbuds (`buds`:
+// true or from s), the giant see-through bubble a body floats in (`bubble`: { r, at, full, pop, dy }: it grows from at
+// to full round the hips, bursts into droplets at pop; see: its see-through, 0.58, clearer for a close lens) and a moth
+// out of an open wallet (`moth`: from s). Face props sit
+// in the head bone's frame, whose axes are the body's at rest (measured on Saxo's bind pose: the nose tip 0.44 m in
+// front of the bone and 0.14 m up, the ear flaps 0.47 m out), so they follow its nods and turns. Pure in t.
+const FACE = { mouth: [0, 0.07, 0.4], budL: [0.44, 0.24, 0.02], budR: [-0.44, 0.24, 0.02] }, GUM_PINK = 0xffb4dc;   // renders bubblegum pink: a hex goes darker and redder through the linear conversion (0xff86c4 read magenta)
+const _fq = new THREE.Quaternion(), _fo = new THREE.Vector3(), _fc = new THREE.Vector3(), _fr = new THREE.Vector3(), _fu = new THREE.Vector3();
+function faceAt(D, off, out) { const s = D.curScale || D.scale || 1; D.head.getWorldPosition(out); D.head.getWorldQuaternion(_fq); return out.add(_fo.set(off[0] * s, off[1] * s, off[2] * s).applyQuaternion(_fq)); }
+function faceProp(D, key, make) { const k = D.base + ':' + key; if (!PROPS[k]) { PROPS[k] = make(); scene.add(PROPS[k]); } PROPS[k].visible = true; return PROPS[k]; }
+const BURST = Array.from({ length: 14 }, (_, i) => { const y = 1 - 2 * (i + 0.5) / 14, r = Math.sqrt(1 - y * y), a = i * 2.39996; return new THREE.Vector3(Math.cos(a) * r, y, Math.sin(a) * r); });
+function blowGum(D, G, c, t) {   // the bubble is mostly self-lit (unlit 0.75): candy pink in the dusk's violet light too
+  const [at, full, r, pop] = G; if (c < at) return;
+  const s = D.curScale || D.scale || 1, R = r * s;
+  if (pop != null && c >= pop) {   // pink bits fly out from where the bubble was, and fall
+    if (c >= pop + 0.35) return;
+    const g = faceProp(D, 'gumbits', () => { const q = new THREE.Group(), m = mat({ color: GUM_PINK, unlit: 0.35 }); BURST.forEach(() => q.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), m))); return q; });
+    const k = c - pop; faceAt(D, [FACE.mouth[0], FACE.mouth[1], FACE.mouth[2] + r * 0.92], g.position); g.quaternion.identity(); g.scale.setScalar(1);
+    g.children.forEach((b, i) => { b.position.copy(BURST[i]).multiplyScalar(R + k * 2.6 * s); b.position.y -= 3 * k * k; b.scale.setScalar(Math.max(0.01, 0.08 * s * (1 - k / 0.35))); });
+    return;
+  }
+  const u = full > at ? sm((c - at) / (full - at)) : 1, rad = r * (0.12 + 0.88 * u) * (1 + 0.025 * Math.sin(t * 9));
+  const g = faceProp(D, 'gum', () => { const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1, 2), mat({ color: GUM_PINK, unlit: 0.75 }))); const gl = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 0.1), mat({ color: 0xffffff, unlit: 1 })); gl.position.set(-0.42, 0.42, 0.8); q.add(gl); return q; });
+  faceAt(D, [FACE.mouth[0], FACE.mouth[1], FACE.mouth[2] + rad * 0.92], g.position); g.quaternion.copy(_fq); g.scale.setScalar(rad * s);
+}
+const SPLAT = [[0, 0.12, 0.45, 0.2, 0.15], [0.15, 0.22, 0.4, 0.13, 0.11], [-0.16, 0.24, 0.39, 0.14, 0.11], [0.04, 0.34, 0.36, 0.13, 0.09], [-0.07, 0.0, 0.42, 0.12, 0.08], [0.25, 0.08, 0.35, 0.09, 0.12], [-0.26, 0.1, 0.35, 0.09, 0.1], [0.09, -0.08, 0.4, 0.05, 0.1]];   // [x, y, z, rx, ry] in the head's frame
+function gumSplat(D) {
+  const g = faceProp(D, 'splat', () => { const q = new THREE.Group(), m = mat({ color: GUM_PINK, unlit: 0.35 }); SPLAT.forEach(([x, y, z, rx, ry]) => { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), m); b.position.set(x, y, z); b.scale.set(rx, ry, 0.05); q.add(b); }); return q; });
+  faceAt(D, [0, 0, 0], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+function earbuds(D) {   // small and on the ear line, behind the cheek: bigger and further forward they read as a plaster in a three-quarter view (the reviewer)
+  for (const k of ['budL', 'budR']) {
+    const g = faceProp(D, k, () => { const q = new THREE.Group(), m = mat({ color: 0xffffff, unlit: 0.7 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.065, 0.065), m)); const st = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.09, 0.03), m); st.position.set(0, -0.065, 0.012); q.add(st); return q; });
+    faceAt(D, FACE[k], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+  }
+}
+let _bubT = null;
+function dreamBubble(D, B, c, t) {
+  const at = B.at || 0; if (c < at || !D.hips) return;
+  const s = D.curScale || D.scale || 1, R = (B.r || 0.95) * s; D.hips.getWorldPosition(_fc); _fc.y += (B.dy ?? 0.14) * s;
+  if (B.pop != null && c >= B.pop) {   // droplets fly out from the rim and fall
+    const k = c - B.pop; if (k >= 0.5) return;
+    const g = faceProp(D, 'dreambits', () => { const q = new THREE.Group(), ms = [0xffffff, 0xff9ad8, 0x9af0ff, 0xfff09a].map(col => mat({ color: col, unlit: 1 })); for (let i = 0; i < 28; i++) q.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), ms[i % 4])); return q; });
+    g.position.copy(_fc); g.children.forEach((b, i) => { const d = BURST[i % 14]; b.position.copy(d).multiplyScalar(R * (1 + k * (i < 14 ? 2.2 : 1.3))); b.position.y -= 2.5 * k * k; b.position.x += i >= 14 ? 0.1 * R : 0; b.scale.setScalar(Math.max(0.01, 0.06 * s * (1 - k / 0.5))); });
+    return;
+  }
+  const u = B.full != null && B.full > at ? sm((c - at) / (B.full - at)) : 1, rr = R * (0.15 + 0.85 * u);
+  const g = faceProp(D, 'dream', () => {
+    _bubT = _bubT || tex(32, 32, (x, r) => { const C = ['#ffb8e8', '#b8f4ff', '#fff4b0', '#d8c0ff', '#c0ffe0']; for (let i = -32; i < 64; i += 4) for (let y = 0; y < 32; y++) { x.fillStyle = C[((i / 4) % 5 + 5) % 5]; x.fillRect(i + y, y, 4, 1); } for (let i = 0; i < 12; i++) px(x, '#ffffff', Math.floor(r() * 30), Math.floor(r() * 30), 2, 1); }, 1401);
+    const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1, 2), mat({ map: _bubT, unlit: 0.75, see: 0.58 })));
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(1, 0.025, 4, 32), mat({ color: 0xf4f0ff, unlit: 1 })); q.add(rim);
+    const gl = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 0.05), mat({ color: 0xffffff, unlit: 1 })); q.add(gl); const gl2 = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.07, 0.05), mat({ color: 0xffffff, unlit: 1 })); q.add(gl2);
+    return q;
+  });
+  g.position.copy(_fc); g.scale.setScalar(rr);
+  const [ball, rim, gl, gl2] = g.children; ball.rotation.set(0.3 * Math.sin(t * 0.4), t * 0.3, 0); ball.material.uniforms.uOff.value.set(t * 0.04, t * 0.06);
+  ball.material.uniforms.uSee.value = B.see ?? 0.58;   // see: clearer for a close lens (at 0.58 the dither turned him to mush from 2 m, the critic's catch)
+  camera.getWorldPosition(_fo); const toCam = _fo.sub(_fc).normalize(); rim.lookAt(camera.position); rim.position.set(0, 0, 0);
+  _fr.setFromMatrixColumn(camera.matrixWorld, 0); _fu.setFromMatrixColumn(camera.matrixWorld, 1);
+  gl.position.copy(toCam).multiplyScalar(0.9).addScaledVector(_fu, 0.42).addScaledVector(_fr, -0.36); gl.lookAt(camera.position);
+  gl2.position.copy(toCam).multiplyScalar(0.92).addScaledVector(_fu, 0.26).addScaledVector(_fr, -0.5); gl2.lookAt(camera.position);
+}
+function mothOut(D, k) {   // a dusky moth flutters out of the open wallet, up his right side (across his face it read as a plank), dark against the lit shop window
+  if (!D.walletAt || k > 1.6) return;
+  const g = faceProp(D, 'moth', () => { const q = new THREE.Group(), m = mat({ color: 0x6a6258 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 0.08), mat({ color: 0x2a2620 }))); for (const sd of [-1, 1]) { const w = new THREE.Group(), p = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.012, 0.08), m); p.position.x = sd * 0.05; w.add(p); q.add(w); } return q; });
+  const s = D.curScale || D.scale || 1; _fr.setFromMatrixColumn(camera.matrixWorld, 0); camera.getWorldPosition(_fc).sub(D.walletAt).normalize();   // up and off to the screen's right, never across his face
+  g.position.copy(D.walletAt).addScaledVector(_fr, (0.5 + 0.35 * k) * s).addScaledVector(_fc, 0.1 * s).add(_fo.set(0.05 * Math.sin(k * 9), (0.08 + 0.55 * k) * s, 0)); g.scale.setScalar(s * 2.2);
+  const f = Math.sin(k * 55); g.children[1].rotation.z = 0.9 * f; g.children[2].rotation.z = -0.9 * f; g.rotation.set(0.3, k * 2, 0);
+}
+function splashAt(D, to, k) {   // a tossed prop hits the water: a white ring spreading and droplets thrown up
+  if (k < 0 || k > 0.7) return;
+  const g = faceProp(D, 'splash', () => { const q = new THREE.Group(), m = mat({ color: 0xf4f8ff, unlit: 1 }); for (let i = 0; i < 22; i++) q.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), m)); return q; });
+  g.position.set(to[0], to[1], to[2]);
+  g.children.forEach((b, i) => {
+    if (i < 12) { const a = i / 12 * Math.PI * 2, rr = 0.12 + k * 1.3; b.position.set(Math.cos(a) * rr, 0.02, Math.sin(a) * rr); b.scale.set(0.13, 0.04, 0.13).multiplyScalar(Math.max(0.05, 1 - k / 0.7)); }
+    else { const a = (i - 12) / 10 * Math.PI * 2, v = 2.4 + 0.8 * ((i * 7) % 3); b.position.set(Math.cos(a) * 0.15 * (1 + k * 2), v * k - 4.9 * k * k, Math.sin(a) * 0.15 * (1 + k * 2)); b.scale.setScalar(Math.max(0.01, 0.09 * (1 - k / 0.7))); }
+  });
 }
 // The held plug's cable: a thick black run from the paw to where it goes into the booth (`cable: [x, y, z]`)
 function plugCable(D, to) {
@@ -1206,6 +1306,11 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
     if (A.ride === 'duck') rideDuck(D, bodyYaw + A.rideYaw, A.rideY != null ? A.rideY + 0.15 + bob : lift, t);   // rideY: the float's base (standing in the ring, legs in the water)
     if (A.hat && (A.hatFrom == null || t - t0 >= A.hatFrom) && D.head) wearHat(D, A.hat, bodyYaw, A.hatY);
+    if (A.gum && D.head) blowGum(D, A.gum, t - t0, t);
+    if (A.splat != null && t - t0 >= A.splat && D.head) gumSplat(D);
+    if (A.buds != null && A.buds !== false && (A.buds === true || t - t0 >= A.buds) && D.head) earbuds(D);
+    if (A.bubble) dreamBubble(D, A.bubble, t - t0, t);
+    if (A.moth != null && t - t0 >= A.moth) mothOut(D, t - t0 - A.moth);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
   window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics

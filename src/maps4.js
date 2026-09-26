@@ -253,6 +253,25 @@ export function buildSeaMaps(K) {
     // pigeons pecking on the beat behind Saxo, and a red balloon drifting up
     const pigeons = []; for (let i = 0; i < 7; i++) { const p = new THREE.Group(), pm = mat({ color: 0xc8ccd8 }); p.add(at(box(0.18, 0.16, 0.3, pm), 0, 0.12, 0)); p.add(at(box(0.11, 0.11, 0.11, mat({ color: 0x6a8a9a })), 0, 0.25, 0.15)); p.add(at(box(0.04, 0.04, 0.06, mat({ color: 0xe8a040 })), 0, 0.24, 0.23)); G.add(rot(at(p, (i - 3) * 1.1, 0, -5 - (i % 3) * 0.8), 0, hash(i, 442) * TAU, 0)); pigeons.push([p, i]); }
     const balloon = new THREE.Group(); balloon.add(at(sph(0.38, 8, 6, mat({ color: 0xe8222a })), 0, 0, 0)); balloon.add(at(box(0.02, 1.2, 0.02, mat({ color: 0xeeeeee })), 0, -0.95, 0)); G.add(balloon);
+    // flag `boutique` ("Dans ma bulle", 2026-09-27: the lyric strolls down the avenue Montaigne): a luxury shopfront standing
+    // on the esplanade's left, facing +x (its face at x = -6.5, the door at z = -2): a black facade, a gold MAISON sign, two
+    // lit windows of bags and shoes, a dark glass door under a black awning, a red carpet, brass posts and a velvet rope, a
+    // topiary each side and the blue enamel street plaque on the corner. Hidden unless a shot sets the flag.
+    const btq = new THREE.Group(), gold = mat({ color: 0xd8b04a }), faceX = -6.5, BZ = -2;
+    btq.add(at(box(0.4, 4.6, 7.0, mat({ color: 0x16161c })), faceX - 0.2, 2.3, BZ));
+    const signT = tex(64, 12, x => { px(x, "#101014", 0, 0, 64, 12); px(x, "#d8b04a", 0, 0, 64, 1); px(x, "#d8b04a", 0, 11, 64, 1); x.fillStyle = "#e8c860"; x.font = "bold 9px serif"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("M A I S O N", 32, 6.5); });
+    btq.add(rot(at(new THREE.Mesh(new THREE.PlaneGeometry(4.2, 0.8), mat({ map: signT, unlit: 0.85 })), faceX + 0.03, 3.85, BZ), 0, PI / 2, 0));
+    const winT = tex(16, 16, x => { px(x, "rgba(255,226,180,0.8)", 0, 0, 16, 16); px(x, "rgba(255,244,220,0.8)", 0, 12, 16, 4); px(x, "#b8242a", 2, 7, 4, 4); px(x, "#6a3a22", 3, 6, 2, 1); px(x, "#1a1a1e", 9, 5, 5, 6); px(x, "#d8b04a", 10, 4, 3, 1); px(x, "#e84a8a", 5, 12, 3, 2); px(x, "#1a1a1e", 11, 12, 3, 2); selfLit(x, 16, 16); });
+    for (const dz of [-2.25, 2.25]) { btq.add(rot(at(new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.3), mat({ map: winT })), faceX + 0.02, 1.45, BZ + dz), 0, PI / 2, 0)); btq.add(at(box(0.08, 2.5, 0.1, gold), faceX + 0.04, 1.45, BZ + dz - 1.2)); btq.add(at(box(0.08, 2.5, 0.1, gold), faceX + 0.04, 1.45, BZ + dz + 1.2)); btq.add(at(box(0.08, 0.1, 2.5, gold), faceX + 0.04, 2.65, BZ + dz)); }
+    btq.add(at(box(0.06, 2.5, 1.3, mat({ color: 0x1a1e2a })), faceX + 0.03, 1.25, BZ)); btq.add(at(box(0.08, 2.6, 0.08, gold), faceX + 0.05, 1.3, BZ - 0.68)); btq.add(at(box(0.08, 2.6, 0.08, gold), faceX + 0.05, 1.3, BZ + 0.68)); btq.add(at(box(0.08, 0.08, 1.44, gold), faceX + 0.05, 2.58, BZ));
+    btq.add(at(box(1.2, 0.12, 1.8, mat({ color: 0x101014 })), faceX + 0.6, 2.95, BZ)); btq.add(at(box(1.22, 0.05, 1.82, gold), faceX + 0.6, 2.88, BZ));
+    btq.add(flat(3.2, 1.3, mat({ color: 0xb8182a }), faceX + 1.6, 0.012, BZ));
+    for (const dz of [-0.95, 0.95]) { const post = new THREE.Group(); post.add(at(cyl(0.035, 0.035, 0.85, 6, gold), 0, 0.42, 0)); post.add(at(sph(0.06, 6, 4, gold), 0, 0.88, 0)); post.add(at(cyl(0.14, 0.16, 0.05, 8, gold), 0, 0.025, 0)); btq.add(at(post, faceX + 1.9, 0, BZ + dz)); }
+    btq.add(at(box(0.05, 0.05, 1.9, mat({ color: 0xa8142a })), faceX + 1.9, 0.72, BZ));
+    for (const dz of [-3.3, 3.3]) { btq.add(at(box(0.7, 0.6, 0.7, mat({ color: 0x2a2a30 })), faceX + 0.5, 0.3, BZ + dz)); btq.add(at(sph(0.45, 8, 6, mat({ color: 0x2a6a3a })), faceX + 0.5, 1.05, BZ + dz)); }
+    const plaqueT = tex(48, 20, x => { px(x, "#2e7a4a", 0, 0, 48, 20); px(x, "#1a2a78", 2, 2, 44, 16); x.fillStyle = "#ffffff"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = "bold 4px sans-serif"; x.fillText("8e Arrt", 24, 5); x.font = "bold 5px sans-serif"; x.fillText("AVENUE", 24, 10); x.fillText("MONTAIGNE", 24, 15); });
+    btq.add(rot(at(new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.58), mat({ map: plaqueT, unlit: 0.5 })), faceX + 0.03, 3.1, BZ + 3.05), 0, PI / 2, 0));
+    G.add(btq);
     // flag `jet` ([x0, y0, z0, x1, y1, z1] over the shot, "Voyage Voyage"): our airliner flying over Paris, nose first
     const jet = jetModel(k); jet.scale.setScalar(1.0); G.add(jet); const jv = new THREE.Vector3();
 
@@ -261,7 +280,7 @@ export function buildSeaMaps(K) {
       light() { lights(0x7a7498, 0xffb888, [-0.5, -0.5, 0.6], 0x5a5a88, [60, 260], 9); lampPos.forEach(([x, z], i) => pt(i, x, 4, z, 1.4, 1.1, 0.6)); },
       anim(t, P = {}) {
         const n = Math.floor(t * 10), b = barHit(t), h = hit(t);
-        jet.visible = !!P.jet;
+        jet.visible = !!P.jet; btq.visible = !!P.boutique;
         if (P.jet) { const [x0, y0, z0, x1, y1, z1] = P.jet, u = Math.max(0, Math.min(1, (t - P.t0) / Math.max(0.1, P.t1 - P.t0))); jet.position.set(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, z0 + (z1 - z0) * u); jv.set(x1 - x0, y1 - y0, z1 - z0); jet.rotation.set(0, Math.atan2(-jv.x, -jv.z), 0); jet.rotateX(Math.atan2(jv.y, Math.hypot(jv.x, jv.z))); jet.rotateZ(-0.12); (jet.userData.fans || []).forEach(f => { f.rotation.z = t * 31; }); }
         spk.forEach(([s, i]) => { s.visible = hash(i, n) < 0.12 + 0.55 * b; });
         beacon.rotation.y = t * 0.7;
