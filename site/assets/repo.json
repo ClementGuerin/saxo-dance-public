@@ -1,33 +1,33 @@
 {
- "updated": "2026-09-26T04:03:31.618Z",
+ "updated": "2026-09-26T07:12:43.963Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-26T02:09:10Z",
- "commits": 30,
- "files": 266,
- "loc": 9689,
+ "pushedAt": "2026-09-26T06:22:02Z",
+ "commits": 32,
+ "files": 271,
+ "loc": 10215,
  "languages": [
   {
    "name": "JavaScript",
-   "pct": 81.2,
+   "pct": 79.8,
    "color": "#f1e05a"
   },
   {
    "name": "Python",
-   "pct": 13.4,
+   "pct": 15.2,
    "color": "#3572a5"
   },
   {
    "name": "CSS",
-   "pct": 4.1,
+   "pct": 3.8,
    "color": "#663399"
   },
   {
    "name": "HTML",
-   "pct": 1.3,
+   "pct": 1.2,
    "color": "#e34c26"
   }
  ],
@@ -75,8 +75,8 @@
  ],
  "counts": {
   "characters": 4,
-  "looks": 42,
-  "maps": 35,
+  "looks": 44,
+  "maps": 36,
   "clips": 467,
   "videos": 4,
   "perDay": 4

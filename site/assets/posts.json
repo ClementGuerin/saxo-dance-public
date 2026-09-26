@@ -1,6 +1,40 @@
 {
- "updated": "2026-09-26T04:03:25.912Z",
+ "updated": "2026-09-26T07:12:37.412Z",
  "posts": [
+  {
+   "id": "2026-09-26-2",
+   "title": "Voyage Voyage (Techno)",
+   "artist": "Hyper Duck",
+   "date": "2026-09-26T04:03:08.646Z",
+   "thumb": "assets/posts/2026-09-26-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689720053436091681",
+     "id": "7689720053436091681"
+    }
+   }
+  },
+  {
+   "id": "2026-09-25-3",
+   "title": "99 Luftballons",
+   "artist": "Snoblack",
+   "date": "2026-09-25T21:35:04.051Z",
+   "thumb": "assets/posts/2026-09-25-3.jpg",
+   "links": {
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/GcsJrQ8j3ww",
+     "id": "GcsJrQ8j3ww"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689720053436091681",
+     "id": "7689720053436091681"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdvV6PuicfW/",
+     "id": "DdvV6PuicfW"
+    }
+   }
+  },
   {
    "id": "2026-09-25-2",
    "title": "Dans le club",

@@ -14,6 +14,7 @@ import { buildClubMaps } from './maps5.js';
 import { buildTechnoMaps } from './maps6.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
+import { buildDieYoungMaps } from './maps9.js';
 import { mapKit } from './mapkit.js';
 
 const RW = CONFIG.ps1.w, RH = CONFIG.ps1.h;
@@ -596,7 +597,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   michou: 'assets/models/saxo_michou.glb',   // white tux with black satin lapels and black shades ("Dans le club", 2026-09-25)
   nena: 'assets/models/saxo_nena.glb',      // Nena's 1983 look: shaggy dark 80s hair, shiny black quilted vest, white shirt, jeans ("99 Luftballons", 2026-09-25)
   pirate: 'assets/models/saxo_pirate.glb',   // the pirate captain: tricorn over a red bandana, short beaded dreadlocks, kohl, linen shirt, waistcoat, red sash ("He's A Pirate", 2026-09-26)
-  tourist: 'assets/models/saxo_tourist.glb' };   // the tourist: turquoise hibiscus shirt, orange travel neck pillow, red instant camera, khaki cargo shorts ("Voyage Voyage", 2026-09-26)
+  tourist: 'assets/models/saxo_tourist.glb',   // the tourist: turquoise hibiscus shirt, orange travel neck pillow, red instant camera, khaki cargo shorts ("Voyage Voyage", 2026-09-26)
+  kesha: 'assets/models/saxo_kesha.glb' };   // the pop-star disguise: messy platinum shag wig, eyeliner, gold glitter, red lips, studded black biker jacket, chains ("Die Young", 2026-09-26)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -612,7 +614,8 @@ const PARTNERS = {
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
     popstar: 'assets/models/kob_popstar.glb', beach: 'assets/models/kob_beach.glb', ninja: 'assets/models/kob_ninja.glb', witch: 'assets/models/kob_witch.glb', chef: 'assets/models/kob_chef.glb', poop: 'assets/models/kob_poop.glb', moto: 'assets/models/kob_moto.glb',
-    pyjama: 'assets/models/kob_pyjama.glb' },
+    pyjama: 'assets/models/kob_pyjama.glb',
+    bartender: 'assets/models/kob_bartender.glb' },   // the bartender: white shirt, sleeves rolled, black waistcoat and bow tie, her bell collar ("Die Young")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
   compote: { scale: 0.92, models: { compote: 'assets/models/compote_base.glb', astronaut: 'assets/models/compote_astronaut.glb', cowgirl: 'assets/models/compote_cowgirl.glb',
@@ -703,7 +706,7 @@ if (tripo && EP) for (const sh of EP.shots) if (sh.crowd) {
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT) };
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -1041,7 +1044,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     const bodyYaw = yaw + fyaw;
     const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
-    if (A.holdL) holdProp(D, A.holdL, 'L', bodyYaw, t);
+    if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, t - t0);
     if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
