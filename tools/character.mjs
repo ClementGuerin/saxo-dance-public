@@ -22,7 +22,7 @@ import { basename, dirname, join } from 'node:path';
 const [cmd, name, costume] = process.argv.slice(2).filter(a => !a.startsWith('--'));
 const opt = Object.fromEntries(process.argv.slice(2).filter(a => a.startsWith('--')).map(a => { const [k, ...v] = a.slice(2).split('='); return [k, v.join('=') || true]; }));
 const ROOT = new URL('..', import.meta.url).pathname;
-const PUB = 'https://pub-<bucket-id>.r2.dev';
+const PUB = 'https://pub-bd50aac4efd94178aad61b4c08be841d.r2.dev';
 const run = (bin, args, o = {}) => execFileSync(bin, args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26, ...o });
 const die = m => { console.error(m); process.exit(1); };
 const today = new Date().toISOString().slice(0, 10);
@@ -33,7 +33,7 @@ const spend = (item, extra) => appendFileSync(join(ROOT, 'research/spend.jsonl')
 function publish(file) {
   const env = Object.fromEntries(readFileSync(`${process.env.HOME}/.saxo-r2.env`, 'utf8').split('\n').filter(l => l.includes('=')).map(l => l.split(/=(.*)/s).slice(0, 2)));
   const key = `ref/chars/${name}/${file.replace(/^assets\/ref\//, '').replace(/\//g, '_')}`;
-  run('aws', ['s3', 'cp', file, `s3://saxo-media/${key}`, '--endpoint-url', `https://${env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`, '--only-show-errors'],
+  run('aws', ['s3', 'cp', file, `s3://saxo-dance/${key}`, '--endpoint-url', `https://${env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`, '--only-show-errors'],
     { env: { ...process.env, AWS_ACCESS_KEY_ID: env.CLOUDFLARE_ACCESS_KEY, AWS_SECRET_ACCESS_KEY: env.CLOUDFLARE_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION: 'auto' } });
   return `${PUB}/${key}`;
 }
