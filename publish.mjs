@@ -9,11 +9,12 @@
 // hashtags), --only=tiktok,instagram,youtube,x, --via=postiz (send everything through Postiz instead), --rev=<commit> (only for
 // an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
 // --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below),
-// --sound="<title>" (an official-sound cut's TikTok sound, named in the Discord message below).
+// --sound="<title>" --uses=<count> (an official-sound cut's TikTok sound as the app lists it, and how many videos use it).
 //
-// A TikTok sent through Postiz lands in the TikTok app's inbox, where only the user can publish it, so they get a
-// Discord message once it's there (tools/notify.mjs; the user, 2026-09-26). For an official-sound cut (an episode
-// `<id>-tt`, made when TikTok muted the post) it says which sound to add and which muted post to delete.
+// A TikTok sent through Postiz lands in the TikTok app's inbox, where only the user can publish it, so they get two
+// Discord messages once it's there (tools/notify.mjs; the user, 2026-09-26): a short one (the song; for an
+// official-sound cut, an episode `<id>-tt` made when TikTok muted the post, the sound to add with its number of uses,
+// so the right one is quick to spot, and the muted post to delete), then the TikTok description alone, to copy.
 //
 // YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, never inside a lyric line): it blocks worldwide any Short
 // over 60 s with a Content ID claim, and every label-owned song gets one. TikTok, Instagram and X get the full render.
@@ -225,18 +226,21 @@ function mutedPostUrl(ep) {   // the muted TikTok an official-sound cut replaces
       .sort((a, b) => Date.parse(b.live) - Date.parse(a.live))[0]?.url ?? null;
   } catch { return null; }
 }
-function inboxMessage() {
-  if (!episode?.endsWith('-tt')) return `A new TikTok of ${song} is in your inbox: publish it from the TikTok app within 24 h.`;
+const compact = n => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(n);
+function inboxMessages() {   // [the short message, the description to copy]
+  const head = `TikTok ready in your inbox: ${song}`;
+  if (!episode?.endsWith('-tt')) return [head, caption.tiktok];
+  const sound = typeof args.sound === 'string' ? args.sound : song;
+  const uses = [args.uses, EP?.tiktok_sound?.videos, EP?.song?.tiktok_sound?.videos].find(u => u !== undefined && u !== true);
   const muted = mutedPostUrl(episode.replace(/-tt$/, ''));
-  return `The new TikTok of ${song} is in your inbox, cut for the song's official TikTok sound.\n` +
-    `In the TikTok app: add the sound ${typeof args.sound === 'string' ? `"${args.sound}"` : "(the song's official one)"}, publish it ` +
-    `within 24 h, then delete the muted post${muted ? `: ${muted}` : '.'}`;
+  return [[head, `Sound: ${sound}${uses ? ` · ${/^\d+$/.test(uses) ? compact(+uses) : uses} uses` : ''}`,
+    ...(muted ? [`Then delete the muted post: ${muted}`] : [])].join('\n'), caption.tiktok];
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
 for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
 if (args['dry-run']) {
-  if (inbox) console.log(`\n[discord, once it's in the inbox]\n${inboxMessage()}`);
+  if (inbox) console.log(`\n[discord, once it's in the inbox: 2 messages]\n${inboxMessages().join('\n---\n')}`);
   console.log('\n--dry-run: nothing sent.');
   process.exit(0);
 }
@@ -258,6 +262,6 @@ if (type !== 'draft' && Object.values(runs).some(Boolean)) {
 }
 if (inbox && runs.postiz && !failed.includes('tiktok') && !failed.includes('postiz')) {
   console.log('\nTikTok via Postiz: the video is in the TikTok app inbox. Open it within 24 h and post it public.');
-  console.log((await notify(inboxMessage())) ? 'discord: the user was messaged' : 'discord: not sent (see above): tell the user another way');
+  console.log((await notify(...inboxMessages())) ? 'discord: the user was messaged' : 'discord: not sent (see above): tell the user another way');
 }
 if (failed.length) process.exit(1);

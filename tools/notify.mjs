@@ -2,9 +2,11 @@
 // on Discord when a published video has a problem, muted or blocked, and when its new version is in the TikTok inbox).
 //
 //   node tools/notify.mjs "<text>"                       # send it; exit 1 when it couldn't
-//   import { notify } from './notify.mjs'; await notify(text)   // true once sent, false otherwise (never throws)
+//   import { notify } from './notify.mjs'; await notify(text[, text2…])   // true once all sent, false otherwise (never throws)
 //
-// Callers: tools/post_check.mjs (a post found muted or blocked) and publish.mjs (a TikTok inbox upload).
+// Callers: tools/post_check.mjs (a post found muted or blocked) and publish.mjs (a TikTok inbox upload: a short
+// message, then the TikTok description on its own, to copy). Only what matters goes here (the user, 2026-09-26: "do
+// not spam me with Discord, it's only for important messages").
 // The bot is the Discord channel plugin's: its token is DISCORD_BOT_TOKEN in the environment, else in
 // ~/.claude/channels/discord/.env; the user is DISCORD_USER_ID, else the first paired account in that folder's
 // access.json. It goes through Discord's REST API (open the DM channel, post), not the gateway, so it works whether or
@@ -39,14 +41,16 @@ async function post(token, route, body) {
   return r.json();
 }
 
-export async function notify(text) {
-  if (process.env.SAXO_NOTIFY === '0') { console.warn(`discord: off (SAXO_NOTIFY=0), not sent:\n${text}`); return false; }
+export async function notify(...texts) {
+  if (process.env.SAXO_NOTIFY === '0') { console.warn(`discord: off (SAXO_NOTIFY=0), not sent:\n${texts.join('\n---\n')}`); return false; }
   const token = botToken(), user = userId();
   if (!token || !user) { console.warn(`discord: not sent: ${token ? 'no paired Discord account' : 'no bot token'}`); return false; }
-  const content = text.length <= MAX_LENGTH ? text : text.slice(0, MAX_LENGTH - 1) + '…';
   try {
     const dm = await post(token, '/users/@me/channels', { recipient_id: user });
-    await post(token, `/channels/${dm.id}/messages`, { content, allowed_mentions: { parse: [] } });
+    for (const text of texts) {   // one message each, in order
+      const content = text.length <= MAX_LENGTH ? text : text.slice(0, MAX_LENGTH - 1) + '…';
+      await post(token, `/channels/${dm.id}/messages`, { content, allowed_mentions: { parse: [] } });
+    }
     return true;
   } catch (e) {
     console.warn(`discord: not sent: ${e.message}`);
