@@ -1,6 +1,31 @@
 {
- "updated": "2026-09-26T09:21:04.549Z",
+ "updated": "2026-09-26T10:14:21.459Z",
  "posts": [
+  {
+   "id": "2026-09-26",
+   "title": "He's A Pirate (Save Me)",
+   "artist": "Gabry Ponte, Steve Aoki, KEL",
+   "date": "2026-09-26T10:00:00.000Z",
+   "thumb": "assets/posts/2026-09-26.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689782428331805985",
+     "id": "7689782428331805985"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/zD7PY_qLTkw",
+     "id": "zD7PY_qLTkw"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdvxSQfFaYx/",
+     "id": "DdvxSQfFaYx"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103787006383829462",
+     "id": "2103787006383829462"
+    }
+   }
+  },
   {
    "id": "2026-09-25-3",
    "title": "99 Luftballons",

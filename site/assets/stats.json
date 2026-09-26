@@ -1,25 +1,25 @@
 {
- "updated": "2026-09-26T10:11:19.989Z",
+ "updated": "2026-09-26T10:14:28.469Z",
  "snapshot": "2026-09-25T23:18:40.818Z",
  "live": {
   "tiktok": true,
   "youtube": true
  },
  "totals": {
-  "views": 4787,
+  "views": 4790,
   "likes": 83,
   "comments": 3,
   "shares": 3,
   "followers": 9,
-  "videos": 5
+  "videos": 6
  },
  "platforms": {
   "tiktok": {
-   "views": 1563,
+   "views": 1565,
    "likes": 46,
    "comments": 1,
    "shares": 3,
-   "posts": 5,
+   "posts": 6,
    "followers": 4
   },
   "instagram": {
@@ -27,22 +27,56 @@
    "likes": 7,
    "comments": 2,
    "shares": 0,
-   "posts": 5,
+   "posts": 6,
    "followers": null
   },
   "youtube": {
-   "views": 2848,
+   "views": 2849,
    "likes": 30,
    "comments": 0,
    "shares": 0,
-   "posts": 5,
+   "posts": 6,
    "followers": 5
   },
   "x": {
-   "posts": 5
+   "posts": 6
   }
  },
  "videos": [
+  {
+   "id": "2026-09-26",
+   "title": "He's A Pirate (Save Me)",
+   "artist": "Gabry Ponte, Steve Aoki, KEL",
+   "date": "2026-09-26T10:00:00.000Z",
+   "thumb": "assets/posts/2026-09-26.jpg",
+   "nets": [
+    "tiktok",
+    "youtube",
+    "instagram",
+    "x"
+   ],
+   "views": 2,
+   "by": {
+    "tiktok": {
+     "views": 2,
+     "likes": null,
+     "comments": null,
+     "shares": null
+    },
+    "instagram": {
+     "views": null,
+     "likes": null,
+     "comments": null,
+     "shares": null
+    },
+    "youtube": {
+     "views": null,
+     "likes": null,
+     "comments": null,
+     "shares": null
+    }
+   }
+  },
   {
    "id": "2026-09-25-3",
    "title": "99 Luftballons",
@@ -55,7 +89,7 @@
     "instagram",
     "x"
    ],
-   "views": 263,
+   "views": 264,
    "by": {
     "tiktok": {
      "views": 259,
@@ -70,7 +104,7 @@
      "shares": null
     },
     "youtube": {
-     "views": 4,
+     "views": 5,
      "likes": null,
      "comments": null,
      "shares": null
@@ -232,8 +266,8 @@
    "views": 4147
   },
   {
-   "at": "2026-09-26T10:11:19.989Z",
-   "views": 4787
+   "at": "2026-09-26T10:14:28.469Z",
+   "views": 4790
   }
  ],
  "site": {

@@ -1,14 +1,14 @@
 {
- "updated": "2026-09-26T09:21:11.784Z",
+ "updated": "2026-09-26T10:14:27.563Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-26T09:06:54Z",
- "commits": 37,
- "files": 283,
- "loc": 11111,
+ "pushedAt": "2026-09-26T09:23:40Z",
+ "commits": 38,
+ "files": 282,
+ "loc": 11120,
  "languages": [
   {
    "name": "JavaScript",
@@ -32,6 +32,14 @@
   }
  ],
  "latest": [
+  {
+   "sha": "9db779e",
+   "type": "fix",
+   "scope": "site",
+   "text": "list a video on Saxo TV only once its slot has passed, and show X",
+   "date": "2026-09-26T09:23:39Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/9db779e7aeabb68a2fbaed981b344aead4e35f9b"
+  },
   {
    "sha": "adba2c3",
    "type": "feat",
@@ -63,14 +71,6 @@
    "text": "dutch roll, handheld, steady and keyframed camera paths; @ratoshidance camera analysis and an A/B test cut",
    "date": "2026-09-26T08:42:36Z",
    "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/0e10564e52a495842c54f9a28bdf65e12f6f5062"
-  },
-  {
-   "sha": "7735e0e",
-   "type": "feat",
-   "scope": "episode",
-   "text": "Die Young, the golden carrot part 2 in a desert chapel club",
-   "date": "2026-09-26T07:15:33Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/7735e0ecc0f84dd8ab8d6d102a80ac6efec587db"
   }
  ],
  "counts": {
@@ -78,7 +78,7 @@
   "looks": 46,
   "maps": 38,
   "clips": 467,
-  "videos": 6,
+  "videos": 5,
   "perDay": 4
  }
 }
