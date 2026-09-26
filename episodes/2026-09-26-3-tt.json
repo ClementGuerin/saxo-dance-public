@@ -1,0 +1,2230 @@
+{
+ "date": "2026-09-26",
+ "logline": "Saxo sneaks Compote's stolen golden carrot past her own velvet rope disguised as the singer, holding it up like a microphone; the break's silence gives him away, he fakes a throw to get rid of her, and her uppercut lands on the last 'die'.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "chase",
+  "scenes": [
+   "fight"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "ref",
+  "maps": [
+   "village",
+   "chapel"
+  ],
+  "ref": "fake-throw",
+  "lyric_literal": "L00 tonight (the night party), L01 the hand (her stop paw) and wild (his diva kiss), L03 dancing, L04 the heart beat (the frame pounds as he runs), L06 arms (the surrender), L07 the fake throw on the refrain, L10 arms (arms up on stage), L14 die (the uppercut lands on it)",
+  "experiment": "Does a callback story (part 2 of the golden-carrot feud) with a live meme recreated in it (the fake throw) lift shares and rewatches over a standalone gag? (TikTok cut on the 60 s official sound, the story rotated: payoff first)"
+ },
+ "n": "3-tt",
+ "song": {
+  "title": "Die Young",
+  "artist": "Kesha",
+  "window": [
+   48.104,
+   108.104
+  ],
+  "bpm": 128,
+  "tiktok_sound": "7024143773030418434"
+ },
+ "new": [
+  "the story rotated onto the official sound: the payoff first (a seamless loop from the snatch into the uppercut), then an epilogue on verse 1 where Compote takes the stage with the golden carrot as her mic"
+ ],
+ "notes": "TikTok muted the main post (itemMute, 2026-09-26). The official sound (Ke$ha's own, 51k videos) is song 48.104-108.104 s, a different part of the song from the main cut (142.71-211.30 s), so this kit rotates the story on the bars where the same words come back (see the generator's header).",
+ "clips": [
+  "angry_forward_gesture",
+  "being_surprised_and_looking_right",
+  "bored_idle",
+  "boxing_dodge_advance",
+  "boxing_taunt",
+  "buckled_stand_and_praying",
+  "female_hip_hop_body_wave_dancing",
+  "female_hip_hop_raise_the_roof_dancing",
+  "happy_idle",
+  "happy_run",
+  "happy_walk",
+  "hip_hop_dancing_side_to_side",
+  "intercept_and_wave_to_stop",
+  "pitching_a_baseball",
+  "step_back_cautiously_agreeing"
+ ],
+ "shots": [
+  {
+   "beat": -2,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "booty_step",
+     "x": 0.2,
+     "z": -2.3,
+     "holdScale": 1.35,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.4
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": -0.65,
+     "z": -2.05,
+     "face": "world",
+     "yaw": 106.4,
+     "at": 3,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "L",
+     "aim": [
+      0.35,
+      0.4,
+      0.8
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "ang": [
+     5.53,
+     5.53
+    ],
+    "r": [
+     3.114,
+     3.114
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.2,
+    -2.2
+   ],
+   "part": -9.157,
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "uppercut_atk",
+     "x": -0.3,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0,
+     "speed": 0.8282,
+     "once": true,
+     "scale": 1.087,
+     "holdL": "gcarrot",
+     "holdScale": 1.35
+    }
+   ],
+   "cam": {
+    "ang": [
+     174.81,
+     174.81
+    ],
+    "r": [
+     2.209,
+     2.209
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.3,
+    -0.9
+   ],
+   "part": -8.219,
+   "key": [
+    -0.3,
+    2.2,
+    -2.4,
+    1.3,
+    1.2,
+    1.2
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 6,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "uppercut_atk",
+     "x": -0.3,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.776,
+     "speed": 0.8282,
+     "once": true,
+     "scale": 1.087,
+     "holdL": "gcarrot",
+     "holdScale": 1.35
+    },
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "uppercut_vic",
+     "x": -0.3,
+     "z": -1.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.776,
+     "speed": 0.8282,
+     "once": true,
+     "air": true
+    }
+   ],
+   "cam": {
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     5.6,
+     5.6
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.3,
+    -2.05
+   ],
+   "part": -8.219,
+   "key": [
+    2,
+    2.3,
+    -2,
+    1.3,
+    1.2,
+    1.2
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": -1.1,
+     "z": -2,
+     "face": "world",
+     "yaw": 55.6,
+     "at": 2,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "L",
+     "aim": [
+      0.6,
+      0.75,
+      0.25
+     ],
+     "upAt": 0.05
+    },
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "uppercut_vic",
+     "x": -0.3,
+     "z": -1.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 3.45,
+     "speed": 0,
+     "once": true
+    }
+   ],
+   "cam": {
+    "ang": [
+     42.71,
+     42.71
+    ],
+    "r": [
+     3.538,
+     3.538
+    ],
+    "h": [
+     2.6,
+     2.6
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -2.2
+   ],
+   "part": -8.219,
+   "key": [
+    1.2,
+    2.6,
+    -1.2,
+    1.2,
+    1.1,
+    1.1
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.5,
+     "z": -5.35,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "L",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "at": 3
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0.6,
+     "z": -5.45,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5
+    }
+   ],
+   "cam": {
+    "ang": [
+     1.56,
+     1.22
+    ],
+    "r": [
+     5.502,
+     4.701
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.05,
+    -5.2
+   ],
+   "confetti": 6.481,
+   "pit": true,
+   "stars": [
+    "compote",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.5,
+     "z": -5.35,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "L",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "at": 5
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": 0.6,
+     "z": -5.45,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 5.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     -19.09,
+     -14.04
+    ],
+    "r": [
+     4.127,
+     3.505
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.05,
+    -5.3
+   ],
+   "pit": true,
+   "stars": [
+    "compote",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "bored_idle",
+     "x": -5.2,
+     "z": 0.9,
+     "face": "world",
+     "yaw": 90,
+     "lift": 0.15,
+     "hold": "glass",
+     "at": 6
+    }
+   ],
+   "cam": {
+    "ang": [
+     78.11,
+     78.69
+    ],
+    "r": [
+     1.942,
+     1.785
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -5.2,
+    0.9
+   ],
+   "key": [
+    -3.7,
+    1.9,
+    0.9,
+    1.25,
+    1.15,
+    1.05
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.5,
+     "z": -5.35,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "L",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "at": 5
+    }
+   ],
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.35,
+     2.8
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.45,
+    -5.35
+   ],
+   "pit": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.5,
+     "z": -5.35,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "L",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "at": 1.5
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 0.6,
+     "z": -5.45,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2
+    }
+   ],
+   "cam": {
+    "ang": [
+     27.79,
+     27.79
+    ],
+    "r": [
+     4.182,
+     4.182
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.05,
+    -5.3
+   ],
+   "pit": true,
+   "stars": [
+    "compote",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": -0.5,
+     "z": -5.35,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "at": 1,
+     "arm": "L",
+     "aim": "up",
+     "upAt": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0.6,
+     "z": -5.45,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.6
+    }
+   ],
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.8,
+     4.4
+    ],
+    "h": [
+     1.55,
+     1.6
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.05,
+    -5.3
+   ],
+   "armsUp": [
+    16.325,
+    19.606
+   ],
+   "pit": true,
+   "stars": [
+    "compote",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_walk",
+     "x": 1.2,
+     "z": -6.1,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "mx": -0.25,
+     "mz": 0.75,
+     "speed": 1.4
+    }
+   ],
+   "cam": {
+    "ang": [
+     -49.94,
+     -51.01
+    ],
+    "r": [
+     2.874,
+     2.702
+    ],
+    "h": [
+     0.55,
+     0.56
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 52
+   },
+   "focus": [
+    1.15,
+    -6
+   ],
+   "carDoor": true,
+   "key": [
+    0.2,
+    1.6,
+    -5,
+    0.9,
+    0.8,
+    0.9
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": 1.55,
+     "z": -12.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 2
+    }
+   ],
+   "cam": {
+    "ang": [
+     -11,
+     -11.65
+    ],
+    "r": [
+     1.834,
+     1.634
+    ],
+    "h": [
+     1,
+     0.99
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 48
+   },
+   "focus": [
+    1.55,
+    -12.55
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 46,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_walk",
+     "x": 0.45,
+     "z": -8.3,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "mz": -1,
+     "speed": 1.3,
+     "face": "world",
+     "yaw": 180
+    }
+   ],
+   "cam": {
+    "ang": [
+     -160.2,
+     -160.2
+    ],
+    "r": [
+     2.657,
+     2.657
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.45,
+    -8.8
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -11.9,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "face": "world",
+     "yaw": 117.5
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "intercept_and_wave_to_stop",
+     "x": 1.55,
+     "z": -12.55,
+     "face": "world",
+     "yaw": -62.5,
+     "at": 0,
+     "speed": 0.57
+    }
+   ],
+   "cam": {
+    "ang": [
+     3.18,
+     3.18
+    ],
+    "r": [
+     3.606,
+     3.606
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.9,
+    -12.2
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "shimmy",
+     "x": 0.3,
+     "z": -11.9,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "face": "world",
+     "yaw": 117.5,
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "ang": [
+     125.94,
+     125.94
+    ],
+    "r": [
+     2.47,
+     2.47
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.35,
+    -11.9
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -11.9,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "face": "world",
+     "yaw": 117.5,
+     "at": 1
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "angry_forward_gesture",
+     "x": 1.45,
+     "z": -12.45,
+     "face": "world",
+     "yaw": -64.4,
+     "at": 0.2
+    }
+   ],
+   "cam": {
+    "ang": [
+     24.44,
+     24.44
+    ],
+    "r": [
+     3.021,
+     3.021
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.85,
+    -12.15
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "village",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_walk",
+     "x": 0.3,
+     "z": -11.9,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "mz": -1,
+     "speed": 1.3,
+     "face": "world",
+     "yaw": 180,
+     "moveAt": 0.35
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": 1.55,
+     "z": -12.55,
+     "face": "world",
+     "yaw": -62.5,
+     "at": 5,
+     "arm": "L",
+     "aim": [
+      0.8,
+      0.3,
+      0.5
+     ],
+     "upAt": 0.1
+    }
+   ],
+   "cam": {
+    "ang": [
+     -2.39,
+     -2.39
+    ],
+    "r": [
+     4.804,
+     4.804
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.65,
+    -12.9
+   ],
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -0.45,
+     "z": -1.2,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "arm": "R",
+     "aim": [
+      -0.14,
+      0.5,
+      0.86
+     ],
+     "upAt": 0,
+     "at": 2
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "female_hip_hop_body_wave_dancing",
+     "x": 0.55,
+     "z": -1.1,
+     "at": 1
+    }
+   ],
+   "cam": {
+    "ang": [
+     1.89,
+     1.96
+    ],
+    "r": [
+     9.105,
+     7.304
+    ],
+    "h": [
+     3.6,
+     2.3
+    ],
+    "look": [
+     1,
+     1.05
+    ],
+    "fov": 52,
+    "ease": "out"
+   },
+   "focus": [
+    0,
+    -1.3
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "angry_forward_gesture",
+     "x": 5.75,
+     "z": 3,
+     "face": "world",
+     "yaw": -124.1,
+     "at": 0.2,
+     "arm": "L",
+     "aim": [
+      0.72,
+      0.45,
+      0.52
+     ],
+     "upAt": 0.55
+    }
+   ],
+   "cam": {
+    "ang": [
+     -124.44,
+     -124.44
+    ],
+    "r": [
+     2.122,
+     2.122
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    5.75,
+    3
+   ],
+   "doorBright": true,
+   "look": [
+    5.75,
+    3
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_run",
+     "x": -0.3,
+     "z": -2.4,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "mz": 3.4,
+     "speed": 2.2,
+     "face": "world",
+     "yaw": 0
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_run",
+     "x": 0.2,
+     "z": -4.2,
+     "mz": 3.4,
+     "speed": 2.2,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.2,
+     5.2
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "half": true,
+   "jolt": true,
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "bored_idle",
+     "x": -5.2,
+     "z": 0.9,
+     "face": "world",
+     "yaw": 90,
+     "lift": 0.15,
+     "hold": "glass",
+     "at": 4,
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.3,
+      0.86
+     ],
+     "upAt": 0,
+     "wave": 0.12
+    }
+   ],
+   "cam": {
+    "ang": [
+     121.53,
+     121.53
+    ],
+    "r": [
+     2.581,
+     2.581
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -5.2,
+    0.9
+   ],
+   "half": true,
+   "key": [
+    -3.7,
+    1.9,
+    0.9,
+    1.25,
+    1.15,
+    1.05
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 78,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "bored_idle",
+     "x": -5.2,
+     "z": 0.9,
+     "face": "world",
+     "yaw": 90,
+     "lift": 0.15,
+     "hold": "glass",
+     "at": 5
+    },
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_run",
+     "x": -3.75,
+     "z": 1.7,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "mz": -2.8,
+     "speed": 2.6,
+     "face": "world",
+     "yaw": 180
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_run",
+     "x": -3.75,
+     "z": 3.1,
+     "mz": -2.8,
+     "speed": 2.6,
+     "face": "world",
+     "yaw": 180
+    }
+   ],
+   "cam": {
+    "ang": [
+     87.88,
+     87.88
+    ],
+    "r": [
+     5.404,
+     5.404
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -4.2,
+    0.9
+   ],
+   "half": true,
+   "key": [
+    -3.7,
+    1.9,
+    0.9,
+    1.25,
+    1.15,
+    1.05
+   ],
+   "stars": [
+    "kob",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_run",
+     "x": 1.1,
+     "z": -2.2,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "mx": -3.6,
+     "speed": 2.2,
+     "face": "world",
+     "yaw": -90
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_run",
+     "x": 2.4,
+     "z": -2.2,
+     "mx": -3.6,
+     "speed": 2.2,
+     "face": "world",
+     "yaw": -90
+    }
+   ],
+   "cam": {
+    "ang": [
+     2.12,
+     2.12
+    ],
+    "r": [
+     5.404,
+     5.404
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.2,
+    -2.2
+   ],
+   "half": true,
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "step_back_cautiously_agreeing",
+     "x": -1.55,
+     "z": -4.05,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "at": 0.4
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "boxing_dodge_advance",
+     "x": -0.183,
+     "z": -2.73,
+     "mx": -0.468,
+     "mz": -0.452,
+     "face": "world",
+     "yaw": -134
+    }
+   ],
+   "cam": {
+    "ang": [
+     -35.87,
+     -35.87
+    ],
+    "r": [
+     4.813,
+     4.813
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.98,
+    -3.5
+   ],
+   "half": true,
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "boxing_taunt",
+     "x": -0.651,
+     "z": -3.182,
+     "face": "world",
+     "yaw": -134,
+     "at": 0,
+     "arm": "both",
+     "aim": [
+      0.4,
+      0.2,
+      0.85
+     ],
+     "upAt": 0.1
+    }
+   ],
+   "cam": {
+    "ang": [
+     -134,
+     -134
+    ],
+    "r": [
+     2.149,
+     2.149
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.651,
+    -3.182
+   ],
+   "half": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "buckled_stand_and_praying",
+     "x": -1.55,
+     "z": -4.05,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "at": 0.2
+    }
+   ],
+   "cam": {
+    "ang": [
+     -6.12,
+     -6.12
+    ],
+    "r": [
+     2.816,
+     2.816
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.55,
+    -4.05
+   ],
+   "half": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "pitching_a_baseball",
+     "x": -1.55,
+     "z": -4.05,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "face": "world",
+     "yaw": 46,
+     "at": 0.4,
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.4,
+      0.85
+     ],
+     "upAt": 1.08,
+     "upEnd": 1.4
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "boxing_taunt",
+     "x": -0.736,
+     "z": -4.029,
+     "face": "world",
+     "yaw": -91.5,
+     "at": 0.6
+    }
+   ],
+   "cam": {
+    "ang": [
+     46,
+     46
+    ],
+    "r": [
+     3.6,
+     3.6
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.55,
+    -4.05
+   ],
+   "half": true,
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 99,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.736,
+     "z": -4.029,
+     "at": 0.25
+    }
+   ],
+   "cam": {
+    "ang": [
+     46,
+     46
+    ],
+    "r": [
+     1.9,
+     1.9
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.736,
+    -4.029
+   ],
+   "half": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_run",
+     "x": -0.736,
+     "z": -4.029,
+     "mx": 2.374,
+     "mz": 2.292,
+     "speed": 2.4,
+     "face": "world",
+     "yaw": 46
+    }
+   ],
+   "cam": {
+    "ang": [
+     -138.3,
+     -138.3
+    ],
+    "r": [
+     6.764,
+     6.764
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54
+   },
+   "focus": [
+    3,
+    0.6
+   ],
+   "half": true,
+   "doorBright": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 102,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_idle",
+     "x": -1.55,
+     "z": -4.05,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "at": 0.5,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.7,
+      0.5
+     ],
+     "upAt": 0.1
+    }
+   ],
+   "cam": {
+    "ang": [
+     -5.19,
+     -5.19
+    ],
+    "r": [
+     2.209,
+     2.209
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.55,
+    -4.05
+   ],
+   "half": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "bored_idle",
+     "x": -5.2,
+     "z": 0.9,
+     "face": "world",
+     "yaw": 79.1,
+     "lift": 0.15,
+     "at": 2,
+     "holdL": "glass",
+     "arm": "R",
+     "aim": [
+      0.86,
+      0.12,
+      0.5
+     ],
+     "upAt": 0.35
+    }
+   ],
+   "cam": {
+    "ang": [
+     72.26,
+     72.26
+    ],
+    "r": [
+     2.625,
+     2.625
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -5.2,
+    0.95
+   ],
+   "key": [
+    -3.7,
+    1.9,
+    0.9,
+    1.25,
+    1.15,
+    1.05
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "boxing_taunt",
+     "x": 5.75,
+     "z": 3,
+     "face": "world",
+     "yaw": -110,
+     "at": 0.2
+    }
+   ],
+   "cam": {
+    "ang": [
+     -111.5,
+     -111.16
+    ],
+    "r": [
+     7.094,
+     6.648
+    ],
+    "h": [
+     1.9,
+     1.85
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 52
+   },
+   "focus": [
+    5,
+    3
+   ],
+   "doorBright": true,
+   "look": [
+    5.75,
+    3
+   ],
+   "part": 51.781,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": -5.35,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 36.8,
+     "at": 0.3,
+     "speed": 0.2
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "happy_idle",
+     "x": 0.6,
+     "z": -5.45,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": 31.4,
+     "at": 1.2,
+     "speed": 0.2
+    }
+   ],
+   "cam": {
+    "ang": [
+     27.79,
+     27.79
+    ],
+    "r": [
+     4.182,
+     4.182
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.05,
+    -5.3
+   ],
+   "part": 51.781,
+   "look": [
+    5.75,
+    3
+   ],
+   "pit": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "boxing_dodge_advance",
+     "x": 2.4,
+     "z": 0.2,
+     "mx": -1.6,
+     "mz": -1.9,
+     "face": "world",
+     "yaw": -143.1,
+     "speed": 1.2
+    },
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.5,
+     "z": -5.35,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "lift": 0.6,
+     "at": 1.2,
+     "speed": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "rave",
+     "clip": "being_surprised_and_looking_right",
+     "x": 0.6,
+     "z": -5.45,
+     "lift": 0.6,
+     "face": "world",
+     "yaw": -20,
+     "at": 2
+    }
+   ],
+   "cam": {
+    "ang": [
+     26.16,
+     25.14
+    ],
+    "r": [
+     6.351,
+     5.413
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.9,
+    -3.4
+   ],
+   "part": 51.781,
+   "pit": true,
+   "look": [
+    -0.5,
+    -5.35
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.3,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "face": "world",
+     "yaw": -21.8,
+     "at": 0.6,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.25,
+      0.83
+     ],
+     "upAt": 0.2
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": -0.2,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 158.2,
+     "at": 1
+    }
+   ],
+   "cam": {
+    "ang": [
+     61.88,
+     61.88
+    ],
+    "r": [
+     3.288,
+     3.288
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.8
+   ],
+   "part": 51.781,
+   "stars": [
+    "saxo",
+    "compote"
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "chapel",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "kesha",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.3,
+     "hold": "gcarrot",
+     "holdScale": 1.35,
+     "face": "world",
+     "yaw": -21.8,
+     "at": 1.4,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.25,
+      0.83
+     ],
+     "upAt": 0,
+     "upEnd": 0.65,
+     "holdTo": 0.55
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "bored_idle",
+     "x": -0.2,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 158.2,
+     "at": 2,
+     "holdL": "gcarrot",
+     "holdScale": 1.35,
+     "holdFrom": 0.55,
+     "arm": "L",
+     "aim": [
+      0.15,
+      0.35,
+      0.9
+     ],
+     "upAt": 0.30000000000000004
+    }
+   ],
+   "cam": {
+    "ang": [
+     94.67,
+     94.67
+    ],
+    "r": [
+     2.458,
+     2.458
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.8
+   ],
+   "part": 51.781,
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  }
+ ]
+}
