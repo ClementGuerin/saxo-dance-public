@@ -1,0 +1,1788 @@
+{
+ "date": "2026-09-26",
+ "logline": "The pirate captain leaves Sadi tied up in the cursed grotto to steal its treasure, a golden carrot; the sea monster that rises to take it back is a 19-metre Compote. Sadi kisses him and chains him to the mast, Kob won't look up from her book, Compote roars in his face and takes her carrot... and he pulls out a second one.",
+ "new": [
+  "cave map (the cursed grotto: a rock dome, mounds of gold, the stone chest that opens, a skull, torches, the moon through its mouth)",
+  "pearl map (the black ship at night: tattered black sails, lanterns, a hammock, the chain round the mast, the lifeboat, the moon, splash/foam/wake/spray, the moon going dark and lightning)",
+  "giant actors (`scale`: a 16x Compote rising from the sea) with rise and sink (`my`), timed holds (`holdTo`), `holdScale`, `air`",
+  "props: golden carrot, book; materials without fog (`nofog`: the moon, the stars)",
+  "costumes: Saxo pirate (the captain), Sadi pirate"
+ ],
+ "notes": "The user's queue entry: don't follow the song's clip, do a Pirates of the Caribbean theme. The world is the films' (no names, no logos): the cursed treasure in a sea cave, a black ship with tattered sails, the captain's look (tricorn, bandana, beaded dreads, kohl), the heroine in pirate gear, a sea monster attack, the kiss that chains the hero to the mast, the monster's roar in his face. The song's chorus pleads to be saved: the first chorus is Sadi's plea he ignores, the last is his plea she ignores (the mirror is the payoff). Whole cast: Saxo (the captain, lead), Sadi (the romance and the reality check: she falls for the hero, then chains him), Compote (always angry, over a carrot: the monster; starts the Compote vs Saxo feud), Kob (the ship's cat in her pyjamas: never impressed, never moves, and snitches at the end).",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "scale",
+  "scenes": [],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "lyric",
+  "maps": [
+   "cave",
+   "pearl"
+  ],
+  "ref": "none",
+  "lyric_literal": "L00 Sadi's plea (tied up), L02 he walks past her again, L03 away with the treasure, L05 together (the kiss), L06 dark then light (the moon out, the lightning), L07-L08 his plea (chained), L10 away (she sinks with it)",
+  "experiment": "Does a scale spectacle (a 19-metre Compote rising from the sea on the drop) and a film parody lift shares compared to our human-scale gags? (TikTok cut on the 60 s official sound, the story rotated: climax first)"
+ },
+ "n": "1-tt",
+ "song": {
+  "title": "He's A Pirate (Save Me)",
+  "artist": "Gabry Ponte, Steve Aoki, KEL",
+  "window": [
+   43.021,
+   103.021
+  ],
+  "bpm": 144,
+  "tiktok_sound": "7397314274513930256"
+ },
+ "clips": [
+  "being_terrified_while_standing",
+  "big_vegas_pointing_gesture",
+  "blowing_a_kiss",
+  "bored_idle",
+  "disappointed_awe_shucks",
+  "gaming",
+  "happy_idle",
+  "happy_walk",
+  "hip_hop_dancing_side_to_side",
+  "jumping_down_over_a_railing",
+  "long_yell_leaning_forward",
+  "long_yell_while_standing_leaning_back",
+  "pointing_while_seated",
+  "quickly_pointing_angrily_forward",
+  "short_yell_while_standing",
+  "silly_run",
+  "standing_praying_while_swaying",
+  "waving_with_both_hands",
+  "yelling_in_anger"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "quickly_pointing_angrily_forward",
+     "x": -16,
+     "z": -4,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "arm": "R",
+     "aim": [
+      0.15,
+      0.55,
+      0.82
+     ],
+     "upAt": 0.1
+    }
+   ],
+   "cam": {
+    "ang": [
+     95.55,
+     95.48
+    ],
+    "r": [
+     17.582,
+     17.279
+    ],
+    "h": [
+     2.6,
+     2.6
+    ],
+    "look": [
+     3.6,
+     3.6
+    ],
+    "fov": 55
+   },
+   "focus": [
+    -13,
+    -4.2
+   ],
+   "stars": [
+    "compote"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "shuffle",
+     "x": -2.2,
+     "z": -3.4,
+     "face": "camera",
+     "hold": "gcarrot"
+    },
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "jumping_down_over_a_railing",
+     "x": -3.75,
+     "z": -2.75,
+     "mx": 0.75,
+     "at": 0.5,
+     "face": "world",
+     "yaw": 95,
+     "air": true
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "yelling_in_anger",
+     "x": -16,
+     "z": -4,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 4
+    }
+   ],
+   "cam": {
+    "ang": [
+     66.28,
+     66.28
+    ],
+    "r": [
+     3.605,
+     3.605
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -2.7,
+    -3.05
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "gaming",
+     "x": 2.85,
+     "z": -0.4,
+     "lift": 0.41000000000000003,
+     "face": "world",
+     "yaw": 90,
+     "hold": "book"
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "yelling_in_anger",
+     "x": -16,
+     "z": -4,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 2
+    }
+   ],
+   "cam": {
+    "ang": [
+     79.05,
+     79.11
+    ],
+    "r": [
+     9.473,
+     9.267
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     2.5,
+     2.5
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -4,
+    -1.7
+   ],
+   "stars": [
+    "kob"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -1.2,
+     "z": -7.1,
+     "face": "camera",
+     "hold": "gcarrot"
+    },
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "hip_hop_dancing_side_to_side",
+     "x": -1.2,
+     "z": -5.9,
+     "face": "camera",
+     "at": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "yelling_in_anger",
+     "x": -16,
+     "z": -4,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 5
+    }
+   ],
+   "cam": {
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     4,
+     3.7
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -1.2,
+    -6.5
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "yelling_in_anger",
+     "x": -9.5,
+     "z": -4.5,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 1,
+     "arm": "both",
+     "aim": [
+      0,
+      0.54,
+      0.84
+     ],
+     "upAt": 0.15
+    }
+   ],
+   "cam": {
+    "ang": [
+     95.96,
+     95.8
+    ],
+    "r": [
+     33.682,
+     32.667
+    ],
+    "h": [
+     5,
+     4.8
+    ],
+    "look": [
+     4,
+     4
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -9.5,
+    -4.5
+   ],
+   "waves": true,
+   "stars": [
+    "compote"
+   ],
+   "foam": [
+    -9.5,
+    -4.5,
+    6
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot"
+    },
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "blowing_a_kiss",
+     "x": -1.25,
+     "z": -3.42,
+     "face": "world",
+     "yaw": 90
+    }
+   ],
+   "cam": {
+    "ang": [
+     0.6,
+     0.65
+    ],
+    "r": [
+     2.85,
+     2.65
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.78,
+    -3.42
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "disappointed_awe_shucks",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot"
+    }
+   ],
+   "cam": {
+    "ang": [
+     -52.77,
+     -53.48
+    ],
+    "r": [
+     2.512,
+     2.302
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.3,
+    -3.42
+   ],
+   "chain": 15.602,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "dark": 16.392,
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "being_terrified_while_standing",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot"
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "long_yell_leaning_forward",
+     "x": -12,
+     "z": -3.5,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 0.6,
+     "speed": 0.5
+    }
+   ],
+   "cam": {
+    "ang": [
+     94.57,
+     94.57
+    ],
+    "r": [
+     10.032,
+     10.032
+    ],
+    "h": [
+     1.3,
+     0.9
+    ],
+    "look": [
+     2.6,
+     2.6
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -8,
+    -3.4
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "dark": 0,
+   "light": 17.322,
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "waving_with_both_hands",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot"
+    }
+   ],
+   "cam": {
+    "ang": [
+     -54.33,
+     -55.38
+    ],
+    "r": [
+     2.092,
+     1.883
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.3,
+    -3.42
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "waving_with_both_hands",
+     "x": 6.2,
+     "z": -1.2,
+     "mx": 2.6,
+     "mz": 3.4,
+     "lift": -2.1799999999999997,
+     "face": "camera"
+    }
+   ],
+   "cam": {
+    "ang": [
+     -142.61,
+     -142.61
+    ],
+    "r": [
+     4.644,
+     4.644
+    ],
+    "h": [
+     -1.25,
+     -1.25
+    ],
+    "look": [
+     -1.3,
+     -1.3
+    ],
+    "fov": 50
+   },
+   "focus": [
+    7.5,
+    0.5
+   ],
+   "boat": [
+    6.2,
+    -1.2,
+    8.8,
+    2.2
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "standing_praying_while_swaying",
+     "x": 0.45,
+     "z": -3.1,
+     "face": "world",
+     "yaw": 42,
+     "hold": "gcarrot"
+    }
+   ],
+   "cam": {
+    "ang": [
+     43.49,
+     44.19
+    ],
+    "r": [
+     2.688,
+     2.51
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.45,
+    -3.1
+   ],
+   "chain": true,
+   "chainRing": [
+    0.225,
+    -3.05,
+    0.56,
+    0.4,
+    192.5
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "gaming",
+     "x": 2.85,
+     "z": -0.4,
+     "lift": 0.41000000000000003,
+     "face": "world",
+     "yaw": 90,
+     "hold": "book",
+     "at": 3
+    }
+   ],
+   "cam": {
+    "ang": [
+     24.68,
+     24.57
+    ],
+    "r": [
+     2.036,
+     1.924
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 56
+   },
+   "focus": [
+    2.85,
+    -0.4
+   ],
+   "chain": true,
+   "chainRing": [
+    0.225,
+    -3.05,
+    0.56,
+    0.4,
+    192.5
+   ],
+   "stars": [
+    "kob"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "being_terrified_while_standing",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot"
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "long_yell_leaning_forward",
+     "x": -12,
+     "z": -3.5,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "camera",
+     "yaw": 0,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 0,
+     "speed": 0.5
+    }
+   ],
+   "cam": {
+    "ang": [
+     101.94,
+     101.59
+    ],
+    "r": [
+     10.63,
+     10.208
+    ],
+    "h": [
+     1.4,
+     1.3
+    ],
+    "look": [
+     2.6,
+     2.6
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -5,
+    -3.4
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "yelling_in_anger",
+     "x": -10.5,
+     "z": -3.5,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "at": 2
+    },
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "being_terrified_while_standing",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot",
+     "at": 6
+    }
+   ],
+   "cam": {
+    "ang": [
+     97.84,
+     97.59
+    ],
+    "r": [
+     11.003,
+     10.593
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     2.8,
+     2.8
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -7.5,
+    -3.5
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "jolt": true,
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 69,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot",
+     "at": 0.4
+    }
+   ],
+   "cam": {
+    "ang": [
+     -46.38,
+     -47.42
+    ],
+    "r": [
+     2.348,
+     2.173
+    ],
+    "h": [
+     0.7,
+     0.7
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.3,
+    -3.42
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "jolt": true,
+   "gust": [
+    -1.2,
+    1.1,
+    -3.42,
+    29.102,
+    1.25
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "being_terrified_while_standing",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot",
+     "holdTo": 0.12,
+     "at": 0.3,
+     "toss": {
+      "at": 0.12,
+      "to": [
+       -1.7,
+       1.95,
+       -2.52
+      ],
+      "dur": 0.55,
+      "arc": 0.35
+     }
+    }
+   ],
+   "cam": {
+    "ang": [
+     -68.2,
+     -68.2
+    ],
+    "r": [
+     2.477,
+     2.477
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.6,
+    -3.32
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "being_terrified_while_standing",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "at": 2.8
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "bored_idle",
+     "x": -12,
+     "z": -3.5,
+     "scale": 16,
+     "lift": -9.3,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "my": -14,
+     "myAt": 0.38,
+     "myDur": 0.45,
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.85,
+      0.45
+     ],
+     "upAt": -0.3,
+     "hold": "gcarrot",
+     "holdScale": 0.5
+    }
+   ],
+   "cam": {
+    "ang": [
+     106.46,
+     106.46
+    ],
+    "r": [
+     22.94,
+     22.94
+    ],
+    "h": [
+     3.5,
+     3.5
+    ],
+    "look": [
+     2.6,
+     2.6
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -10,
+    -1.5
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "stars": [
+    "compote"
+   ],
+   "foam": [
+    -12,
+    -3.5,
+    7
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": -3.42,
+     "face": "world",
+     "yaw": -90,
+     "at": 0,
+     "hold": "gcarrot",
+     "holdFrom": 1,
+     "arm": "R",
+     "aim": "toast",
+     "upAt": 1
+    }
+   ],
+   "cam": {
+    "ang": [
+     -53.68,
+     -53.68
+    ],
+    "r": [
+     2.482,
+     2.482
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.3,
+    -3.42
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "calm": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "pointing_while_seated",
+     "x": 2.85,
+     "z": -0.4,
+     "lift": 0.41000000000000003,
+     "face": "world",
+     "yaw": -134,
+     "hold": null,
+     "at": 1.2,
+     "arm": "R",
+     "aim": [
+      0,
+      0.25,
+      0.97
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "ang": [
+     153.03,
+     153.03
+    ],
+    "r": [
+     1.919,
+     1.919
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 54
+   },
+   "focus": [
+    2.8,
+    -0.4
+   ],
+   "chain": true,
+   "chainRing": [
+    -0.15,
+    -3.21,
+    0.588,
+    0.4,
+    305.5
+   ],
+   "calm": true,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "cave",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "standing_praying_while_swaying",
+     "x": 0.1,
+     "z": -1.32,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "ang": [
+     -5.95,
+     -5.97
+    ],
+    "r": [
+     2.604,
+     2.212
+    ],
+    "h": [
+     1,
+     0.95
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.45,
+    -1.32
+   ],
+   "tied": true,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "cave",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "big_vegas_pointing_gesture",
+     "x": 1.9,
+     "z": -0.3,
+     "at": 0,
+     "lift": 3.2,
+     "my": -3.2,
+     "myDur": 0.8,
+     "air": true,
+     "arm": "both",
+     "aim": "up",
+     "upAt": 0,
+     "upEnd": 0.8
+    },
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "happy_idle",
+     "x": 0.1,
+     "z": -1.32,
+     "face": "world",
+     "yaw": 25
+    }
+   ],
+   "cam": {
+    "ang": [
+     14.38,
+     12.53
+    ],
+    "r": [
+     4.026,
+     3.688
+    ],
+    "h": [
+     0.5,
+     0.55
+    ],
+    "look": [
+     1.9,
+     1.05
+    ],
+    "fov": 60
+   },
+   "focus": [
+    1.3,
+    -0.6
+   ],
+   "tied": true,
+   "rope": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "cave",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "happy_walk",
+     "x": 1.05,
+     "z": -0.45,
+     "mx": -1.75,
+     "mz": -0.5,
+     "speed": 1.6,
+     "face": "world",
+     "yaw": -106
+    },
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "happy_idle",
+     "x": 0.1,
+     "z": -1.32,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "ang": [
+     -37.65,
+     -31.61
+    ],
+    "r": [
+     4.42,
+     4.579
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 55,
+    "ease": "lin"
+   },
+   "focus": [
+    0.2,
+    -1
+   ],
+   "tied": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "cave",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": -2.5500000000000003,
+     "face": "camera",
+     "hold": "gcarrot",
+     "holdFrom": 0.75,
+     "arm": "R",
+     "aim": "up",
+     "upAt": 0.75
+    }
+   ],
+   "cam": {
+    "ang": [
+     14.93,
+     15.02
+    ],
+    "r": [
+     2.329,
+     2.122
+    ],
+    "h": [
+     0.6,
+     0.65
+    ],
+    "look": [
+     1.1,
+     1.2
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -1.35,
+    -2.5
+   ],
+   "tied": true,
+   "chestOpen": 47.319,
+   "carrotTaken": 47.769,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 118,
+   "kind": "dance",
+   "map": "cave",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "pirate",
+     "clip": "short_yell_while_standing",
+     "x": 0.1,
+     "z": -1.32,
+     "face": "world",
+     "yaw": -30
+    },
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "silly_run",
+     "x": -1.4,
+     "z": -3,
+     "mx": 2.3,
+     "mz": -1.5,
+     "speed": 1.2,
+     "face": "world",
+     "yaw": 123,
+     "hold": "gcarrot"
+    }
+   ],
+   "cam": {
+    "ang": [
+     -21.32,
+     -23.55
+    ],
+    "r": [
+     4.401,
+     4.254
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -2.6
+   ],
+   "tied": true,
+   "chestOpen": 0,
+   "carrotTaken": 0,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -15.5,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot",
+     "arm": "R",
+     "aim": "up",
+     "upAt": 0.2
+    }
+   ],
+   "cam": {
+    "ang": [
+     -73.3,
+     -77.47
+    ],
+    "r": [
+     3.132,
+     2.766
+    ],
+    "h": [
+     1.1,
+     1.05
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -15.5
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 130,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pyjama",
+     "clip": "gaming",
+     "x": 2.85,
+     "z": -0.4,
+     "lift": 0.41000000000000003,
+     "face": "world",
+     "yaw": 90,
+     "hold": "book",
+     "at": 1
+    }
+   ],
+   "cam": {
+    "ang": [
+     96.13,
+     94.98
+    ],
+    "r": [
+     2.062,
+     1.957
+    ],
+    "h": [
+     1.4,
+     1.38
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 52
+   },
+   "focus": [
+    2.85,
+    -0.38
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 134,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "bored_idle",
+     "x": -12,
+     "z": -9.5,
+     "mx": 4.5,
+     "mz": 4.5,
+     "scale": 16,
+     "lift": -20.4,
+     "my": -3,
+     "myAt": 1.8,
+     "myDur": 0.6,
+     "face": "world",
+     "yaw": 48,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "ang": [
+     -22.42,
+     -22.42
+    ],
+    "r": [
+     8.654,
+     8.654
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -10.2,
+    -7.5,
+    -2.3
+   ],
+   "fins": [
+    -12,
+    -9.5,
+    -7.5,
+    -5,
+    1.4
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 140,
+   "kind": "dance",
+   "map": "pearl",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "yelling_in_anger",
+     "x": -16,
+     "z": -4,
+     "scale": 16,
+     "lift": -24.8,
+     "face": "world",
+     "yaw": 90,
+     "noShadow": true,
+     "star": false,
+     "ground": "mesh",
+     "my": 15.5,
+     "myDur": 0.75,
+     "arm": "both",
+     "aim": [
+      0.35,
+      0.55,
+      0.75
+     ],
+     "upAt": 0.3
+    },
+    {
+     "who": "saxo",
+     "look": "pirate",
+     "clip": "being_terrified_while_standing",
+     "x": -3.3,
+     "z": -4.9,
+     "face": "world",
+     "yaw": -90,
+     "hold": "gcarrot"
+    }
+   ],
+   "cam": {
+    "ang": [
+     96.67,
+     96.47
+    ],
+    "r": [
+     15.505,
+     15.096
+    ],
+    "h": [
+     0.9,
+     0.95
+    ],
+    "look": [
+     3.2,
+     3.2
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -16,
+    -4
+   ],
+   "splash": [
+    -16,
+    -4,
+    58.686
+   ],
+   "jolt": true,
+   "stars": [
+    "saxo"
+   ],
+   "foam": [
+    -16,
+    -4,
+    7
+   ]
+  }
+ ]
+}
