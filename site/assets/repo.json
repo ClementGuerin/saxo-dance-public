@@ -1,84 +1,84 @@
 {
- "updated": "2026-09-26T07:12:43.963Z",
+ "updated": "2026-09-26T09:21:11.784Z",
  "name": "ClementGuerin/saxo-dance-public",
  "url": "https://github.com/ClementGuerin/saxo-dance-public",
  "description": "Saxo, a scruffy grey terrier in a check suit, dances to pop hits in PS1 worlds. The code behind @saxo.dance: three.js, ffmpeg and a lot of beat-matching.",
  "stars": 0,
  "forks": 0,
- "pushedAt": "2026-09-26T06:22:02Z",
- "commits": 32,
- "files": 271,
- "loc": 10215,
+ "pushedAt": "2026-09-26T09:06:54Z",
+ "commits": 37,
+ "files": 283,
+ "loc": 11111,
  "languages": [
   {
    "name": "JavaScript",
-   "pct": 79.8,
+   "pct": 76.6,
    "color": "#f1e05a"
   },
   {
    "name": "Python",
-   "pct": 15.2,
+   "pct": 18.9,
    "color": "#3572a5"
   },
   {
    "name": "CSS",
-   "pct": 3.8,
+   "pct": 3.4,
    "color": "#663399"
   },
   {
    "name": "HTML",
-   "pct": 1.2,
+   "pct": 1.1,
    "color": "#e34c26"
   }
  ],
  "latest": [
   {
-   "sha": "df59ad5",
+   "sha": "adba2c3",
    "type": "feat",
-   "scope": "episode",
-   "text": "He's A Pirate, the cursed grotto and the black ship with a giant Compote",
-   "date": "2026-09-26T01:26:27Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/df59ad53dec1ad0976dd3d0de09b71061d9d4ed1"
-  },
-  {
-   "sha": "74861ef",
-   "type": "feat",
-   "scope": "readme",
-   "text": "rebuild the README's images from the code, with a daily check",
-   "date": "2026-09-25T23:22:45Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/74861ef39eec19e3a91bbd3857539e62b440d0a1"
-  },
-  {
-   "sha": "e119480",
-   "type": "fix",
    "scope": "publish",
-   "text": "caption an episode with its kit's song, not the shared config's",
-   "date": "2026-09-25T22:50:16Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/e1194805d91dbfb84fd2481ec7676af485779030"
+   "text": "post the video alone on X, and each Postiz platform in its own request",
+   "date": "2026-09-26T09:06:53Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/adba2c3d34ab35dc72e00b48e4e8bc91a9d334ea"
   },
   {
-   "sha": "13637b1",
+   "sha": "b10b2e3",
    "type": "feat",
-   "scope": "night",
-   "text": "four videos a night, one at a time, with checkpoints, a watchdog and post checks",
-   "date": "2026-09-25T22:41:01Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/13637b1651ed7d4bd5159ad8095a253d80d6e8d5"
+   "scope": "camera",
+   "text": "the ratoshi grammar with the beat bounce becomes the house camera; episodes/cam.py helpers",
+   "date": "2026-09-26T09:01:13Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/b10b2e328c9ce1dc18b9b873974298bca3e1e090"
   },
   {
-   "sha": "1533f1c",
+   "sha": "8723c4c",
+   "type": "feat",
+   "scope": "publish",
+   "text": "post every video to X (@saxodance) through Postiz, and show X on saxo.dance",
+   "date": "2026-09-26T08:57:21Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/8723c4c4de250fe3ee31fc357ff3234d88074ffa"
+  },
+  {
+   "sha": "0e10564",
+   "type": "feat",
+   "scope": "camera",
+   "text": "dutch roll, handheld, steady and keyframed camera paths; @ratoshidance camera analysis and an A/B test cut",
+   "date": "2026-09-26T08:42:36Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/0e10564e52a495842c54f9a28bdf65e12f6f5062"
+  },
+  {
+   "sha": "7735e0e",
    "type": "feat",
    "scope": "episode",
-   "text": "recut 2026-09-25-3 to start on the drop with a short silent button, schedule it for 08:00",
-   "date": "2026-09-25T21:39:28Z",
-   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/1533f1c73964fe6acb8d3d77b3cce0998e01cb7f"
+   "text": "Die Young, the golden carrot part 2 in a desert chapel club",
+   "date": "2026-09-26T07:15:33Z",
+   "url": "https://github.com/ClementGuerin/saxo-dance-public/commit/7735e0ecc0f84dd8ab8d6d102a80ac6efec587db"
   }
  ],
  "counts": {
   "characters": 4,
-  "looks": 44,
-  "maps": 36,
+  "looks": 46,
+  "maps": 38,
   "clips": 467,
-  "videos": 4,
+  "videos": 6,
   "perDay": 4
  }
 }

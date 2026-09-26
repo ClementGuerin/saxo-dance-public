@@ -1,24 +1,11 @@
 {
- "updated": "2026-09-26T07:12:37.412Z",
+ "updated": "2026-09-26T09:21:04.549Z",
  "posts": [
-  {
-   "id": "2026-09-26-2",
-   "title": "Voyage Voyage (Techno)",
-   "artist": "Hyper Duck",
-   "date": "2026-09-26T04:03:08.646Z",
-   "thumb": "assets/posts/2026-09-26-2.jpg",
-   "links": {
-    "tiktok": {
-     "url": "https://www.tiktok.com/@saxo.dance/video/7689720053436091681",
-     "id": "7689720053436091681"
-    }
-   }
-  },
   {
    "id": "2026-09-25-3",
    "title": "99 Luftballons",
    "artist": "Snoblack",
-   "date": "2026-09-25T21:35:04.051Z",
+   "date": "2026-09-26T06:00:00.000Z",
    "thumb": "assets/posts/2026-09-25-3.jpg",
    "links": {
     "youtube": {
@@ -32,6 +19,10 @@
     "instagram": {
      "url": "https://www.instagram.com/reel/DdvV6PuicfW/",
      "id": "DdvV6PuicfW"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103775716248633804",
+     "id": "2103775716248633804"
     }
    }
   },
@@ -39,7 +30,7 @@
    "id": "2026-09-25-2",
    "title": "Dans le club",
    "artist": "Michou",
-   "date": "2026-09-25T15:44:20.849Z",
+   "date": "2026-09-25T16:00:00.000Z",
    "thumb": "assets/posts/2026-09-25-2.jpg",
    "links": {
     "tiktok": {
@@ -53,6 +44,10 @@
     "instagram": {
      "url": "https://www.instagram.com/reel/Ddt1syviqnC/",
      "id": "Ddt1syviqnC"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103774479495106916",
+     "id": "2103774479495106916"
     }
    },
    "views": 419
@@ -61,7 +56,7 @@
    "id": "2026-09-25",
    "title": "Nicole Kidman",
    "artist": "ADÉLA",
-   "date": "2026-09-25T12:07:55.305Z",
+   "date": "2026-09-25T12:04:00.576Z",
    "thumb": "assets/posts/2026-09-25.jpg",
    "links": {
     "youtube": {
@@ -75,6 +70,10 @@
     "instagram": {
      "url": "https://www.instagram.com/reel/DdtbUzfk69K/",
      "id": "DdtbUzfk69K"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103773105726316612",
+     "id": "2103773105726316612"
     }
    },
    "views": 773
@@ -83,7 +82,7 @@
    "id": "2026-09-24",
    "title": "hate that i made you love me",
    "artist": "Ariana Grande",
-   "date": "2026-09-24T19:07:40.645Z",
+   "date": "2026-09-24T19:06:17.074Z",
    "thumb": "assets/posts/2026-09-24.jpg",
    "links": {
     "youtube": {
@@ -97,6 +96,10 @@
     "instagram": {
      "url": "https://www.instagram.com/reel/DdrmWrPgRGv/",
      "id": "DdrmWrPgRGv"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103771898001727674",
+     "id": "2103771898001727674"
     }
    },
    "views": 1234
@@ -105,7 +108,7 @@
    "id": "the-one-that-got-away",
    "title": "The One That Got Away",
    "artist": "Katy Perry",
-   "date": "2026-09-24T16:08:40.495Z",
+   "date": "2026-09-24T16:08:21.021Z",
    "thumb": "assets/posts/the-one-that-got-away.jpg",
    "links": {
     "youtube": {
@@ -115,6 +118,10 @@
     "instagram": {
      "url": "https://www.instagram.com/reel/DdrVXv-D_u_/",
      "id": "DdrVXv-D_u_"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103768964161482971",
+     "id": "2103768964161482971"
     },
     "tiktok": {
      "url": "https://www.tiktok.com/@saxo.dance/video/7689143396421602582",

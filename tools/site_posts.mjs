@@ -3,7 +3,8 @@
 // SocialCrawl found) and research/yt_blocked.json (Shorts YouTube blocked, left out), plus the post URLs Zernio and
 // Postiz return for our own posts (free API reads), so a video shows every platform as soon as it's posted instead of
 // after the next metrics run. Found URLs are cached in research/post_links.json. TikTok links come last from TikTok's
-// public creator embed (what's live now, including posts published by hand from the app).
+// public creator embed (what's live now, including posts published by hand from the app). A video is listed once its
+// first post has gone out (its slot, not the run that scheduled it), so a rebuild after each slot adds it.
 //   node tools/site_posts.mjs        → site/assets/posts.json, site/assets/posts/<id>.jpg, site/assets/tv.mp4
 // The thumbnail and the TV loop come from the render in out/, when it's there.
 import fs from 'node:fs';
@@ -34,13 +35,18 @@ const ytId = u => u?.match(/(?:v=|shorts\/|youtu\.be\/)([\w-]{11})/)?.[1];
 const base = f => f.replace(/_(yt|ig)\.mp4$/, '.mp4');
 
 // ---- group every publish by video (the episode, else the song, as metrics.mjs does) ----
+// A publish counts from when it goes out (`date`: a scheduled post's slot), not from when publish.mjs ran (`at`): the
+// night's videos are scheduled hours ahead, and one dated by its scheduling run showed on the TV before its release,
+// holding the TikTok that went out in between (Voyage Voyage, 2026-09-26).
+const outAt = p => p.date || p.at;
 const videos = new Map();
 for (const p of published) {
+  if (Date.parse(outAt(p)) > Date.now()) continue;   // not out yet
   const key = p.episode || (/^\d{4}-\d{2}-\d{2}/.test(p.file) ? p.file.slice(0, 10) : null) || 'song:' + p.song;
-  const v = videos.get(key) || { key, title: p.song, artist: p.artist, date: p.at, file: base(p.file), links: {}, zernio: [], postiz: [] };
+  const v = videos.get(key) || { key, title: p.song, artist: p.artist, date: outAt(p), file: base(p.file), links: {}, zernio: [], postiz: [] };
   for (const r of p.runs?.zernio?.result || []) if (r.postId) v.zernio.push(r.postId);
   for (const r of [...(p.runs?.postiz?.result || []), ...(p.result || [])]) if (r.postId) v.postiz.push(r.postId);
-  if (Date.parse(p.at) < Date.parse(v.date)) v.date = p.at;
+  if (Date.parse(outAt(p)) < Date.parse(v.date)) v.date = outAt(p);
   for (const r of p.runs?.zernio?.result || []) {
     const id = ytId(r.url);
     if (r.platform === 'youtube' && id && !blocked[id]) v.links.youtube = { url: `https://www.youtube.com/shorts/${id}`, id };
@@ -107,7 +113,10 @@ const ttTime = id => Number(BigInt(id) >> 32n) * 1000;   // a TikTok id starts w
 const live = await tiktokLive('saxo.dance');
 if (live) {
   const byDate = [...videos.values()].sort((a, b) => Date.parse(a.date) - Date.parse(b.date)), oldest = Math.min(...live.map(x => ttTime(x.id)));
-  const owner = x => byDate.find(v => x.desc.toLowerCase().includes(`to ${v.title.toLowerCase()} by`))
+  // the title without its "(Techno)"-style suffix, anywhere in the caption ("dances to … by", "danse sur … de"); the
+  // longest title named wins
+  const core = t => t.toLowerCase().replace(/\s*\([^)]*\)/g, '').trim();
+  const owner = x => byDate.filter(v => core(v.title).length > 2 && x.desc.toLowerCase().includes(core(v.title))).sort((a, b) => core(b.title).length - core(a.title).length)[0]
     || byDate.filter(v => Date.parse(v.date) - 36e5 <= ttTime(x.id)).pop();
   const claimed = new Map();
   for (const x of live) { const v = owner(x); if (v && (!claimed.has(v) || ttTime(x.id) > ttTime(claimed.get(v).id))) claimed.set(v, x); }
