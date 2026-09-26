@@ -21,11 +21,12 @@
 // TikTok through its TikTok for Business app (video posts are public-only there), YouTube public. Instagram and X go
 // through the self-hosted Postiz (postiz.saxo.dance), which stores media on Cloudflare R2 because Meta refuses to
 // fetch from postiz.saxo.dance. X (@saxodance) posts through our own X app, which X bills per post: $0.015, or $0.20
-// when the post contains a link, so captions carry none. An X caption fits 280 characters as X counts them
-// (xLength): the hook, then as many of its hashtags as fit.
+// when the post contains a link. An X post is the video alone, with no text (the user's call, 2026-09-26).
+// Each Postiz platform is its own post request, so one that Postiz refuses (or that isn't connected) doesn't stop
+// the others; it's reported and the run exits 1.
 //
 // Keys: POSTIZ_API_KEY and ZERNIO_API_KEY from the environment, else ~/.postiz-saxo.env and ~/.zernio-saxo.env.
-// The Postiz public API allows 30 requests an hour; a run uses 3.
+// The Postiz public API allows 30 requests an hour; a run uses 4 (the list, one upload, a post per platform).
 import { execFileSync, execSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -89,25 +90,11 @@ const fileFor = p => (p === 'youtube' ? ytFile : file);
 
 const tags = p => buildHashtags({ song, artist, extra, platform: p });
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).trimEnd() + '…');
-// X's length, as twitter-text weighs it: Latin, punctuation and the like count 1, anything else (emoji, CJK) 2. It
-// counts an emoji sequence 2 in all, so counting each code point over-counts, which is the safe side.
-const xLength = s => [...s].reduce((n, c) => {
-  const k = c.codePointAt(0);
-  return n + (k <= 4351 || (k >= 8192 && k <= 8205) || (k >= 8208 && k <= 8223) || (k >= 8242 && k <= 8247) ? 1 : 2);
-}, 0);
-function xCaption() {
-  const t = tags('x'), text = () => [hook, t.join(' ')].filter(Boolean).join('\n\n');
-  while (t.length && xLength(text()) > 280) t.pop();
-  if (xLength(hook) <= 280) return text();
-  let h = hook;
-  while (xLength(h + '…') > 280) h = [...h].slice(0, -1).join('');
-  return h.trimEnd() + '…';
-}
 const caption = {
   tiktok: `${hook}\n\n${tags('tiktok').join(' ')}`,
   instagram: `${hook}\n\n${tags('instagram').join(' ')}`,
   youtube: `${hook}\n\n${tags('youtube').join(' ')}`,
-  x: xCaption(),
+  x: '',   // the video alone (Postiz takes empty text when there's media)
 };
 const youtubeTitle = clip(`${hook.replace(/[<>]/g, '')} #shorts`, 100);
 
@@ -150,23 +137,32 @@ function postizSettings(p) {
 async function viaPostiz(platforms) {
   const channels = await postiz('GET', '/integrations');
   const channel = p => channels.find(c => c.identifier === PROVIDER[p] && !c.disabled);
-  const missing = platforms.filter(p => !channel(p));
-  if (missing.length) throw new Error(`Not connected in Postiz: ${missing.join(', ')}`);
+  const failed = platforms.filter(p => !channel(p));
+  if (failed.length) console.error(`postiz: not connected: ${failed.join(', ')}`);
+  const ready = platforms.filter(p => channel(p));
+  if (!ready.length) throw new Error(`Not connected in Postiz: ${platforms.join(', ')}`);
   const uploads = {};
-  for (const f of new Set(platforms.map(fileFor))) {
+  for (const f of new Set(ready.map(fileFor))) {
     const form = new FormData();
     form.append('file', await fs.openAsBlob(f, { type: 'video/mp4' }), path.basename(f));
     uploads[f] = await postiz('POST', '/upload', form);
     console.log(`postiz: uploaded ${uploads[f].path}`);
   }
-  const posts = platforms.map(p => ({
-    integration: { id: channel(p).id },
-    value: [{ content: caption[p], image: [{ id: uploads[fileFor(p)].id, path: uploads[fileFor(p)].path }] }],
-    settings: postizSettings(p),
-  }));
-  const result = await postiz('POST', '/posts', { type, date, shortLink: false, tags: [], posts });
-  console.log(`postiz: created (${type})`, JSON.stringify(result));
-  return { media: Object.values(uploads).map(u => u.path).join(' '), result };
+  const result = [];
+  for (const p of ready) {
+    const post = {
+      integration: { id: channel(p).id },
+      value: [{ content: caption[p], image: [{ id: uploads[fileFor(p)].id, path: uploads[fileFor(p)].path }] }],
+      settings: postizSettings(p),
+    };
+    try {
+      const r = await postiz('POST', '/posts', { type, date, shortLink: false, tags: [], posts: [post] });
+      console.log(`postiz: ${p} created (${type})`, JSON.stringify(r));
+      result.push(...r);
+    } catch (e) { failed.push(p); console.error(`postiz: ${p}: ${e.message}`); }
+  }
+  if (!result.length) throw new Error(`nothing created (${failed.join(', ')})`);
+  return { media: Object.values(uploads).map(u => u.path).join(' '), result, ...(failed.length ? { failed } : {}) };
 }
 
 // ---- Zernio (TikTok and YouTube) ----
@@ -215,7 +211,7 @@ async function viaZernio(platforms) {
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
-for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${p === 'x' ? ` (${xLength(caption.x)}/280)` : ''}\n${caption[p]}`);
+for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
 if (args['dry-run']) {
   console.log('\n--dry-run: nothing sent.');
   process.exit(0);
@@ -227,7 +223,7 @@ const failed = [];
 for (const [name, fn] of [['postiz', viaPostiz], ['zernio', viaZernio]]) {
   const platforms = only.filter(p => route(p) === name);
   if (!platforms.length) continue;
-  try { runs[name] = await fn(platforms); }
+  try { runs[name] = await fn(platforms); failed.push(...(runs[name]?.failed || [])); }
   catch (e) { failed.push(name); console.error(`${name}: ${e.message}`); }
 }
 

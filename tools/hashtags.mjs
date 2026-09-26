@@ -1,11 +1,10 @@
 // Hashtags for one video, per platform. #saxo #dance always lead; then the song and artist, niche-relevant trending
 // tags, and the niche pool (research/hashtags.json, biggest first). Platform caps: Instagram allows 5 per post,
-// TikTok reads the first few best (8), YouTube ignores every hashtag when a description has more than 15, X gets 3
-// (280 characters, and its spam rules frown on piles of hashtags).
+// TikTok reads the first few best (8), YouTube ignores every hashtag when a description has more than 15.
 import fs from 'node:fs';
 
 const POOL = JSON.parse(fs.readFileSync(new URL('../research/hashtags.json', import.meta.url), 'utf8'));
-const CAP = { tiktok: 8, instagram: 5, youtube: 12, x: 3 };
+const CAP = { tiktok: 8, instagram: 5, youtube: 12 };
 
 // "The One That Got Away" -> "theonethatgotaway", "Beyoncé" -> "beyonce"
 export const slug = (s = '') => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
