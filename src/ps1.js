@@ -786,7 +786,8 @@ function episodeShots() {
 //     lift (m, on top of the ground: a stage, a seat), hold / holdL (a prop in the right / left paw: glass, milk,
 //     phone, pad, finger), ride ("jetski"), star (false keeps the face off the karaoke), mx / mz (m walked over the shot),
 //     scale (a giant: 16 = a 18 m Compote rising from the sea), my / myAt / myDur (a rise or a sink, m), holdScale,
-//     holdTo (the held prop goes at that second: it has been taken), noShadow }
+//     holdTo (the held prop goes at that second: it has been taken), noShadow, fg (a body across the lens: the QA's
+//     framing rules skip it), reveal (s: off-frame allowed for the shot's first s seconds) }
 function actorSpec(a, e, map) {
   const who = a.who || 'saxo', P = PARTNERS[who];
   return { who, look: a.look || (P ? P.byMap[map] || who : e.outfit || MAP_OUTFIT[map] || 'saxo'), clip: a.clip || e.clip || 'gangnam', at: a.at ?? e.at ?? 'auto',
@@ -796,7 +797,7 @@ function actorSpec(a, e, map) {
     aim2: a.aim2 || null, aim2At: a.aim2At ?? null, toss: a.toss || null, cable: a.cable || null, holdFrom: a.holdFrom ?? null, holdTo: a.holdTo ?? null,
     // scale: a giant (the sea monster is a 16x Compote), my: metres risen (+) or sunk (-) from myAt s over myDur s
     // (smoothstep; default the whole shot), holdScale: the held prop's size (a carrot pinched in a giant's paw), noShadow
-    scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air,
+    fg: !!a.fg, reveal: a.reveal || 0, scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air,
     hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180 };   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
 }
 function planShots() {
@@ -1008,7 +1009,7 @@ function plugCable(D, to) {
   c.visible = true; c.position.copy(a).add(b).multiplyScalar(0.5); c.scale.set(1, d.length(), 1); c.quaternion.setFromUnitVectors(_up, d.normalize());
 }
 function placeActors(P, t, t0, t1, camAng, map) {
-  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
+  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.fg = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
   const len = t1 - t0, plans = [];
   // pass 1: facing, start offset and ground are measured on Saxo's rig (shared caches) before anyone is posed this frame
   for (const A of P.actors) {
@@ -1024,7 +1025,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     const s = (D.scale || 1) * A.scale, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
     const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, bb = bp(t), jolt = A.bump && bb >= 0 ? A.bump * Math.exp(-fr(bb) * 7) : 0;
     const lift = A.lift + bob + A.my * um + jolt;   // my: a rise or a sink; bump: turbulence jolts on the beat
-    D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air;
+    D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air; D.fg = A.fg || t - t0 < A.reveal;
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
     if (n) { const d = D.clips[n].duration, tc = at + (t - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
@@ -1111,29 +1112,42 @@ function danceFrame(t) {
   map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
   const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0, !!P.half) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
-  const lerp = x => Array.isArray(x) ? x[0] + (x[1] - x[0]) * k : x, ang = lerp(cam.ang) * ANG_K * Math.PI / 180, r = lerp(cam.r) * WIDE;   // a duo needs a wider frame
-  camera.position.set(FX + Math.sin(ang) * r + sh[0] * 0.05, FY + lerp(cam.h) + sh[1] * 0.04 - bo * 0.6, FZ + Math.cos(ang) * r + sh[2] * 0.04);
+  // [from, to], or [a, b, c…] keyframes spread evenly over the move's easing (a path: over the decks, then down)
+  const keys = x => { const f = k * (x.length - 1), j = Math.min(x.length - 2, Math.floor(f)); return x[j] + (x[j + 1] - x[j]) * (f - j); };
+  const lerp = x => Array.isArray(x) ? keys(x) : x, ang = lerp(cam.ang) * ANG_K * Math.PI / 180, r = lerp(cam.r) * WIDE;   // a duo needs a wider frame
+  // steady: no drift at all (the constant float and the old procedural dog's sway on the look point): a locked-off camera
+  const sway = cam.steady ? 0 : 1;
+  camera.position.set(FX + Math.sin(ang) * r + sh[0] * 0.05 * sway, FY + lerp(cam.h) + sh[1] * 0.04 * sway - bo * 0.6, FZ + Math.cos(ang) * r + sh[2] * 0.04 * sway);
   const fov = cam.frame ? 2 * Math.atan(cam.frame * WIDE / 2 / r) * 180 / Math.PI : lerp(cam.fov);
   camera.fov = fov * (1 - bo); camera.updateProjectionMatrix();
-  camera.lookAt(FX + saxo.root.position.x * 0.6 + sh[1] * 0.03 + (cam.lookX || 0), FY + lerp(cam.look), FZ);
+  camera.lookAt(FX + (saxo.root.position.x * 0.6 + sh[1] * 0.03) * sway + (cam.lookX || 0), FY + lerp(cam.look), FZ);
   // whip-in: the first ~0.25 s pans fast into place; the 2D layer smears the frame by window.WHIP
   const whip = cam.whip ? Math.exp(-(t - t0) * 16) : 0; camera.rotateY(whip * 0.9); window.WHIP = whip;
   // jolt: the bass through the walls kicks the whole frame on every beat (a drop and a small roll, decaying through the beat)
   if (P.jolt) { const bpS = 60 / BPMv, nb = Math.floor((t - B0) / bpS + 1e-6), f = (t - B0) / bpS - nb, j = nb >= 0 ? Math.exp(-f * 7) : 0; camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * (nb % 2 ? 1 : -1)); }
+  // roll: a dutch angle in degrees (or [from, …, to] keyframes over the shot, on the move's easing). hand: a handheld operator on top
+  // of the path (1 = the loose sway of the ratoshidance references: ~3 cm of drift, ~1° of wobble, ~1.2° of roll).
+  const roll = cam.roll == null ? 0 : lerp(cam.roll), hand = cam.hand || 0, hw = (f, p) => Math.sin(t * f + p + i * 7.3);
+  if (hand) {
+    camera.position.x += hand * 0.03 * (0.6 * hw(2.1, 0) + 0.4 * hw(4.7, 1.7)); camera.position.y += hand * 0.02 * (0.6 * hw(2.5, 2.1) + 0.4 * hw(5.3, 0.4));
+    camera.position.z += hand * 0.03 * (0.6 * hw(1.8, 4.2) + 0.4 * hw(4.1, 3.3));
+    camera.rotateY(hand * 0.016 * (0.5 * hw(2.7, 5.1) + 0.3 * hw(5.9, 2.6) + 0.2 * hw(11, 0.8))); camera.rotateX(hand * 0.013 * (0.5 * hw(3.1, 0.9) + 0.3 * hw(6.4, 4.4) + 0.2 * hw(12.2, 2.9)));
+  }
+  if (roll || hand) camera.rotateZ((roll + hand * 1.2 * (0.6 * hw(1.9, 3.7) + 0.4 * hw(4.3, 1.1))) * Math.PI / 180);
   applyPose(saxo, poseAt(t));
   for (const g of Object.values(PROPS)) g.visible = false;
-  if (tripo && ACT) placeActors(P, t, t0, t1, (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180, map);
-  if (tripo) placeCrowd(ACT ? P : null, t, t0, t1, (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180);
+  if (tripo && ACT) placeActors(P, t, t0, t1, (cam.ang[0] + cam.ang.at(-1)) / 2 * ANG_K * Math.PI / 180, map);
+  if (tripo) placeCrowd(ACT ? P : null, t, t0, t1, (cam.ang[0] + cam.ang.at(-1)) / 2 * ANG_K * Math.PI / 180);
   else if (tripo) {
     // each shot names a clip and a start offset into it; unknown names fall back to the first clip
     const [clipName, clipAt] = SHOT_CLIPS[i] || ['dance_01', 0], n = tripo.actions[clipName] ? clipName : Object.keys(tripo.actions)[0];
     if (!n) { tripo.holder.rotation.y = 0.35 * Math.sin(t * 0.8); } else {
       const at = clipAt === 'auto' ? steadiestOffset(tripo, n, t1 - t0) : clipAt;
       // bind pose faces +z at 0; turn towards the shot's average camera angle so side cameras still see the face
-      const camAng = (cam.ang[0] + cam.ang[1]) / 2 * ANG_K * Math.PI / 180, yaw = -clipFacing(tripo, n, at, t1 - t0).yaw + camAng;   // orbits average out to the front
+      const camAng = (cam.ang[0] + cam.ang.at(-1)) / 2 * ANG_K * Math.PI / 180, yaw = -clipFacing(tripo, n, at, t1 - t0).yaw + camAng;   // orbits average out to the front
       const ground = clipGround(tripo, n, at, t1 - t0);
       const cast = CAST === 'sadi' ? [[sadi, 0, sadiOutfit]] : CAST === 'duo' && sadi ? [[tripo, -DUO_X, outfit], [sadi, DUO_X, sadiOutfit]] : [[tripo, 0, outfit]];
-      for (const D of Object.values(CREW)) { const on = cast.some(c => c[0] === D); D.holder.visible = on; D.shadow.visible = on; D.air = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
+      for (const D of Object.values(CREW)) { const on = cast.some(c => c[0] === D); D.holder.visible = on; D.shadow.visible = on; D.air = false; D.fg = false; D.deck = 0; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
       for (const [D, x, look] of cast) {
         const s = D === sadi ? SADI_SCALE : 1;
         wearOutfit(D, look);
@@ -1178,7 +1192,7 @@ function qaDog(D, who) {
   });
   // the head bone on screen (0..1): where the face is, for the framing rules (an arm past the edge reads fine, a face doesn't)
   const h = D.head ? D.head.getWorldPosition(_qv).project(camera) : null;
-  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2 };
+  return { who, low: +(low - (D.deck || 0)).toFixed(3), air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2, fg: !!D.fg };
 }
 window.QA_PROBE = t => {
   window.render3d(t);

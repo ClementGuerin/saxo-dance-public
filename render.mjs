@@ -100,7 +100,8 @@ const fps = +(args.fps || M.fps), N = Math.round(M.DUR * fps);
 // Framing (calibrated on "Dans le club", 2026-09-25): the face (head bone) never within 5% of a side of the frame, and
 // the top of the head never in the lyric rows (the top 25%) while a line is on screen, each for over 0.5 s. An arm or a
 // hem past the edge is fine (the whole-body box flagged 12 of those on a video the user was happy with). A giant (an
-// actor's `scale` > 2, 2026-09-26) is judged by its face: the head bone stays below 30% of the height.
+// actor's `scale` > 2, 2026-09-26) is judged by its face: the head bone stays below 30% of the height. An actor marked
+// `fg` (a body across the lens) or inside its `reveal` seconds skips the framing and out-of-frame rules, not the floor ones.
 // Episode rules (the user's calls, 2026-09-25): no bind pose on screen (`clip: "tpose"` reads as a broken rig) and,
 // from 2026-09-26 on, no comic word badges (`word`).
 const QA = { sink: -0.04, float: 0.05, jump: 0.6, gone: 0.5, faceEdge: 0.05, lyricTop: 0.25, framing: 0.5 };
@@ -116,10 +117,10 @@ async function qa(a, b) {
   const off = d => d.box[2] < 0 || d.box[0] > 1 || d.box[3] < 0 || d.box[1] > 1;
   const RUNS = [   // [rule, is this sample bad, how bad, longest allowed run, unit]
     ['floats above the floor', d => d.low > QA.float && !d.air, d => d.low, QA.jump, 'm'],
-    ['out of frame', off, () => 0, QA.gone, ''],
-    ['face at the frame edge', d => !off(d) && d.head && (d.head[0] < QA.faceEdge || d.head[0] > 1 - QA.faceEdge), d => Math.max(QA.faceEdge - d.head[0], d.head[0] - 1 + QA.faceEdge), QA.framing, 'of the width past the 5% margin'],
+    ['out of frame', d => off(d) && !d.fg, () => 0, QA.gone, ''],
+    ['face at the frame edge', d => !off(d) && !d.fg && d.head && (d.head[0] < QA.faceEdge || d.head[0] > 1 - QA.faceEdge), d => Math.max(QA.faceEdge - d.head[0], d.head[0] - 1 + QA.faceEdge), QA.framing, 'of the width past the 5% margin'],
     // a giant (an actor's `scale` > 2, the sea monster) fills the frame by design: its face must stay below the lyric rows, its ears may reach them
-    ['head in the lyric rows', (d, t) => !off(d) && lyricOn(t) && (d.giant ? !!d.head && d.head[1] < QA.lyricTop + 0.05 : d.box[1] < QA.lyricTop), d => QA.lyricTop - (d.giant ? d.head[1] - 0.05 : d.box[1]), QA.framing, 'of the height too high'],
+    ['head in the lyric rows', (d, t) => !off(d) && !d.fg && lyricOn(t) && (d.giant ? !!d.head && d.head[1] < QA.lyricTop + 0.05 : d.box[1] < QA.lyricTop), d => QA.lyricTop - (d.giant ? d.head[1] - 0.05 : d.box[1]), QA.framing, 'of the height too high'],
   ];
   const close = (k, r) => { if (r.t1 - r.t0 + 1 / qfps > r.lim) flag(r.rule, r.who, r.t0, r.t1, +r.worst.toFixed(3), r.unit); delete runs[k]; };
   for (const { t, dogs } of rows) {
