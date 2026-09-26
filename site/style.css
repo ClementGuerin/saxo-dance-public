@@ -283,7 +283,10 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
   #loader h1 { font-size: 42px; }
   #loader .how { display: none; }
 }
-/* narrow phones: the social bar and Dance share the bottom row, so the bar tightens (360 px) and drops the brand (320 px) */
+/* phones: the social bar and Dance share the bottom row. X joined the bar (2026-09-26), so below 420 px the bar's GitHub
+   link leaves it (the right column's GitHub button is there on phones); narrow phones tighten it (360 px) and drop the
+   brand (320 px) */
+@media (max-width: 420px) { #bar-left .social[data-net="github"] { display: none; } }
 @media (max-width: 380px) { #bar-left { gap: 2px; } .icon { width: 30px; height: 30px; } .sep { margin: 0 2px; } }
 @media (max-width: 340px) { .brand { display: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }

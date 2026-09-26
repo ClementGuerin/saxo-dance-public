@@ -1,4 +1,4 @@
-// site_posts.mjs: the list Saxo TV shows on saxo.dance. One entry per video, with its TikTok, Instagram and YouTube
+// site_posts.mjs: the list Saxo TV shows on saxo.dance. One entry per video, with its TikTok, Instagram, YouTube and X
 // posts, built from research/published.jsonl (what we posted), research/metrics.jsonl (the public URLs and views
 // SocialCrawl found) and research/yt_blocked.json (Shorts YouTube blocked, left out), plus the post URLs Zernio and
 // Postiz return for our own posts (free API reads), so a video shows every platform as soon as it's posted instead of
@@ -22,6 +22,7 @@ const linkOf = (platform, url) => {
   if (platform === 'tiktok') { const id = url.match(/video\/(\d+)/)?.[1]; return id ? { url, id } : null; }
   if (platform === 'instagram') { const id = url.match(/\/(?:reel|p)\/([\w-]+)/)?.[1]; return id ? { url, id } : null; }
   if (platform === 'youtube') { const id = url.match(/(?:v=|shorts\/|youtu\.be\/)([\w-]{11})/)?.[1]; return id ? { url: `https://www.youtube.com/shorts/${id}`, id } : null; }
+  if (platform === 'x') { const m = url.match(/(?:x|twitter)\.com\/(\w+)\/status\/(\d+)/); return m ? { url: `https://x.com/${m[1]}/status/${m[2]}`, id: m[2] } : null; }
   return null;
 };
 
@@ -46,7 +47,8 @@ for (const p of published) {
   }
   videos.set(key, v);
 }
-// our own services know their posts' public URLs (Zernio: TikTok and YouTube; Postiz: Instagram, TikTok inbox posts)
+// our own services know their posts' public URLs (Zernio: TikTok and YouTube; Postiz: Instagram, X, TikTok inbox posts;
+// X links come only from here, metrics doesn't read X)
 const zk = key('ZERNIO_API_KEY', '.zernio-saxo.env'), pk = key('POSTIZ_API_KEY', '.postiz-saxo.env');
 let postizList = null;
 for (const v of videos.values()) {
@@ -61,7 +63,7 @@ for (const v of videos.values()) {
   for (const id of v.postiz) {
     if (!cache['postiz:' + id] && pk && postizList !== false) {
       try { postizList ??= (await getJSON(`https://postiz.saxo.dance/api/public/v1/posts?startDate=${new Date(Date.now() - 30 * 864e5).toISOString()}&endDate=${new Date().toISOString()}`, pk)).posts || []; }
-      catch (e) { console.log(`postiz: ${e.message} (unreachable, skipped: Instagram links wait for metrics or the next run)`); postizList = false; }
+      catch (e) { console.log(`postiz: ${e.message} (unreachable, skipped: Instagram links wait for metrics or the next run, X links for the next run)`); postizList = false; }
       const hit = postizList && postizList.find(x => x.id === id && x.releaseURL);
       if (hit) cache['postiz:' + id] = [[hit.integration?.providerIdentifier?.replace(/-standalone$/, '') || '', hit.releaseURL]];
     }

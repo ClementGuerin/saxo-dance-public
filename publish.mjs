@@ -1,4 +1,4 @@
-// Publish a rendered video publicly to TikTok, Instagram and YouTube.
+// Publish a rendered video publicly to TikTok, Instagram, YouTube and X.
 //
 //   node publish.mjs out/saxo_dance_62s.mp4                     # post now, everywhere
 //   node publish.mjs out/x.mp4 --when=2026-09-25T17:00:00Z      # schedule
@@ -6,21 +6,23 @@
 //   node publish.mjs out/x.mp4 --draft                          # Postiz platforms only: upload + save as a draft
 //
 // Options: --song= --artist= (default: CONFIG.song in video.config.js), --caption= (hook line), --tags=a,b (extra
-// hashtags), --only=tiktok,instagram,youtube, --via=postiz (send everything through Postiz instead), --rev=<commit> (only for
+// hashtags), --only=tiktok,instagram,youtube,x, --via=postiz (send everything through Postiz instead), --rev=<commit> (only for
 // an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
 // --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below).
 //
 // YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, never inside a lyric line): it blocks worldwide any Short
-// over 60 s with a Content ID claim, and every label-owned song gets one. TikTok and Instagram get the full render.
+// over 60 s with a Content ID claim, and every label-owned song gets one. TikTok, Instagram and X get the full render.
 // Which 60 s: the episode's `yt` field ("start", "end", or [from, to] in seconds), else "end" for an episode (story
 // episodes end on their payoff: keep it) and "start" for a plain dance render. A kit's episodes/<id>.lyrics.js gives
 // the karaoke timings when it exists.
 //
 // Routes. Our own TikTok and YouTube apps are unaudited (TikTok could only reach the inbox, YouTube locked uploads to
 // private), so those two go through Zernio (zernio.com, free for 2 accounts), whose audited apps post publicly:
-// TikTok through its TikTok for Business app (video posts are public-only there), YouTube public. Instagram goes
+// TikTok through its TikTok for Business app (video posts are public-only there), YouTube public. Instagram and X go
 // through the self-hosted Postiz (postiz.saxo.dance), which stores media on Cloudflare R2 because Meta refuses to
-// fetch from postiz.saxo.dance.
+// fetch from postiz.saxo.dance. X (@saxodance) posts through our own X app, which X bills per post: $0.015, or $0.20
+// when the post contains a link, so captions carry none. An X caption fits 280 characters as X counts them
+// (xLength): the hook, then as many of its hashtags as fit.
 //
 // Keys: POSTIZ_API_KEY and ZERNIO_API_KEY from the environment, else ~/.postiz-saxo.env and ~/.zernio-saxo.env.
 // The Postiz public API allows 30 requests an hour; a run uses 3.
@@ -65,8 +67,8 @@ if (!song || !artist) {
 
 const hook = args.caption || `Saxo dances to ${song} by ${artist} 🐶🕺`;
 const extra = typeof args.tags === 'string' ? args.tags.split(',') : [];
-const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube'];
-const route = p => (args.via === 'postiz' || p === 'instagram' ? 'postiz' : 'zernio');
+const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'x'];
+const route = p => (args.via === 'postiz' || p === 'instagram' || p === 'x' ? 'postiz' : 'zernio');
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
@@ -87,10 +89,25 @@ const fileFor = p => (p === 'youtube' ? ytFile : file);
 
 const tags = p => buildHashtags({ song, artist, extra, platform: p });
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).trimEnd() + '…');
+// X's length, as twitter-text weighs it: Latin, punctuation and the like count 1, anything else (emoji, CJK) 2. It
+// counts an emoji sequence 2 in all, so counting each code point over-counts, which is the safe side.
+const xLength = s => [...s].reduce((n, c) => {
+  const k = c.codePointAt(0);
+  return n + (k <= 4351 || (k >= 8192 && k <= 8205) || (k >= 8208 && k <= 8223) || (k >= 8242 && k <= 8247) ? 1 : 2);
+}, 0);
+function xCaption() {
+  const t = tags('x'), text = () => [hook, t.join(' ')].filter(Boolean).join('\n\n');
+  while (t.length && xLength(text()) > 280) t.pop();
+  if (xLength(hook) <= 280) return text();
+  let h = hook;
+  while (xLength(h + '…') > 280) h = [...h].slice(0, -1).join('');
+  return h.trimEnd() + '…';
+}
 const caption = {
   tiktok: `${hook}\n\n${tags('tiktok').join(' ')}`,
   instagram: `${hook}\n\n${tags('instagram').join(' ')}`,
   youtube: `${hook}\n\n${tags('youtube').join(' ')}`,
+  x: xCaption(),
 };
 const youtubeTitle = clip(`${hook.replace(/[<>]/g, '')} #shorts`, 100);
 
@@ -115,8 +132,8 @@ async function call(base, auth, method, route, body) {
 const postiz = (...a) => call(POSTIZ, key('POSTIZ_API_KEY', '.postiz-saxo.env'), ...a);
 const zernio = (...a) => call(ZERNIO, `Bearer ${key('ZERNIO_API_KEY', '.zernio-saxo.env')}`, ...a);
 
-// ---- Postiz (Instagram, or everything with --via=postiz) ----
-const PROVIDER = { tiktok: 'tiktok', instagram: 'instagram-standalone', youtube: 'youtube' };
+// ---- Postiz (Instagram and X, or everything with --via=postiz) ----
+const PROVIDER = { tiktok: 'tiktok', instagram: 'instagram-standalone', youtube: 'youtube', x: 'x' };
 function postizSettings(p) {
   if (p === 'tiktok') return {
     __type: 'tiktok', title: clip(hook, 90), content_posting_method: 'UPLOAD', // unaudited app: inbox only
@@ -124,6 +141,7 @@ function postizSettings(p) {
     brand_content_toggle: false, brand_organic_toggle: false, video_made_with_ai: false,
   };
   if (p === 'instagram') return { __type: 'instagram-standalone', post_type: 'post', is_trial_reel: false, collaborators: [] };
+  if (p === 'x') return { __type: 'x', who_can_reply_post: 'everyone', made_with_ai: false, paid_partnership: false };
   return {
     __type: 'youtube', title: youtubeTitle, type: 'public', selfDeclaredMadeForKids: 'no',
     tags: tags('youtube').map(t => t.slice(1)).map(t => ({ value: t, label: t })),
@@ -197,7 +215,7 @@ async function viaZernio(platforms) {
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
-for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}\n${caption[p]}`);
+for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${p === 'x' ? ` (${xLength(caption.x)}/280)` : ''}\n${caption[p]}`);
 if (args['dry-run']) {
   console.log('\n--dry-run: nothing sent.');
   process.exit(0);

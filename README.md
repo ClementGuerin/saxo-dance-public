@@ -16,6 +16,7 @@
   <a href="https://www.tiktok.com/@saxo.dance"><img src="https://img.shields.io/badge/TikTok-%40saxo.dance-ff5fa2?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=2a1636" alt="TikTok @saxo.dance"></a>
   <a href="https://www.instagram.com/saxo.dance"><img src="https://img.shields.io/badge/Instagram-%40saxo.dance-ff5fa2?style=for-the-badge&logo=instagram&logoColor=white&labelColor=2a1636" alt="Instagram @saxo.dance"></a>
   <a href="https://www.youtube.com/channel/UCkJ-SUUz6dUcAmpfYQ4zZng"><img src="https://img.shields.io/badge/YouTube-Saxo%20Dance-ff5fa2?style=for-the-badge&logo=youtube&logoColor=white&labelColor=2a1636" alt="YouTube Saxo Dance"></a>
+  <a href="https://x.com/saxodance"><img src="https://img.shields.io/badge/X-%40saxodance-ff5fa2?style=for-the-badge&logo=x&logoColor=white&labelColor=2a1636" alt="X @saxodance"></a>
   <a href="https://saxo.dance"><img src="https://img.shields.io/badge/Play-saxo.dance-ffd43b?style=for-the-badge&labelColor=2a1636" alt="Play at saxo.dance"></a>
   <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/Built%20with-Claude%20Opus%205.5-d97757?style=for-the-badge&logo=claude&logoColor=white&labelColor=2a1636" alt="Built with Claude Opus 5.5"></a>
 </p>
@@ -133,7 +134,7 @@ each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20
    ffmpeg encodes the frames with the song, loudness-normalised to −14 LUFS.
 5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, zoomed stills,
    an independent reviewer that sees one frame per shot, and a critic's score before anything is posted.
-6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels and YouTube Shorts for its
+6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels, YouTube Shorts and X for its
    slot, with per-platform captions and hashtags. YouTube gets a cut of 60 s or less that keeps the episode's ending.
    Ten minutes after each post goes out, `tools/post_check.mjs` checks it is live, public and
    audible.
@@ -238,7 +239,7 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 | [`episodes/`](episodes/) | one shot list per posted video |
 | [`assets/`](assets/) | the stickers, pixel icons, profile pictures and the font (the rig, clips, 3D models and songs are private) |
 | [`tools/`](tools/) | song cutting, beats, the character pipeline, stickers, metrics, trends, the night's state and post checks, the website tools |
-| [`publish.mjs`](publish.mjs) | posts a render to TikTok, Instagram and YouTube |
+| [`publish.mjs`](publish.mjs) | posts a render to TikTok, Instagram, YouTube and X |
 | [`site/`](site/) | saxo.dance |
 
 ## What it costs
@@ -249,6 +250,7 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 | A new character or costume | $0.50 for the 3D model, $0.04 per reference image |
 | A new map | free: built from primitives in code |
 | Dance and action clips | free (Mixamo): 467 clips on disk |
+| Posting | free on TikTok, Instagram and YouTube; $0.015 a post on X, whose API has no free tier |
 | Caps per video | $1 of images and APIs, plus up to four new looks ($2 of 3D models), logged in `research/spend.jsonl` |
 
 Pay once for reusable assets, never for a render: every look a video buys joins the wardrobe for the next ones.

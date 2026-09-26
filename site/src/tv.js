@@ -1,12 +1,13 @@
 // tv.js: Saxo TV, the overlay that lists every post we published (assets/posts.json, built by tools/site_posts.mjs),
-// one card per video with its TikTok / Instagram / YouTube posts, and plays them through the platforms' embeds.
+// one card per video with its TikTok / Instagram / YouTube / X posts, and plays them through the platforms' embeds.
 import { ICON, NET } from './icons.js';
 import { sfx, musicOff } from './audio.js';
 import { track } from './analytics.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const ORDER = ['tiktok', 'youtube', 'instagram'];
-// YouTube refuses to embed our Shorts (the songs' Content ID claims), so it is a link; TikTok and Instagram play inline
+const ORDER = ['tiktok', 'youtube', 'instagram', 'x'];
+// YouTube refuses to embed our Shorts (the songs' Content ID claims) and X's embed needs its widget script, so both are
+// links; TikTok and Instagram play inline
 const EMBED = ['tiktok', 'instagram'];
 const fmtDate = d => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 const fmtViews = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.0', '') + 'M' : n >= 1e3 ? (n / 1e3).toFixed(1).replace('.0', '') + 'K' : String(n);
