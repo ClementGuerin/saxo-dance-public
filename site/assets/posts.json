@@ -1,6 +1,31 @@
 {
- "updated": "2026-09-26T14:17:29.402Z",
+ "updated": "2026-09-26T18:17:46.795Z",
  "posts": [
+  {
+   "id": "2026-09-26-3",
+   "title": "Die Young",
+   "artist": "Kesha",
+   "date": "2026-09-26T18:00:00.000Z",
+   "thumb": "assets/posts/2026-09-26-3.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7689905783353380129",
+     "id": "7689905783353380129"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/LhLVKcxLVfI",
+     "id": "LhLVKcxLVfI"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdwoN_xDVa_/",
+     "id": "DdwoN_xDVa_"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2103907831883718962",
+     "id": "2103907831883718962"
+    }
+   }
+  },
   {
    "id": "2026-09-26-2",
    "title": "Voyage Voyage (Techno)",
