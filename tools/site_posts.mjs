@@ -143,5 +143,8 @@ if (newest) {   // 8 s of the newest video, cropped 4:3 around the dancers (the 
   ff(['-ss', String(at), '-t', '8', '-i', src, '-an', '-vf', 'crop=iw:iw*3/4:0:ih*0.40,scale=192:144:flags=neighbor,fps=15', '-c:v', 'libx264', '-profile:v', 'baseline', '-pix_fmt', 'yuv420p', '-crf', '28', '-movflags', '+faststart', `${OUT}/tv.mp4`]);
 }
 const posts = list.map(({ id, title, artist, date, thumb, links, views }) => ({ id, title, artist, date, thumb, links, ...(views ? { views } : {}) }));
-fs.writeFileSync(`${OUT}/posts.json`, JSON.stringify({ updated: new Date().toISOString(), posts }, null, 1) + '\n');
+// "updated" moves only when the list does: the routine refreshes every 30 min and commits posts.json when it changes
+let prev = {}; try { prev = JSON.parse(fs.readFileSync(`${OUT}/posts.json`, 'utf8')); } catch {}
+const updated = prev.updated && JSON.stringify(prev.posts) === JSON.stringify(posts) ? prev.updated : new Date().toISOString();
+fs.writeFileSync(`${OUT}/posts.json`, JSON.stringify({ updated, posts }, null, 1) + '\n');
 console.log(`${posts.length} videos → ${OUT}/posts.json`); posts.forEach(p => console.log(`  ${p.date.slice(0, 10)} ${p.title}: ${Object.keys(p.links).join(', ')}${p.views ? `, ${p.views} views` : ''}`));
