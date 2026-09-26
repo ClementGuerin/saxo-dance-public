@@ -93,9 +93,9 @@ shots = [
   shot(16, [saxo(*LANE, clip='hip_hop_dancing_side_to_side', sway=0, mx=-0.5), sadi(*SADI_L, holdL='goldfish', mx=-0.5)],
        "L03 ('steps' 6.07, 'left' 6.65): the whole front of the lane takes its steps to the left, paws up",
        view((0.9, 1.25, 14.2), (-0.35, 0.75, 10.1), 56, p1=(0.6, 1.2, 13.9)), lane=6),
-  shot(20, [compote_drum(arm='R', aim=[0.35, 0.18, 0.92], upAt=round(8.17 - T(20), 2))],
-       "L04 ('listen' 7.15, 'learn' 8.17): up on the festival tower, Compote the taiko drummer stops drumming and glares down the lane... on 'learn' she points: dance",
-       view((-3.3, 2.15, 1.6), (0.0, 1.95, -2.2), 36, p1=(-3.15, 2.14, 1.4)), ring=0, stars=['compote']),
+  shot(20, [compote_drum(flap=0)],
+       "L04 ('listen' 7.15, 'learn' 8.17): up on the festival tower, Compote the taiko drummer freezes mid-stroke, both sticks in the air, and glares down the lane (a point here failed three review loops: the proven deadpan stare instead)",
+       deadpan(DRUMMER, 1.98, 6.4, cam_y=2.02, push=0.3, fov=30), ring=0, stars=['compote']),
   shot(24, [saxo(*LANE), sadi(*SADI_L, holdL='goldfish')],
        "L05 ('miss' 8.81): the lane pets pile in, ten of them dancing round the pair",
        view((1.5, 2.25, 12.9), (-0.1, 0.75, 9.8), 56, p1=(1.35, 2.2, 12.6)), lane=10),   # from between the stalls, above the pets
@@ -137,7 +137,7 @@ shots = [
   # ================= pre-chorus 2: the search (L16-L20) =================
   shot(100, [A('compote', 'happy_walk', 7.9, -3.4, mz=1.0, face='world', yaw=0, speed=1.0, hold='bachi', holdL='bachi', fg=True)],
        "L16 ('feet' 37.21): at the gravel's level, her feet stomp towards the lens, straight for the display",
-       view((7.95, 0.1, -0.9), (7.9, 0.2, -2.8), 18, p1=(7.95, 0.1, -0.95)), ring=66),
+       view((7.95, 0.1, -0.9), (7.9, 0.2, -2.8), 23, p1=(7.95, 0.1, -0.95)), ring=66),
   shot(108, [saxo(*R_SAXO, sway=14, swayEvery=0.5), sadi(*R_SADI, sway=14, swayEvery=0.5, clip='happy_idle', holdL='goldfish')],
        "L17 ('wiggle' 39.29, 'hips' 39.99): the pair wiggle their hips, twice as fast",
        low((0.0, 0.78, 4.6), (0.0, 0.86, 1.3), (0.0, 0.75, 4.2), fov=60, roll=(8, 5)), ring=66),
