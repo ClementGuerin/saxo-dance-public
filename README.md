@@ -142,7 +142,8 @@ saxo.dance and checks this README against the code, rebuilding any image that no
    slot, with per-platform captions and hashtags (X gets the video alone). YouTube gets a cut of 60 s or less that
    keeps the episode's ending. Ten minutes after each post goes out, `tools/post_check.mjs`
    checks it is live, public and audible; when TikTok mutes a song, the video is re-cut to that song's official
-   TikTok sound.
+   TikTok sound. [`tools/notify.mjs`](tools/notify.mjs) sends a Discord message when a post is muted or blocked, and
+   again when the re-cut is waiting in the TikTok inbox.
 7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post at 24 h and 72 h against the channel
    median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
 

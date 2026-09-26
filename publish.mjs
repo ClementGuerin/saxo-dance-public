@@ -8,7 +8,12 @@
 // Options: --song= --artist= (default: CONFIG.song in video.config.js), --caption= (hook line), --tags=a,b (extra
 // hashtags), --only=tiktok,instagram,youtube,x, --via=postiz (send everything through Postiz instead), --rev=<commit> (only for
 // an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
-// --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below).
+// --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below),
+// --sound="<title>" (an official-sound cut's TikTok sound, named in the Discord message below).
+//
+// A TikTok sent through Postiz lands in the TikTok app's inbox, where only the user can publish it, so they get a
+// Discord message once it's there (tools/notify.mjs; the user, 2026-09-26). For an official-sound cut (an episode
+// `<id>-tt`, made when TikTok muted the post) it says which sound to add and which muted post to delete.
 //
 // YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, never inside a lyric line): it blocks worldwide any Short
 // over 60 s with a Content ID claim, and every label-owned song gets one. TikTok, Instagram and X get the full render.
@@ -33,6 +38,7 @@ import os from 'node:os';
 import path from 'node:path';
 import vm from 'node:vm';
 import { buildHashtags } from './tools/hashtags.mjs';
+import { notify } from './tools/notify.mjs';
 
 const POSTIZ = 'https://postiz.saxo.dance/api/public/v1';
 const ZERNIO = 'https://zernio.com/api/v1';
@@ -210,9 +216,27 @@ async function viaZernio(platforms) {
   return { media: Object.values(urls).join(' '), result };
 }
 
+// ---- the TikTok inbox: a Discord message to the user once the video is there ----
+const inbox = only.includes('tiktok') && route('tiktok') === 'postiz' && type !== 'draft';
+function mutedPostUrl(ep) {   // the muted TikTok an official-sound cut replaces, from the post check's state
+  try {
+    const state = JSON.parse(fs.readFileSync(new URL('./out/post_check/state.json', import.meta.url), 'utf8'));
+    return Object.values(state).filter(x => x.episode === ep && x.platform === 'tiktok' && x.status === 'muted' && x.url)
+      .sort((a, b) => Date.parse(b.live) - Date.parse(a.live))[0]?.url ?? null;
+  } catch { return null; }
+}
+function inboxMessage() {
+  if (!episode?.endsWith('-tt')) return `A new TikTok of ${song} is in your inbox: publish it from the TikTok app within 24 h.`;
+  const muted = mutedPostUrl(episode.replace(/-tt$/, ''));
+  return `The new TikTok of ${song} is in your inbox, cut for the song's official TikTok sound.\n` +
+    `In the TikTok app: add the sound ${typeof args.sound === 'string' ? `"${args.sound}"` : "(the song's official one)"}, publish it ` +
+    `within 24 h, then delete the muted post${muted ? `: ${muted}` : '.'}`;
+}
+
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
 for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
 if (args['dry-run']) {
+  if (inbox) console.log(`\n[discord, once it's in the inbox]\n${inboxMessage()}`);
   console.log('\n--dry-run: nothing sent.');
   process.exit(0);
 }
@@ -232,6 +256,8 @@ if (type !== 'draft' && Object.values(runs).some(Boolean)) {
   try { commit = execSync('git rev-parse --short HEAD', { cwd: path.dirname(new URL(import.meta.url).pathname) }).toString().trim(); } catch {}
   fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), file: path.basename(file), ...(ytFile && ytFile !== file ? { ytFile: path.basename(ytFile) } : {}), episode, song, artist, type, date, only, commit, runs }) + '\n');
 }
-if (only.includes('tiktok') && route('tiktok') === 'postiz' && type !== 'draft')
+if (inbox && runs.postiz && !failed.includes('tiktok') && !failed.includes('postiz')) {
   console.log('\nTikTok via Postiz: the video is in the TikTok app inbox. Open it within 24 h and post it public.');
+  console.log((await notify(inboxMessage())) ? 'discord: the user was messaged' : 'discord: not sent (see above): tell the user another way');
+}
 if (failed.length) process.exit(1);
