@@ -36,6 +36,11 @@
 // Each Postiz platform is its own post request, so one that Postiz refuses (or that isn't connected) doesn't stop
 // the others; it's reported and the run exits 1.
 //
+// --studio (2026-09-27) posts the TikTok through TikTok Studio in our own signed-in Chrome (tools/tiktok_studio.mjs),
+// with the episode's official sound (`tiktok_sound`, or --sound-id=) added as the post's music, the caption and real
+// hashtags, public, at once: the official-sound re-cut of a muted TikTok (the user: "you can probably publish the new
+// tiktok, add the good sound, add the description and publish"). --inbox stays the fallback when it fails.
+//
 // Keys: POSTIZ_API_KEY and ZERNIO_API_KEY from the environment, else ~/.postiz-saxo.env and ~/.zernio-saxo.env.
 // The Postiz public API allows 30 requests an hour; a run uses 3 (the list, one upload, the X post).
 import { execFileSync, execSync } from 'node:child_process';
@@ -58,6 +63,10 @@ const args = Object.fromEntries(process.argv.slice(2).filter(a => a.startsWith('
 const file = process.argv.slice(2).find(a => !a.startsWith('--'));
 if (args.via) {   // gone on 2026-09-27: an old --via=postiz re-cut would otherwise post a silent TikTok publicly
   console.error('--via is gone (Postiz is X only): send a TikTok to the app inbox with --only=tiktok --inbox');
+  process.exit(1);
+}
+if (args.studio && (args.inbox || args.when || args.draft)) {   // Studio posts now, public: never a draft or a schedule
+  console.error('--studio posts the TikTok now: not with --inbox, --when or --draft');
   process.exit(1);
 }
 if (!file || !fs.existsSync(file)) {
@@ -85,7 +94,8 @@ if (!song || !artist) {
 const hook = args.caption || `Saxo dances to ${song} by ${artist} 🐶🕺`;
 const extra = typeof args.tags === 'string' ? args.tags.split(',') : [];
 const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'facebook', 'x'];
-const route = p => (p === 'x' ? 'postiz' : 'zernio');
+const studio = args.studio === true && only.includes('tiktok');
+const route = p => (p === 'x' ? 'postiz' : p === 'tiktok' && studio ? 'studio' : 'zernio');
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
@@ -225,6 +235,18 @@ async function viaZernio(platforms) {
   return { media: Object.values(urls).join(' '), result, ...(failed.length ? { failed } : {}) };
 }
 
+// ---- TikTok Studio (--studio): the official-sound re-cut, posted with its sound ----
+const soundOf = s => (typeof s === 'string' ? s : s?.music_id ?? s?.id ?? null);   // episodes hold an id or { music_id, … }
+async function viaStudio() {
+  const soundId = (typeof args['sound-id'] === 'string' && args['sound-id']) || soundOf(EP?.tiktok_sound) || soundOf(EP?.song?.tiktok_sound);
+  const title = typeof args.sound === 'string' ? args.sound : song;
+  const { postTikTok } = await import('./tools/tiktok_studio.mjs');
+  const r = await postTikTok({ file: fileFor('tiktok'), soundId, queries: [`${title} ${artist}`, title], caption: caption.tiktok });
+  console.log(`studio: tiktok ${r.ok ? r.detail : 'FAILED: ' + r.detail}${r.url ? ' ' + r.url : ''}`);
+  if (!r.ok) throw new Error(r.detail);
+  return { result: [{ platform: 'tiktok', postId: r.id, url: r.url, sound: r.sound }] };
+}
+
 // ---- the TikTok inbox: a Discord message to the user once the video is there ----
 const inbox = only.includes('tiktok') && args.inbox === true && type !== 'draft';
 function mutedPost(ep) {   // the muted TikTok an official-sound cut replaces, from the post check's state ({ url, hidden })
@@ -256,7 +278,7 @@ console.log('');
 
 const runs = {};
 const failed = [];
-for (const [name, fn] of [['postiz', viaPostiz], ['zernio', viaZernio]]) {
+for (const [name, fn] of [['postiz', viaPostiz], ['zernio', viaZernio], ['studio', viaStudio]]) {
   const platforms = only.filter(p => route(p) === name);
   if (!platforms.length) continue;
   try { runs[name] = await fn(platforms); failed.push(...(runs[name]?.failed || [])); }
