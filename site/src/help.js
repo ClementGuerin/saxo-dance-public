@@ -148,6 +148,7 @@ export function makeHelp(game, chat) {
     if (r.session) store.set(sessionStorage, 'saxo.help', r.session);   // kept even if the panel closed meanwhile
     if (id !== run) return;
     typing.remove();
+    if (r.fresh) log.append(node('p', 'note', 'That chat was full, so this is a new one: Kob won\'t remember what came before.'));
     await kob(r.lines?.length ? r.lines : ['…'], id);
     if (id !== run) return;
     if (r.draft) card(r.draft, id);
