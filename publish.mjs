@@ -244,7 +244,9 @@ async function viaStudio() {
   const r = await postTikTok({ file: fileFor('tiktok'), soundId, queries: [`${title} ${artist}`, title], caption: caption.tiktok });
   console.log(`studio: tiktok ${r.ok ? r.detail : 'FAILED: ' + r.detail}${r.url ? ' ' + r.url : ''}`);
   if (!r.ok) throw new Error(r.detail);
-  return { result: [{ platform: 'tiktok', postId: r.id, url: r.url, sound: r.sound }] };
+  // out, but muted or with another sound: logged (the post check hides a mute) and failed, so the run falls back to --inbox
+  if (r.problem) console.error(`studio: tiktok is out but ${r.problem}: hide it (node tools/tiktok_studio.mjs hide ${r.url}) and send the re-cut --inbox`);
+  return { result: [{ platform: 'tiktok', postId: r.id, url: r.url, sound: r.sound }], ...(r.problem ? { failed: ['tiktok'] } : {}) };
 }
 
 // ---- the TikTok inbox: a Discord message to the user once the video is there ----
