@@ -39,10 +39,13 @@ const base = f => f.replace(/_(yt|ig)\.mp4$/, '.mp4');
 // night's videos are scheduled hours ahead, and one dated by its scheduling run showed on the TV before its release,
 // holding the TikTok that went out in between (Voyage Voyage, 2026-09-26).
 const outAt = p => p.date || p.at;
+// A TikTok re-cut (episode <id>-tt, posted by hand when the first TikTok was muted) is the same video: one card, not two
+// (bug desk report #2, 2026-09-27: Die Young and He's A Pirate each showed twice, sharing their YouTube link)
+const videoKey = e => String(e).replace(/-tt$/, '');
 const videos = new Map();
 for (const p of published) {
   if (Date.parse(outAt(p)) > Date.now()) continue;   // not out yet
-  const key = p.episode || (/^\d{4}-\d{2}-\d{2}/.test(p.file) ? p.file.slice(0, 10) : null) || 'song:' + p.song;
+  const key = videoKey(p.episode || (/^\d{4}-\d{2}-\d{2}/.test(p.file) ? p.file.slice(0, 10) : null) || 'song:' + p.song);
   const v = videos.get(key) || { key, title: p.song, artist: p.artist, date: outAt(p), file: base(p.file), links: {}, zernio: [], postiz: [] };
   for (const r of p.runs?.zernio?.result || []) if (r.postId) v.zernio.push(r.postId);
   for (const r of [...(p.runs?.postiz?.result || []), ...(p.result || [])]) if (r.postId) v.postiz.push(r.postId);
@@ -82,7 +85,7 @@ fs.writeFileSync(CACHE, JSON.stringify(cache, null, 1) + '\n');
 const latest = new Map();
 for (const m of metrics) { const k = m.platform + ':' + m.id; if (!latest.has(k) || Date.parse(m.at) >= Date.parse(latest.get(k).at)) latest.set(k, m); }
 for (const m of latest.values()) {
-  const v = videos.get(m.episode) || [...videos.values()].find(x => 'song:' + x.title === m.episode);
+  const v = videos.get(videoKey(m.episode)) || [...videos.values()].find(x => 'song:' + x.title === m.episode);
   if (!v) continue;
   if (m.platform === 'tiktok') v.links.tiktok = { url: m.url, id: m.id };   // metrics (public data) wins over the services
   if (m.platform === 'instagram') v.links.instagram = { url: m.url, id: m.url.match(/\/(?:reel|p)\/([\w-]+)/)?.[1] };
