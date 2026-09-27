@@ -55,6 +55,10 @@ const args = Object.fromEntries(process.argv.slice(2).filter(a => a.startsWith('
   return [k, v.length ? v.join('=') : true];
 }));
 const file = process.argv.slice(2).find(a => !a.startsWith('--'));
+if (args.via) {   // gone on 2026-09-27: an old --via=postiz re-cut would otherwise post a silent TikTok publicly
+  console.error('--via is gone (Postiz is X only): send a TikTok to the app inbox with --only=tiktok --inbox');
+  process.exit(1);
+}
 if (!file || !fs.existsSync(file)) {
   console.error('usage: node publish.mjs <video.mp4> [--when=ISO] [--dry-run] [--draft] …');
   process.exit(1);
