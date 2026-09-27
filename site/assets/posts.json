@@ -1,6 +1,31 @@
 {
- "updated": "2026-09-27T08:23:52.101Z",
+ "updated": "2026-09-27T10:17:52.574Z",
  "posts": [
+  {
+   "id": "2026-09-27-2",
+   "title": "Dans ma bulle (Veridis Remix)",
+   "artist": "Romsii",
+   "date": "2026-09-27T10:00:00.000Z",
+   "thumb": "assets/posts/2026-09-27-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690153042267622688",
+     "id": "7690153042267622688"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/JuUqRc1fBek",
+     "id": "JuUqRc1fBek"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdyWGcRiRcE/",
+     "id": "DdyWGcRiRcE"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2104149431444451535",
+     "id": "2104149431444451535"
+    }
+   }
+  },
   {
    "id": "2026-09-27",
    "title": "Caramelldansen",
