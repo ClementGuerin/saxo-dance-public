@@ -149,10 +149,10 @@ saxo.dance and checks this README against the code, rebuilding any image that no
 7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post at 24 h and 72 h against the channel
    median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
 
-**Saxo answers his comments.** Every quarter hour, the site's Worker reads the new comments under the TikToks and
-YouTube Shorts and answers each one in Saxo's voice, played by Claude Opus 5: one line, in the commenter's language,
-with the gang's running jokes. Spam and hate get no answer, a sad comment gets a kind line instead of a joke, and every
-line is checked for links and mentions before it goes out.
+**Saxo answers his comments.** Every quarter hour, the site's Worker reads the new comments under the TikToks,
+YouTube Shorts and Instagram Reels and answers each one in Saxo's voice, played by Claude Opus 5: one line, in the
+commenter's language, with the gang's running jokes. Spam and hate get no answer, a sad comment gets a kind line
+instead of a joke, and every line is checked for links and mentions before it goes out.
 
 ## Under the hood
 
@@ -278,7 +278,7 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 | Dance and action clips | free (Mixamo): 467 clips on disk |
 | Posting | free on TikTok, Instagram and YouTube; $0.015 a post on X, whose API has no free tier |
 | Caps per video | $1 of images and APIs, plus up to four new looks ($2 of 3D models), logged in `research/spend.jsonl` |
-| Kob's help desk and Saxo's replies | Claude Opus 5 on the site's Worker, capped at $2 a day for the help desk and $1 a day for the replies (about $0.01 a message, $0.004 a comment) |
+| Kob's help desk and Saxo's replies | Claude Opus 5 on the site's Worker, capped at $2 a day for the help desk and $1 a day for the replies (about $0.01 a message, $0.004 a comment), plus $6 a month to read the Instagram comments |
 
 Pay once for reusable assets, never for a render: every look a video buys joins the wardrobe for the next ones.
 
