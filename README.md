@@ -200,7 +200,7 @@ renders. Frames can be drawn out of order in parallel tabs, and an interrupted r
 </p>
 
 <p align="center">
-  <img src="docs/readme/site.jpg" width="100%" alt="Saxo TV with every posted video, a chat with Compote in her carrot garden, the GitHub island, and the stats island with its scoreboard, bar chart, pie and podium">
+  <img src="docs/readme/site.jpg" width="100%" alt="Saxo TV with every posted video, Kob's help desk beside her gaming chair, the GitHub island, and the stats island with its scoreboard, bar chart, pie and podium">
 </p>
 
 A playable version of the channel in the same PS1 look. Walk Saxo around a floating diorama (the living room, the club,
