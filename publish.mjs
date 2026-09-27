@@ -1,4 +1,4 @@
-// Publish a rendered video publicly to TikTok, Instagram, YouTube and X.
+// Publish a rendered video publicly to TikTok, Instagram, YouTube, Facebook and X.
 //
 //   node publish.mjs out/saxo_dance_62s.mp4                     # post now, everywhere
 //   node publish.mjs out/x.mp4 --when=2026-09-25T17:00:00Z      # schedule
@@ -6,7 +6,7 @@
 //   node publish.mjs out/x.mp4 --draft                          # Postiz platforms only: upload + save as a draft
 //
 // Options: --song= --artist= (default: CONFIG.song in video.config.js), --caption= (hook line), --tags=a,b (extra
-// hashtags), --only=tiktok,instagram,youtube,x, --via=postiz (send everything through Postiz instead), --rev=<commit> (only for
+// hashtags), --only=tiktok,instagram,youtube,facebook,x, --via=postiz (send everything Postiz has through it instead), --rev=<commit> (only for
 // an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
 // --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below),
 // --sound="<title>" --uses=<count> (an official-sound cut's TikTok sound as the app lists it, and how many videos use it).
@@ -22,17 +22,20 @@
 // episodes end on their payoff: keep it) and "start" for a plain dance render. A kit's episodes/<id>.lyrics.js gives
 // the karaoke timings when it exists.
 //
-// Routes. Our own TikTok and YouTube apps are unaudited (TikTok could only reach the inbox, YouTube locked uploads to
-// private), so those two go through Zernio (zernio.com, free for 2 accounts), whose audited apps post publicly:
-// TikTok through its TikTok for Business app (video posts are public-only there), YouTube public. Instagram and X go
-// through the self-hosted Postiz (postiz.saxo.dance), which stores media on Cloudflare R2 because Meta refuses to
-// fetch from postiz.saxo.dance. X (@saxodance) posts through our own X app, which X bills per post: $0.015, or $0.20
-// when the post contains a link. An X post is the video alone, with no text (the user's call, 2026-09-26).
+// Routes. Everything but X goes through Zernio (zernio.com: the first 2 accounts free, then $6/month each), whose
+// audited apps post publicly (our own TikTok app could only reach the inbox, our YouTube app locked uploads to
+// private, our Meta app is still in development mode): TikTok through its TikTok for Business app (video posts are
+// public-only there), YouTube public, Instagram as a Reel shared to the feed (90 s at most), and the Facebook Page
+// Saxo.dance with Instagram's render and caption as a feed video (Zernio caps Facebook Reels at 60 s; our renders run
+// longer). Instagram moved from Postiz to Zernio on 2026-09-27, when Facebook joined (the user: "we'll keep postiz for
+// X (twitter) only for now"). X (@saxodance) goes through the self-hosted Postiz (postiz.saxo.dance), which stores
+// media on Cloudflare R2, and posts through our own X app, which X bills per post: $0.015, or $0.20 when the post
+// contains a link. An X post is the video alone, with no text (the user's call, 2026-09-26).
 // Each Postiz platform is its own post request, so one that Postiz refuses (or that isn't connected) doesn't stop
 // the others; it's reported and the run exits 1.
 //
 // Keys: POSTIZ_API_KEY and ZERNIO_API_KEY from the environment, else ~/.postiz-saxo.env and ~/.zernio-saxo.env.
-// The Postiz public API allows 30 requests an hour; a run uses 4 (the list, one upload, a post per platform).
+// The Postiz public API allows 30 requests an hour; a run uses 3 (the list, one upload, the X post).
 import { execFileSync, execSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -75,8 +78,8 @@ if (!song || !artist) {
 
 const hook = args.caption || `Saxo dances to ${song} by ${artist} 🐶🕺`;
 const extra = typeof args.tags === 'string' ? args.tags.split(',') : [];
-const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'x'];
-const route = p => (args.via === 'postiz' || p === 'instagram' || p === 'x' ? 'postiz' : 'zernio');
+const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'facebook', 'x'];
+const route = p => ((args.via === 'postiz' && p !== 'facebook') || p === 'x' ? 'postiz' : 'zernio');
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
@@ -101,6 +104,7 @@ const caption = {
   tiktok: `${hook}\n\n${tags('tiktok').join(' ')}`,
   instagram: `${hook}\n\n${tags('instagram').join(' ')}`,
   youtube: `${hook}\n\n${tags('youtube').join(' ')}`,
+  facebook: `${hook}\n\n${tags('instagram').join(' ')}`,   // Instagram's caption (the user, 2026-09-27)
   x: '',   // the video alone (Postiz takes empty text when there's media)
 };
 const youtubeTitle = clip(`${hook.replace(/[<>]/g, '')} #shorts`, 100);
@@ -126,7 +130,7 @@ async function call(base, auth, method, route, body) {
 const postiz = (...a) => call(POSTIZ, key('POSTIZ_API_KEY', '.postiz-saxo.env'), ...a);
 const zernio = (...a) => call(ZERNIO, `Bearer ${key('ZERNIO_API_KEY', '.zernio-saxo.env')}`, ...a);
 
-// ---- Postiz (Instagram and X, or everything with --via=postiz) ----
+// ---- Postiz (X, or everything it has with --via=postiz) ----
 const PROVIDER = { tiktok: 'tiktok', instagram: 'instagram-standalone', youtube: 'youtube', x: 'x' };
 function postizSettings(p) {
   if (p === 'tiktok') return {
@@ -172,9 +176,13 @@ async function viaPostiz(platforms) {
   return { media: Object.values(uploads).map(u => u.path).join(' '), result, ...(failed.length ? { failed } : {}) };
 }
 
-// ---- Zernio (TikTok and YouTube) ----
+// ---- Zernio (TikTok, YouTube, Instagram and Facebook) ----
 function zernioPost(p, accountId, url) {
   const when = type === 'schedule' ? { scheduledFor: date.replace(/Z$/, ''), timezone: 'UTC' } : { publishNow: true };
+  // Instagram: one video posts as a Reel, shared to the feed. Facebook: a feed video (no contentType; Reels stop at 60 s).
+  if (p === 'instagram' || p === 'facebook') return {
+    content: caption[p], mediaItems: [{ type: 'video', url }], platforms: [{ platform: p, accountId }], ...when,
+  };
   if (p === 'tiktok') return {
     content: caption.tiktok, mediaItems: [{ type: 'video', url }],
     platforms: [{ platform: 'tiktok', accountId }],
