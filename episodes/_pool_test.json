@@ -1,0 +1,292 @@
+{
+ "date": "2026-09-27",
+ "n": 0,
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "bored_idle",
+  "happy_idle",
+  "sitting_talking",
+  "waving"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "pool",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "shuffle",
+     "x": 2.4,
+     "z": -1,
+     "lift": 1.5,
+     "face": "world",
+     "yaw": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.8,
+     8.8
+    ],
+    "r": [
+     15.685,
+     15.685
+    ],
+    "h": [
+     3.6,
+     3.6
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 62
+   },
+   "focus": [
+    1,
+    -7
+   ],
+   "still": true,
+   "riders": true
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "pool",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": 2.4,
+     "z": -1,
+     "lift": 1.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.2,
+     2.2
+    ],
+    "h": [
+     3.05,
+     3.05
+    ],
+    "look": [
+     2.25,
+     2.25
+    ],
+    "fov": 76
+   },
+   "focus": [
+    2.4,
+    -1
+   ],
+   "still": true,
+   "waves": 0.15,
+   "riders": true
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "pool",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "waving",
+     "x": 3.9,
+     "z": -4.6,
+     "lift": -0.8,
+     "face": "world",
+     "yaw": -20,
+     "at": "auto"
+    },
+    {
+     "who": "compote",
+     "look": "beach",
+     "clip": "bored_idle",
+     "x": 0.9,
+     "z": -6.2,
+     "ride": "duck",
+     "rideY": -0.28,
+     "lift": -0.18000000000000002,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.5,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.19,
+     5.19
+    ],
+    "r": [
+     4.418,
+     4.418
+    ],
+    "h": [
+     0.2,
+     0.2
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 60
+   },
+   "focus": [
+    2.2,
+    -6
+   ],
+   "still": true,
+   "waves": 0.08
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "pool",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "sitting_talking",
+     "x": 5.6,
+     "z": 1.7,
+     "lift": 0.21999999999999997,
+     "face": "world",
+     "yaw": 180,
+     "at": 0,
+     "speed": 0.05
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.3,
+     2.3
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 44
+   },
+   "focus": [
+    5.6,
+    1.7
+   ],
+   "still": true,
+   "foam": 0.3
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "pool",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.49,
+     10.49
+    ],
+    "r": [
+     13.73,
+     13.73
+    ],
+    "h": [
+     1.9,
+     1.9
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -2,
+    -19
+   ],
+   "still": true,
+   "riders": true
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "pool",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "bored_idle",
+     "x": 4.2,
+     "z": -4.2,
+     "lift": -0.8,
+     "face": "world",
+     "yaw": 160,
+     "at": 0.5,
+     "hold": "phone",
+     "arm": "R",
+     "aim": "phone",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -173.66,
+     -173.66
+    ],
+    "r": [
+     5.433,
+     5.433
+    ],
+    "h": [
+     -0.05,
+     -0.05
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 62
+   },
+   "focus": [
+    3,
+    2
+   ],
+   "still": true,
+   "phones": true,
+   "stare": [
+    2.4,
+    -3.4
+   ]
+  }
+ ]
+}

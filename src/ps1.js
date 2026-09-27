@@ -15,6 +15,7 @@ import { buildTechnoMaps } from './maps6.js';
 import { buildMatsuriMaps } from './maps10.js';
 import { buildBubbleMaps } from './maps11.js';
 import { buildPatientMaps } from './maps12.js';
+import { buildPoolMaps } from './maps13.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
 import { buildDieYoungMaps } from './maps9.js';
@@ -608,7 +609,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   sailor: 'assets/models/saxo_sailor.glb',   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
   trench: 'assets/models/saxo_trench.glb',   // the French film look: a camel trench coat belted over a black turtleneck, grey trousers, brown shoes ("Dans ma bulle", 2026-09-27)   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
   pyjama: 'assets/models/saxo_pyjama.glb',   // sick-day pyjamas: pale blue striped flannel, a red knitted scarf wound twice round the neck, grey slippers ("Patient Zero", 2026-09-27)
-  devil: 'assets/models/saxo_devil.glb' };   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
+  devil: 'assets/models/saxo_devil.glb',   // the devil on his shoulder ("Patient Zero")
+  lifeguard: 'assets/models/saxo_lifeguard.glb' };   // the lifeguard: red swim shorts with white side stripes, a white tank top with a red cross, a red whistle on a white cord, red flip-flops ("Beauty And A Beat", 2026-09-27)   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -629,7 +631,8 @@ const PARTNERS = {
     pyjama: 'assets/models/kob_pyjama.glb',
     bartender: 'assets/models/kob_bartender.glb',   // the bartender: white shirt, sleeves rolled, black waistcoat and bow tie, her bell collar ("Die Young")
     maneki: 'assets/models/kob_maneki.glb',   // the lucky-cat suit ("Caramelldansen")
-    driver: 'assets/models/kob_driver.glb' },   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
+    driver: 'assets/models/kob_driver.glb',
+    spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
   compote: { scale: 0.92, models: { compote: 'assets/models/compote_base.glb', astronaut: 'assets/models/compote_astronaut.glb', cowgirl: 'assets/models/compote_cowgirl.glb',
@@ -729,7 +732,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -833,7 +836,9 @@ function actorSpec(a, e, map) {
     gum: a.gum || null, splat: a.splat ?? null, buds: a.buds ?? null, bubble: a.bubble || null, moth: a.moth ?? null,   // "Dans ma bulle": bubble gum, its splat, earbuds, the dream bubble, a moth out of the wallet   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
     // "Patient Zero" (2026-09-27): the sick look's face props, a red nose (true, or from s into the shot), a thermometer
     // in the mouth and a surgical mask, and a sneeze: a spray out of the nose s into the shot
-    nose: a.nose ?? null, therm: !!a.therm, mask: !!a.mask, sleep: !!a.sleep, sneeze: a.sneeze ?? null };
+    nose: a.nose ?? null, therm: !!a.therm, mask: !!a.mask, sleep: !!a.sleep, sneeze: a.sneeze ?? null,
+    // "Beauty And A Beat" (2026-09-27): what a held rescue hook reaches, [x, y, z] or a character's name (its collar, at the head bone)
+    hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null };
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -897,7 +902,7 @@ function propMesh(kind) {
   } else if (kind === 'milk') {    // a glass of milk (Kob stays in)
     add(cyl(0.052, 0.044, 0.16, M(0x6aa8e8)), 0, 0.08); add(cyl(0.046, 0.046, 0.02, M(0xffffff)), 0, 0.15); add(cyl(0.008, 0.008, 0.13, M(0xff5fa2), 4), 0.018, 0.2).rotation.z = -0.3;   // blue glass, white milk: a white glass vanished on her pyjamas
   } else if (kind === 'phone') {   // held up filming: screen towards the holder, flash on the back
-    add(box(0.11, 0.2, 0.02, M(0xff4f9a))); add(box(0.094, 0.18, 0.004, glow(0x8fd8ff)), 0, 0, -0.012);   // a pink case: a black phone vanished against the shades
+    add(box(0.11, 0.2, 0.02, mat({ color: 0xffb4dc, unlit: 0.6 }))); add(box(0.094, 0.18, 0.004, glow(0x8fd8ff)), 0, 0, -0.012);   // a candy-pink case (0xff4f9a rendered dark plum at night; a black phone vanished against the shades)
     G.userData.led = add(box(0.03, 0.03, 0.004, glow(0xffffff)), -0.028, 0.07, 0.012);
   } else if (kind === 'pad') {     // game controller
     add(box(0.18, 0.036, 0.085, M(0x2a2d36)));
@@ -955,6 +960,14 @@ function propMesh(kind) {
     add(cyl(0.03, 0.03, 0.04, mat({ color: 0xf4f4f4, unlit: 0.3 })), 0.1, 0.02).rotation.z = 1.2;
   } else if (kind === 'thermo') {     // a thermometer held up to read: white glass, a red column, a silver bulb
     add(box(0.035, 0.26, 0.035, mat({ color: 0xf6fbff, unlit: 0.5 })), 0, 0.1); add(box(0.018, 0.2, 0.04, mat({ color: 0xff2a2a, unlit: 0.8 })), 0, 0.12); add(box(0.05, 0.05, 0.05, M(0xc8ccd4)), 0, -0.04);
+  } else if (kind === 'selfie') {     // "Beauty And A Beat": a selfie stick along the forearm, an action camera at its end looking back at the holder, its red REC light on
+    add(box(0.032, 1.15, 0.032, M(0x1a1a22)), 0, 0.575); add(box(0.055, 0.14, 0.055, M(0x2a2a30)), 0, 0.03);
+    add(box(0.13, 0.1, 0.11, M(0x3a3a46)), 0, 1.2); add(box(0.06, 0.06, 0.02, mat({ color: 0x8fd8ff, unlit: 1 })), 0, 1.2, -0.06); add(box(0.024, 0.024, 0.02, mat({ color: 0xff2a2a, unlit: 1 })), 0.04, 1.23, 0.06);
+  } else if (kind === 'selfiepov') {  // the same stick seen from its own camera: a bare pole running from the paw out of the frame (the near end clipped by the lens)
+    add(box(0.032, 3.0, 0.032, M(0x1a1a22)), 0, 1.5); add(box(0.055, 0.14, 0.055, M(0x2a2a30)), 0, 0.03);
+  } else if (kind === 'hook') {       // the lifeguard's rescue pole: aluminium, a red crook at its far end (holdProp stretches it to what it hooks)
+    G.userData.pole = add(box(0.045, 1, 0.045, M(0xd8dce4)), 0, 0.5);
+    const crook = new THREE.Group(), arc = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.04, 4, 9, Math.PI), M(0xe8243a)); arc.position.x = -0.19; crook.add(arc); G.userData.crook = crook; G.add(crook);
   } else if (kind === 'tissue') {     // a crumpled white tissue in the paw
     add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xfafafa, unlit: 0.45 })), 0, 0.03); add(box(0.06, 0.07, 0.01, mat({ color: 0xfafafa, unlit: 0.45 })), 0.02, 0.09).rotation.z = 0.4;
   } else if (kind === 'tissuebox') {  // a box of tissues with a blue band, one tissue sticking out (thrown in the ward)
@@ -995,7 +1008,15 @@ function holdProp(D, kind, side, bodyYaw, t) {
     return;
   }
   const p = palm(D, side); if (!p) return;
-  if (kind === 'finger' || kind === 'bachi' || kind === 'carrotpoke') {   // along the forearm, pointing where the paw points
+  if (kind === 'hook') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
+    const H = D.hookTo, C = typeof H === 'string' ? CREW[H] : null, from = p.clone();
+    let to = Array.isArray(H) ? new THREE.Vector3(...H) : C?.head ? C.head.getWorldPosition(new THREE.Vector3()).addScaledVector(_up, 0.02 * (C.curScale || 1)) : null;   // the head bone sits at the neck: the collar (0.3 m under it was his waist)
+    if (!to) { D['fore' + side].getWorldPosition(_pd); to = from.clone().addScaledVector(_pa.clone().sub(_pd).normalize(), 2.2); }
+    const d = to.clone().sub(from), len = Math.max(0.2, d.length());
+    g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromUnitVectors(_up, d.normalize());
+    g.userData.pole.scale.y = len; g.userData.pole.position.y = len / 2; g.userData.crook.position.y = len; return;
+  }
+  if (kind === 'finger' || kind === 'bachi' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
@@ -1087,7 +1108,7 @@ function aimArms(D, A, bodyYaw, since, t = 0) {
   }
   for (const side of A.arm === 'both' ? ['L', 'R'] : [A.arm]) {
     // wave: a slow flap of the aim's height (wings in the wind), the two arms a little out of phase; pure in `since`
-    const dy = d0[1] + (A.wave || 0) * Math.sin(since * 2.4 + (side === 'L' ? 0 : 0.7));
+    const dy = d0[1] + (A.wave || 0) * Math.sin(since * (A.waveRate || 2.4) + (side === 'L' ? 0 : 0.7));   // waveRate (rad/s): a fast wave for help ("Beauty And A Beat": 9)
     const sx = side === 'L' ? 1 : -1, bx = d0[0] * sx, v = new THREE.Vector3(bx * cy + d0[2] * sy, dy, -bx * sy + d0[2] * cy).normalize();   // body frame → world
     if (D.roll) v.applyQuaternion(_rq);
     const up = side === 'L' ? D.L : D.R, fore = D['fore' + side], hand = D['hand' + side];
@@ -1341,7 +1362,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
   for (const { A, D, n, at, fyaw, yaw, ground } of plans) {
     const s = (D.scale || 1) * A.scale, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
     const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, bb = bp(t), jolt = A.bump && bb >= 0 ? A.bump * Math.exp(-fr(bb) * 7) : 0;
-    const lift = A.lift + bob + A.my * um + jolt;   // my: a rise or a sink; bump: turbulence jolts on the beat
+    const dip = A.dip ? -A.dip[0] * (0.5 + 0.5 * Math.sin((t - t0) * A.dip[1])) : 0;   // dip: [m, rad/s], bobbing under the waves (a swimmer in trouble)
+    const lift = A.lift + bob + A.my * um + jolt + dip;   // my: a rise or a sink; bump: turbulence jolts on the beat
     D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air; D.fg = A.fg || t - t0 < A.reveal;
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
@@ -1369,6 +1391,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
     const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
+    D.hookTo = A.hookTo;
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, t - t0);
