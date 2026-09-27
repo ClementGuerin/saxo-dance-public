@@ -26,6 +26,7 @@ export const SCRIPTS = {
           { text: 'Can we watch my videos?', to: 'tv' },
           ...(s.secret ? [{ text: 'Show me your moves. Please?', to: 'moves' }] : [{ text: 'Be in my next video?', to: 'cameo' }]),
           { text: 'How are my videos doing?', to: 'stats' },
+          { text: 'Something on the site is broken.', act: 'help' },
           { text: 'Bye, Kob!', to: 'bye' },
         ],
       },

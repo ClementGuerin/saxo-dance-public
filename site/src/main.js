@@ -1,11 +1,13 @@
 // main.js: saxo.dance, a playable version of Saxo's world. You are Saxo: walk around his floating PS1 house, talk to
 // Sadi, Kob and Compote, dance, dress up, and turn on the TV to watch every video we posted.
+import './errors.js';   // first: it keeps the page's errors for bug reports
 import * as THREE from 'three';
 import { U } from './ps1.js';
 import { buildWorld } from './world.js';
 import { loadLook, loadClips, Character } from './chars.js';
 import { makeNav } from './nav.js';
 import { makeChat } from './chat.js';
+import { makeHelp } from './help.js';
 import { makeTV } from './tv.js';
 import { makeCode } from './code.js';
 import { makeStats } from './stats.js';
@@ -66,6 +68,13 @@ const game = {
   overlay: on => { P.overlay = on; },
   openTV: id => openTV('all', id),
   follow: () => { stats.close(); openSheet('socials'); },
+  // for Kob's help desk (help.js): what was on screen when it opened, and closing the rest
+  where: () => {
+    const open = ['tv', 'code', 'stats', 'closet', 'socials', 'chat'].filter(id => !$('#' + id).hidden);
+    const at = saxo ? `${saxo.pos.x.toFixed(1)}, ${saxo.pos.z.toFixed(1)}` : '?';
+    return `mode ${P.mode}${P.started ? '' : ' (not started)'}, Saxo at ${at}, look ${P.look}, open: ${open.join(' ') || 'nothing'}`;
+  },
+  closeOverlays: () => { closeSheets(); tv.close(); code.close(); stats.close(); },
 };
 
 // ---------- loading ----------
@@ -336,6 +345,7 @@ const ACTIONS = {
   socials: () => openSheet('socials'),
   code: () => setTimeout(() => goToThing('code', 'chat'), 250),
   stats: () => setTimeout(() => goToThing('stats', 'chat'), 250),
+  help: () => setTimeout(() => help.open('kob'), 250),
   duo() {
     const s = npc.sadi;
     const name = danceClips.length ? danceClips[(P.danceIdx++ * 5) % danceClips.length] : 'happy_idle';
@@ -575,6 +585,7 @@ addEventListener('keydown', e => {
   if (e.code === 'Space' && !e.repeat) { e.preventDefault(); if (P.mode === 'free') { P.path = null; startDance(); } }
   if (k === 'm') toggleSound();
   if (k === 't') openTV();
+  if (k === 'h') help.open('key');
 });
 addEventListener('keyup', e => P.keys.delete(e.code));
 addEventListener('blur', () => P.keys.clear());
@@ -615,6 +626,8 @@ function openStats(from) { if (P.mode !== 'free' && P.mode !== 'show') return; c
 document.addEventListener('click', e => { const a = e.target.closest?.('a.social, #socials .links a'); if (!a) return; track('social_clicked', { network: a.dataset.net, place: a.classList.contains('social') ? 'bar' : 'sheet' }); });
 // ---------- UI modules ----------
 const chat = makeChat(game);
+const help = makeHelp(game, chat);
+$('#help-btn').onclick = () => { audio.sfx.blip(); help.toggle('hud'); };
 const tv = makeTV(game);
 const code = makeCode(game);
 const stats = makeStats(game);

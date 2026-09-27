@@ -211,6 +211,13 @@ scoreboard, a bar chart of the latest videos stacked by platform, a pie chart yo
 most-watched videos, refreshed every 30 minutes from the platforms' free public numbers. It is plain ES modules and
 three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house loop synthesised in the browser: no audio files.
 
+**Kob runs the help desk.** The "?" button opens a chat with Kob, played by Claude Opus 5: she knows the videos, the
+numbers and the gang from the site's own data, and when something is broken she drafts a bug report with a screenshot
+of the game, which the visitor sends. A Claude Code routine then works through the reports on this repository: it
+reproduces each one in headless Chrome, and opens a pull request only for what it can make happen itself. Small fixes
+go live on their own once they pass a check that keeps them inside the site's code, small, offline and building; new
+features wait for a human.
+
 ## Quick start
 
 Needs Node 22+, Google Chrome, ffmpeg, and Python 3 with Pillow for the sticker tools. `--gl=metal` picks Chrome's

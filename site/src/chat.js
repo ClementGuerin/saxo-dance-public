@@ -10,6 +10,7 @@ const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&
 export function makeChat(game) {
   const el = document.getElementById('chat'), log = el.querySelector('.log'), box = el.querySelector('.choices');
   const av = el.querySelector('.av'), nm = el.querySelector('.nm'), role = el.querySelector('.role');
+  const closers = [];   // help.js (Kob's help desk) shares this panel and hears when it closes
   let who = null, script = null, state = null, run = 0, current = [];
 
   function bubble(kind, html, sticker) {
@@ -59,6 +60,7 @@ export function makeChat(game) {
     run++; who = name; state = game.state(name);
     script = SCRIPTS[name](state);
     av.src = `assets/ui/${PEOPLE[name].sticker}.png`; nm.textContent = PEOPLE[name].name; role.textContent = PEOPLE[name].role;
+    el.classList.remove('help');
     log.innerHTML = ''; box.innerHTML = ''; el.hidden = false; document.body.classList.add('chatting'); sfx.open();
     go(script.start);
     state.met = true; state.visits = (state.visits || 0) + 1; game.saveState();
@@ -67,6 +69,7 @@ export function makeChat(game) {
     if (el.hidden) return;
     run++; el.hidden = true; document.body.classList.remove('chatting'); current = []; sfx.close();
     const w = who; who = null; game.chatClosed(w);
+    closers.forEach(f => f());
   }
   el.querySelector('.x').onclick = close;
   window.addEventListener('keydown', e => {
@@ -74,5 +77,5 @@ export function makeChat(game) {
     if (e.key === 'Escape') { close(); e.preventDefault(); }
     const k = +e.key; if (k >= 1 && k <= current.length) { choose(current[k - 1]); e.preventDefault(); }
   });
-  return { open, close, get open_() { return !el.hidden; }, get who() { return who; } };
+  return { open, close, onClose: f => closers.push(f), get open_() { return !el.hidden; }, get who() { return who; } };
 }
