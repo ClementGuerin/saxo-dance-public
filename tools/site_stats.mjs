@@ -8,13 +8,15 @@
 //     snapshot wins when it's higher);
 //   - PostHog (optional): the site's own events, with a personal API key (read scope) in POSTHOG_PERSONAL_API_KEY or
 //     ~/.posthog-saxo.env; without one the site block is left out.
-// X isn't counted (reading X's numbers costs money per post) and Instagram followers aren't public without a login.
+// X isn't counted (reading X's numbers costs money per post): it gets a post count only. Instagram followers aren't
+// public without a login. Facebook (the Page, since 2026-09-27) has snapshot views only: SocialCrawl's listing of its
+// reels carries no likes, and there's no free live source or follower count.
 // site_deploy.mjs --build runs it; a live source that can't be reached falls back to the snapshots.
 //   node tools/site_stats.mjs
 import fs from 'node:fs';
 import os from 'node:os';
 
-const OUT = 'site/assets/stats.json', NETS = ['tiktok', 'instagram', 'youtube'];
+const OUT = 'site/assets/stats.json', NETS = ['tiktok', 'instagram', 'youtube', 'facebook'];
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36';
 const POSTHOG = { host: 'https://eu.posthog.com', project: 284502, since: '2026-09-25T00:00:00Z' };
 function key(name, file) {
@@ -94,7 +96,13 @@ const videos = posts.map(p => {
 // ---- per platform and in total ----
 const sum = (net, f) => videos.reduce((s, v) => s + (v.by[net]?.[f] || 0), 0);
 const platforms = {};
-for (const net of NETS) platforms[net] = { views: sum(net, 'views'), likes: sum(net, 'likes'), comments: sum(net, 'comments'), shares: sum(net, 'shares'), posts: videos.filter(v => v.by[net]).length, followers: null };
+// a platform with no views counted yet (Facebook before its first snapshot) is a post count only, like X: the page
+// shows the platforms with views as counted
+for (const net of NETS) {
+  const n = videos.filter(v => v.by[net]).length;
+  platforms[net] = videos.some(v => v.by[net]?.views != null)
+    ? { views: sum(net, 'views'), likes: sum(net, 'likes'), comments: sum(net, 'comments'), shares: sum(net, 'shares'), posts: n, followers: null } : { posts: n };
+}
 if (tt) { platforms.tiktok.followers = Number.isNaN(tt.followers) ? null : tt.followers; if (tt.likes > platforms.tiktok.likes) platforms.tiktok.likes = tt.likes; }
 if (yt) platforms.youtube.followers = yt.followers;
 platforms.x = { posts: videos.filter(v => v.nets.includes('x')).length };

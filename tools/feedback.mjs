@@ -83,11 +83,12 @@ async function comments(p) {
   }));
 }
 
-// Which of our renders a post is: the last publish before it, or the song named in its caption.
+// Which of our renders a post is: the song named in its caption, or the last publish on its platform before it (a
+// Facebook-only backfill row isn't the TikTok that went out after it).
 function songOf(post, log) {
   const t = Date.parse(post.at || 0);
   const byCaption = log.find(e => e.song && post.caption.toLowerCase().includes(e.song.toLowerCase()));
-  const byTime = log.filter(e => Date.parse(e.date) <= t + 5 * 60e3).at(-1);
+  const byTime = log.filter(e => e.only?.includes(post.platform) && Date.parse(e.date) <= t + 5 * 60e3).at(-1);
   const e = byCaption || byTime;
   return e ? `${e.song} by ${e.artist}` : 'unknown';
 }

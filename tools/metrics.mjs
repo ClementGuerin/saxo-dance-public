@@ -3,8 +3,10 @@
 //   node tools/metrics.mjs              # snapshot all our posts → research/metrics.jsonl, then research/PERFORMANCE.md
 //   node tools/metrics.mjs --report     # rebuild PERFORMANCE.md from the snapshots already taken, no API call
 //
-// One listing call per platform (TikTok 1, Instagram 1, YouTube 1 credit ≈ $0.024 a run). Each snapshot line is
-// { at, platform, id, url, published_at, age_h, episode, views, likes, comments, shares, saves }.
+// One listing call per platform (TikTok 1, Instagram 1, YouTube 1, Facebook 1 credit ≈ $0.032 a run). Each snapshot
+// line is { at, platform, id, url, published_at, age_h, episode, views, likes, comments, shares, saves }. Facebook's
+// listing (the Page's reels, since 2026-09-27) has views only, and its `id` is the video id from the reel URL (the one
+// Zernio's watch URL and site/assets/posts.json carry), not Facebook's post id. X isn't read (it bills per read).
 // A post is tied to its episode through research/published.jsonl (the MP4 name starts with the episode id,
 // e.g. 2026-09-25 or 2026-09-25-2), and the episode's `tags` (episodes/<id>.json) are what the report groups by.
 //
@@ -14,26 +16,31 @@
 import fs from 'node:fs';
 import { sc, spent, logSpend, args } from './socialcrawl.mjs';
 
-const HANDLE = { tiktok: 'saxo.dance', instagram: 'saxo.dance', youtube: 'saxodance' };
+const HANDLE = { tiktok: 'saxo.dance', instagram: 'saxo.dance', youtube: 'saxodance',
+  facebook: 'https://www.facebook.com/people/Saxodance/61595019293815/' };   // the Page has no username: its URL
 const R = p => new URL(`../${p}`, import.meta.url);
 const STORE = R('research/metrics.jsonl');
 const read = f => fs.existsSync(f) ? fs.readFileSync(f, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)) : [];
+const idOf = (platform, post) => platform === 'facebook' ? post.url?.match(/\/(?:reel|videos)\/(\d+)/)?.[1] || String(post.id) : String(post.id);
 
 async function ourPosts(platform) {
   const data =
     platform === 'tiktok' ? await sc('tiktok/profile/videos', { handle: HANDLE.tiktok }) :
     platform === 'instagram' ? await sc('instagram/profile/reels', { handle: HANDLE.instagram }) :
+    platform === 'facebook' ? await sc('facebook/profile/reels', { url: HANDLE.facebook }) :
     await sc('youtube/channel/shorts', { handle: HANDLE.youtube, sort: 'newest' });
-  return (data.items || []).map(({ post }) => ({ platform, id: String(post.id), url: post.url,
+  return (data.items || []).map(({ post }) => ({ platform, id: idOf(platform, post), url: post.url,
     published_at: post.published_at, caption: post.content?.text || '', e: post.engagement || {} }));
 }
 
-// Episode id of a post: the publish closest before it on that platform, or the song named in its caption.
+// Episode id of a post: among the publishes on its platform (a Facebook-only backfill must not claim a TikTok that
+// went out after it, nor a TikTok re-cut an Instagram post), the last naming the song in its caption, else the last
+// one before it.
 const log = read(R('research/published.jsonl'));
 function episodeOf(p) {
-  const t = Date.parse(p.published_at || 0);
-  const byCaption = log.filter(e => e.song && p.caption.toLowerCase().includes(e.song.toLowerCase())).at(-1);
-  const byTime = log.filter(e => Date.parse(e.date || e.at) <= t + 5 * 60e3).at(-1);
+  const t = Date.parse(p.published_at || 0), mine = log.filter(e => e.only?.includes(p.platform));
+  const byCaption = mine.filter(e => e.song && p.caption.toLowerCase().includes(e.song.toLowerCase())).at(-1);
+  const byTime = mine.filter(e => Date.parse(e.date || e.at) <= t + 5 * 60e3).at(-1);
   const e = byCaption || byTime;
   return e?.episode || e?.file?.match(/^(\d{4}-\d{2}-\d{2}(?:-\d+)?)/)?.[1] || (e ? `song:${e.song}` : null);
 }

@@ -1,10 +1,11 @@
-// site_posts.mjs: the list Saxo TV shows on saxo.dance. One entry per video, with its TikTok, Instagram, YouTube and X
-// posts, built from research/published.jsonl (what we posted), research/metrics.jsonl (the public URLs and views
-// SocialCrawl found) and research/yt_blocked.json (Shorts YouTube blocked, left out), plus the post URLs Zernio and
-// Postiz return for our own posts (free API reads), so a video shows every platform as soon as it's posted instead of
-// after the next metrics run. Found URLs are cached in research/post_links.json. TikTok links come last from TikTok's
-// public creator embed (what's live now, including posts published by hand from the app). A video is listed once its
-// first post has gone out (its slot, not the run that scheduled it), so a rebuild after each slot adds it.
+// site_posts.mjs: the list Saxo TV shows on saxo.dance. One entry per video, with its TikTok, Instagram, YouTube,
+// Facebook and X posts, built from research/published.jsonl (what we posted), research/metrics.jsonl (the public URLs
+// and views SocialCrawl found) and research/yt_blocked.json (Shorts YouTube blocked, left out), plus the post URLs
+// Zernio and Postiz return for our own posts (free API reads), so a video shows every platform as soon as it's posted
+// instead of after the next metrics run. Found URLs are cached in research/post_links.json. TikTok links come last from
+// TikTok's public creator embed (what's live now, including posts published by hand from the app). A video is listed
+// once its first post has gone out (its slot, not the run that scheduled it), so a rebuild after each slot adds it; a
+// later post of it (a Facebook backfill, a repost) joins its card. `links.facebook.url` is the watch URL (no embed).
 //   node tools/site_posts.mjs        → site/assets/posts.json, site/assets/posts/<id>.jpg, site/assets/tv.mp4
 // The thumbnail and the TV loop come from the render in out/, when it's there.
 import fs from 'node:fs';
@@ -24,6 +25,8 @@ const linkOf = (platform, url) => {
   if (platform === 'instagram') { const id = url.match(/\/(?:reel|p)\/([\w-]+)/)?.[1]; return id ? { url, id } : null; }
   if (platform === 'youtube') { const id = url.match(/(?:v=|shorts\/|youtu\.be\/)([\w-]{11})/)?.[1]; return id ? { url: `https://www.youtube.com/shorts/${id}`, id } : null; }
   if (platform === 'x') { const m = url.match(/(?:x|twitter)\.com\/(\w+)\/status\/(\d+)/); return m ? { url: `https://x.com/${m[1]}/status/${m[2]}`, id: m[2] } : null; }
+  // Zernio gives /watch/?v=<video id>, which Facebook sends to the video or the reel wherever it filed it
+  if (platform === 'facebook') { const id = url.match(/(?:[?&]v=|\/reel\/|\/videos\/(?:[^/?#]+\/)?)(\d+)/)?.[1]; return id ? { url: `https://www.facebook.com/watch/?v=${id}`, id } : null; }
   return null;
 };
 
@@ -47,7 +50,8 @@ for (const p of published) {
   if (Date.parse(outAt(p)) > Date.now()) continue;   // not out yet
   const key = videoKey(p.episode || (/^\d{4}-\d{2}-\d{2}/.test(p.file) ? p.file.slice(0, 10) : null) || 'song:' + p.song);
   const v = videos.get(key) || { key, title: p.song, artist: p.artist, date: outAt(p), file: base(p.file), links: {}, zernio: [], postiz: [] };
-  for (const r of p.runs?.zernio?.result || []) if (r.postId) v.zernio.push(r.postId);
+  // a TikTok inbox draft (`inbox`) never gets a URL: the user publishes it, and the creator embed below finds it
+  for (const r of p.runs?.zernio?.result || []) if (r.postId && !(p.inbox && r.platform === 'tiktok')) v.zernio.push(r.postId);
   for (const r of [...(p.runs?.postiz?.result || []), ...(p.result || [])]) if (r.postId) v.postiz.push(r.postId);
   if (Date.parse(outAt(p)) < Date.parse(v.date)) v.date = outAt(p);
   for (const r of p.runs?.zernio?.result || []) {
@@ -56,8 +60,8 @@ for (const p of published) {
   }
   videos.set(key, v);
 }
-// our own services know their posts' public URLs (Zernio: TikTok and YouTube; Postiz: Instagram, X, TikTok inbox posts;
-// X links come only from here, metrics doesn't read X)
+// our own services know their posts' public URLs (Zernio: TikTok, YouTube, Facebook, and Instagram since 2026-09-27;
+// Postiz: X, and before that Instagram and the TikTok inbox uploads; X links come only from here, metrics doesn't read X)
 const zk = key('ZERNIO_API_KEY', '.zernio-saxo.env'), pk = key('POSTIZ_API_KEY', '.postiz-saxo.env');
 let postizList = null;
 for (const v of videos.values()) {
@@ -72,7 +76,7 @@ for (const v of videos.values()) {
   for (const id of v.postiz) {
     if (!cache['postiz:' + id] && pk && postizList !== false) {
       try { postizList ??= (await getJSON(`https://postiz.saxo.dance/api/public/v1/posts?startDate=${new Date(Date.now() - 30 * 864e5).toISOString()}&endDate=${new Date().toISOString()}`, pk)).posts || []; }
-      catch (e) { console.log(`postiz: ${e.message} (unreachable, skipped: Instagram links wait for metrics or the next run, X links for the next run)`); postizList = false; }
+      catch (e) { console.log(`postiz: ${e.message} (unreachable, skipped: X links wait for the next run)`); postizList = false; }
       const hit = postizList && postizList.find(x => x.id === id && x.releaseURL);
       if (hit) cache['postiz:' + id] = [[hit.integration?.providerIdentifier?.replace(/-standalone$/, '') || '', hit.releaseURL]];
     }
@@ -81,7 +85,7 @@ for (const v of videos.values()) {
 }
 fs.writeFileSync(CACHE, JSON.stringify(cache, null, 1) + '\n');
 
-// metrics rows carry the TikTok and Instagram URLs; keep the latest snapshot per post for its views
+// metrics rows carry the TikTok, Instagram and Facebook URLs; keep the latest snapshot per post for its views
 const latest = new Map();
 for (const m of metrics) { const k = m.platform + ':' + m.id; if (!latest.has(k) || Date.parse(m.at) >= Date.parse(latest.get(k).at)) latest.set(k, m); }
 for (const m of latest.values()) {
@@ -90,6 +94,7 @@ for (const m of latest.values()) {
   if (m.platform === 'tiktok') v.links.tiktok = { url: m.url, id: m.id };   // metrics (public data) wins over the services
   if (m.platform === 'instagram') v.links.instagram = { url: m.url, id: m.url.match(/\/(?:reel|p)\/([\w-]+)/)?.[1] };
   if (m.platform === 'youtube' && !blocked[m.id]) v.links.youtube ||= { url: `https://www.youtube.com/shorts/${m.id}`, id: m.id };
+  if (m.platform === 'facebook') { const l = linkOf('facebook', m.url); if (l) v.links.facebook ||= l; }   // same video id as Zernio's
   if (m.views) v.views = (v.views || 0) + m.views;
 }
 

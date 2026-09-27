@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-27T11:17:52.939Z",
+ "updated": "2026-09-27T11:36:33.126Z",
  "posts": [
   {
    "id": "2026-09-27-2",
@@ -16,6 +16,10 @@
      "url": "https://www.youtube.com/shorts/JuUqRc1fBek",
      "id": "JuUqRc1fBek"
     },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1802946014061551",
+     "id": "1802946014061551"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/DdyWGcRiRcE/",
      "id": "DdyWGcRiRcE"
@@ -24,7 +28,8 @@
      "url": "https://x.com/saxodance/status/2104149431444451535",
      "id": "2104149431444451535"
     }
-   }
+   },
+   "views": 86
   },
   {
    "id": "2026-09-27",
@@ -41,6 +46,10 @@
      "url": "https://www.youtube.com/shorts/yL1pPV2urYE",
      "id": "yL1pPV2urYE"
     },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1839372894098823",
+     "id": "1839372894098823"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/Ddx6t7IjHtx/",
      "id": "Ddx6t7IjHtx"
@@ -49,7 +58,8 @@
      "url": "https://x.com/saxodance/status/2104089060608262152",
      "id": "2104089060608262152"
     }
-   }
+   },
+   "views": 1353
   },
   {
    "id": "2026-09-26-3",
@@ -66,6 +76,10 @@
      "url": "https://www.youtube.com/shorts/LhLVKcxLVfI",
      "id": "LhLVKcxLVfI"
     },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1095368283363045",
+     "id": "1095368283363045"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/DdwoN_xDVa_/",
      "id": "DdwoN_xDVa_"
@@ -75,7 +89,7 @@
      "id": "2103907831883718962"
     }
    },
-   "views": 6
+   "views": 940
   },
   {
    "id": "2026-09-26-2",
@@ -92,6 +106,10 @@
      "url": "https://www.youtube.com/shorts/OSkTyaFj4vI",
      "id": "OSkTyaFj4vI"
     },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=3324104067774706",
+     "id": "3324104067774706"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/DdwMwPglAoi/",
      "id": "DdwMwPglAoi"
@@ -101,7 +119,7 @@
      "id": "2103847398510309608"
     }
    },
-   "views": 671
+   "views": 1187
   },
   {
    "id": "2026-09-26",
@@ -131,7 +149,7 @@
      "id": "2103787006383829462"
     }
    },
-   "views": 832
+   "views": 1094
   },
   {
    "id": "2026-09-25-3",
@@ -161,7 +179,7 @@
      "id": "2103775716248633804"
     }
    },
-   "views": 372
+   "views": 495
   },
   {
    "id": "2026-09-25-2",
@@ -191,7 +209,7 @@
      "id": "2103774479495106916"
     }
    },
-   "views": 495
+   "views": 510
   },
   {
    "id": "2026-09-25",
@@ -221,7 +239,7 @@
      "id": "2103773105726316612"
     }
    },
-   "views": 1567
+   "views": 1583
   },
   {
    "id": "2026-09-24",
@@ -251,7 +269,7 @@
      "id": "2103771898001727674"
     }
    },
-   "views": 1213
+   "views": 1237
   },
   {
    "id": "the-one-that-got-away",
@@ -281,7 +299,7 @@
      "id": "7689143396421602582"
     }
    },
-   "views": 1711
+   "views": 1752
   }
  ]
 }

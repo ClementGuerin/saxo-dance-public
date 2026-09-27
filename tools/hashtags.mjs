@@ -1,6 +1,7 @@
 // Hashtags for one video, per platform. #saxo #dance always lead; then the song and artist, niche-relevant trending
 // tags, and the niche pool (research/hashtags.json, biggest first). Platform caps: Instagram allows 5 per post,
-// TikTok reads the first few best (8), YouTube ignores every hashtag when a description has more than 15.
+// TikTok reads the first few best (8), YouTube ignores every hashtag when a description has more than 15. Facebook
+// gets Instagram's caption, tags included (publish.mjs asks for 'instagram'); X gets no text.
 import fs from 'node:fs';
 
 const POOL = JSON.parse(fs.readFileSync(new URL('../research/hashtags.json', import.meta.url), 'utf8'));
