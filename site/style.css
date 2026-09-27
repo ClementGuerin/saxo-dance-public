@@ -123,7 +123,8 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
 .choice kbd { margin-right: 8px; font-size: 12px; }
 
 /* ---------- Kob's help desk (help.js): the chat panel with a text box, quick chips and the report card ---------- */
-#help-btn { position: absolute; left: 16px; top: 44px; }
+#help-btn { position: absolute; right: 16px; top: 16px; }
+@media (min-width: 721px) { body.chatting #help-btn { visibility: hidden; } }   /* under the chat panel, only its badge showed */
 #help-btn::after { content: '?'; position: absolute; top: -5px; right: -5px; width: 24px; height: 24px; border-radius: 50%; background: var(--yellow); border: 2px solid var(--ink); font: 700 15px/20px 'Fredoka', sans-serif; text-align: center; color: var(--ink); }
 #chat .ask { display: none; gap: 8px; padding: 10px 12px 14px; border-top: 2px dashed rgba(42, 22, 54, .2); }
 #chat.help .ask { display: flex; }
@@ -350,7 +351,7 @@ img[src*='assets/ui/'] { image-rendering: pixelated; }
   :root { --chat-w: 100vw; }
   #bar-left { left: 10px; bottom: 10px; padding: 3px 6px 3px 4px; }
   #ver { left: 10px; top: 8px; padding: 1px 7px; font-size: 11px; }
-  #help-btn { left: 10px; top: 34px; }
+  #help-btn { left: 10px; right: auto; top: 34px; }
   .brand span { display: none; }
   .brand { margin-right: 0; }
   .icon { width: 32px; height: 32px; }
