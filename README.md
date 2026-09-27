@@ -225,9 +225,9 @@ numbers and the gang from the site's own data, and when something is broken, or 
 drafts a report with a screenshot of the game, which the visitor sends. A Claude Code routine then works through the
 reports on this repository: it reproduces each bug in headless Chrome, and opens a pull request only for what it can
 make happen itself, or an issue for the owner when the cause lies in a tool or the site's data. Every idea becomes a
-feature pull request with the routine's opinion in it: whether it's worth building is the owner's call, not the
-routine's. Small fixes go live on their own once they pass a check
-that keeps them inside the site's code, small, offline and building; new features wait for a human.
+feature pull request with the routine's opinion in it (or an issue, when no part of it lives in the site's code):
+whether it's worth building is the owner's call, not the routine's. Small fixes go live on their own once they pass a
+check that keeps them inside the site's code, small, offline and building; new features wait for a human.
 
 ## Quick start
 
