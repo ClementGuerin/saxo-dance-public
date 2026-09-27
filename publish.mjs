@@ -3,16 +3,17 @@
 //   node publish.mjs out/saxo_dance_62s.mp4                     # post now, everywhere
 //   node publish.mjs out/x.mp4 --when=2026-09-25T17:00:00Z      # schedule
 //   node publish.mjs out/x.mp4 --dry-run                        # print the captions, send nothing
-//   node publish.mjs out/x.mp4 --draft                          # Postiz platforms only: upload + save as a draft
+//   node publish.mjs out/x.mp4 --draft                          # X only (Postiz): upload + save as a draft
+//   node publish.mjs out/x-tt.mp4 --only=tiktok --inbox         # TikTok's inbox: the user adds the sound and posts
 //
 // Options: --song= --artist= (default: CONFIG.song in video.config.js), --caption= (hook line), --tags=a,b (extra
-// hashtags), --only=tiktok,instagram,youtube,facebook,x, --via=postiz (send everything Postiz has through it instead), --rev=<commit> (only for
+// hashtags), --only=tiktok,instagram,youtube,facebook,x, --inbox (TikTok as a draft in the app's inbox), --rev=<commit> (only for
 // an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
 // --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below),
 // --sound="<title>" --uses=<count> (an official-sound cut's TikTok sound as the app lists it, and how many videos use it).
 //
-// A TikTok sent through Postiz lands in the TikTok app's inbox, where only the user can publish it, so they get two
-// Discord messages once it's there (tools/notify.mjs; the user, 2026-09-26): a short one (the song; for an
+// A TikTok sent with --inbox (a Zernio draft: `tiktokSettings.draft`, at most 5 pending a day) lands in the TikTok
+// app's inbox, where only the user can publish it, so they get two Discord messages once it's there (tools/notify.mjs; the user, 2026-09-26): a short one (the song; for an
 // official-sound cut, an episode `<id>-tt` made when TikTok muted the post, the sound to add with its number of uses,
 // so the right one is quick to spot, and the muted post to delete), then the TikTok description alone, to copy.
 //
@@ -79,7 +80,7 @@ if (!song || !artist) {
 const hook = args.caption || `Saxo dances to ${song} by ${artist} 🐶🕺`;
 const extra = typeof args.tags === 'string' ? args.tags.split(',') : [];
 const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'facebook', 'x'];
-const route = p => ((args.via === 'postiz' && p !== 'facebook') || p === 'x' ? 'postiz' : 'zernio');
+const route = p => (p === 'x' ? 'postiz' : 'zernio');
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
@@ -130,21 +131,9 @@ async function call(base, auth, method, route, body) {
 const postiz = (...a) => call(POSTIZ, key('POSTIZ_API_KEY', '.postiz-saxo.env'), ...a);
 const zernio = (...a) => call(ZERNIO, `Bearer ${key('ZERNIO_API_KEY', '.zernio-saxo.env')}`, ...a);
 
-// ---- Postiz (X, or everything it has with --via=postiz) ----
-const PROVIDER = { tiktok: 'tiktok', instagram: 'instagram-standalone', youtube: 'youtube', x: 'x' };
-function postizSettings(p) {
-  if (p === 'tiktok') return {
-    __type: 'tiktok', title: clip(hook, 90), content_posting_method: 'UPLOAD', // unaudited app: inbox only
-    privacy_level: 'PUBLIC_TO_EVERYONE', duet: true, stitch: true, comment: true, autoAddMusic: 'no',
-    brand_content_toggle: false, brand_organic_toggle: false, video_made_with_ai: false,
-  };
-  if (p === 'instagram') return { __type: 'instagram-standalone', post_type: 'post', is_trial_reel: false, collaborators: [] };
-  if (p === 'x') return { __type: 'x', who_can_reply_post: 'everyone', made_with_ai: false, paid_partnership: false };
-  return {
-    __type: 'youtube', title: youtubeTitle, type: 'public', selfDeclaredMadeForKids: 'no',
-    tags: tags('youtube').map(t => t.slice(1)).map(t => ({ value: t, label: t })),
-  };
-}
+// ---- Postiz (X only since 2026-09-27) ----
+const PROVIDER = { x: 'x' };
+const postizSettings = () => ({ __type: 'x', who_can_reply_post: 'everyone', made_with_ai: false, paid_partnership: false });
 async function viaPostiz(platforms) {
   const channels = await postiz('GET', '/integrations');
   const channel = p => channels.find(c => c.identifier === PROVIDER[p] && !c.disabled);
@@ -186,10 +175,10 @@ function zernioPost(p, accountId, url) {
   if (p === 'tiktok') return {
     content: caption.tiktok, mediaItems: [{ type: 'video', url }],
     platforms: [{ platform: 'tiktok', accountId }],
-    // Our TikTok is on Zernio's Business-app lane, where video posts can only be public.
+    // Our TikTok is on Zernio's Business-app lane, where video posts can only be public; --inbox makes it a draft.
     tiktokSettings: {
       privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: true, allow_stitch: true,
-      content_preview_confirmed: true, express_consent_given: true,
+      content_preview_confirmed: true, express_consent_given: true, ...(inbox ? { draft: true } : {}),
     },
     ...when,
   };
@@ -226,7 +215,7 @@ async function viaZernio(platforms) {
 }
 
 // ---- the TikTok inbox: a Discord message to the user once the video is there ----
-const inbox = only.includes('tiktok') && route('tiktok') === 'postiz' && type !== 'draft';
+const inbox = only.includes('tiktok') && args.inbox === true && type !== 'draft';
 function mutedPostUrl(ep) {   // the muted TikTok an official-sound cut replaces, from the post check's state
   try {
     const state = JSON.parse(fs.readFileSync(new URL('./out/post_check/state.json', import.meta.url), 'utf8'));
@@ -246,7 +235,7 @@ function inboxMessages() {   // [the short message, the description to copy]
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
-for (const p of only) console.log(`\n[${p} via ${route(p)}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
+for (const p of only) console.log(`\n[${p} via ${route(p)}${p === 'tiktok' && inbox ? ' to the inbox' : ''}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
 if (args['dry-run']) {
   if (inbox) console.log(`\n[discord, once it's in the inbox: 2 messages]\n${inboxMessages().join('\n---\n')}`);
   console.log('\n--dry-run: nothing sent.');
@@ -266,10 +255,10 @@ for (const [name, fn] of [['postiz', viaPostiz], ['zernio', viaZernio]]) {
 if (type !== 'draft' && Object.values(runs).some(Boolean)) {
   let commit = null;
   try { commit = execSync('git rev-parse --short HEAD', { cwd: path.dirname(new URL(import.meta.url).pathname) }).toString().trim(); } catch {}
-  fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), file: path.basename(file), ...(ytFile && ytFile !== file ? { ytFile: path.basename(ytFile) } : {}), episode, song, artist, type, date, only, commit, runs }) + '\n');
+  fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), file: path.basename(file), ...(ytFile && ytFile !== file ? { ytFile: path.basename(ytFile) } : {}), episode, song, artist, type, date, only, ...(inbox ? { inbox: true } : {}), commit, runs }) + '\n');
 }
-if (inbox && runs.postiz && !failed.includes('tiktok') && !failed.includes('postiz')) {
-  console.log('\nTikTok via Postiz: the video is in the TikTok app inbox. Open it within 24 h and post it public.');
+if (inbox && runs.zernio && !failed.includes('zernio')) {
+  console.log('\nTikTok (a Zernio draft): the video is in the TikTok app inbox. Open it within 24 h, add the sound and post it public.');
   console.log((await notify(...inboxMessages())) ? 'discord: the user was messaged' : 'discord: not sent (see above): tell the user another way');
 }
 if (failed.length) process.exit(1);
