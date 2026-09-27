@@ -14,6 +14,7 @@ import { buildClubMaps } from './maps5.js';
 import { buildTechnoMaps } from './maps6.js';
 import { buildMatsuriMaps } from './maps10.js';
 import { buildBubbleMaps } from './maps11.js';
+import { buildPatientMaps } from './maps12.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
 import { buildDieYoungMaps } from './maps9.js';
@@ -605,7 +606,9 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   tourist: 'assets/models/saxo_tourist.glb',   // the tourist: turquoise hibiscus shirt, orange travel neck pillow, red instant camera, khaki cargo shorts ("Voyage Voyage", 2026-09-26)
   kesha: 'assets/models/saxo_kesha.glb',   // the pop-star disguise: messy platinum shag wig, eyeliner, gold glitter, red lips, studded black biker jacket, chains ("Die Young", 2026-09-26)
   sailor: 'assets/models/saxo_sailor.glb',   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
-  trench: 'assets/models/saxo_trench.glb' };   // the French film look: a camel trench coat belted over a black turtleneck, grey trousers, brown shoes ("Dans ma bulle", 2026-09-27)   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
+  trench: 'assets/models/saxo_trench.glb',   // the French film look: a camel trench coat belted over a black turtleneck, grey trousers, brown shoes ("Dans ma bulle", 2026-09-27)   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
+  pyjama: 'assets/models/saxo_pyjama.glb',   // sick-day pyjamas: pale blue striped flannel, a red knitted scarf wound twice round the neck, grey slippers ("Patient Zero", 2026-09-27)
+  devil: 'assets/models/saxo_devil.glb' };   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -726,7 +729,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -827,7 +830,10 @@ function actorSpec(a, e, map) {
     // the beat-locked swings and sway (SWINGS, swayRoll), and holdAt: the actor freezes that many seconds into the shot
     // (clip, swing and sway), caught mid-move (2026-09-27; until then these fields never reached the actors)
     flap: a.flap ?? null, flapEvery: a.flapEvery || null, flapPh: a.flapPh || 0, sway: a.sway || 0, swayEvery: a.swayEvery || null, swayPh: a.swayPh || 0, holdAt: a.holdAt ?? null,
-    gum: a.gum || null, splat: a.splat ?? null, buds: a.buds ?? null, bubble: a.bubble || null, moth: a.moth ?? null };   // "Dans ma bulle": bubble gum, its splat, earbuds, the dream bubble, a moth out of the wallet   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    gum: a.gum || null, splat: a.splat ?? null, buds: a.buds ?? null, bubble: a.bubble || null, moth: a.moth ?? null,   // "Dans ma bulle": bubble gum, its splat, earbuds, the dream bubble, a moth out of the wallet   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    // "Patient Zero" (2026-09-27): the sick look's face props, a red nose (true, or from s into the shot), a thermometer
+    // in the mouth and a surgical mask, and a sneeze: a spray out of the nose s into the shot
+    nose: a.nose ?? null, therm: !!a.therm, mask: !!a.mask, sleep: !!a.sleep, sneeze: a.sneeze ?? null };
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -903,6 +909,9 @@ function propMesh(kind) {
   } else if (kind === 'balloon') { // a red balloon on a 0.6 m string, held by its end (the group sways around the paw)
     const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.2, 1), mat({ color: 0xe8243a, unlit: 0.35 })); b.scale.set(1, 1.2, 1); add(b, 0, 0.86); add(new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.05, 4), mat({ color: 0xe8243a, unlit: 0.35 })), 0, 0.62);
     add(box(0.008, 0.6, 0.008, M(0xf0f0f0)), 0, 0.3);
+  } else if (kind === 'getwell') { // a get-well balloon on a 1.2 m string, clear above the holder's head ("Patient Zero": the short one read as a red cap)
+    const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.2, 1), mat({ color: 0xe8243a, unlit: 0.35 })); b.scale.set(1, 1.2, 1); add(b, 0, 1.46); add(new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.05, 4), mat({ color: 0xe8243a, unlit: 0.35 })), 0, 1.22);
+    add(box(0.008, 1.2, 0.008, M(0xf0f0f0)), 0, 0.6);
   } else if (kind === 'carrot') {  // Compote's carrot: an orange cone, tip down, with a green top
     add(new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.26, 5), M(0xff7a1a)), 0, -0.02).rotation.x = Math.PI; for (let k = 0; k < 3; k++) add(box(0.02, 0.1, 0.02, M(0x3fae47)), (k - 1) * 0.02, 0.15).rotation.z = (k - 1) * 0.4;
   } else if (kind === 'gcarrot') { // the cursed treasure: a golden carrot, self-lit so it glows gold (not orange) in the moonlight, green top
@@ -937,6 +946,19 @@ function propMesh(kind) {
     for (const sd of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.11, 0.014, 0.085, M(0xc8322a)), sd * 0.056, 0, 0)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, -0.022)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, 0.012)); h.rotation.z = -sd * 0.35; G.add(h); }
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
     add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
+  } else if (kind === 'partyhat') {   // "Patient Zero": a striped party cone, built upside down (wearHat flips hats: the tip at the anchor, the brim below it)
+    const c = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.2, 6), mat({ color: 0xff5fa2, unlit: 0.35 })); c.rotation.x = Math.PI; add(c, 0, 0.1);
+    for (const y of [0.07, 0.13]) add(cyl(0.075 * y / 0.2 + 0.006, 0.075 * (y + 0.02) / 0.2 + 0.006, 0.02, mat({ color: 0xffd43b, unlit: 0.35 })), 0, y);
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.032, 0), mat({ color: 0x3fd4ff, unlit: 0.5 })), 0, -0.005);
+  } else if (kind === 'icepack') {    // a blue ice bag on a feverish head (worn flipped too), its white cap to one side
+    const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.11, 1), mat({ color: 0x5aa8f0, unlit: 0.35 })); b.scale.set(1.05, 0.72, 0.95); add(b, 0, 0.07);
+    add(cyl(0.03, 0.03, 0.04, mat({ color: 0xf4f4f4, unlit: 0.3 })), 0.1, 0.02).rotation.z = 1.2;
+  } else if (kind === 'thermo') {     // a thermometer held up to read: white glass, a red column, a silver bulb
+    add(box(0.035, 0.26, 0.035, mat({ color: 0xf6fbff, unlit: 0.5 })), 0, 0.1); add(box(0.018, 0.2, 0.04, mat({ color: 0xff2a2a, unlit: 0.8 })), 0, 0.12); add(box(0.05, 0.05, 0.05, M(0xc8ccd4)), 0, -0.04);
+  } else if (kind === 'tissue') {     // a crumpled white tissue in the paw
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xfafafa, unlit: 0.45 })), 0, 0.03); add(box(0.06, 0.07, 0.01, mat({ color: 0xfafafa, unlit: 0.45 })), 0.02, 0.09).rotation.z = 0.4;
+  } else if (kind === 'tissuebox') {  // a box of tissues with a blue band, one tissue sticking out (thrown in the ward)
+    add(box(0.26, 0.13, 0.14, mat({ color: 0x2a7ae8, unlit: 0.45 }))); add(box(0.265, 0.035, 0.145, mat({ color: 0xffd43b, unlit: 0.45 })), 0, 0.02); add(box(0.12, 0.16, 0.02, mat({ color: 0xffffff, unlit: 0.8 })), 0, 0.14).rotation.z = 0.25; add(box(0.1, 0.12, 0.02, mat({ color: 0xffffff, unlit: 0.8 })), 0.03, 0.2).rotation.z = -0.3;
   }
   return G;
 }
@@ -977,7 +999,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
-  if (kind === 'balloon' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
+  if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
@@ -1122,6 +1144,54 @@ function earbuds(D) {   // small and on the ear line, behind the cheek: bigger a
     const g = faceProp(D, k, () => { const q = new THREE.Group(), m = mat({ color: 0xffffff, unlit: 0.7 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.065, 0.065), m)); const st = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.09, 0.03), m); st.position.set(0, -0.065, 0.012); q.add(st); return q; });
     faceAt(D, FACE[k], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
   }
+}
+// "Patient Zero" (2026-09-27): the sick look, in the head bone's frame like FACE. A red nose over the muzzle's tip, a
+// thermometer out of the side of the mouth (tilted down and out, a red bulb at its end), a pale blue surgical mask over
+// the muzzle with loops back to the ears, and the sneeze: a spray out of the nose along the face, spreading and falling
+// (at a lens a metre away the nearest drops fill the frame: the sneeze on the camera).
+const _tq = new THREE.Quaternion(), _te = new THREE.Euler(), NOSE = [0, 0.14, 0.46];
+function redNose(D) {
+  const g = faceProp(D, 'rednose', () => new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), mat({ color: 0xff4a4a, unlit: 0.4 })));
+  faceAt(D, NOSE, g.position); g.quaternion.copy(_fq); g.scale.setScalar(0.075 * (D.curScale || D.scale || 1));
+}
+function thermometer(D) {
+  const g = faceProp(D, 'therm', () => {
+    const q = new THREE.Group(), st = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 0.26), mat({ color: 0xf6fbff, unlit: 0.5 })); st.position.z = 0.13; q.add(st);
+    const col = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.034, 0.17), mat({ color: 0xff2a2a, unlit: 0.8 })); col.position.set(0, 0.004, 0.14); q.add(col);
+    const bulb = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.045, 0.05), mat({ color: 0xc8d4e4, unlit: 0.6 })); bulb.position.z = 0.26; q.add(bulb); return q;
+  });
+  faceAt(D, [0.08, 0.02, 0.38], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.12, 0.35, 0))); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+function sleepMask(D) {   // a navy band over both eyes, a pink trim: asleep
+  const g = faceProp(D, 'sleepmask', () => { const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.16, 0.1), mat({ color: 0x2a3a78, unlit: 0.35 }))); const t = new THREE.Mesh(new THREE.BoxGeometry(0.68, 0.025, 0.105), mat({ color: 0xff8ac0, unlit: 0.5 })); t.position.y = -0.07; q.add(t); return q; });
+  faceAt(D, [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+function faceMask(D) {
+  const g = faceProp(D, 'mask', () => {
+    const q = new THREE.Group(), blue = mat({ color: 0xbfe0f2, unlit: 0.35 }), pleat = mat({ color: 0x8ab8d8, unlit: 0.35 }), loop = mat({ color: 0xffffff, unlit: 0.5 });
+    q.add(new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.25, 0.1), blue));
+    for (let k = -1; k <= 1; k++) { const p = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.014, 0.01), pleat); p.position.set(0, k * 0.062, 0.055); q.add(p); }
+    for (const sd of [-1, 1]) { const l = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.02, 0.3), loop); l.position.set(sd * 0.21, 0.04, -0.15); l.rotation.y = -sd * 0.25; q.add(l); }
+    return q;
+  });
+  faceAt(D, [0, 0.07, 0.37], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+const SNZ = Array.from({ length: 40 }, (_, i) => { const a = i * 2.39996, r = 0.6 * Math.sqrt((i + 0.5) / 40); return new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r * 0.7, 1).normalize(); });
+function sneezeSpray(D, k) {   // k: seconds since the sneeze
+  if (k < 0 || k >= 0.7) return;
+  const s = D.curScale || D.scale || 1;
+  const g = faceProp(D, 'sneeze', () => {
+    const q = new THREE.Group(), ms = [mat({ color: 0xd4ff9a, unlit: 0.9 }), mat({ color: 0xffffff, unlit: 0.95 }), mat({ color: 0xa8f070, unlit: 0.9 })];
+    SNZ.forEach((_, i) => q.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), ms[i % 3])));
+    for (let p = 0; p < 5; p++) q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), mat({ color: 0xf2ffe0, unlit: 0.9, see: 0.45 })));   // the puff: a cloud that bursts out of the nose
+    return q;
+  });
+  faceAt(D, NOSE, g.position); g.quaternion.identity(); g.scale.setScalar(1);
+  g.children.forEach((b, i) => {
+    if (i >= SNZ.length) { const p = i - SNZ.length, u = Math.min(1, k / 0.25); b.position.copy(SNZ[p * 7]).applyQuaternion(_fq).multiplyScalar((0.12 + 0.35 * u) * s); b.scale.setScalar(Math.max(0.01, (0.1 + 0.12 * u) * s * (1 - Math.max(0, k - 0.3) / 0.4))); return; }
+    const v = (2.0 + (i % 6) * 0.5) * s; b.position.copy(SNZ[i]).applyQuaternion(_fq).multiplyScalar(v * k); b.position.y -= 2.0 * k * k;
+    b.scale.setScalar(Math.max(0.01, (0.05 + (i % 3) * 0.018) * s * (1 - k / 0.7 * 0.5)));
+  });
 }
 let _bubT = null;
 function dreamBubble(D, B, c, t) {
@@ -1311,6 +1381,11 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.buds != null && A.buds !== false && (A.buds === true || t - t0 >= A.buds) && D.head) earbuds(D);
     if (A.bubble) dreamBubble(D, A.bubble, t - t0, t);
     if (A.moth != null && t - t0 >= A.moth) mothOut(D, t - t0 - A.moth);
+    if (A.nose != null && A.nose !== false && (A.nose === true || t - t0 >= A.nose) && D.head) redNose(D);
+    if (A.therm && D.head) thermometer(D);
+    if (A.mask && D.head) faceMask(D);
+    if (A.sleep && D.head) sleepMask(D);
+    if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
   window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics
@@ -1349,7 +1424,8 @@ function placeCrowd(P, t, t0, t1, camAng) {
 const _cr = new THREE.Quaternion(), _cf = new THREE.Vector3();
 function placeOneCrowd(c, C, t, t0, t1, camAng) {
   if (!C) return;
-  const R = C.R, s = C.D.scale || 1, len = t1 - t0, speed = c.speed ?? 1, span = Math.max(0.1, len * speed);
+  // c.scale: a crowd of one small copy is a second Saxo beside the real one (the tiny devil on his shoulder, "Patient Zero")
+  const R = C.R, s = (C.D.scale || 1) * (c.scale || 1), len = t1 - t0, speed = c.speed ?? 1, span = Math.max(0.1, len * speed);
   // the mixer only rewrites a bone whose clip value changed, so last frame's arm aims would stay on a held clip: undo them first
   if (C.saved) { for (const [bone, q] of C.saved) bone.quaternion.copy(q); C.saved = null; }
   const n = R.actions[c.clip] ? c.clip : Object.keys(R.actions)[0];
@@ -1388,7 +1464,7 @@ function placeOneCrowd(c, C, t, t0, t1, camAng) {
   R.hips.getWorldPosition(_ch);
   spots.forEach((sp, i) => {
     const M = place(i, lift); if (!M) return;
-    const sh = C.shadows[i], hp = _qv.copy(_ch).applyMatrix4(M); sh.visible = true; sh.position.set(hp.x, yb(sp) + 0.012, hp.z); sh.scale.setScalar(s);
+    const sh = C.shadows[i], hp = _qv.copy(_ch).applyMatrix4(M); sh.visible = !c.noShadow; sh.position.set(hp.x, yb(sp) + 0.012, hp.z); sh.scale.setScalar(s);
     sh.material.uniforms.uShadow.value = SHADOW * 0.9; sh.material.uniforms.uShadowCol.value.set(curMap?.shadowCol || 0x333333);
   });
 }
@@ -1430,8 +1506,12 @@ function danceFrame(t) {
   if (roll || hand) camera.rotateZ((roll + hand * 1.2 * (0.6 * hw(1.9, 3.7) + 0.4 * hw(4.3, 1.1))) * Math.PI / 180);
   applyPose(saxo, poseAt(t));
   for (const g of Object.values(PROPS)) g.visible = false;
-  if (tripo && ACT) placeActors(P, t, t0, t1, (cam.ang[0] + cam.ang.at(-1)) / 2 * ANG_K * Math.PI / 180, map);
+  // the crowd before the actors: its clip measurements (steadiestOffset, clipFacing, clipGround) pose Saxo's rig and leave
+  // it in the crowd's clip, so placed after the actors it put Saxo in the crowd's pose once his props were placed (each
+  // tab's first frame of a crowd shot, while the caches fill: the red nose 0.17 m off his face under the tiny devil,
+  // 2026-09-27). Placed between placeActors and its `else`, it had also cut off the plain dance render below.
   if (tripo) placeCrowd(ACT ? P : null, t, t0, t1, (cam.ang[0] + cam.ang.at(-1)) / 2 * ANG_K * Math.PI / 180);
+  if (tripo && ACT) placeActors(P, t, t0, t1, (cam.ang[0] + cam.ang.at(-1)) / 2 * ANG_K * Math.PI / 180, map);
   else if (tripo) {
     // each shot names a clip and a start offset into it; unknown names fall back to the first clip
     const [clipName, clipAt] = SHOT_CLIPS[i] || ['dance_01', 0], n = tripo.actions[clipName] ? clipName : Object.keys(tripo.actions)[0];
