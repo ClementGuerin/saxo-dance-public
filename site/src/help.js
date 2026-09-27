@@ -8,7 +8,7 @@ import { track } from './analytics.js';
 import { recentErrors } from './errors.js';
 
 // same origin on the site; a local preview may point elsewhere with ?api= (the site's CSP would block it in production)
-const API = (() => {
+export const API = (() => {
   const q = new URLSearchParams(location.search).get('api');
   return q && /^(127\.0\.0\.1|localhost)$/.test(location.hostname) ? q.replace(/\/+$/, '') : '/api';
 })();

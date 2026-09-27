@@ -2,7 +2,8 @@
 // Every look shares Saxo's skeleton, so any clip plays on anyone.
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { mat } from './ps1.js';
+import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
+import { mat, U } from './ps1.js';
 
 const gltf = new GLTFLoader();
 const looks = new Map();
@@ -23,6 +24,22 @@ export function loadLook(name, onProgress) {
   });
   looks.set(name, p);
   return p;
+}
+
+// a second copy of a loaded look, for another character wearing it at the same time (a look's scene can only have one
+// parent). Object3D.clone turns userData into JSON, so the bones take their rest pose from the original's; each copy
+// gets its own materials so one character's flash doesn't light the others (still on the world's shared lights and
+// texture: Material.clone copies every uniform).
+export function cloneLook(root) {
+  const copy = cloneSkinned(root), from = [], to = [];
+  root.traverse(o => from.push(o)); copy.traverse(o => to.push(o));
+  to.forEach((o, i) => {
+    if (o.isBone) o.userData.rest = from[i].userData.rest;
+    if (!o.isSkinnedMesh) return;
+    const m = o.material.clone(); Object.assign(m.uniforms, U); m.uniforms.map.value = from[i].material.uniforms.map.value;
+    o.material = m; o.frustumCulled = false;
+  });
+  return copy;
 }
 
 // clip packs: int16 quaternions per bone per frame (see tools/site/bake.js packClips)

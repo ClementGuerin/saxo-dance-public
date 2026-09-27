@@ -11,6 +11,7 @@ import { makeHelp } from './help.js';
 import { makeTV } from './tv.js';
 import { makeCode } from './code.js';
 import { makeStats } from './stats.js';
+import { makeRoom } from './room.js';
 import * as audio from './audio.js';
 import { ICON, NET, markPixels, chartPixels } from './icons.js';
 import { track, setVersion } from './analytics.js';
@@ -607,6 +608,29 @@ function goToThing(id, via = null) {
   if (Math.hypot(saxo.pos.x - ax, saxo.pos.z - az) < it.r) { saxo.faceTo(ax, az); it.run(); }
   else { const [sx, sz] = it.stand(); goTo(sx, sz, it, true); }
 }
+// ---------- the other visitors (room.js): on once build.json says the room is live, or in a local preview with ?api= ----------
+let room = null, roomOn = /^(127\.0\.0\.1|localhost)$/.test(location.hostname) && new URLSearchParams(location.search).has('api');
+let roomShown = store.get('room', true);
+const lookFile = () => P.look === 'saxo' ? 'saxo' : 'saxo_' + P.look;
+function updateRoom(dt) {
+  if (!room && roomOn && P.started) {
+    room = makeRoom({
+      scene, clips, shadowCol: 0x6b4a6e,
+      me: () => P.started ? { x: +saxo.pos.x.toFixed(2), z: +saxo.pos.z.toFixed(2), yaw: +saxo.yaw.toFixed(2), look: lookFile(), anim: saxo.current || 'happy_idle' } : null,
+      hasLook: f => f === 'saxo' || LOOKS.some(([k]) => 'saxo_' + k === f),
+      onCount: n => { const b = $('#room-btn'); b.hidden = n < 2; b.querySelector('span').textContent = `${n - 1} other Saxo${n === 2 ? '' : 's'} here`; },
+    });
+    room.show(roomShown);
+  }
+  if (room) room.update(dt);
+}
+$('#room-btn').onclick = () => {
+  roomShown = !roomShown; store.set('room', roomShown); room?.show(roomShown); audio.sfx.blip();
+  $('#room-btn').classList.toggle('off', !roomShown); $('#room-btn').setAttribute('aria-pressed', String(roomShown));
+  toast(roomShown ? 'The other visitors are back.' : 'The other visitors are hidden. Just you and the gang.', 2600);
+  track('room_toggled', { shown: roomShown });
+};
+$('#room-btn').classList.toggle('off', !roomShown); $('#room-btn').setAttribute('aria-pressed', String(roomShown));
 function toggleSound() { audio.setMuted(!audio.isMuted()); track('sound_toggled', { muted: audio.isMuted() }); $('#sound').classList.toggle('muted', audio.isMuted()); if (!audio.isMuted()) audio.start(); }
 $('#sound').onclick = toggleSound; $('#sound').classList.toggle('muted', audio.isMuted());
 
@@ -653,12 +677,14 @@ function frame(now) {
   // the stats island's pie: stepping onto a slice says whose views it is
   const slice = W.pieAt(saxo.pos.x, saxo.pos.z);
   if (slice !== lastSlice) { lastSlice = slice; if (slice && P.started) { audio.sfx.blip(PIE_NOTE[slice.net]); toast(`${NET[slice.net].name}: ${Math.round(slice.share * 100)}% of all the views (${slice.views.toLocaleString('en-US')})`, 2600); } }
+  updateRoom(dt);
   updateCamera(dt); updateInteract(); updateBarks(T); notes(beat);
   renderer.render(scene, camera);
 }
 
 // ---------- the version and the last update: build.json, written at each deploy by tools/site_refresh.mjs ----------
 fetch('build.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(b => {
+  if (b?.room === true) roomOn = true;
   if (!b?.version) return;   // a local preview has no build.json
   const d = new Date(b.updated), p2 = n => String(n).padStart(2, '0'), el = $('#ver');
   el.textContent = `v${b.version} · updated ${d.getDate()} ${'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[d.getMonth()]}, ${p2(d.getHours())}:${p2(d.getMinutes())}`;
