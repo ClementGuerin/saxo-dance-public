@@ -197,10 +197,13 @@ async function viaZernio(platforms) {
   if (type === 'draft') { console.log(`zernio: --draft skips ${platforms.join(', ')}`); return null; }
   const { accounts } = await zernio('GET', '/accounts');
   const account = p => accounts.find(a => a.platform === p && a.isActive);
-  const missing = platforms.filter(p => !account(p));
-  if (missing.length) throw new Error(`Not connected in Zernio: ${missing.join(', ')}`);
+  // like Postiz: a platform that isn't connected or that Zernio refuses is reported and skipped, never stops the rest
+  const failed = platforms.filter(p => !account(p));
+  if (failed.length) console.error(`zernio: not connected: ${failed.join(', ')}`);
+  const ready = platforms.filter(p => account(p));
+  if (!ready.length) throw new Error(`Not connected in Zernio: ${platforms.join(', ')}`);
   const urls = {};
-  for (const f of new Set(platforms.map(fileFor))) {
+  for (const f of new Set(ready.map(fileFor))) {
     const size = fs.statSync(f).size;
     const { uploadUrl, publicUrl } = await zernio('POST', '/media/presign', { filename: path.basename(f), contentType: 'video/mp4', size });
     const put = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': 'video/mp4' }, body: await fs.openAsBlob(f), duplex: 'half' });
@@ -209,13 +212,16 @@ async function viaZernio(platforms) {
     urls[f] = publicUrl;
   }
   const result = [];
-  for (const p of platforms) {
-    const r = await zernio('POST', '/posts', zernioPost(p, account(p)._id, urls[fileFor(p)]));
-    const st = r.post?.platforms?.[0];
-    console.log(`zernio: ${p} ${r.post?.status}${st?.errorMessage ? ' — ' + st.errorMessage : ''} (post ${r.post?._id})`);
-    result.push({ platform: p, postId: r.post?._id, status: r.post?.status, ...(st?.platformPostUrl ? { url: st.platformPostUrl } : {}) });
+  for (const p of ready) {
+    try {
+      const r = await zernio('POST', '/posts', zernioPost(p, account(p)._id, urls[fileFor(p)]));
+      const st = r.post?.platforms?.[0];
+      console.log(`zernio: ${p} ${r.post?.status}${st?.errorMessage ? ' — ' + st.errorMessage : ''} (post ${r.post?._id})`);
+      result.push({ platform: p, postId: r.post?._id, status: r.post?.status, ...(st?.platformPostUrl ? { url: st.platformPostUrl } : {}) });
+    } catch (e) { failed.push(p); console.error(`zernio: ${p}: ${e.message}`); }
   }
-  return { media: Object.values(urls).join(' '), result };
+  if (!result.length) throw new Error(`nothing created (${failed.join(', ')})`);
+  return { media: Object.values(urls).join(' '), result, ...(failed.length ? { failed } : {}) };
 }
 
 // ---- the TikTok inbox: a Discord message to the user once the video is there ----
@@ -261,7 +267,7 @@ if (type !== 'draft' && Object.values(runs).some(Boolean)) {
   try { commit = execSync('git rev-parse --short HEAD', { cwd: path.dirname(new URL(import.meta.url).pathname) }).toString().trim(); } catch {}
   fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), file: path.basename(file), ...(ytFile && ytFile !== file ? { ytFile: path.basename(ytFile) } : {}), episode, song, artist, type, date, only, ...(inbox ? { inbox: true } : {}), commit, runs }) + '\n');
 }
-if (inbox && runs.zernio && !failed.includes('zernio')) {
+if (inbox && runs.zernio && !failed.includes('zernio') && !failed.includes('tiktok')) {
   console.log('\nTikTok (a Zernio draft): the video is in the TikTok app inbox. Open it within 24 h, add the sound and post it public.');
   console.log((await notify(...inboxMessages())) ? 'discord: the user was messaged' : 'discord: not sent (see above): tell the user another way');
 }
