@@ -150,9 +150,9 @@ saxo.dance and checks this README against the code, rebuilding any image that no
    median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
 
 **Saxo answers his comments.** Every quarter hour, the site's Worker reads the new comments under the TikToks,
-YouTube Shorts and Instagram Reels and answers each one in Saxo's voice, played by Claude Opus 5: one line, in the
-commenter's language, with the gang's running jokes. Spam and hate get no answer, a sad comment gets a kind line
-instead of a joke, and every line is checked for links and mentions before it goes out.
+YouTube Shorts, Instagram Reels and Facebook videos and answers each one in Saxo's voice, played by Claude Opus 5: one
+line, in the commenter's language, with the gang's running jokes. Spam and hate get no answer, a sad comment gets a
+kind line instead of a joke, and every line is checked for links and mentions before it goes out.
 
 ## Under the hood
 
