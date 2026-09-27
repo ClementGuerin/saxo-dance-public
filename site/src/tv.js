@@ -1,14 +1,16 @@
 // tv.js: Saxo TV, the overlay that lists every post we published (assets/posts.json, built by tools/site_posts.mjs),
-// one card per video with its TikTok / Instagram / YouTube / X posts, and plays them through the platforms' embeds.
+// one card per video with its TikTok / Instagram / YouTube / Facebook / X posts, and plays them in their embeds.
 import { ICON, NET } from './icons.js';
 import { sfx, musicOff } from './audio.js';
 import { track } from './analytics.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const ORDER = ['tiktok', 'youtube', 'instagram', 'x'];
-// YouTube refuses to embed our Shorts (the songs' Content ID claims) and X's embed needs its widget script, so both are
-// links; TikTok and Instagram play inline
+const ORDER = ['tiktok', 'youtube', 'instagram', 'facebook', 'x'];
+// YouTube refuses to embed our Shorts (the songs' Content ID claims), X's embed needs its widget script and Facebook's
+// is left out (link only, so the CSP stays as it is): those are links; TikTok and Instagram play inline
 const EMBED = ['tiktok', 'instagram'];
+// the platforms a post can be opened on, in ORDER (a video posted before Facebook joined has no Facebook link)
+const linked = p => ORDER.filter(n => p.links?.[n]?.url);
 const fmtDate = d => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 const fmtViews = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.0', '') + 'M' : n >= 1e3 ? (n / 1e3).toFixed(1).replace('.0', '') + 'K' : String(n);
 
@@ -29,11 +31,11 @@ export function makeTV(game) {
   const load = () => posts ??= fetch('assets/posts.json', { cache: 'no-cache' }).then(r => r.json()).then(j => j.posts || []).catch(() => []);
 
   function render(list) {
-    const shown = list.filter(p => filter === 'all' || p.links[filter]);
+    const shown = list.filter(p => filter === 'all' || linked(p).includes(filter));
     grid.innerHTML = shown.length ? '' : `<p class="empty">No ${filter === 'all' ? '' : NET[filter].name + ' '}videos yet. Tomorrow, probably. Saxo never stops.</p>`;
     shown.forEach((p, i) => {
       const b = document.createElement('button'); b.className = 'card'; b.style.animationDelay = i * 40 + 'ms';
-      const nets = ORDER.filter(n => p.links[n]).map(n => `<span title="${NET[n].name}">${ICON[n]}</span>`).join('');
+      const nets = linked(p).map(n => `<span title="${NET[n].name}">${ICON[n]}</span>`).join('');
       b.innerHTML = `<div class="th"><img src="${esc(p.thumb)}" alt="" loading="lazy"><div class="nets">${nets}</div>${i === 0 && filter === 'all' ? '<span class="new">NEW</span>' : ''}<span class="play"></span></div>
         <h3>${esc(p.title)}</h3><p>${esc(p.artist)} · ${fmtDate(p.date)}</p>${p.views ? `<p class="views">${fmtViews(p.views)} views</p>` : ''}`;
       b.onclick = () => play(p);
@@ -45,7 +47,7 @@ export function makeTV(game) {
     track('video_played', { post_id: p.id, title: p.title, platform: net || 'none' });
     frame.innerHTML = net ? `<iframe src="${embed(net, p.links[net])}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="${esc(p.title)}"></iframe>`
       : `<img src="${esc(p.thumb)}" alt="">`;
-    const go = ORDER.filter(n => p.links[n]).map(n => `<a href="${esc(safeUrl(p.links[n].url))}" target="_blank" rel="noopener" data-net="${n}" class="${n === net ? 'cur' : ''}">${ICON[n]}Watch on ${NET[n].name}</a>`).join('');
+    const go = linked(p).map(n => `<a href="${esc(safeUrl(p.links[n].url))}" target="_blank" rel="noopener" data-net="${n}" class="${n === net ? 'cur' : ''}">${ICON[n]}Watch on ${NET[n].name}</a>`).join('');
     meta.innerHTML = `<h2>${esc(p.title)}</h2><p>${esc(p.artist)} · ${fmtDate(p.date)}${p.views ? ` · ${fmtViews(p.views)} views` : ''}</p>${p.blurb ? `<p>${esc(p.blurb)}</p>` : ''}<div class="go">${go}</div>`;
     meta.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) track('video_link_clicked', { post_id: p.id, platform: a.dataset.net }); if (a.classList.contains('cur') || !EMBED.includes(a.dataset.net)) return; e.preventDefault(); play(p, a.dataset.net); }));
   }

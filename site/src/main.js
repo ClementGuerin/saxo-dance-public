@@ -431,7 +431,7 @@ const MAIL = ['"Dear Saxo, please stop dancing on my car." (the neighbour)', '"Y
 let mailN = 0;
 const FORK = ['Fork me on GitHub! (A fork is your own copy of the repo.)', "Not that kind of fork. Compote checked: no carrots.", 'A fork is a copy of the code. This one is a copy of a fork.'];
 let forkN = 0;
-const DISH = ['Beep. Boop. One new view. (It was Saxo. Again.)', 'Tuned to TikTok, YouTube and Instagram. X is out of range.', "It counts every view. Even Kob's. Especially Kob's."];
+const DISH = ['Beep. Boop. One new view. (It was Saxo. Again.)', 'Tuned to TikTok, YouTube and Instagram. Facebook and X are out of range.', "It counts every view. Even Kob's. Especially Kob's."];
 let dishN = 0;
 const incident = () => { const n = statsData?.site?.punches; return `Days since the last carrot incident: 0.${n ? ` Compote has uppercut Saxo ${n} time${n === 1 ? '' : 's'} on this website.` : ' Compote resets it every morning.'}`; };
 const INTER = [];
@@ -634,7 +634,7 @@ const stats = makeStats(game);
 
 // ---------- the loop ----------
 let last = performance.now(), T = 0, frames = 0, lastKey = -1, lastSlice = null;
-const PIE_NOTE = { tiktok: 1, youtube: 0.667, instagram: 0.891 };
+const PIE_NOTE = { tiktok: 1, youtube: 0.667, instagram: 0.891, facebook: 0.749 };   // Facebook's slice once site_stats counts it
 const PENTA = [0.5, 0.595, 0.667, 0.749, 0.891, 1, 1.189, 1.335, 1.498, 1.782];   // A C D E G, two octaves (blip is 880 Hz × p)
 function frame(now) {
   requestAnimationFrame(frame);

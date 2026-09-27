@@ -12,7 +12,7 @@ const API = (() => {
   const q = new URLSearchParams(location.search).get('api');
   return q && /^(127\.0\.0\.1|localhost)$/.test(location.hostname) ? q.replace(/\/+$/, '') : '/api';
 })();
-const HOSTS = /^(saxo\.dance|(www\.)?(tiktok|youtube|instagram)\.com|youtu\.be|x\.com|github\.com)$/;
+const HOSTS = /^(saxo\.dance|(www\.)?(tiktok|youtube|instagram|facebook)\.com|youtu\.be|x\.com|github\.com)$/;
 const STATUS = {
   new: 'waiting for the bug desk', checking: 'being checked', confirmed: 'confirmed, a fix is on the way', waiting: 'waiting for the owner\'s OK',
   fixed: 'fixed', not_reproduced: 'couldn\'t make it happen', duplicate: 'already reported', not_a_bug: 'works as intended', declined: 'not planned',

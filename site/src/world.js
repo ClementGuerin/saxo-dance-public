@@ -4,7 +4,7 @@
 // textures with the videos' PS1 material. x runs east, z south (towards the camera), y up; Saxo is 1.25 m tall.
 import * as THREE from 'three';
 import { mat, tex, px, noise, selfLit, U, tessellate } from './ps1.js';
-import { markPixels, chartPixels } from './icons.js';
+import { markPixels, chartPixels, PLAT } from './icons.js';
 
 const TAU = Math.PI * 2, PI = Math.PI;
 const box = (w, h, d, m) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m);
@@ -536,7 +536,7 @@ export function buildWorld(scene) {
   G.add(at(box(4.3, 0.95, 0.12, frameM), SBX, SBY + 1.945, SBZ - 0.1));
   G.add(decal(at(new THREE.Mesh(new THREE.PlaneGeometry(4.1, 0.85), mat({ map: label('SAXO STATS', { w: 128, h: 26, size: 22, fg: '#5fe0ff', stroke: '#ff5fa2', sw: 3, glow: true }) })), SBX, SBY + 1.945, SBZ - 0.035), 2));
   block(SBX - 2.55, SBZ - 0.3, SBX + 2.55, SBZ + 0.3);
-  const PLAT = { tiktok: '#5fe0ff', youtube: '#ff5a5a', instagram: '#b18cff' }, NETS = ['tiktok', 'youtube', 'instagram'];
+  const NETS = ['tiktok', 'youtube', 'instagram', 'facebook'];   // stacked in this order; Facebook once site_stats counts it
   const big = n => n < 1e5 ? n.toLocaleString('en-US') : n < 1e6 ? Math.round(n / 1e3) + 'K' : (n / 1e6).toFixed(1).replace('.0', '') + 'M';
   const scratch = document.createElement('canvas'); scratch.width = 96; scratch.height = 48;
   const sctx = scratch.getContext('2d', { willReadFrequently: true }), rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
@@ -562,7 +562,8 @@ export function buildWorld(scene) {
 
   // the chart along the west edge: a gridded board (lines at a quarter, half, three quarters and all of the tallest
   // bar), and the latest videos' bars in front of it, oldest to newest from south to north (left to right from the
-  // camera), each stacked TikTok, YouTube, Instagram; the tallest is 3 m. They grow the first time Saxo comes over.
+  // camera), each stacked TikTok, YouTube, Instagram (then Facebook); the tallest is 3 m. They grow the first time Saxo
+  // comes over.
   const CH = { x: SX0 + 1.25, bx: SX0 + 0.5, z0: SZ0 + 0.5, z1: SZ1 - 0.5, gap: 1.05, max: 3.0, n: 8 }, CL = CH.z1 - CH.z0, CZ = (CH.z0 + CH.z1) / 2;
   const gridT = tex(8, 68, x => { px(x, '#fff8f1', 0, 0, 8, 68); for (const k of [1, 2, 3, 4]) px(x, '#dccbf7', 0, Math.round(68 - (0.06 + k * 0.75) / 3.4 * 68), 8, 1); });
   G.add(at(box(0.12, 3.4, CL, mat({ map: gridT, rep: [CL / 0.5, 1] })), CH.bx, 1.7, CZ));
