@@ -221,10 +221,12 @@ snapshot. It is plain ES modules and
 three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house loop synthesised in the browser: no audio files.
 
 **Kob runs the help desk.** The "?" button opens a chat with Kob, played by Claude Opus 5: she knows the videos, the
-numbers and the gang from the site's own data, and when something is broken she drafts a bug report with a screenshot
-of the game, which the visitor sends. A Claude Code routine then works through the reports on this repository: it
-reproduces each one in headless Chrome, and opens a pull request only for what it can make happen itself, or an issue
-for the owner when the cause lies in a tool or the site's data. Small fixes go live on their own once they pass a check
+numbers and the gang from the site's own data, and when something is broken, or a visitor has an idea for the site, she
+drafts a report with a screenshot of the game, which the visitor sends. A Claude Code routine then works through the
+reports on this repository: it reproduces each bug in headless Chrome, and opens a pull request only for what it can
+make happen itself, or an issue for the owner when the cause lies in a tool or the site's data. Every idea becomes a
+feature pull request with the routine's opinion in it: whether it's worth building is the owner's call, not the
+routine's. Small fixes go live on their own once they pass a check
 that keeps them inside the site's code, small, offline and building; new features wait for a human.
 
 ## Quick start
