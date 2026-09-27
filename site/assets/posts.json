@@ -1,6 +1,35 @@
 {
- "updated": "2026-09-27T11:36:33.126Z",
+ "updated": "2026-09-27T14:17:03.433Z",
  "posts": [
+  {
+   "id": "2026-09-27-3",
+   "title": "Patient Zero",
+   "artist": "Taylor Swift",
+   "date": "2026-09-27T14:00:00.000Z",
+   "thumb": "assets/posts/2026-09-27-3.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690214905873435936",
+     "id": "7690214905873435936"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/hNOLd8jz5hs",
+     "id": "hNOLd8jz5hs"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1671301047664329",
+     "id": "1671301047664329"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DdyxjMsnEyf/",
+     "id": "DdyxjMsnEyf"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2104209882484220255",
+     "id": "2104209882484220255"
+    }
+   }
+  },
   {
    "id": "2026-09-27-2",
    "title": "Dans ma bulle (Veridis Remix)",
