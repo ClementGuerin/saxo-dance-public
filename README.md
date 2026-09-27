@@ -140,12 +140,12 @@ saxo.dance and checks this README against the code, rebuilding any image that no
    ffmpeg encodes the frames with the song, loudness-normalised to −14 LUFS.
 5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, zoomed stills,
    an independent reviewer that sees one frame per shot, and a critic's score before anything is posted.
-6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels, YouTube Shorts and X for its
-   slot, with per-platform captions and hashtags (X gets the video alone). YouTube gets a cut of 60 s or less that
-   keeps the episode's ending. Ten minutes after each post goes out, `tools/post_check.mjs`
-   checks it is live, public and audible; when TikTok mutes a song, the video is re-cut to that song's official
-   TikTok sound. [`tools/notify.mjs`](tools/notify.mjs) sends a Discord message when a post is muted or blocked, and
-   again when the re-cut is waiting in the TikTok inbox.
+6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels, YouTube Shorts, Facebook and
+   X for its slot, with per-platform captions and hashtags (X gets the video alone). YouTube gets a cut of 60 s or less
+   that keeps the episode's ending. Ten minutes after each post goes out,
+   `tools/post_check.mjs` checks it is live, public and audible; when TikTok mutes a song, the
+   video is re-cut to that song's official TikTok sound. [`tools/notify.mjs`](tools/notify.mjs) sends a Discord
+   message when a post is muted or blocked, and again when the re-cut is waiting in the TikTok inbox.
 7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post at 24 h and 72 h against the channel
    median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
 
@@ -265,7 +265,7 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 | [`episodes/`](episodes/) | one shot list per posted video |
 | [`assets/`](assets/) | the stickers, pixel icons, profile pictures and the font (the rig, clips, 3D models and songs are private) |
 | [`tools/`](tools/) | song cutting, beats, the character pipeline, stickers, metrics, trends, the night's state and post checks, the website tools |
-| [`publish.mjs`](publish.mjs) | posts a render to TikTok, Instagram, YouTube and X |
+| [`publish.mjs`](publish.mjs) | posts a render to TikTok, Instagram, YouTube, Facebook and X |
 | [`site/`](site/) | saxo.dance |
 
 ## What it costs
@@ -276,9 +276,9 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 | A new character or costume | $0.50 for the 3D model, $0.04 per reference image |
 | A new map | free: built from primitives in code |
 | Dance and action clips | free (Mixamo): 467 clips on disk |
-| Posting | free on TikTok, Instagram and YouTube; $0.015 a post on X, whose API has no free tier |
+| Posting | free on TikTok and YouTube, $6 a month each for Instagram and Facebook (Zernio's first two accounts are free); $0.015 a post on X, whose API has no free tier |
 | Caps per video | $1 of images and APIs, plus up to four new looks ($2 of 3D models), logged in `research/spend.jsonl` |
-| Kob's help desk and Saxo's replies | Claude Opus 5 on the site's Worker, capped at $2 a day for the help desk and $1 a day for the replies (about $0.01 a message, $0.004 a comment), plus $6 a month to read the Instagram comments |
+| Kob's help desk and Saxo's replies | Claude Opus 5 on the site's Worker, capped at $2 a day for the help desk and $1 a day for the replies (about $0.01 a message, $0.004 a comment) |
 
 Pay once for reusable assets, never for a render: every look a video buys joins the wardrobe for the next ones.
 
