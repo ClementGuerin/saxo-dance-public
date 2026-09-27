@@ -84,8 +84,15 @@ async function boot() {
   W = buildWorld(scene);
   const look = n => loadLook(n, e => e.total && setProg(n, e.loaded / e.total)).then(r => (setProg(n, 1), r));
   ['saxo', 'sadi', 'kob', 'compote', 'clips'].forEach(k => setProg(k, 0));
-  const saved = store.get('look', 'saxo');
-  const [cl, sx, sd, kb, cp] = await Promise.all([loadClips('core').then(c => (setProg('clips', 1), c)), look(saved).catch(() => look('saxo')), look('sadi'), look('kob'), look('compote')]);
+  // Saxo wears the latest video's costume, unless the visitor has picked one in the wardrobe since that video came out
+  const dressed = latestLooks().then(l => {
+    const wear = l.saxo && store.get('pickedFor', null) !== l.id ? l.saxo : null;
+    if (wear) latest.wearing = true;
+    return wear ? (wear === 'saxo' ? 'saxo' : 'saxo_' + wear) : store.get('look', 'saxo');
+  });
+  const gang = w => latestLooks().then(l => l.gang[w] ? look(`${w}_${l.gang[w]}`).catch(() => look(w)) : look(w));
+  const [cl, saved, sd, kb, cp] = await Promise.all([loadClips('core').then(c => (setProg('clips', 1), c)), dressed, gang('sadi'), gang('kob'), gang('compote')]);
+  const sx = await look(saved).catch(() => look('saxo'));
   clips = cl; P.look = saved === 'saxo' ? 'saxo' : saved.replace(/^saxo_/, '');
   saxo = new Character('saxo', clips).addTo(scene); saxo.setLook(sx);
   npc.sadi = new Character('sadi', clips, { scale: 0.92 }).addTo(scene); npc.sadi.setLook(sd);
@@ -128,6 +135,16 @@ async function boot() {
   loadClips('dance').then(d => { Object.assign(clips, d); danceClips = Object.keys(d); }).catch(() => {});
 }
 let posters = [], tvVideo = null, statsData = null;
+// the newest post's costumes (posts.json: looks { saxo: a wardrobe look, sadi / kob / compote: a baked <who>_<look> })
+const latest = { id: null, title: '', saxo: null, gang: {}, wearing: false };
+let latestReady = null;
+const latestLooks = () => latestReady ??= Promise.all([tv.load(), looksReady]).then(([posts]) => {
+  const p = posts[0], l = p?.looks || {}, ok = s => typeof s === 'string' && /^[a-z0-9]+$/.test(s);
+  latest.id = p?.id ?? null; latest.title = p?.title || '';
+  latest.saxo = ok(l.saxo) && LOOKS.some(([k]) => k === l.saxo) ? l.saxo : null;
+  for (const w of ['sadi', 'kob', 'compote']) if (ok(l[w])) latest.gang[w] = l[w];
+  return latest;
+}).catch(() => latest);
 const fmtN = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.0', '') + 'M' : n >= 1e4 ? (n / 1e3).toFixed(1).replace('.0', '') + 'K' : n.toLocaleString('en-US');
 // a marker for something added after the world loaded (the wall posters, the stats island's bars and podium)
 function addItem(it, icon = 'play') {
@@ -145,6 +162,7 @@ function startGame() {
   const back = store.get('visited', false); store.set('visited', true);
   track('game_started', { returning: back, look: P.look || 'saxo' });
   setTimeout(() => toast(back ? 'Welcome back! Kob is still hogging the TV.' : "Welcome to Saxo's place! Talk to the gang, hit the dance floor, and check the TV.", 5200), 2600);
+  if (latest.wearing && latest.title) setTimeout(() => toast(`Saxo is dressed like in the latest video, “${latest.title}”.`, 4200, 'star'), 8000);
 }
 $('#start').onclick = startGame;
 addEventListener('keydown', e => { if (!P.started && world.ready && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); startGame(); } });
@@ -517,10 +535,11 @@ function openSheet(id) {
     const box = el.querySelector('.looks'); box.innerHTML = '';
     for (const [k, name] of LOOKS) {
       const b = document.createElement('button'); b.className = 'look' + (P.look === k ? ' on' : ''); b.innerHTML = `<img src="assets/ui/looks/${k}.png" width="64" height="64" alt=""><span>${name}</span>`;
+      if (latest.saxo === k) { const t = document.createElement('em'); t.className = 'new'; t.textContent = 'NEW'; t.title = 'Worn in the latest video'; b.appendChild(t); }
       b.onclick = async () => {
         box.querySelectorAll('button').forEach(x => x.disabled = true);
         const file = k === 'saxo' ? 'saxo' : 'saxo_' + k;
-        try { const root = await loadLook(file); closeSheets(); poof(saxo.pos.clone().setY(0.7)); saxo.flash = 0.8; setTimeout(() => { saxo.setLook(root); P.look = k; store.set('look', file); }, 150); track('costume_changed', { look: k }); toast(k === 'poop' ? 'Why.' : `Looking sharp, ${name === 'Saxo' ? 'Saxo' : name + ' Saxo'}!`); }
+        try { const root = await loadLook(file); closeSheets(); poof(saxo.pos.clone().setY(0.7)); saxo.flash = 0.8; setTimeout(() => { saxo.setLook(root); P.look = k; store.set('look', file); store.set('pickedFor', latest.id); }, 150); track('costume_changed', { look: k }); toast(k === 'poop' ? 'Why.' : `Looking sharp, ${name === 'Saxo' ? 'Saxo' : name + ' Saxo'}!`); }
         catch { toast("That costume is at the dry cleaner's."); box.querySelectorAll('button').forEach(x => x.disabled = false); }
       };
       box.appendChild(b);
