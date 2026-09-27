@@ -59,7 +59,7 @@ export function makeStats(game) {
         <em>${num(v.views || 0)}</em></button></li>`).join('')}</ol>
       ${H.length >= 3 ? `<h3>Views over time</h3>${spark(H)}` : ''}
       ${S ? `<h3>Here on saxo.dance <small>since ${day(S.since)}</small></h3>${tiles([['visitors', S.visitors], ['dances', S.dances], ['outfit changes', S.costumes], ['uppercuts from Compote', S.punches]])}` : ''}
-      <p class="meta">TikTok and YouTube are counted live, Instagram once a day. Updated ${ago(d.updated)}.</p>
+      <p class="meta">TikTok and YouTube are counted live, Instagram and Facebook once a day. Updated ${ago(d.updated)}.</p>
       <div class="go"><button class="chunky" data-t="tv">Watch on Saxo TV</button><button class="chunky yellow" data-t="follow">Follow Saxo</button></div>`;
     countUp();
   }

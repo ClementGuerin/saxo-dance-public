@@ -16,6 +16,7 @@
   <a href="https://www.tiktok.com/@saxo.dance"><img src="https://img.shields.io/badge/TikTok-%40saxo.dance-ff5fa2?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=2a1636" alt="TikTok @saxo.dance"></a>
   <a href="https://www.instagram.com/saxo.dance"><img src="https://img.shields.io/badge/Instagram-%40saxo.dance-ff5fa2?style=for-the-badge&logo=instagram&logoColor=white&labelColor=2a1636" alt="Instagram @saxo.dance"></a>
   <a href="https://www.youtube.com/channel/UCkJ-SUUz6dUcAmpfYQ4zZng"><img src="https://img.shields.io/badge/YouTube-Saxo%20Dance-ff5fa2?style=for-the-badge&logo=youtube&logoColor=white&labelColor=2a1636" alt="YouTube Saxo Dance"></a>
+  <a href="https://www.facebook.com/people/Saxodance/61595019293815/"><img src="https://img.shields.io/badge/Facebook-Saxo.dance-ff5fa2?style=for-the-badge&logo=facebook&logoColor=white&labelColor=2a1636" alt="Facebook Saxo.dance"></a>
   <a href="https://x.com/saxodance"><img src="https://img.shields.io/badge/X-%40saxodance-ff5fa2?style=for-the-badge&logo=x&logoColor=white&labelColor=2a1636" alt="X @saxodance"></a>
   <a href="https://saxo.dance"><img src="https://img.shields.io/badge/Play-saxo.dance-ffd43b?style=for-the-badge&labelColor=2a1636" alt="Play at saxo.dance"></a>
   <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/Built%20with-Claude%20Opus%205.5-d97757?style=for-the-badge&logo=claude&logoColor=white&labelColor=2a1636" alt="Built with Claude Opus 5.5"></a>
@@ -146,8 +147,9 @@ saxo.dance and checks this README against the code, rebuilding any image that no
    `tools/post_check.mjs` checks it is live, public and audible; when TikTok mutes a song, the
    video is re-cut to that song's official TikTok sound. [`tools/notify.mjs`](tools/notify.mjs) sends a Discord
    message when a post is muted or blocked, and again when the re-cut is waiting in the TikTok inbox.
-7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post at 24 h and 72 h against the channel
-   median. Rules that hold up go into `research/PLAYBOOK.md`, which the next run reads.
+7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post on TikTok, Instagram, YouTube and
+   Facebook (X charges to read its numbers) and compares it at 24 h and 72 h with the channel median. Rules that hold
+   up go into `research/PLAYBOOK.md`, which the next run reads.
 
 **Saxo answers his comments.** Every quarter hour, the site's Worker reads the new comments under the TikToks,
 YouTube Shorts, Instagram Reels and Facebook videos and answers each one in Saxo's voice, played by Claude Opus 5: one
@@ -211,9 +213,11 @@ renders. Frames can be drawn out of order in parallel tabs, and an interrupted r
 A playable version of the channel in the same PS1 look. Walk Saxo around a floating diorama (the living room, the club,
 Compote's carrot garden, the pool), talk to the gang in branching chats, dress up in every costume, and watch every
 video on **Saxo TV**. Across the bridge east of the pool, the GitHub island's giant computer opens this
-repository; across the one west of the living room, the stats island counts every view, like and follower: a stadium
-scoreboard, a bar chart of the latest videos stacked by platform, a pie chart you walk on and a podium of the three
-most-watched videos, refreshed every 30 minutes from the platforms' free public numbers. It is plain ES modules and
+repository; across the one west of the living room, the stats island counts the views, likes and followers on TikTok,
+YouTube, Instagram and Facebook (views only there; X charges to read its numbers): a stadium scoreboard, a bar chart
+of the latest videos stacked by platform, a pie chart you walk on and a podium of the three most-watched videos,
+refreshed every 30 minutes, TikTok and YouTube live from their free public pages, Instagram and Facebook from a daily
+snapshot. It is plain ES modules and
 three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house loop synthesised in the browser: no audio files.
 
 **Kob runs the help desk.** The "?" button opens a chat with Kob, played by Claude Opus 5: she knows the videos, the

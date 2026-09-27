@@ -9,12 +9,13 @@ export const ICON = {
   x: '<svg viewBox="0 0 24 24"><path transform="translate(3 3) scale(.75)" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>',
   github: `<svg viewBox="0 0 24 24"><path transform="translate(2 2) scale(1.25)" d="${GITHUB_MARK}"/></svg>`,
 };
-// Facebook's link is the Page's profile id; its Page id (1339017745960673, the Graph API's) redirects there
+// Facebook's link is the Page's public URL (profile.php?id=61595019293815 redirects there; the Graph API's Page id,
+// 1339017745960673, is another id)
 export const NET = {
   tiktok: { name: 'TikTok', url: 'https://www.tiktok.com/@saxo.dance', handle: '@saxo.dance' },
   instagram: { name: 'Instagram', url: 'https://www.instagram.com/saxo.dance/', handle: '@saxo.dance' },
   youtube: { name: 'YouTube', url: 'https://www.youtube.com/channel/UCkJ-SUUz6dUcAmpfYQ4zZng', handle: 'Saxo Dance' },
-  facebook: { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61595019293815', handle: 'Saxo.dance' },
+  facebook: { name: 'Facebook', url: 'https://www.facebook.com/people/Saxodance/61595019293815/', handle: 'Saxo.dance' },
   x: { name: 'X', url: 'https://x.com/saxodance', handle: '@saxodance' },
   github: { name: 'GitHub', url: 'https://github.com/ClementGuerin/saxo-dance-public', handle: 'Source code' },
 };

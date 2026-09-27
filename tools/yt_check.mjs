@@ -45,7 +45,7 @@ for (const post of posts) {
     try { id = (await get(`https://zernio.com/api/v1/posts/${z.postId}`, `Bearer ${zk}`)).post?.platforms?.[0]?.platformPostId; }
     catch (e) { console.warn(`zernio ${z.postId}: ${e.message}`); }
   }
-  if (!z && pk) {   // posted through Postiz (older posts, or --via=postiz)
+  if (!z && pk) {   // posted through Postiz (YouTube went through it before Zernio)
     const ids = (post.result || post.runs?.postiz?.result || []).map(r => r.postId);
     try {
       postizPosts ??= (await get(`https://postiz.saxo.dance/api/public/v1/posts?startDate=${new Date(since).toISOString()}&endDate=${new Date().toISOString()}`, pk)).posts || [];
