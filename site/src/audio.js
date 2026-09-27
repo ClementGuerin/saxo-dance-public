@@ -15,7 +15,7 @@ export function setMuted(m) {
 export function beatNow() { return ctx && t0 ? (ctx.currentTime - t0) / SPB : performance.now() / 1000 / SPB; }
 
 export function start() {
-  if (ctx) { ctx.resume(); return; }
+  if (ctx) { ctx.resume().catch(() => {}); return; }
   const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
   ctx = new AC();
   master = ctx.createGain(); master.gain.value = muted ? 0 : 0.9;
@@ -30,7 +30,10 @@ export function start() {
   const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
   t0 = ctx.currentTime + 0.1; nextStep = t0; step = 0;
   timer = setInterval(schedule, 25);
-  document.addEventListener('visibilitychange', () => { if (!ctx) return; document.hidden ? ctx.suspend() : ctx.resume(); });
+  // coming back to the page, iOS can refuse to restart the audio device outside a tap: try again on the next one
+  const wake = () => { if (ctx.state !== 'running') ctx.resume().catch(() => {}); };
+  document.addEventListener('visibilitychange', () => { document.hidden ? ctx.suspend() : wake(); });
+  addEventListener('pointerdown', wake); addEventListener('keydown', wake);
 }
 
 // club proximity 0..1 brings the drums in
