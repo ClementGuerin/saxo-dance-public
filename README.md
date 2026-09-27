@@ -214,9 +214,9 @@ three.js bundled with esbuild ([`site/`](site/)), with a WebAudio house loop syn
 **Kob runs the help desk.** The "?" button opens a chat with Kob, played by Claude Opus 5: she knows the videos, the
 numbers and the gang from the site's own data, and when something is broken she drafts a bug report with a screenshot
 of the game, which the visitor sends. A Claude Code routine then works through the reports on this repository: it
-reproduces each one in headless Chrome, and opens a pull request only for what it can make happen itself. Small fixes
-go live on their own once they pass a check that keeps them inside the site's code, small, offline and building; new
-features wait for a human.
+reproduces each one in headless Chrome, and opens a pull request only for what it can make happen itself, or an issue
+for the owner when the cause lies in a tool or the site's data. Small fixes go live on their own once they pass a check
+that keeps them inside the site's code, small, offline and building; new features wait for a human.
 
 ## Quick start
 
