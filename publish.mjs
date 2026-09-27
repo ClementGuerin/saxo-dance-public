@@ -15,7 +15,8 @@
 // A TikTok sent with --inbox (a Zernio draft: `tiktokSettings.draft`, at most 5 pending a day) lands in the TikTok
 // app's inbox, where only the user can publish it, so they get two Discord messages once it's there (tools/notify.mjs; the user, 2026-09-26): a short one (the song; for an
 // official-sound cut, an episode `<id>-tt` made when TikTok muted the post, the sound to add with its number of uses,
-// so the right one is quick to spot, and the muted post to delete), then the TikTok description alone, to copy.
+// so the right one is quick to spot, and the muted post to hide if the post check couldn't), then the TikTok
+// description alone, to copy.
 //
 // YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, never inside a lyric line): it blocks worldwide any Short
 // over 60 s with a Content ID claim, and every label-owned song gets one. TikTok, Instagram and X get the full render.
@@ -226,11 +227,11 @@ async function viaZernio(platforms) {
 
 // ---- the TikTok inbox: a Discord message to the user once the video is there ----
 const inbox = only.includes('tiktok') && args.inbox === true && type !== 'draft';
-function mutedPostUrl(ep) {   // the muted TikTok an official-sound cut replaces, from the post check's state
+function mutedPost(ep) {   // the muted TikTok an official-sound cut replaces, from the post check's state ({ url, hidden })
   try {
     const state = JSON.parse(fs.readFileSync(new URL('./out/post_check/state.json', import.meta.url), 'utf8'));
     return Object.values(state).filter(x => x.episode === ep && x.platform === 'tiktok' && x.status === 'muted' && x.url)
-      .sort((a, b) => Date.parse(b.live) - Date.parse(a.live))[0]?.url ?? null;
+      .sort((a, b) => Date.parse(b.live) - Date.parse(a.live))[0] ?? null;
   } catch { return null; }
 }
 const compact = n => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(n);
@@ -239,9 +240,9 @@ function inboxMessages() {   // [the short message, the description to copy]
   if (!episode?.endsWith('-tt')) return [head, caption.tiktok];
   const sound = typeof args.sound === 'string' ? args.sound : song;
   const uses = [args.uses, EP?.tiktok_sound?.videos, EP?.song?.tiktok_sound?.videos].find(u => u !== undefined && u !== true);
-  const muted = mutedPostUrl(episode.replace(/-tt$/, ''));
+  const muted = mutedPost(episode.replace(/-tt$/, ''));   // already private once the post check hid it: nothing to do
   return [[head, `Sound: ${sound}${uses ? ` · ${/^\d+$/.test(uses) ? compact(+uses) : uses} uses` : ''}`,
-    ...(muted ? [`Then delete the muted post: ${muted}`] : [])].join('\n'), caption.tiktok];
+    ...(muted && !muted.hidden ? [`Then set the muted post to Only me: ${muted.url}`] : [])].join('\n'), caption.tiktok];
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
