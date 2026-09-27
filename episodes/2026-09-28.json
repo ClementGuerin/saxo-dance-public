@@ -1,0 +1,1414 @@
+{
+ "date": "2026-09-28",
+ "n": 1,
+ "song": {
+  "title": "Love Me Not",
+  "artist": "Olivia Dean",
+  "window": [
+   0,
+   66.73
+  ],
+  "bpm": 119.202
+ },
+ "logline": "Saxo's Live Lounge: the famous session recreated shot for shot with the gang as the band (Saxo the soul singer in the curly wig and the butter-yellow jacket at the mic, Compote glaring behind the drums, Sadi on the red guitar, Kob on the keys), and Kob, unimpressed, plucks every daisy in the vase on her keyboard through the song: when it stops dead she holds up the bare stem. Love me not.",
+ "new": [
+  "studio map (a radio live-session studio at night: the red board with our \"RADIO\" paw badge and \"LIVE LOUNGE\", the mic stand at the singer's muzzle, the drum booth round a chibi-sized kit, a keyboard on an X-stand with a vase of daisies whose petals come off shot by shot, amps, a horn section and a bass player in headphones, white blossom, plants, slanted blue neon; flags horns, petals, pile, stop, noRide, noCrash, noMic, blossom, key, clear)",
+  "actor fields phones (studio headphones: two cups and a band over the crown, in the head bone's frame), armB + aimB (the other arm's own aim or swing: one paw holds the daisy while the other plucks), petalsLeft, pluckEvery (a held daisy loses a petal on every beat, each fluttering down) and petalFall; props guitar (the red electric guitar laid between both paws, its body in front of the belly), dstick (drumsticks), daisy; swings keys (paws tapping the keys), pluck (the right paw reaching across to the daisy on the beat), heart (the forearm folded in to the chest, held) and drums (a drum hit with a low wind-up)",
+  "costume: Saxo soul (a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers)",
+  "a live band's drifting tempo: the beat grid fitted to a DP beat tracker over the window (119.202 BPM, within 32 ms); the window chosen where the tempo holds"
+ ],
+ "notes": "The user's queue: 'recreate this famous viral video: follow the video itself (its scenes, gags and choreography), not just its song' (the link, queued where YouTube was blocked: Olivia Dean - Love Me Not in the Live Lounge, BBC Radio 1, 2025-09-30, 10M views; her cover of Ravyn Lenae's song). The video is a live session in a dark studio: the singer at a standing mic in headphones in front of a red Radio 1 Live Lounge board, a butter-yellow quilted jacket over a white top, long dark curls; the band in black with headphones: a drummer in a glass booth (the opening wide is from behind him), a red-and-white electric guitar (close-ups of the hands), a bass, keys with a vase of white flowers on them, a horn section (trombone, sax, trumpet) that comes in on the chorus, plants, slanted blue neon. Her choreography is her hands: a hand on the heart, clasped hands, a paw on the mic, a raised hand, smiles. We recreate its shots in its order over the song's first 66 s (the only stretch where the live band's tempo is steady enough for our beat grid): the drum wide, the guitar close, the singer's medium, close and raised hand, the horn player in the foreground with the singer far, the keys and flowers, the drums close, the bass with the singer far, over the keys, the horns coming up. The board is our parody (RADIO, a paw in a circle, LIVE LOUNGE), no real logo. Whole cast: Saxo (the lead, the singer), Compote (always angry: the drummer's glare), Sadi (the romance: grooving on the red guitar by the stage), Kob (never impressed: she plucks the daisies on her keyboard, love me, love me not, and ends on the bare stem, the song's title as the button).",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "bored_idle",
+  "happy_idle",
+  "male_driving_a_car",
+  "playing_a_guitar",
+  "talking"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4,
+     4.55
+    ],
+    "r": [
+     5.012,
+     4.414
+    ],
+    "h": [
+     0.9,
+     0.89
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 44,
+    "roll": [
+     -4,
+     0
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    -0.3,
+    0
+   ],
+   "petals": 36,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "male_driving_a_car",
+     "x": -2.78,
+     "z": 0.9,
+     "phones": true,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     86.7,
+     87.35
+    ],
+    "r": [
+     2.083,
+     1.732
+    ],
+    "h": [
+     0.62,
+     0.6
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 50,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    -2.78,
+    0.9
+   ],
+   "petals": 36,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "playing_a_guitar",
+     "x": -1.35,
+     "z": 2.3,
+     "phones": true,
+     "face": "world",
+     "yaw": 20,
+     "at": "auto",
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     20,
+     20
+    ],
+    "r": [
+     2.9,
+     2.4
+    ],
+    "h": [
+     0.42,
+     0.4
+    ],
+    "look": [
+     0.5,
+     0.5
+    ],
+    "fov": 54,
+    "roll": [
+     -7,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -1.35,
+    2.3
+   ],
+   "petals": 36,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 18,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.55,
+     5.13
+    ],
+    "r": [
+     4.414,
+     3.916
+    ],
+    "h": [
+     0.9,
+     0.89
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 44,
+    "roll": [
+     -2,
+     1
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    -0.45,
+    0
+   ],
+   "petals": 36,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "male_driving_a_car",
+     "x": -2.78,
+     "z": 0.9,
+     "phones": true,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     78.79,
+     78.79
+    ],
+    "r": [
+     2.314,
+     2.212
+    ],
+    "h": [
+     0.95,
+     0.93
+    ],
+    "look": [
+     0.66,
+     0.66
+    ],
+    "fov": 54,
+    "roll": [
+     5,
+     2
+    ],
+    "hand": 0.5
+   },
+   "focus": [
+    -2.72,
+    0.9
+   ],
+   "petals": 36,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -21.45,
+     -21.6
+    ],
+    "r": [
+     3.008,
+     2.581
+    ],
+    "h": [
+     0.74,
+     0.74
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 50,
+    "roll": [
+     -5,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "petals": 36,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 42,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 3,
+     "arm": "both",
+     "aim": "heart",
+     "upAt": 1.762
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     28.39,
+     28.39
+    ],
+    "r": [
+     2.671,
+     2.251
+    ],
+    "h": [
+     0.92,
+     0.9
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 46,
+    "roll": [
+     3,
+     1
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.02,
+    0
+   ],
+   "petals": 36,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 50,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "playing_a_guitar",
+     "x": -1.35,
+     "z": 2.3,
+     "phones": true,
+     "face": "world",
+     "yaw": -25,
+     "at": "auto",
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    },
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "bored_idle",
+     "x": 2.8,
+     "z": 0.95,
+     "phones": true,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.5,
+     "arm": "both",
+     "aim": "keys",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -54.32,
+     -54.39
+    ],
+    "r": [
+     4.801,
+     4.551
+    ],
+    "h": [
+     1.9,
+     1.85
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 58,
+    "roll": [
+     0,
+     1
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.3,
+    1.2
+   ],
+   "petals": 36,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "playing_a_guitar",
+     "x": -1.35,
+     "z": 2.3,
+     "phones": true,
+     "face": "world",
+     "yaw": 10,
+     "at": "auto",
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 6
+    },
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -3.44,
+     -3.03
+    ],
+    "r": [
+     3.997,
+     3.595
+    ],
+    "h": [
+     0.9,
+     0.88
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 58,
+    "roll": [
+     -3,
+     0
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.86,
+    1.41
+   ],
+   "petals": 36,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "bored_idle",
+     "x": 2.8,
+     "z": 0.95,
+     "phones": true,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.5,
+     "petalsLeft": 12,
+     "holdL": "daisy",
+     "arm": "L",
+     "aim": [
+      0.18,
+      0.05,
+      0.98
+     ],
+     "upAt": 0,
+     "armB": "R",
+     "aimB": "pluck",
+     "pluckEvery": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -60.71,
+     -61
+    ],
+    "r": [
+     2.351,
+     2.207
+    ],
+    "h": [
+     1.3,
+     1.28
+    ],
+    "look": [
+     0.67,
+     0.67
+    ],
+    "fov": 50,
+    "roll": [
+     -3,
+     0
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    2.65,
+    1.05
+   ],
+   "petals": 24,
+   "pile": [
+    6,
+    1
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11.54,
+     11.44
+    ],
+    "r": [
+     2.45,
+     2.245
+    ],
+    "h": [
+     0.97,
+     0.93
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 44,
+    "roll": [
+     -2,
+     2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.04,
+    0
+   ],
+   "petals": 24,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 82,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "male_driving_a_car",
+     "x": -2.78,
+     "z": 0.9,
+     "phones": true,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     85.67,
+     86.59
+    ],
+    "r": [
+     1.986,
+     1.683
+    ],
+    "h": [
+     0.66,
+     0.64
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 50,
+    "roll": [
+     5,
+     2
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    -2.78,
+    0.9
+   ],
+   "petals": 24,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 86,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    },
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "playing_a_guitar",
+     "x": -1.35,
+     "z": 2.3,
+     "phones": true,
+     "face": "world",
+     "yaw": 5,
+     "at": "auto",
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.55,
+     4.2
+    ],
+    "r": [
+     5,
+     4.502
+    ],
+    "h": [
+     1.2,
+     1.16
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 56,
+    "roll": [
+     0,
+     2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.81,
+    1.61
+   ],
+   "petals": 24,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.63,
+     21.41
+    ],
+    "r": [
+     3.12,
+     2.685
+    ],
+    "h": [
+     0.78,
+     0.78
+    ],
+    "look": [
+     0.82,
+     0.82
+    ],
+    "fov": 50,
+    "roll": [
+     5,
+     3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "petals": 24,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 98,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "bored_idle",
+     "x": 2.8,
+     "z": 0.95,
+     "phones": true,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.5,
+     "petalsLeft": 5,
+     "holdL": "daisy",
+     "arm": "L",
+     "aim": [
+      0.18,
+      0.05,
+      0.98
+     ],
+     "upAt": 0,
+     "armB": "R",
+     "aimB": "pluck",
+     "pluckEvery": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -90,
+     -90
+    ],
+    "r": [
+     2.45,
+     2.33
+    ],
+    "h": [
+     0.84,
+     0.84
+    ],
+    "look": [
+     0.78,
+     0.78
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    2.8,
+    0.95
+   ],
+   "petals": 20,
+   "pile": 16,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -22.2,
+     -22.54
+    ],
+    "r": [
+     2.646,
+     2.295
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     0.84,
+     0.84
+    ],
+    "fov": 50,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "petals": 20,
+   "pile": 18,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 106,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "playing_a_guitar",
+     "x": -1.35,
+     "z": 2.3,
+     "phones": true,
+     "face": "world",
+     "yaw": 25,
+     "at": "auto",
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     35.11,
+     34.65
+    ],
+    "r": [
+     2.203,
+     1.903
+    ],
+    "h": [
+     0.72,
+     0.7
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 50,
+    "roll": [
+     4,
+     2
+    ],
+    "hand": 0.35
+   },
+   "focus": [
+    -1.1700000000000002,
+    2.3499999999999996
+   ],
+   "petals": 20,
+   "pile": 18,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -49.72,
+     -49.94
+    ],
+    "r": [
+     3.867,
+     3.698
+    ],
+    "h": [
+     1.1,
+     1.08
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 58,
+    "roll": [
+     4,
+     1
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    3.95,
+    -1.2
+   ],
+   "key": [
+    3.3,
+    2,
+    0.4,
+    0.95,
+    0.75,
+    0.5
+   ],
+   "blossom": false,
+   "horns": 0.15,
+   "petals": 20,
+   "pile": 18
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -18.06,
+     -18.03
+    ],
+    "r": [
+     2.419,
+     2.229
+    ],
+    "h": [
+     0.94,
+     0.93
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 44,
+    "roll": [
+     2,
+     -1
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "horns": true,
+   "petals": 20,
+   "pile": 18,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "playing_a_guitar",
+     "x": -1.35,
+     "z": 2.3,
+     "phones": true,
+     "face": "world",
+     "yaw": -25,
+     "at": "auto",
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    },
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "bored_idle",
+     "x": 2.8,
+     "z": 0.95,
+     "phones": true,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.5,
+     "arm": "both",
+     "aim": "keys",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -54.32,
+     -54.45
+    ],
+    "r": [
+     4.801,
+     4.609
+    ],
+    "h": [
+     1.9,
+     1.86
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 58,
+    "roll": [
+     1,
+     0
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.3,
+    1.2
+   ],
+   "horns": true,
+   "petals": 20,
+   "pile": 18,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "bored_idle",
+     "x": 2.8,
+     "z": 0.95,
+     "phones": true,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.5,
+     "petalsLeft": 4,
+     "holdL": "daisy",
+     "arm": "L",
+     "aim": [
+      0.18,
+      0.05,
+      0.98
+     ],
+     "upAt": 0,
+     "armB": "R",
+     "aimB": "pluck",
+     "pluckEvery": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -55.92,
+     -56.23
+    ],
+    "r": [
+     2.052,
+     1.925
+    ],
+    "h": [
+     0.68,
+     0.68
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 50,
+    "roll": [
+     5,
+     2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    2.8,
+    0.95
+   ],
+   "horns": true,
+   "noguests": true,
+   "petals": 12,
+   "pile": [
+    18,
+    1
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "soul",
+     "clip": "talking",
+     "x": 0,
+     "z": 0,
+     "phones": true,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.73,
+     3.01
+    ],
+    "r": [
+     4.205,
+     3.805
+    ],
+    "h": [
+     0.9,
+     0.89
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 44,
+    "roll": [
+     -2,
+     1
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    -0.3,
+    0
+   ],
+   "horns": true,
+   "petals": 12,
+   "pile": 22,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "studio",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "bored_idle",
+     "x": 2.8,
+     "z": 0.95,
+     "phones": true,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0,
+     "petalsLeft": 1,
+     "petalFall": 0.1,
+     "armB": "R",
+     "aimB": "pluck",
+     "holdL": "daisy",
+     "arm": "L",
+     "aim": [
+      0.18,
+      0.05,
+      0.98
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -90,
+     -90
+    ],
+    "r": [
+     2.45,
+     2.4
+    ],
+    "h": [
+     0.92,
+     0.92
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    2.8,
+    0.95
+   ],
+   "still": true,
+   "stop": 0,
+   "petals": 12,
+   "pile": 24,
+   "stars": [
+    "kob"
+   ]
+  }
+ ],
+ "yt": "end",
+ "tags": {
+  "structure": "recreation",
+  "scenes": [],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "action",
+  "maps": [
+   "studio"
+  ],
+  "ref": "none",
+  "lyric_literal": "L02 the hand on the heart, L03 hold (paws clasped), L07 the paw on the mic, L09 and L13 come (the beckon), L12 the raised paw; the title (love me not) as Kob's daisy",
+  "experiment": "Does a faithful shot-for-shot recreation of a famous live-session video (the user's queue) with our cast as the band beat our original stories on views and shares?"
+ }
+}

@@ -16,6 +16,7 @@ import { buildMatsuriMaps } from './maps10.js';
 import { buildBubbleMaps } from './maps11.js';
 import { buildPatientMaps } from './maps12.js';
 import { buildPoolMaps } from './maps13.js';
+import { buildStudioMaps } from './maps14.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
 import { buildDieYoungMaps } from './maps9.js';
@@ -610,7 +611,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   trench: 'assets/models/saxo_trench.glb',   // the French film look: a camel trench coat belted over a black turtleneck, grey trousers, brown shoes ("Dans ma bulle", 2026-09-27)   // the anime sailor school uniform: white blouse, navy sailor collar, red neckerchief, navy pleated skirt, loafers ("Caramelldansen", 2026-09-27)
   pyjama: 'assets/models/saxo_pyjama.glb',   // sick-day pyjamas: pale blue striped flannel, a red knitted scarf wound twice round the neck, grey slippers ("Patient Zero", 2026-09-27)
   devil: 'assets/models/saxo_devil.glb',   // the devil on his shoulder ("Patient Zero")
-  lifeguard: 'assets/models/saxo_lifeguard.glb' };   // the lifeguard: red swim shorts with white side stripes, a white tank top with a red cross, a red whistle on a white cord, red flip-flops ("Beauty And A Beat", 2026-09-27)   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
+  lifeguard: 'assets/models/saxo_lifeguard.glb',   // the lifeguard: red swim shorts with white side stripes, a white tank top with a red cross, a red whistle on a white cord, red flip-flops ("Beauty And A Beat", 2026-09-27)   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
+  soul: 'assets/models/saxo_soul.glb' };   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -732,7 +734,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -838,7 +840,10 @@ function actorSpec(a, e, map) {
     // in the mouth and a surgical mask, and a sneeze: a spray out of the nose s into the shot
     nose: a.nose ?? null, therm: !!a.therm, mask: !!a.mask, sleep: !!a.sleep, sneeze: a.sneeze ?? null,
     // "Beauty And A Beat" (2026-09-27): what a held rescue hook reaches, [x, y, z] or a character's name (its collar, at the head bone)
-    hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null };
+    hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null,
+    // "Love Me Not" (2026-09-28): studio headphones on the head, and how many of a held daisy's 12 petals are left
+    phones: !!a.phones, petalsLeft: a.petalsLeft ?? null, petalFall: a.petalFall ?? null, pluckEvery: a.pluckEvery || null,
+    armB: a.armB || null, aimB: a.aimB || null };   // armB + aimB: the other arm's own aim or swing (one paw holds, the other plucks)
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -934,6 +939,25 @@ function propMesh(kind) {
     add(box(0.17, 0.25, 0.012, M(0xfafafa))); add(box(0.172, 0.07, 0.014, M(0xff5fa2)), 0, 0.085); for (let k = 0; k < 5; k++) add(box(0.012, 0.07, 0.016, M(0x1a1a1a)), -0.05 + k * 0.025, -0.07);
   } else if (kind === 'bachi') {   // a taiko stick along the forearm, red lacquer with a white grip (festival drummer, 2026-09-27; pale wood vanished against the shoji)
     add(box(0.04, 0.42, 0.04, mat({ color: 0xb8241a, unlit: 0.3 })), 0, 0.17); add(box(0.048, 0.1, 0.048, M(0xf4f0e8)), 0, -0.02);
+  } else if (kind === 'dstick') {   // a drumstick along the forearm: pale maple, a lighter tip ("Love Me Not", 2026-09-28: pale reads in the dark studio)
+    add(box(0.03, 0.4, 0.03, mat({ color: 0xe8c890, unlit: 0.25 })), 0, 0.16); add(box(0.036, 0.05, 0.036, M(0xf8f0dc)), 0, 0.37);
+  } else if (kind === 'guitar') {   // Sadi's red electric guitar along +x from its body, its face towards +z (holdProp lays the neck from the strumming paw to the fretting paw)
+    // the silhouette carries it (a pickguard with two dark pickups side by side read as a sleepy face, the reviewer): the
+    // lower bout, the waist, two horns reaching along the neck, a white pickguard sweep, a long maple neck with frets
+    const red = mat({ color: 0xe0203a, unlit: 0.2 }), maple = M(0xf0d890), white = M(0xf4f2ea), dark = M(0x2a2a2a);
+    add(box(0.2, 0.26, 0.05, red), -0.12, 0); add(box(0.1, 0.19, 0.05, red), -0.01, 0.0);            // the lower bout and the waist
+    add(box(0.09, 0.05, 0.05, red), 0.07, 0.07).rotation.z = 0.35; add(box(0.07, 0.045, 0.05, red), 0.06, -0.07).rotation.z = -0.3;   // the two horns
+    add(box(0.13, 0.07, 0.052, white), -0.1, -0.06).rotation.z = 0.45;                             // the pickguard sweep
+    add(box(0.02, 0.1, 0.054, dark), -0.16, 0.0);                                                   // the bridge, across
+    add(box(0.4, 0.036, 0.032, maple), 0.3, 0.0, 0.004);                                            // the neck
+    for (let i = 0; i < 6; i++) add(box(0.006, 0.038, 0.034, M(0x9a8a60)), 0.14 + i * 0.055, 0.0, 0.005);   // frets
+    add(box(0.1, 0.055, 0.026, maple), 0.54, 0.012, 0.004).rotation.z = 0.15;                       // the headstock
+  } else if (kind === 'daisy') {    // a daisy held up by its stem, its face tilted up; the actor's petalsLeft of 12 petals show (Kob plucks them: love me, love me not)
+    add(box(0.012, 0.2, 0.012, M(0x3a8a3a)), 0, 0.06);   // a short stem: held at the chest, the head sits under her chin (longer, it covered her eye)
+    const face = add(new THREE.Group(), 0, 0.17, 0.02); face.rotation.x = -0.6;
+    const c = cyl(0.032, 0.032, 0.02, mat({ color: 0xffc820, unlit: 0.4 }), 8); c.rotation.x = Math.PI / 2; face.add(c);
+    const pm = mat({ color: 0xffffff, unlit: 0.45 }); G.userData.petals = [];
+    for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2, p = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.08, 0.008), pm); p.position.set(Math.sin(a) * 0.068, Math.cos(a) * 0.068, 0); p.rotation.z = -a; face.add(p); G.userData.petals.push(p); }
   } else if (kind === 'goldfish') {   // a festival goldfish in a water bag, hanging from the paw by its knot (it must read at 270x480: a bright fish)
     const bag = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 1), mat({ color: 0xe4f6ff, unlit: 0.45 })); bag.scale.set(1, 1.2, 0.7); add(bag, 0, -0.17);
     add(box(0.15, 0.012, 0.075, mat({ color: 0x8fd8ff, unlit: 0.5 })), 0, -0.12, 0.0);   // the water line
@@ -1007,6 +1031,14 @@ function holdProp(D, kind, side, bodyYaw, t) {
     if (kind === 'wallet') D.walletAt = g.position.clone();
     return;
   }
+  if (kind === 'guitar') {   // the body at the strumming (right) paw, the neck laid towards the fretting (left) paw, the face towards the body's front
+    const a = palm(D, 'R')?.clone(), b = palm(D, 'L'); if (!a || !b) return;
+    const dir = b.clone().sub(a).normalize(), n = new THREE.Vector3(Math.sin(bodyYaw), 0, Math.cos(bodyYaw)), up = new THREE.Vector3();
+    n.addScaledVector(dir, -n.dot(dir)).normalize(); up.crossVectors(n, dir);
+    g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(dir, up, n));   // the body in front of the belly: from the strumming paw, in along the neck and forward (at the paw it sat behind the hip)
+    g.position.copy(a).addScaledVector(dir, 0.1 * s).addScaledVector(n, 0.07 * s).addScaledVector(up, -0.02 * s);
+    return;
+  }
   const p = palm(D, side); if (!p) return;
   if (kind === 'hook') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
     const H = D.hookTo, C = typeof H === 'string' ? CREW[H] : null, from = p.clone();
@@ -1016,7 +1048,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
     g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromUnitVectors(_up, d.normalize());
     g.userData.pole.scale.y = len; g.userData.pole.position.y = len / 2; g.userData.crook.position.y = len; return;
   }
-  if (kind === 'finger' || kind === 'bachi' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov') {   // along the forearm, pointing where the paw points
+  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
@@ -1024,6 +1056,21 @@ function holdProp(D, kind, side, bodyYaw, t) {
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
+  if (g.userData.petals) {   // the petals left: petalsLeft, minus one on every pluckEvery beats since the shot's start (the pluck swing reaches on the beat), or
+    // minus the one that falls at petalFall s; the latest plucked petal flutters down to the keys (a mesh of its own in PROPS, hidden each frame)
+    let n = D.petalsLeft ?? 12, k = -1;
+    if (D.pluckEvery) {
+      const e = D.pluckEvery, b1 = Math.floor(bp(t) / e), c = Math.max(0, b1 - Math.floor(bp(t - D.since) / e));
+      if (c > 0 && n > 0) { const m0 = Math.min(c, n); n -= m0; k = t - beatT(b1 * e); }
+    } else if (D.petalFall != null && D.since >= D.petalFall && n > 0) { n -= 1; k = D.since - D.petalFall; }
+    const fallen = g.userData.petals[n];
+    g.userData.petals.forEach((q, i) => { q.visible = i < n; });
+    if (k >= 0 && k < 0.75 && fallen) {
+      const key = D.base + ':petalfall'; if (!PROPS[key]) { PROPS[key] = new THREE.Mesh(fallen.geometry, fallen.material); scene.add(PROPS[key]); }
+      const m = PROPS[key]; g.updateMatrixWorld(true); fallen.getWorldPosition(m.position); m.visible = true; m.scale.setScalar(s * 1.25 * (D.holdScale || 1) * 1.3);
+      m.position.x += 0.08 * Math.sin(k * 9); m.position.y -= 0.9 * k * k + 0.15 * k; m.position.z += 0.12 * k; m.rotation.set(k * 7, k * 3, k * 5);
+    }
+  }
 }
 function rideDuck(D, bodyYaw, base, t) {   // the rider sits in the ring of Compote's duck float, leaning back on the duck's neck
   const key = D.base + ':duck'; if (!PROPS[key]) { PROPS[key] = duckFloat(); scene.add(PROPS[key]); }
@@ -1080,6 +1127,10 @@ const SWINGS = {
   maneki: { up: [[0.5, 0.86, 0.1], [0.5, 0.86, 0.1]], fore: [[0.5, 0.86, 0.1], [0.3, 0.32, 0.9]], alt: 0, every: 1 },
   taiko: { up: [[0.32, 0.6, 0.73], [0.2, -0.05, 0.98]], fore: [[0.22, 0.82, 0.53], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
   clap: { up: [[0.55, 0.2, 0.81], [0.2, 0.15, 0.97]], fore: [[0.45, 0.3, 0.84], [-0.55, 0.18, 0.82]], alt: 0, every: 1 },
+  keys: { up: [[0.28, -0.3, 0.91], [0.26, -0.38, 0.89]], fore: [[0.18, -0.12, 0.98], [0.16, -0.58, 0.8]], alt: 0.5, every: 1 },   // "Love Me Not": the paws on the keys, tapping one after the other
+  pluck: { up: [[0.2, 0.05, 0.98], [-0.7, 0.28, 0.66]], fore: [[0.3, 0.2, 0.93], [-0.72, 0.3, 0.62]], alt: 0, every: 1 },
+  heart: { up: [[0.1, -0.7, 0.7], [0.1, -0.7, 0.7]], fore: [[-0.85, 0.12, 0.52], [-0.85, 0.12, 0.52]], alt: 0, every: 1 },
+  drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
 }, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
 function swingK(A, t, side) {   // 1 at pose B (on the beat), 0 at pose A half a swing later
   const S = SWINGS[A.aim], b = (bp(t) - (A.flapPh || 0) - (side === 'R' ? S.alt : 0)) / (A.flapEvery || S.every);
@@ -1165,6 +1216,25 @@ function earbuds(D) {   // small and on the ear line, behind the cheek: bigger a
     const g = faceProp(D, k, () => { const q = new THREE.Group(), m = mat({ color: 0xffffff, unlit: 0.7 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.065, 0.065), m)); const st = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.09, 0.03), m); st.position.set(0, -0.065, 0.012); q.add(st); return q; });
     faceAt(D, FACE[k], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
   }
+}
+// "Love Me Not" (2026-09-28): studio headphones (`phones`), in the head bone's frame like FACE: two cups just outside the ear
+// line and a band arching over the crown (0.59 m above the bone; a wig's curls reach a little higher), a cyan ring on
+// each cup so they read in a dark studio.
+const PHONE_BAND = Array.from({ length: 9 }, (_, i) => { const a = Math.PI * i / 8; return [Math.cos(a) * 0.47, 0.32 + Math.sin(a) * 0.28]; });
+function headphones(D) {
+  const g = faceProp(D, 'phones', () => {
+    const q = new THREE.Group(), cup = mat({ color: 0x7a808c }), band = mat({ color: 0xc0c4cc }), ring = mat({ color: 0x3a9ac8, unlit: 0.4 });
+    for (const sd of [-1, 1]) {   // round cups, a dim cyan cap on each (flat bright squares read as phone screens)
+      const c = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.08, 10), cup); c.rotation.z = Math.PI / 2; c.position.set(sd * 0.47, 0.26, -0.02); q.add(c);
+      const r = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.012, 8), ring); r.rotation.z = Math.PI / 2; r.position.set(sd * 0.516, 0.26, -0.02); q.add(r);
+    }
+    for (let i = 0; i < PHONE_BAND.length - 1; i++) {
+      const [x0, y0] = PHONE_BAND[i], [x1, y1] = PHONE_BAND[i + 1], b = new THREE.Mesh(new THREE.BoxGeometry(Math.hypot(x1 - x0, y1 - y0) + 0.02, 0.045, 0.07), band);
+      b.position.set((x0 + x1) / 2, (y0 + y1) / 2, -0.02); b.rotation.z = Math.atan2(y1 - y0, x1 - x0); q.add(b);
+    }
+    return q;
+  });
+  faceAt(D, [0, 0, 0], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
 }
 // "Patient Zero" (2026-09-27): the sick look, in the head bone's frame like FACE. A red nose over the muzzle's tip, a
 // thermometer out of the side of the mouth (tilted down and out, a red bulb at its end), a pale blue surgical mask over
@@ -1374,7 +1444,11 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.holder.rotation.set(0, yaw, 0); D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u);
     D.roll = swayRoll(A, th); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);   // sway: tilted side to side on the beat, pivoting on the feet
     D.holder.updateMatrixWorld(true);
-    if (A.arm) { D.aimSaved = [D.L, D.R, D.foreL, D.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); aimArms(D, A, yaw + fyaw, th - t0, th); }
+    if (A.arm || A.armB) {
+      D.aimSaved = [D.L, D.R, D.foreL, D.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]);
+      if (A.arm) aimArms(D, A, yaw + fyaw, th - t0, th);
+      if (A.armB) aimArms(D, { ...A, arm: A.armB, aim: A.aimB, aim2: null, wave: 0, flapEvery: null, flapPh: 0 }, yaw + fyaw, th - t0, th);   // the other paw's own aim or swing
+    }
     // the toes set the shot's floor, but a hem, a paw or a big head can reach lower: never let the mesh sink;
     // "mesh" grounding keeps the lowest point on the floor every frame (falling); a flat body touching the floor is
     // grounded on its torso instead, the head through the floor (see LIE_SINK)
@@ -1391,7 +1465,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
     const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
-    D.hookTo = A.hookTo;
+    D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0;
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, t - t0);
@@ -1402,6 +1476,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.gum && D.head) blowGum(D, A.gum, t - t0, t);
     if (A.splat != null && t - t0 >= A.splat && D.head) gumSplat(D);
     if (A.buds != null && A.buds !== false && (A.buds === true || t - t0 >= A.buds) && D.head) earbuds(D);
+    if (A.phones && D.head) headphones(D);
     if (A.bubble) dreamBubble(D, A.bubble, t - t0, t);
     if (A.moth != null && t - t0 >= A.moth) mothOut(D, t - t0 - A.moth);
     if (A.nose != null && A.nose !== false && (A.nose === true || t - t0 >= A.nose) && D.head) redNose(D);
