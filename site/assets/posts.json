@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-27T14:32:02.183Z",
+ "updated": "2026-09-27T16:53:22.345Z",
  "posts": [
   {
    "id": "2026-09-27-3",
@@ -8,6 +8,10 @@
    "date": "2026-09-27T14:00:00.000Z",
    "thumb": "assets/posts/2026-09-27-3.jpg",
    "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690239676271136022",
+     "id": "7690239676271136022"
+    },
     "youtube": {
      "url": "https://www.youtube.com/shorts/hNOLd8jz5hs",
      "id": "hNOLd8jz5hs"
