@@ -143,8 +143,9 @@ saxo.dance and checks this README against the code, rebuilding any image that no
 5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, zoomed stills,
    an independent reviewer that sees one frame per shot, and a critic's score before anything is posted.
 6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels, YouTube Shorts, Facebook and
-   X for its slot, with per-platform captions and hashtags (X gets the video alone). YouTube gets a cut of 60 s or less
-   that keeps the episode's ending. Ten minutes after each post goes out,
+   X for its slot, with per-platform captions and hashtags (X gets the video alone); the TikTok also lands in the app's
+   inbox at once as a preview draft, to watch before its slot. YouTube gets a cut of 60 s or less that keeps the
+   episode's ending. Ten minutes after each post goes out,
    `tools/post_check.mjs` checks it is live, public and audible; when TikTok mutes a song, the
    post goes private at once and the video is re-cut to that song's official TikTok sound, then posted again with it
    (`tools/tiktok_studio.mjs` does both in TikTok Studio). [`tools/notify.mjs`](tools/notify.mjs) sends a Discord
