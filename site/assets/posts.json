@@ -1,6 +1,35 @@
 {
- "updated": "2026-09-28T06:16:33.174Z",
+ "updated": "2026-09-28T10:17:14.094Z",
  "posts": [
+  {
+   "id": "2026-09-28-2",
+   "title": "Hootie Frutti",
+   "artist": "KATSEYE",
+   "date": "2026-09-28T10:00:00.000Z",
+   "thumb": "assets/posts/2026-09-28-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690524087189245216",
+     "id": "7690524087189245216"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd06-0TlcAs/",
+     "id": "Dd06-0TlcAs"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/9fT3rV3SPqQ",
+     "id": "9fT3rV3SPqQ"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=2201007860832154",
+     "id": "2201007860832154"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2104511902642573534",
+     "id": "2104511902642573534"
+    }
+   }
+  },
   {
    "id": "2026-09-28",
    "title": "Love Me Not",
