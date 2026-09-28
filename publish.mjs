@@ -22,7 +22,7 @@
 //
 // The preview (2026-09-28; the user: "send the videos on the account as a draft at the moment the video is ready and
 // publish it like usual. Like this I could watch them before"): a scheduled TikTok also goes to the app's inbox at
-// once as a draft (the same upload), to watch before its slot; --no-preview skips it, and --preview alone sends only
+// once as a draft (its own upload), to watch before its slot; --no-preview skips it, and --preview alone sends only
 // the draft, for a video scheduled before this. The scheduled post still goes out by itself, so the draft is never to
 // be posted (the video would go out twice), and TikTok doesn't check a draft's music: it can't warn of a mute. Each
 // draft takes one of TikTok's 5 pending inbox uploads a day, which --inbox needs too. No Discord message, and a
@@ -229,14 +229,7 @@ async function viaZernio(platforms) {
   const ready = platforms.filter(p => account(p));
   if (!ready.length) throw new Error(`Not connected in Zernio: ${platforms.join(', ')}`);
   const urls = {};
-  for (const f of new Set(ready.map(fileFor))) {
-    const size = fs.statSync(f).size;
-    const { uploadUrl, publicUrl } = await zernio('POST', '/media/presign', { filename: path.basename(f), contentType: 'video/mp4', size });
-    const put = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': 'video/mp4' }, body: await fs.openAsBlob(f), duplex: 'half' });
-    if (!put.ok) throw new Error(`zernio upload → ${put.status}`);
-    console.log(`zernio: uploaded ${publicUrl}`);
-    urls[f] = publicUrl;
-  }
+  for (const f of new Set(ready.map(fileFor))) urls[f] = await zernioUpload(f);
   const result = [];
   for (const p of ready) {
     try {
@@ -247,15 +240,25 @@ async function viaZernio(platforms) {
     } catch (e) { failed.push(p); console.error(`zernio: ${p}: ${e.message}`); }
   }
   if (!result.length) throw new Error(`nothing created (${failed.join(', ')})`);
-  const preview = previewing && result.some(r => r.platform === 'tiktok') ? await sendPreview(account('tiktok')._id, urls[fileFor('tiktok')]) : null;
+  const preview = previewing && result.some(r => r.platform === 'tiktok') ? await sendPreview(account('tiktok')._id, fileFor('tiktok')) : null;
   return { media: Object.values(urls).join(' '), result, ...(failed.length ? { failed } : {}), ...(preview ? { preview } : {}) };
 }
+async function zernioUpload(f) {   // the file's public URL at Zernio, new on every upload
+  const size = fs.statSync(f).size;
+  const { uploadUrl, publicUrl } = await zernio('POST', '/media/presign', { filename: path.basename(f), contentType: 'video/mp4', size });
+  const put = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': 'video/mp4' }, body: await fs.openAsBlob(f), duplex: 'half' });
+  if (!put.ok) throw new Error(`zernio upload → ${put.status}`);
+  console.log(`zernio: uploaded ${publicUrl}`);
+  return publicUrl;
+}
 
-// A scheduled TikTok's preview: the same upload as a draft in the app's inbox, now. Never throws (see the top).
+// A scheduled TikTok's preview: the same file as a draft in the app's inbox, now. Never throws (see the top).
+// Its own upload: Zernio refuses a post with the same text and media URL as one scheduled or posted in the last 24 h
+// (409 "This exact content is already scheduled…"; Dai Dai's preview, 2026-09-28), and a new URL gets through.
 const PREVIEW_NOTE = 'a draft in the TikTok app inbox, to watch: never post it, the scheduled post goes out by itself';
-async function sendPreview(accountId, url) {
+async function sendPreview(accountId, file) {
   try {
-    const r = await zernio('POST', '/posts', zernioPost('tiktok', accountId, url, { draft: true, now: true }));
+    const r = await zernio('POST', '/posts', zernioPost('tiktok', accountId, await zernioUpload(file), { draft: true, now: true }));
     const st = r.post?.platforms?.[0];
     console.log(`zernio: tiktok preview ${r.post?.status}${st?.errorMessage ? ' — ' + st.errorMessage : ''} (post ${r.post?._id}): ${PREVIEW_NOTE}`);
     return { postId: r.post?._id, status: r.post?.status };
