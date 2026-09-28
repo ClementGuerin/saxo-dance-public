@@ -1912,6 +1912,121 @@
      "z": -1
     }
    ]
+  },
+  {
+   "beat": 94,
+   "kind": "dance",
+   "map": "final",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "compote",
+     "look": "football",
+     "clip": "ymca",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "football",
+     "clip": "ymca",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "globe",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "running_man",
+     "at": "auto",
+     "x": 0,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 98,
+   "kind": "dance",
+   "map": "baobab",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "football",
+     "clip": "samba",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "samba",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }
