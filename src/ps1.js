@@ -19,6 +19,7 @@ import { buildPoolMaps } from './maps13.js';
 import { buildStudioMaps } from './maps14.js';
 import { buildWarehouseMaps } from './maps15.js';
 import { buildNoirMaps } from './maps16.js';
+import { buildWorldCupMaps } from './maps17.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -618,6 +619,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   soul: 'assets/models/saxo_soul.glb',
   // the 1983 street look: a shiny black leather jacket open over a pale pink shirt, a small red bow tie, black leather trousers, white socks, loafers, a little black hat ("Billie Jean", 2026-09-28)
   billie: 'assets/models/saxo_billie.glb',
+  // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, black boots; his green 10 and a red captain's armband ("Dai Dai", 2026-09-28)
+  football: 'assets/models/saxo_football.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -634,6 +637,8 @@ const PARTNERS = {
     paris: 'assets/models/sadi_paris.glb',
     // an 80s evening look: a red sequin cocktail dress with puffed shoulders, a pearl necklace, red heels, her pink bow ("Billie Jean", 2026-09-28)
     glam: 'assets/models/sadi_glam.glb',
+    // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, pink boots; her green 7 and her pink bow ("Dai Dai", 2026-09-28)
+    football: 'assets/models/sadi_football.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -645,6 +650,8 @@ const PARTNERS = {
     driver: 'assets/models/kob_driver.glb',
     // the private eye: a beige belted trench coat, collar up, a small brown fedora, her bell ("Billie Jean", 2026-09-28)
     detective: 'assets/models/kob_detective.glb',
+    // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, black boots; her green 9 and her bell collar ("Dai Dai", 2026-09-28)
+    football: 'assets/models/kob_football.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -652,6 +659,8 @@ const PARTNERS = {
     punk: 'assets/models/compote_punk.glb', beach: 'assets/models/compote_beach.glb', boxer: 'assets/models/compote_boxer.glb', poop: 'assets/models/compote_poop.glb',
     bouncer: 'assets/models/compote_bouncer.glb',
     happi: 'assets/models/compote_happi.glb',
+    // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, black boots; her green 4, a red sweatband, her carrot clip ("Dai Dai", 2026-09-28)
+    football: 'assets/models/compote_football.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -746,7 +755,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
