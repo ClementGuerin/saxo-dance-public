@@ -5,9 +5,11 @@
 //   node publish.mjs out/x.mp4 --dry-run                        # print the captions, send nothing
 //   node publish.mjs out/x.mp4 --draft                          # X only (Postiz): upload + save as a draft
 //   node publish.mjs out/x-tt.mp4 --only=tiktok --inbox         # TikTok's inbox: the user adds the sound and posts
+//   node publish.mjs out/x.mp4 --preview                        # TikTok's inbox: a draft to watch, never to post
 //
 // Options: --song= --artist= (default: CONFIG.song in video.config.js), --caption= (hook line), --tags=a,b (extra
-// hashtags), --only=tiktok,instagram,youtube,facebook,x, --inbox (TikTok as a draft in the app's inbox), --rev=<commit> (only for
+// hashtags), --only=tiktok,instagram,youtube,facebook,x, --inbox (TikTok as a draft in the app's inbox), --preview,
+// --no-preview (see below), --rev=<commit> (only for
 // an older render: a commit whose src/lyrics.js is that render's, for the YouTube cut; default: src/lyrics.js on disk),
 // --episode=<id> (default: the MP4 name's date prefix), --yt=start|end|<from>-<to> (the YouTube cut, see below),
 // --sound="<title>" --uses=<count> (an official-sound cut's TikTok sound as the app lists it, and how many videos use it).
@@ -17,6 +19,14 @@
 // official-sound cut, an episode `<id>-tt` made when TikTok muted the post, the sound to add with its number of uses,
 // so the right one is quick to spot, and the muted post to hide if the post check couldn't), then the TikTok
 // description alone, to copy.
+//
+// The preview (2026-09-28; the user: "send the videos on the account as a draft at the moment the video is ready and
+// publish it like usual. Like this I could watch them before"): a scheduled TikTok also goes to the app's inbox at
+// once as a draft (the same upload), to watch before its slot; --no-preview skips it, and --preview alone sends only
+// the draft, for a video scheduled before this. The scheduled post still goes out by itself, so the draft is never to
+// be posted (the video would go out twice), and TikTok doesn't check a draft's music: it can't warn of a mute. Each
+// draft takes one of TikTok's 5 pending inbox uploads a day, which --inbox needs too. No Discord message, and a
+// preview that fails is reported but never fails the run (a rerun would schedule the post twice).
 //
 // YouTube gets its own cut of 60 s or less (tools/yt_cut.mjs, never inside a lyric line): it blocks worldwide any Short
 // over 60 s with a Content ID claim, and every label-owned song gets one. TikTok, Instagram and X get the full render.
@@ -69,6 +79,11 @@ if (args.studio && (args.inbox || args.when || args.draft)) {   // Studio posts 
   console.error('--studio posts the TikTok now: not with --inbox, --when or --draft');
   process.exit(1);
 }
+const previewOnly = args.preview === true;   // the TikTok draft alone: nothing posted, logged or messaged
+if (previewOnly && ((args.only && args.only !== 'tiktok') || args.inbox || args.studio || args.when || args.draft)) {
+  console.error('--preview sends the TikTok draft alone, now: not with --only (but tiktok), --inbox, --studio, --when or --draft');
+  process.exit(1);
+}
 if (!file || !fs.existsSync(file)) {
   console.error('usage: node publish.mjs <video.mp4> [--when=ISO] [--dry-run] [--draft] …');
   process.exit(1);
@@ -93,7 +108,7 @@ if (!song || !artist) {
 
 const hook = args.caption || `Saxo dances to ${song} by ${artist} 🐶🕺`;
 const extra = typeof args.tags === 'string' ? args.tags.split(',') : [];
-const only = typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'facebook', 'x'];
+const only = previewOnly ? ['tiktok'] : typeof args.only === 'string' ? args.only.split(',') : ['tiktok', 'instagram', 'youtube', 'facebook', 'x'];
 const studio = args.studio === true && only.includes('tiktok');
 const route = p => (p === 'x' ? 'postiz' : p === 'tiktok' && studio ? 'studio' : 'zernio');
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
@@ -181,8 +196,8 @@ async function viaPostiz(platforms) {
 }
 
 // ---- Zernio (TikTok, YouTube, Instagram and Facebook) ----
-function zernioPost(p, accountId, url) {
-  const when = type === 'schedule' ? { scheduledFor: date.replace(/Z$/, ''), timezone: 'UTC' } : { publishNow: true };
+function zernioPost(p, accountId, url, { draft = inbox, now = type !== 'schedule' } = {}) {
+  const when = now ? { publishNow: true } : { scheduledFor: date.replace(/Z$/, ''), timezone: 'UTC' };
   // Instagram: one video posts as a Reel, shared to the feed. Facebook: a feed video (no contentType; Reels stop at 60 s).
   if (p === 'instagram' || p === 'facebook') return {
     content: caption[p], mediaItems: [{ type: 'video', url }], platforms: [{ platform: p, accountId }], ...when,
@@ -193,7 +208,7 @@ function zernioPost(p, accountId, url) {
     // Our TikTok is on Zernio's Business-app lane, where video posts can only be public; --inbox makes it a draft.
     tiktokSettings: {
       privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: true, allow_stitch: true,
-      content_preview_confirmed: true, express_consent_given: true, ...(inbox ? { draft: true } : {}),
+      content_preview_confirmed: true, express_consent_given: true, ...(draft ? { draft: true } : {}),
     },
     ...when,
   };
@@ -232,7 +247,22 @@ async function viaZernio(platforms) {
     } catch (e) { failed.push(p); console.error(`zernio: ${p}: ${e.message}`); }
   }
   if (!result.length) throw new Error(`nothing created (${failed.join(', ')})`);
-  return { media: Object.values(urls).join(' '), result, ...(failed.length ? { failed } : {}) };
+  const preview = previewing && result.some(r => r.platform === 'tiktok') ? await sendPreview(account('tiktok')._id, urls[fileFor('tiktok')]) : null;
+  return { media: Object.values(urls).join(' '), result, ...(failed.length ? { failed } : {}), ...(preview ? { preview } : {}) };
+}
+
+// A scheduled TikTok's preview: the same upload as a draft in the app's inbox, now. Never throws (see the top).
+const PREVIEW_NOTE = 'a draft in the TikTok app inbox, to watch: never post it, the scheduled post goes out by itself';
+async function sendPreview(accountId, url) {
+  try {
+    const r = await zernio('POST', '/posts', zernioPost('tiktok', accountId, url, { draft: true, now: true }));
+    const st = r.post?.platforms?.[0];
+    console.log(`zernio: tiktok preview ${r.post?.status}${st?.errorMessage ? ' — ' + st.errorMessage : ''} (post ${r.post?._id}): ${PREVIEW_NOTE}`);
+    return { postId: r.post?._id, status: r.post?.status };
+  } catch (e) {
+    console.error(`zernio: tiktok preview FAILED, the scheduled post is unaffected: ${e.message}`);
+    return { failed: e.message.slice(0, 300) };
+  }
 }
 
 // ---- TikTok Studio (--studio): the official-sound re-cut, posted with its sound ----
@@ -250,7 +280,8 @@ async function viaStudio() {
 }
 
 // ---- the TikTok inbox: a Discord message to the user once the video is there ----
-const inbox = only.includes('tiktok') && args.inbox === true && type !== 'draft';
+const inbox = only.includes('tiktok') && (args.inbox === true || previewOnly) && type !== 'draft';
+const previewing = type === 'schedule' && only.includes('tiktok') && route('tiktok') === 'zernio' && !inbox && args['no-preview'] !== true;
 function mutedPost(ep) {   // the muted TikTok an official-sound cut replaces, from the post check's state ({ url, hidden })
   try {
     const state = JSON.parse(fs.readFileSync(new URL('./out/post_check/state.json', import.meta.url), 'utf8'));
@@ -270,9 +301,10 @@ function inboxMessages() {   // [the short message, the description to copy]
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
-for (const p of only) console.log(`\n[${p} via ${route(p)}${p === 'tiktok' && inbox ? ' to the inbox' : ''}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
+for (const p of only) console.log(`\n[${p} via ${route(p)}${p === 'tiktok' && inbox ? (previewOnly ? ' to the inbox, a preview' : ' to the inbox') : ''}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
+if (previewing) console.log(`\n[tiktok preview, now: ${PREVIEW_NOTE}]`);
 if (args['dry-run']) {
-  if (inbox) console.log(`\n[discord, once it's in the inbox: 2 messages]\n${inboxMessages().join('\n---\n')}`);
+  if (inbox && !previewOnly) console.log(`\n[discord, once it's in the inbox: 2 messages]\n${inboxMessages().join('\n---\n')}`);
   console.log('\n--dry-run: nothing sent.');
   process.exit(0);
 }
@@ -287,12 +319,13 @@ for (const [name, fn] of [['postiz', viaPostiz], ['zernio', viaZernio], ['studio
   catch (e) { failed.push(name); console.error(`${name}: ${e.message}`); }
 }
 
-if (type !== 'draft' && Object.values(runs).some(Boolean)) {
+if (type !== 'draft' && !previewOnly && Object.values(runs).some(Boolean)) {
   let commit = null;
   try { commit = execSync('git rev-parse --short HEAD', { cwd: path.dirname(new URL(import.meta.url).pathname) }).toString().trim(); } catch {}
   fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), file: path.basename(file), ...(ytFile && ytFile !== file ? { ytFile: path.basename(ytFile) } : {}), episode, song, artist, type, date, only, ...(inbox ? { inbox: true } : {}), commit, runs }) + '\n');
 }
-if (inbox && runs.zernio && !failed.includes('zernio') && !failed.includes('tiktok')) {
+if (previewOnly && runs.zernio && !failed.length) console.log(`\nTikTok preview: ${PREVIEW_NOTE}.`);
+else if (inbox && runs.zernio && !failed.includes('zernio') && !failed.includes('tiktok')) {
   console.log('\nTikTok (a Zernio draft): the video is in the TikTok app inbox. Open it within 24 h, add the sound and post it public.');
   console.log((await notify(...inboxMessages())) ? 'discord: the user was messaged' : 'discord: not sent (see above): tell the user another way');
 }
