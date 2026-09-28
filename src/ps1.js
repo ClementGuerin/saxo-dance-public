@@ -17,6 +17,8 @@ import { buildBubbleMaps } from './maps11.js';
 import { buildPatientMaps } from './maps12.js';
 import { buildPoolMaps } from './maps13.js';
 import { buildStudioMaps } from './maps14.js';
+import { buildWarehouseMaps } from './maps15.js';
+import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
 import { buildDieYoungMaps } from './maps9.js';
@@ -612,7 +614,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   pyjama: 'assets/models/saxo_pyjama.glb',   // sick-day pyjamas: pale blue striped flannel, a red knitted scarf wound twice round the neck, grey slippers ("Patient Zero", 2026-09-27)
   devil: 'assets/models/saxo_devil.glb',   // the devil on his shoulder ("Patient Zero")
   lifeguard: 'assets/models/saxo_lifeguard.glb',   // the lifeguard: red swim shorts with white side stripes, a white tank top with a red cross, a red whistle on a white cord, red flip-flops ("Beauty And A Beat", 2026-09-27)   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
-  soul: 'assets/models/saxo_soul.glb' };   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
+  soul: 'assets/models/saxo_soul.glb',
+  banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -625,7 +628,8 @@ const PARTNERS = {
     pirate: 'assets/models/sadi_pirate.glb',   // pirate heroine: red bandana, gold hoops, white blouse, laced corset vest, red sash, boots ("He's A Pirate")
     hostess: 'assets/models/sadi_hostess.glb',   // flight attendant: navy jacket with gold buttons and wings, red scarf, pillbox hat, her pink bow ("Voyage Voyage")
     yukata: 'assets/models/sadi_yukata.glb',   // a pink cherry-blossom yukata ("Caramelldansen")
-    paris: 'assets/models/sadi_paris.glb' },   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
+    paris: 'assets/models/sadi_paris.glb',
+    strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
   kob: { scale: 0.92, models: { kob: 'assets/models/kob_base.glb', astronaut: 'assets/models/kob_astronaut.glb', cowgirl: 'assets/models/kob_cowgirl.glb',
@@ -640,7 +644,8 @@ const PARTNERS = {
   compote: { scale: 0.92, models: { compote: 'assets/models/compote_base.glb', astronaut: 'assets/models/compote_astronaut.glb', cowgirl: 'assets/models/compote_cowgirl.glb',
     punk: 'assets/models/compote_punk.glb', beach: 'assets/models/compote_beach.glb', boxer: 'assets/models/compote_boxer.glb', poop: 'assets/models/compote_poop.glb',
     bouncer: 'assets/models/compote_bouncer.glb',
-    happi: 'assets/models/compote_happi.glb' },   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
+    happi: 'assets/models/compote_happi.glb',
+    carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
 };
@@ -734,7 +739,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -843,7 +848,10 @@ function actorSpec(a, e, map) {
     hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null,
     // "Love Me Not" (2026-09-28): studio headphones on the head, and how many of a held daisy's 12 petals are left
     phones: !!a.phones, petalsLeft: a.petalsLeft ?? null, petalFall: a.petalFall ?? null, pluckEvery: a.pluckEvery || null,
-    armB: a.armB || null, aimB: a.aimB || null };   // armB + aimB: the other arm's own aim or swing (one paw holds, the other plucks)
+    armB: a.armB || null, aimB: a.aimB || null,   // armB + aimB: the other arm's own aim or swing (one paw holds, the other plucks)
+    // "Hootie Frutti" (2026-09-28): a volley of fruit thrown on given seconds of the shot (peltFruit)
+    pelt: a.pelt || null,
+    noLie: !!a.noLie };   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -898,6 +906,7 @@ function bounce(t, t0, half = false) {   // half: the breakdown punches every ot
 const PROPS = {}; if (window.DBG) window.DBG.PROPS = PROPS;
 const _pa = new THREE.Vector3(), _pb = new THREE.Vector3(), _pc = new THREE.Vector3(), _pd = new THREE.Vector3(), _up = new THREE.Vector3(0, 1, 0);
 function propMesh(kind) {
+  if (FRUITS.includes(kind) || kind === 'strawberry' || kind === 'fruitsign') return fruitMesh(MAP_KIT, kind);   // fruit in paws and in flight, the FRUIT ONLY placard (src/fruit.js)
   const G = new THREE.Group(), M = c => mat({ color: c }), glow = c => mat({ color: c, unlit: 1 }), at3 = (m, x, y, z) => { m.position.set(x, y, z); return m; };
   const cyl = (rt, rb, h, m, seg = 6) => new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
   const add = (m, x = 0, y = 0, z = 0) => { m.position.set(x, y, z); G.add(m); return m; };
@@ -1025,9 +1034,10 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'book' || kind === 'wallet') {
+  if (kind === 'pad' || kind === 'book' || kind === 'wallet' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
-    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : -0.75, bodyYaw, 0, 'YXZ');   // the book and the wallet tilt open towards the holder
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : -0.75, bodyYaw, 0, 'YXZ');   // the book and the wallet tilt open towards the holder
+    if (kind === 'melon') g.position.addScaledVector(_up, 0.1 * s);   // it sits on the paws
     if (kind === 'wallet') D.walletAt = g.position.clone();
     return;
   }
@@ -1081,6 +1091,7 @@ function wearHat(D, kind, bodyYaw, y) {   // a prop on top of the head (a glass 
   const key = D.base + ':hat:' + kind; if (!PROPS[key]) { PROPS[key] = propMesh(kind); scene.add(PROPS[key]); }
   const g = PROPS[key], s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.7);   // bigger than in a paw: it must read on top of a head
   D.head.getWorldPosition(_pa); g.position.copy(_pa).addScaledVector(_up, y * s); g.rotation.set(Math.PI, bodyYaw, 0.2);
+  if (FRUITS.includes(kind)) g.rotation.set(0, bodyYaw, 0.12);   // a fruit sits upright (a pineapple on a head: the crown up)
 }
 function rideJetski(D, bodyYaw, base, t) {   // base: the rider's footwell height (the harbour water sits 0.16 m lower)
   const g = propFor(D, 'jetski'), s = D.scale || 1, fwd = _pd.set(Math.sin(bodyYaw), 0, Math.cos(bodyYaw));
@@ -1145,6 +1156,16 @@ function aimArms(D, A, bodyYaw, since, t = 0) {
   const w = cl((since - (A.upAt || 0)) / 0.15) * (A.upEnd != null ? cl((A.upEnd - since) / 0.15) : 1); if (w <= 0) return;
   const cy = Math.cos(bodyYaw), sy = Math.sin(bodyYaw);
   if (D.roll) _rq.setFromAxisAngle(_rf.set(sy, 0, cy), D.roll);   // the sway tilts the aims with the body
+  if (A.aim === 'pelt' && A.pelt) {   // the pelt's throwing arms: each paw cocked behind the head, snapping forward on its own throws
+    const up = [[0.62, 0.7, -0.35], [0.22, 0.32, 0.92]], fore = [[0.55, 0.8, -0.2], [0.18, 0.12, 0.98]], mix = (p, k) => p[0].map((u, i) => u + (p[1][i] - u) * k);   // cocked out beside the head (behind it, the chibi head hid the paw)
+    for (const side of ['L', 'R']) {
+      const sx = side === 'L' ? 1 : -1, ts = A.pelt.times.filter((_, i) => i % 2 === (side === 'R' ? 0 : 1));
+      const d = ts.reduce((m, ti) => Math.abs(since - ti - 0.04) < Math.abs(m) ? since - ti - 0.04 : m, 9);
+      const k = Math.exp(-((d / 0.13) ** 2)), W = v => { const bx = v[0] * sx, o = new THREE.Vector3(bx * cy + v[2] * sy, v[1], -bx * sy + v[2] * cy).normalize(); return D.roll ? o.applyQuaternion(_rq) : o; };
+      aimBone(side === 'L' ? D.L : D.R, D['fore' + side], W(mix(up, k)), w); aimBone(D['fore' + side], D['hand' + side], W(mix(fore, k)), w);
+    }
+    return;
+  }
   if (SWINGS[A.aim]) {
     const S = SWINGS[A.aim], mix = (p, k) => p[0].map((u, i) => u + (p[1][i] - u) * k);
     for (const side of A.arm === 'both' ? ['L', 'R'] : [A.arm]) {
@@ -1179,6 +1200,35 @@ function tossProp(D, A, bodyYaw, since) {
   const x0 = D.holder.position.x - rx * 0.22 * s + fx * 0.15 * s, y0 = D.holder.position.y + 1.0 * s, z0 = D.holder.position.z - rz * 0.22 * s + fz * 0.15 * s;
   g.position.set(x0 + (T.to[0] - x0) * u, y0 + (T.to[1] - y0) * u + (T.arc ?? 0.9) * 4 * u * (1 - u), z0 + (T.to[2] - z0) * u);
   g.rotation.set(u * 14, bodyYaw, u * 5); g.scale.setScalar(s * 1.25 * big);
+}
+// A volley of thrown fruit (an actor's `pelt`, "Hootie Frutti", 2026-09-28): { times: [s into the shot], to: [x, y, z],
+// kinds: [fruit, ...] (cycled; default FRUITS), dur: each flight in s (0.42), arc: m (0.35), spread: m of scatter round
+// the target (0.22), big: the fruit's size (1.3), floorY: where they come to rest (0), fly: m/s they bounce off at (1.3) }.
+// to, big, floorY and fly also take one value per throw (a last watermelon aimed at a belly, resting on it).
+// Each fruit leaves a shoulder (the right paw first, then alternating) at its time, flies an arc to the target
+// spinning, bounces off up and away from the thrower, and lies where it lands for the rest of the shot. The target is a
+// point, not a character: a body posed after the thrower in the same frame would lag a frame. Pure in t.
+function peltFruit(D, A, bodyYaw, since) {
+  const V = A.pelt, s = D.curScale || D.scale || 1, dur = V.dur || 0.42, kinds = V.kinds || FRUITS, big = V.big || 1.3, sp = V.spread ?? 0.22;
+  const fx = Math.sin(bodyYaw), fz = Math.cos(bodyYaw), rx = Math.cos(bodyYaw), rz = -Math.sin(bodyYaw);
+  const h = (i, k) => { const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); };
+  V.times.forEach((ti, i) => {
+    const u = (since - ti) / dur; if (u < 0) return;
+    const per = (v, d) => Array.isArray(v) ? v[i] ?? d : v ?? d;   // big, floorY, fly: one value, or one per throw
+    const to = Array.isArray(V.to[0]) ? V.to[i] : V.to, flr = (per(V.floorY, 0) || 0) + 0.07;
+    const g = propFor(D, kinds[i % kinds.length], ':pelt' + i); g.visible = true; g.scale.setScalar(s * 1.25 * per(V.big, big));
+    const side = i % 2 ? 1 : -1, x0 = D.holder.position.x + side * rx * 0.22 * s + fx * 0.15 * s, y0 = D.holder.position.y + 1.0 * s, z0 = D.holder.position.z + side * rz * 0.22 * s + fz * 0.15 * s;
+    const tx = to[0] + (h(i, 1) - 0.5) * 2 * sp, ty = to[1] + (h(i, 2) - 0.5) * sp, tz = to[2] + (h(i, 3) - 0.5) * sp;
+    if (u <= 1) {
+      g.position.set(x0 + (tx - x0) * u, y0 + (ty - y0) * u + (V.arc ?? 0.35) * 4 * u * (1 - u), z0 + (tz - z0) * u);
+      g.rotation.set(u * 12 + i, bodyYaw + i, u * 5); return;
+    }
+    // the bounce: away from the thrower and to one side, up 1.6 m/s, falling to the floor, then still
+    const dx = tx - x0, dz = tz - z0, dl = Math.hypot(dx, dz) || 1, ux = dx / dl, uz = dz / dl, sd = (h(i, 4) - 0.5) * 2, fly = per(V.fly, 1.3), lat = Math.min(0.8, fly * 0.6);
+    const land = (1.6 + Math.sqrt(1.6 * 1.6 + 19.6 * Math.max(0, ty - flr))) / 9.8, v = Math.min(since - ti - dur, land);
+    g.position.set(tx + (ux * fly - uz * sd * lat) * v, Math.max(flr, ty + 1.6 * v - 4.9 * v * v), tz + (uz * fly + ux * sd * lat) * v);
+    g.rotation.set(12 + i + v * 9, bodyYaw + i, 5 + v * 4);
+  });
 }
 // ---- "Dans ma bulle" (2026-09-27): bubble gum blown from the mouth (`gum`: [at, full, r, pop], seconds into the shot
 // and the full radius in m; pop: it bursts into pink bits), the gum left on the face (`splat`: from s), earbuds (`buds`:
@@ -1454,7 +1504,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     // grounded on its torso instead, the head through the floor (see LIE_SINK)
     let low = meshLow(D, 3) - lift;
     let flat = 0;
-    if ((A.ground === 'mesh' || low < 0.1 * s) && spineFlat(D) > 0) { const L = partLows(D); flat = lyingWeight(D, L, s); if (flat > 0) low = settleLying(D, A, flat, s, L) - lift; D.lying = flat; }
+    if ((A.ground === 'mesh' || low < 0.1 * s) && spineFlat(D) > 0 && !A.noLie) { const L = partLows(D); flat = lyingWeight(D, L, s); if (flat > 0) low = settleLying(D, A, flat, s, L) - lift; D.lying = flat; }
     if (A.ground === 'mesh' || low < 0 || flat > 0) { D.holder.position.y -= low; D.holder.updateMatrixWorld(true); }
     D.deck = lift;
     const up = Math.max(0, footY(D) / s - D.restFoot - lift / s) * (1 - flat);
@@ -1465,10 +1515,11 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
     const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
-    D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0;
+    D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0; D.twoPaw = A.arm === 'both';
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, t - t0);
+    if (A.pelt) peltFruit(D, A, bodyYaw, t - t0);
     if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
     if (A.ride === 'duck') rideDuck(D, bodyYaw + A.rideYaw, A.rideY != null ? A.rideY + 0.15 + bob : lift, t);   // rideY: the float's base (standing in the ring, legs in the water)

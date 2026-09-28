@@ -1,0 +1,4502 @@
+{
+ "date": "2026-09-28",
+ "n": 2,
+ "song": {
+  "title": "Hootie Frutti",
+  "artist": "KATSEYE",
+  "window": [
+   70.326,
+   137.3
+  ],
+  "bpm": 130
+ },
+ "logline": "The warehouse's Hootie Frutti dance-off is fruits only, and the banana on the door turns away a rabbit dressed as a carrot. She tries the window, a pineapple disguise, then crawls in and hides behind the fruit bar while he and the strawberry own the floor. On the song's 'fruit fruit fruit' chant she empties the bar at him, one fruit per 'fruit', and on the last word Kob drops a watermelon on him.",
+ "new": [
+  "hall map (the clip's sweltering warehouse turned into a fruits-only dance-off: factory windows, steel columns, bunting, white plastic chairs, water jugs, standing fans, the roller door onto a sunny yard with a FRUIT ONLY sandwich board, a low window, Kob's throne of stacked red plastic chairs, a pallet podium with speakers, the fruit bar, fruit crates, pets in fruit colours with a fruit on their heads that flap on \"hootie\"; flags flap, cheer, stare, pile, bar, stop, clear)",
+  "fruit (src/fruit.js: banana, orange, apple, lemon, melon, slice, pineapple, grapes, strawberry), held, worn as a hat and thrown",
+  "the actor field pelt: a volley of fruit thrown on given seconds, each landing on its word and bouncing off into a heap, with the throwing arms (aim \"pelt\")",
+  "costumes: Saxo banana, Sadi strawberry, Compote carrot"
+ ],
+ "notes": "The queue is empty and this run is a retry after a filter stop in the song phase (no web searches): the song comes from SocialCrawl's YouTube trending music for the US (its SNL performance of 2026-09-27 at 2.5M views in a day) and YouTube search (the official MV at 108M views, the choreography video at 27M). The clip: a sweltering old warehouse with sun through tall factory windows, white plastic chairs, water jugs, a girl lounging on a stack of red plastic chairs, a crowd rehearsing in fruit-coloured outfits, a water burst, a dirt bike. The lyrics are mostly the title as a chant; the outro repeats 'fruit' seven times a line, four lines: the pelting lands one fruit per word. Whole cast: Saxo (the joke is on him: the banana bouncer who turns a carrot away), Compote (always angry, throws things: the carrot who gets in and empties the fruit bar at him), Kob (never impressed, the witness who says nothing on her throne, and the last watermelon), Sadi (the romance, then the reality check: she joins the barrage). Kob isn't in costume: she never dresses up. For a muted TikTok: KATSEYE's official sound 'Hootie Frutti' is id 7686192374074329105 (60 s, 30 videos on 2026-09-28; a fan upload of the whole song, 'original sound - katseyekons.six', had 24k).",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "angry_forward_gesture",
+  "bored_idle",
+  "clap_while_standing",
+  "crawling_forward_on_hands_and_knees",
+  "female_hip_hop_raise_the_roof_dancing",
+  "female_samba_pagode_variation_five_loop",
+  "getting_hit_in_the_face_from_various_angles",
+  "happy_idle",
+  "high_enthusiasm_fist_pump",
+  "hip_hop_dancing_shimmy",
+  "jumping_backwards_dodge",
+  "knocked_out_falling_to_back",
+  "male_cheering_with_two_fists_pump",
+  "male_driving_a_car",
+  "samba_funky_pocoto_variation_1",
+  "samba_gandy_variation_1",
+  "shaking_head_no_dismissively"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "angry_forward_gesture",
+     "x": 2.6,
+     "z": 7.35,
+     "face": "world",
+     "yaw": 180,
+     "at": "auto",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.58,
+      0.52
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -176.7,
+     -176.35
+    ],
+    "r": [
+     2.604,
+     2.355
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 56
+   },
+   "focus": [
+    2.55,
+    7.35
+   ],
+   "clear": [
+    [
+     2.4,
+     4.75,
+     0.9
+    ],
+    [
+     2.42,
+     5.08,
+     0.7
+    ],
+    [
+     2.44,
+     5.4,
+     0.7
+    ],
+    [
+     2.46,
+     5.72,
+     0.7
+    ],
+    [
+     2.47,
+     6.05,
+     0.7
+    ],
+    [
+     2.49,
+     6.38,
+     0.7
+    ],
+    [
+     2.51,
+     6.7,
+     0.7
+    ],
+    [
+     2.53,
+     7.02,
+     0.7
+    ],
+    [
+     2.4,
+     5,
+     0.9
+    ],
+    [
+     2.42,
+     5.29,
+     0.7
+    ],
+    [
+     2.44,
+     5.59,
+     0.7
+    ],
+    [
+     2.46,
+     5.88,
+     0.7
+    ],
+    [
+     2.47,
+     6.17,
+     0.7
+    ],
+    [
+     2.49,
+     6.47,
+     0.7
+    ],
+    [
+     2.51,
+     6.76,
+     0.7
+    ],
+    [
+     2.53,
+     7.06,
+     0.7
+    ],
+    [
+     2.6,
+     7.35,
+     0.85
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "shaking_head_no_dismissively",
+     "x": 2.55,
+     "z": 5.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "hold": "fruitsign",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.25,
+      0.8
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.12,
+     1.27
+    ],
+    "r": [
+     2.55,
+     2.251
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 60
+   },
+   "focus": [
+    2.35,
+    5.55
+   ],
+   "clear": [
+    [
+     2.4,
+     8.1,
+     0.9
+    ],
+    [
+     2.39,
+     7.78,
+     0.7
+    ],
+    [
+     2.39,
+     7.46,
+     0.7
+    ],
+    [
+     2.38,
+     7.14,
+     0.7
+    ],
+    [
+     2.38,
+     6.82,
+     0.7
+    ],
+    [
+     2.37,
+     6.51,
+     0.7
+    ],
+    [
+     2.36,
+     6.19,
+     0.7
+    ],
+    [
+     2.36,
+     5.87,
+     0.7
+    ],
+    [
+     2.4,
+     7.8,
+     0.9
+    ],
+    [
+     2.39,
+     7.52,
+     0.7
+    ],
+    [
+     2.39,
+     7.24,
+     0.7
+    ],
+    [
+     2.38,
+     6.96,
+     0.7
+    ],
+    [
+     2.38,
+     6.67,
+     0.7
+    ],
+    [
+     2.37,
+     6.39,
+     0.7
+    ],
+    [
+     2.36,
+     6.11,
+     0.7
+    ],
+    [
+     2.36,
+     5.83,
+     0.7
+    ],
+    [
+     2.55,
+     5.55,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": -0.5,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 10,
+     "at": 0
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0.55,
+     "z": -1.75,
+     "face": "world",
+     "yaw": -15,
+     "at": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.65,
+     1.47
+    ],
+    "r": [
+     3.131,
+     2.731
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.03,
+    -1.68
+   ],
+   "clear": [
+    [
+     0.12,
+     1.45,
+     0.9
+    ],
+    [
+     0.11,
+     1.06,
+     0.7
+    ],
+    [
+     0.1,
+     0.67,
+     0.7
+    ],
+    [
+     0.09,
+     0.28,
+     0.7
+    ],
+    [
+     0.07,
+     -0.11,
+     0.7
+    ],
+    [
+     0.06,
+     -0.51,
+     0.7
+    ],
+    [
+     0.05,
+     -0.9,
+     0.7
+    ],
+    [
+     0.04,
+     -1.29,
+     0.7
+    ],
+    [
+     0.1,
+     1.05,
+     0.9
+    ],
+    [
+     0.09,
+     0.71,
+     0.7
+    ],
+    [
+     0.08,
+     0.37,
+     0.7
+    ],
+    [
+     0.07,
+     0.03,
+     0.7
+    ],
+    [
+     0.07,
+     -0.31,
+     0.7
+    ],
+    [
+     0.06,
+     -0.66,
+     0.7
+    ],
+    [
+     0.05,
+     -1,
+     0.7
+    ],
+    [
+     0.04,
+     -1.34,
+     0.7
+    ],
+    [
+     -0.5,
+     -1.6,
+     0.85
+    ],
+    [
+     0.55,
+     -1.75,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "male_driving_a_car",
+     "x": -5.5,
+     "z": -4.4,
+     "lift": 0.62,
+     "face": "world",
+     "yaw": 54.4,
+     "at": 0.3,
+     "speed": 0.05,
+     "hold": "slice"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     54.4,
+     54.4
+    ],
+    "r": [
+     2.9,
+     2.78
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.38,
+     1.38
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    -5.5,
+    -4.4
+   ],
+   "clear": [
+    [
+     -3.14,
+     -2.71,
+     0.9
+    ],
+    [
+     -3.44,
+     -2.92,
+     0.7
+    ],
+    [
+     -3.73,
+     -3.13,
+     0.7
+    ],
+    [
+     -4.03,
+     -3.34,
+     0.7
+    ],
+    [
+     -4.32,
+     -3.56,
+     0.7
+    ],
+    [
+     -4.62,
+     -3.77,
+     0.7
+    ],
+    [
+     -4.91,
+     -3.98,
+     0.7
+    ],
+    [
+     -5.21,
+     -4.19,
+     0.7
+    ],
+    [
+     -5.5,
+     -4.4,
+     0.85
+    ]
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": -8.55,
+     "z": 1,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.6,
+     3.48
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    -8.55,
+    1
+   ],
+   "clear": [
+    [
+     -4.95,
+     1,
+     0.9
+    ],
+    [
+     -5.4,
+     1,
+     0.7
+    ],
+    [
+     -5.85,
+     1,
+     0.7
+    ],
+    [
+     -6.3,
+     1,
+     0.7
+    ],
+    [
+     -6.75,
+     1,
+     0.7
+    ],
+    [
+     -7.2,
+     1,
+     0.7
+    ],
+    [
+     -7.65,
+     1,
+     0.7
+    ],
+    [
+     -8.1,
+     1,
+     0.7
+    ],
+    [
+     -8.55,
+     1,
+     0.85
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 6,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": -1.75,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto",
+     "sway": 6,
+     "swayPh": 0.5,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -22,
+     18
+    ],
+    "r": [
+     3.3,
+     3.3
+    ],
+    "h": [
+     0.45,
+     0.45
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 64,
+    "roll": [
+     5,
+     -5
+    ],
+    "hand": 1.2,
+    "ease": "lin"
+   },
+   "focus": [
+    0.15,
+    -1.68
+   ],
+   "clear": [
+    [
+     -1.09,
+     1.38,
+     0.9
+    ],
+    [
+     -0.93,
+     1,
+     0.7
+    ],
+    [
+     -0.78,
+     0.61,
+     0.7
+    ],
+    [
+     -0.62,
+     0.23,
+     0.7
+    ],
+    [
+     -0.47,
+     -0.15,
+     0.7
+    ],
+    [
+     -0.31,
+     -0.53,
+     0.7
+    ],
+    [
+     -0.16,
+     -0.92,
+     0.7
+    ],
+    [
+     0,
+     -1.3,
+     0.7
+    ],
+    [
+     0.15,
+     1.62,
+     0.9
+    ],
+    [
+     0.15,
+     1.21,
+     0.7
+    ],
+    [
+     0.15,
+     0.79,
+     0.7
+    ],
+    [
+     0.15,
+     0.38,
+     0.7
+    ],
+    [
+     0.15,
+     -0.03,
+     0.7
+    ],
+    [
+     0.15,
+     -0.44,
+     0.7
+    ],
+    [
+     0.15,
+     -0.85,
+     0.7
+    ],
+    [
+     0.15,
+     -1.27,
+     0.7
+    ],
+    [
+     1.17,
+     1.46,
+     0.9
+    ],
+    [
+     1.04,
+     1.07,
+     0.7
+    ],
+    [
+     0.91,
+     0.67,
+     0.7
+    ],
+    [
+     0.79,
+     0.28,
+     0.7
+    ],
+    [
+     0.66,
+     -0.11,
+     0.7
+    ],
+    [
+     0.53,
+     -0.5,
+     0.7
+    ],
+    [
+     0.4,
+     -0.9,
+     0.7
+    ],
+    [
+     0.28,
+     -1.29,
+     0.7
+    ],
+    [
+     -0.5,
+     -1.6,
+     0.85
+    ],
+    [
+     0.55,
+     -1.75,
+     0.85
+    ]
+   ],
+   "flap": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "shaking_head_no_dismissively",
+     "x": 2.25,
+     "z": 6.3,
+     "face": "world",
+     "yaw": 33,
+     "at": 0.2
+    },
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 2.9,
+     "z": 7.3,
+     "face": "world",
+     "yaw": -147,
+     "at": 0.5,
+     "speed": 0.4,
+     "hat": "pineapple",
+     "hatY": 0.72
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -57.77,
+     -57.88
+    ],
+    "r": [
+     2.719,
+     2.539
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    2.55,
+    6.8
+   ],
+   "clear": [
+    [
+     0.25,
+     8.25,
+     0.9
+    ],
+    [
+     0.54,
+     8.07,
+     0.7
+    ],
+    [
+     0.82,
+     7.89,
+     0.7
+    ],
+    [
+     1.11,
+     7.71,
+     0.7
+    ],
+    [
+     1.4,
+     7.53,
+     0.7
+    ],
+    [
+     1.69,
+     7.34,
+     0.7
+    ],
+    [
+     1.97,
+     7.16,
+     0.7
+    ],
+    [
+     2.26,
+     6.98,
+     0.7
+    ],
+    [
+     0.4,
+     8.15,
+     0.9
+    ],
+    [
+     0.67,
+     7.98,
+     0.7
+    ],
+    [
+     0.94,
+     7.81,
+     0.7
+    ],
+    [
+     1.21,
+     7.64,
+     0.7
+    ],
+    [
+     1.48,
+     7.47,
+     0.7
+    ],
+    [
+     1.74,
+     7.31,
+     0.7
+    ],
+    [
+     2.01,
+     7.14,
+     0.7
+    ],
+    [
+     2.28,
+     6.97,
+     0.7
+    ],
+    [
+     2.25,
+     6.3,
+     0.85
+    ],
+    [
+     2.9,
+     7.3,
+     0.85
+    ]
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "male_driving_a_car",
+     "x": -5.5,
+     "z": -4.4,
+     "lift": 0.62,
+     "face": "world",
+     "yaw": 54.4,
+     "at": 0.3,
+     "speed": 0.05,
+     "hold": "slice",
+     "arm": "R",
+     "aim": [
+      0.2,
+      0.8,
+      0.56
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     32.4,
+     32.4
+    ],
+    "r": [
+     2.1,
+     1.98
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    -5.5,
+    -4.4
+   ],
+   "clear": [
+    [
+     -4.37,
+     -2.63,
+     0.9
+    ],
+    [
+     -4.52,
+     -2.85,
+     0.7
+    ],
+    [
+     -4.66,
+     -3.07,
+     0.7
+    ],
+    [
+     -4.8,
+     -3.29,
+     0.7
+    ],
+    [
+     -4.94,
+     -3.51,
+     0.7
+    ],
+    [
+     -5.08,
+     -3.74,
+     0.7
+    ],
+    [
+     -5.22,
+     -3.96,
+     0.7
+    ],
+    [
+     -5.36,
+     -4.18,
+     0.7
+    ],
+    [
+     -5.5,
+     -4.4,
+     0.85
+    ]
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 39,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "crawling_forward_on_hands_and_knees",
+     "x": 3.4,
+     "z": 5.05,
+     "face": "world",
+     "yaw": 180,
+     "at": "auto",
+     "mz": -1.2,
+     "noLie": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     88.09,
+     88.99
+    ],
+    "r": [
+     3.002,
+     2.85
+    ],
+    "h": [
+     0.6,
+     0.6
+    ],
+    "look": [
+     0.45,
+     0.45
+    ],
+    "fov": 58,
+    "roll": [
+     -5,
+     -3
+    ]
+   },
+   "focus": [
+    3.4,
+    4.1
+   ],
+   "clear": [
+    [
+     6.4,
+     4.2,
+     0.9
+    ],
+    [
+     6.03,
+     4.19,
+     0.7
+    ],
+    [
+     5.65,
+     4.17,
+     0.7
+    ],
+    [
+     5.28,
+     4.16,
+     0.7
+    ],
+    [
+     4.9,
+     4.15,
+     0.7
+    ],
+    [
+     4.53,
+     4.14,
+     0.7
+    ],
+    [
+     4.15,
+     4.12,
+     0.7
+    ],
+    [
+     3.77,
+     4.11,
+     0.7
+    ],
+    [
+     6.25,
+     4.15,
+     0.9
+    ],
+    [
+     5.89,
+     4.14,
+     0.7
+    ],
+    [
+     5.54,
+     4.14,
+     0.7
+    ],
+    [
+     5.18,
+     4.13,
+     0.7
+    ],
+    [
+     4.83,
+     4.12,
+     0.7
+    ],
+    [
+     4.47,
+     4.12,
+     0.7
+    ],
+    [
+     4.11,
+     4.11,
+     0.7
+    ],
+    [
+     3.76,
+     4.11,
+     0.7
+    ],
+    [
+     3.4,
+     5.05,
+     0.85
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "hip_hop_dancing_shimmy",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.36,
+     5.71
+    ],
+    "r": [
+     3.214,
+     2.512
+    ],
+    "h": [
+     0.22,
+     0.22
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -5.1
+   ],
+   "clear": [
+    [
+     0.3,
+     -1.9,
+     0.9
+    ],
+    [
+     0.26,
+     -2.3,
+     0.7
+    ],
+    [
+     0.22,
+     -2.7,
+     0.7
+    ],
+    [
+     0.19,
+     -3.1,
+     0.7
+    ],
+    [
+     0.15,
+     -3.5,
+     0.7
+    ],
+    [
+     0.11,
+     -3.9,
+     0.7
+    ],
+    [
+     0.08,
+     -4.3,
+     0.7
+    ],
+    [
+     0.04,
+     -4.7,
+     0.7
+    ],
+    [
+     0.25,
+     -2.6,
+     0.9
+    ],
+    [
+     0.22,
+     -2.91,
+     0.7
+    ],
+    [
+     0.19,
+     -3.23,
+     0.7
+    ],
+    [
+     0.16,
+     -3.54,
+     0.7
+    ],
+    [
+     0.12,
+     -3.85,
+     0.7
+    ],
+    [
+     0.09,
+     -4.16,
+     0.7
+    ],
+    [
+     0.06,
+     -4.47,
+     0.7
+    ],
+    [
+     0.03,
+     -4.79,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 52.5,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "samba_gandy_variation_1",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto"
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "female_samba_pagode_variation_five_loop",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.59,
+     1.59
+    ],
+    "r": [
+     3.601,
+     3.601
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.5,
+    -5.2
+   ],
+   "clear": [
+    [
+     0.6,
+     -1.6,
+     0.9
+    ],
+    [
+     0.59,
+     -2.05,
+     0.7
+    ],
+    [
+     0.57,
+     -2.5,
+     0.7
+    ],
+    [
+     0.56,
+     -2.95,
+     0.7
+    ],
+    [
+     0.55,
+     -3.4,
+     0.7
+    ],
+    [
+     0.54,
+     -3.85,
+     0.7
+    ],
+    [
+     0.53,
+     -4.3,
+     0.7
+    ],
+    [
+     0.51,
+     -4.75,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 56.5,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -114.6,
+     -114.6
+    ],
+    "r": [
+     2.7,
+     2.58
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    5.45,
+    -2.6
+   ],
+   "clear": [
+    [
+     3,
+     -3.72,
+     0.9
+    ],
+    [
+     3.3,
+     -3.58,
+     0.7
+    ],
+    [
+     3.61,
+     -3.44,
+     0.7
+    ],
+    [
+     3.92,
+     -3.3,
+     0.7
+    ],
+    [
+     4.22,
+     -3.16,
+     0.7
+    ],
+    [
+     4.53,
+     -3.02,
+     0.7
+    ],
+    [
+     4.84,
+     -2.88,
+     0.7
+    ],
+    [
+     5.14,
+     -2.74,
+     0.7
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 60.5,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "male_driving_a_car",
+     "x": -5.5,
+     "z": -4.4,
+     "lift": 0.62,
+     "face": "world",
+     "yaw": 80.7,
+     "at": 0.3,
+     "speed": 0.05,
+     "hold": "slice",
+     "arm": "R",
+     "aim": [
+      0.2,
+      0.8,
+      0.56
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     80.7,
+     80.7
+    ],
+    "r": [
+     2.6,
+     2.48
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 38,
+    "ease": "lin"
+   },
+   "focus": [
+    -5.5,
+    -4.4
+   ],
+   "clear": [
+    [
+     -2.93,
+     -3.98,
+     0.9
+    ],
+    [
+     -3.25,
+     -4.03,
+     0.7
+    ],
+    [
+     -3.58,
+     -4.08,
+     0.7
+    ],
+    [
+     -3.9,
+     -4.14,
+     0.7
+    ],
+    [
+     -4.22,
+     -4.19,
+     0.7
+    ],
+    [
+     -4.54,
+     -4.24,
+     0.7
+    ],
+    [
+     -4.86,
+     -4.29,
+     0.7
+    ],
+    [
+     -5.18,
+     -4.35,
+     0.7
+    ],
+    [
+     -5.5,
+     -4.4,
+     0.85
+    ]
+   ],
+   "stars": [
+    "kob"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "male_cheering_with_two_fists_pump",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto"
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "female_samba_pagode_variation_five_loop",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.05,
+     7.33
+    ],
+    "r": [
+     1.401,
+     7.058
+    ],
+    "h": [
+     1.9,
+     3.5
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60,
+    "roll": [
+     7,
+     0
+    ],
+    "hand": 0.15,
+    "ease": "lin"
+   },
+   "focus": [
+    0.3,
+    -5.1
+   ],
+   "clear": [
+    [
+     0.35,
+     -3.7,
+     0.9
+    ],
+    [
+     0.34,
+     -3.88,
+     0.7
+    ],
+    [
+     0.34,
+     -4.05,
+     0.7
+    ],
+    [
+     0.33,
+     -4.22,
+     0.7
+    ],
+    [
+     0.32,
+     -4.4,
+     0.7
+    ],
+    [
+     0.32,
+     -4.58,
+     0.7
+    ],
+    [
+     0.31,
+     -4.75,
+     0.7
+    ],
+    [
+     0.31,
+     -4.92,
+     0.7
+    ],
+    [
+     1.2,
+     1.9,
+     0.9
+    ],
+    [
+     1.09,
+     1.02,
+     0.7
+    ],
+    [
+     0.97,
+     0.15,
+     0.7
+    ],
+    [
+     0.86,
+     -0.73,
+     0.7
+    ],
+    [
+     0.75,
+     -1.6,
+     0.7
+    ],
+    [
+     0.64,
+     -2.48,
+     0.7
+    ],
+    [
+     0.53,
+     -3.35,
+     0.7
+    ],
+    [
+     0.41,
+     -4.22,
+     0.7
+    ],
+    [
+     0.56,
+     -2.3,
+     0.9
+    ],
+    [
+     0.53,
+     -2.65,
+     0.7
+    ],
+    [
+     0.5,
+     -3,
+     0.7
+    ],
+    [
+     0.46,
+     -3.35,
+     0.7
+    ],
+    [
+     0.43,
+     -3.7,
+     0.7
+    ],
+    [
+     0.4,
+     -4.05,
+     0.7
+    ],
+    [
+     0.37,
+     -4.4,
+     0.7
+    ],
+    [
+     0.33,
+     -4.75,
+     0.7
+    ],
+    [
+     0.77,
+     -0.9,
+     0.9
+    ],
+    [
+     0.72,
+     -1.43,
+     0.7
+    ],
+    [
+     0.66,
+     -1.95,
+     0.7
+    ],
+    [
+     0.6,
+     -2.48,
+     0.7
+    ],
+    [
+     0.54,
+     -3,
+     0.7
+    ],
+    [
+     0.48,
+     -3.52,
+     0.7
+    ],
+    [
+     0.42,
+     -4.05,
+     0.7
+    ],
+    [
+     0.36,
+     -4.57,
+     0.7
+    ],
+    [
+     0.99,
+     0.5,
+     0.9
+    ],
+    [
+     0.9,
+     -0.2,
+     0.7
+    ],
+    [
+     0.82,
+     -0.9,
+     0.7
+    ],
+    [
+     0.73,
+     -1.6,
+     0.7
+    ],
+    [
+     0.64,
+     -2.3,
+     0.7
+    ],
+    [
+     0.56,
+     -3,
+     0.7
+    ],
+    [
+     0.47,
+     -3.7,
+     0.7
+    ],
+    [
+     0.39,
+     -4.4,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "cheer": true,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 68.5,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -22,
+     18
+    ],
+    "r": [
+     3.3,
+     3.3
+    ],
+    "h": [
+     0.7,
+     0.7
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 62,
+    "roll": [
+     5,
+     -5
+    ],
+    "hand": 1.2,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -5.2
+   ],
+   "clear": [
+    [
+     -0.69,
+     -2.14,
+     0.9
+    ],
+    [
+     -0.53,
+     -2.52,
+     0.7
+    ],
+    [
+     -0.38,
+     -2.91,
+     0.7
+    ],
+    [
+     -0.22,
+     -3.29,
+     0.7
+    ],
+    [
+     -0.07,
+     -3.67,
+     0.7
+    ],
+    [
+     0.09,
+     -4.05,
+     0.7
+    ],
+    [
+     0.24,
+     -4.44,
+     0.7
+    ],
+    [
+     0.4,
+     -4.82,
+     0.7
+    ],
+    [
+     0.55,
+     -1.9,
+     0.9
+    ],
+    [
+     0.55,
+     -2.31,
+     0.7
+    ],
+    [
+     0.55,
+     -2.73,
+     0.7
+    ],
+    [
+     0.55,
+     -3.14,
+     0.7
+    ],
+    [
+     0.55,
+     -3.55,
+     0.7
+    ],
+    [
+     0.55,
+     -3.96,
+     0.7
+    ],
+    [
+     0.55,
+     -4.38,
+     0.7
+    ],
+    [
+     0.55,
+     -4.79,
+     0.7
+    ],
+    [
+     1.57,
+     -2.06,
+     0.9
+    ],
+    [
+     1.44,
+     -2.45,
+     0.7
+    ],
+    [
+     1.31,
+     -2.85,
+     0.7
+    ],
+    [
+     1.19,
+     -3.24,
+     0.7
+    ],
+    [
+     1.06,
+     -3.63,
+     0.7
+    ],
+    [
+     0.93,
+     -4.02,
+     0.7
+    ],
+    [
+     0.8,
+     -4.42,
+     0.7
+    ],
+    [
+     0.68,
+     -4.81,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "samba_gandy_variation_1",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto"
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "samba_funky_pocoto_variation_1",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.1,
+     -2.6
+    ],
+    "r": [
+     2.6,
+     2.202
+    ],
+    "h": [
+     0.25,
+     0.25
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 66,
+    "roll": [
+     8,
+     5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.5,
+    -5.2
+   ],
+   "clear": [
+    [
+     0.45,
+     -2.6,
+     0.9
+    ],
+    [
+     0.46,
+     -2.93,
+     0.7
+    ],
+    [
+     0.46,
+     -3.25,
+     0.7
+    ],
+    [
+     0.47,
+     -3.58,
+     0.7
+    ],
+    [
+     0.47,
+     -3.9,
+     0.7
+    ],
+    [
+     0.48,
+     -4.22,
+     0.7
+    ],
+    [
+     0.49,
+     -4.55,
+     0.7
+    ],
+    [
+     0.49,
+     -4.88,
+     0.7
+    ],
+    [
+     0.4,
+     -3,
+     0.9
+    ],
+    [
+     0.41,
+     -3.27,
+     0.7
+    ],
+    [
+     0.43,
+     -3.55,
+     0.7
+    ],
+    [
+     0.44,
+     -3.83,
+     0.7
+    ],
+    [
+     0.45,
+     -4.1,
+     0.7
+    ],
+    [
+     0.46,
+     -4.38,
+     0.7
+    ],
+    [
+     0.47,
+     -4.65,
+     0.7
+    ],
+    [
+     0.49,
+     -4.93,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 79,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "fg": true,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto",
+     "fg": true,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -178.49,
+     -178.49
+    ],
+    "r": [
+     5.702,
+     5.702
+    ],
+    "h": [
+     2.7,
+     2.7
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.5,
+    -1.6
+   ],
+   "clear": [
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "flap": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 83,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "banana",
+     "holdL": "orange",
+     "arm": "both",
+     "aim": [
+      0.38,
+      0.5,
+      0.78
+     ],
+     "upAt": 0.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -113.03,
+     -113.03
+    ],
+    "r": [
+     2.173,
+     2.173
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 44
+   },
+   "focus": [
+    5.45,
+    -2.6
+   ],
+   "clear": [
+    [
+     3.45,
+     -3.45,
+     0.9
+    ],
+    [
+     3.7,
+     -3.34,
+     0.7
+    ],
+    [
+     3.95,
+     -3.24,
+     0.7
+    ],
+    [
+     4.2,
+     -3.13,
+     0.7
+    ],
+    [
+     4.45,
+     -3.03,
+     0.7
+    ],
+    [
+     4.7,
+     -2.92,
+     0.7
+    ],
+    [
+     4.95,
+     -2.81,
+     0.7
+    ],
+    [
+     5.2,
+     -2.71,
+     0.7
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "barGap": true,
+   "stars": [
+    "compote"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 87,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 8,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto",
+     "sway": 8,
+     "swayPh": 0.5,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -23.5,
+     -25.35
+    ],
+    "r": [
+     2.508,
+     2.102
+    ],
+    "h": [
+     0.22,
+     0.22
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 66,
+    "roll": [
+     -10,
+     -7
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.4,
+    -5.2
+   ],
+   "clear": [
+    [
+     -0.6,
+     -2.9,
+     0.9
+    ],
+    [
+     -0.47,
+     -3.19,
+     0.7
+    ],
+    [
+     -0.35,
+     -3.48,
+     0.7
+    ],
+    [
+     -0.22,
+     -3.76,
+     0.7
+    ],
+    [
+     -0.1,
+     -4.05,
+     0.7
+    ],
+    [
+     0.03,
+     -4.34,
+     0.7
+    ],
+    [
+     0.15,
+     -4.62,
+     0.7
+    ],
+    [
+     0.28,
+     -4.91,
+     0.7
+    ],
+    [
+     -0.5,
+     -3.3,
+     0.9
+    ],
+    [
+     -0.39,
+     -3.54,
+     0.7
+    ],
+    [
+     -0.28,
+     -3.77,
+     0.7
+    ],
+    [
+     -0.16,
+     -4.01,
+     0.7
+    ],
+    [
+     -0.05,
+     -4.25,
+     0.7
+    ],
+    [
+     0.06,
+     -4.49,
+     0.7
+    ],
+    [
+     0.18,
+     -4.72,
+     0.7
+    ],
+    [
+     0.29,
+     -4.96,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "flap": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 91,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "male_driving_a_car",
+     "x": -5.5,
+     "z": -4.4,
+     "lift": 0.62,
+     "face": "world",
+     "yaw": 54.4,
+     "at": 0.3,
+     "speed": 0.05,
+     "hold": "slice",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.8,
+      0.25
+     ],
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     78.4,
+     78.4
+    ],
+    "r": [
+     2.4,
+     2.28
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1.45,
+     1.45
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    -5.5,
+    -4.4
+   ],
+   "clear": [
+    [
+     -3.15,
+     -3.92,
+     0.9
+    ],
+    [
+     -3.44,
+     -3.98,
+     0.7
+    ],
+    [
+     -3.74,
+     -4.04,
+     0.7
+    ],
+    [
+     -4.03,
+     -4.1,
+     0.7
+    ],
+    [
+     -4.32,
+     -4.16,
+     0.7
+    ],
+    [
+     -4.62,
+     -4.22,
+     0.7
+    ],
+    [
+     -4.91,
+     -4.28,
+     0.7
+    ],
+    [
+     -5.21,
+     -4.34,
+     0.7
+    ],
+    [
+     -5.5,
+     -4.4,
+     0.85
+    ]
+   ],
+   "stars": [
+    "kob"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 93,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "samba_funky_pocoto_variation_1",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 10
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "samba_funky_pocoto_variation_1",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto",
+     "sway": 10
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.3,
+     3.95
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.5,
+    -5.2
+   ],
+   "clear": [
+    [
+     0.5,
+     -0.9,
+     0.9
+    ],
+    [
+     0.5,
+     -1.44,
+     0.7
+    ],
+    [
+     0.5,
+     -1.98,
+     0.7
+    ],
+    [
+     0.5,
+     -2.51,
+     0.7
+    ],
+    [
+     0.5,
+     -3.05,
+     0.7
+    ],
+    [
+     0.5,
+     -3.59,
+     0.7
+    ],
+    [
+     0.5,
+     -4.12,
+     0.7
+    ],
+    [
+     0.5,
+     -4.66,
+     0.7
+    ],
+    [
+     0.5,
+     -1.25,
+     0.9
+    ],
+    [
+     0.5,
+     -1.74,
+     0.7
+    ],
+    [
+     0.5,
+     -2.24,
+     0.7
+    ],
+    [
+     0.5,
+     -2.73,
+     0.7
+    ],
+    [
+     0.5,
+     -3.23,
+     0.7
+    ],
+    [
+     0.5,
+     -3.72,
+     0.7
+    ],
+    [
+     0.5,
+     -4.21,
+     0.7
+    ],
+    [
+     0.5,
+     -4.71,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 95,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto",
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -29.7,
+     -29.7
+    ],
+    "r": [
+     8.174,
+     8.174
+    ],
+    "h": [
+     2.5,
+     2.5
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.45,
+    -4.7
+   ],
+   "clear": [
+    [
+     -3.6,
+     2.4,
+     0.9
+    ],
+    [
+     -3.09,
+     1.51,
+     0.7
+    ],
+    [
+     -2.59,
+     0.62,
+     0.7
+    ],
+    [
+     -2.08,
+     -0.26,
+     0.7
+    ],
+    [
+     -1.58,
+     -1.15,
+     0.7
+    ],
+    [
+     -1.07,
+     -2.04,
+     0.7
+    ],
+    [
+     -0.56,
+     -2.92,
+     0.7
+    ],
+    [
+     -0.06,
+     -3.81,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ]
+   ],
+   "flap": true,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 99,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": "auto",
+     "sway": 7,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": 0,
+     "flap": 0.55,
+     "flapPh": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     25,
+     -30
+    ],
+    "r": [
+     2.3,
+     2.3
+    ],
+    "h": [
+     0.35,
+     0.35
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 62,
+    "roll": [
+     5,
+     -5
+    ],
+    "hand": 1.2,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -5.1
+   ],
+   "clear": [
+    [
+     0.97,
+     -3.02,
+     0.9
+    ],
+    [
+     0.85,
+     -3.28,
+     0.7
+    ],
+    [
+     0.73,
+     -3.54,
+     0.7
+    ],
+    [
+     0.61,
+     -3.8,
+     0.7
+    ],
+    [
+     0.49,
+     -4.06,
+     0.7
+    ],
+    [
+     0.36,
+     -4.32,
+     0.7
+    ],
+    [
+     0.24,
+     -4.58,
+     0.7
+    ],
+    [
+     0.12,
+     -4.84,
+     0.7
+    ],
+    [
+     0,
+     -2.8,
+     0.9
+    ],
+    [
+     0,
+     -3.09,
+     0.7
+    ],
+    [
+     0,
+     -3.38,
+     0.7
+    ],
+    [
+     0,
+     -3.66,
+     0.7
+    ],
+    [
+     0,
+     -3.95,
+     0.7
+    ],
+    [
+     0,
+     -4.24,
+     0.7
+    ],
+    [
+     0,
+     -4.52,
+     0.7
+    ],
+    [
+     0,
+     -4.81,
+     0.7
+    ],
+    [
+     -1.15,
+     -3.11,
+     0.9
+    ],
+    [
+     -1.01,
+     -3.36,
+     0.7
+    ],
+    [
+     -0.86,
+     -3.61,
+     0.7
+    ],
+    [
+     -0.72,
+     -3.86,
+     0.7
+    ],
+    [
+     -0.57,
+     -4.1,
+     0.7
+    ],
+    [
+     -0.43,
+     -4.35,
+     0.7
+    ],
+    [
+     -0.29,
+     -4.6,
+     0.7
+    ],
+    [
+     -0.14,
+     -4.85,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ]
+   ],
+   "flap": true,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 103,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "melon",
+     "holdScale": 0.6,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.26,
+      0.92
+     ],
+     "upAt": 0.25
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -103.32,
+     -103.32
+    ],
+    "r": [
+     1.953,
+     1.953
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    5.45,
+    -2.6
+   ],
+   "clear": [
+    [
+     3.55,
+     -3.05,
+     0.9
+    ],
+    [
+     3.79,
+     -2.99,
+     0.7
+    ],
+    [
+     4.03,
+     -2.94,
+     0.7
+    ],
+    [
+     4.26,
+     -2.88,
+     0.7
+    ],
+    [
+     4.5,
+     -2.83,
+     0.7
+    ],
+    [
+     4.74,
+     -2.77,
+     0.7
+    ],
+    [
+     4.97,
+     -2.71,
+     0.7
+    ],
+    [
+     5.21,
+     -2.66,
+     0.7
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "barGap": true,
+   "stars": [
+    "compote"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 106,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "high_enthusiasm_fist_pump",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "clap_while_standing",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": -10,
+     "at": "auto"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.76,
+     4.76
+    ],
+    "r": [
+     4.817,
+     4.817
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.45,
+    -5.1
+   ],
+   "clear": [
+    [
+     0.85,
+     -0.3,
+     0.9
+    ],
+    [
+     0.8,
+     -0.9,
+     0.7
+    ],
+    [
+     0.75,
+     -1.5,
+     0.7
+    ],
+    [
+     0.7,
+     -2.1,
+     0.7
+    ],
+    [
+     0.65,
+     -2.7,
+     0.7
+    ],
+    [
+     0.6,
+     -3.3,
+     0.7
+    ],
+    [
+     0.55,
+     -3.9,
+     0.7
+    ],
+    [
+     0.5,
+     -4.5,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ],
+    [
+     0,
+     -1.35,
+     0.75
+    ],
+    [
+     1.7,
+     -1.35,
+     0.75
+    ],
+    [
+     -0.35,
+     -2.3,
+     0.6
+    ],
+    [
+     2,
+     -2.3,
+     0.6
+    ]
+   ],
+   "cheer": true,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 110,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "orange",
+     "arm": "both",
+     "aim": "pelt",
+     "pelt": {
+      "times": [
+       0.162,
+       0.508,
+       0.854,
+       1.315,
+       2.008,
+       2.354,
+       2.7
+      ],
+      "to": [
+       3.45,
+       1.05,
+       -3.516
+      ],
+      "dur": 0.3,
+      "spread": 0.1,
+      "arc": 0.12,
+      "kinds": [
+       "orange",
+       "apple",
+       "banana",
+       "lemon",
+       "grapes",
+       "pineapple",
+       "strawberry"
+      ]
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -114.6,
+     -114.6
+    ],
+    "r": [
+     2.5,
+     2.5
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    5.45,
+    -2.6
+   ],
+   "clear": [
+    [
+     3.18,
+     -3.64,
+     0.9
+    ],
+    [
+     3.46,
+     -3.51,
+     0.7
+    ],
+    [
+     3.75,
+     -3.38,
+     0.7
+    ],
+    [
+     4.03,
+     -3.25,
+     0.7
+    ],
+    [
+     4.31,
+     -3.12,
+     0.7
+    ],
+    [
+     4.6,
+     -2.99,
+     0.7
+    ],
+    [
+     4.88,
+     -2.86,
+     0.7
+    ],
+    [
+     5.17,
+     -2.73,
+     0.7
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 118,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "getting_hit_in_the_face_from_various_angles",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "jumping_backwards_dodge",
+     "x": 1,
+     "z": -5.3,
+     "lift": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0,
+     "once": true
+    },
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "orange",
+     "arm": "both",
+     "aim": "pelt",
+     "fg": true,
+     "pelt": {
+      "times": [
+       -0.088,
+       0.258,
+       0.604,
+       1.065,
+       1.758,
+       2.104,
+       2.45
+      ],
+      "to": [
+       0.06,
+       1.2,
+       -4.95
+      ],
+      "dur": 0.55,
+      "floorY": 0.3,
+      "fly": 1.1,
+      "kinds": [
+       "orange",
+       "apple",
+       "banana",
+       "lemon",
+       "grapes",
+       "pineapple",
+       "strawberry"
+      ]
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -15.26,
+     -15.26
+    ],
+    "r": [
+     3.421,
+     3.421
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.4,
+    -5.1
+   ],
+   "clear": [
+    [
+     -0.5,
+     -1.8,
+     0.9
+    ],
+    [
+     -0.39,
+     -2.21,
+     0.7
+    ],
+    [
+     -0.28,
+     -2.62,
+     0.7
+    ],
+    [
+     -0.16,
+     -3.04,
+     0.7
+    ],
+    [
+     -0.05,
+     -3.45,
+     0.7
+    ],
+    [
+     0.06,
+     -3.86,
+     0.7
+    ],
+    [
+     0.18,
+     -4.27,
+     0.7
+    ],
+    [
+     0.29,
+     -4.69,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     1,
+     -5.3,
+     0.85
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "pile": [
+    2,
+    0.7
+   ],
+   "stare": [
+    0,
+    -5.1
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 126,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "getting_hit_in_the_face_from_various_angles",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.5
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "bored_idle",
+     "x": -1.9,
+     "z": -4.3,
+     "face": "world",
+     "yaw": 112.8,
+     "at": "auto",
+     "hold": "apple",
+     "arm": "both",
+     "aim": "pelt",
+     "pelt": {
+      "times": [
+       -0.054,
+       0.638,
+       1.331,
+       2.023
+      ],
+      "to": [
+       0.06,
+       1.2,
+       -4.95
+      ],
+      "dur": 0.7,
+      "arc": 0.9,
+      "floorY": 0.3,
+      "big": 2,
+      "kinds": [
+       "apple",
+       "lemon",
+       "grapes",
+       "orange"
+      ]
+     }
+    },
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "orange",
+     "arm": "both",
+     "aim": "pelt",
+     "fg": true,
+     "pelt": {
+      "times": [
+       -0.788,
+       -0.442,
+       -0.096,
+       0.365,
+       1.058,
+       1.404,
+       1.75
+      ],
+      "to": [
+       0.06,
+       1.2,
+       -4.95
+      ],
+      "dur": 1.25,
+      "floorY": 0.3,
+      "fly": 1.1,
+      "arc": 1.7,
+      "big": 2.2,
+      "kinds": [
+       "orange",
+       "apple",
+       "banana",
+       "lemon",
+       "grapes",
+       "pineapple",
+       "strawberry"
+      ]
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     68.33,
+     68.33
+    ],
+    "r": [
+     7.855,
+     7.855
+    ],
+    "h": [
+     1.65,
+     1.65
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.3,
+    -5
+   ],
+   "clear": [
+    [
+     7.6,
+     -2.1,
+     0.9
+    ],
+    [
+     6.69,
+     -2.46,
+     0.7
+    ],
+    [
+     5.77,
+     -2.83,
+     0.7
+    ],
+    [
+     4.86,
+     -3.19,
+     0.7
+    ],
+    [
+     3.95,
+     -3.55,
+     0.7
+    ],
+    [
+     3.04,
+     -3.91,
+     0.7
+    ],
+    [
+     2.12,
+     -4.28,
+     0.7
+    ],
+    [
+     1.21,
+     -4.64,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     -1.9,
+     -4.3,
+     0.85
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "pile": [
+    9,
+    0.8
+   ],
+   "cheer": true,
+   "stare": [
+    0,
+    -5.1
+   ],
+   "bar": 0.6,
+   "stars": [
+    "compote",
+    "sadi"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 134,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0,
+     "once": true,
+     "ground": "mesh"
+    },
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "orange",
+     "arm": "both",
+     "aim": "pelt",
+     "fg": true,
+     "pelt": {
+      "times": [
+       -0.088,
+       0.258,
+       0.604,
+       1.065
+      ],
+      "to": [
+       0.06,
+       1.2,
+       -4.95
+      ],
+      "dur": 0.55,
+      "floorY": 0.3,
+      "fly": 1.1,
+      "kinds": [
+       "orange",
+       "apple",
+       "banana",
+       "lemon",
+       "grapes",
+       "pineapple",
+       "strawberry"
+      ]
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11.31,
+     11.31
+    ],
+    "r": [
+     2.04,
+     2.04
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.18,
+     1.18
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.05,
+    -5.1
+   ],
+   "clear": [
+    [
+     0.45,
+     -3.1,
+     0.9
+    ],
+    [
+     0.4,
+     -3.35,
+     0.7
+    ],
+    [
+     0.35,
+     -3.6,
+     0.7
+    ],
+    [
+     0.3,
+     -3.85,
+     0.7
+    ],
+    [
+     0.25,
+     -4.1,
+     0.7
+    ],
+    [
+     0.2,
+     -4.35,
+     0.7
+    ],
+    [
+     0.15,
+     -4.6,
+     0.7
+    ],
+    [
+     0.1,
+     -4.85,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "pile": [
+    16,
+    0.8
+   ],
+   "stare": [
+    0,
+    -5.1
+   ],
+   "bar": 0.4,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 138.5,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 3.2,
+     "speed": 0.05,
+     "ground": "mesh"
+    },
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "orange",
+     "arm": "both",
+     "aim": "pelt",
+     "fg": true,
+     "pelt": {
+      "times": [
+       -0.319,
+       0.027,
+       0.373,
+       1.065
+      ],
+      "to": [
+       [
+        -0.1,
+        0.7,
+        -5.45
+       ],
+       [
+        -0.1,
+        0.7,
+        -5.45
+       ],
+       [
+        -0.1,
+        0.7,
+        -5.45
+       ],
+       [
+        -0.05,
+        0.62,
+        -5.25
+       ]
+      ],
+      "dur": 0.55,
+      "kinds": [
+       "orange",
+       "apple",
+       "lemon",
+       "melon"
+      ],
+      "floorY": [
+       0.3,
+       0.3,
+       0.3,
+       0.64
+      ],
+      "fly": [
+       0.6,
+       0.6,
+       0.6,
+       0.05
+      ],
+      "big": [
+       1.3,
+       1.3,
+       1.3,
+       1
+      ],
+      "arc": 0.6
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     25.64
+    ],
+    "r": [
+     0.3,
+     0.277
+    ],
+    "h": [
+     4.2,
+     3.7
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 56,
+    "roll": [
+     0,
+     12
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    -0.12,
+    -5.67
+   ],
+   "clear": [
+    [
+     -0.12,
+     -5.42,
+     0.9
+    ],
+    [
+     -0.12,
+     -5.45,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.48,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.51,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.54,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.58,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.61,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.64,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "pileAt": [
+    -0.12,
+    -5.42
+   ],
+   "pileY": 0.3,
+   "pile": 40,
+   "stop": 2.077,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  },
+  {
+   "beat": 143,
+   "kind": "dance",
+   "map": "hall",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": -5.1,
+     "lift": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 3.304,
+     "speed": 0,
+     "ground": "mesh"
+    },
+    {
+     "who": "compote",
+     "look": "carrot",
+     "clip": "bored_idle",
+     "x": 5.45,
+     "z": -2.6,
+     "face": "world",
+     "yaw": -114.6,
+     "at": 0.5,
+     "speed": 0,
+     "hold": "orange",
+     "arm": "both",
+     "aim": "pelt",
+     "fg": true,
+     "pelt": {
+      "times": [
+       -2.396,
+       -2.05,
+       -1.704,
+       -1.012
+      ],
+      "to": [
+       [
+        -0.1,
+        0.7,
+        -5.45
+       ],
+       [
+        -0.1,
+        0.7,
+        -5.45
+       ],
+       [
+        -0.1,
+        0.7,
+        -5.45
+       ],
+       [
+        -0.05,
+        0.62,
+        -5.25
+       ]
+      ],
+      "dur": 0.55,
+      "kinds": [
+       "orange",
+       "apple",
+       "lemon",
+       "melon"
+      ],
+      "floorY": [
+       0.3,
+       0.3,
+       0.3,
+       0.64
+      ],
+      "fly": [
+       0.6,
+       0.6,
+       0.6,
+       0.05
+      ],
+      "big": [
+       1.3,
+       1.3,
+       1.3,
+       1
+      ],
+      "arc": 0.6
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     25.64
+    ],
+    "r": [
+     0.3,
+     0.277
+    ],
+    "h": [
+     4.2,
+     3.7
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 56,
+    "roll": [
+     0,
+     12
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    -0.12,
+    -5.67
+   ],
+   "clear": [
+    [
+     -0.12,
+     -5.42,
+     0.9
+    ],
+    [
+     -0.12,
+     -5.45,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.48,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.51,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.54,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.58,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.61,
+     0.7
+    ],
+    [
+     -0.12,
+     -5.64,
+     0.7
+    ],
+    [
+     0,
+     -5.1,
+     0.85
+    ],
+    [
+     5.45,
+     -2.6,
+     0.85
+    ]
+   ],
+   "pileAt": [
+    -0.12,
+    -5.42
+   ],
+   "pileY": 0.3,
+   "pile": 40,
+   "stop": 0,
+   "still": true,
+   "stars": [
+    "saxo"
+   ],
+   "audience": true
+  }
+ ],
+ "yt": "end",
+ "tags": {
+  "structure": "reversal",
+  "scenes": [
+   "pelt"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "action",
+  "maps": [
+   "hall"
+  ],
+  "ref": "none",
+  "lyric_literal": "the chant's 28 'fruit's (one fruit thrown per word, landing on it), L07 juicy (Kob bites her watermelon), 'hootie frutti' (the crowd's flap)",
+  "experiment": "Does a lyric-synced payoff (a fruit thrown on every word of the song's own 'fruit fruit fruit' chant) make the ending more shareable than our story payoffs, on a K-pop girl group's global hit?"
+ }
+}
