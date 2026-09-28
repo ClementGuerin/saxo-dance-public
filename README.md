@@ -4,7 +4,7 @@
 
 <p align="center">
   <b>A scruffy grey terrier in a check suit dances to pop hits in PlayStation&nbsp;1 worlds.</b><br>
-  4 videos a day, made entirely in code: three.js draws every frame, ffmpeg cuts it, and a routine that runs all night
+  2 videos a day, made entirely in code: three.js draws every frame, ffmpeg cuts it, and a routine that runs all night
   makes and schedules them.
 </p>
 
@@ -30,7 +30,7 @@
       <td align="center"><h3>50</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
       <td align="center"><h3>15</h3>videos posted</td>
-      <td align="center"><h3>4</h3>videos a day</td>
+      <td align="center"><h3>2</h3>videos a day</td>
       <td align="center"><h3>$0</h3>to render</td>
     </tr>
   </table>
@@ -122,8 +122,8 @@ flowchart LR
 
 A scheduled run wakes every 30 minutes, asks `tools/night.mjs` whether anything is
 due, and follows `research/DAILY_ROUTINE.md` to make one video at a time, with no
-approval step and a budget per video. The first starts at 21:00 and the others no earlier than 23:00, 01:00 and 03:00;
-each is scheduled for one of the next day's slots, at 08:00, 12:00, 16:00 and 20:00. Every wake also refreshes
+approval step and a budget per video. The first starts at 21:00 and the second no earlier than 23:00;
+each is scheduled for one of the next day's slots, at 16:00 and 20:00. Every wake also refreshes
 saxo.dance and checks this README against the code, rebuilding any image that no longer matches it.
 
 1. **Scout.** [`tools/trends.mjs`](tools/trends.mjs) scans what is going viral in our niches, and live meme formats
