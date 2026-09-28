@@ -18,6 +18,7 @@ import { buildPatientMaps } from './maps12.js';
 import { buildPoolMaps } from './maps13.js';
 import { buildStudioMaps } from './maps14.js';
 import { buildWarehouseMaps } from './maps15.js';
+import { buildNoirMaps } from './maps16.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -615,6 +616,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   devil: 'assets/models/saxo_devil.glb',   // the devil on his shoulder ("Patient Zero")
   lifeguard: 'assets/models/saxo_lifeguard.glb',   // the lifeguard: red swim shorts with white side stripes, a white tank top with a red cross, a red whistle on a white cord, red flip-flops ("Beauty And A Beat", 2026-09-27)   // the devil on his shoulder: a red onesie, small curved horns, a short arrow tail, black gloves and boots ("Patient Zero", 2026-09-27)
   soul: 'assets/models/saxo_soul.glb',
+  // the 1983 street look: a shiny black leather jacket open over a pale pink shirt, a small red bow tie, black leather trousers, white socks, loafers, a little black hat ("Billie Jean", 2026-09-28)
+  billie: 'assets/models/saxo_billie.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -629,6 +632,8 @@ const PARTNERS = {
     hostess: 'assets/models/sadi_hostess.glb',   // flight attendant: navy jacket with gold buttons and wings, red scarf, pillbox hat, her pink bow ("Voyage Voyage")
     yukata: 'assets/models/sadi_yukata.glb',   // a pink cherry-blossom yukata ("Caramelldansen")
     paris: 'assets/models/sadi_paris.glb',
+    // an 80s evening look: a red sequin cocktail dress with puffed shoulders, a pearl necklace, red heels, her pink bow ("Billie Jean", 2026-09-28)
+    glam: 'assets/models/sadi_glam.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -638,6 +643,8 @@ const PARTNERS = {
     bartender: 'assets/models/kob_bartender.glb',   // the bartender: white shirt, sleeves rolled, black waistcoat and bow tie, her bell collar ("Die Young")
     maneki: 'assets/models/kob_maneki.glb',   // the lucky-cat suit ("Caramelldansen")
     driver: 'assets/models/kob_driver.glb',
+    // the private eye: a beige belted trench coat, collar up, a small brown fedora, her bell ("Billie Jean", 2026-09-28)
+    detective: 'assets/models/kob_detective.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -739,7 +746,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -915,6 +922,11 @@ function propMesh(kind) {
     add(cyl(0.008, 0.008, 0.14, M(0xff5fa2), 4), 0.02, 0.2).rotation.z = -0.3; add(box(0.06, 0.014, 0.03, M(0xffd43b)), -0.045, 0.15).rotation.z = 0.5;
   } else if (kind === 'milk') {    // a glass of milk (Kob stays in)
     add(cyl(0.052, 0.044, 0.16, M(0x6aa8e8)), 0, 0.08); add(cyl(0.046, 0.046, 0.02, M(0xffffff)), 0, 0.15); add(cyl(0.008, 0.008, 0.13, M(0xff5fa2), 4), 0.018, 0.2).rotation.z = -0.3;   // blue glass, white milk: a white glass vanished on her pyjamas
+  } else if (kind === 'camera') {  // the private eye's camera, lens forward: a black body under a silver top, a big lens, a flash unit on top ("Billie Jean")
+    add(box(0.16, 0.1, 0.07, M(0x1c1c22))); add(box(0.16, 0.028, 0.072, M(0xc8ccd4)), 0, 0.064);
+    const lens = add(cyl(0.045, 0.05, 0.07, M(0x2a2a30), 10), 0.01, -0.005, 0.065); lens.rotation.x = Math.PI / 2;
+    const glass = add(cyl(0.032, 0.032, 0.01, glow(0x5a7ab8), 10), 0.01, -0.005, 0.1); glass.rotation.x = Math.PI / 2;
+    add(box(0.07, 0.05, 0.05, M(0xc8ccd4)), -0.035, 0.105); add(box(0.06, 0.036, 0.004, glow(0xffffff)), -0.035, 0.105, 0.027);
   } else if (kind === 'phone') {   // held up filming: screen towards the holder, flash on the back
     add(box(0.11, 0.2, 0.02, mat({ color: 0xffb4dc, unlit: 0.6 }))); add(box(0.094, 0.18, 0.004, glow(0x8fd8ff)), 0, 0, -0.012);   // a candy-pink case (0xff4f9a rendered dark plum at night; a black phone vanished against the shades)
     G.userData.led = add(box(0.03, 0.03, 0.004, glow(0xffffff)), -0.028, 0.07, 0.012);
@@ -1064,7 +1076,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
   }
   if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
-  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
+  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
   if (g.userData.petals) {   // the petals left: petalsLeft, minus one on every pluckEvery beats since the shot's start (the pluck swing reaches on the beat), or
     // minus the one that falls at petalFall s; the latest plucked petal flutters down to the keys (a mesh of its own in PROPS, hidden each frame)
@@ -1582,11 +1594,13 @@ function placeOneCrowd(c, C, t, t0, t1, camAng) {
   const clipYaw = clipFacing(tripo, n, at, span).yaw, fyaw = c.face === 'world' ? 0 : clipYaw, yaw = (c.face === 'world' ? 0 : -fyaw + camAng) + (c.yaw || 0) * Math.PI / 180;
   const ground = clipGround(tripo, n, at, span);
   for (const [k, a] of Object.entries(R.actions)) a.weight = k === n ? 1 : 0;
-  const d = R.clips[n].duration, tc = at + (t - t0) * speed; R.actions[n].time = c.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d;
+  // holdAt: frozen from there on, like an actor (the tiny double held the photo's pose while Saxo's froze: 2026-09-28)
+  const th = c.holdAt != null ? Math.min(t, t0 + c.holdAt) : t;
+  const d = R.clips[n].duration, tc = at + (th - t0) * speed; R.actions[n].time = c.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d;
   R.mixer.update(0); R.holder.rotation.set(0, 0, 0); R.holder.position.set(0, ground * s, 0); R.holder.updateMatrixWorld(true);
-  if (c.arm) { C.saved = [R.L, R.R, R.foreL, R.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); R.roll = 0; aimArms(R, c, clipYaw, t - t0, t); }
+  if (c.arm) { C.saved = [R.L, R.R, R.foreL, R.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]); R.roll = 0; aimArms(R, c, clipYaw, th - t0, th); }
   const inv = _cm2.copy(R.holder.matrixWorld).invert(), u = cl((t - t0) / len), mx = (c.mx || 0) * u, mz = (c.mz || 0) * u;
-  const spots = crowdSpots(c), roll = swayRoll(c, t), spin = (c.spin || 0) * Math.PI / 180 * u, yb = sp => (c.y0 || 0) + sp.row * (c.dy || 0);
+  const spots = crowdSpots(c), roll = swayRoll(c, th), spin = (c.spin || 0) * Math.PI / 180 * u, yb = sp => (c.y0 || 0) + sp.row * (c.dy || 0);
   _cr.setFromAxisAngle(_cf.set(Math.sin(clipYaw), 0, Math.cos(clipYaw)), roll);   // the sway, about the body's own forward axis
   const spot = sp => {   // where a copy stands and which way its holder turns
     let x = sp.x, z = sp.z;
@@ -1629,6 +1643,9 @@ function danceFrame(t) {
   for (const m of Object.values(MAPS)) m.group.visible = m === map;   // set every frame: episode scenes switch maps too
   scene.background = map.sky; curMap = map;
   map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
+  // mono: the frame in black and white (true), or [a, b]: black and white until a s into the shot, colour back by b (the 2D
+  // layer greys it: window.MONO, 0-1). photo: s into the shot, the frozen frame becomes an instant photo (window.PHOTO: s since)
+  { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null; }
   const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0, !!P.half) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
   // [from, to], or [a, b, c…] keyframes spread evenly over the move's easing (a path: over the decks, then down)
@@ -1762,6 +1779,7 @@ if (EP) {
     unswing(); const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
+      window.MONO = 0; window.PHOTO = null;   // the 2D frame effects belong to dance shots
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
       for (const g of Object.values(PROPS)) g.visible = false; placeCrowd(null, t, 0, 1, 0);
       window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);
@@ -1772,9 +1790,11 @@ if (EP) {
   // and `flash` (paparazzi camera flashes on every beat of the shot). Pure in t, like everything else.
   const _fv = new THREE.Vector3();
   function danceFx(p, t) {
-    if (!p.word && !p.flash) return null;
+    if (!p.word && !p.flash && !p.flashAt) return null;
     const bp = 60 / BPMv, fx = { flash: 0, pow: 0 };
     if (p.flash) { const n = Math.floor((t - B0) / bp + 1e-6), since = t - (B0 + n * bp); if (B0 + n * bp >= p.t0 - 0.02) fx.flash = (n % 2 ? 0.22 : 0.42) * Math.exp(-since * 16); }
+    // flashAt: [s, …] seconds into the shot: one camera flash each, a white-out that clears in ~0.3 s ("Billie Jean": the private eye's camera)
+    for (const s of p.flashAt || []) { const d = t - (p.t0 + s); if (d >= 0) fx.flash = Math.max(fx.flash, 1.1 * Math.exp(-d * 9)); }
     if (p.word) {
       const since = t - (p.t0 + (p.wordAt ?? 1) * bp);
       if (since > 0) {

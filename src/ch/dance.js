@@ -165,6 +165,22 @@ function sceneFx(fx, t) {
   if (fx.ko) comic(W / 2, H * (window.EPISODE ? 0.74 : 0.2), 'K.O.', fx.ko, 230);   // on the floor in an episode: the lyrics own the top, faces the middle
 }
 
+// a shot's photo: the frozen frame printed as an instant photo, the evidence. The world behind dims, the white card drops in
+// tilted over 0.25 s and its picture (a square crop of the frame round the middle) develops from a pale green-grey over
+// 0.8 s. Drawn under the karaoke and the watermark, which stay on top. s: seconds since the shot's photo moment
+function polaroid(f, s) {
+  const drop = 1 - Math.pow(1 - clamp(s / 0.25), 3), dev = clamp((s - 0.15) / 0.8);
+  g.save(); g.fillStyle = `rgba(12,8,20,${0.6 * drop})`; g.fillRect(0, 0, W, H);
+  const cw = W * 0.78, pic = cw * 0.88, m = (cw - pic) / 2, ch = m + pic + cw * 0.24;
+  g.translate(W / 2, H * 0.62 + (1 - drop) * H * 0.35); g.rotate(-0.07 * drop);
+  g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowOffsetX = 10; g.shadowOffsetY = 14;
+  g.fillStyle = '#f4f1e8'; g.fillRect(-cw / 2, -ch / 2, cw, ch); g.shadowColor = 'transparent';
+  const px0 = -pic / 2, py0 = -ch / 2 + m, side = f.width, sy = Math.round(f.height * 0.5 - side * 0.52);
+  g.fillStyle = '#b8c2b0'; g.fillRect(px0, py0, pic, pic);
+  g.imageSmoothingEnabled = false; g.globalAlpha = dev; g.drawImage(f, 0, sy, side, side, px0, py0, pic, pic); g.globalAlpha = 1;
+  g.restore();
+}
+
 // bottom of the frame, below the characters' feet (at 76% it sat on them in close shots)
 const WM_Y = H * 0.91;
 function watermark() {
@@ -176,7 +192,10 @@ function watermark() {
 chapter('dance', 0, DUR, [[0, function danceFloor(t) {
   g.imageSmoothingEnabled = false;
   if (window.render3d) {
-    const f = window.render3d(t); g.drawImage(f, 0, 0, W, H);
+    const f = window.render3d(t), mono = window.MONO || 0;
+    if (mono > 0.01) g.filter = `grayscale(${mono}) contrast(${1 + 0.25 * mono})`;   // a shot's mono: the black-and-white movie opening (ps1.js sets it)
+    g.drawImage(f, 0, 0, W, H); g.filter = 'none';
+    if (window.PHOTO != null) polaroid(f, window.PHOTO);
     const wp = window.WHIP || 0;   // whip-pan: horizontal smear of the frame while the camera snaps into place
     if (wp > 0.04) { g.save(); for (let k = 1; k <= 4; k++) { g.globalAlpha = 0.28; g.drawImage(f, -wp * k * 55, 0, W, H); } g.restore(); }
   }
