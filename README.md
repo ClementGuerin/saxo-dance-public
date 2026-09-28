@@ -293,6 +293,13 @@ Handy page params for previews (`--query=a=b&c=d`, or in the studio URL): `map=p
 
 Pay once for reusable assets, never for a render: every look a video buys joins the wardrobe for the next ones.
 
+## License
+
+The code is open source under the [Apache License 2.0](LICENSE): fork it, change it, bring your own
+characters. Saxo, Sadi, Kob and Compote (their names, looks, 3D models, stickers and videos) and the
+saxo.dance name aren't: they're © Clément Guérin, all rights reserved ([ASSETS-LICENSE.md](ASSETS-LICENSE.md),
+[TRADEMARKS.md](TRADEMARKS.md)).
+
 <p align="center">
   <br>
   <img src="assets/ui/pixel/saxo_8bit.png" width="48" alt="Saxo">
