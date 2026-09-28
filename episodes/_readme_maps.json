@@ -1798,6 +1798,58 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 90,
+   "kind": "dance",
+   "map": "hall",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.5
+   ],
+   "clear": [
+    [
+     0.3,
+     0.9,
+     1.3
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "banana",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": -1.5
+    },
+    {
+     "who": "sadi",
+     "look": "strawberry",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": -1.5
+    }
+   ]
   }
  ]
 }
