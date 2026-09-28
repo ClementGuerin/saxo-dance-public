@@ -59,7 +59,7 @@ import os from 'node:os';
 import path from 'node:path';
 import vm from 'node:vm';
 import { buildHashtags } from './tools/hashtags.mjs';
-import { notify } from './tools/notify.mjs';
+import { notify, format } from './tools/notify.mjs';
 
 const POSTIZ = 'https://postiz.saxo.dance/api/public/v1';
 const ZERNIO = 'https://zernio.com/api/v1';
@@ -293,21 +293,25 @@ function mutedPost(ep) {   // the muted TikTok an official-sound cut replaces, f
   } catch { return null; }
 }
 const compact = n => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(n);
-function inboxMessages() {   // [the short message, the description to copy]
-  const head = `TikTok ready in your inbox: ${song}`;
-  if (!episode?.endsWith('-tt')) return [head, caption.tiktok];
+function inboxMessages() {   // [the status (tools/notify.mjs), the description to copy]
+  const postIt = sound => ({ level: 'soon', when: 'Within 24 h',
+    text: `Open the draft in the TikTok app's inbox${sound}, paste the description (next message) and post it to Everyone.` });
+  if (!episode?.endsWith('-tt')) return [{ title: `${song} is in your TikTok inbox`, todo: [postIt('')] }, caption.tiktok];
   const sound = typeof args.sound === 'string' ? args.sound : song;
   const uses = [args.uses, EP?.tiktok_sound?.videos, EP?.song?.tiktok_sound?.videos].find(u => u !== undefined && u !== true);
   const muted = mutedPost(episode.replace(/-tt$/, ''));   // already private once the post check hid it: nothing to do
-  return [[head, `Sound: ${sound}${uses ? ` · ${/^\d+$/.test(uses) ? compact(+uses) : uses} uses` : ''}`,
-    ...(muted && !muted.hidden ? [`Then set the muted post to Only me: ${muted.url}`] : [])].join('\n'), caption.tiktok];
+  return [{
+    title: `${song} with its official sound is in your TikTok inbox`,
+    todo: [postIt(`, add the sound "${sound}"${uses ? ` (${/^\d+$/.test(uses) ? compact(+uses) : uses} uses)` : ''}`),
+      ...(muted && !muted.hidden ? [{ level: 'now', text: `Set the muted post to Only me. <${muted.url}>` }] : [])],
+  }, caption.tiktok];
 }
 
 console.log(`${path.basename(file)}: ${song} by ${artist}, ${type}${args.when ? ' at ' + date : ''}`);
 for (const p of only) console.log(`\n[${p} via ${route(p)}${p === 'tiktok' && inbox ? (previewOnly ? ' to the inbox, a preview' : ' to the inbox') : ''}, ${path.basename(fileFor(p))}]${p === 'youtube' ? ' ' + youtubeTitle : ''}${caption[p] ? '' : ' (no text)'}\n${caption[p]}`);
 if (previewing) console.log(`\n[tiktok preview, now: ${PREVIEW_NOTE}]`);
 if (args['dry-run']) {
-  if (inbox && !previewOnly) console.log(`\n[discord, once it's in the inbox: 2 messages]\n${inboxMessages().join('\n---\n')}`);
+  if (inbox && !previewOnly) console.log(`\n[discord, once it's in the inbox: 2 messages]\n${inboxMessages().map(format).join('\n---\n')}`);
   console.log('\n--dry-run: nothing sent.');
   process.exit(0);
 }
