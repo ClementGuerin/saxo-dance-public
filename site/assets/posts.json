@@ -1,6 +1,35 @@
 {
- "updated": "2026-09-27T19:39:26.505Z",
+ "updated": "2026-09-28T06:16:33.174Z",
  "posts": [
+  {
+   "id": "2026-09-28",
+   "title": "Love Me Not",
+   "artist": "Olivia Dean",
+   "date": "2026-09-28T06:00:00.000Z",
+   "thumb": "assets/posts/2026-09-28.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690462338234813729",
+     "id": "7690462338234813729"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd0flDoAhQ7/",
+     "id": "Dd0flDoAhQ7"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/FQJ4n6rIq4U",
+     "id": "FQJ4n6rIq4U"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=2150954255635099",
+     "id": "2150954255635099"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2104451425874944485",
+     "id": "2104451425874944485"
+    }
+   }
+  },
   {
    "id": "2026-09-27-4",
    "title": "Beauty And A Beat",
