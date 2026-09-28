@@ -20,6 +20,7 @@ import { buildStudioMaps } from './maps14.js';
 import { buildWarehouseMaps } from './maps15.js';
 import { buildNoirMaps } from './maps16.js';
 import { buildWorldCupMaps } from './maps17.js';
+import { buildPlayaMaps } from './maps18.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -621,6 +622,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   billie: 'assets/models/saxo_billie.glb',
   // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, black boots; his green 10 and a red captain's armband ("Dai Dai", 2026-09-28)
   football: 'assets/models/saxo_football.glb',
+  // the beach diva: a long wavy golden-blonde wig to the shoulders, white sunglasses pushed up on it, gold hoops and a gold chain, a silver sequinned one-piece swimsuit, bare paws ("Vamos a la playa", 2026-09-29)
+  diva: 'assets/models/saxo_diva.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -755,7 +758,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -867,6 +870,9 @@ function actorSpec(a, e, map) {
     armB: a.armB || null, aimB: a.aimB || null,   // armB + aimB: the other arm's own aim or swing (one paw holds, the other plucks)
     // "Hootie Frutti" (2026-09-28): a volley of fruit thrown on given seconds of the shot (peltFruit)
     pelt: a.pelt || null,
+    // "Vamos a la playa" (2026-09-29): hop: [m, beats] hops of that height, one every that many beats (0.5 = two a
+    // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
+    hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie };   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1527,6 +1533,9 @@ function placeActors(P, t, t0, t1, camAng, map) {
     let flat = 0;
     if ((A.ground === 'mesh' || low < 0.1 * s) && spineFlat(D) > 0 && !A.noLie) { const L = partLows(D); flat = lyingWeight(D, L, s); if (flat > 0) low = settleLying(D, A, flat, s, L) - lift; D.lying = flat; }
     if (A.ground === 'mesh' || low < 0 || flat > 0) { D.holder.position.y -= low; D.holder.updateMatrixWorld(true); }
+    if (A.hop && th - t0 >= 0) {   // the hot-sand hop: a parabola every A.hop[1] beats, on top of the grounded pose (the QA's floor stays at lift)
+      const hu = fr((bp(th) - A.hopPh) / A.hop[1]); D.holder.position.y += A.hop[0] * 4 * hu * (1 - hu); D.holder.updateMatrixWorld(true);
+    }
     D.deck = lift;
     const up = Math.max(0, footY(D) / s - D.restFoot - lift / s) * (1 - flat);
     const hp = D.hips ? D.hips.getWorldPosition(_pb) : D.holder.position;
