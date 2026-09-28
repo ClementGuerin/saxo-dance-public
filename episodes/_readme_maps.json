@@ -1850,6 +1850,68 @@
      "z": -1.5
     }
    ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "noir",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1
+   ],
+   "lit": [
+    [
+     -0.48,
+     -1
+    ],
+    [
+     0.48,
+     -1
+    ]
+   ],
+   "clear": [
+    [
+     0.4,
+     1.5,
+     1.4
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "billie",
+     "clip": "robot",
+     "at": "auto",
+     "x": -0.48,
+     "z": -1
+    },
+    {
+     "who": "kob",
+     "look": "detective",
+     "clip": "robot",
+     "at": "auto",
+     "x": 0.48,
+     "z": -1
+    }
+   ]
   }
  ]
 }

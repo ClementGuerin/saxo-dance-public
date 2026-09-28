@@ -60,7 +60,8 @@
       <p><b>The jokes.</b> Every lyric that names an action is acted out on the word. Four characters who each have one
       job keep their running gags going from video to video, plus costume changes on the beat, crowds, giants (a
       19-metre bunny rising from the sea), a sneeze that spreads through a whole party, a lifeguard filming selfies
-      while the wave pool goes wrong behind him, a flight through turbulence over erupting volcanoes, thrown props, a
+      while the wave pool goes wrong behind him, a flight through turbulence over erupting volcanoes, a tiny double who
+      copies his every move until a camera flash freezes them both in an instant photo, thrown props, a
       fight with a slow-motion replay and skate tricks.</p>
       <p><b>The loop.</b> Trends go in; views, likes and shares come back out into a playbook that the next video
       reads.</p>
@@ -95,7 +96,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 47 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio and a fruits-only warehouse party, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party and a film-noir night street, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
