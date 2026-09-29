@@ -1,0 +1,1368 @@
+{
+ "date": "2026-09-28-4",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "line-up",
+  "scenes": [
+   "penalty",
+   "keeper",
+   "world tour"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "action",
+  "maps": [
+   "final",
+   "globe",
+   "baobab",
+   "pyramids",
+   "tokyo",
+   "snow"
+  ],
+  "ref": "spicy-lineup",
+  "lyric_literal": "top (running on top of the world)",
+  "experiment": "Does a line-up ('who took it best?': one test, the four in turn, each in character) on a sports moment everyone knows get more comments per 1,000 views than our story episodes?"
+ },
+ "n": "4-tt",
+ "song": {
+  "title": "Dai Dai",
+  "artist": "Shakira & Burna Boy",
+  "window": [
+   177.722,
+   219.563
+  ],
+  "rate": 1.000977,
+  "bpm": 116.1133,
+  "tiktok_sound": "7637147165290924831"
+ },
+ "logline": "World Cup final, penalties: Compote blasts the keeper into the net, Sadi's kiss melts him, Kob pokes it in sipping her milk... and Saxo's run-up goes round the world, so long the keeper falls asleep",
+ "notes": "TikTok muted the main post (itemMute, 2026-09-29). The official sound (Shakira & Burna Boy's own, 2,693,893 videos, 60 s) is the song's last section, song 177.72 s on, 0.1% faster, its music stopping at 41.80 s: the intro's hook reprised, then the title hook four times. The main's second half (Kob's goal as a cold open, then the captain's run-up round the world, the smash and the fireworks) moves over on one 48-beat shift, its ending on the music's last hit; the video ends at 42.30 s.",
+ "clips": [
+  "being_surprised_and_looking_right",
+  "bored_idle",
+  "happy_run",
+  "happy_walk",
+  "high_enthusiasm_fist_pump",
+  "male_soccer_penalty_kick"
+ ],
+ "shots": [
+  {
+   "beat": -0.887,
+   "kind": "dance",
+   "map": "final",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.02,
+     -1.06
+    ],
+    "r": [
+     5.601,
+     5.401
+    ],
+    "h": [
+     1.15,
+     1.12
+    ],
+    "look": [
+     0.3,
+     0.3
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.7,
+    -7
+   ],
+   "ball": [
+    [
+     0,
+     -0.4,
+     0.15,
+     -3.25
+    ],
+    [
+     2,
+     -0.7,
+     0.15,
+     -7.85
+    ]
+   ],
+   "net": [
+    2.05,
+    -0.75,
+    0.3,
+    0.12,
+    0.5
+   ],
+   "keeper": {
+    "pose": "dive",
+    "at": -3,
+    "dir": 1
+   },
+   "flares": -5,
+   "fans": "gasp",
+   "score": [
+    2,
+    3
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "football",
+     "clip": "bored_idle",
+     "x": 0,
+     "z": 0.65,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "milk"
+    },
+    {
+     "who": "sadi",
+     "look": "football",
+     "clip": "charleston",
+     "x": -0.75,
+     "z": -0.9,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "football",
+     "clip": "gangnam",
+     "x": 0.75,
+     "z": -1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.2,
+     3.08
+    ],
+    "h": [
+     0.97,
+     0.97
+    ],
+    "look": [
+     0.86,
+     0.86
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    0.65
+   ],
+   "ball": [
+    [
+     0,
+     -1.1,
+     0.15,
+     -7.9
+    ]
+   ],
+   "keeper": {
+    "pose": "dive",
+    "at": -5,
+    "dir": 1
+   },
+   "fans": "cheer",
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "shimmy",
+     "x": 0.15,
+     "z": 0.95,
+     "face": "camera",
+     "yaw": 0,
+     "at": "auto"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.6,
+     21.8
+    ],
+    "r": [
+     2.581,
+     1.885
+    ],
+    "h": [
+     0.2,
+     0.2
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.15,
+    0.95
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ]
+   ],
+   "keeper": {
+    "pose": "ready"
+   },
+   "fans": "cheer",
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "happy_walk",
+     "x": 0.1,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 0,
+     "speed": 0.9,
+     "mz": 0.95
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     89.24,
+     88.45
+    ],
+    "r": [
+     3.75,
+     3.701
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.05,
+    1.05
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ]
+   ],
+   "keeper": {
+    "pose": "wait"
+   },
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "football",
+     "clip": "being_surprised_and_looking_right",
+     "x": -2.25,
+     "z": 4.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "football",
+     "clip": "bored_idle",
+     "x": -3,
+     "z": 4.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.8,
+     "speed": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "football",
+     "clip": "bored_idle",
+     "x": -3.75,
+     "z": 4.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.3,
+     "speed": 0.5,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     3.9,
+     3.7
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -3,
+    4.5
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ]
+   ],
+   "keeper": {
+    "pose": "wait"
+   },
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "happy_walk",
+     "x": -21,
+     "z": 28.95,
+     "face": "world",
+     "yaw": -90,
+     "at": 0,
+     "speed": 0.9,
+     "mx": -2.95,
+     "mz": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     76.87,
+     77.15
+    ],
+    "r": [
+     6.161,
+     5.846
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -23.599999999999998,
+    29.05
+   ],
+   "noBall": true,
+   "keeper": {
+    "hide": true
+   },
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "pyramids",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "happy_run",
+     "x": -0.7,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "speed": 1,
+     "mx": 1.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     1.87
+    ],
+    "r": [
+     4.8,
+     4.602
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "final",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.59,
+     0.61
+    ],
+    "r": [
+     9.651,
+     9.451
+    ],
+    "h": [
+     0.35,
+     0.35
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 24
+   },
+   "focus": [
+    0,
+    -7.25
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ]
+   ],
+   "keeper": {
+    "pose": "dance"
+   },
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "tokyo",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "charleston",
+     "x": 0.6,
+     "z": 0,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "mx": -1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     -1.87
+    ],
+    "r": [
+     4.8,
+     4.602
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "snow",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "charleston",
+     "x": -0.6,
+     "z": 0,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "mx": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     1.87
+    ],
+    "r": [
+     4.8,
+     4.602
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "final",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.4,
+     3.28
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     0.78,
+     0.78
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -7.25
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ]
+   ],
+   "keeper": {
+    "pose": "sleep"
+   },
+   "fans": "sleep",
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "globe",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "happy_run",
+     "x": 0,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     1.4
+    ],
+    "r": [
+     10.5,
+     10.203
+    ],
+    "h": [
+     0.8,
+     0.8
+    ],
+    "look": [
+     0.4,
+     0.4
+    ],
+    "fov": 38
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "spin": 0.55,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "baobab",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "charleston",
+     "x": -0.35,
+     "z": 1.2,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "mx": 0.9
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -2.86,
+     -1.01
+    ],
+    "r": [
+     6.007,
+     5.701
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.3,
+    0
+   ],
+   "kids": "cheer",
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "happy_run",
+     "x": -24.1,
+     "z": 29.05,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.3,
+     "speed": 1,
+     "mx": 2.3,
+     "reveal": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     123.69,
+     123.69
+    ],
+    "r": [
+     4.687,
+     4.687
+    ],
+    "h": [
+     0.8,
+     0.8
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -22.599999999999998,
+    29.05
+   ],
+   "noBall": true,
+   "keeper": {
+    "hide": true
+   },
+   "dawn": 1,
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "happy_run",
+     "x": -0.18,
+     "z": 4,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.15,
+     "speed": 1.1,
+     "mz": -3.1,
+     "reveal": 1.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     87.27,
+     87.93
+    ],
+    "r": [
+     4.205,
+     4.153
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0,
+    1.2
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ]
+   ],
+   "keeper": {
+    "pose": "sleep"
+   },
+   "dawn": 1,
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 62,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "male_soccer_penalty_kick",
+     "x": -0.18,
+     "z": 0.28,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.024,
+     "speed": 0.75
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     83.76,
+     84.47
+    ],
+    "r": [
+     3.219,
+     3.114
+    ],
+    "h": [
+     0.42,
+     0.42
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.1,
+    0.2
+   ],
+   "ball": [
+    [
+     0,
+     0,
+     0.15,
+     0
+    ],
+    [
+     1.034,
+     0,
+     0.15,
+     0
+    ],
+    [
+     1.154,
+     -0.05,
+     0.35,
+     -0.9
+    ],
+    [
+     1.4340000000000002,
+     -0.3,
+     1,
+     -5.5,
+     0.2
+    ]
+   ],
+   "keeper": {
+    "pose": "sleep"
+   },
+   "dawn": 1,
+   "score": [
+    3,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "final",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     20.68,
+     20.22
+    ],
+    "r": [
+     5.238,
+     5.062
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.5,
+    -8.2
+   ],
+   "ball": [
+    [
+     0,
+     0.3,
+     1.25,
+     -3
+    ],
+    [
+     0.24,
+     -1.9,
+     1.5,
+     -8.95
+    ]
+   ],
+   "net": [
+    0.24,
+    -1.9,
+    1.5,
+    0.75,
+    true
+   ],
+   "keeper": {
+    "pose": "wake",
+    "at": 0.32,
+    "look": 2.4
+   },
+   "dawn": 1,
+   "fans": "cheer",
+   "score": [
+    4,
+    3
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "high_enthusiasm_fist_pump",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.05
+    },
+    {
+     "who": "sadi",
+     "look": "football",
+     "clip": "charleston",
+     "x": -0.62,
+     "z": -0.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "football",
+     "clip": "gangnam",
+     "x": 0.62,
+     "z": -0.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6.55,
+     6.12
+    ],
+    "r": [
+     3.07,
+     2.816
+    ],
+    "h": [
+     0.3,
+     0.28
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ball": [
+    [
+     0,
+     -1.9,
+     1,
+     -8.9
+    ]
+   ],
+   "net": [
+    -5,
+    -1.9,
+    1.5,
+    0.75,
+    true
+   ],
+   "keeper": {
+    "pose": "sad"
+   },
+   "dawn": 1,
+   "confetti": true,
+   "fans": "cheer",
+   "score": [
+    4,
+    3
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "samba",
+     "x": -0.55,
+     "z": 0,
+     "face": "camera",
+     "yaw": 0,
+     "at": "auto"
+    },
+    {
+     "who": "sadi",
+     "look": "football",
+     "clip": "charleston",
+     "x": -1.5,
+     "z": -0.35,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "reveal": 1.4
+    },
+    {
+     "who": "compote",
+     "look": "football",
+     "clip": "gangnam",
+     "x": 0.45,
+     "z": -0.35,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.2
+    },
+    {
+     "who": "kob",
+     "look": "football",
+     "clip": "bored_idle",
+     "x": 1.45,
+     "z": 0.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "milk",
+     "reveal": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     4.51
+    ],
+    "r": [
+     2.8,
+     7.624
+    ],
+    "h": [
+     1.25,
+     2.4
+    ],
+    "look": [
+     1.05,
+     1.45
+    ],
+    "fov": 58,
+    "roll": [
+     7,
+     0
+    ],
+    "hand": 0.15,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.2
+   ],
+   "ball": [
+    [
+     0,
+     -1.9,
+     1,
+     -8.9
+    ]
+   ],
+   "keeper": {
+    "pose": "sad"
+   },
+   "dawn": 1,
+   "confetti": true,
+   "fw": 0,
+   "fwY": 5,
+   "fwZ": -22,
+   "fwR": 6.5,
+   "fans": "cheer",
+   "score": [
+    4,
+    3
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "final",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "football",
+     "clip": "samba",
+     "x": -0.55,
+     "z": 0,
+     "face": "camera",
+     "yaw": 0,
+     "at": "auto"
+    },
+    {
+     "who": "sadi",
+     "look": "football",
+     "clip": "charleston",
+     "x": -1.5,
+     "z": -0.35,
+     "face": "camera",
+     "yaw": 0,
+     "at": 3.8
+    },
+    {
+     "who": "compote",
+     "look": "football",
+     "clip": "gangnam",
+     "x": 0.45,
+     "z": -0.35,
+     "face": "camera",
+     "yaw": 0,
+     "at": 4.3
+    },
+    {
+     "who": "kob",
+     "look": "football",
+     "clip": "bored_idle",
+     "x": 1.45,
+     "z": 0.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.74,
+     "speed": 0.4,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.51,
+     4.51
+    ],
+    "r": [
+     7.624,
+     7.624
+    ],
+    "h": [
+     2.4,
+     2.4
+    ],
+    "look": [
+     1.45,
+     1.45
+    ],
+    "fov": 58,
+    "roll": [
+     0,
+     0
+    ],
+    "hand": 0.15,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.2
+   ],
+   "ball": [
+    [
+     0,
+     -1.9,
+     1,
+     -8.9
+    ]
+   ],
+   "keeper": {
+    "pose": "sad"
+   },
+   "dawn": 1,
+   "confetti": true,
+   "fw": -3.1,
+   "fwY": 5,
+   "fwZ": -22,
+   "fwR": 6.5,
+   "fans": "cheer",
+   "score": [
+    4,
+    3
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "still": true
+  }
+ ]
+}

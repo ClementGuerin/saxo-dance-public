@@ -1,6 +1,31 @@
 {
- "updated": "2026-09-29T14:22:50.846Z",
+ "updated": "2026-09-29T18:34:13.447Z",
  "posts": [
+  {
+   "id": "2026-09-28-4",
+   "title": "Dai Dai",
+   "artist": "Shakira & Burna Boy",
+   "date": "2026-09-29T18:00:00.000Z",
+   "thumb": "assets/posts/2026-09-28-4.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd4W06jjosp/",
+     "id": "Dd4W06jjosp"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/5Z7JoYpxCCE",
+     "id": "5Z7JoYpxCCE"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=3002730160073944",
+     "id": "3002730160073944"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2104995035712233671",
+     "id": "2104995035712233671"
+    }
+   }
+  },
   {
    "id": "2026-09-29",
    "title": "Vamos a la playa",
@@ -8,6 +33,10 @@
    "date": "2026-09-29T14:00:00.000Z",
    "thumb": "assets/posts/2026-09-29.jpg",
    "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690963616471764246",
+     "id": "7690963616471764246"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/Dd37S8JFZ2F/",
      "id": "Dd37S8JFZ2F"
