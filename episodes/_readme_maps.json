@@ -2113,6 +2113,84 @@
   {
    "beat": 104,
    "kind": "dance",
+   "map": "desert",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "bassist",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 106,
+   "kind": "dance",
+   "map": "trailer",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    -1.05,
+    -3.4
+   ],
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "robot",
+     "at": "auto",
+     "x": -1.05,
+     "z": -3.4
+    }
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
    "map": "panel",
    "move": "push",
    "still": true,
