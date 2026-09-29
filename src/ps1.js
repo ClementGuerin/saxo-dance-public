@@ -22,6 +22,7 @@ import { buildNoirMaps } from './maps16.js';
 import { buildWorldCupMaps } from './maps17.js';
 import { buildPlayaMaps } from './maps18.js';
 import { buildEstateMaps, trolleyModel, TROLLEY } from './maps19.js';
+import { buildSelfAwareMaps } from './maps20.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -627,6 +628,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   diva: 'assets/models/saxo_diva.glb',
   // the pop singer: long straight hot-pink hair to the shoulders, a navy satin varsity bomber with white striped cuffs worn open, a yellow sports crop top, black cycling shorts, white chunky sneakers ("Ain't In LA", 2026-09-30)
   popstar: 'assets/models/saxo_popstar.glb',
+  // an indie rock frontman: a black leather biker jacket open over a white shirt, a thin black tie, charcoal trousers, black boots, a slicked-back black quiff ("Self Aware", 2026-09-30)
+  frontman: 'assets/models/saxo_frontman.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -662,6 +665,8 @@ const PARTNERS = {
     football: 'assets/models/kob_football.glb',
     // the grumpy neighbour at home: a faded pink quilted flowery housecoat, belted, pink foam curlers across her head, grey fluffy slippers, her bell ("Ain't In LA", 2026-09-30)
     housecoat: 'assets/models/kob_housecoat.glb',
+    // the band's bass player: a black suit jacket, a white shirt, a thin black tie, black trousers, her bell ("Self Aware", 2026-09-30)
+    bassist: 'assets/models/kob_bassist.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -673,6 +678,8 @@ const PARTNERS = {
     football: 'assets/models/compote_football.glb',
     // a Slovak folk dancer: a white blouse with puffed sleeves, a red vest embroidered with flowers, a red skirt with ribbons, a white apron, a crown of red and white flowers, red boots, her carrot clip ("Ain't In LA", 2026-09-30)
     folk: 'assets/models/compote_folk.glb',
+    // the band's drummer: a black cap backwards, a white shirt with rolled sleeves and a loose black tie, black jeans, white sneakers, black sweatbands ("Self Aware", 2026-09-30)
+    drummer: 'assets/models/compote_drummer.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -767,7 +774,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -951,6 +958,10 @@ function propMesh(kind) {
     const lens = add(cyl(0.045, 0.05, 0.07, M(0x2a2a30), 10), 0.01, -0.005, 0.065); lens.rotation.x = Math.PI / 2;
     const glass = add(cyl(0.032, 0.032, 0.01, glow(0x5a7ab8), 10), 0.01, -0.005, 0.1); glass.rotation.x = Math.PI / 2;
     add(box(0.07, 0.05, 0.05, M(0xc8ccd4)), -0.035, 0.105); add(box(0.06, 0.036, 0.004, glow(0xffffff)), -0.035, 0.105, 0.027);
+  } else if (kind === 'handmirror') {   // Sadi's pink hand mirror held up beside her face ("Self Aware"): a silver glass on both faces in a pink rim, a pink handle
+    const disc = add(cyl(0.1, 0.1, 0.025, mat({ color: 0xffb4dc, unlit: 0.6 }), 10), 0, 0.06); disc.rotation.x = Math.PI / 2;
+    for (const fz of [-0.016, 0.016]) { const face = add(cyl(0.083, 0.083, 0.006, glow(0xe8f4ff), 10), 0, 0.06, fz); face.rotation.x = Math.PI / 2; }   // silver on both faces: from the lens its pink back read as a paddle
+    add(box(0.035, 0.13, 0.025, mat({ color: 0xffb4dc, unlit: 0.6 })), 0, -0.08);
   } else if (kind === 'phone') {   // held up filming: screen towards the holder, flash on the back
     add(box(0.11, 0.2, 0.02, mat({ color: 0xffb4dc, unlit: 0.6 }))); add(box(0.094, 0.18, 0.004, glow(0x8fd8ff)), 0, 0, -0.012);   // a candy-pink case (0xff4f9a rendered dark plum at night; a black phone vanished against the shades)
     G.userData.led = add(box(0.03, 0.03, 0.004, glow(0xffffff)), -0.028, 0.07, 0.012);
@@ -1100,7 +1111,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
   }
   if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
-  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
+  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' || kind === 'handmirror' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
   if (g.userData.petals) {   // the petals left: petalsLeft, minus one on every pluckEvery beats since the shot's start (the pluck swing reaches on the beat), or
     // minus the one that falls at petalFall s; the latest plucked petal flutters down to the keys (a mesh of its own in PROPS, hidden each frame)

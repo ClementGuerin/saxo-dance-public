@@ -1,0 +1,2029 @@
+{
+ "date": "2026-09-30",
+ "n": 2,
+ "song": {
+  "title": "Self Aware",
+  "artist": "Temper City"
+ },
+ "logline": "Saxo's band shoots its black-and-white music video on a mountain road, and every love line he seems to sing to Sadi goes past her, to his own reflection in the dressing-room mirror he brought, until Compote smashes it and Sadi finds a mirror of her own",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "being_surprised_and_looking_right",
+  "bored_idle",
+  "happy_idle",
+  "happy_walk",
+  "male_driving_a_car",
+  "playing_a_guitar",
+  "shaking_head_no_dismissively",
+  "shoulder_shrug",
+  "sitting_talking",
+  "zombie_overhead_two_hand_attack"
+ ],
+ "tags": {
+  "structure": "misdirect",
+  "scenes": [
+   "mirror",
+   "smash"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "desert",
+   "trailer"
+  ],
+  "ref": "none",
+  "lyric_literal": "K02/K19 'look' (to his reflection, then hers), K05 'mind gets in the way' (Sadi steps in the way), K08/K25 'never be together' (the head shake, then the smash), K09 'play pretend' (he kisses his reflection)",
+  "experiment": "Does a misdirect structure (each love line seems aimed at someone, the reverse angle shows it's for the lead's own reflection) get more shares per 1,000 views than our story plots?"
+ },
+ "notes": "The clip: Temper City as a three-piece band in black and white, on the shoulder of a mountain road with ranges behind them, a softbox on a tripod, a dump truck passing, camels on a ridge, inside a truck's aluminium trailer under strip lights; colour at the end. Ours keeps the road, the trailer, the softbox, the truck, the camels and the black and white turning to colour; the lead wears the singer's leather jacket and thin tie, Kob and Compote the band's shirts and ties. Structure: misdirect (new). Sadi is the fan he never sees (the romance, then the reality check: she ends up just like him); Compote, the drummer, is violent over it (she smashes the mirror); Kob plays bass, never impressed.",
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": 0.45,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.5,
+     "sway": 8,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": 1.55,
+     "face": "world",
+     "yaw": -140.7,
+     "at": 0.2,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     168.41,
+     169.54
+    ],
+    "r": [
+     3.981,
+     3.305
+    ],
+    "h": [
+     1.95,
+     1.6
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52,
+    "roll": [
+     -10,
+     -6
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -1,
+    2
+   ],
+   "mono": true,
+   "noMic": true,
+   "hearts": [
+    [
+     -0.3,
+     1.3,
+     1.55,
+     0
+    ]
+   ],
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "happy_idle",
+    "at": 0.2,
+    "speed": 0.5,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 4.15,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 8
+   },
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "playing_a_guitar",
+     "x": -1.2,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.2,
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": 1.35,
+     "face": "world",
+     "yaw": 148.2,
+     "at": 0.4,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     65.41,
+     65.1
+    ],
+    "r": [
+     3.244,
+     3.087
+    ],
+    "h": [
+     1.25,
+     1.23
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -1.45,
+    0.75
+   ],
+   "mono": true,
+   "hearts": [
+    [
+     -1.85,
+     1.35,
+     1.35,
+     0.3
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "playing_a_guitar",
+     "x": -1.2,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 2,
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.5,
+     23.2
+    ],
+    "r": [
+     1.773,
+     1.523
+    ],
+    "h": [
+     0.22,
+     0.22
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 60,
+    "roll": [
+     -9,
+     -6
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -1.2,
+    0.3
+   ],
+   "mono": true,
+   "noMic": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": 1.35,
+     "face": "world",
+     "yaw": 148.2,
+     "at": 0.8,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     161.46,
+     160.39
+    ],
+    "r": [
+     1.793,
+     1.698
+    ],
+    "h": [
+     1.12,
+     1.1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -1.72,
+    1.8
+   ],
+   "mono": true,
+   "noMic": true,
+   "hearts": [
+    [
+     -1.85,
+     1.35,
+     1.35,
+     0.1
+    ]
+   ],
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "playing_a_guitar",
+    "at": 2.8,
+    "speed": 1,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 4.3,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 3
+   },
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "playing_a_guitar",
+     "x": -1.2,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 3.6,
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": 1.35,
+     "face": "world",
+     "yaw": 148.2,
+     "at": 1.2,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     162,
+     161.57
+    ],
+    "r": [
+     4.206,
+     3.953
+    ],
+    "h": [
+     1.9,
+     1.85
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.1,
+    1.4
+   ],
+   "mono": true,
+   "hearts": [
+    [
+     -1.85,
+     1.35,
+     1.35,
+     0.2
+    ]
+   ],
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "playing_a_guitar",
+    "at": 3.6,
+    "speed": 1,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 4.3,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 3
+   },
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.5,
+     "sway": 8,
+     "fg": true,
+     "reveal": 2.963
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": 1.35,
+     "face": "world",
+     "yaw": -100,
+     "at": 0.4,
+     "speed": 0.3,
+     "mx": -0.33,
+     "mz": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -159.57,
+     -159.12
+    ],
+    "r": [
+     3.095,
+     2.89
+    ],
+    "h": [
+     1.75,
+     1.72
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -0.92,
+    2.3
+   ],
+   "mono": true,
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "happy_idle",
+    "at": 0.4,
+    "speed": 0.5,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 4.1,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 8
+   },
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bassist",
+     "clip": "bored_idle",
+     "x": 1.35,
+     "z": -0.25,
+     "face": "world",
+     "yaw": -12,
+     "at": 1,
+     "speed": 0.35,
+     "hold": "guitar",
+     "holdScale": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12,
+     -12
+    ],
+    "r": [
+     2.5,
+     2.38
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    1.35,
+    -0.25
+   ],
+   "mono": true,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "male_driving_a_car",
+     "x": 0.1,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     19.86,
+     19.12
+    ],
+    "r": [
+     1.914,
+     1.588
+    ],
+    "h": [
+     0.22,
+     0.22
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 60,
+    "roll": [
+     8,
+     5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.1,
+    -1.25
+   ],
+   "mono": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "shaking_head_no_dismissively",
+     "x": -1.25,
+     "z": 0.4,
+     "face": "world",
+     "yaw": -34.5,
+     "at": 0.3,
+     "speed": 0.9
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -1.8,
+     "z": 1.2,
+     "face": "world",
+     "yaw": 145.5,
+     "at": 0.4,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     64.92,
+     66.04
+    ],
+    "r": [
+     2.595,
+     2.462
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.45,
+    0.8
+   ],
+   "mono": true,
+   "noMic": true,
+   "hearts": [
+    [
+     -1.8,
+     1.3,
+     1.2,
+     0.2
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.4,
+     "mz": 1.25
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.45,
+     "z": -0.15,
+     "face": "world",
+     "yaw": -26.6,
+     "at": 0.2,
+     "speed": 0.8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.75,
+     3.6
+    ],
+    "h": [
+     1.12,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.2,
+    1
+   ],
+   "mono": true,
+   "noGlass": true,
+   "hearts": [
+    [
+     -1.2,
+     1.25,
+     1.95,
+     1.2
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "playing_a_guitar",
+     "x": -1.2,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 4.2,
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": 1.35,
+     "face": "world",
+     "yaw": 148.2,
+     "at": 1.6,
+     "speed": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "male_driving_a_car",
+     "x": 0.1,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     164.33,
+     164.44
+    ],
+    "r": [
+     8.516,
+     8.201
+    ],
+    "h": [
+     2.6,
+     2.5
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.9,
+    2.6
+   ],
+   "mono": true,
+   "truck": [
+    1.481,
+    13
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_walk",
+     "x": -0.55,
+     "z": 1.7,
+     "face": "world",
+     "yaw": 80,
+     "at": 0.3,
+     "speed": 0.6,
+     "mx": 0.95,
+     "mz": 0.15
+    },
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "playing_a_guitar",
+     "x": -1.2,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 5,
+     "hold": "guitar",
+     "holdScale": 1.2,
+     "sway": 3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     18.17,
+     18.15
+    ],
+    "r": [
+     3.368,
+     3.21
+    ],
+    "h": [
+     0.35,
+     0.35
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 62,
+    "roll": [
+     9,
+     6
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    0.05,
+    1.3
+   ],
+   "mono": true,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "trailer",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": -3.4,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.6,
+     "speed": 0.5,
+     "sway": 6
+    },
+    {
+     "who": "kob",
+     "look": "bassist",
+     "clip": "playing_a_guitar",
+     "x": 1,
+     "z": -5.2,
+     "face": "world",
+     "yaw": -10,
+     "at": 0.8,
+     "speed": 0.6,
+     "hold": "guitar",
+     "holdScale": 1.2
+    },
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "male_driving_a_car",
+     "x": 0.05,
+     "z": -6.9,
+     "face": "world",
+     "yaw": 0,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     7.13,
+     7.31
+    ],
+    "r": [
+     5.644,
+     5.343
+    ],
+    "h": [
+     1.45,
+     1.4
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 68
+   },
+   "focus": [
+    -0.5,
+    -5
+   ],
+   "mono": true,
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "happy_idle",
+    "at": 0.6,
+    "speed": 0.5,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -2.35,
+    "z0": -3.4,
+    "yaw": 90,
+    "mx": 0,
+    "mz": 0,
+    "sway": 6
+   },
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "trailer",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1,
+     "z": -3.4,
+     "face": "world",
+     "yaw": -90,
+     "at": 1.2,
+     "speed": 0.5,
+     "sway": 6
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "happy_idle",
+     "x": -0.2,
+     "z": -2.8,
+     "face": "world",
+     "yaw": -126.9,
+     "at": 0.4,
+     "speed": 0.3,
+     "hold": "daisy",
+     "arm": "R",
+     "aim": [
+      0.6,
+      0.55,
+      0.45
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -94.4,
+     -94.51
+    ],
+    "r": [
+     1.956,
+     1.906
+    ],
+    "h": [
+     1.2,
+     1.18
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1,
+    -3.25
+   ],
+   "mono": true,
+   "noGlass": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "trailer",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bassist",
+     "clip": "bored_idle",
+     "x": 1,
+     "z": -5.2,
+     "face": "world",
+     "yaw": 38,
+     "at": 2,
+     "speed": 0.35,
+     "hold": "guitar",
+     "holdScale": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     38,
+     38
+    ],
+    "r": [
+     2.3,
+     2.2
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 36,
+    "ease": "lin"
+   },
+   "focus": [
+    1,
+    -5.2
+   ],
+   "mono": true,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "trailer",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "sitting_talking",
+     "x": 1.05,
+     "z": -1.9,
+     "face": "world",
+     "yaw": -20,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.35,
+     "hold": "handmirror",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.45,
+      0.62
+     ],
+     "holdFrom": 1.111,
+     "upAt": 1.111
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12.88,
+     -13.43
+    ],
+    "r": [
+     1.795,
+     1.594
+    ],
+    "h": [
+     1.2,
+     1.18
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.9500000000000001,
+    -1.9
+   ],
+   "mono": true,
+   "handmirror": true,
+   "hearts": [
+    [
+     1.05,
+     1.15,
+     -1.9,
+     1.259
+    ]
+   ],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "male_driving_a_car",
+     "x": 0.1,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 0,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdL": "dstick",
+     "arm": "both",
+     "aim": "drums",
+     "upAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.43,
+     -1.68
+    ],
+    "r": [
+     2.001,
+     1.701
+    ],
+    "h": [
+     0.3,
+     0.3
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 58,
+    "roll": [
+     -7,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.1,
+    -1.25
+   ],
+   "mono": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": 0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.8,
+     "speed": 0.5,
+     "sway": 9,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     164.18,
+     164.05
+    ],
+    "r": [
+     3.118,
+     2.912
+    ],
+    "h": [
+     1.4,
+     1.38
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -1.3,
+    2.3
+   ],
+   "mono": true,
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "happy_idle",
+    "at": 1.8,
+    "speed": 0.5,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 3.8,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 9
+   },
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 144,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "sitting_talking",
+     "x": -3.1,
+     "z": 1.2,
+     "face": "world",
+     "yaw": 25,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.35,
+     "hold": "handmirror",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.45,
+      0.62
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     27.12,
+     28.39
+    ],
+    "r": [
+     2.303,
+     2.103
+    ],
+    "h": [
+     1.2,
+     1.18
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -3.2,
+    1.2
+   ],
+   "mono": true,
+   "hearts": [
+    [
+     -3.1,
+     1.2,
+     1.2,
+     0.1
+    ]
+   ],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 152,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": 0.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.6,
+     "speed": 0.5,
+     "sway": 8
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "sitting_talking",
+     "x": -3.1,
+     "z": 1.2,
+     "face": "world",
+     "yaw": 160,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.35,
+     "hold": "handmirror",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.45,
+      0.62
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     151.74,
+     151.65
+    ],
+    "r": [
+     4.541,
+     4.318
+    ],
+    "h": [
+     1.35,
+     1.32
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -1.95,
+    1.4
+   ],
+   "mono": true,
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "happy_idle",
+    "at": 2.6,
+    "speed": 0.5,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 3.9,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 8
+   },
+   "hearts": [
+    [
+     -3.1,
+     1.2,
+     1.2,
+     0.3
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 160,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bassist",
+     "clip": "bored_idle",
+     "x": 1.35,
+     "z": -0.25,
+     "face": "world",
+     "yaw": -35,
+     "at": 3,
+     "speed": 0.35,
+     "hold": "guitar",
+     "holdScale": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -35,
+     -35
+    ],
+    "r": [
+     2.6,
+     2.5
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    1.35,
+    -0.25
+   ],
+   "mono": true,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 168,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_walk",
+     "x": 0.25,
+     "z": -0.3,
+     "face": "world",
+     "yaw": -13.5,
+     "at": 0.3,
+     "speed": 0.9,
+     "mx": -0.3,
+     "mz": 1.25,
+     "hold": "dstick"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     89.24,
+     88.43
+    ],
+    "r": [
+     3.75,
+     3.651
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.05,
+    0.35
+   ],
+   "mono": true,
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 176,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -1.2,
+     "z": 1,
+     "face": "world",
+     "yaw": 0,
+     "at": 3.4,
+     "speed": 0.5,
+     "sway": 8
+    },
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_walk",
+     "x": -0.35,
+     "z": -0.9,
+     "face": "world",
+     "yaw": -2.4,
+     "at": 0.3,
+     "speed": 0.9,
+     "mx": -0.05,
+     "mz": 1.5,
+     "hold": "dstick",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.7,
+      0.4
+     ],
+     "upAt": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.75,
+     3.6
+    ],
+    "h": [
+     1.12,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.2,
+    1
+   ],
+   "mono": true,
+   "noGlass": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 184,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "zombie_overhead_two_hand_attack",
+     "x": -1.05,
+     "z": 1.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.55,
+     "speed": 0.3,
+     "once": true,
+     "hold": "dstick",
+     "holdScale": 1.8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     91.97,
+     91.04
+    ],
+    "r": [
+     2.902,
+     2.75
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -1,
+    1.55
+   ],
+   "mono": true,
+   "crowd": {
+    "who": "saxo",
+    "look": "frontman",
+    "clip": "happy_idle",
+    "at": 4.2,
+    "speed": 0.5,
+    "n": 1,
+    "cols": 1,
+    "dx": 0,
+    "dz": 0,
+    "jitter": 0,
+    "face": "world",
+    "x0": -1.2,
+    "z0": 3.8,
+    "yaw": 180,
+    "mx": 0,
+    "mz": 0,
+    "sway": 8
+   },
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 192,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "being_surprised_and_looking_right",
+     "x": -1.2,
+     "z": 0.8,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.1,
+     "speed": 0.8
+    },
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "zombie_overhead_two_hand_attack",
+     "x": -1.05,
+     "z": 1.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "speed": 0.6,
+     "once": true,
+     "hold": "dstick",
+     "holdScale": 1.8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -126.87,
+     -125.07
+    ],
+    "r": [
+     3,
+     2.871
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.9,
+    1.5
+   ],
+   "mono": true,
+   "smash": 0.05,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 200,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_walk",
+     "x": -1.3,
+     "z": 0.7,
+     "face": "world",
+     "yaw": -74.5,
+     "at": 0.2,
+     "speed": 0.7,
+     "mx": -0.8,
+     "mz": 0.1,
+     "reveal": 0.9
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "sitting_talking",
+     "x": -3.1,
+     "z": 1.2,
+     "face": "world",
+     "yaw": 20,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.35,
+     "hold": "handmirror",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.45,
+      0.62
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -11.31,
+     -11.14
+    ],
+    "r": [
+     3.569,
+     3.363
+    ],
+    "h": [
+     1.4,
+     1.38
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -2.5,
+    1
+   ],
+   "broken": true,
+   "mono": [
+    0.25,
+    1.4
+   ],
+   "hearts": [
+    [
+     -3.1,
+     1.2,
+     1.2,
+     0.6
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 208,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "happy_idle",
+     "x": -2.45,
+     "z": 1,
+     "face": "world",
+     "yaw": -72.9,
+     "at": 0.6,
+     "speed": 0.6,
+     "sway": 6
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "sitting_talking",
+     "x": -3.1,
+     "z": 1.2,
+     "face": "world",
+     "yaw": 5,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.35,
+     "hold": "handmirror",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.45,
+      0.62
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     9.78,
+     9.87
+    ],
+    "r": [
+     2.943,
+     2.741
+    ],
+    "h": [
+     1.2,
+     1.18
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -2.8,
+    1.1
+   ],
+   "broken": true,
+   "hearts": [
+    [
+     -3.1,
+     1.2,
+     1.2,
+     0.2
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 216,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "frontman",
+     "clip": "shoulder_shrug",
+     "x": -2.45,
+     "z": 1,
+     "face": "world",
+     "yaw": 160,
+     "at": 0.3,
+     "speed": 0.8
+    },
+    {
+     "who": "sadi",
+     "look": "base",
+     "clip": "sitting_talking",
+     "x": -3.1,
+     "z": 1.2,
+     "face": "world",
+     "yaw": 200,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.35,
+     "hold": "handmirror",
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.45,
+      0.62
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_idle",
+     "x": -0.35,
+     "z": 1.75,
+     "face": "world",
+     "yaw": 160,
+     "at": 0.3,
+     "speed": 0.3,
+     "hold": "dstick",
+     "holdScale": 1.8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     135,
+     134.36
+    ],
+    "r": [
+     6.647,
+     6.294
+    ],
+    "h": [
+     4.2,
+     4
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.1,
+    1.1
+   ],
+   "broken": true,
+   "hearts": [
+    [
+     -3.1,
+     1.2,
+     1.2,
+     0.2
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 224,
+   "kind": "dance",
+   "map": "desert",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bassist",
+     "clip": "bored_idle",
+     "x": 1.35,
+     "z": -0.25,
+     "face": "world",
+     "yaw": -12,
+     "at": 1,
+     "speed": 0,
+     "hold": "guitar",
+     "holdScale": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12,
+     -12
+    ],
+    "r": [
+     2.5,
+     2.45
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    1.35,
+    -0.25
+   ],
+   "broken": true,
+   "still": true,
+   "stars": [
+    "kob"
+   ]
+  }
+ ]
+}
