@@ -2068,6 +2068,85 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 102,
+   "kind": "dance",
+   "map": "estate",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "compote",
+     "look": "folk",
+     "clip": "samba",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "samba",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "panel",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     14,
+     14
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    -2,
+    0.4
+   ],
+   "thump": true,
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "popstar",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -2,
+     "z": 0.4
+    }
+   ]
   }
  ]
 }
