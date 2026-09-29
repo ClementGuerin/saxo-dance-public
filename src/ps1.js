@@ -21,6 +21,7 @@ import { buildWarehouseMaps } from './maps15.js';
 import { buildNoirMaps } from './maps16.js';
 import { buildWorldCupMaps } from './maps17.js';
 import { buildPlayaMaps } from './maps18.js';
+import { buildEstateMaps, trolleyModel, TROLLEY } from './maps19.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -624,6 +625,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   football: 'assets/models/saxo_football.glb',
   // the beach diva: a long wavy golden-blonde wig to the shoulders, white sunglasses pushed up on it, gold hoops and a gold chain, a silver sequinned one-piece swimsuit, bare paws ("Vamos a la playa", 2026-09-29)
   diva: 'assets/models/saxo_diva.glb',
+  // the pop singer: long straight hot-pink hair to the shoulders, a navy satin varsity bomber with white striped cuffs worn open, a yellow sports crop top, black cycling shorts, white chunky sneakers ("Ain't In LA", 2026-09-30)
+  popstar: 'assets/models/saxo_popstar.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -642,6 +645,8 @@ const PARTNERS = {
     glam: 'assets/models/sadi_glam.glb',
     // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, pink boots; her green 7 and her pink bow ("Dai Dai", 2026-09-28)
     football: 'assets/models/sadi_football.glb',
+    // an LA wannabe's velour tracksuit: a hot-pink zip-up hoodie and pants, white sneakers, white heart-shaped sunglasses pushed up on her head, her pink bow ("Ain't In LA", 2026-09-30)
+    tracksuit: 'assets/models/sadi_tracksuit.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -655,6 +660,8 @@ const PARTNERS = {
     detective: 'assets/models/kob_detective.glb',
     // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, black boots; her green 9 and her bell collar ("Dai Dai", 2026-09-28)
     football: 'assets/models/kob_football.glb',
+    // the grumpy neighbour at home: a faded pink quilted flowery housecoat, belted, pink foam curlers across her head, grey fluffy slippers, her bell ("Ain't In LA", 2026-09-30)
+    housecoat: 'assets/models/kob_housecoat.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -664,6 +671,8 @@ const PARTNERS = {
     happi: 'assets/models/compote_happi.glb',
     // the team kit: a sunflower-yellow jersey with a green collar and cuffs, green shorts, yellow socks with green bands, black boots; her green 4, a red sweatband, her carrot clip ("Dai Dai", 2026-09-28)
     football: 'assets/models/compote_football.glb',
+    // a Slovak folk dancer: a white blouse with puffed sleeves, a red vest embroidered with flowers, a red skirt with ribbons, a white apron, a crown of red and white flowers, red boots, her carrot clip ("Ain't In LA", 2026-09-30)
+    folk: 'assets/models/compote_folk.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -758,7 +767,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1113,6 +1122,11 @@ function rideDuck(D, bodyYaw, base, t) {   // the rider sits in the ring of Comp
   const key = D.base + ':duck'; if (!PROPS[key]) { PROPS[key] = duckFloat(); scene.add(PROPS[key]); }
   const g = PROPS[key], s = D.scale || 1; g.visible = true; D.hips.getWorldPosition(_pa);
   g.position.set(_pa.x, base - 0.15, _pa.z); g.rotation.set(0.04 * Math.sin(t * 1.9), bodyYaw, 0.05 * Math.sin(t * 1.4)); g.scale.setScalar(s);   // the duck's head behind him, a backrest: his face stays clear from the front
+}
+function rideTrolley(D, bodyYaw, base, t) {   // the rider sits in the basket of a shopping trolley ("Ain't In LA"), its handle behind him; base: the floor under it
+  const key = D.base + ':trolley'; if (!PROPS[key]) { PROPS[key] = trolleyModel(MAP_KIT); scene.add(PROPS[key]); }
+  const g = PROPS[key], s = D.scale || 1; g.visible = true; D.hips.getWorldPosition(_pa);
+  g.position.set(_pa.x, base + 0.012 * Math.abs(Math.sin(t * 17)), _pa.z); g.rotation.set(0, bodyYaw, 0.015 * Math.sin(t * 23)); g.scale.setScalar(s);   // a rattle over the tarmac
 }
 function wearHat(D, kind, bodyYaw, y) {   // a prop on top of the head (a glass upside down after the spill)
   const key = D.base + ':hat:' + kind; if (!PROPS[key]) { PROPS[key] = propMesh(kind); scene.add(PROPS[key]); }
@@ -1507,7 +1521,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
   // pass 2: pose, place and ground each one, then its props
   const stars = [];
   for (const { A, D, n, at, fyaw, yaw, ground } of plans) {
-    const s = (D.scale || 1) * A.scale, bob = A.ride ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
+    const s = (D.scale || 1) * A.scale, bob = A.ride && A.ride !== 'trolley' ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
     const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, bb = bp(t), jolt = A.bump && bb >= 0 ? A.bump * Math.exp(-fr(bb) * 7) : 0;
     const dip = A.dip ? -A.dip[0] * (0.5 + 0.5 * Math.sin((t - t0) * A.dip[1])) : 0;   // dip: [m, rad/s], bobbing under the waves (a swimmer in trouble)
     const lift = A.lift + bob + A.my * um + jolt + dip;   // my: a rise or a sink; bump: turbulence jolts on the beat
@@ -1552,6 +1566,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.pelt) peltFruit(D, A, bodyYaw, t - t0);
     if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
+    if (A.ride === 'trolley') rideTrolley(D, bodyYaw + A.rideYaw, A.rideY ?? 0, t);
     if (A.ride === 'duck') rideDuck(D, bodyYaw + A.rideYaw, A.rideY != null ? A.rideY + 0.15 + bob : lift, t);   // rideY: the float's base (standing in the ring, legs in the water)
     if (A.hat && (A.hatFrom == null || t - t0 >= A.hatFrom) && D.head) wearHat(D, A.hat, bodyYaw, A.hatY);
     if (A.gum && D.head) blowGum(D, A.gum, t - t0, t);
