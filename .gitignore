@@ -16,3 +16,5 @@ site/assets/repo.json
 site/assets/stats.json
 # wrangler's local state (d1 execute --local, wrangler dev)
 worker/.wrangler/
+game/dist/
+game/*.zip
