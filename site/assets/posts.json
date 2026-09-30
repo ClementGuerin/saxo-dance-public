@@ -1,6 +1,35 @@
 {
- "updated": "2026-09-29T19:23:04.608Z",
+ "updated": "2026-09-30T14:17:29.614Z",
  "posts": [
+  {
+   "id": "2026-09-30",
+   "title": "Ain't In LA",
+   "artist": "ADÉLA",
+   "date": "2026-09-30T14:00:00.000Z",
+   "thumb": "assets/posts/2026-09-30.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7691328486627167521",
+     "id": "7691328486627167521"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd6gUVgAMDm/",
+     "id": "Dd6gUVgAMDm"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/2xGigW-8mBg",
+     "id": "2xGigW-8mBg"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=28707819862185558",
+     "id": "28707819862185558"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2105297016964190295",
+     "id": "2105297016964190295"
+    }
+   }
+  },
   {
    "id": "2026-09-28-4",
    "title": "Dai Dai",
