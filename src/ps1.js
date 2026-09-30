@@ -23,6 +23,7 @@ import { buildWorldCupMaps } from './maps17.js';
 import { buildPlayaMaps } from './maps18.js';
 import { buildEstateMaps, trolleyModel, TROLLEY } from './maps19.js';
 import { buildSelfAwareMaps } from './maps20.js';
+import { buildShipMaps } from './maps21.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -42,6 +43,7 @@ const U = {
   uPtCol: { value: [0, 1, 2, 3].map(() => new THREE.Color(0, 0, 0)) },
   uPtRange: { value: 7 },
   uFogCol: { value: new THREE.Color() }, uFog: { value: new THREE.Vector2(10, 40) },
+  uWaterY: { value: -1e4 }, uWaterCol: { value: new THREE.Color(0x1f6f8f) },   // "SWIM" (2026-10-01): below this y everything is tinted as under water
 };
 
 const VS = /* glsl */`
@@ -49,7 +51,7 @@ const VS = /* glsl */`
 #include <skinning_pars_vertex>
 uniform vec2 uSnap; uniform vec3 uAmb, uDirCol, uDirDir; uniform vec3 uPtPos[4]; uniform vec3 uPtCol[4]; uniform float uPtRange;
 uniform vec2 uRep, uOff;
-varying vec3 vLight; varying vec3 vUvw; varying float vFogD;
+varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY;
 void main() {
   #include <skinbase_vertex>
   #include <begin_vertex>
@@ -64,7 +66,7 @@ void main() {
     float att = clamp(1.0 - dist / uPtRange, 0.0, 1.0);
     L += uPtCol[i] * att * att * (0.35 + 0.65 * max(dot(n, d / dist), 0.0));
   }
-  vLight = L;
+  vLight = L; vWY = wp.y;
   vec4 vp = viewMatrix * wp; vFogD = -vp.z;
   vec4 cp = projectionMatrix * vp;
   cp.xy = floor(cp.xy / cp.w * uSnap + 0.5) / uSnap * cp.w;      // vertex snap to a coarse screen grid
@@ -73,7 +75,13 @@ void main() {
 }`;
 const FS = /* glsl */`
 uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog; uniform float uPale; uniform float uSee;
-varying vec3 vLight; varying vec3 vUvw; varying float vFogD;
+uniform float uWaterY; uniform vec3 uWaterCol;
+varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY;
+vec3 underwater(vec3 c) {                                          // "SWIM": the sea over the deck; a lens under it sees everything through the water
+  if (cameraPosition.y < uWaterY) return mix(c, uWaterCol, clamp(0.34 + vFogD * 0.055, 0.0, 0.9));
+  if (vWY < uWaterY) return mix(c, uWaterCol, clamp(0.26 + (uWaterY - vWY) * 0.75, 0.0, 0.86));
+  return c;
+}
 float bayer(vec2 p) {
   int x = int(mod(p.x, 4.0)), y = int(mod(p.y, 4.0));
   const float m[16] = float[16](0., 8., 2., 10., 12., 4., 14., 6., 3., 11., 1., 9., 15., 7., 13., 5.);
@@ -83,7 +91,7 @@ void main() {
   if (uShadow > 0.0) {                                            // blob shadow: radial falloff drawn as a dither pattern
     vec2 q = vUvw.xy / vUvw.z - 0.5; float a = uShadow * (1.0 - 4.0 * dot(q, q));
     if (a <= bayer(gl_FragCoord.xy)) discard;
-    gl_FragColor = vec4(mix(uShadowCol, uFogCol, smoothstep(uFog.x, uFog.y, vFogD)), 1.0); return;
+    gl_FragColor = vec4(mix(underwater(uShadowCol), uFogCol, smoothstep(uFog.x, uFog.y, vFogD)), 1.0); return;
   }
   if (uSee > 0.0 && bayer(gl_FragCoord.xy) < uSee) discard;         // see: screen-door see-through (a soap bubble), dithered like the PS1's own
   vec4 tx = uUseMap > 0.5 ? texture2D(map, vUvw.xy / vUvw.z) : vec4(1.0);
@@ -91,7 +99,7 @@ void main() {
   tx.rgb = mix(tx.rgb, 0.74 + 0.26 * tx.rgb, uPale);             // pale: porcelain (a crowd of lucky-cat statues); 0 on every other material
   float glow = max(uUnlit, step(tx.a, 0.9));                     // alpha ~0.8 in a texture = self-lit (windows, lamps)
   vec3 lit = mix(vLight, vec3(1.0), uLift);                       // uLift > 0 keeps the hero readable in dark maps
-  vec3 c = tx.rgb * uCol * mix(lit, vec3(1.0), glow);
+  vec3 c = underwater(tx.rgb * uCol * mix(lit, vec3(1.0), glow));
   c = mix(c, uFogCol, smoothstep(uFog.x, uFog.y, vFogD) * (1.0 - uNoFog));   // nofog: the moon and the stars, far beyond the fog
   c = floor(clamp(c, 0.0, 1.0) * 31.0 + bayer(gl_FragCoord.xy)) / 31.0;   // 15-bit colour, ordered dither
   gl_FragColor = vec4(c, 1.0);
@@ -630,6 +638,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   popstar: 'assets/models/saxo_popstar.glb',
   // an indie rock frontman: a black leather biker jacket open over a white shirt, a thin black tie, charcoal trousers, black boots, a slicked-back black quiff ("Self Aware", 2026-09-30)
   frontman: 'assets/models/saxo_frontman.glb',
+  // the band's captain in the clip's naval look: a black double-breasted officer's jacket, two rows of gold buttons, gold cuff stripes, a white captain's cap with a gold anchor ("SWIM", 2026-10-01)
+  captain: 'assets/models/saxo_captain.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -650,6 +660,8 @@ const PARTNERS = {
     football: 'assets/models/sadi_football.glb',
     // an LA wannabe's velour tracksuit: a hot-pink zip-up hoodie and pants, white sneakers, white heart-shaped sunglasses pushed up on her head, her pink bow ("Ain't In LA", 2026-09-30)
     tracksuit: 'assets/models/sadi_tracksuit.glb',
+    // the clip's heroine: a long caramel wool coat open over a white satin slip dress, tan ankle boots, her pink bow ("SWIM", 2026-10-01)
+    coat: 'assets/models/sadi_coat.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -667,6 +679,8 @@ const PARTNERS = {
     housecoat: 'assets/models/kob_housecoat.glb',
     // the band's bass player: a black suit jacket, a white shirt, a thin black tie, black trousers, her bell ("Self Aware", 2026-09-30)
     bassist: 'assets/models/kob_bassist.glb',
+    // the only one who came prepared: a bright orange life jacket (black straps, a white reflective stripe, a whistle) over her mint tweed, her bell ("SWIM", 2026-10-01)
+    lifevest: 'assets/models/kob_lifevest.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -680,6 +694,8 @@ const PARTNERS = {
     folk: 'assets/models/compote_folk.glb',
     // the band's drummer: a black cap backwards, a white shirt with rolled sleeves and a loose black tie, black jeans, white sneakers, black sweatbands ("Self Aware", 2026-09-30)
     drummer: 'assets/models/compote_drummer.glb',
+    // the bosun in sailor whites: a white middy top with a navy striped collar and neckerchief, white bell-bottoms, black shoes, a white sailor cap, her carrot clip ("SWIM", 2026-10-01)
+    sailor: 'assets/models/compote_sailor.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -774,7 +790,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -958,6 +974,9 @@ function propMesh(kind) {
     const lens = add(cyl(0.045, 0.05, 0.07, M(0x2a2a30), 10), 0.01, -0.005, 0.065); lens.rotation.x = Math.PI / 2;
     const glass = add(cyl(0.032, 0.032, 0.01, glow(0x5a7ab8), 10), 0.01, -0.005, 0.1); glass.rotation.x = Math.PI / 2;
     add(box(0.07, 0.05, 0.05, M(0xc8ccd4)), -0.035, 0.105); add(box(0.06, 0.036, 0.004, glow(0xffffff)), -0.035, 0.105, 0.027);
+  } else if (kind === 'bucket') {   // a red bucket with a grey rim and handle, water inside ("SWIM": Compote bails the sea)
+    add(cyl(0.13, 0.1, 0.22, M(0xd8382e), 8), 0, 0); add(cyl(0.135, 0.135, 0.02, M(0xb8bcc4), 8), 0, 0.11); add(cyl(0.118, 0.118, 0.01, mat({ color: 0x3aa8d8, unlit: 0.4 }), 8), 0, 0.085);
+    const h = add(new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.01, 3, 10, Math.PI), M(0x8a8e96)), 0, 0.11); h.rotation.y = Math.PI / 2;
   } else if (kind === 'handmirror') {   // Sadi's pink hand mirror held up beside her face ("Self Aware"): a silver glass on both faces in a pink rim, a pink handle
     const disc = add(cyl(0.1, 0.1, 0.025, mat({ color: 0xffb4dc, unlit: 0.6 }), 10), 0, 0.06); disc.rotation.x = Math.PI / 2;
     for (const fz of [-0.016, 0.016]) { const face = add(cyl(0.083, 0.083, 0.006, glow(0xe8f4ff), 10), 0, 0.06, fz); face.rotation.x = Math.PI / 2; }   // silver on both faces: from the lens its pink back read as a paddle
@@ -1081,9 +1100,9 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'book' || kind === 'wallet' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
+  if (kind === 'pad' || kind === 'book' || kind === 'wallet' || kind === 'bucket' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
-    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : -0.75, bodyYaw, 0, 'YXZ');   // the book and the wallet tilt open towards the holder
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : -0.75, bodyYaw, 0, 'YXZ');   // the book and the wallet tilt open towards the holder
     if (kind === 'melon') g.position.addScaledVector(_up, 0.1 * s);   // it sits on the paws
     if (kind === 'wallet') D.walletAt = g.position.clone();
     return;
@@ -1193,7 +1212,9 @@ const SWINGS = {
   keys: { up: [[0.28, -0.3, 0.91], [0.26, -0.38, 0.89]], fore: [[0.18, -0.12, 0.98], [0.16, -0.58, 0.8]], alt: 0.5, every: 1 },   // "Love Me Not": the paws on the keys, tapping one after the other
   pluck: { up: [[0.2, 0.05, 0.98], [-0.7, 0.28, 0.66]], fore: [[0.3, 0.2, 0.93], [-0.72, 0.3, 0.62]], alt: 0, every: 1 },
   heart: { up: [[0.1, -0.7, 0.7], [0.1, -0.7, 0.7]], fore: [[-0.85, 0.12, 0.52], [-0.85, 0.12, 0.52]], alt: 0, every: 1 },
-  drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
+  drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
+  paddle: { up: [[0.3, 0.26, 0.92], [0.24, -0.22, 0.95]], fore: [[0.22, 0.62, 0.75], [0.14, -0.5, 0.85]], alt: 0.5, every: 1 },   // "SWIM": the doggy paddle, paws down in front of the chest on the beat, the right half a beat after the left
+  bail: { up: [[0.22, -0.55, 0.8], [0.22, 0.3, 0.93]], fore: [[0.2, -0.45, 0.87], [0.2, 0.5, 0.84]], alt: 0, every: 1 },   // "SWIM": bailing, both paws low (the scoop), then the bucket swung up to the chest on the beat   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
 }, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
 function swingK(A, t, side) {   // 1 at pose B (on the beat), 0 at pose A half a swing later
   const S = SWINGS[A.aim], b = (bp(t) - (A.flapPh || 0) - (side === 'R' ? S.alt : 0)) / (A.flapEvery || S.every);
@@ -1686,6 +1707,7 @@ function danceFrame(t) {
   const map = MAPS[mapName];
   for (const m of Object.values(MAPS)) m.group.visible = m === map;   // set every frame: episode scenes switch maps too
   scene.background = map.sky; curMap = map;
+  U.uWaterY.value = -1e4;   // dry unless the map floods this shot ("SWIM")
   map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
   // mono: the frame in black and white (true), or [a, b]: black and white until a s into the shot, colour back by b (the 2D
   // layer greys it: window.MONO, 0-1). photo: s into the shot, the frozen frame becomes an instant photo (window.PHOTO: s since)
