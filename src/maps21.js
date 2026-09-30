@@ -46,7 +46,7 @@ export function buildShipMaps(K) {
   }
 
   // ---- a sailor pet: box body in whites, a navy collar, a white cap, arms that paddle or haul ----
-  const FURS = [0xd8c2a0, 0x3a2e28, 0xf2eee6, 0x9a7a5a, 0x6a6a72, 0xe8a060, 0x2a2a30, 0xc8b8e0];
+  const FURS = [0xd8c2a0, 0xf2eee6, 0xe8a060, 0xc8b8e0, 0xe0d0b8, 0xb89878, 0xf0e2c8, 0xd8b890];   // light furs only: dark ones read as black boxes (the reviewer, 2026-10-01)
   const whiteM = M(0xf4f4f0), navyM = M(0x1e2a5a);
   function sailor(i) {
     const g = new THREE.Group(), fur = M(FURS[i % FURS.length]), kind = i % 3;
@@ -71,8 +71,8 @@ export function buildShipMaps(K) {
   const splashM = mat({ color: 0xf2fcff, unlit: 0.9 }), dropM = mat({ color: 0xcaf4ff, unlit: 0.9 });
   function splashGroup(G) {
     const q = new THREE.Group();
-    for (let i = 0; i < 12; i++) q.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), splashM));
-    q.add(new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.42, 1, 7), mat({ color: 0xeafaff, unlit: 0.9, see: 0.4 })));
+    for (let i = 0; i < 12; i++) q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), splashM));
+    q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), splashM));   // (was a see-through column: it veiled faces and read as frosted cups, 2026-10-01)
     for (let i = 0; i < 40; i++) q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), i % 3 ? dropM : splashM));
     q.visible = false; G.add(q); return q;
   }
@@ -81,8 +81,8 @@ export function buildShipMaps(K) {
     q.position.set(x, y, z);
     const rb = Math.sqrt(big);
     q.children.forEach((b, i) => {
-      if (i < 12) { const a = i / 12 * TAU, rr = (0.25 + k * 1.6) * rb; b.position.set(Math.cos(a) * rr, 0.03, Math.sin(a) * rr); b.scale.set(0.3 * rb, 0.06, 0.3 * rb).multiplyScalar(Math.max(0.05, 1 - k / 0.9)); return; }
-      if (i === 12) { const hgt = 1.4 * rb * Math.sin(Math.min(1, k / 0.6) * PI); b.visible = hgt > 0.02; b.position.set(0, hgt / 2, 0); b.scale.set(rb * (0.8 + 0.8 * k), Math.max(0.01, hgt), rb * (0.8 + 0.8 * k)); return; }
+      if (i < 12) { const a = i / 12 * TAU, rr = (0.25 + k * 1.6) * rb; b.position.set(Math.cos(a) * rr, 0.03, Math.sin(a) * rr); b.scale.set(0.16 * rb, 0.08 * rb, 0.16 * rb).multiplyScalar(Math.max(0.05, 1 - k / 0.9)); return; }
+      if (i === 12) { b.visible = false; return; }
       const a = (i - 13) / 40 * TAU * 5, v = (2.0 + 1.6 * hash(i, 2113)) * rb, sp = (0.35 + 1.1 * hash(i, 2114)) * rb;
       b.position.set(Math.cos(a) * sp * (0.25 + k), v * k - 4.9 * k * k, Math.sin(a) * sp * (0.25 + k));
       b.scale.setScalar(Math.max(0.01, (0.06 + 0.06 * hash(i, 2115)) * rb * (1 - k / 0.9)));
@@ -113,7 +113,7 @@ export function buildShipMaps(K) {
     for (const s of [-1, 1]) G.add(at(box(0.22, 0.07, deckL, teak), s * (RAIL + 0.05), 0.97, (DECK[0] + DECK[1]) / 2));   // the cap rails
     G.add(at(box(RAIL * 2 + 0.3, 0.07, 0.22, teak), 0, 0.97, DECK[1] + 0.05));
     for (const s of [-1, 1]) { const c = at(box(0.22, 0.07, bowL, teak), s * RAIL / 2, 0.97, (DECK[0] + BOW_TIP) / 2); c.rotation.y = -s * bowYaw; G.add(c); }
-    G.add(rot(at(cyl(0.1, 0.16, 8.5, 6, M(0x8a5a30)), 0, 1.5, BOW_TIP - 3.2), -1.33, 0, 0));   // the bowsprit
+    const sprit = rot(at(cyl(0.1, 0.16, 8.5, 6, M(0x8a5a30)), 0, 1.5, BOW_TIP - 3.2), -1.33, 0, 0); G.add(sprit);   // the bowsprit (flag sprit: false hides it: behind the heroine it grew out of her head)
     // ---- masts, gaffs and booms, cream gaff sails sheeted out to port, jibs from the foremast to the bowsprit ----
     const mastM = M(0xb07a44), sparM = M(0x9a6a3a);
     const sailT = tex(16, 16, (x, r) => { px(x, '#efe6cf', 0, 0, 16, 16); noise(x, r, 16, 16, ['#e8dfc6', '#f6eedb'], 40); for (let i = 3; i < 16; i += 5) px(x, '#d8ceb2', 0, i, 16, 1); }, 2103);
@@ -137,10 +137,10 @@ export function buildShipMaps(K) {
       const jib = new THREE.Mesh(jg, sailM); jib.rotation.y = 0.12; G.add(jib); sails.push(jib);
     }
     // a few shrouds, beside the masts only (thin lines across the band's faces read as glitches, 2026-09-26)
-    const ropeM = M(0x5a4a38);
+    const ropeM = M(0x5a4a38), stays = [];
     for (const s of [-1, 1]) for (const [[mx, mz], top] of [[FORE, 16], [MAIN, 18], [MIZZEN, 13]]) for (const dz of [-0.5, 0.5]) {
       const a = new THREE.Vector3(mx, top, mz), b = new THREE.Vector3(s * RAIL, 0.97, mz + dz), d = a.clone().sub(b), r = box(0.03, d.length(), 0.03, ropeM);
-      r.position.copy(a).add(b).multiplyScalar(0.5); r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize()); G.add(r);
+      r.position.copy(a).add(b).multiplyScalar(0.5); r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize()); G.add(r); stays.push(r);
     }
     // a pennant at the mainmast's top
     const penT = tex(8, 4, x => { px(x, '#1e2a5a', 0, 0, 8, 4); px(x, '#f4f4f0', 0, 1, 8, 2); });
@@ -156,6 +156,14 @@ export function buildShipMaps(K) {
     const doorT = tex(16, 32, (x, r) => { px(x, '#5a2a18', 0, 0, 16, 32); noise(x, r, 16, 32, ['#522614', '#62301c'], 40); for (const [y, h] of [[2, 12], [18, 12]]) { px(x, '#3a180a', 2, y, 12, h); px(x, '#6e3822', 3, y + 1, 10, h - 2); } px(x, '#f4f0e6', 0, 0, 16, 1); px(x, '#f4f0e6', 0, 31, 16, 1); }, 2105);   // dark red wood, deep panels, a white-painted edge
     const door = new THREE.Group(); door.add(box(0.95, 0.07, 2.05, mat({ map: doorT })));
     door.add(at(new THREE.Mesh(new THREE.SphereGeometry(0.042, 6, 4), mat({ color: 0xe8b838, unlit: 0.4 })), 0.36, 0.075, 0.1)); door.add(at(box(0.07, 0.012, 0.16, mat({ color: 0x3a2a14 })), 0.36, 0.038, 0.16)); G.add(door);
+    // ---- Compote's tub (flag `tub`): a giant red bucket afloat, her boat; the captain's cap afloat (flag `cap`) ----
+    const tub = new THREE.Group(); { const red = M(0xd8382e), rim = M(0xb8bcc4);
+      tub.add(at(cyl(0.5, 0.4, 0.62, 10, red), 0, 0, 0)); tub.add(at(cyl(0.53, 0.53, 0.06, 10, rim), 0, 0.31, 0)); tub.add(at(cyl(0.44, 0.44, 0.02, 10, mat({ color: 0x3aa8d8, unlit: 0.4 })), 0, 0.12, 0));
+      for (const s of [-1, 1]) { const h = at(box(0.06, 0.06, 0.2, rim), s * 0.53, 0.2, 0); tub.add(h); } }
+    G.add(tub);
+    const cap = new THREE.Group(); { cap.add(at(cyl(0.17, 0.15, 0.1, 10, M(0xf4f4f0)), 0, 0.05, 0)); cap.add(at(cyl(0.18, 0.18, 0.02, 10, M(0xf4f4f0)), 0, 0.1, 0));
+      cap.add(at(cyl(0.155, 0.155, 0.035, 10, M(0x151515)), 0, 0.02, 0)); const v = at(box(0.24, 0.015, 0.1, M(0x151515)), 0, 0.01, 0.17); cap.add(v); cap.add(at(box(0.07, 0.05, 0.01, mat({ color: 0xf0c040, unlit: 0.5 })), 0, 0.06, 0.162)); }
+    G.add(cap);
     // ---- deck dressing: the wheel, the bell, lifebuoys, coils of rope, a hatch ----
     const [WX, WZ] = SHIP.WHEEL; G.add(at(box(0.3, 0.95, 0.3, M(0x8a5a30)), WX, 0.47, WZ + 0.25));
     const wheel = new THREE.Group(); wheel.add(new THREE.Mesh(new THREE.TorusGeometry(0.48, 0.045, 4, 12), M(0x9a6440))); for (let i = 0; i < 8; i++) { const sp = box(0.04, 1.26, 0.04, M(0x9a6440)); sp.rotation.z = i / 8 * PI; wheel.add(sp); }
@@ -171,7 +179,7 @@ export function buildShipMaps(K) {
     for (const [x, z] of [[2.6, -9.4], [-2.6, 1.8], [2.7, 9.6]]) for (let q = 0; q < 3; q++) { const c = at(new THREE.Mesh(new THREE.TorusGeometry(0.28 - q * 0.07, 0.04, 3, 10), M(0xc8b080)), x, 0.04 + q * 0.07, z); c.rotation.x = PI / 2; G.add(c); }
     G.add(at(box(1.2, 0.14, 1.2, M(0x9a6a3a)), 1.9, 0.07, -0.6));   // a hatch
     // ---- the sea: a big plane at the sea level, see-through once it is over the deck; the deep under it ----
-    const seaT = tex(32, 32, (x, r) => { px(x, '#1c6c94', 0, 0, 32, 32); noise(x, r, 32, 32, ['#1a6490', '#23789e', '#16587e'], 220); for (let i = 0; i < 16; i++) px(x, '#e8f6ff', Math.floor(r() * 29), Math.floor(r() * 32), 3, 1); }, 2106);
+    const seaT = tex(32, 32, (x, r) => { px(x, '#1c6c94', 0, 0, 32, 32); noise(x, r, 32, 32, ['#1a6490', '#23789e', '#16587e'], 220); for (let i = 0; i < 7; i++) px(x, '#cfeaf8', Math.floor(r() * 31), Math.floor(r() * 32), 1, 1); }, 2106);   // small flecks: 3 px dashes read as rain from above
     const seaM = mat({ map: seaT, rep: [120, 120], side: THREE.DoubleSide });
     const sea = flat(700, 700, seaM, 0, SHIP.SEA, 0); G.add(sea);
     G.add(flat(700, 700, M(0x0a2a3a), 0, -26, 0));   // the deep
@@ -189,10 +197,10 @@ export function buildShipMaps(K) {
     }
     G.add(berg);
     // ice chunks falling on the deck (flag `ice`)
-    const chunks = []; for (let q = 0; q < 12; q++) { const c = new THREE.Mesh(new THREE.IcosahedronGeometry(0.16 + 0.1 * hash(q, 2120), 0), iceM); G.add(c); chunks.push(c); }
+    const chunks = []; for (let q = 0; q < 12; q++) { const c = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1 + 0.07 * hash(q, 2120), 0), iceM); G.add(c); chunks.push(c); }
     // ---- the spray over the rail (flag `spray`), the wave across the deck (flag `wave`), splashes, the bailed water ----
     const spray = []; for (let q = 0; q < 70; q++) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), q % 3 ? dropM : splashM); G.add(b); spray.push(b); }
-    const waveBodyM = mat({ color: 0x2f9ec4, unlit: 0.55, see: 0.3 }), waveWall = [], waveFoam = [];
+    const waveBodyM = mat({ color: 0x2f9ec4, unlit: 0.55 }), waveWall = [], waveFoam = [];   // opaque: see-through read as a mesh fence
     for (let q = 0; q < 26; q++) { const b = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), waveBodyM); G.add(b); waveWall.push(b); }
     for (let q = 0; q < 40; q++) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 0), q % 3 ? splashM : dropM); G.add(b); waveFoam.push(b); }
     const splashes = [0, 1, 2].map(() => splashGroup(G));
@@ -203,7 +211,15 @@ export function buildShipMaps(K) {
     const rope = at(box(0.05, 0.05, 1, M(0xc8b080)), 0, 0.6, 0); G.add(rope);
     // ---- under the sea: fish and bubbles ----
     const FISH = [0xff9a2e, 0xffd43b, 0x4ae0d0, 0xff5fa2, 0x8ad84a, 0xffffff];
-    const fish = FISH.concat(FISH).map(c => { const f = new THREE.Group(); f.add(box(0.2, 0.12, 0.05, M(c))); f.add(at(rot(box(0.12, 0.12, 0.02, M(c)), 0, 0, PI / 4), -0.17, 0, 0)); f.add(at(box(0.03, 0.03, 0.075, M(0x101010)), 0.08, 0.03, 0)); G.add(f); return f; });
+    const fishShape = c => {   // a rounded body, a triangle tail, a white eye with a black pupil on both sides (boxes read as arrows)
+      const f = new THREE.Group(), body = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), M(c)); body.scale.set(0.16, 0.1, 0.05); f.add(body);
+      const tg = new THREE.BufferGeometry(); tg.setAttribute('position', new THREE.BufferAttribute(new Float32Array([-0.13, 0, 0, -0.28, 0.1, 0, -0.28, -0.1, 0]), 3)); tg.computeVertexNormals();
+      f.add(new THREE.Mesh(tg, mat({ color: c, side: THREE.DoubleSide })));
+      for (const s of [-1, 1]) { f.add(at(box(0.045, 0.045, 0.012, M(0xffffff)), 0.08, 0.025, s * 0.045)); f.add(at(box(0.022, 0.022, 0.014, M(0x101010)), 0.09, 0.025, s * 0.05)); }
+      return f;
+    };
+    const fish = FISH.concat(FISH).map(c => { const f = fishShape(c); G.add(f); return f; });
+    const frontFish = fishShape(0xff9a2e); frontFish.scale.setScalar(1.6); G.add(frontFish);
     const bubM = mat({ color: 0xdff6ff, unlit: 0.8 }), bubbles = []; for (let q = 0; q < 36; q++) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.035 + 0.03 * hash(q, 2130), 0), bubM); G.add(b); bubbles.push(b); }
     // ---- the sky: clouds and the sun (a daytime gradient is the scene background) ----
     const cloudM = mat({ color: 0xffffff, unlit: 0.9, nofog: 1 });
@@ -212,16 +228,17 @@ export function buildShipMaps(K) {
       for (let j = 0; j < 4; j++) { const puff = at(new THREE.Mesh(new THREE.IcosahedronGeometry(1, 0), cloudM), j * 5 - 7, hash(q, j) * 2, 0); puff.scale.set(6 + 3 * hash(q, j + 5), 3 + hash(q, j + 9) * 2, 5); c.add(puff); }
       c.position.set(Math.cos(a) * R, 26 + 20 * hash(q, 2142), Math.sin(a) * R); c.lookAt(0, c.position.y, 0); G.add(c);
     }
-    const sun = at(new THREE.Mesh(new THREE.CircleGeometry(9, 12), mat({ color: 0xfff6d8, unlit: 1, nofog: 1 })), 60, 95, -150); sun.lookAt(0, 0, 0); G.add(sun);
+    const sun = at(new THREE.Mesh(new THREE.CircleGeometry(9, 12), mat({ color: 0xfff6d8, unlit: 1, nofog: 1 })), -60, 95, 150); sun.lookAt(0, 0, 0); G.add(sun);
 
     return {
       group: G, sky: grad([[0, '#4a9ee0'], [0.5, '#8cc8f0'], [1, '#d8eef8']]), shadowCol: 0x8a6a44,
-      light() { lights(0xa8b8c8, 0xfff2d8, [0.35, -0.8, 0.45], 0xcce6f4, [40, 190], 8); },
+      light() { lights(0xb8c6d4, 0xfff2d8, [0.3, -0.8, -0.5], 0xcce6f4, [40, 190], 8); },   // the sun behind the usual lenses (from the stern): lit from the bow side, the crew read as black boxes
       anim(t, P = {}) {
         const s = shotT(t, P), b = beat(t), W = seaLevel(P, s);
         const over = W > -0.08;   // the sea is on the deck
         U.uWaterY.value = W; U.uWaterCol.value.set(0x1f6f8f);
-        sea.position.y = W + Math.sin(t * 0.9) * 0.02; seaM.uniforms.uOff.value.set(t * 0.01, t * 0.035); seaM.uniforms.uSee.value = over ? 0.45 : 0;
+        const lensUnder = !!P.lens && P.lens[1] < W;   // a lens under the sea sees the surface from below: opaque and bright (dithered, it read as a net)
+        sea.position.y = W + Math.sin(t * 0.9) * 0.02; seaM.uniforms.uOff.value.set(t * 0.01, t * 0.035); seaM.uniforms.uSee.value = over && !lensUnder && W >= 0.12 && W <= 3 ? 0.45 : 0;   // see-through only knee to chin deep: a dithered film read as a dot pattern, deep water as seams and dashes
         G.position.y = -(P.sink || 0);
         // the sails breathe, the pennant flies
         sails.forEach((sl, i) => { sl.scale.x = 1 + 0.04 * Math.sin(t * 1.1 + i); });
@@ -234,7 +251,7 @@ export function buildShipMaps(K) {
         // ice chunks: they fall round the stage from s = P.ice, bounce and lie on the deck (or float on the flood)
         chunks.forEach((c, q) => {
           if (P.ice == null) { c.visible = false; return; }
-          const k = s - P.ice - hash(q, 2121) * 0.5, x = STAGE[0] + (hash(q, 2122) - 0.5) * 5.4, z = STAGE[1] + (hash(q, 2123) - 0.5) * 3.2, rest = Math.max(0.1, W);
+          const k = s - P.ice - hash(q, 2121) * 0.5, x = STAGE[0] + (hash(q, 2122) - 0.5) * 5.4, z = STAGE[1] - 0.8 - hash(q, 2123) * 2.6, rest = Math.max(0.1, W);   // behind the band
           c.visible = k >= 0; if (!c.visible) return;
           const land = Math.sqrt(2 * (7 - rest) / 9.8), y = Math.max(rest, 7 - 4.9 * k * k), bounce = k > land ? 0.25 * Math.abs(Math.sin((k - land) * 9)) * Math.exp(-(k - land) * 4) : 0;
           c.position.set(x, y + bounce, z); c.rotation.set(k * 3 + q, k * 2, q);
@@ -242,8 +259,8 @@ export function buildShipMaps(K) {
         // the spray: the breach bursts over the rail, inwards (side -1: from port, 1: from starboard)
         const Sp = P.spray; spray.forEach((d, q) => {
           const k = Sp ? s - Sp[2] - hash(q, 2125) * 0.25 : -1; d.visible = !!Sp && k >= 0 && k < 1.3; if (!d.visible) return;
-          const side = Sp[3] || -1, x0 = side * (RAIL + 0.1), vIn = 2.2 + 2.6 * hash(q, 2126), vUp = 4 + 3 * hash(q, 2127);
-          d.position.set(x0 - side * vIn * k, 0.9 + vUp * k - 4.9 * k * k, Sp[1] + (hash(q, 2128) - 0.5) * 2.2); d.scale.setScalar(0.07 + 0.08 * hash(q, 2129));
+          const side = Sp[3] || -1, x0 = side * (RAIL + 0.1), vIn = 2.6 + 1.6 * hash(q, 2126), vUp = 2.4 + 1.4 * hash(q, 2127);
+          d.position.set(x0 - side * vIn * k, 0.9 + vUp * k - 4.9 * k * k, Sp[1] + (hash(q, 2128) - 0.5) * 1.6); d.scale.setScalar(0.1 + 0.09 * hash(q, 2129));
           if (d.position.y < Math.max(0, W)) d.visible = false;
         });
         // the wave: a wall of white water across the deck, crashing over the bow and rolling aft over the stage in 0.9 s
@@ -260,7 +277,7 @@ export function buildShipMaps(K) {
         const spl = P.splash ? (Array.isArray(P.splash[0]) ? P.splash : [P.splash]) : [];
         splashes.forEach((q, i) => { if (spl[i]) splashFx(q, spl[i][0], W, spl[i][1], s - spl[i][2], spl[i][3] || 1.2); else q.visible = false; });
         const pd = P.paddle || [];
-        pads.forEach((q, i) => { if (!pd[i]) { q.visible = false; return; } const u = b * 2 + i * 0.37, k = fr(u) * 0.5, sd = Math.floor(u) % 2 ? 1 : -1; splashFx(q, pd[i][0] + sd * 0.22, W, pd[i][1] + 0.3, k * 1.3, 0.3); });
+        pads.forEach((q, i) => { if (!pd[i]) { q.visible = false; return; } const u = b * 2 + i * 0.37, k = fr(u) * 0.5, sd = Math.floor(u) % 2 ? 1 : -1; splashFx(q, pd[i][0] + sd * 0.55, W, pd[i][1] - 0.1, k * 1.3, 0.22); });   // beside the body: in front they covered faces });
         // the bailed water: a bucketful flung from [x, y, z] along [dx, dz] on every beat, arcing into the sea
         const Bl = P.bail; bailed.forEach((d, q) => {
           if (!Bl) { d.visible = false; return; }
@@ -275,6 +292,9 @@ export function buildShipMaps(K) {
           const bob = P.doorBob === false ? 0 : 1, y = Math.max(DH_Y + 0.095, W + 0.02 + 0.03 * Math.sin(t * 1.7) * bob), afloat = y > DH_Y + 0.1;   // doorBob false: someone sits or stands on it (their lift can't bob with it)
           door.position.set(D[0], y, D[1]); door.rotation.set(afloat ? 0.03 * Math.sin(t * 1.3) * bob : 0, (D[2] || 0) * PI / 180, afloat ? 0.04 * Math.sin(t * 1.1) * bob : 0);
         }
+        // Compote's tub and the floating cap, bobbing at the sea level
+        const Tb = P.tub; tub.visible = !!Tb; if (Tb) { tub.position.set(Tb[0], W - 0.06 + 0.03 * Math.sin(t * 2.1), Tb[1]); tub.rotation.set(0.05 * Math.sin(t * 1.7), (Tb[2] || 0) * PI / 180, 0.06 * Math.sin(t * 1.3)); }
+        const Cp = P.cap; cap.visible = !!Cp; if (Cp) { cap.position.set(Cp[0], W - 0.03 + 0.02 * Math.sin(t * 2.4), Cp[1]); cap.rotation.set((Cp[3] || 0) + 0.08 * Math.sin(t * 1.9), (Cp[2] || 0) * PI / 180 + 0.1 * Math.sin(t * 0.7), 0.06 * Math.sin(t * 1.5)); }   // Cp[3]: a tilt that shows the visor and the anchor to the lens
         // the crew
         const mode = P.crew || 'none', cleared = (x, z) => (P.clear || []).some(([cx, cz, r]) => (x - cx) ** 2 + (z - cz) ** 2 < r * r);
         rope.visible = mode === 'pull';
@@ -295,7 +315,7 @@ export function buildShipMaps(K) {
             if (k < 0) { c.g.position.set(home[0], bob, home[1]); c.arms.forEach(a => a.rotation.set(-0.3, 0, 0)); c.g.rotation.y = PI / 2; return; }
             const run = cl(k / 0.45), fly = cl((k - 0.45) / 0.7), x0 = home[0], x1 = RAIL - 0.3, x2 = RAIL + 2.6;
             const x = run < 1 ? x0 + (x1 - x0) * sm(run) : x1 + (x2 - x1) * fly, y = run < 1 ? bob : 0.95 + 1.3 * Math.sin(fly * PI * 0.8) - (fly > 0.8 ? (fly - 0.8) * 8 : 0);
-            c.g.position.set(x, y, home[1]); c.g.rotation.set(0, PI / 2, 0); c.body.rotation.x = run < 1 ? 0 : 1.3 * fly;
+            c.g.position.set(x, y, home[1]); c.g.rotation.set(0, PI / 2, 0); c.body.rotation.x = run < 1 ? 0 : 0.4 + 1.9 * fly;   // head first, down to vertical
             c.arms.forEach(a => a.rotation.set(run < 1 ? -0.5 : -3.0, 0, 0));
             if (y < W - 0.4 || k > 1.3) c.g.visible = false;
           } else if (mode === 'swim') {   // heads in the water round given spots, bobbing, paddling
@@ -311,11 +331,14 @@ export function buildShipMaps(K) {
           f.position.set(F[0] + Math.cos(a) * r, F[1] + (hash(i, 2153) - 0.5) * 0.8, F[2] + Math.sin(a) * r * 0.7);
           f.rotation.y = -a - dir * PI / 2; f.visible = f.position.y < W - 0.1 && (!P.lens || Math.hypot(f.position.x - P.lens[0], f.position.y - P.lens[1], f.position.z - P.lens[2]) > 2.5);
         });
+        const FF = P.fishFront; frontFish.visible = !!FF;
+        if (FF) { const u = s * 0.55; frontFish.position.set(FF[0] - 1.2 + u, FF[1] + 0.05 * Math.sin(t * 3), FF[2]); frontFish.rotation.set(0, 0, 0.1 * Math.sin(t * 5)); }
         const Bu = P.bubbles || []; bubbles.forEach((d, q) => {
           if (!Bu.length) { d.visible = false; return; }
           const src = Bu[q % Bu.length], top = Math.max(0.2, W), y = fr(t * 0.45 + hash(q, 2160)) * top;
           d.position.set(src[0] + (hash(q, 2161) - 0.5) * 0.7 + 0.05 * Math.sin(t * 4 + q), y, src[1] + (hash(q, 2162) - 0.5) * 0.6); d.visible = y < W;
         });
+        stays.forEach(r => { r.visible = P.stays !== false; }); sprit.visible = P.sprit !== false;
         // the bell swings a little, the wheel turns with the swell
         bell.rotation.z = 0.15 * Math.sin(t * 2.1); wheel.rotation.z = 0.2 * Math.sin(t * 0.7);
         pt(0, 0, 3.5, STAGE[1] + 2, 0.18, 0.17, 0.14);

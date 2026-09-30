@@ -1,0 +1,2325 @@
+{
+ "date": "2026-10-01",
+ "song": {
+  "title": "SWIM",
+  "artist": "BTS"
+ },
+ "logline": "The band plays on: Saxo's boy band shoots its SWIM video on a schooner that has just hit an iceberg, and keeps doing the swim move as the sea rises line by line, while Kob, in a life jacket from her first shot, waits on a door; on the last 'dive' she pushes the captain off it.",
+ "new": "the OBLIVIOUS structure (a disaster grows in every shot while the performers carry on); src/maps21.js ship: a schooner by day that sinks (the sea rises, an underwater tint in the shared shader, a see-through flood over the deck, the lens under the sea); the paddle and bail swings; the bucket; four looks (captain, coat, lifevest, sailor)",
+ "notes": "The clip (studied from a 360p copy, one frame every 3 s): a museum of model ships, a white three-masted schooner at sea, the band in black naval officer's jackets with gold buttons at the wheel and the rail, a heroine in a camel coat at the bow, sailors in white hauling a rope in a line, a telegraph, a pocket watch, cream sails against a blue sky; the performance video is a maritime museum's boat hall. Kept: the schooner, the jackets (Saxo's captain look), the heroine (Sadi's coat), the sailors (the crew, Compote's whites). The whole cast: Saxo the oblivious captain and lead; Sadi the heroine, then the reality check (she ends up on the door); Kob never dances and came prepared (the life jacket, the door, the milk: she won't touch water, the running thread); Compote fights the sea with a bucket all the way.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "sitting_talking",
+  "happy_idle",
+  "standing_praying_while_swaying",
+  "being_surprised_and_looking_right"
+ ],
+ "tags": {
+  "structure": "oblivious",
+  "scenes": [
+   "flood",
+   "swim"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "ship"
+  ],
+  "ref": "none",
+  "lyric_literal": "'swim' (the paddle on every one, then swimming for real), 'water falling on skin' (the spray, the bucket), 'watching you' (Kob), 'dive' (the crew jump ship, the synchronised dive, the push off the door), 'make wave' (a real wave), 'under' (the lens goes under the sea)",
+  "experiment": "Does a disaster that grows in every shot while the band keeps dancing (the band plays on) with a famous-film payoff (the door) hold viewers to the end and get more shares per 1,000 views than our story plots, on a global K-pop hit?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "arm": "both",
+     "aim": "paddle"
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "gangnam",
+     "x": -0.9,
+     "z": -4.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "arm": "both",
+     "aim": "paddle"
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "gangnam",
+     "x": 1.72,
+     "z": -4.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "arm": "both",
+     "aim": "paddle"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -43.11,
+     -39.81,
+     -36.38,
+     -33.14
+    ],
+    "r": [
+     6.438,
+     5.467,
+     4.72,
+     4.299
+    ],
+    "h": [
+     2.35,
+     1.55,
+     0.45,
+     0.28
+    ],
+    "look": [
+     0.95,
+     0.95,
+     0.95,
+     0.95
+    ],
+    "fov": 62,
+    "roll": [
+     0,
+     -3,
+     -12,
+     -4
+    ],
+    "hand": 0.15
+   },
+   "focus": [
+    -0.1,
+    -4.2
+   ],
+   "water": -1.4,
+   "crew": "dance",
+   "clear": [
+    [
+     -1.5,
+     -5.1,
+     0.4
+    ],
+    [
+     -0.75,
+     -6.8,
+     0.4
+    ]
+   ],
+   "berg": [
+    12.5,
+    -26,
+    12.5,
+    -13
+   ],
+   "bergDur": 3.2,
+   "ice": -0.45,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "arm": "both",
+     "aim": "paddle"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -56.59,
+     -57.34
+    ],
+    "r": [
+     2.815,
+     2.316
+    ],
+    "h": [
+     0.42,
+     0.4
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 56,
+    "roll": [
+     -8,
+     -5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.1,
+    -3.45
+   ],
+   "water": -1.3,
+   "spray": [
+    0,
+    -3.2,
+    0.638,
+    1
+   ],
+   "berg": [
+    12.5,
+    -9,
+    12.5,
+    -2
+   ],
+   "bergDur": 2.6,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.2,
+     "arm": "both",
+     "aim": "paddle"
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "gangnam",
+     "x": -0.9,
+     "z": -4.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.2,
+     "arm": "both",
+     "aim": "paddle"
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "gangnam",
+     "x": 0.9,
+     "z": -4.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.2,
+     "arm": "both",
+     "aim": "paddle"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.33,
+     3.14
+    ],
+    "r": [
+     5.159,
+     4.557
+    ],
+    "h": [
+     1.3,
+     1.24
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 60,
+    "roll": [
+     -5,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -4.6
+   ],
+   "water": [
+    0,
+    0.05,
+    0.2,
+    2.4
+   ],
+   "crew": "dance",
+   "paddle": [
+    [
+     0,
+     -3.4
+    ],
+    [
+     -0.9,
+     -4.4
+    ],
+    [
+     0.9,
+     -4.4
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": 5.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.98,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.95,
+     2.83
+    ],
+    "h": [
+     1.8,
+     1.8
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    5.9
+   ],
+   "water": 0.06,
+   "door": [
+    0.55,
+    5.9,
+    0
+   ],
+   "doorBob": false,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.8,
+     "arm": "both",
+     "aim": "paddle"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6.2,
+     5.14
+    ],
+    "r": [
+     2.314,
+     2.008
+    ],
+    "h": [
+     0.2,
+     0.2
+    ],
+    "look": [
+     0.86,
+     0.86
+    ],
+    "fov": 64,
+    "roll": [
+     -10,
+     -6
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -3.5
+   ],
+   "water": [
+    0.1,
+    0.15
+   ],
+   "crew": "dance",
+   "clear": [
+    [
+     -2.3,
+     -6.6,
+     0.4
+    ],
+    [
+     2.3,
+     -6.6,
+     0.4
+    ]
+   ],
+   "paddle": [
+    [
+     0,
+     -3.4
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "happy_idle",
+     "x": 2.45,
+     "z": -2.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.6,
+     "hold": "bucket",
+     "arm": "both",
+     "aim": "bail"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -72.58,
+     -72.65
+    ],
+    "r": [
+     2.673,
+     2.514
+    ],
+    "h": [
+     1.15,
+     1.12
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    2.45,
+    -2.55
+   ],
+   "water": 0.2,
+   "bail": [
+    2.4000000000000004,
+    0.85,
+    -2.5,
+    1,
+    -0.05
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -16.6,
+     "face": "world",
+     "yaw": 70,
+     "at": 0.4,
+     "speed": 0.4,
+     "sway": 3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     20.43,
+     21.8
+    ],
+    "r": [
+     2.721,
+     2.477
+    ],
+    "h": [
+     1.4,
+     1.38
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0.25,
+    -16.7
+   ],
+   "water": 0.24,
+   "sprit": false,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "x": 1.2,
+     "z": -4.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 4.2,
+     "arm": "both",
+     "aim": "paddle"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     30.96,
+     31.55
+    ],
+    "r": [
+     6.997,
+     6.689
+    ],
+    "h": [
+     2.8,
+     2.78
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    2,
+    -4.8
+   ],
+   "water": 0.3,
+   "crew": "dive",
+   "crewDive": [
+    0.19,
+    0.22
+   ],
+   "paddle": [
+    [
+     1.2,
+     -4.3
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "happy_idle",
+     "x": -0.34,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 76.4,
+     "at": 0.3,
+     "speed": 0.45,
+     "sway": 6,
+     "arm": "R",
+     "aim": [
+      0.12,
+      0.18,
+      0.97
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "happy_idle",
+     "x": 0.34,
+     "z": -3.4,
+     "face": "world",
+     "yaw": -59.599999999999994,
+     "at": 0.9,
+     "speed": 0.45,
+     "sway": 6,
+     "arm": "L",
+     "aim": [
+      0.12,
+      0.18,
+      0.97
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     29.65,
+     30.26
+    ],
+    "r": [
+     3.74,
+     3.473
+    ],
+    "h": [
+     0.72,
+     0.7
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 52,
+    "roll": [
+     4,
+     2
+    ]
+   },
+   "focus": [
+    0,
+    -3.35
+   ],
+   "water": 0.36,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "happy_idle",
+     "x": 0.5,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "arm": "R",
+     "aim": [
+      0.75,
+      0.55,
+      0.35
+     ],
+     "wave": 1
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.6,
+     "z": -4.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     14.4,
+     14.83
+    ],
+    "r": [
+     3.82,
+     3.517
+    ],
+    "h": [
+     1.05,
+     1.02
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -3.9
+   ],
+   "water": 0.42,
+   "wave": 0.83,
+   "waveTo": -2,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.2,
+     "arm": "both",
+     "aim": "paddle"
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "gangnam",
+     "x": -0.75,
+     "z": -4.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.2,
+     "arm": "both",
+     "aim": "paddle"
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "happy_idle",
+     "x": 0.8,
+     "z": -4.8,
+     "face": "world",
+     "yaw": 35,
+     "at": 0.3,
+     "speed": 0.6,
+     "hold": "bucket",
+     "arm": "both",
+     "aim": "bail"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.1,
+     1.83
+    ],
+    "r": [
+     4.103,
+     3.752
+    ],
+    "h": [
+     0.68,
+     0.68
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60,
+    "roll": [
+     -7,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -3.8
+   ],
+   "water": 0.5,
+   "paddle": [
+    [
+     0,
+     -3.4
+    ],
+    [
+     -0.75,
+     -4.5
+    ]
+   ],
+   "bail": [
+    1.1,
+    0.9,
+    -4.6,
+    0.9,
+    0.4
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": 5.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 0.98,
+     "hold": "milk",
+     "my": 0.175,
+     "myAt": 0.95,
+     "myDur": 1.25
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     137.02,
+     136.4
+    ],
+    "r": [
+     3.007,
+     2.9
+    ],
+    "h": [
+     1.55,
+     1.56
+    ],
+    "look": [
+     1.72,
+     1.72
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    5.9
+   ],
+   "water": [
+    0.95,
+    1.2,
+    0.3,
+    2.2
+   ],
+   "door": [
+    0.55,
+    5.9,
+    0
+   ],
+   "doorBob": false,
+   "stays": false,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 0.68,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -0.8,
+     "z": -4.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 0.73,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 0.8,
+     "z": -4.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.9,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 0.73,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.98,
+     2.8
+    ],
+    "r": [
+     4.807,
+     4.505
+    ],
+    "h": [
+     0.7,
+     0.7
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0,
+    -3.7
+   ],
+   "water": 1.3,
+   "fish": [
+    0,
+    0.3,
+    -3.4,
+    2.6
+   ],
+   "fishFront": [
+    0.2,
+    0.62,
+    -1.9
+   ],
+   "lens": [
+    0.25,
+    0.7,
+    1.1
+   ],
+   "bubbles": [
+    [
+     0,
+     -3.4
+    ],
+    [
+     -0.8,
+     -4.4
+    ],
+    [
+     0.8,
+     -4.4
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 0.83,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -0.9,
+     "z": -3.8,
+     "face": "world",
+     "yaw": 66,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 0.88,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -3.07,
+     -2.9
+    ],
+    "r": [
+     4.106,
+     3.955
+    ],
+    "h": [
+     2.03,
+     2.03
+    ],
+    "look": [
+     1.95,
+     1.95
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.4,
+    -3.55
+   ],
+   "water": 1.45,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": -1,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 1.46,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": 0,
+     "z": -3.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 1.51,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 1,
+     "z": -3.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 1.51,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": 5.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 1.935,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     166.24,
+     165.96
+    ],
+    "r": [
+     9.883,
+     9.483
+    ],
+    "h": [
+     3.2,
+     3.15
+    ],
+    "look": [
+     1.8,
+     1.8
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.45,
+    -1
+   ],
+   "water": [
+    1.8,
+    2.15
+   ],
+   "crew": "swim",
+   "crewSwim": [
+    [
+     -2.4,
+     -1.6,
+     180
+    ],
+    [
+     2.4,
+     -1.8,
+     180
+    ],
+    [
+     -2,
+     -0.2,
+     180
+    ],
+    [
+     2,
+     -0.3,
+     180
+    ],
+    [
+     -1.2,
+     0.8,
+     180
+    ],
+    [
+     1.3,
+     0.9,
+     180
+    ],
+    [
+     0.1,
+     1.6,
+     180
+    ]
+   ],
+   "door": [
+    0.55,
+    5.9,
+    0
+   ],
+   "doorBob": false,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -2.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 3.48,
+     "noShadow": true,
+     "my": -1.25,
+     "myAt": 0.56,
+     "myDur": 0.3
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 3.53,
+     "noShadow": true,
+     "my": -1.2,
+     "myAt": 0.66,
+     "myDur": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 3.53,
+     "noShadow": true,
+     "my": -1.2,
+     "myAt": 0.76,
+     "myDur": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.44,
+     2.44
+    ],
+    "r": [
+     4.704,
+     4.704
+    ],
+    "h": [
+     5.05,
+     5.05
+    ],
+    "look": [
+     4.45,
+     4.45
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -3.1
+   ],
+   "water": 4,
+   "splash": [
+    [
+     0,
+     -2.6,
+     0.638,
+     0.45
+    ],
+    [
+     -0.85,
+     -3.6,
+     0.702,
+     0.4
+    ],
+    [
+     0.85,
+     -3.6,
+     0.766,
+     0.4
+    ]
+   ],
+   "bubbles": [
+    [
+     0,
+     -2.6
+    ],
+    [
+     -0.85,
+     -3.6
+    ],
+    [
+     0.85,
+     -3.6
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 62,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -2.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 2.23,
+     "noShadow": true,
+     "my": 1.25,
+     "myAt": 0.63,
+     "myDur": 0.22
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 2.33,
+     "noShadow": true,
+     "my": 1.2,
+     "myAt": 0.63,
+     "myDur": 0.22
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 2.33,
+     "noShadow": true,
+     "my": 1.2,
+     "myAt": 0.63,
+     "myDur": 0.22
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.44,
+     2.44
+    ],
+    "r": [
+     4.704,
+     4.704
+    ],
+    "h": [
+     5.05,
+     5.05
+    ],
+    "look": [
+     4.45,
+     4.45
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -3.1
+   ],
+   "water": 4,
+   "splash": [
+    [
+     0.5,
+     -2.8000000000000003,
+     0.766,
+     0.6
+    ],
+    [
+     -1.35,
+     -3.8000000000000003,
+     0.766,
+     0.5
+    ],
+    [
+     1.35,
+     -3.8000000000000003,
+     0.766,
+     0.5
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -2.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 5.48,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 5.53,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 5.53,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.76,
+     4.71
+    ],
+    "r": [
+     3.612,
+     3.412
+    ],
+    "h": [
+     9.6,
+     9.45
+    ],
+    "look": [
+     6.3,
+     6.3
+    ],
+    "fov": 56,
+    "roll": [
+     0,
+     4
+    ]
+   },
+   "focus": [
+    0,
+    -3.3
+   ],
+   "water": 6,
+   "paddle": [
+    [
+     0,
+     -2.6
+    ],
+    [
+     -0.85,
+     -3.6
+    ],
+    [
+     0.85,
+     -3.6
+    ]
+   ],
+   "crew": "swim",
+   "crewSwim": [
+    [
+     -1.9,
+     -1.8,
+     150
+    ],
+    [
+     1.9,
+     -1.8,
+     -150
+    ],
+    [
+     -2.3,
+     -3.8,
+     100
+    ],
+    [
+     2.3,
+     -3.8,
+     -100
+    ],
+    [
+     -1.2,
+     -5.2,
+     30
+    ],
+    [
+     1.2,
+     -5.2,
+     -30
+    ],
+    [
+     0,
+     -5.6,
+     0
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": -0.45,
+     "z": -2.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 7.48,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "sitting_talking",
+     "x": 0.62,
+     "z": -2.7,
+     "face": "world",
+     "yaw": -64.7,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 7.9,
+     "arm": "both",
+     "aim": "bail",
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.4,
+     0.42
+    ],
+    "r": [
+     4.3,
+     4.05
+    ],
+    "h": [
+     8.95,
+     8.93
+    ],
+    "look": [
+     8.52,
+     8.52
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.02,
+    -2.7
+   ],
+   "water": 8,
+   "tub": [
+    0.62,
+    -2.7,
+    0
+   ],
+   "bail": [
+    0.42,
+    8.6,
+    -2.6,
+    -0.5,
+    0.02
+   ],
+   "paddle": [
+    [
+     -0.45,
+     -2.6
+    ]
+   ],
+   "stars": [
+    "compote",
+    "saxo"
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 9.48,
+     "noShadow": true,
+     "mz": 0.55,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -1.22,
+     "z": -5.9,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 9.53,
+     "noShadow": true,
+     "mz": 0.1,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 0.98,
+     "z": -5.8,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 9.53,
+     "noShadow": true,
+     "mz": 0.1,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.96,
+     2.76
+    ],
+    "r": [
+     2.904,
+     2.703
+    ],
+    "h": [
+     10.5,
+     10.5
+    ],
+    "look": [
+     10.45,
+     10.45
+    ],
+    "fov": 54,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    0,
+    -3.1
+   ],
+   "water": 10,
+   "paddle": [
+    [
+     0,
+     -2.8000000000000003
+    ],
+    [
+     -1.22,
+     -5.7
+    ],
+    [
+     0.98,
+     -5.6
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "sitting_talking",
+     "x": 1.75,
+     "z": -1.4,
+     "face": "world",
+     "yaw": -12,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 11.955,
+     "hold": "milk"
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "sitting_talking",
+     "x": 2.75,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 8,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 11.955
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.46,
+     8.49
+    ],
+    "r": [
+     3.943,
+     3.792
+    ],
+    "h": [
+     12.6,
+     12.6
+    ],
+    "look": [
+     12.78,
+     12.78
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    2.27,
+    -1.4
+   ],
+   "water": 12,
+   "door": [
+    2.25,
+    -1.4,
+    90
+   ],
+   "doorBob": false,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0,
+     "z": -2.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 13.48,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "running_man",
+     "x": -0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 13.53,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "sailor",
+     "clip": "running_man",
+     "x": 0.85,
+     "z": -3.6,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": "paddle",
+     "lift": 13.53,
+     "noShadow": true,
+     "dip": [
+      0.035,
+      2.3
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -18,
+     26
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     16.4,
+     16.4
+    ],
+    "look": [
+     14.3,
+     14.3
+    ],
+    "fov": 58,
+    "roll": [
+     5,
+     -5
+    ],
+    "hand": 1,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -3.1
+   ],
+   "water": 14,
+   "paddle": [
+    [
+     0,
+     -2.6
+    ],
+    [
+     -0.85,
+     -3.6
+    ],
+    [
+     0.85,
+     -3.6
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "running_man",
+     "x": 0.8,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.3,
+     "speed": 0.55,
+     "arm": "both",
+     "aim": [
+      0.15,
+      -0.05,
+      0.98
+     ],
+     "lift": 15.48,
+     "noShadow": true,
+     "dip": [
+      0.02,
+      2
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "sitting_talking",
+     "x": 2.99,
+     "z": -1.4,
+     "face": "world",
+     "yaw": -90,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 15.955,
+     "hold": "milk"
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "sitting_talking",
+     "x": 2.45,
+     "z": -1.4,
+     "face": "world",
+     "yaw": -90,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 15.955
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     5.7,
+     5.4
+    ],
+    "h": [
+     17.45,
+     17.4
+    ],
+    "look": [
+     16.45,
+     16.45
+    ],
+    "fov": 58
+   },
+   "focus": [
+    1.83,
+    -1.4
+   ],
+   "water": 16,
+   "door": [
+    2.25,
+    -1.4,
+    90
+   ],
+   "doorBob": false,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "happy_idle",
+     "x": 2.99,
+     "z": -1.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.4,
+     "lift": 17.055,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -83.26,
+     -84.27
+    ],
+    "r": [
+     2.558,
+     2.503
+    ],
+    "h": [
+     17.42,
+     17.43
+    ],
+    "look": [
+     17.92,
+     17.92
+    ],
+    "fov": 50,
+    "roll": [
+     6,
+     4
+    ]
+   },
+   "focus": [
+    2.99,
+    -1.4
+   ],
+   "water": 17,
+   "door": [
+    2.25,
+    -1.4,
+    90
+   ],
+   "doorBob": false,
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "happy_idle",
+     "x": 2.99,
+     "z": -1.4,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.4,
+     "lift": 18.055,
+     "hold": "milk",
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "coat",
+     "clip": "sitting_talking",
+     "x": 2.45,
+     "z": -1.4,
+     "face": "world",
+     "yaw": -90,
+     "at": 0,
+     "speed": 0.05,
+     "lift": 17.955,
+     "fg": true
+    },
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "standing_praying_while_swaying",
+     "x": 0.8,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 1,
+     "arm": null,
+     "aim": null,
+     "lift": 17.63,
+     "noShadow": true,
+     "my": -1.4,
+     "myAt": 1.9,
+     "myDur": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     71.1,
+     71.32
+    ],
+    "r": [
+     3.858,
+     3.747
+    ],
+    "h": [
+     19.75,
+     19.72
+    ],
+    "look": [
+     18.45,
+     18.45
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.9,
+    -1.4
+   ],
+   "water": 18,
+   "door": [
+    2.25,
+    -1.4,
+    90
+   ],
+   "doorBob": false,
+   "splash": [
+    [
+     0.9,
+     -1.4,
+     2.1,
+     0.8
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 96.2,
+   "kind": "dance",
+   "map": "ship",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "happy_idle",
+     "x": 2.99,
+     "z": -1.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.2,
+     "lift": 18.055,
+     "hold": "milk",
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.15,
+      0.94
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -100.62,
+     -100.62
+    ],
+    "r": [
+     3.256,
+     3.256
+    ],
+    "h": [
+     19.15,
+     19.15
+    ],
+    "look": [
+     18.55,
+     18.55
+    ],
+    "fov": 48
+   },
+   "focus": [
+    2.25,
+    -1.4
+   ],
+   "water": 18,
+   "door": [
+    2.25,
+    -1.4,
+    90
+   ],
+   "doorBob": false,
+   "bubbles": [
+    [
+     0.8,
+     -1.4
+    ]
+   ],
+   "cap": [
+    1.05,
+    -1.7,
+    -100,
+    -0.55
+   ],
+   "still": true,
+   "stars": [
+    "kob"
+   ]
+  }
+ ]
+}

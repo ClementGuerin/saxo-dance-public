@@ -78,8 +78,11 @@ uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uF
 uniform float uWaterY; uniform vec3 uWaterCol;
 varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY;
 vec3 underwater(vec3 c) {                                          // "SWIM": the sea over the deck; a lens under it sees everything through the water
-  if (cameraPosition.y < uWaterY) return mix(c, uWaterCol, clamp(0.34 + vFogD * 0.055, 0.0, 0.9));
-  if (vWY < uWaterY) return mix(c, uWaterCol, clamp(0.26 + (uWaterY - vWY) * 0.75, 0.0, 0.86));
+  if (cameraPosition.y < uWaterY) {                                // from below: everything blue by distance, the surface itself bright
+    if (vWY > uWaterY - 0.06) return mix(c, vec3(0.72, 0.94, 1.0), 0.62);
+    return mix(c, uWaterCol, clamp(0.5 + vFogD * 0.06, 0.0, 0.93));
+  }
+  if (vWY < uWaterY) return mix(c, uWaterCol, clamp(0.1 + (uWaterY - vWY) * 1.1, 0.0, 0.86));   // a thin film barely tints (the planks show), a waist of water is blue
   return c;
 }
 float bayer(vec2 p) {
@@ -976,7 +979,6 @@ function propMesh(kind) {
     add(box(0.07, 0.05, 0.05, M(0xc8ccd4)), -0.035, 0.105); add(box(0.06, 0.036, 0.004, glow(0xffffff)), -0.035, 0.105, 0.027);
   } else if (kind === 'bucket') {   // a red bucket with a grey rim and handle, water inside ("SWIM": Compote bails the sea)
     add(cyl(0.13, 0.1, 0.22, M(0xd8382e), 8), 0, 0); add(cyl(0.135, 0.135, 0.02, M(0xb8bcc4), 8), 0, 0.11); add(cyl(0.118, 0.118, 0.01, mat({ color: 0x3aa8d8, unlit: 0.4 }), 8), 0, 0.085);
-    const h = add(new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.01, 3, 10, Math.PI), M(0x8a8e96)), 0, 0.11); h.rotation.y = Math.PI / 2;
   } else if (kind === 'handmirror') {   // Sadi's pink hand mirror held up beside her face ("Self Aware"): a silver glass on both faces in a pink rim, a pink handle
     const disc = add(cyl(0.1, 0.1, 0.025, mat({ color: 0xffb4dc, unlit: 0.6 }), 10), 0, 0.06); disc.rotation.x = Math.PI / 2;
     for (const fz of [-0.016, 0.016]) { const face = add(cyl(0.083, 0.083, 0.006, glow(0xe8f4ff), 10), 0, 0.06, fz); face.rotation.x = Math.PI / 2; }   // silver on both faces: from the lens its pink back read as a paddle
@@ -1213,8 +1215,8 @@ const SWINGS = {
   pluck: { up: [[0.2, 0.05, 0.98], [-0.7, 0.28, 0.66]], fore: [[0.3, 0.2, 0.93], [-0.72, 0.3, 0.62]], alt: 0, every: 1 },
   heart: { up: [[0.1, -0.7, 0.7], [0.1, -0.7, 0.7]], fore: [[-0.85, 0.12, 0.52], [-0.85, 0.12, 0.52]], alt: 0, every: 1 },
   drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
-  paddle: { up: [[0.3, 0.26, 0.92], [0.24, -0.22, 0.95]], fore: [[0.22, 0.62, 0.75], [0.14, -0.5, 0.85]], alt: 0.5, every: 1 },   // "SWIM": the doggy paddle, paws down in front of the chest on the beat, the right half a beat after the left
-  bail: { up: [[0.22, -0.55, 0.8], [0.22, 0.3, 0.93]], fore: [[0.2, -0.45, 0.87], [0.2, 0.5, 0.84]], alt: 0, every: 1 },   // "SWIM": bailing, both paws low (the scoop), then the bucket swung up to the chest on the beat   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
+  paddle: { up: [[0.2, 0.32, 0.93], [0.2, -0.3, 0.93]], fore: [[0.15, 0.22, 0.96], [0.1, -0.7, 0.71]], alt: 0.5, every: 1 },   // reaching forward at chest height, then pulling down (paws at the chin or chest read as nothing, the reviewer)   // "SWIM": the doggy paddle, paws down in front of the chest on the beat, the right half a beat after the left
+  bail: { up: [[0.1, -0.55, 0.83], [0.12, 0.72, 0.68]], fore: [[0.06, -0.45, 0.89], [0.06, 0.9, 0.43]], alt: 0, every: 1 },   // paws close together on the bucket (spread wide it floated between them)   // up to the bucket over her head on the beat (at chest height its handle crossed her muzzle)   // "SWIM": bailing, both paws low (the scoop), then the bucket swung up to the chest on the beat   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
 }, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
 function swingK(A, t, side) {   // 1 at pose B (on the beat), 0 at pose A half a swing later
   const S = SWINGS[A.aim], b = (bp(t) - (A.flapPh || 0) - (side === 'R' ? S.alt : 0)) / (A.flapEvery || S.every);
