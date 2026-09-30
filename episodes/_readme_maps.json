@@ -2225,6 +2225,51 @@
      "z": 0.4
     }
    ]
+  },
+  {
+   "beat": 110,
+   "kind": "dance",
+   "map": "ship",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -3.4
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "captain",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": -0.48,
+     "z": -3.4
+    },
+    {
+     "who": "kob",
+     "look": "lifevest",
+     "clip": "gangnam",
+     "at": "auto",
+     "x": 0.48,
+     "z": -3.4
+    }
+   ]
   }
  ]
 }
