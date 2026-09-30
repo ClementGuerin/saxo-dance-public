@@ -88,7 +88,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat, a trench coat, a Parisienne, a bus driver, sick-day pyjamas, a devil suit, a lifeguard, a bathrobe, a soul singer, a banana, a strawberry, a carrot, a leather jacket, Kob the private eye, a sequin dress, the team's football kit and the poop suit">
+  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat, a trench coat, a Parisienne, a bus driver, sick-day pyjamas, a devil suit, a lifeguard, a bathrobe, a soul singer, a banana, a strawberry, a carrot, a leather jacket, Kob the private eye, a sequin dress, the team's football kit, a ship's captain, a life jacket and the poop suit">
 </p>
 
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
@@ -97,14 +97,15 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 56 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer and a pink childhood bedroom, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom and a schooner that sinks, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
 beat; each episode adds one to three for its story. The club floor flashes, a subway train passes every 16 beats, a
 locker bangs open every bar, the volcano erupts, the bowling ball strikes every two bars, in Paris the fountains fire
-on the beat while the Eiffel Tower sparkles on each bar, and the techno club's ceiling net lets its balloons go on the
-drop.
+on the beat while the Eiffel Tower sparkles on each bar, the techno club's ceiling net lets its balloons go on the
+drop, and the schooner sinks: the sea rises over its deck and everything under it turns blue, down to a camera among
+the fish.
 
 ## How a video gets made
 
