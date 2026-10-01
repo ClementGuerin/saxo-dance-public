@@ -1,6 +1,35 @@
 {
- "updated": "2026-09-30T20:39:21.836Z",
+ "updated": "2026-10-01T14:17:55.714Z",
  "posts": [
+  {
+   "id": "2026-10-01",
+   "title": "SWIM",
+   "artist": "BTS",
+   "date": "2026-10-01T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-01.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7691699555494055200",
+     "id": "7691699555494055200"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd9E_uvgcgw/",
+     "id": "Dd9E_uvgcgw"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/XAmpHdqoX3E",
+     "id": "XAmpHdqoX3E"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1655815942553216",
+     "id": "1655815942553216"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2105659338140385776",
+     "id": "2105659338140385776"
+    }
+   }
+  },
   {
    "id": "2026-09-30-2",
    "title": "Self Aware",
