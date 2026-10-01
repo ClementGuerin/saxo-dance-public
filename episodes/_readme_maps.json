@@ -2270,6 +2270,61 @@
      "z": -3.4
     }
    ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "wedding",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.4,
+     5.4
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0.3,
+    -2.8
+   ],
+   "groom": {
+    "pose": "swoon",
+    "x": 1.2,
+    "z": -2.95,
+    "look": [
+     0.35,
+     -2.75
+    ],
+    "hearts": 0
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "twist",
+     "at": "auto",
+     "x": -0.55,
+     "z": -2.75
+    },
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0.35,
+     "z": -2.75
+    }
+   ]
   }
  ]
 }

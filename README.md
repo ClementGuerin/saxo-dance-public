@@ -133,7 +133,8 @@ saxo.dance and checks this README against the code, rebuilding any image that no
    again.
 2. **Song.** [`tools/cut_song.mjs`](tools/cut_song.mjs) takes the track and a word-level transcript and picks a window of
    62 s or more that starts and ends on section boundaries, preferring to end on the chorus. It writes the audio and
-   the karaoke timings; [`tools/beats.mjs`](tools/beats.mjs) finds the BPM, the first beat and the bars.
+   the karaoke timings; [`tools/beats.mjs`](tools/beats.mjs) finds the BPM, the first beat and the bars, or writes a
+   tempo map (every beat's time) when the band's tempo moves.
 3. **Story.** The song's official video is studied frame by frame, then parodied: four to six story beats over the
    song's sections, the whole cast placed shot by shot, and new maps and costumes made for it. A generator script
    writes the shot list on the beat grid ([`episodes/`](episodes/)): for each shot a map, a camera placed by position
