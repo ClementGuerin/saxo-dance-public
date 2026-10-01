@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-01T14:17:55.714Z",
+ "updated": "2026-10-01T18:17:55.943Z",
  "posts": [
+  {
+   "id": "2026-10-01-2",
+   "title": "Stop The Wedding!",
+   "artist": "Ashe",
+   "date": "2026-10-01T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-01-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7691761162710568225",
+     "id": "7691761162710568225"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd9gVlTDbaB/",
+     "id": "Dd9gVlTDbaB"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/8hSkXdrYyQU",
+     "id": "8hSkXdrYyQU"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=2133959933864014",
+     "id": "2133959933864014"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2105719768317604271",
+     "id": "2105719768317604271"
+    }
+   }
+  },
   {
    "id": "2026-10-01",
    "title": "SWIM",
