@@ -1,0 +1,2689 @@
+{
+ "date": "2026-10-01",
+ "song": {
+  "title": "Stop The Wedding!",
+  "artist": "Ashe"
+ },
+ "logline": "Saxo crashes his ex's wedding in a 60s bouffant with a STOP sign; the flower girl throws him out with roses, he bursts back in on 'speak now'... and the bulldog groom falls in love with him instead.",
+ "new": "the BACKFIRE structure (the lead gets exactly what he wanted, in the way he least wanted it); a tempo map in the engine (a kit's BEATS.grid: the band's choruses at ~132.1 BPM, the verse at ~134.9); src/maps22.js wedding: a white country chapel (pews of pet guests who stare, gasp, stand and cheer, double doors that burst open onto a sunny lawn, a STOP sign that pops up in the door window, a rice shower) and the \"Dai Dai\" bulldog keeper back as the groom in a tuxedo (hands, swoon, walk, kneel with a ring box, pucker, run); props stopsign, rose (a pelt of roses), bouquet, basket; four looks (bouffant, bride, officiant, flowergirl)",
+ "notes": "The clip (studied from a 360p copy, one frame every 3 s; its violent turn not looked at): a 1960s melodrama in faded Technicolor, a jealous blonde in curlers at a Victorian vanity by a window, a pink dress and pearl earrings, a white flowered hat, a wedding invitation in a white-gloved hand, a cake topper, a rotary phone, a pale vintage car at night. Kept: the 60s blonde (Saxo's bouffant, pink shift dress, white gloves: the lead in the artist's look), the wedding as the place, the cake. The whole cast: Saxo the jealous ex and lead (the joke is on him); Sadi the bride and the reality check (she shrugs him off and tosses the bouquet away); Kob the deadpan officiant who ends up with the bouquet (the cat who never goes out is next); Compote the angry flower girl who fights him with roses and throws him out (the bouncer thread). The groom is the bulldog keeper from 'Dai Dai', who swooned for Sadi's kiss there and swoons for anyone.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "happy_idle",
+  "twist",
+  "happy_walk",
+  "happy_run",
+  "being_surprised_and_looking_right",
+  "shaking_head_no_dismissively",
+  "shoulder_shrug",
+  "dismissing_with_back_hand",
+  "jump_and_catch_with_one_hand",
+  "clap_while_standing"
+ ],
+ "yt": "end",
+ "tags": {
+  "structure": "backfire",
+  "scenes": [
+   "pelt",
+   "proposal",
+   "bouquet"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "wedding"
+  ],
+  "ref": "none",
+  "lyric_literal": "'stop the wedding' (the STOP sign raised on every 'stop', slammed doors, the sign in the window, the sign between the groom's lips and his), 'heart' (his paw on his heart, then the groom's hearts), 'run' (thrown out, then fleeing the groom), 'white heels' (the bride's), 'talking' (the vows)",
+  "experiment": "Does a backfire payoff (the crasher who stops the wedding gets proposed to by the groom), opened on a dance in the aisle, on a chart-climbing song whose TikTok sound sits inside our cut, get more shares per 1,000 views than our story plots?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "twist",
+     "x": 0,
+     "z": 0.9,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.95,
+      0.35
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.5,
+     "z": -2.9,
+     "face": "world",
+     "yaw": 7.5,
+     "at": 0.2,
+     "speed": 0.6,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     179.78,
+     179.77
+    ],
+    "r": [
+     5.25,
+     5
+    ],
+    "h": [
+     1.32,
+     1.3
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    0.9
+   ],
+   "groom": {
+    "x": 0.5,
+    "z": -2.9,
+    "yaw": -7.5,
+    "pose": "stand",
+    "look": [
+     0,
+     0.9
+    ]
+   },
+   "stare": [
+    0,
+    0.9
+   ],
+   "petals": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 2.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.5,
+     "speed": 0.5,
+     "arm": "R",
+     "aim": "heart",
+     "holdL": "stopsign"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     3,
+     2.82
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.03,
+     1.03
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    2.2
+   ],
+   "stare": [
+    0,
+    2.2
+   ],
+   "petals": true,
+   "clear": [
+    [
+     0,
+     -0.8,
+     0.75
+    ],
+    [
+     0,
+     -0.62,
+     0.75
+    ],
+    [
+     0,
+     0,
+     0.75
+    ],
+    [
+     0,
+     0.8,
+     0.75
+    ],
+    [
+     0,
+     1.6,
+     0.75
+    ],
+    [
+     0,
+     2.4,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.66,
+     "z": -2.85,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.6,
+     "speed": 0.35,
+     "arm": "both",
+     "aim": [
+      0.08,
+      0.12,
+      0.98
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "officiant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -4.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.35,
+     "hold": "book",
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.2,
+      0.95
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.214,
+     4.901
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1.053,
+     1.053
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    -3.3166666666666664
+   ],
+   "groom": {
+    "x": 0.66,
+    "z": -2.85,
+    "yaw": -60,
+    "pose": "hands"
+   },
+   "petals": true,
+   "noStands": true,
+   "clear": [
+    [
+     0,
+     1.9,
+     1.4
+    ],
+    [
+     0,
+     1.58,
+     1.4
+    ],
+    [
+     0,
+     1.1,
+     0.75
+    ],
+    [
+     0,
+     0.3,
+     0.75
+    ],
+    [
+     0,
+     -0.5,
+     0.75
+    ],
+    [
+     0,
+     -1.3,
+     0.75
+    ]
+   ],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 2.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 1.2,
+     "speed": 0.6,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.05,
+      0.85
+     ],
+     "aim2": [
+      0.35,
+      0.95,
+      0.35
+     ],
+     "aim2At": 1.266
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     172.41,
+     171.57
+    ],
+    "r": [
+     1.665,
+     1.365
+    ],
+    "h": [
+     0.3,
+     0.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60,
+    "roll": [
+     8,
+     5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    2.2
+   ],
+   "stare": [
+    0,
+    2.2
+   ],
+   "clear": [
+    [
+     0.22,
+     0.55,
+     0.75
+    ],
+    [
+     0.2,
+     0.85,
+     0.75
+    ],
+    [
+     0.11,
+     1.34,
+     0.75
+    ],
+    [
+     0.01,
+     2.14,
+     0.75
+    ],
+    [
+     -0.1,
+     2.93,
+     0.75
+    ],
+    [
+     -0.2,
+     3.72,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": -2.9,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.3,
+     "speed": 0.4
+    },
+    {
+     "who": "kob",
+     "look": "officiant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.95,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.35,
+     "hold": "book"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.51,
+     0.53
+    ],
+    "r": [
+     5.6,
+     5.4
+    ],
+    "h": [
+     1.3,
+     1.29
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0,
+    -3.2
+   ],
+   "groom": {
+    "x": 0.5,
+    "z": -2.9,
+    "yaw": -10,
+    "pose": "stand"
+   },
+   "noStands": true,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": -1.4,
+     "z": -2.35,
+     "face": "world",
+     "yaw": 17.1,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "rose",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.55,
+      0.55
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     17.1,
+     17.1
+    ],
+    "r": [
+     2.8,
+     2.7
+    ],
+    "h": [
+     1.32,
+     1.32
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.4,
+    -2.35
+   ],
+   "stare": [
+    0,
+    2.2
+   ],
+   "noStands": true,
+   "clear": [
+    [
+     -0.58,
+     0.33,
+     0.75
+    ],
+    [
+     -0.61,
+     0.23,
+     0.75
+    ],
+    [
+     -0.81,
+     -0.44,
+     0.75
+    ],
+    [
+     -1.05,
+     -1.2,
+     0.75
+    ],
+    [
+     -1.28,
+     -1.97,
+     0.75
+    ],
+    [
+     -1.52,
+     -2.73,
+     0.75
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 26,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": -0.25,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.6,
+     "arm": "R",
+     "aim": "pelt",
+     "pelt": {
+      "times": [
+       0.15,
+       0.95
+      ],
+      "to": [
+       -1.6,
+       1.25,
+       1.2
+      ],
+      "kinds": [
+       "bloom"
+      ],
+      "dur": 0.5,
+      "arc": 0.2,
+      "big": 1.8,
+      "spread": 0.05
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.24,
+     4.26
+    ],
+    "r": [
+     2.707,
+     2.557
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -0.25,
+    -1.1
+   ],
+   "stare": [
+    0,
+    2.2
+   ],
+   "noStands": true,
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": 1.05,
+     "z": -0.4,
+     "face": "world",
+     "yaw": -22,
+     "at": 0.3,
+     "speed": 0.6,
+     "fg": true,
+     "arm": "both",
+     "aim": "pelt",
+     "pelt": {
+      "times": [
+       0,
+       0.1,
+       0.2,
+       0.3,
+       0.4,
+       1.35
+      ],
+      "to": [
+       0,
+       1,
+       2.2
+      ],
+      "kinds": [
+       "bloom"
+      ],
+      "dur": 0.3,
+      "arc": 0.15,
+      "big": 1.6,
+      "spread": 0.35
+     }
+    },
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 2.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.9,
+     "speed": 1.2,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     174.38,
+     174.49
+    ],
+    "r": [
+     3.065,
+     2.913
+    ],
+    "h": [
+     1.12,
+     1.12
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    2.2
+   ],
+   "stare": [
+    0,
+    2.2
+   ],
+   "clear": [
+    [
+     0.3,
+     -0.85,
+     0.75
+    ],
+    [
+     0.28,
+     -0.7,
+     0.75
+    ],
+    [
+     0.22,
+     -0.05,
+     0.75
+    ],
+    [
+     0.14,
+     0.74,
+     0.75
+    ],
+    [
+     0.07,
+     1.54,
+     0.75
+    ],
+    [
+     -0.01,
+     2.33,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_walk",
+     "x": -0.05,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1,
+     "mz": 0.8,
+     "arm": "both",
+     "aim": "pelt",
+     "pelt": {
+      "times": [
+       0.3,
+       0.9,
+       1.5,
+       2.1
+      ],
+      "to": [
+       0.85,
+       1.3,
+       2
+      ],
+      "kinds": [
+       "bloom"
+      ],
+      "dur": 0.45,
+      "arc": 0.2,
+      "big": 1.6,
+      "spread": 0.2
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.86,
+     2.91
+    ],
+    "r": [
+     3.004,
+     2.954
+    ],
+    "h": [
+     1.12,
+     1.12
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.05,
+    -0.5
+   ],
+   "stare": [
+    0,
+    2.2
+   ],
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": -0.2,
+     "z": 0.9,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.6,
+     "arm": "both",
+     "aim": "pelt",
+     "fg": true,
+     "pelt": {
+      "times": [
+       0.15,
+       0.45,
+       0.75,
+       1.05,
+       1.35
+      ],
+      "to": [
+       0,
+       1.05,
+       2.6
+      ],
+      "kinds": [
+       "bloom"
+      ],
+      "dur": 0.4,
+      "arc": 0.25,
+      "big": 1.6,
+      "spread": 0.2
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     163.93,
+     163.11
+    ],
+    "r": [
+     3.07,
+     2.926
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.55,
+    0.4
+   ],
+   "gasp": true,
+   "clear": [
+    [
+     -0.7,
+     -2.55,
+     0.8
+    ]
+   ],
+   "stars": [],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_run",
+     "x": -0.3,
+     "z": 2.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1,
+     "mz": 2.6,
+     "moveAt": 1.5270000000000001
+    },
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_run",
+     "x": 0.45,
+     "z": 1.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1,
+     "mz": 2.6,
+     "moveAt": 1.8270000000000002
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.51,
+     3.56
+    ],
+    "r": [
+     5.711,
+     5.631
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.1,
+    3
+   ],
+   "stare": [
+    0,
+    4
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 50,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": -0.4,
+     "z": 10.5,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.4,
+     "speed": 0.7,
+     "arm": "both",
+     "aim": [
+      0.12,
+      0.3,
+      0.95
+     ]
+    },
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0.42,
+     "z": 12.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 1.3,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.05,
+      0.85
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.8,
+     4.6
+    ],
+    "h": [
+     1.35,
+     1.34
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    11.4
+   ],
+   "doors": [
+    0.728,
+    1.032,
+    1,
+    0
+   ],
+   "clear": [
+    [
+     0,
+     16.2,
+     0.75
+    ],
+    [
+     0,
+     16,
+     0.75
+    ],
+    [
+     0,
+     15.4,
+     0.75
+    ],
+    [
+     0,
+     14.6,
+     0.75
+    ],
+    [
+     0,
+     13.8,
+     0.75
+    ],
+    [
+     0,
+     13,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 54,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "clap_while_standing",
+     "x": 0,
+     "z": 10.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.2,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.9,
+     2.8
+    ],
+    "h": [
+     1.06,
+     1.06
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    10.25
+   ],
+   "doors": 0,
+   "clear": [
+    [
+     0,
+     7.35,
+     0.75
+    ],
+    [
+     0,
+     7.45,
+     0.75
+    ],
+    [
+     0,
+     8.15,
+     0.75
+    ],
+    [
+     0,
+     8.95,
+     0.75
+    ],
+    [
+     0,
+     9.75,
+     0.75
+    ],
+    [
+     0,
+     10.55,
+     0.75
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": -0.05,
+     "z": 10.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.35,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.05,
+      0.9
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -160.01,
+     -160
+    ],
+    "r": [
+     3.2,
+     3.008
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.065,
+     1.065
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0.25,
+    10.575
+   ],
+   "doors": 0,
+   "doorSign": 0.145,
+   "clear": [
+    [
+     -0.84,
+     7.57,
+     0.75
+    ],
+    [
+     -0.78,
+     7.75,
+     0.75
+    ],
+    [
+     -0.57,
+     8.32,
+     0.75
+    ],
+    [
+     -0.3,
+     9.07,
+     0.75
+    ],
+    [
+     -0.02,
+     9.82,
+     0.75
+    ],
+    [
+     0.25,
+     10.57,
+     0.75
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": -2.9,
+     "face": "world",
+     "yaw": 28.299999999999997,
+     "at": 0.5,
+     "speed": 0.35,
+     "hold": "bouquet",
+     "arm": "R",
+     "aim": [
+      0.15,
+      -0.1,
+      0.9
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     43.26,
+     43.51
+    ],
+    "r": [
+     2.335,
+     2.179
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.5,
+    -2.9
+   ],
+   "groom": {
+    "x": 0.5,
+    "z": -2.9,
+    "yaw": -90,
+    "pose": "stand"
+   },
+   "noStands": true,
+   "petals": true,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "officiant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.95,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.3,
+     "hold": "book",
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.15,
+      0.95
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.66,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.5,
+     "speed": 0.3,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.35,
+     2.15
+    ],
+    "h": [
+     1.25,
+     1.23
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 46,
+    "roll": [
+     0,
+     0
+    ],
+    "hand": 0
+   },
+   "focus": [
+    0,
+    -3.95
+   ],
+   "groom": {
+    "x": 0.62,
+    "z": -2.7,
+    "yaw": 180
+   },
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": 11.3,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.5,
+     "speed": 0.35,
+     "arm": "both",
+     "aim": [
+      0.55,
+      0.45,
+      0.7
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     3.3,
+     3.102
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.03,
+     1.03
+    ],
+    "fov": 42
+   },
+   "focus": [
+    0.55,
+    11.3
+   ],
+   "doors": 0,
+   "clear": [
+    [
+     0.55,
+     8,
+     0.75
+    ],
+    [
+     0.55,
+     8.2,
+     0.75
+    ],
+    [
+     0.55,
+     8.8,
+     0.75
+    ],
+    [
+     0.55,
+     9.6,
+     0.75
+    ],
+    [
+     0.55,
+     10.4,
+     0.75
+    ],
+    [
+     0.55,
+     11.2,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.42,
+     "z": -2.8,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.5,
+     "speed": 0.35,
+     "hold": "bouquet",
+     "arm": "R",
+     "aim": [
+      0.15,
+      -0.1,
+      0.9
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     178.98,
+     178.94
+    ],
+    "r": [
+     2.8,
+     2.7
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0,
+    -2.8
+   ],
+   "groom": {
+    "x": 0.42,
+    "z": -2.8,
+    "yaw": 180,
+    "pose": "stand"
+   },
+   "noStands": true,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 10.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.35,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.05,
+      0.9
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     177.71,
+     177.77
+    ],
+    "r": [
+     3.753,
+     3.603
+    ],
+    "h": [
+     1.3,
+     1.29
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    10.3
+   ],
+   "stare": [
+    0,
+    11
+   ],
+   "doors": 0,
+   "clear": [
+    [
+     0.15,
+     6.55,
+     0.6
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 10.55,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.6,
+     "speed": 0.6,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.95,
+      0.35
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     177.01,
+     177.05
+    ],
+    "r": [
+     3.455,
+     3.104
+    ],
+    "h": [
+     0.34,
+     0.34
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 56,
+    "roll": [
+     -7,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    10.55
+   ],
+   "doors": [
+    0,
+    0.3,
+    0,
+    1
+   ],
+   "stare": [
+    0,
+    10.55
+   ],
+   "gasp": true,
+   "clear": [
+    [
+     0.18,
+     7.1,
+     0.75
+    ],
+    [
+     0.16,
+     7.45,
+     0.75
+    ],
+    [
+     0.14,
+     7.9,
+     0.75
+    ],
+    [
+     0.1,
+     8.7,
+     0.75
+    ],
+    [
+     0.06,
+     9.5,
+     0.75
+    ],
+    [
+     0.01,
+     10.3,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_walk",
+     "x": 0,
+     "z": 8.6,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 1,
+     "mz": -1.6,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.95,
+      0.35
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     176.83,
+     176.88
+    ],
+    "r": [
+     3.255,
+     3.305
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 56,
+    "roll": [
+     6,
+     4
+    ]
+   },
+   "focus": [
+    0,
+    8
+   ],
+   "doors": 1,
+   "stare": [
+    0,
+    7.4
+   ],
+   "gasp": true,
+   "clear": [
+    [
+     0.18,
+     4.9,
+     0.5
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5,
+     5
+    ],
+    "r": [
+     2.5,
+     2.35
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 42
+   },
+   "focus": [
+    0.5,
+    -2.9
+   ],
+   "groom": {
+    "x": 0.5,
+    "z": -2.9,
+    "yaw": 0,
+    "pose": "swoon",
+    "at": 0.787,
+    "look": [
+     0,
+     2
+    ]
+   },
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": -3.05,
+     "face": "world",
+     "yaw": 20,
+     "at": 0.5,
+     "speed": 0.4,
+     "hold": "bouquet",
+     "arm": "R",
+     "aim": [
+      0.15,
+      -0.1,
+      0.9
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.36,
+     0.37
+    ],
+    "r": [
+     3.2,
+     3.08
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0.08,
+    -2.3
+   ],
+   "groom": {
+    "x": 0.45,
+    "z": -2.9,
+    "yaw": 0,
+    "pose": "walk",
+    "at": 0.5,
+    "to": [
+     0.3,
+     -1.4
+    ],
+    "dur": 2.2
+   },
+   "noStands": true,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 114,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.7
+    },
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "being_surprised_and_looking_right",
+     "x": -0.5,
+     "z": -2.9,
+     "face": "world",
+     "yaw": 70,
+     "at": 0.2,
+     "speed": 0.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     5.2,
+     5.1
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.88,
+     0.88
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    -1.9
+   ],
+   "groom": {
+    "x": 0.3,
+    "z": -1.8,
+    "yaw": 35,
+    "pose": "kneel",
+    "at": 0.15,
+    "ring": true
+   },
+   "clear": [
+    [
+     -1.42,
+     -0.57,
+     0.7
+    ],
+    [
+     -1.42,
+     0.88,
+     0.7
+    ],
+    [
+     -1.42,
+     2.33,
+     0.7
+    ],
+    [
+     -2.3,
+     -0.57,
+     0.7
+    ],
+    [
+     -2.3,
+     0.88,
+     0.7
+    ],
+    [
+     -2.3,
+     2.33,
+     0.7
+    ],
+    [
+     -3.2,
+     -0.57,
+     0.7
+    ],
+    [
+     -3.2,
+     0.88,
+     0.7
+    ],
+    [
+     -3.2,
+     2.33,
+     0.7
+    ],
+    [
+     1.42,
+     -0.57,
+     0.7
+    ],
+    [
+     1.42,
+     0.88,
+     0.7
+    ],
+    [
+     1.42,
+     2.33,
+     0.7
+    ],
+    [
+     2.3,
+     -0.57,
+     0.7
+    ],
+    [
+     2.3,
+     0.88,
+     0.7
+    ],
+    [
+     2.3,
+     2.33,
+     0.7
+    ],
+    [
+     3.2,
+     -0.57,
+     0.7
+    ],
+    [
+     3.2,
+     0.88,
+     0.7
+    ],
+    [
+     3.2,
+     2.33,
+     0.7
+    ]
+   ],
+   "noStands": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 118,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 0.6,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.25,
+     2.18
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.06,
+     1.06
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -0.9
+   ],
+   "groom": {
+    "hide": true
+   },
+   "noStands": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 122,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_idle",
+     "x": 0.1,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.6,
+     "holdL": "stopsign",
+     "arm": "L",
+     "aim": [
+      0.9,
+      -0.12,
+      0.28
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.35,
+     3.3
+    ],
+    "h": [
+     1.12,
+     1.11
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.25
+   ],
+   "groom": {
+    "x": -0.08,
+    "z": -1.78,
+    "yaw": 0,
+    "pose": "pucker",
+    "at": 0.191,
+    "hearts": 0.1
+   },
+   "clear": [
+    [
+     1.42,
+     -0.57,
+     0.7
+    ],
+    [
+     2.3,
+     -0.57,
+     0.7
+    ],
+    [
+     3.2,
+     -0.57,
+     0.7
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 126,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "shoulder_shrug",
+     "x": -0.5,
+     "z": -2.9,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.1,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10,
+     10.01
+    ],
+    "r": [
+     2.7,
+     2.538
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -0.5,
+    -2.9
+   ],
+   "stars": [
+    "sadi"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 130,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     163.93,
+     163.11
+    ],
+    "r": [
+     3.07,
+     2.926
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.55,
+    0.4
+   ],
+   "stand": true,
+   "cheer": true,
+   "hearts": 0.3,
+   "clear": [
+    [
+     -0.7,
+     -2.55,
+     0.8
+    ]
+   ],
+   "stars": [],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "flowergirl",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": -1.55,
+     "face": "world",
+     "yaw": 22.4,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "rose",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.55,
+      0.55
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     22.4,
+     22.4
+    ],
+    "r": [
+     2.8,
+     2.7
+    ],
+    "h": [
+     1.32,
+     1.32
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.05,
+    -1.55
+   ],
+   "noStands": true,
+   "stars": [
+    "compote"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 140,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.75,
+     8.82
+    ],
+    "r": [
+     2.631,
+     2.479
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0.22,
+    -1.95
+   ],
+   "groom": {
+    "x": 0.28,
+    "z": -1.95,
+    "yaw": 10,
+    "pose": "offer",
+    "at": 0.1,
+    "ring": true
+   },
+   "noStands": true,
+   "stars": []
+  },
+  {
+   "beat": 144,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_run",
+     "x": -0.3,
+     "z": -0.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1,
+     "mz": 3,
+     "moveAt": 0.05,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.05,
+      0.85
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.68,
+     2.64
+    ],
+    "r": [
+     6.407,
+     6.307
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.05,
+    1.5
+   ],
+   "doors": 1,
+   "groom": {
+    "x": 0.5,
+    "z": -2.2,
+    "yaw": 0,
+    "pose": "run",
+    "at": 0.35,
+    "to": [
+     0.5,
+     1.2
+    ],
+    "dur": 2.4,
+    "ring": true
+   },
+   "stand": true,
+   "cheer": true,
+   "rice": [
+    0.3,
+    1.5
+   ],
+   "stare": [
+    0,
+    1
+   ],
+   "clear": [
+    [
+     0.35,
+     7.9,
+     0.8
+    ]
+   ],
+   "noStands": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 150,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "bride",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": -2.9,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.2,
+     "speed": 0.6,
+     "hold": "bouquet",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.2,
+      0.7
+     ],
+     "aim2": [
+      0.3,
+      0.95,
+      -0.25
+     ],
+     "aim2At": 0.464,
+     "toss": {
+      "at": 0.544,
+      "to": [
+       -1.2,
+       1.1,
+       -3.9
+      ],
+      "dur": 0.7,
+      "arc": 0.6,
+      "scale": 1.6
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     82.41,
+     82.15
+    ],
+    "r": [
+     3.027,
+     2.927
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.4,
+    -3
+   ],
+   "noStands": true,
+   "stars": [
+    "sadi"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 154,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "officiant",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.95,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.3,
+     "hold": "bouquet",
+     "holdFrom": 0.719,
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.55,
+      0.6
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.8,
+     2.7
+    ],
+    "h": [
+     1.06,
+     1.06
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -3.95
+   ],
+   "stars": [
+    "kob"
+   ],
+   "groom": {
+    "hide": true
+   }
+  },
+  {
+   "beat": 160,
+   "kind": "dance",
+   "map": "wedding",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bouffant",
+     "clip": "happy_run",
+     "x": -0.1,
+     "z": 12.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.55,
+     "speed": 1,
+     "hold": "stopsign",
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.05,
+      0.85
+     ],
+     "holdAt": 0.55
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.47,
+     1.47
+    ],
+    "r": [
+     3.901,
+     3.901
+    ],
+    "h": [
+     1.12,
+     1.12
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.2,
+    11.7
+   ],
+   "doors": 1,
+   "groom": {
+    "x": 0.75,
+    "z": 10.6,
+    "yaw": 0,
+    "pose": "run",
+    "at": -0.5,
+    "to": [
+     0.75,
+     12
+    ],
+    "dur": 1.6,
+    "ring": true
+   },
+   "rice": [
+    -0.45,
+    12.1
+   ],
+   "stop": 0.55,
+   "still": true,
+   "flashAt": [
+    0.5
+   ],
+   "photo": 0.55,
+   "stars": [
+    "saxo"
+   ]
+  }
+ ]
+}

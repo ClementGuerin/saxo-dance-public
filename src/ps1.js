@@ -24,6 +24,7 @@ import { buildPlayaMaps } from './maps18.js';
 import { buildEstateMaps, trolleyModel, TROLLEY } from './maps19.js';
 import { buildSelfAwareMaps } from './maps20.js';
 import { buildShipMaps } from './maps21.js';
+import { buildWeddingMaps, drawStop } from './maps22.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -218,7 +219,8 @@ function buildSaxo() {
 
 // ---------- dance: named moves as functions of beat position, blended on move boundaries ----------
 const BPMv = (window.BEATS && window.BEATS.bpm) || CONFIG.bpm, B0 = window.BEATS ? window.BEATS.offset : CONFIG.beatOffset;
-const bp = t => (t - B0) * BPMv / 60;
+const GRIDB = window.beatGrid;   // a kit's tempo map (src/core.js), else the one BPM
+const bp = t => GRIDB ? GRIDB.pos(t) : (t - B0) * BPMv / 60;
 const TAU = Math.PI * 2, fr = x => x - Math.floor(x), cl = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const sm = x => { x = cl(x); return x * x * (3 - 2 * x); };
 const hit = f => Math.exp(-f * 5);                       // 1 on the beat, decays through it
@@ -643,6 +645,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   frontman: 'assets/models/saxo_frontman.glb',
   // the band's captain in the clip's naval look: a black double-breasted officer's jacket, two rows of gold buttons, gold cuff stripes, a white captain's cap with a gold anchor ("SWIM", 2026-10-01)
   captain: 'assets/models/saxo_captain.glb',
+  // the clip's 1960s blonde: a teased blonde bouffant flipped up at the shoulders (his ears out on top), a pale pink shift dress with a white Peter Pan collar, white gloves, pearl earrings, white heels ("Stop The Wedding!", 2026-10-01)
+  bouffant: 'assets/models/saxo_bouffant.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -665,6 +669,8 @@ const PARTNERS = {
     tracksuit: 'assets/models/sadi_tracksuit.glb',
     // the clip's heroine: a long caramel wool coat open over a white satin slip dress, tan ankle boots, her pink bow ("SWIM", 2026-10-01)
     coat: 'assets/models/sadi_coat.glb',
+    // the bride: a short white wedding dress with a lace bodice and a flared skirt, a short tulle veil from a small silver tiara, her pink bow, white heels ("Stop The Wedding!", 2026-10-01)
+    bride: 'assets/models/sadi_bride.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -684,6 +690,8 @@ const PARTNERS = {
     bassist: 'assets/models/kob_bassist.glb',
     // the only one who came prepared: a bright orange life jacket (black straps, a white reflective stripe, a whistle) over her mint tweed, her bell ("SWIM", 2026-10-01)
     lifevest: 'assets/models/kob_lifevest.glb',
+    // the wedding's officiant: a long black robe with wide sleeves, a white collar tab, a thin gold sash, black shoes, her bell collar ("Stop The Wedding!", 2026-10-01)
+    officiant: 'assets/models/kob_officiant.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -699,6 +707,8 @@ const PARTNERS = {
     drummer: 'assets/models/compote_drummer.glb',
     // the bosun in sailor whites: a white middy top with a navy striped collar and neckerchief, white bell-bottoms, black shoes, a white sailor cap, her carrot clip ("SWIM", 2026-10-01)
     sailor: 'assets/models/compote_sailor.glb',
+    // the flower girl: a pale pink frilly dress with puffed sleeves and a big satin bow at the back, white tights, pink shoes, a crown of pink and white flowers, her carrot clip ("Stop The Wedding!", 2026-10-01)
+    flowergirl: 'assets/models/compote_flowergirl.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -793,7 +803,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -827,7 +837,7 @@ function tessellate(root) {
 }
 Object.values(MAPS).forEach(m => { tessellate(m.group); m.group.visible = false; scene.add(m.group); });
 
-const beatT = n => B0 + n * 60 / BPMv, barOf = t => Math.round((t - B0) / (4 * 60 / BPMv));
+const beatT = n => GRIDB ? GRIDB.time(n) : B0 + n * 60 / BPMv, barOf = t => Math.round(bp(t) / 4);
 // Shot planner (research/REFERENCE_ANALYSIS.md): cuts on bar lines; 4-bar shots in the verse, 2-bar shots in the
 // chorus (a new place on each chorus line), and a ~4-bar orbit to close. Cameras are polar around Saxo:
 // [angle° from, to], [radius from, to], [height from, to], look-at y, fov. The move eases in and carries into the cut.
@@ -912,7 +922,7 @@ function actorSpec(a, e, map) {
 }
 function planShots() {
   if (EP) return episodeShots();
-  const dur = CONFIG.duration, beats = Math.floor((dur - B0) * BPMv / 60), L = window.LYRICS || [], C = window.LINE_CHORUS || [];
+  const dur = CONFIG.duration, beats = Math.floor(bp(dur)), L = window.LYRICS || [], C = window.LINE_CHORUS || [];
   const ci = L.findIndex((_, i) => C[i]), chorusB = ci >= 0 ? barOf(L[ci][0][0]) * 4 : Infinity;   // chorus downbeat, in beats
   const closeB = Math.max(chorusB + 8, (Math.floor(beats / 4) - 2) * 4);
   const cuts = [[0, 'hook']];
@@ -948,11 +958,11 @@ const shake = (t, s) => [0, 1, 2].map(a => 0.5 * Math.sin(t * 1.7 + a * 2.1 + s)
 // bigger on the bar's downbeat and on the first beat of a shot. ~60 ms attack, exponential decay over the beat.
 const BOUNCE = +(Q.get('bounce') ?? 1);   // 0 disables, 2 doubles
 function bounce(t, t0, half = false) {   // half: the breakdown punches every other beat only (no kick on the off beats)
-  const bp = 60 / BPMv, n = Math.floor((t - B0) / bp + 1e-6), tau = t - (B0 + n * bp);
+  const n = Math.floor(bp(t) + 1e-6), tb = beatT(n), per = beatT(n + 1) - tb, tau = t - tb;   // the beat's own length (a tempo map moves it)
   if (n < 0 || BOUNCE === 0 || (half && n % 2)) return 0;
-  const cutHit = Math.abs(B0 + n * bp - t0) < 0.02;   // this beat is the cut
+  const cutHit = Math.abs(tb - t0) < 0.02;   // this beat is the cut
   const amp = (((n % 4) + 4) % 4 === 0 ? 0.06 : 0.03) * (cutHit ? 1.6 : 1) * BOUNCE;
-  const att = cutHit ? 1 : Math.min(1, tau / 0.06), env = tau < 0.06 ? att * att * (3 - 2 * att) : Math.exp(-(tau - 0.06) / (bp * 0.28));
+  const att = cutHit ? 1 : Math.min(1, tau / 0.06), env = tau < 0.06 ? att * att * (3 - 2 * att) : Math.exp(-(tau - 0.06) / (per * 0.28));
   return amp * env;
 }
 
@@ -979,6 +989,29 @@ function propMesh(kind) {
     add(box(0.07, 0.05, 0.05, M(0xc8ccd4)), -0.035, 0.105); add(box(0.06, 0.036, 0.004, glow(0xffffff)), -0.035, 0.105, 0.027);
   } else if (kind === 'bucket') {   // a red bucket with a grey rim and handle, water inside ("SWIM": Compote bails the sea)
     add(cyl(0.13, 0.1, 0.22, M(0xd8382e), 8), 0, 0); add(cyl(0.135, 0.135, 0.02, M(0xb8bcc4), 8), 0, 0.11); add(cyl(0.118, 0.118, 0.01, mat({ color: 0x3aa8d8, unlit: 0.4 }), 8), 0, 0.085);
+  } else if (kind === 'stopsign') {   // "Stop The Wedding!": a red STOP sign on a grey pole, held up beside the face like the FRUIT ONLY placard; an octagon on both faces (a planar UV keeps STOP upright)
+    const face = mat({ map: tex(48, 48, x => drawStop(x), 2240), unlit: 0.6 }), oct = new THREE.CircleGeometry(0.23, 8, Math.PI / 8);
+    add(new THREE.Mesh(oct, face), 0, 0.5, 0.008); add(new THREE.Mesh(oct, face), 0, 0.5, -0.008).rotation.y = Math.PI;
+    add(cyl(0.016, 0.016, 0.5, M(0x9a9aa4), 4), 0, 0.12);
+  } else if (kind === 'rose') {   // a red rose, the flower girl's ammunition: a faceted bloom, a green stem and a leaf
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xe8203c, unlit: 0.35 })), 0, 0.2);
+    for (let q = 0; q < 3; q++) add(box(0.05, 0.03, 0.05, mat({ color: 0xff4a6a, unlit: 0.35 })), Math.sin(q * 2.1) * 0.035, 0.22, Math.cos(q * 2.1) * 0.035).rotation.y = q;
+    add(cyl(0.008, 0.008, 0.22, M(0x3a9a3a), 4), 0, 0.08); add(box(0.05, 0.01, 0.025, M(0x4ab04a)), 0.03, 0.08).rotation.z = 0.5;
+  } else if (kind === 'bloom') {   // a rose head alone, for the volleys (in flight a stem read as a green stick in the thrower's mouth)
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.075, 0), mat({ color: 0xe8203c, unlit: 0.4 })), 0, 0);
+    for (let q = 0; q < 4; q++) add(box(0.06, 0.035, 0.06, mat({ color: 0xff4a6a, unlit: 0.4 })), Math.sin(q * 1.57) * 0.05, 0.03, Math.cos(q * 1.57) * 0.05).rotation.y = q;
+    for (const q of [-1, 1]) add(box(0.06, 0.012, 0.03, M(0x4ab04a)), q * 0.06, -0.05, 0).rotation.z = q * 0.5;
+  } else if (kind === 'bouquet') {   // the bride's bouquet: a dome of pink, white and red roses over a white-wrapped handle with a satin bow
+    const cols = [0xff8ab8, 0xffffff, 0xe8203c, 0xffc8dc, 0xff5f9a, 0xfff0f6, 0xff8ab8];
+    add(new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.18, 6), M(0xfaf6f0)), 0, 0.02).rotation.x = Math.PI;
+    for (let q = 0; q < 7; q++) { const a = q / 6 * Math.PI * 2, r = q ? 0.07 : 0; add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.05, 0), mat({ color: cols[q], unlit: 0.35 })), Math.sin(a) * r, 0.14 + (q ? 0 : 0.03), Math.cos(a) * r); }
+    for (let q = 0; q < 5; q++) { const a = q / 5 * Math.PI * 2 + 0.3; add(box(0.05, 0.012, 0.025, M(0x5ab05a)), Math.sin(a) * 0.1, 0.1, Math.cos(a) * 0.1).rotation.y = a; }
+    add(box(0.09, 0.03, 0.02, mat({ color: 0xff8ab8, unlit: 0.4 })), 0, 0.07, 0.05);
+  } else if (kind === 'basket') {   // the flower girl's wicker basket of petals, hanging from the paw by its handle
+    add(new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.09, 0.1, 8, 1, true), M(0xd8a860)), 0, -0.2);
+    add(new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.01, 8), mat({ color: 0xff9ec4, unlit: 0.4 })), 0, -0.16);
+    for (let q = 0; q < 4; q++) add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.03, 0), mat({ color: q % 2 ? 0xffffff : 0xe8203c, unlit: 0.4 })), Math.sin(q * 1.6) * 0.06, -0.14, Math.cos(q * 1.6) * 0.06);
+    const h = add(new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.012, 3, 8, Math.PI), M(0xc89850)), 0, -0.15); h.rotation.y = Math.PI / 2;
   } else if (kind === 'handmirror') {   // Sadi's pink hand mirror held up beside her face ("Self Aware"): a silver glass on both faces in a pink rim, a pink handle
     const disc = add(cyl(0.1, 0.1, 0.025, mat({ color: 0xffb4dc, unlit: 0.6 }), 10), 0, 0.06); disc.rotation.x = Math.PI / 2;
     for (const fz of [-0.016, 0.016]) { const face = add(cyl(0.083, 0.083, 0.006, glow(0xe8f4ff), 10), 0, 0.06, fz); face.rotation.x = Math.PI / 2; }   // silver on both faces: from the lens its pink back read as a paddle
@@ -1728,7 +1761,7 @@ function danceFrame(t) {
   // whip-in: the first ~0.25 s pans fast into place; the 2D layer smears the frame by window.WHIP
   const whip = cam.whip ? Math.exp(-(t - t0) * 16) : 0; camera.rotateY(whip * 0.9); window.WHIP = whip;
   // jolt: the bass through the walls kicks the whole frame on every beat (a drop and a small roll, decaying through the beat)
-  if (P.jolt) { const bpS = 60 / BPMv, nb = Math.floor((t - B0) / bpS + 1e-6), f = (t - B0) / bpS - nb, j = nb >= 0 ? Math.exp(-f * 7) : 0; camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * (nb % 2 ? 1 : -1)); }
+  if (P.jolt) { const pos = bp(t), nb = Math.floor(pos + 1e-6), f = pos - nb, j = nb >= 0 ? Math.exp(-f * 7) : 0; camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * (nb % 2 ? 1 : -1)); }
   // roll: a dutch angle in degrees (or [from, …, to] keyframes over the shot, on the move's easing). hand: a handheld operator on top
   // of the path (1 = the loose sway of the ratoshidance references: ~3 cm of drift, ~1° of wobble, ~1.2° of roll).
   const roll = cam.roll == null ? 0 : lerp(cam.roll), hand = cam.hand || 0, hw = (f, p) => Math.sin(t * f + p + i * 7.3);
@@ -1859,12 +1892,12 @@ if (EP) {
   const _fv = new THREE.Vector3();
   function danceFx(p, t) {
     if (!p.word && !p.flash && !p.flashAt) return null;
-    const bp = 60 / BPMv, fx = { flash: 0, pow: 0 };
-    if (p.flash) { const n = Math.floor((t - B0) / bp + 1e-6), since = t - (B0 + n * bp); if (B0 + n * bp >= p.t0 - 0.02) fx.flash = (n % 2 ? 0.22 : 0.42) * Math.exp(-since * 16); }
+    const per = 60 / BPMv, fx = { flash: 0, pow: 0 };
+    if (p.flash) { const n = Math.floor(bp(t) + 1e-6), tb = beatT(n), since = t - tb; if (tb >= p.t0 - 0.02) fx.flash = (n % 2 ? 0.22 : 0.42) * Math.exp(-since * 16); }
     // flashAt: [s, …] seconds into the shot: one camera flash each, a white-out that clears in ~0.3 s ("Billie Jean": the private eye's camera)
     for (const s of p.flashAt || []) { const d = t - (p.t0 + s); if (d >= 0) fx.flash = Math.max(fx.flash, 1.1 * Math.exp(-d * 9)); }
     if (p.word) {
-      const since = t - (p.t0 + (p.wordAt ?? 1) * bp);
+      const since = t - (p.t0 + (p.wordAt ?? 1) * per);
       if (since > 0) {
         fx.pow = Math.min(1, since / 0.12) * Math.exp(-since * 0.9); fx.word = p.word;
         const who = p.actors ? CREW[p.wordWho || p.actors[0]?.who] : null;

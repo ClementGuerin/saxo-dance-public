@@ -108,7 +108,7 @@ function makeS(ac, dest, from = 0, lead = 0) {
     riser(t, d = 2, v = .18) { S.noise(t - d, d * .05, { freq: 300, sweepTo: 8000, q: 2, v, attack: d * .95, rev: .4 }); S.tone(t - d, 110, d * .05, { type: 'sawtooth', slideTo: 880, cutoff: 2200, v: v * .35, attack: d * .95 }); },
     impact(t, v = .8) { S.kick(t, v, { depth: .6 }); S.noise(t, 1.1, { filter: 'lowpass', freq: 900, v: v * .45, rev: .6 }); S.tone(t, 55, 1.2, { type: 'sine', v: v * .5, drive: 1.5 }); },
     // Call fn(time, n) on every beat (div = 2 for eighths, 4 for sixteenths) in [a, b).
-    every(a, b, fn, div = 1) { const s = BEAT / div; for (let n = Math.ceil((a - BEAT0) / s - 1e-6); BEAT0 + n * s < b - 1e-6; n++) fn(BEAT0 + n * s, n); },
+    every(a, b, fn, div = 1) { for (let n = Math.ceil(bpOf(a) * div - 1e-6); beatAt(n / div) < b - 1e-6; n++) fn(beatAt(n / div), n); },
   };
   return S;
 }

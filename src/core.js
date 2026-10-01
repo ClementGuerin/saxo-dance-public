@@ -47,9 +47,29 @@ function kf(t, keys, fn = ease) {
 const BPM = (window.BEATS && window.BEATS.bpm) || CONFIG.bpm || 120;
 const BEAT = 60 / BPM;
 const BEAT0 = window.BEATS ? window.BEATS.offset : (CONFIG.beatOffset || 0);
-const bpOf = t => (t - BEAT0) / BEAT;                          // beat position (fractional)
+// A tempo map (2026-10-01, "Stop The Wedding!": the band plays its choruses at ~132.1 BPM and the verse at ~134.9, so
+// one BPM drifted ±70 ms off the kick): a kit's BEATS.grid holds the time of every beat from beat 0 (tools/beats.mjs
+// --grid=). Beat positions interpolate between its times and run on at the end intervals past either end; the
+// renderer (ps1.js) and the maps read the same conversions through window.beatGrid.
+const GRID = window.BEATS && Array.isArray(window.BEATS.grid) && window.BEATS.grid.length > 2 ? window.BEATS.grid : null;
+function gridPos(t) {                                          // time -> fractional beat index
+  const g = GRID, n = g.length;
+  if (t <= g[0]) return (t - g[0]) / (g[1] - g[0]);
+  if (t >= g[n - 1]) return n - 1 + (t - g[n - 1]) / (g[n - 1] - g[n - 2]);
+  let lo = 0, hi = n - 1;
+  while (hi - lo > 1) { const m = (lo + hi) >> 1; if (g[m] <= t) lo = m; else hi = m; }
+  return lo + (t - g[lo]) / (g[lo + 1] - g[lo]);
+}
+function gridTime(b) {                                         // fractional beat index -> time
+  const g = GRID, n = g.length;
+  if (b <= 0) return g[0] + b * (g[1] - g[0]);
+  if (b >= n - 1) return g[n - 1] + (b - n + 1) * (g[n - 1] - g[n - 2]);
+  const i = Math.floor(b); return g[i] + (b - i) * (g[i + 1] - g[i]);
+}
+window.beatGrid = GRID ? { pos: gridPos, time: gridTime } : null;
+const bpOf = t => GRID ? gridPos(t) : (t - BEAT0) / BEAT;      // beat position (fractional)
 const beatN = t => Math.floor(bpOf(t));
-const beatAt = n => BEAT0 + n * BEAT;                          // time of beat n; land hits here
+const beatAt = n => GRID ? gridTime(n) : BEAT0 + n * BEAT;     // time of beat n; land hits here
 const pulse = (t, k = 6) => { const p = bpOf(t); return p < 0 ? 0 : Math.exp(-frac(p) * k); };       // 1 on each beat, decays
 const pulse2 = (t, k = 6) => { const p = bpOf(t) * 2; return p < 0 ? 0 : Math.exp(-frac(p) * k); };  // same on eighths
 
