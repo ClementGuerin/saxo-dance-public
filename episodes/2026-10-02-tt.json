@@ -1,0 +1,9354 @@
+{
+ "date": "2026-10-02",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "underdog",
+  "scenes": [
+   "bathtub run",
+   "coconuts",
+   "freezer"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "icetrack",
+   "kingston"
+  ],
+  "ref": "twin-trend",
+  "lyric_literal": "'bam' (every one: four coconuts on four heads, the tub's bounces, each jump into the tub, the tip over the lip, the wall hits, the crash, the four landings), 'Kingston' (the sign), 'hear the sound' (the sound system), 'come... see' (the locals gather), 'nice up Jamaica' (the crowd starts to dance), 'Jamaican' (the crowd chants it on the beat)",
+  "experiment": "Does an underdog sports parody everyone knows (the Jamaican bobsled team, in a bathtub) with a sound gag on every 'bam' of a rising afro-house hit, opened on the dance, get more shares per 1,000 views than our story plots? (TikTok cut on the 60 s official sound: the main moved over beat for beat from the sound system, told in order)"
+ },
+ "n": "1-tt",
+ "song": {
+  "title": "Jamaican (Bam Bam)",
+  "artist": "HUGEL & SOLTO",
+  "window": [
+   96.0931,
+   156.0931
+  ],
+  "rate": 1,
+  "bpm": 122,
+  "tiktok_sound": {
+   "music_id": "7566356377771591696",
+   "title": "Jamaican (Bam Bam)",
+   "author": "HUGEL & SOLTO (FR)",
+   "seconds": 60,
+   "videos": 805351
+  }
+ },
+ "logline": "Four beach pets from Kingston dance at the sound system, take coconuts on the head and train in a bathtub on skis; then they turn up at the Winter Olympics with it: it bangs a wall on every 'bam', the last one wrecks it, and they carry it over the finish line on their heads with Kob still sitting in it.",
+ "new": [
+  "the main cut moved onto the official sound beat for beat (it sits inside it, from the break's verse to the end), told in order: the cold open and the flashback's start, before the sound, are left out"
+ ],
+ "notes": "TikTok muted the main post (itemMute, 2026-10-02). The official sound (HUGEL & SOLTO (FR)'s own, 805,351 videos, 60 s) is song 96.0931-156.0931 s at the song's own speed: the main cut from kit 13.3875 s (b27.22) to its end. The main's shots from the sound system (b28) on move over beat for beat (tt beat = main beat - 28); the sound system opens it, joined 0.383 s early (see the generator's header).",
+ "clips": [
+  "happy_idle",
+  "happy_run",
+  "happy_walk",
+  "male_driving_a_car"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.24,
+     "z": -2.58,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.17,
+     "lift": 0.2,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk"
+    },
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -0.98,
+     "z": -3.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.817
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": 0.98,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.817
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -160,
+     -160
+    ],
+    "r": [
+     6.095,
+     5.73
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    -2.9
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -3,
+    "yaw": 0
+   },
+   "rivals": [
+    0,
+    -3
+   ],
+   "fans": "cheer",
+   "hideWall": -1,
+   "clear": [
+    [
+     -2.08,
+     -8.63,
+     1.3
+    ],
+    [
+     -1.78,
+     -7.78,
+     1.3
+    ],
+    [
+     -1.47,
+     -6.94,
+     1.3
+    ],
+    [
+     -1.16,
+     -6.09,
+     1.3
+    ],
+    [
+     -0.85,
+     -5.24,
+     1.3
+    ],
+    [
+     -1.96,
+     -8.28,
+     1.3
+    ],
+    [
+     -1.65,
+     -7.44,
+     1.3
+    ],
+    [
+     -1.34,
+     -6.59,
+     1.3
+    ],
+    [
+     -1.04,
+     -5.75,
+     1.3
+    ],
+    [
+     -0.73,
+     -4.9,
+     1.3
+    ]
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 3,
+   "kind": "dance",
+   "map": "kingston",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -2.95,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.725
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -3.87,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.725
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -2.03,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.725
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.81,
+     2.44
+    ],
+    "r": [
+     5.106,
+     4.704
+    ],
+    "h": [
+     0.4,
+     0.4
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 62,
+    "roll": [
+     6,
+     4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -2.95,
+    -1.5999999999999996
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 6,
+   "kind": "dance",
+   "map": "kingston",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -2.95,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.25
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -3.95,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.25
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "charleston",
+     "x": -1.95,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.25
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.15,
+     9.75
+    ],
+    "r": [
+     6.807,
+     6.494
+    ],
+    "h": [
+     3.4,
+     3.3
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -2.95,
+    -1.7999999999999996
+   ],
+   "gather": [
+    -2.95,
+    -1.5999999999999996,
+    2.6,
+    -100,
+    100
+   ],
+   "cheer": true,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 10,
+   "kind": "dance",
+   "map": "kingston",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": -1.5,
+     "z": -4.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.5,
+     "bumps": [
+      0.359
+     ],
+     "bumpAmp": 0.12
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": -4.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 0.5,
+     "bumps": [
+      0.482
+     ],
+     "bumpAmp": 0.12
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2,
+     2.1
+    ],
+    "r": [
+     4.303,
+     4.103
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -1,
+    -4.6
+   ],
+   "coconuts": [
+    [
+     0.359,
+     -1.5,
+     -4.6,
+     1.38,
+     3.4
+    ],
+    [
+     0.482,
+     -0.5,
+     -4.6,
+     1.26,
+     3.4
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "kingston",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "happy_idle",
+     "x": 0.5,
+     "z": -4.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.3,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": 1.5,
+     "z": -4.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.5,
+     "bumps": [
+      0.728
+     ],
+     "bumpAmp": 0.12
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5,
+     4.8
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 48
+   },
+   "focus": [
+    1,
+    -4.6
+   ],
+   "coconuts": [
+    [
+     0.728,
+     1.5,
+     -4.6,
+     1.18,
+     2.6
+    ],
+    [
+     0.89,
+     0.5,
+     -4.6,
+     1.36,
+     2.6
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 14,
+   "kind": "dance",
+   "map": "kingston",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.58,
+     "z": -0.15,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.534,
+      1.756,
+      2.454,
+      2.705,
+      3.507,
+      3.713
+     ],
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "mx": 0,
+     "mz": 0.6,
+     "moveAt": 0
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.02,
+     "z": -0.98,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.534,
+      1.756,
+      2.454,
+      2.705,
+      3.507,
+      3.713
+     ],
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5,
+     "mx": 0,
+     "mz": 0.6,
+     "moveAt": 0
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": 0.58,
+     "z": -1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.534,
+      1.756,
+      2.454,
+      2.705,
+      3.507,
+      3.713
+     ],
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": 0.6,
+     "moveAt": 0
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 1.1,
+     "z": -3.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 1.6,
+     "mx": 0,
+     "mz": 0.6,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.15,
+      0.95
+     ],
+     "lean": 32
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3,
+     3
+    ],
+    "r": [
+     5.265,
+     4.95
+    ],
+    "h": [
+     2.5,
+     2.5
+    ],
+    "look": [
+     0.975,
+     0.975
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.57,
+    -1.288
+   ],
+   "tub": {
+    "x": 0.3,
+    "z": -1.4,
+    "yaw": 180,
+    "to": [
+     0.3,
+     -0.8
+    ],
+    "at": 0
+   },
+   "hits": [
+    [
+     1.534,
+     1
+    ],
+    [
+     1.756,
+     1
+    ],
+    [
+     2.454,
+     1
+    ],
+    [
+     2.705,
+     1
+    ],
+    [
+     3.507,
+     1
+    ],
+    [
+     3.713,
+     1
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -2.58,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": -0.88,
+     "z": -3.6,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": 0.88,
+     "z": -3.2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.6,
+     "speed": 0.5
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": -0.95,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.2,
+     "speed": 0.5,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     7.866,
+     7.394
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.093,
+    -3.127
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -3,
+    "yaw": 0
+   },
+   "rivals": [
+    0,
+    -3
+   ],
+   "rivalPos": [
+    [
+     -2,
+     0.2,
+     0.86
+    ],
+    [
+     -2.1,
+     1.2,
+     0.86
+    ],
+    [
+     2,
+     0.3,
+     0.86
+    ],
+    [
+     2.1,
+     1.3,
+     0.86
+    ]
+   ],
+   "sledPos": [
+    [
+     -2.5,
+     0.9,
+     0,
+     1.16
+    ],
+    [
+     2.5,
+     1,
+     0,
+     1.16
+    ]
+   ],
+   "go": 1.869,
+   "clear": [
+    [
+     -0.09,
+     -10.99,
+     1.3
+    ],
+    [
+     -0.09,
+     -10.09,
+     1.3
+    ],
+    [
+     -0.09,
+     -9.19,
+     1.3
+    ],
+    [
+     -0.09,
+     -8.29,
+     1.3
+    ],
+    [
+     -0.09,
+     -7.39,
+     1.3
+    ],
+    [
+     -0.09,
+     -10.52,
+     1.3
+    ],
+    [
+     -0.09,
+     -9.62,
+     1.3
+    ],
+    [
+     -0.09,
+     -8.72,
+     1.3
+    ],
+    [
+     -0.09,
+     -7.82,
+     1.3
+    ],
+    [
+     -0.09,
+     -6.92,
+     1.3
+    ],
+    [
+     -2,
+     0.2,
+     0.75
+    ],
+    [
+     -2.1,
+     1.2,
+     0.75
+    ],
+    [
+     2,
+     0.3,
+     0.75
+    ],
+    [
+     2.1,
+     1.3,
+     0.75
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": -0.98,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 1.5,
+     "mz": -1,
+     "arm": "R",
+     "aim": [
+      0.4,
+      -0.15,
+      0.9
+     ],
+     "lean": 28,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.98,
+     "z": -3.1,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.7,
+     "speed": 1.5,
+     "mz": -1,
+     "arm": "L",
+     "aim": [
+      0.4,
+      -0.15,
+      0.9
+     ],
+     "lean": 28,
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.38,
+     "z": -0.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.2,
+     "speed": 1.6,
+     "mz": -1,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.15,
+      0.95
+     ],
+     "lean": 34,
+     "fg": false
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -2.58,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -1,
+     "moveAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5,
+     5
+    ],
+    "r": [
+     4.6,
+     4.324
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.05,
+    -2.165
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -3,
+    "yaw": 0,
+    "to": [
+     0,
+     -4
+    ],
+    "at": 0
+   },
+   "hops": [
+    1.348,
+    1.598
+   ],
+   "fans": "cheer",
+   "go": -1,
+   "clear": [
+    [
+     0,
+     2.46,
+     0.9
+    ],
+    [
+     0.9,
+     2.38,
+     0.9
+    ],
+    [
+     -0.35,
+     1.77,
+     0.9
+    ],
+    [
+     0.39,
+     1.7,
+     0.9
+    ],
+    [
+     1.13,
+     1.64,
+     0.9
+    ],
+    [
+     -0.71,
+     1.07,
+     0.9
+    ],
+    [
+     -0.02,
+     1.01,
+     0.9
+    ],
+    [
+     0.67,
+     0.95,
+     0.9
+    ],
+    [
+     1.36,
+     0.89,
+     0.9
+    ],
+    [
+     -1.06,
+     0.38,
+     0.9
+    ],
+    [
+     -0.18,
+     0.3,
+     0.9
+    ],
+    [
+     0.71,
+     0.23,
+     0.9
+    ],
+    [
+     1.59,
+     0.15,
+     0.9
+    ],
+    [
+     -1.42,
+     -0.31,
+     0.9
+    ],
+    [
+     -0.61,
+     -0.38,
+     0.9
+    ],
+    [
+     0.2,
+     -0.45,
+     0.9
+    ],
+    [
+     1.01,
+     -0.52,
+     0.9
+    ],
+    [
+     1.82,
+     -0.59,
+     0.9
+    ],
+    [
+     -0.02,
+     2.18,
+     0.9
+    ],
+    [
+     0.88,
+     2.1,
+     0.9
+    ],
+    [
+     -0.38,
+     1.49,
+     0.9
+    ],
+    [
+     0.36,
+     1.43,
+     0.9
+    ],
+    [
+     1.11,
+     1.36,
+     0.9
+    ],
+    [
+     -0.73,
+     0.8,
+     0.9
+    ],
+    [
+     -0.04,
+     0.74,
+     0.9
+    ],
+    [
+     0.65,
+     0.68,
+     0.9
+    ],
+    [
+     1.34,
+     0.62,
+     0.9
+    ],
+    [
+     -1.09,
+     0.11,
+     0.9
+    ],
+    [
+     -0.2,
+     0.03,
+     0.9
+    ],
+    [
+     0.68,
+     -0.05,
+     0.9
+    ],
+    [
+     1.57,
+     -0.13,
+     0.9
+    ],
+    [
+     -1.44,
+     -0.58,
+     0.9
+    ],
+    [
+     -0.63,
+     -0.66,
+     0.9
+    ],
+    [
+     0.18,
+     -0.73,
+     0.9
+    ],
+    [
+     0.99,
+     -0.8,
+     0.9
+    ],
+    [
+     1.8,
+     -0.87,
+     0.9
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": -0.98,
+     "z": -4.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.5,
+     "speed": 1.5,
+     "mz": -0.5,
+     "arm": "R",
+     "aim": [
+      0.4,
+      -0.15,
+      0.9
+     ],
+     "lean": 28,
+     "fg": false
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.98,
+     "z": -4.1,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.8999999999999999,
+     "speed": 1.5,
+     "mz": -0.5,
+     "arm": "L",
+     "aim": [
+      0.4,
+      -0.15,
+      0.9
+     ],
+     "lean": 28,
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.38,
+     "z": -1.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 1.6,
+     "mz": -0.5,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.15,
+      0.95
+     ],
+     "lean": 34,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -3.58,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -0.5,
+     "moveAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -144.99,
+     -145
+    ],
+    "r": [
+     3.443,
+     3.236
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.98,
+    -4.75
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -4,
+    "yaw": 0,
+    "to": [
+     0,
+     -4.5
+    ],
+    "at": 0
+   },
+   "fans": "cheer",
+   "go": -1,
+   "hideWall": -1,
+   "clear": [
+    [
+     -2.59,
+     -7.83,
+     0.9
+    ],
+    [
+     -3.32,
+     -7.31,
+     0.9
+    ],
+    [
+     -1.92,
+     -7.41,
+     0.9
+    ],
+    [
+     -2.54,
+     -6.98,
+     0.9
+    ],
+    [
+     -3.16,
+     -6.55,
+     0.9
+    ],
+    [
+     -1.26,
+     -7,
+     0.9
+    ],
+    [
+     -1.84,
+     -6.59,
+     0.9
+    ],
+    [
+     -2.42,
+     -6.19,
+     0.9
+    ],
+    [
+     -3,
+     -5.78,
+     0.9
+    ],
+    [
+     -0.6,
+     -6.58,
+     0.9
+    ],
+    [
+     -1.16,
+     -6.19,
+     0.9
+    ],
+    [
+     -1.72,
+     -5.8,
+     0.9
+    ],
+    [
+     -2.27,
+     -5.41,
+     0.9
+    ],
+    [
+     -2.83,
+     -5.02,
+     0.9
+    ],
+    [
+     0.06,
+     -6.17,
+     0.9
+    ],
+    [
+     -0.62,
+     -5.69,
+     0.9
+    ],
+    [
+     -1.3,
+     -5.21,
+     0.9
+    ],
+    [
+     -1.98,
+     -4.73,
+     0.9
+    ],
+    [
+     -2.67,
+     -4.26,
+     0.9
+    ],
+    [
+     -2.47,
+     -7.66,
+     0.9
+    ],
+    [
+     -3.2,
+     -7.14,
+     0.9
+    ],
+    [
+     -1.81,
+     -7.24,
+     0.9
+    ],
+    [
+     -2.42,
+     -6.81,
+     0.9
+    ],
+    [
+     -3.04,
+     -6.38,
+     0.9
+    ],
+    [
+     -1.14,
+     -6.83,
+     0.9
+    ],
+    [
+     -1.72,
+     -6.42,
+     0.9
+    ],
+    [
+     -2.3,
+     -6.02,
+     0.9
+    ],
+    [
+     -2.88,
+     -5.61,
+     0.9
+    ],
+    [
+     -0.48,
+     -6.41,
+     0.9
+    ],
+    [
+     -1.04,
+     -6.02,
+     0.9
+    ],
+    [
+     -1.6,
+     -5.63,
+     0.9
+    ],
+    [
+     -2.15,
+     -5.24,
+     0.9
+    ],
+    [
+     -2.71,
+     -4.85,
+     0.9
+    ],
+    [
+     0.18,
+     -6,
+     0.9
+    ],
+    [
+     -0.5,
+     -5.52,
+     0.9
+    ],
+    [
+     -1.18,
+     -5.04,
+     0.9
+    ],
+    [
+     -1.87,
+     -4.56,
+     0.9
+    ],
+    [
+     -2.55,
+     -4.09,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -5.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.58,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      0.369
+     ],
+     "my": -0.3,
+     "myAt": 0.169,
+     "myDur": 0.2,
+     "air": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "mx": 0,
+     "mz": -0.5,
+     "moveAt": 0
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -4.08,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -0.5,
+     "moveAt": 0
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.98,
+     "z": -4.6,
+     "face": "world",
+     "yaw": 180,
+     "at": 1.1,
+     "speed": 1.5,
+     "mz": -0.5,
+     "arm": "L",
+     "aim": [
+      0.4,
+      -0.15,
+      0.9
+     ],
+     "lean": 28,
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.38,
+     "z": -2.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.6000000000000001,
+     "speed": 1.6,
+     "mz": -0.5,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.15,
+      0.95
+     ],
+     "lean": 34,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -160.01,
+     -160
+    ],
+    "r": [
+     3.396,
+     3.193
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.09,
+     1.09
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -0.28,
+    -6
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -4.5,
+    "yaw": 0,
+    "to": [
+     0,
+     -5
+    ],
+    "at": 0
+   },
+   "hops": [
+    0.369,
+    0.62
+   ],
+   "fans": "cheer",
+   "go": -1,
+   "hideWall": 1,
+   "clear": [
+    [
+     -1.02,
+     -9.35,
+     0.9
+    ],
+    [
+     -1.86,
+     -9.04,
+     0.9
+    ],
+    [
+     -0.53,
+     -8.76,
+     0.9
+    ],
+    [
+     -1.19,
+     -8.51,
+     0.9
+    ],
+    [
+     -1.86,
+     -8.27,
+     0.9
+    ],
+    [
+     -0.04,
+     -8.17,
+     0.9
+    ],
+    [
+     -0.65,
+     -7.95,
+     0.9
+    ],
+    [
+     -1.25,
+     -7.73,
+     0.9
+    ],
+    [
+     -1.86,
+     -7.51,
+     0.9
+    ],
+    [
+     0.45,
+     -7.58,
+     0.9
+    ],
+    [
+     -0.32,
+     -7.3,
+     0.9
+    ],
+    [
+     -1.09,
+     -7.02,
+     0.9
+    ],
+    [
+     -1.85,
+     -6.74,
+     0.9
+    ],
+    [
+     0.93,
+     -6.99,
+     0.9
+    ],
+    [
+     0.24,
+     -6.74,
+     0.9
+    ],
+    [
+     -0.46,
+     -6.48,
+     0.9
+    ],
+    [
+     -1.15,
+     -6.23,
+     0.9
+    ],
+    [
+     -1.85,
+     -5.98,
+     0.9
+    ],
+    [
+     1.42,
+     -6.4,
+     0.9
+    ],
+    [
+     0.61,
+     -6.11,
+     0.9
+    ],
+    [
+     -0.21,
+     -5.81,
+     0.9
+    ],
+    [
+     -1.03,
+     -5.51,
+     0.9
+    ],
+    [
+     -1.84,
+     -5.21,
+     0.9
+    ],
+    [
+     1.91,
+     -5.81,
+     0.9
+    ],
+    [
+     1.16,
+     -5.54,
+     0.9
+    ],
+    [
+     0.41,
+     -5.27,
+     0.9
+    ],
+    [
+     -0.34,
+     -5,
+     0.9
+    ],
+    [
+     -1.09,
+     -4.72,
+     0.9
+    ],
+    [
+     -1.84,
+     -4.45,
+     0.9
+    ],
+    [
+     -0.95,
+     -9.15,
+     0.9
+    ],
+    [
+     -1.79,
+     -8.85,
+     0.9
+    ],
+    [
+     -0.46,
+     -8.57,
+     0.9
+    ],
+    [
+     -1.13,
+     -8.32,
+     0.9
+    ],
+    [
+     -1.79,
+     -8.08,
+     0.9
+    ],
+    [
+     0.03,
+     -7.98,
+     0.9
+    ],
+    [
+     -0.58,
+     -7.76,
+     0.9
+    ],
+    [
+     -1.18,
+     -7.54,
+     0.9
+    ],
+    [
+     -1.79,
+     -7.32,
+     0.9
+    ],
+    [
+     0.52,
+     -7.39,
+     0.9
+    ],
+    [
+     -0.25,
+     -7.11,
+     0.9
+    ],
+    [
+     -1.02,
+     -6.83,
+     0.9
+    ],
+    [
+     -1.78,
+     -6.55,
+     0.9
+    ],
+    [
+     1,
+     -6.8,
+     0.9
+    ],
+    [
+     0.31,
+     -6.55,
+     0.9
+    ],
+    [
+     -0.39,
+     -6.29,
+     0.9
+    ],
+    [
+     -1.08,
+     -6.04,
+     0.9
+    ],
+    [
+     -1.78,
+     -5.79,
+     0.9
+    ],
+    [
+     1.49,
+     -6.21,
+     0.9
+    ],
+    [
+     0.68,
+     -5.91,
+     0.9
+    ],
+    [
+     -0.14,
+     -5.62,
+     0.9
+    ],
+    [
+     -0.96,
+     -5.32,
+     0.9
+    ],
+    [
+     -1.77,
+     -5.02,
+     0.9
+    ],
+    [
+     1.98,
+     -5.62,
+     0.9
+    ],
+    [
+     1.23,
+     -5.35,
+     0.9
+    ],
+    [
+     0.48,
+     -5.08,
+     0.9
+    ],
+    [
+     -0.27,
+     -4.8,
+     0.9
+    ],
+    [
+     -1.02,
+     -4.53,
+     0.9
+    ],
+    [
+     -1.77,
+     -4.26,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -6.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "mx": 0,
+     "mz": -0.5,
+     "moveAt": 0
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -4.58,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -0.5,
+     "moveAt": 0
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.98,
+     "z": -5.1,
+     "face": "world",
+     "yaw": 180,
+     "at": 1.2999999999999998,
+     "speed": 1.5,
+     "mz": -0.5,
+     "arm": "L",
+     "aim": [
+      0.4,
+      -0.15,
+      0.9
+     ],
+     "lean": 28
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_run",
+     "x": 0.38,
+     "z": -2.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.8,
+     "speed": 1.6,
+     "mz": -0.5,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.15,
+      0.95
+     ],
+     "lean": 34
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     12.99,
+     13
+    ],
+    "r": [
+     4.545,
+     4.272
+    ],
+    "h": [
+     2.5,
+     2.5
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.2,
+    -4.92
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -5,
+    "yaw": 0,
+    "to": [
+     0,
+     -5.5
+    ],
+    "at": 0
+   },
+   "fans": "cheer",
+   "go": -1,
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 38,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -6.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "mx": 0,
+     "mz": -0.3,
+     "moveAt": 0
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -5.08,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -0.3,
+     "moveAt": 0
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -5.92,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.66,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      0.369
+     ],
+     "my": -0.3,
+     "myAt": 0.169,
+     "myDur": 0.2,
+     "air": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5,
+     "mx": 0,
+     "mz": -0.3,
+     "moveAt": 0
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -4.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 1.12,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      0.61
+     ],
+     "my": -0.6,
+     "myAt": 0.31,
+     "myDur": 0.3,
+     "air": true,
+     "fg": true,
+     "mx": 0,
+     "mz": -0.3,
+     "moveAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     159.99,
+     160
+    ],
+    "r": [
+     3.098,
+     2.913
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     1.11,
+     1.11
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0.28,
+    -6.07
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -5.5,
+    "yaw": 0,
+    "to": [
+     0,
+     -5.8
+    ],
+    "at": 0
+   },
+   "hops": [
+    0.369,
+    0.61
+   ],
+   "fans": "cheer",
+   "go": -1,
+   "hideWall": 1,
+   "clear": [
+    [
+     1.76,
+     -8.83,
+     0.9
+    ],
+    [
+     0.92,
+     -9.13,
+     0.9
+    ],
+    [
+     1.76,
+     -8.06,
+     0.9
+    ],
+    [
+     1.09,
+     -8.3,
+     0.9
+    ],
+    [
+     0.43,
+     -8.55,
+     0.9
+    ],
+    [
+     1.75,
+     -7.3,
+     0.9
+    ],
+    [
+     1.15,
+     -7.52,
+     0.9
+    ],
+    [
+     0.55,
+     -7.74,
+     0.9
+    ],
+    [
+     -0.06,
+     -7.96,
+     0.9
+    ],
+    [
+     1.75,
+     -6.53,
+     0.9
+    ],
+    [
+     0.98,
+     -6.81,
+     0.9
+    ],
+    [
+     0.22,
+     -7.09,
+     0.9
+    ],
+    [
+     -0.55,
+     -7.37,
+     0.9
+    ],
+    [
+     1.75,
+     -5.77,
+     0.9
+    ],
+    [
+     1.05,
+     -6.02,
+     0.9
+    ],
+    [
+     0.35,
+     -6.27,
+     0.9
+    ],
+    [
+     -0.34,
+     -6.53,
+     0.9
+    ],
+    [
+     -1.04,
+     -6.78,
+     0.9
+    ],
+    [
+     1.74,
+     -5,
+     0.9
+    ],
+    [
+     0.92,
+     -5.3,
+     0.9
+    ],
+    [
+     0.11,
+     -5.6,
+     0.9
+    ],
+    [
+     -0.71,
+     -5.9,
+     0.9
+    ],
+    [
+     -1.52,
+     -6.19,
+     0.9
+    ],
+    [
+     1.74,
+     -4.24,
+     0.9
+    ],
+    [
+     0.99,
+     -4.51,
+     0.9
+    ],
+    [
+     0.24,
+     -4.79,
+     0.9
+    ],
+    [
+     -0.51,
+     -5.06,
+     0.9
+    ],
+    [
+     -1.26,
+     -5.33,
+     0.9
+    ],
+    [
+     -2.01,
+     -5.6,
+     0.9
+    ],
+    [
+     1.7,
+     -8.65,
+     0.9
+    ],
+    [
+     0.85,
+     -8.96,
+     0.9
+    ],
+    [
+     1.69,
+     -7.89,
+     0.9
+    ],
+    [
+     1.03,
+     -8.13,
+     0.9
+    ],
+    [
+     0.37,
+     -8.37,
+     0.9
+    ],
+    [
+     1.69,
+     -7.12,
+     0.9
+    ],
+    [
+     1.09,
+     -7.34,
+     0.9
+    ],
+    [
+     0.48,
+     -7.56,
+     0.9
+    ],
+    [
+     -0.12,
+     -7.78,
+     0.9
+    ],
+    [
+     1.69,
+     -6.36,
+     0.9
+    ],
+    [
+     0.92,
+     -6.64,
+     0.9
+    ],
+    [
+     0.15,
+     -6.92,
+     0.9
+    ],
+    [
+     -0.61,
+     -7.2,
+     0.9
+    ],
+    [
+     1.68,
+     -5.59,
+     0.9
+    ],
+    [
+     0.99,
+     -5.85,
+     0.9
+    ],
+    [
+     0.29,
+     -6.1,
+     0.9
+    ],
+    [
+     -0.4,
+     -6.35,
+     0.9
+    ],
+    [
+     -1.1,
+     -6.61,
+     0.9
+    ],
+    [
+     1.68,
+     -4.83,
+     0.9
+    ],
+    [
+     0.86,
+     -5.13,
+     0.9
+    ],
+    [
+     0.05,
+     -5.42,
+     0.9
+    ],
+    [
+     -0.77,
+     -5.72,
+     0.9
+    ],
+    [
+     -1.59,
+     -6.02,
+     0.9
+    ],
+    [
+     1.67,
+     -4.07,
+     0.9
+    ],
+    [
+     0.92,
+     -4.34,
+     0.9
+    ],
+    [
+     0.17,
+     -4.61,
+     0.9
+    ],
+    [
+     -0.58,
+     -4.88,
+     0.9
+    ],
+    [
+     -1.33,
+     -5.16,
+     0.9
+    ],
+    [
+     -2.08,
+     -5.43,
+     0.9
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -7.05,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "my": -0.302,
+     "myAt": 0.537,
+     "myDur": 0.5,
+     "fg": false,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -6.22,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "my": -0.102,
+     "myAt": 0.537,
+     "myDur": 0.5,
+     "fg": false
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -5.38,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "my": 0.102,
+     "myAt": 0.537,
+     "myDur": 0.5,
+     "fg": false,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -4.55,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "my": 0.302,
+     "myAt": 0.537,
+     "myDur": 0.5,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     166.64,
+     166.68
+    ],
+    "r": [
+     4.111,
+     3.905
+    ],
+    "h": [
+     -1,
+     -0.98
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -6.7
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -5.8,
+    "yaw": 0,
+    "pitch": -14,
+    "pitchAt": 0.537
+   },
+   "fans": "watch",
+   "go": -1,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -7.05,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": -0.022,
+     "speed": 0.6,
+     "noShadow": true,
+     "lean": 14,
+     "fg": false,
+     "holdAt": 0
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -6.22,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.258,
+     "speed": 0.6,
+     "noShadow": true,
+     "lean": 14,
+     "fg": false,
+     "holdAt": 0
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -5.38,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.542,
+     "speed": 0.6,
+     "noShadow": true,
+     "lean": 14,
+     "fg": false,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -4.55,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.822,
+     "speed": 0.6,
+     "noShadow": true,
+     "lean": 14,
+     "fg": true,
+     "holdAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     165.01,
+     165.01
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     0.893,
+     0.893
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.093,
+    -6.217
+   ],
+   "zone": "start",
+   "tub": {
+    "x": 0,
+    "z": -5.8,
+    "yaw": 0,
+    "pitch": -14,
+    "pitchAt": -1
+   },
+   "fans": "watch",
+   "stop": 0,
+   "still": true,
+   "go": -1,
+   "hideWall": 1,
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.55,
+      0.45
+     ],
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -175,
+     -175
+    ],
+    "r": [
+     4.542,
+     4.27
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54,
+    "hand": 0.8
+   },
+   "focus": [
+    -0.3,
+    -0.3
+   ],
+   "zone": "run",
+   "speed": 13,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "watch",
+   "clear": [
+    [
+     -0.25,
+     -4.86,
+     0.9
+    ],
+    [
+     -1.14,
+     -4.79,
+     0.9
+    ],
+    [
+     0.12,
+     -4.17,
+     0.9
+    ],
+    [
+     -0.63,
+     -4.11,
+     0.9
+    ],
+    [
+     -1.38,
+     -4.04,
+     0.9
+    ],
+    [
+     0.48,
+     -3.48,
+     0.9
+    ],
+    [
+     -0.22,
+     -3.42,
+     0.9
+    ],
+    [
+     -0.92,
+     -3.36,
+     0.9
+    ],
+    [
+     -1.62,
+     -3.3,
+     0.9
+    ],
+    [
+     0.85,
+     -2.79,
+     0.9
+    ],
+    [
+     0.17,
+     -2.73,
+     0.9
+    ],
+    [
+     -0.51,
+     -2.67,
+     0.9
+    ],
+    [
+     -1.19,
+     -2.61,
+     0.9
+    ],
+    [
+     -1.86,
+     -2.55,
+     0.9
+    ],
+    [
+     1.21,
+     -2.1,
+     0.9
+    ],
+    [
+     0.38,
+     -2.03,
+     0.9
+    ],
+    [
+     -0.44,
+     -1.96,
+     0.9
+    ],
+    [
+     -1.27,
+     -1.88,
+     0.9
+    ],
+    [
+     -2.1,
+     -1.81,
+     0.9
+    ],
+    [
+     -0.22,
+     -4.59,
+     0.9
+    ],
+    [
+     -1.12,
+     -4.51,
+     0.9
+    ],
+    [
+     0.14,
+     -3.9,
+     0.9
+    ],
+    [
+     -0.61,
+     -3.84,
+     0.9
+    ],
+    [
+     -1.36,
+     -3.77,
+     0.9
+    ],
+    [
+     0.51,
+     -3.21,
+     0.9
+    ],
+    [
+     -0.2,
+     -3.15,
+     0.9
+    ],
+    [
+     -0.9,
+     -3.09,
+     0.9
+    ],
+    [
+     -1.6,
+     -3.03,
+     0.9
+    ],
+    [
+     0.87,
+     -2.52,
+     0.9
+    ],
+    [
+     0.19,
+     -2.46,
+     0.9
+    ],
+    [
+     -0.48,
+     -2.4,
+     0.9
+    ],
+    [
+     -1.16,
+     -2.34,
+     0.9
+    ],
+    [
+     -1.84,
+     -2.28,
+     0.9
+    ],
+    [
+     1.24,
+     -1.83,
+     0.9
+    ],
+    [
+     0.41,
+     -1.76,
+     0.9
+    ],
+    [
+     -0.42,
+     -1.68,
+     0.9
+    ],
+    [
+     -1.25,
+     -1.61,
+     0.9
+    ],
+    [
+     -2.08,
+     -1.54,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.55,
+      0.45
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     150,
+     150.01
+    ],
+    "r": [
+     3.45,
+     3.243
+    ],
+    "h": [
+     2.2,
+     2.2
+    ],
+    "look": [
+     1.14,
+     1.14
+    ],
+    "fov": 40,
+    "hand": 0.5
+   },
+   "focus": [
+    0.28,
+    1.25
+   ],
+   "zone": "run",
+   "speed": 15,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "watch",
+   "clear": [
+    [
+     2.39,
+     -1.51,
+     0.9
+    ],
+    [
+     1.62,
+     -1.96,
+     0.9
+    ],
+    [
+     2.24,
+     -0.77,
+     0.9
+    ],
+    [
+     1.65,
+     -1.11,
+     0.9
+    ],
+    [
+     1.05,
+     -1.46,
+     0.9
+    ],
+    [
+     2.09,
+     -0.03,
+     0.9
+    ],
+    [
+     1.55,
+     -0.34,
+     0.9
+    ],
+    [
+     1.02,
+     -0.65,
+     0.9
+    ],
+    [
+     0.48,
+     -0.96,
+     0.9
+    ],
+    [
+     1.94,
+     0.72,
+     0.9
+    ],
+    [
+     1.26,
+     0.33,
+     0.9
+    ],
+    [
+     0.59,
+     -0.06,
+     0.9
+    ],
+    [
+     -0.09,
+     -0.45,
+     0.9
+    ],
+    [
+     1.79,
+     1.46,
+     0.9
+    ],
+    [
+     1.18,
+     1.11,
+     0.9
+    ],
+    [
+     0.56,
+     0.76,
+     0.9
+    ],
+    [
+     -0.05,
+     0.4,
+     0.9
+    ],
+    [
+     -0.66,
+     0.05,
+     0.9
+    ],
+    [
+     2.29,
+     -1.33,
+     0.9
+    ],
+    [
+     1.51,
+     -1.78,
+     0.9
+    ],
+    [
+     2.14,
+     -0.59,
+     0.9
+    ],
+    [
+     1.54,
+     -0.94,
+     0.9
+    ],
+    [
+     0.94,
+     -1.28,
+     0.9
+    ],
+    [
+     1.99,
+     0.15,
+     0.9
+    ],
+    [
+     1.45,
+     -0.16,
+     0.9
+    ],
+    [
+     0.91,
+     -0.47,
+     0.9
+    ],
+    [
+     0.38,
+     -0.78,
+     0.9
+    ],
+    [
+     1.84,
+     0.9,
+     0.9
+    ],
+    [
+     1.16,
+     0.51,
+     0.9
+    ],
+    [
+     0.48,
+     0.12,
+     0.9
+    ],
+    [
+     -0.19,
+     -0.27,
+     0.9
+    ],
+    [
+     1.68,
+     1.64,
+     0.9
+    ],
+    [
+     1.07,
+     1.29,
+     0.9
+    ],
+    [
+     0.46,
+     0.94,
+     0.9
+    ],
+    [
+     -0.15,
+     0.58,
+     0.9
+    ],
+    [
+     -0.76,
+     0.23,
+     0.9
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     25.64
+    ],
+    "r": [
+     0.3,
+     0.277
+    ],
+    "h": [
+     6.8,
+     6.3
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 54,
+    "roll": [
+     0,
+     8
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.55
+   ],
+   "zone": "run",
+   "speed": 16,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "watch",
+   "stars": []
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -150.55,
+     -151.29
+    ],
+    "r": [
+     7.12,
+     7.183
+    ],
+    "h": [
+     1.75,
+     1.75
+    ],
+    "look": [
+     1.85,
+     1.85
+    ],
+    "fov": 50,
+    "roll": [
+     -2,
+     0
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    2.4,
+    8.4
+   ],
+   "zone": "run",
+   "speed": 16,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "cheer",
+   "noLamps": true,
+   "stare": [
+    -1.1,
+    2.2
+   ],
+   "stars": []
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     168,
+     168
+    ],
+    "r": [
+     4.2,
+     3.948
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 52,
+    "hand": 0.6,
+    "roll": [
+     5,
+     2
+    ]
+   },
+   "focus": [
+    0,
+    -0.8
+   ],
+   "zone": "run",
+   "speed": 17,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "dance",
+   "hideWall": 1,
+   "clear": [
+    [
+     1.31,
+     -4.81,
+     0.9
+    ],
+    [
+     0.43,
+     -5,
+     0.9
+    ],
+    [
+     1.45,
+     -4.05,
+     0.9
+    ],
+    [
+     0.72,
+     -4.2,
+     0.9
+    ],
+    [
+     0,
+     -4.36,
+     0.9
+    ],
+    [
+     1.59,
+     -3.28,
+     0.9
+    ],
+    [
+     0.91,
+     -3.43,
+     0.9
+    ],
+    [
+     0.24,
+     -3.57,
+     0.9
+    ],
+    [
+     -0.44,
+     -3.72,
+     0.9
+    ],
+    [
+     1.73,
+     -2.52,
+     0.9
+    ],
+    [
+     0.86,
+     -2.7,
+     0.9
+    ],
+    [
+     -0.01,
+     -2.89,
+     0.9
+    ],
+    [
+     -0.88,
+     -3.07,
+     0.9
+    ],
+    [
+     1.87,
+     -1.75,
+     0.9
+    ],
+    [
+     1.07,
+     -1.92,
+     0.9
+    ],
+    [
+     0.27,
+     -2.09,
+     0.9
+    ],
+    [
+     -0.52,
+     -2.26,
+     0.9
+    ],
+    [
+     -1.32,
+     -2.43,
+     0.9
+    ],
+    [
+     2,
+     -0.99,
+     0.9
+    ],
+    [
+     1.25,
+     -1.15,
+     0.9
+    ],
+    [
+     0.5,
+     -1.31,
+     0.9
+    ],
+    [
+     -0.25,
+     -1.47,
+     0.9
+    ],
+    [
+     -1,
+     -1.63,
+     0.9
+    ],
+    [
+     -1.75,
+     -1.79,
+     0.9
+    ],
+    [
+     2.14,
+     -0.22,
+     0.9
+    ],
+    [
+     1.27,
+     -0.41,
+     0.9
+    ],
+    [
+     0.41,
+     -0.59,
+     0.9
+    ],
+    [
+     -0.46,
+     -0.77,
+     0.9
+    ],
+    [
+     -1.32,
+     -0.96,
+     0.9
+    ],
+    [
+     -2.19,
+     -1.14,
+     0.9
+    ],
+    [
+     2.28,
+     0.54,
+     0.9
+    ],
+    [
+     1.46,
+     0.37,
+     0.9
+    ],
+    [
+     0.64,
+     0.2,
+     0.9
+    ],
+    [
+     -0.17,
+     0.02,
+     0.9
+    ],
+    [
+     -0.99,
+     -0.15,
+     0.9
+    ],
+    [
+     -1.81,
+     -0.33,
+     0.9
+    ],
+    [
+     -2.63,
+     -0.5,
+     0.9
+    ],
+    [
+     2.42,
+     1.31,
+     0.9
+    ],
+    [
+     1.63,
+     1.14,
+     0.9
+    ],
+    [
+     0.85,
+     0.98,
+     0.9
+    ],
+    [
+     0.07,
+     0.81,
+     0.9
+    ],
+    [
+     -0.72,
+     0.64,
+     0.9
+    ],
+    [
+     -1.5,
+     0.48,
+     0.9
+    ],
+    [
+     -2.28,
+     0.31,
+     0.9
+    ],
+    [
+     -3.07,
+     0.14,
+     0.9
+    ],
+    [
+     1.26,
+     -4.57,
+     0.9
+    ],
+    [
+     0.38,
+     -4.76,
+     0.9
+    ],
+    [
+     1.4,
+     -3.8,
+     0.9
+    ],
+    [
+     0.67,
+     -3.96,
+     0.9
+    ],
+    [
+     -0.06,
+     -4.11,
+     0.9
+    ],
+    [
+     1.54,
+     -3.04,
+     0.9
+    ],
+    [
+     0.86,
+     -3.18,
+     0.9
+    ],
+    [
+     0.18,
+     -3.33,
+     0.9
+    ],
+    [
+     -0.49,
+     -3.47,
+     0.9
+    ],
+    [
+     1.67,
+     -2.27,
+     0.9
+    ],
+    [
+     0.81,
+     -2.46,
+     0.9
+    ],
+    [
+     -0.06,
+     -2.64,
+     0.9
+    ],
+    [
+     -0.93,
+     -2.83,
+     0.9
+    ],
+    [
+     1.81,
+     -1.51,
+     0.9
+    ],
+    [
+     1.02,
+     -1.68,
+     0.9
+    ],
+    [
+     0.22,
+     -1.84,
+     0.9
+    ],
+    [
+     -0.57,
+     -2.01,
+     0.9
+    ],
+    [
+     -1.37,
+     -2.18,
+     0.9
+    ],
+    [
+     1.95,
+     -0.74,
+     0.9
+    ],
+    [
+     1.2,
+     -0.9,
+     0.9
+    ],
+    [
+     0.45,
+     -1.06,
+     0.9
+    ],
+    [
+     -0.3,
+     -1.22,
+     0.9
+    ],
+    [
+     -1.05,
+     -1.38,
+     0.9
+    ],
+    [
+     -1.81,
+     -1.54,
+     0.9
+    ],
+    [
+     2.09,
+     0.02,
+     0.9
+    ],
+    [
+     1.22,
+     -0.16,
+     0.9
+    ],
+    [
+     0.36,
+     -0.34,
+     0.9
+    ],
+    [
+     -0.51,
+     -0.53,
+     0.9
+    ],
+    [
+     -1.38,
+     -0.71,
+     0.9
+    ],
+    [
+     -2.24,
+     -0.9,
+     0.9
+    ],
+    [
+     2.23,
+     0.79,
+     0.9
+    ],
+    [
+     1.41,
+     0.62,
+     0.9
+    ],
+    [
+     0.59,
+     0.44,
+     0.9
+    ],
+    [
+     -0.23,
+     0.27,
+     0.9
+    ],
+    [
+     -1.04,
+     0.09,
+     0.9
+    ],
+    [
+     -1.86,
+     -0.08,
+     0.9
+    ],
+    [
+     -2.68,
+     -0.25,
+     0.9
+    ],
+    [
+     2.36,
+     1.56,
+     0.9
+    ],
+    [
+     1.58,
+     1.39,
+     0.9
+    ],
+    [
+     0.8,
+     1.22,
+     0.9
+    ],
+    [
+     0.01,
+     1.06,
+     0.9
+    ],
+    [
+     -0.77,
+     0.89,
+     0.9
+    ],
+    [
+     -1.55,
+     0.72,
+     0.9
+    ],
+    [
+     -2.33,
+     0.56,
+     0.9
+    ],
+    [
+     -3.12,
+     0.39,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -9.46,
+     -9.38
+    ],
+    "r": [
+     6.083,
+     5.828
+    ],
+    "h": [
+     2.6,
+     2.55
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50,
+    "hand": 0.5
+   },
+   "focus": [
+    0,
+    -0.6
+   ],
+   "zone": "run",
+   "speed": 18,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "dance",
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     25.64
+    ],
+    "r": [
+     0.3,
+     0.277
+    ],
+    "h": [
+     7,
+     6.5
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 54,
+    "roll": [
+     0,
+     -10
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.45
+   ],
+   "zone": "run",
+   "speed": 21,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "chant",
+   "hideWall": -1,
+   "clear": [
+    [
+     -0.45,
+     -0.15,
+     0.9
+    ],
+    [
+     0.45,
+     -0.15,
+     0.9
+    ],
+    [
+     -0.75,
+     -0.87,
+     0.9
+    ],
+    [
+     0,
+     -0.87,
+     0.9
+    ],
+    [
+     0.75,
+     -0.87,
+     0.9
+    ],
+    [
+     -1.06,
+     -1.59,
+     0.9
+    ],
+    [
+     -0.35,
+     -1.59,
+     0.9
+    ],
+    [
+     0.35,
+     -1.59,
+     0.9
+    ],
+    [
+     1.06,
+     -1.59,
+     0.9
+    ],
+    [
+     -1.36,
+     -2.31,
+     0.9
+    ],
+    [
+     -0.68,
+     -2.31,
+     0.9
+    ],
+    [
+     0,
+     -2.31,
+     0.9
+    ],
+    [
+     0.68,
+     -2.31,
+     0.9
+    ],
+    [
+     1.36,
+     -2.31,
+     0.9
+    ],
+    [
+     -1.66,
+     -3.03,
+     0.9
+    ],
+    [
+     -0.83,
+     -3.03,
+     0.9
+    ],
+    [
+     0,
+     -3.03,
+     0.9
+    ],
+    [
+     0.83,
+     -3.03,
+     0.9
+    ],
+    [
+     1.66,
+     -3.03,
+     0.9
+    ],
+    [
+     -1.97,
+     -3.75,
+     0.9
+    ],
+    [
+     -1.18,
+     -3.75,
+     0.9
+    ],
+    [
+     -0.39,
+     -3.75,
+     0.9
+    ],
+    [
+     0.39,
+     -3.75,
+     0.9
+    ],
+    [
+     1.18,
+     -3.75,
+     0.9
+    ],
+    [
+     1.97,
+     -3.75,
+     0.9
+    ],
+    [
+     -2.27,
+     -4.47,
+     0.9
+    ],
+    [
+     -1.51,
+     -4.47,
+     0.9
+    ],
+    [
+     -0.76,
+     -4.47,
+     0.9
+    ],
+    [
+     0,
+     -4.47,
+     0.9
+    ],
+    [
+     0.76,
+     -4.47,
+     0.9
+    ],
+    [
+     1.51,
+     -4.47,
+     0.9
+    ],
+    [
+     2.27,
+     -4.47,
+     0.9
+    ],
+    [
+     -2.58,
+     -5.19,
+     0.9
+    ],
+    [
+     -1.72,
+     -5.19,
+     0.9
+    ],
+    [
+     -0.86,
+     -5.19,
+     0.9
+    ],
+    [
+     0,
+     -5.19,
+     0.9
+    ],
+    [
+     0.86,
+     -5.19,
+     0.9
+    ],
+    [
+     1.72,
+     -5.19,
+     0.9
+    ],
+    [
+     2.58,
+     -5.19,
+     0.9
+    ],
+    [
+     -2.88,
+     -5.91,
+     0.9
+    ],
+    [
+     -2.06,
+     -5.91,
+     0.9
+    ],
+    [
+     -1.23,
+     -5.91,
+     0.9
+    ],
+    [
+     -0.41,
+     -5.91,
+     0.9
+    ],
+    [
+     0.41,
+     -5.91,
+     0.9
+    ],
+    [
+     1.23,
+     -5.91,
+     0.9
+    ],
+    [
+     2.06,
+     -5.91,
+     0.9
+    ],
+    [
+     2.88,
+     -5.91,
+     0.9
+    ],
+    [
+     -0.29,
+     -0.01,
+     0.9
+    ],
+    [
+     0.53,
+     -0.39,
+     0.9
+    ],
+    [
+     -0.87,
+     -0.52,
+     0.9
+    ],
+    [
+     -0.19,
+     -0.85,
+     0.9
+    ],
+    [
+     0.49,
+     -1.18,
+     0.9
+    ],
+    [
+     -1.46,
+     -1.04,
+     0.9
+    ],
+    [
+     -0.82,
+     -1.35,
+     0.9
+    ],
+    [
+     -0.19,
+     -1.65,
+     0.9
+    ],
+    [
+     0.45,
+     -1.96,
+     0.9
+    ],
+    [
+     -2.04,
+     -1.56,
+     0.9
+    ],
+    [
+     -1.43,
+     -1.85,
+     0.9
+    ],
+    [
+     -0.81,
+     -2.15,
+     0.9
+    ],
+    [
+     -0.2,
+     -2.44,
+     0.9
+    ],
+    [
+     0.41,
+     -2.74,
+     0.9
+    ],
+    [
+     -2.63,
+     -2.08,
+     0.9
+    ],
+    [
+     -1.88,
+     -2.44,
+     0.9
+    ],
+    [
+     -1.13,
+     -2.8,
+     0.9
+    ],
+    [
+     -0.38,
+     -3.16,
+     0.9
+    ],
+    [
+     0.37,
+     -3.52,
+     0.9
+    ],
+    [
+     -3.21,
+     -2.59,
+     0.9
+    ],
+    [
+     -2.5,
+     -2.93,
+     0.9
+    ],
+    [
+     -1.79,
+     -3.28,
+     0.9
+    ],
+    [
+     -1.08,
+     -3.62,
+     0.9
+    ],
+    [
+     -0.37,
+     -3.96,
+     0.9
+    ],
+    [
+     0.34,
+     -4.3,
+     0.9
+    ],
+    [
+     -3.8,
+     -3.11,
+     0.9
+    ],
+    [
+     -3.11,
+     -3.44,
+     0.9
+    ],
+    [
+     -2.43,
+     -3.77,
+     0.9
+    ],
+    [
+     -1.75,
+     -4.09,
+     0.9
+    ],
+    [
+     -1.07,
+     -4.42,
+     0.9
+    ],
+    [
+     -0.38,
+     -4.75,
+     0.9
+    ],
+    [
+     0.3,
+     -5.08,
+     0.9
+    ],
+    [
+     -4.38,
+     -3.63,
+     0.9
+    ],
+    [
+     -3.61,
+     -4,
+     0.9
+    ],
+    [
+     -2.84,
+     -4.37,
+     0.9
+    ],
+    [
+     -2.06,
+     -4.74,
+     0.9
+    ],
+    [
+     -1.29,
+     -5.12,
+     0.9
+    ],
+    [
+     -0.51,
+     -5.49,
+     0.9
+    ],
+    [
+     0.26,
+     -5.86,
+     0.9
+    ],
+    [
+     -4.97,
+     -4.15,
+     0.9
+    ],
+    [
+     -4.23,
+     -4.5,
+     0.9
+    ],
+    [
+     -3.49,
+     -4.86,
+     0.9
+    ],
+    [
+     -2.74,
+     -5.22,
+     0.9
+    ],
+    [
+     -2,
+     -5.57,
+     0.9
+    ],
+    [
+     -1.26,
+     -5.93,
+     0.9
+    ],
+    [
+     -0.52,
+     -6.28,
+     0.9
+    ],
+    [
+     0.22,
+     -6.64,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     17.4,
+     17
+    ],
+    "h": [
+     1.4,
+     1.38
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50,
+    "roll": [
+     3,
+     1
+    ],
+    "hand": 0.5
+   },
+   "focus": [
+    0,
+    -8
+   ],
+   "zone": "run",
+   "speed": 21,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "chant",
+   "stare": [
+    0,
+    6.2
+   ],
+   "stars": []
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.55,
+      0.45
+     ],
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -176,
+     -176
+    ],
+    "r": [
+     4.345,
+     4.084
+    ],
+    "h": [
+     2.7,
+     2.7
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54,
+    "hand": 0.8
+   },
+   "focus": [
+    -0.3,
+    -0.3
+   ],
+   "zone": "run",
+   "speed": 21,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "chant",
+   "hideWall": 1,
+   "clear": [
+    [
+     -0.15,
+     -4.67,
+     0.9
+    ],
+    [
+     -1.05,
+     -4.6,
+     0.9
+    ],
+    [
+     0.2,
+     -3.97,
+     0.9
+    ],
+    [
+     -0.55,
+     -3.92,
+     0.9
+    ],
+    [
+     -1.3,
+     -3.86,
+     0.9
+    ],
+    [
+     0.55,
+     -3.27,
+     0.9
+    ],
+    [
+     -0.15,
+     -3.22,
+     0.9
+    ],
+    [
+     -0.85,
+     -3.17,
+     0.9
+    ],
+    [
+     -1.56,
+     -3.12,
+     0.9
+    ],
+    [
+     0.91,
+     -2.57,
+     0.9
+    ],
+    [
+     0.23,
+     -2.53,
+     0.9
+    ],
+    [
+     -0.45,
+     -2.48,
+     0.9
+    ],
+    [
+     -1.13,
+     -2.43,
+     0.9
+    ],
+    [
+     -1.81,
+     -2.38,
+     0.9
+    ],
+    [
+     1.26,
+     -1.88,
+     0.9
+    ],
+    [
+     0.43,
+     -1.82,
+     0.9
+    ],
+    [
+     -0.4,
+     -1.76,
+     0.9
+    ],
+    [
+     -1.23,
+     -1.7,
+     0.9
+    ],
+    [
+     -2.06,
+     -1.65,
+     0.9
+    ],
+    [
+     1.61,
+     -1.18,
+     0.9
+    ],
+    [
+     0.83,
+     -1.13,
+     0.9
+    ],
+    [
+     0.04,
+     -1.07,
+     0.9
+    ],
+    [
+     -0.74,
+     -1.02,
+     0.9
+    ],
+    [
+     -1.53,
+     -0.96,
+     0.9
+    ],
+    [
+     -2.32,
+     -0.91,
+     0.9
+    ],
+    [
+     1.96,
+     -0.48,
+     0.9
+    ],
+    [
+     1.21,
+     -0.43,
+     0.9
+    ],
+    [
+     0.45,
+     -0.38,
+     0.9
+    ],
+    [
+     -0.3,
+     -0.32,
+     0.9
+    ],
+    [
+     -1.06,
+     -0.27,
+     0.9
+    ],
+    [
+     -1.81,
+     -0.22,
+     0.9
+    ],
+    [
+     -2.57,
+     -0.17,
+     0.9
+    ],
+    [
+     2.32,
+     0.21,
+     0.9
+    ],
+    [
+     1.46,
+     0.27,
+     0.9
+    ],
+    [
+     0.6,
+     0.33,
+     0.9
+    ],
+    [
+     -0.25,
+     0.39,
+     0.9
+    ],
+    [
+     -1.11,
+     0.45,
+     0.9
+    ],
+    [
+     -1.96,
+     0.51,
+     0.9
+    ],
+    [
+     -2.82,
+     0.57,
+     0.9
+    ],
+    [
+     2.67,
+     0.91,
+     0.9
+    ],
+    [
+     1.85,
+     0.97,
+     0.9
+    ],
+    [
+     1.03,
+     1.03,
+     0.9
+    ],
+    [
+     0.21,
+     1.08,
+     0.9
+    ],
+    [
+     -0.61,
+     1.14,
+     0.9
+    ],
+    [
+     -1.43,
+     1.2,
+     0.9
+    ],
+    [
+     -2.25,
+     1.26,
+     0.9
+    ],
+    [
+     -3.07,
+     1.31,
+     0.9
+    ],
+    [
+     -0.14,
+     -4.41,
+     0.9
+    ],
+    [
+     -1.03,
+     -4.34,
+     0.9
+    ],
+    [
+     0.22,
+     -3.71,
+     0.9
+    ],
+    [
+     -0.53,
+     -3.66,
+     0.9
+    ],
+    [
+     -1.29,
+     -3.6,
+     0.9
+    ],
+    [
+     0.57,
+     -3.01,
+     0.9
+    ],
+    [
+     -0.13,
+     -2.96,
+     0.9
+    ],
+    [
+     -0.84,
+     -2.91,
+     0.9
+    ],
+    [
+     -1.54,
+     -2.86,
+     0.9
+    ],
+    [
+     0.92,
+     -2.31,
+     0.9
+    ],
+    [
+     0.24,
+     -2.27,
+     0.9
+    ],
+    [
+     -0.43,
+     -2.22,
+     0.9
+    ],
+    [
+     -1.11,
+     -2.17,
+     0.9
+    ],
+    [
+     -1.79,
+     -2.12,
+     0.9
+    ],
+    [
+     1.28,
+     -1.62,
+     0.9
+    ],
+    [
+     0.45,
+     -1.56,
+     0.9
+    ],
+    [
+     -0.38,
+     -1.5,
+     0.9
+    ],
+    [
+     -1.21,
+     -1.44,
+     0.9
+    ],
+    [
+     -2.04,
+     -1.38,
+     0.9
+    ],
+    [
+     1.63,
+     -0.92,
+     0.9
+    ],
+    [
+     0.84,
+     -0.87,
+     0.9
+    ],
+    [
+     0.06,
+     -0.81,
+     0.9
+    ],
+    [
+     -0.73,
+     -0.76,
+     0.9
+    ],
+    [
+     -1.51,
+     -0.7,
+     0.9
+    ],
+    [
+     -2.3,
+     -0.65,
+     0.9
+    ],
+    [
+     1.98,
+     -0.22,
+     0.9
+    ],
+    [
+     1.23,
+     -0.17,
+     0.9
+    ],
+    [
+     0.47,
+     -0.12,
+     0.9
+    ],
+    [
+     -0.28,
+     -0.06,
+     0.9
+    ],
+    [
+     -1.04,
+     -0.01,
+     0.9
+    ],
+    [
+     -1.79,
+     0.04,
+     0.9
+    ],
+    [
+     -2.55,
+     0.09,
+     0.9
+    ],
+    [
+     2.34,
+     0.47,
+     0.9
+    ],
+    [
+     1.48,
+     0.53,
+     0.9
+    ],
+    [
+     0.62,
+     0.59,
+     0.9
+    ],
+    [
+     -0.23,
+     0.65,
+     0.9
+    ],
+    [
+     -1.09,
+     0.71,
+     0.9
+    ],
+    [
+     -1.95,
+     0.77,
+     0.9
+    ],
+    [
+     -2.8,
+     0.83,
+     0.9
+    ],
+    [
+     2.69,
+     1.17,
+     0.9
+    ],
+    [
+     1.87,
+     1.23,
+     0.9
+    ],
+    [
+     1.05,
+     1.29,
+     0.9
+    ],
+    [
+     0.23,
+     1.34,
+     0.9
+    ],
+    [
+     -0.59,
+     1.4,
+     0.9
+    ],
+    [
+     -1.41,
+     1.46,
+     0.9
+    ],
+    [
+     -2.23,
+     1.52,
+     0.9
+    ],
+    [
+     -3.06,
+     1.57,
+     0.9
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.598,
+      1.928
+     ],
+     "shove": [
+      [
+       1.598,
+       0.72
+      ],
+      [
+       1.928,
+       -0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.598,
+      1.928
+     ],
+     "shove": [
+      [
+       1.598,
+       0.72
+      ],
+      [
+       1.928,
+       -0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "bumps": [
+      1.598,
+      1.928
+     ],
+     "shove": [
+      [
+       1.598,
+       0.72
+      ],
+      [
+       1.928,
+       -0.72
+      ]
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.598,
+      1.928
+     ],
+     "shove": [
+      [
+       1.598,
+       0.72
+      ],
+      [
+       1.928,
+       -0.72
+      ]
+     ],
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     176,
+     176
+    ],
+    "r": [
+     5.386,
+     5.062
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54,
+    "hand": 1,
+    "roll": [
+     6,
+     -6
+    ]
+   },
+   "focus": [
+    0.6,
+    -0.3
+   ],
+   "zone": "run",
+   "speed": 22,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "hits": [
+    [
+     1.598,
+     1,
+     0.72
+    ],
+    [
+     1.928,
+     -1,
+     0.72
+    ]
+   ],
+   "jolt": [
+    1.598,
+    1.928
+   ],
+   "fans": "chant",
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     160.01,
+     160
+    ],
+    "r": [
+     2.556,
+     2.403
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 42
+   },
+   "focus": [
+    0.28,
+    -0.42
+   ],
+   "zone": "run",
+   "speed": 22,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "chant",
+   "clear": [
+    [
+     1.58,
+     -2.67,
+     0.9
+    ],
+    [
+     0.73,
+     -2.98,
+     0.9
+    ],
+    [
+     1.56,
+     -1.91,
+     0.9
+    ],
+    [
+     0.91,
+     -2.15,
+     0.9
+    ],
+    [
+     0.25,
+     -2.38,
+     0.9
+    ],
+    [
+     1.55,
+     -1.14,
+     0.9
+    ],
+    [
+     0.96,
+     -1.36,
+     0.9
+    ],
+    [
+     0.36,
+     -1.58,
+     0.9
+    ],
+    [
+     -0.23,
+     -1.79,
+     0.9
+    ],
+    [
+     1.54,
+     -0.38,
+     0.9
+    ],
+    [
+     0.79,
+     -0.66,
+     0.9
+    ],
+    [
+     0.04,
+     -0.93,
+     0.9
+    ],
+    [
+     -0.71,
+     -1.2,
+     0.9
+    ],
+    [
+     1.53,
+     0.38,
+     0.9
+    ],
+    [
+     0.85,
+     0.13,
+     0.9
+    ],
+    [
+     0.17,
+     -0.12,
+     0.9
+    ],
+    [
+     -0.51,
+     -0.36,
+     0.9
+    ],
+    [
+     -1.19,
+     -0.61,
+     0.9
+    ],
+    [
+     1.51,
+     1.14,
+     0.9
+    ],
+    [
+     0.72,
+     0.85,
+     0.9
+    ],
+    [
+     -0.08,
+     0.56,
+     0.9
+    ],
+    [
+     -0.87,
+     0.27,
+     0.9
+    ],
+    [
+     -1.67,
+     -0.02,
+     0.9
+    ],
+    [
+     1.5,
+     1.9,
+     0.9
+    ],
+    [
+     0.77,
+     1.64,
+     0.9
+    ],
+    [
+     0.04,
+     1.37,
+     0.9
+    ],
+    [
+     -0.69,
+     1.1,
+     0.9
+    ],
+    [
+     -1.42,
+     0.84,
+     0.9
+    ],
+    [
+     -2.15,
+     0.57,
+     0.9
+    ],
+    [
+     1.52,
+     -2.52,
+     0.9
+    ],
+    [
+     0.68,
+     -2.83,
+     0.9
+    ],
+    [
+     1.51,
+     -1.76,
+     0.9
+    ],
+    [
+     0.86,
+     -2,
+     0.9
+    ],
+    [
+     0.2,
+     -2.24,
+     0.9
+    ],
+    [
+     1.5,
+     -1,
+     0.9
+    ],
+    [
+     0.91,
+     -1.22,
+     0.9
+    ],
+    [
+     0.31,
+     -1.43,
+     0.9
+    ],
+    [
+     -0.28,
+     -1.65,
+     0.9
+    ],
+    [
+     1.49,
+     -0.24,
+     0.9
+    ],
+    [
+     0.74,
+     -0.51,
+     0.9
+    ],
+    [
+     -0.01,
+     -0.78,
+     0.9
+    ],
+    [
+     -0.76,
+     -1.06,
+     0.9
+    ],
+    [
+     1.47,
+     0.52,
+     0.9
+    ],
+    [
+     0.8,
+     0.28,
+     0.9
+    ],
+    [
+     0.12,
+     0.03,
+     0.9
+    ],
+    [
+     -0.56,
+     -0.22,
+     0.9
+    ],
+    [
+     -1.24,
+     -0.47,
+     0.9
+    ],
+    [
+     1.46,
+     1.28,
+     0.9
+    ],
+    [
+     0.67,
+     0.99,
+     0.9
+    ],
+    [
+     -0.13,
+     0.7,
+     0.9
+    ],
+    [
+     -0.93,
+     0.42,
+     0.9
+    ],
+    [
+     -1.72,
+     0.13,
+     0.9
+    ],
+    [
+     1.45,
+     2.05,
+     0.9
+    ],
+    [
+     0.72,
+     1.78,
+     0.9
+    ],
+    [
+     -0.01,
+     1.51,
+     0.9
+    ],
+    [
+     -0.74,
+     1.25,
+     0.9
+    ],
+    [
+     -1.47,
+     0.98,
+     0.9
+    ],
+    [
+     -2.2,
+     0.72,
+     0.9
+    ]
+   ],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     94.99,
+     95
+    ],
+    "r": [
+     3.25,
+     3.055
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 38
+   },
+   "focus": [
+    -0.28,
+    0.42
+   ],
+   "zone": "run",
+   "speed": 22,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "chant",
+   "hideWall": 1,
+   "clear": [
+    [
+     2.96,
+     0.14,
+     1.3
+    ],
+    [
+     2.06,
+     0.22,
+     1.3
+    ],
+    [
+     1.16,
+     0.29,
+     1.3
+    ],
+    [
+     0.27,
+     0.37,
+     1.3
+    ],
+    [
+     -0.63,
+     0.45,
+     1.3
+    ],
+    [
+     2.76,
+     0.15,
+     1.3
+    ],
+    [
+     1.87,
+     0.23,
+     1.3
+    ],
+    [
+     0.97,
+     0.31,
+     1.3
+    ],
+    [
+     0.07,
+     0.39,
+     1.3
+    ],
+    [
+     -0.82,
+     0.47,
+     1.3
+    ]
+   ],
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -160.01,
+     -160
+    ],
+    "r": [
+     3.2,
+     3.008
+    ],
+    "h": [
+     2.4,
+     2.4
+    ],
+    "look": [
+     0.94,
+     0.94
+    ],
+    "fov": 42,
+    "roll": [
+     -6,
+     -6
+    ]
+   },
+   "focus": [
+    -0.28,
+    -1.25
+   ],
+   "zone": "run",
+   "speed": 22,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "fans": "chant",
+   "hideWall": -1,
+   "clear": [
+    [
+     -0.95,
+     -4.41,
+     0.9
+    ],
+    [
+     -1.8,
+     -4.1,
+     0.9
+    ],
+    [
+     -0.47,
+     -3.82,
+     0.9
+    ],
+    [
+     -1.13,
+     -3.58,
+     0.9
+    ],
+    [
+     -1.78,
+     -3.34,
+     0.9
+    ],
+    [
+     0.01,
+     -3.23,
+     0.9
+    ],
+    [
+     -0.58,
+     -3.01,
+     0.9
+    ],
+    [
+     -1.18,
+     -2.8,
+     0.9
+    ],
+    [
+     -1.77,
+     -2.58,
+     0.9
+    ],
+    [
+     0.49,
+     -2.64,
+     0.9
+    ],
+    [
+     -0.26,
+     -2.36,
+     0.9
+    ],
+    [
+     -1.01,
+     -2.09,
+     0.9
+    ],
+    [
+     -1.76,
+     -1.82,
+     0.9
+    ],
+    [
+     0.97,
+     -2.04,
+     0.9
+    ],
+    [
+     0.29,
+     -1.8,
+     0.9
+    ],
+    [
+     -0.39,
+     -1.55,
+     0.9
+    ],
+    [
+     -1.07,
+     -1.3,
+     0.9
+    ],
+    [
+     -1.75,
+     -1.06,
+     0.9
+    ],
+    [
+     1.45,
+     -1.45,
+     0.9
+    ],
+    [
+     0.65,
+     -1.16,
+     0.9
+    ],
+    [
+     -0.14,
+     -0.87,
+     0.9
+    ],
+    [
+     -0.94,
+     -0.58,
+     0.9
+    ],
+    [
+     -1.74,
+     -0.3,
+     0.9
+    ],
+    [
+     1.93,
+     -0.86,
+     0.9
+    ],
+    [
+     1.2,
+     -0.6,
+     0.9
+    ],
+    [
+     0.47,
+     -0.33,
+     0.9
+    ],
+    [
+     -0.26,
+     -0.06,
+     0.9
+    ],
+    [
+     -0.99,
+     0.2,
+     0.9
+    ],
+    [
+     -1.72,
+     0.47,
+     0.9
+    ],
+    [
+     -0.89,
+     -4.23,
+     0.9
+    ],
+    [
+     -1.73,
+     -3.92,
+     0.9
+    ],
+    [
+     -0.41,
+     -3.64,
+     0.9
+    ],
+    [
+     -1.06,
+     -3.4,
+     0.9
+    ],
+    [
+     -1.72,
+     -3.16,
+     0.9
+    ],
+    [
+     0.07,
+     -3.05,
+     0.9
+    ],
+    [
+     -0.52,
+     -2.83,
+     0.9
+    ],
+    [
+     -1.11,
+     -2.62,
+     0.9
+    ],
+    [
+     -1.71,
+     -2.4,
+     0.9
+    ],
+    [
+     0.55,
+     -2.46,
+     0.9
+    ],
+    [
+     -0.2,
+     -2.18,
+     0.9
+    ],
+    [
+     -0.94,
+     -1.91,
+     0.9
+    ],
+    [
+     -1.69,
+     -1.64,
+     0.9
+    ],
+    [
+     1.03,
+     -1.86,
+     0.9
+    ],
+    [
+     0.36,
+     -1.62,
+     0.9
+    ],
+    [
+     -0.32,
+     -1.37,
+     0.9
+    ],
+    [
+     -1,
+     -1.12,
+     0.9
+    ],
+    [
+     -1.68,
+     -0.88,
+     0.9
+    ],
+    [
+     1.51,
+     -1.27,
+     0.9
+    ],
+    [
+     0.72,
+     -0.98,
+     0.9
+    ],
+    [
+     -0.08,
+     -0.69,
+     0.9
+    ],
+    [
+     -0.87,
+     -0.4,
+     0.9
+    ],
+    [
+     -1.67,
+     -0.11,
+     0.9
+    ],
+    [
+     1.99,
+     -0.68,
+     0.9
+    ],
+    [
+     1.26,
+     -0.42,
+     0.9
+    ],
+    [
+     0.53,
+     -0.15,
+     0.9
+    ],
+    [
+     -0.2,
+     0.12,
+     0.9
+    ],
+    [
+     -0.93,
+     0.38,
+     0.9
+    ],
+    [
+     -1.66,
+     0.65,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.589,
+      1.928
+     ],
+     "shove": [
+      [
+       1.589,
+       -0.72
+      ],
+      [
+       1.928,
+       0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.589,
+      1.928
+     ],
+     "shove": [
+      [
+       1.589,
+       -0.72
+      ],
+      [
+       1.928,
+       0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "bumps": [
+      1.589,
+      1.928
+     ],
+     "shove": [
+      [
+       1.589,
+       -0.72
+      ],
+      [
+       1.928,
+       0.72
+      ]
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.589,
+      1.928
+     ],
+     "shove": [
+      [
+       1.589,
+       -0.72
+      ],
+      [
+       1.928,
+       0.72
+      ]
+     ],
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     4.542,
+     4.27
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54,
+    "hand": 1,
+    "roll": [
+     -6,
+     6
+    ]
+   },
+   "focus": [
+    -0.6,
+    -0.3
+   ],
+   "zone": "run",
+   "speed": 23,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "hits": [
+    [
+     1.589,
+     -1,
+     0.72
+    ],
+    [
+     1.928,
+     1,
+     0.72
+    ]
+   ],
+   "jolt": [
+    1.589,
+    1.928
+   ],
+   "fans": "gasp",
+   "clear": [
+    [
+     -0.15,
+     -4.84,
+     0.9
+    ],
+    [
+     -1.05,
+     -4.84,
+     0.9
+    ],
+    [
+     0.15,
+     -4.12,
+     0.9
+    ],
+    [
+     -0.6,
+     -4.12,
+     0.9
+    ],
+    [
+     -1.35,
+     -4.12,
+     0.9
+    ],
+    [
+     0.46,
+     -3.4,
+     0.9
+    ],
+    [
+     -0.25,
+     -3.4,
+     0.9
+    ],
+    [
+     -0.95,
+     -3.4,
+     0.9
+    ],
+    [
+     -1.66,
+     -3.4,
+     0.9
+    ],
+    [
+     0.76,
+     -2.68,
+     0.9
+    ],
+    [
+     0.08,
+     -2.68,
+     0.9
+    ],
+    [
+     -0.6,
+     -2.68,
+     0.9
+    ],
+    [
+     -1.28,
+     -2.68,
+     0.9
+    ],
+    [
+     -1.96,
+     -2.68,
+     0.9
+    ],
+    [
+     1.06,
+     -1.96,
+     0.9
+    ],
+    [
+     0.23,
+     -1.96,
+     0.9
+    ],
+    [
+     -0.6,
+     -1.96,
+     0.9
+    ],
+    [
+     -1.43,
+     -1.96,
+     0.9
+    ],
+    [
+     -2.26,
+     -1.96,
+     0.9
+    ],
+    [
+     -0.15,
+     -4.57,
+     0.9
+    ],
+    [
+     -1.05,
+     -4.57,
+     0.9
+    ],
+    [
+     0.15,
+     -3.85,
+     0.9
+    ],
+    [
+     -0.6,
+     -3.85,
+     0.9
+    ],
+    [
+     -1.35,
+     -3.85,
+     0.9
+    ],
+    [
+     0.46,
+     -3.13,
+     0.9
+    ],
+    [
+     -0.25,
+     -3.13,
+     0.9
+    ],
+    [
+     -0.95,
+     -3.13,
+     0.9
+    ],
+    [
+     -1.66,
+     -3.13,
+     0.9
+    ],
+    [
+     0.76,
+     -2.41,
+     0.9
+    ],
+    [
+     0.08,
+     -2.41,
+     0.9
+    ],
+    [
+     -0.6,
+     -2.41,
+     0.9
+    ],
+    [
+     -1.28,
+     -2.41,
+     0.9
+    ],
+    [
+     -1.96,
+     -2.41,
+     0.9
+    ],
+    [
+     1.06,
+     -1.69,
+     0.9
+    ],
+    [
+     0.23,
+     -1.69,
+     0.9
+    ],
+    [
+     -0.6,
+     -1.69,
+     0.9
+    ],
+    [
+     -1.43,
+     -1.69,
+     0.9
+    ],
+    [
+     -2.26,
+     -1.69,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.593
+     ],
+     "shove": [
+      [
+       1.593,
+       -0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.593
+     ],
+     "shove": [
+      [
+       1.593,
+       -0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "bumps": [
+      1.593
+     ],
+     "shove": [
+      [
+       1.593,
+       -0.72
+      ]
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "bumps": [
+      1.593
+     ],
+     "shove": [
+      [
+       1.593,
+       -0.72
+      ]
+     ],
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -110,
+     -110
+    ],
+    "r": [
+     6.64,
+     6.242
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.03,
+     1.03
+    ],
+    "fov": 60,
+    "hand": 1.4,
+    "roll": [
+     -6,
+     -14
+    ]
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "zone": "run",
+   "speed": 24,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "hits": [
+    [
+     1.593,
+     -1,
+     0.72
+    ]
+   ],
+   "jolt": [
+    1.593
+   ],
+   "fans": "gasp",
+   "hideWall": -1,
+   "clear": [
+    [
+     -6.09,
+     -2.69,
+     0.9
+    ],
+    [
+     -6.39,
+     -1.85,
+     0.9
+    ],
+    [
+     -5.31,
+     -2.72,
+     0.9
+    ],
+    [
+     -5.56,
+     -2.02,
+     0.9
+    ],
+    [
+     -5.82,
+     -1.33,
+     0.9
+    ],
+    [
+     -4.53,
+     -2.75,
+     0.9
+    ],
+    [
+     -4.77,
+     -2.1,
+     0.9
+    ],
+    [
+     -5,
+     -1.45,
+     0.9
+    ],
+    [
+     -5.24,
+     -0.8,
+     0.9
+    ],
+    [
+     -3.75,
+     -2.78,
+     0.9
+    ],
+    [
+     -4.06,
+     -1.95,
+     0.9
+    ],
+    [
+     -4.36,
+     -1.11,
+     0.9
+    ],
+    [
+     -4.67,
+     -0.28,
+     0.9
+    ],
+    [
+     -2.98,
+     -2.81,
+     0.9
+    ],
+    [
+     -3.26,
+     -2.05,
+     0.9
+    ],
+    [
+     -3.53,
+     -1.29,
+     0.9
+    ],
+    [
+     -3.81,
+     -0.52,
+     0.9
+    ],
+    [
+     -4.09,
+     0.24,
+     0.9
+    ],
+    [
+     -2.2,
+     -2.84,
+     0.9
+    ],
+    [
+     -2.46,
+     -2.12,
+     0.9
+    ],
+    [
+     -2.73,
+     -1.4,
+     0.9
+    ],
+    [
+     -2.99,
+     -0.68,
+     0.9
+    ],
+    [
+     -3.25,
+     0.04,
+     0.9
+    ],
+    [
+     -3.51,
+     0.76,
+     0.9
+    ],
+    [
+     -1.42,
+     -2.87,
+     0.9
+    ],
+    [
+     -1.73,
+     -2.04,
+     0.9
+    ],
+    [
+     -2.03,
+     -1.21,
+     0.9
+    ],
+    [
+     -2.33,
+     -0.38,
+     0.9
+    ],
+    [
+     -2.63,
+     0.46,
+     0.9
+    ],
+    [
+     -2.94,
+     1.29,
+     0.9
+    ],
+    [
+     -0.65,
+     -2.9,
+     0.9
+    ],
+    [
+     -0.93,
+     -2.12,
+     0.9
+    ],
+    [
+     -1.22,
+     -1.33,
+     0.9
+    ],
+    [
+     -1.5,
+     -0.55,
+     0.9
+    ],
+    [
+     -1.79,
+     0.24,
+     0.9
+    ],
+    [
+     -2.08,
+     1.02,
+     0.9
+    ],
+    [
+     -2.36,
+     1.81,
+     0.9
+    ],
+    [
+     0.13,
+     -2.93,
+     0.9
+    ],
+    [
+     -0.14,
+     -2.18,
+     0.9
+    ],
+    [
+     -0.42,
+     -1.43,
+     0.9
+    ],
+    [
+     -0.69,
+     -0.68,
+     0.9
+    ],
+    [
+     -0.96,
+     0.08,
+     0.9
+    ],
+    [
+     -1.24,
+     0.83,
+     0.9
+    ],
+    [
+     -1.51,
+     1.58,
+     0.9
+    ],
+    [
+     -1.79,
+     2.33,
+     0.9
+    ],
+    [
+     -5.71,
+     -2.56,
+     0.9
+    ],
+    [
+     -6.02,
+     -1.71,
+     0.9
+    ],
+    [
+     -4.93,
+     -2.59,
+     0.9
+    ],
+    [
+     -5.19,
+     -1.89,
+     0.9
+    ],
+    [
+     -5.44,
+     -1.19,
+     0.9
+    ],
+    [
+     -4.16,
+     -2.62,
+     0.9
+    ],
+    [
+     -4.39,
+     -1.97,
+     0.9
+    ],
+    [
+     -4.63,
+     -1.32,
+     0.9
+    ],
+    [
+     -4.87,
+     -0.67,
+     0.9
+    ],
+    [
+     -3.38,
+     -2.65,
+     0.9
+    ],
+    [
+     -3.68,
+     -1.81,
+     0.9
+    ],
+    [
+     -3.99,
+     -0.98,
+     0.9
+    ],
+    [
+     -4.29,
+     -0.14,
+     0.9
+    ],
+    [
+     -2.6,
+     -2.68,
+     0.9
+    ],
+    [
+     -2.88,
+     -1.91,
+     0.9
+    ],
+    [
+     -3.16,
+     -1.15,
+     0.9
+    ],
+    [
+     -3.44,
+     -0.39,
+     0.9
+    ],
+    [
+     -3.72,
+     0.38,
+     0.9
+    ],
+    [
+     -1.83,
+     -2.71,
+     0.9
+    ],
+    [
+     -2.09,
+     -1.99,
+     0.9
+    ],
+    [
+     -2.35,
+     -1.26,
+     0.9
+    ],
+    [
+     -2.61,
+     -0.54,
+     0.9
+    ],
+    [
+     -2.88,
+     0.18,
+     0.9
+    ],
+    [
+     -3.14,
+     0.9,
+     0.9
+    ],
+    [
+     -1.05,
+     -2.74,
+     0.9
+    ],
+    [
+     -1.35,
+     -1.91,
+     0.9
+    ],
+    [
+     -1.65,
+     -1.07,
+     0.9
+    ],
+    [
+     -1.96,
+     -0.24,
+     0.9
+    ],
+    [
+     -2.26,
+     0.59,
+     0.9
+    ],
+    [
+     -2.56,
+     1.42,
+     0.9
+    ],
+    [
+     -0.27,
+     -2.77,
+     0.9
+    ],
+    [
+     -0.56,
+     -1.98,
+     0.9
+    ],
+    [
+     -0.84,
+     -1.2,
+     0.9
+    ],
+    [
+     -1.13,
+     -0.41,
+     0.9
+    ],
+    [
+     -1.42,
+     0.37,
+     0.9
+    ],
+    [
+     -1.7,
+     1.16,
+     0.9
+    ],
+    [
+     -1.99,
+     1.95,
+     0.9
+    ],
+    [
+     0.51,
+     -2.8,
+     0.9
+    ],
+    [
+     0.23,
+     -2.05,
+     0.9
+    ],
+    [
+     -0.04,
+     -1.29,
+     0.9
+    ],
+    [
+     -0.32,
+     -0.54,
+     0.9
+    ],
+    [
+     -0.59,
+     0.21,
+     0.9
+    ],
+    [
+     -0.86,
+     0.96,
+     0.9
+    ],
+    [
+     -1.14,
+     1.72,
+     0.9
+    ],
+    [
+     -1.41,
+     2.47,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 107.5,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.28,
+     "speed": 0.6,
+     "noShadow": true,
+     "shove": [
+      [
+       0.211,
+       0.72
+      ]
+     ],
+     "my": 2.2,
+     "myAt": 0.231,
+     "myDur": 0.22,
+     "mx": 0.8,
+     "moveAt": 0.231,
+     "air": true,
+     "fg": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "sway": 10,
+     "swayEvery": 1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": -0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.36,
+     "speed": 0.6,
+     "noShadow": true,
+     "shove": [
+      [
+       0.211,
+       0.72
+      ]
+     ],
+     "my": 2.2,
+     "myAt": 0.231,
+     "myDur": 0.22,
+     "mx": 0.8,
+     "moveAt": 0.231,
+     "air": true,
+     "fg": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.44,
+     "speed": 0.6,
+     "noShadow": true,
+     "shove": [
+      [
+       0.211,
+       0.72
+      ]
+     ],
+     "my": 2.2,
+     "myAt": 0.231,
+     "myDur": 0.22,
+     "mx": 0.8,
+     "moveAt": 0.231,
+     "air": true,
+     "fg": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "male_driving_a_car",
+     "x": 0.28,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 0.52,
+     "speed": 0.6,
+     "noShadow": true,
+     "shove": [
+      [
+       0.211,
+       0.72
+      ]
+     ],
+     "my": 2.2,
+     "myAt": 0.231,
+     "myDur": 0.22,
+     "mx": 0.8,
+     "moveAt": 0.231,
+     "air": true,
+     "fg": true,
+     "arm": "both",
+     "aim": "flail",
+     "flapEvery": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -154.56,
+     -154.59
+    ],
+    "r": [
+     9.08,
+     8.857
+    ],
+    "h": [
+     3.4,
+     3.35
+    ],
+    "look": [
+     1.8,
+     1.8
+    ],
+    "fov": 52,
+    "roll": [
+     -3,
+     4
+    ],
+    "hand": 0.8
+   },
+   "focus": [
+    0.4,
+    0.2
+   ],
+   "zone": "run",
+   "speed": 24,
+   "tub": {
+    "x": 0,
+    "z": 0,
+    "yaw": 0
+   },
+   "hits": [
+    [
+     0.211,
+     1,
+     0.72
+    ]
+   ],
+   "flip": [
+    0.251,
+    0.6,
+    1
+   ],
+   "jolt": [
+    0.211
+   ],
+   "flashAt": [
+    0.211
+   ],
+   "fans": "gasp",
+   "hideWall": -1,
+   "clear": [
+    [
+     -3.09,
+     -8.19,
+     0.9
+    ],
+    [
+     -3.91,
+     -7.81,
+     0.9
+    ],
+    [
+     -2.52,
+     -7.67,
+     0.9
+    ],
+    [
+     -3.19,
+     -7.35,
+     0.9
+    ],
+    [
+     -3.86,
+     -7.03,
+     0.9
+    ],
+    [
+     -1.94,
+     -7.15,
+     0.9
+    ],
+    [
+     -2.57,
+     -6.85,
+     0.9
+    ],
+    [
+     -3.19,
+     -6.55,
+     0.9
+    ],
+    [
+     -3.82,
+     -6.25,
+     0.9
+    ],
+    [
+     -1.37,
+     -6.62,
+     0.9
+    ],
+    [
+     -2.17,
+     -6.24,
+     0.9
+    ],
+    [
+     -2.97,
+     -5.86,
+     0.9
+    ],
+    [
+     -3.78,
+     -5.48,
+     0.9
+    ],
+    [
+     -0.79,
+     -6.1,
+     0.9
+    ],
+    [
+     -1.53,
+     -5.75,
+     0.9
+    ],
+    [
+     -2.26,
+     -5.4,
+     0.9
+    ],
+    [
+     -3,
+     -5.05,
+     0.9
+    ],
+    [
+     -3.73,
+     -4.7,
+     0.9
+    ],
+    [
+     -0.22,
+     -5.57,
+     0.9
+    ],
+    [
+     -0.91,
+     -5.24,
+     0.9
+    ],
+    [
+     -1.61,
+     -4.91,
+     0.9
+    ],
+    [
+     -2.3,
+     -4.58,
+     0.9
+    ],
+    [
+     -2.99,
+     -4.25,
+     0.9
+    ],
+    [
+     -3.69,
+     -3.92,
+     0.9
+    ],
+    [
+     0.36,
+     -5.05,
+     0.9
+    ],
+    [
+     -0.44,
+     -4.67,
+     0.9
+    ],
+    [
+     -1.24,
+     -4.29,
+     0.9
+    ],
+    [
+     -2.04,
+     -3.91,
+     0.9
+    ],
+    [
+     -2.84,
+     -3.53,
+     0.9
+    ],
+    [
+     -3.64,
+     -3.15,
+     0.9
+    ],
+    [
+     0.93,
+     -4.53,
+     0.9
+    ],
+    [
+     0.17,
+     -4.17,
+     0.9
+    ],
+    [
+     -0.58,
+     -3.81,
+     0.9
+    ],
+    [
+     -1.34,
+     -3.45,
+     0.9
+    ],
+    [
+     -2.09,
+     -3.09,
+     0.9
+    ],
+    [
+     -2.85,
+     -2.73,
+     0.9
+    ],
+    [
+     -3.6,
+     -2.37,
+     0.9
+    ],
+    [
+     1.5,
+     -4,
+     0.9
+    ],
+    [
+     0.78,
+     -3.66,
+     0.9
+    ],
+    [
+     0.06,
+     -3.31,
+     0.9
+    ],
+    [
+     -0.66,
+     -2.97,
+     0.9
+    ],
+    [
+     -1.39,
+     -2.63,
+     0.9
+    ],
+    [
+     -2.11,
+     -2.28,
+     0.9
+    ],
+    [
+     -2.83,
+     -1.94,
+     0.9
+    ],
+    [
+     -3.56,
+     -1.59,
+     0.9
+    ],
+    [
+     2.08,
+     -3.48,
+     0.9
+    ],
+    [
+     1.28,
+     -3.1,
+     0.9
+    ],
+    [
+     0.48,
+     -2.72,
+     0.9
+    ],
+    [
+     -0.32,
+     -2.34,
+     0.9
+    ],
+    [
+     -1.12,
+     -1.96,
+     0.9
+    ],
+    [
+     -1.92,
+     -1.58,
+     0.9
+    ],
+    [
+     -2.71,
+     -1.2,
+     0.9
+    ],
+    [
+     -3.51,
+     -0.82,
+     0.9
+    ],
+    [
+     -2.99,
+     -7.99,
+     0.9
+    ],
+    [
+     -3.81,
+     -7.61,
+     0.9
+    ],
+    [
+     -2.42,
+     -7.47,
+     0.9
+    ],
+    [
+     -3.09,
+     -7.15,
+     0.9
+    ],
+    [
+     -3.76,
+     -6.83,
+     0.9
+    ],
+    [
+     -1.84,
+     -6.94,
+     0.9
+    ],
+    [
+     -2.47,
+     -6.65,
+     0.9
+    ],
+    [
+     -3.1,
+     -6.35,
+     0.9
+    ],
+    [
+     -3.72,
+     -6.05,
+     0.9
+    ],
+    [
+     -1.27,
+     -6.42,
+     0.9
+    ],
+    [
+     -2.07,
+     -6.04,
+     0.9
+    ],
+    [
+     -2.87,
+     -5.66,
+     0.9
+    ],
+    [
+     -3.68,
+     -5.28,
+     0.9
+    ],
+    [
+     -0.7,
+     -5.9,
+     0.9
+    ],
+    [
+     -1.43,
+     -5.55,
+     0.9
+    ],
+    [
+     -2.16,
+     -5.2,
+     0.9
+    ],
+    [
+     -2.9,
+     -4.85,
+     0.9
+    ],
+    [
+     -3.63,
+     -4.5,
+     0.9
+    ],
+    [
+     -0.12,
+     -5.37,
+     0.9
+    ],
+    [
+     -0.81,
+     -5.04,
+     0.9
+    ],
+    [
+     -1.51,
+     -4.71,
+     0.9
+    ],
+    [
+     -2.2,
+     -4.38,
+     0.9
+    ],
+    [
+     -2.9,
+     -4.05,
+     0.9
+    ],
+    [
+     -3.59,
+     -3.72,
+     0.9
+    ],
+    [
+     0.45,
+     -4.85,
+     0.9
+    ],
+    [
+     -0.35,
+     -4.47,
+     0.9
+    ],
+    [
+     -1.15,
+     -4.09,
+     0.9
+    ],
+    [
+     -1.95,
+     -3.71,
+     0.9
+    ],
+    [
+     -2.75,
+     -3.33,
+     0.9
+    ],
+    [
+     -3.55,
+     -2.95,
+     0.9
+    ],
+    [
+     1.03,
+     -4.32,
+     0.9
+    ],
+    [
+     0.27,
+     -3.97,
+     0.9
+    ],
+    [
+     -0.48,
+     -3.61,
+     0.9
+    ],
+    [
+     -1.24,
+     -3.25,
+     0.9
+    ],
+    [
+     -1.99,
+     -2.89,
+     0.9
+    ],
+    [
+     -2.75,
+     -2.53,
+     0.9
+    ],
+    [
+     -3.5,
+     -2.17,
+     0.9
+    ],
+    [
+     1.6,
+     -3.8,
+     0.9
+    ],
+    [
+     0.88,
+     -3.46,
+     0.9
+    ],
+    [
+     0.16,
+     -3.11,
+     0.9
+    ],
+    [
+     -0.57,
+     -2.77,
+     0.9
+    ],
+    [
+     -1.29,
+     -2.43,
+     0.9
+    ],
+    [
+     -2.01,
+     -2.08,
+     0.9
+    ],
+    [
+     -2.74,
+     -1.74,
+     0.9
+    ],
+    [
+     -3.46,
+     -1.39,
+     0.9
+    ],
+    [
+     2.18,
+     -3.28,
+     0.9
+    ],
+    [
+     1.38,
+     -2.9,
+     0.9
+    ],
+    [
+     0.58,
+     -2.52,
+     0.9
+    ],
+    [
+     -0.22,
+     -2.14,
+     0.9
+    ],
+    [
+     -1.02,
+     -1.76,
+     0.9
+    ],
+    [
+     -1.82,
+     -1.38,
+     0.9
+    ],
+    [
+     -2.62,
+     -1,
+     0.9
+    ],
+    [
+     -3.42,
+     -0.62,
+     0.9
+    ]
+   ],
+   "stars": []
+  },
+  {
+   "beat": 108.75,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.5,
+     "lift": 3,
+     "my": -3,
+     "myAt": -0.213,
+     "myDur": 0.4,
+     "air": true,
+     "reveal": 0.237,
+     "arm": "both",
+     "aim": "up",
+     "bumps": [
+      0.187
+     ],
+     "bumpAmp": 0.1
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": -0.35,
+     "z": -1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.5,
+     "lift": 3,
+     "my": -3,
+     "myAt": -0.002,
+     "myDur": 0.4,
+     "air": true,
+     "reveal": 0.448,
+     "arm": "both",
+     "aim": "up",
+     "bumps": [
+      0.398
+     ],
+     "bumpAmp": 0.1
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_idle",
+     "x": 0.35,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.5,
+     "lift": 3,
+     "my": -3,
+     "myAt": 0.707,
+     "myDur": 0.4,
+     "air": true,
+     "reveal": 1.157,
+     "arm": "both",
+     "aim": "up",
+     "bumps": [
+      1.107
+     ],
+     "bumpAmp": 0.1
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "happy_idle",
+     "x": 1.05,
+     "z": -1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.3,
+     "lift": 3,
+     "my": -3,
+     "myAt": 0.957,
+     "myDur": 0.4,
+     "air": true,
+     "reveal": 1.407,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.2,
+     5
+    ],
+    "h": [
+     1.5,
+     1.48
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -1.6
+   ],
+   "zone": "finish",
+   "tub": {
+    "x": 0.35,
+    "z": -3.9,
+    "yaw": 10
+   },
+   "flip": [
+    -1,
+    0.6,
+    1
+   ],
+   "fans": "gasp",
+   "stars": [
+    "kob"
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_walk",
+     "x": -0.45,
+     "z": -3.1,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.2,
+     "speed": 1,
+     "mx": 0,
+     "mz": -1,
+     "arm": "both",
+     "aim": "up"
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_walk",
+     "x": 0,
+     "z": -2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.55,
+     "speed": 1,
+     "mx": 0,
+     "mz": -1,
+     "arm": "both",
+     "aim": "up"
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_walk",
+     "x": 0.45,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.8999999999999999,
+     "speed": 1,
+     "mx": 0,
+     "mz": -1,
+     "arm": "both",
+     "aim": "up"
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -1.58,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 1.43,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -1,
+     "moveAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     150,
+     150
+    ],
+    "r": [
+     8,
+     7.52
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.212,
+     1.212
+    ],
+    "fov": 50,
+    "hand": 0.4
+   },
+   "focus": [
+    -0.07,
+    -2.395
+   ],
+   "zone": "finish",
+   "tub": {
+    "x": 0,
+    "z": -2,
+    "yaw": 0,
+    "y": 1.15,
+    "to": [
+     0,
+     -3
+    ],
+    "at": 0
+   },
+   "fans": "cheer",
+   "hideWall": 1,
+   "clear": [
+    [
+     4.32,
+     -9.1,
+     0.9
+    ],
+    [
+     3.54,
+     -9.55,
+     0.9
+    ],
+    [
+     4.21,
+     -8.33,
+     0.9
+    ],
+    [
+     3.57,
+     -8.7,
+     0.9
+    ],
+    [
+     2.93,
+     -9.07,
+     0.9
+    ],
+    [
+     4.09,
+     -7.57,
+     0.9
+    ],
+    [
+     3.5,
+     -7.91,
+     0.9
+    ],
+    [
+     2.92,
+     -8.25,
+     0.9
+    ],
+    [
+     2.33,
+     -8.59,
+     0.9
+    ],
+    [
+     3.98,
+     -6.8,
+     0.9
+    ],
+    [
+     3.23,
+     -7.24,
+     0.9
+    ],
+    [
+     2.47,
+     -7.67,
+     0.9
+    ],
+    [
+     1.72,
+     -8.1,
+     0.9
+    ],
+    [
+     3.87,
+     -6.03,
+     0.9
+    ],
+    [
+     3.18,
+     -6.43,
+     0.9
+    ],
+    [
+     2.49,
+     -6.83,
+     0.9
+    ],
+    [
+     1.8,
+     -7.23,
+     0.9
+    ],
+    [
+     1.11,
+     -7.62,
+     0.9
+    ],
+    [
+     3.75,
+     -5.27,
+     0.9
+    ],
+    [
+     3.1,
+     -5.64,
+     0.9
+    ],
+    [
+     2.45,
+     -6.02,
+     0.9
+    ],
+    [
+     1.81,
+     -6.39,
+     0.9
+    ],
+    [
+     1.16,
+     -6.77,
+     0.9
+    ],
+    [
+     0.51,
+     -7.14,
+     0.9
+    ],
+    [
+     3.64,
+     -4.5,
+     0.9
+    ],
+    [
+     2.89,
+     -4.93,
+     0.9
+    ],
+    [
+     2.14,
+     -5.37,
+     0.9
+    ],
+    [
+     1.4,
+     -5.8,
+     0.9
+    ],
+    [
+     0.65,
+     -6.23,
+     0.9
+    ],
+    [
+     -0.1,
+     -6.66,
+     0.9
+    ],
+    [
+     3.53,
+     -3.74,
+     0.9
+    ],
+    [
+     2.82,
+     -4.14,
+     0.9
+    ],
+    [
+     2.12,
+     -4.55,
+     0.9
+    ],
+    [
+     1.41,
+     -4.96,
+     0.9
+    ],
+    [
+     0.7,
+     -5.37,
+     0.9
+    ],
+    [
+     0,
+     -5.77,
+     0.9
+    ],
+    [
+     -0.71,
+     -6.18,
+     0.9
+    ],
+    [
+     3.41,
+     -2.97,
+     0.9
+    ],
+    [
+     2.74,
+     -3.36,
+     0.9
+    ],
+    [
+     2.06,
+     -3.75,
+     0.9
+    ],
+    [
+     1.39,
+     -4.14,
+     0.9
+    ],
+    [
+     0.71,
+     -4.53,
+     0.9
+    ],
+    [
+     0.04,
+     -4.92,
+     0.9
+    ],
+    [
+     -0.64,
+     -5.31,
+     0.9
+    ],
+    [
+     -1.31,
+     -5.7,
+     0.9
+    ],
+    [
+     4.08,
+     -8.68,
+     0.9
+    ],
+    [
+     3.3,
+     -9.13,
+     0.9
+    ],
+    [
+     3.97,
+     -7.92,
+     0.9
+    ],
+    [
+     3.33,
+     -8.28,
+     0.9
+    ],
+    [
+     2.69,
+     -8.65,
+     0.9
+    ],
+    [
+     3.85,
+     -7.15,
+     0.9
+    ],
+    [
+     3.26,
+     -7.49,
+     0.9
+    ],
+    [
+     2.68,
+     -7.83,
+     0.9
+    ],
+    [
+     2.09,
+     -8.17,
+     0.9
+    ],
+    [
+     3.74,
+     -6.38,
+     0.9
+    ],
+    [
+     2.99,
+     -6.82,
+     0.9
+    ],
+    [
+     2.23,
+     -7.25,
+     0.9
+    ],
+    [
+     1.48,
+     -7.69,
+     0.9
+    ],
+    [
+     3.63,
+     -5.62,
+     0.9
+    ],
+    [
+     2.94,
+     -6.02,
+     0.9
+    ],
+    [
+     2.25,
+     -6.41,
+     0.9
+    ],
+    [
+     1.56,
+     -6.81,
+     0.9
+    ],
+    [
+     0.87,
+     -7.21,
+     0.9
+    ],
+    [
+     3.51,
+     -4.85,
+     0.9
+    ],
+    [
+     2.86,
+     -5.23,
+     0.9
+    ],
+    [
+     2.21,
+     -5.6,
+     0.9
+    ],
+    [
+     1.57,
+     -5.98,
+     0.9
+    ],
+    [
+     0.92,
+     -6.35,
+     0.9
+    ],
+    [
+     0.27,
+     -6.73,
+     0.9
+    ],
+    [
+     3.4,
+     -4.09,
+     0.9
+    ],
+    [
+     2.65,
+     -4.52,
+     0.9
+    ],
+    [
+     1.9,
+     -4.95,
+     0.9
+    ],
+    [
+     1.16,
+     -5.38,
+     0.9
+    ],
+    [
+     0.41,
+     -5.81,
+     0.9
+    ],
+    [
+     -0.34,
+     -6.25,
+     0.9
+    ],
+    [
+     3.29,
+     -3.32,
+     0.9
+    ],
+    [
+     2.58,
+     -3.73,
+     0.9
+    ],
+    [
+     1.88,
+     -4.14,
+     0.9
+    ],
+    [
+     1.17,
+     -4.54,
+     0.9
+    ],
+    [
+     0.46,
+     -4.95,
+     0.9
+    ],
+    [
+     -0.24,
+     -5.36,
+     0.9
+    ],
+    [
+     -0.95,
+     -5.76,
+     0.9
+    ],
+    [
+     3.17,
+     -2.56,
+     0.9
+    ],
+    [
+     2.5,
+     -2.95,
+     0.9
+    ],
+    [
+     1.82,
+     -3.33,
+     0.9
+    ],
+    [
+     1.15,
+     -3.72,
+     0.9
+    ],
+    [
+     0.47,
+     -4.11,
+     0.9
+    ],
+    [
+     -0.2,
+     -4.5,
+     0.9
+    ],
+    [
+     -0.88,
+     -4.89,
+     0.9
+    ],
+    [
+     -1.55,
+     -5.28,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "icetrack",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "happy_walk",
+     "x": -0.45,
+     "z": -9.8,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.2,
+     "speed": 1,
+     "mx": 0,
+     "mz": -0.7000000000000011,
+     "arm": "both",
+     "aim": "up",
+     "fg": false
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "happy_walk",
+     "x": 0,
+     "z": -8.7,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.55,
+     "speed": 1,
+     "mx": 0,
+     "mz": -0.7000000000000011,
+     "arm": "both",
+     "aim": "up",
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "happy_walk",
+     "x": 0.45,
+     "z": -7.6,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.8999999999999999,
+     "speed": 1,
+     "mx": 0,
+     "mz": -0.7000000000000011,
+     "arm": "both",
+     "aim": "up",
+     "fg": false
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "male_driving_a_car",
+     "x": -0.28,
+     "z": -8.28,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": 1.43,
+     "speed": 0.6,
+     "noShadow": true,
+     "hold": "milk",
+     "arm": "R",
+     "aim": "sip",
+     "mx": 0,
+     "mz": -0.7,
+     "moveAt": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     175,
+     175
+    ],
+    "r": [
+     8.585,
+     9.285
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     2.15,
+     2.15
+    ],
+    "fov": 50,
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -9
+   ],
+   "zone": "finish",
+   "tub": {
+    "x": 0,
+    "z": -8.7,
+    "yaw": 0,
+    "y": 1.15,
+    "to": [
+     0,
+     -9.4
+    ],
+    "at": 0
+   },
+   "fans": "cheer",
+   "confetti": true,
+   "flares": true,
+   "clear": [
+    [
+     1.2,
+     -17.51,
+     0.9
+    ],
+    [
+     0.3,
+     -17.59,
+     0.9
+    ],
+    [
+     1.42,
+     -16.77,
+     0.9
+    ],
+    [
+     0.69,
+     -16.84,
+     0.9
+    ],
+    [
+     -0.05,
+     -16.9,
+     0.9
+    ],
+    [
+     1.64,
+     -16.03,
+     0.9
+    ],
+    [
+     0.96,
+     -16.09,
+     0.9
+    ],
+    [
+     0.28,
+     -16.15,
+     0.9
+    ],
+    [
+     -0.39,
+     -16.21,
+     0.9
+    ],
+    [
+     1.86,
+     -15.29,
+     0.9
+    ],
+    [
+     0.99,
+     -15.36,
+     0.9
+    ],
+    [
+     0.13,
+     -15.44,
+     0.9
+    ],
+    [
+     -0.74,
+     -15.51,
+     0.9
+    ],
+    [
+     2.08,
+     -14.54,
+     0.9
+    ],
+    [
+     1.29,
+     -14.61,
+     0.9
+    ],
+    [
+     0.5,
+     -14.68,
+     0.9
+    ],
+    [
+     -0.29,
+     -14.75,
+     0.9
+    ],
+    [
+     -1.09,
+     -14.82,
+     0.9
+    ],
+    [
+     2.3,
+     -13.8,
+     0.9
+    ],
+    [
+     1.55,
+     -13.87,
+     0.9
+    ],
+    [
+     0.81,
+     -13.93,
+     0.9
+    ],
+    [
+     0.06,
+     -14,
+     0.9
+    ],
+    [
+     -0.69,
+     -14.06,
+     0.9
+    ],
+    [
+     -1.43,
+     -14.13,
+     0.9
+    ],
+    [
+     1.17,
+     -17.26,
+     0.9
+    ],
+    [
+     0.28,
+     -17.34,
+     0.9
+    ],
+    [
+     1.39,
+     -16.52,
+     0.9
+    ],
+    [
+     0.66,
+     -16.58,
+     0.9
+    ],
+    [
+     -0.07,
+     -16.64,
+     0.9
+    ],
+    [
+     1.62,
+     -15.77,
+     0.9
+    ],
+    [
+     0.94,
+     -15.83,
+     0.9
+    ],
+    [
+     0.26,
+     -15.89,
+     0.9
+    ],
+    [
+     -0.42,
+     -15.95,
+     0.9
+    ],
+    [
+     1.84,
+     -15.03,
+     0.9
+    ],
+    [
+     0.97,
+     -15.11,
+     0.9
+    ],
+    [
+     0.1,
+     -15.18,
+     0.9
+    ],
+    [
+     -0.76,
+     -15.26,
+     0.9
+    ],
+    [
+     2.06,
+     -14.29,
+     0.9
+    ],
+    [
+     1.27,
+     -14.36,
+     0.9
+    ],
+    [
+     0.47,
+     -14.43,
+     0.9
+    ],
+    [
+     -0.32,
+     -14.5,
+     0.9
+    ],
+    [
+     -1.11,
+     -14.57,
+     0.9
+    ],
+    [
+     2.28,
+     -13.55,
+     0.9
+    ],
+    [
+     1.53,
+     -13.61,
+     0.9
+    ],
+    [
+     0.79,
+     -13.68,
+     0.9
+    ],
+    [
+     0.04,
+     -13.74,
+     0.9
+    ],
+    [
+     -0.71,
+     -13.81,
+     0.9
+    ],
+    [
+     -1.45,
+     -13.87,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  }
+ ]
+}
