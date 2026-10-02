@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-02T15:20:16.699Z",
+ "updated": "2026-10-02T18:17:00.871Z",
  "posts": [
+  {
+   "id": "2026-10-02-2",
+   "title": "Bring Me To Life",
+   "artist": "Evanescence",
+   "date": "2026-10-02T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-02-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7692132333293407520",
+     "id": "7692132333293407520"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeAFLMEk9q9/",
+     "id": "DeAFLMEk9q9"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/yM4Nj8WUMCU",
+     "id": "yM4Nj8WUMCU"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1076211071869908",
+     "id": "1076211071869908"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2106082209513816320",
+     "id": "2106082209513816320"
+    }
+   }
+  },
   {
    "id": "2026-10-02",
    "title": "Jamaican (Bam Bam)",
