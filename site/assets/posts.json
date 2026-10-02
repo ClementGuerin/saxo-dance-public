@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-01T19:55:58.014Z",
+ "updated": "2026-10-02T14:17:58.845Z",
  "posts": [
+  {
+   "id": "2026-10-02",
+   "title": "Jamaican (Bam Bam)",
+   "artist": "HUGEL & SOLTO",
+   "date": "2026-10-02T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-02.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7692070703431978272",
+     "id": "7692070703431978272"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dd_p3dqgtIp/",
+     "id": "Dd_p3dqgtIp"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/0xgy8vxoKxI",
+     "id": "0xgy8vxoKxI"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1058503470518490",
+     "id": "1058503470518490"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2106021837641490611",
+     "id": "2106021837641490611"
+    }
+   }
+  },
   {
    "id": "2026-10-01-2",
    "title": "Stop The Wedding!",
