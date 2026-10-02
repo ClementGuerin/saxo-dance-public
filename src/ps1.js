@@ -25,6 +25,7 @@ import { buildEstateMaps, trolleyModel, TROLLEY } from './maps19.js';
 import { buildSelfAwareMaps } from './maps20.js';
 import { buildShipMaps } from './maps21.js';
 import { buildWeddingMaps, drawStop } from './maps22.js';
+import { buildBobsledMaps } from './maps23.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -647,6 +648,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   captain: 'assets/models/saxo_captain.glb',
   // the clip's 1960s blonde: a teased blonde bouffant flipped up at the shoulders (his ears out on top), a pale pink shift dress with a white Peter Pan collar, white gloves, pearl earrings, white heels ("Stop The Wedding!", 2026-10-01)
   bouffant: 'assets/models/saxo_bouffant.glb',
+  // the bobsled team's captain: a bright yellow racing suit with green side panels and black stripes, a green, yellow and black striped beanie with a pompom, black boots ("Jamaican (Bam Bam)", 2026-10-02)
+  bobsled: 'assets/models/saxo_bobsled.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -671,6 +674,8 @@ const PARTNERS = {
     coat: 'assets/models/sadi_coat.glb',
     // the bride: a short white wedding dress with a lace bodice and a flared skirt, a short tulle veil from a small silver tiara, her pink bow, white heels ("Stop The Wedding!", 2026-10-01)
     bride: 'assets/models/sadi_bride.glb',
+    // the team's racing suit (yellow, green panels, black stripes) and the striped beanie with her pink bow on it ("Jamaican (Bam Bam)", 2026-10-02)
+    bobsled: 'assets/models/sadi_bobsled.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -692,6 +697,8 @@ const PARTNERS = {
     lifevest: 'assets/models/kob_lifevest.glb',
     // the wedding's officiant: a long black robe with wide sleeves, a white collar tab, a thin gold sash, black shoes, her bell collar ("Stop The Wedding!", 2026-10-01)
     officiant: 'assets/models/kob_officiant.glb',
+    // the only one dressed for the snow: a quilted mint puffer parka zipped to the chin, a long pink scarf, a pink bobble hat, mint mittens, grey snow boots ("Jamaican (Bam Bam)", 2026-10-02)
+    parka: 'assets/models/kob_parka.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -709,6 +716,8 @@ const PARTNERS = {
     sailor: 'assets/models/compote_sailor.glb',
     // the flower girl: a pale pink frilly dress with puffed sleeves and a big satin bow at the back, white tights, pink shoes, a crown of pink and white flowers, her carrot clip ("Stop The Wedding!", 2026-10-01)
     flowergirl: 'assets/models/compote_flowergirl.glb',
+    // the team's racing suit (yellow, green panels, black stripes) and the striped beanie with her carrot clip on it ("Jamaican (Bam Bam)", 2026-10-02)
+    bobsled: 'assets/models/compote_bobsled.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -803,7 +812,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -900,7 +909,7 @@ function actorSpec(a, e, map) {
     // scale: a giant (the sea monster is a 16x Compote), my: metres risen (+) or sunk (-) from myAt s over myDur s
     // (smoothstep; default the whole shot), holdScale: the held prop's size (a carrot pinched in a giant's paw), noShadow
     fg: !!a.fg, reveal: a.reveal || 0, scale: a.scale || 1, my: a.my || 0, myAt: a.myAt || 0, myDur: a.myDur ?? null, holdScale: a.holdScale || 1, noShadow: !!a.noShadow, air: !!a.air,
-    hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180,
+    hat: a.hat || null, hatFrom: a.hatFrom ?? null, hatY: a.hatY ?? 0.7, bump: a.bump || 0, bumps: a.bumps || null, bumpAmp: a.bumpAmp ?? null, shove: a.shove || null, rideY: a.rideY ?? null, moveAt: a.moveAt || 0, rideYaw: (a.rideYaw || 0) * Math.PI / 180,
     // the beat-locked swings and sway (SWINGS, swayRoll), and holdAt: the actor freezes that many seconds into the shot
     // (clip, swing and sway), caught mid-move (2026-09-27; until then these fields never reached the actors)
     flap: a.flap ?? null, flapEvery: a.flapEvery || null, flapPh: a.flapPh || 0, sway: a.sway || 0, swayEvery: a.swayEvery || null, swayPh: a.swayPh || 0, holdAt: a.holdAt ?? null,
@@ -918,7 +927,8 @@ function actorSpec(a, e, map) {
     // "Vamos a la playa" (2026-09-29): hop: [m, beats] hops of that height, one every that many beats (0.5 = two a
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
-    noLie: !!a.noLie };   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
+    noLie: !!a.noLie,
+    lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
   if (EP) return episodeShots();
@@ -1247,6 +1257,9 @@ const SWINGS = {
   keys: { up: [[0.28, -0.3, 0.91], [0.26, -0.38, 0.89]], fore: [[0.18, -0.12, 0.98], [0.16, -0.58, 0.8]], alt: 0.5, every: 1 },   // "Love Me Not": the paws on the keys, tapping one after the other
   pluck: { up: [[0.2, 0.05, 0.98], [-0.7, 0.28, 0.66]], fore: [[0.3, 0.2, 0.93], [-0.72, 0.3, 0.62]], alt: 0, every: 1 },
   heart: { up: [[0.1, -0.7, 0.7], [0.1, -0.7, 0.7]], fore: [[-0.85, 0.12, 0.52], [-0.85, 0.12, 0.52]], alt: 0, every: 1 },
+  rave: { up: [[0.95, 0.28, 0.12], [0.86, 0.48, 0.18]], fore: [[0.22, 0.96, 0.12], [0.55, 0.82, 0.15]], alt: 0, every: 1 },   // "Jamaican (Bam Bam)": raise the roof, elbows out wide and forearms up, the paws flung out on the beat (a chibi's 0.3 m arms raised straight up end at its cheeks, inside its big head's silhouette: "arms down" in a still)
+  flail: { up: [[0.95, 0.15, 0.25], [0.62, 0.76, -0.15]], fore: [[0.75, 0.6, 0.25], [0.2, 0.95, -0.2]], alt: 0.5, every: 1 },   // a panicked flail: arms thrown up and out, the right half a swing after the left (a fixed face can't scream: the body sells it)
+  sip: { up: [[0.2, -0.85, 0.48], [0.25, -0.3, 0.92]], fore: [[0.15, -0.1, 0.98], [-0.42, 0.84, 0.34]], alt: 0, every: 4 },   // the held glass in front of the belly, raised to the mouth on every 4th beat (`arm: "R"`, `hold: "milk"`)
   drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
   paddle: { up: [[0.2, 0.32, 0.93], [0.2, -0.3, 0.93]], fore: [[0.15, 0.22, 0.96], [0.1, -0.7, 0.71]], alt: 0.5, every: 1 },   // reaching forward at chest height, then pulling down (paws at the chin or chest read as nothing, the reviewer)   // "SWIM": the doggy paddle, paws down in front of the chest on the beat, the right half a beat after the left
   bail: { up: [[0.1, -0.55, 0.83], [0.12, 0.72, 0.68]], fore: [[0.06, -0.45, 0.89], [0.06, 0.9, 0.43]], alt: 0, every: 1 },   // paws close together on the bucket (spread wide it floated between them)   // up to the bucket over her head on the beat (at chest height its handle crossed her muzzle)   // "SWIM": bailing, both paws low (the scoop), then the bucket swung up to the chest on the beat   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
@@ -1591,7 +1604,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     const s = (D.scale || 1) * A.scale, bob = A.ride && A.ride !== 'trolley' ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
     const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, bb = bp(t), jolt = A.bump && bb >= 0 ? A.bump * Math.exp(-fr(bb) * 7) : 0;
     const dip = A.dip ? -A.dip[0] * (0.5 + 0.5 * Math.sin((t - t0) * A.dip[1])) : 0;   // dip: [m, rad/s], bobbing under the waves (a swimmer in trouble)
-    const lift = A.lift + bob + A.my * um + jolt + dip;   // my: a rise or a sink; bump: turbulence jolts on the beat
+    let hitHop = 0; if (A.bumps) for (const h of A.bumps) { const d = t - t0 - h; if (d >= 0 && d < 0.25) { const v = (A.bumpAmp ?? 0.09) * Math.sin(d / 0.25 * Math.PI); if (Math.abs(v) > Math.abs(hitHop)) hitHop = v; } }   // bumps: the bathtub's wall hits ("Jamaican (Bam Bam)")
+    const lift = A.lift + bob + A.my * um + jolt + dip + hitHop;   // my: a rise or a sink; bump: turbulence jolts on the beat
     D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air; D.fg = A.fg || t - t0 < A.reveal;
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
@@ -1599,8 +1613,10 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (n) { const d = D.clips[n].duration, tc = at + (th - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
     D.mixer.update(0);
     const u = cl((t - t0 - A.moveAt) / Math.max(0.01, len - A.moveAt));   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned), from moveAt s
-    D.holder.rotation.set(0, yaw, 0); D.holder.position.set(A.x + A.mx * u, ground * s + lift, A.z + A.mz * u);
-    D.roll = swayRoll(A, th); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);   // sway: tilted side to side on the beat, pivoting on the feet
+    let shoveX = 0; if (A.shove) for (const [h, dx] of A.shove) { const d = t - t0 - h; shoveX += dx * (d < -0.15 ? 0 : d < 0 ? sm((d + 0.15) / 0.15) : d < 0.12 ? 1 : Math.exp(-(d - 0.12) * 5)); }   // shove: [[s, dx]], slammed sideways into a wall ("Jamaican (Bam Bam)")
+    D.holder.rotation.set(0, yaw, 0); D.holder.position.set(A.x + A.mx * u + shoveX, ground * s + lift, A.z + A.mz * u);
+    D.roll = swayRoll(A, th); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);
+    if (A.lean) D.holder.rotateOnAxis(_rf.set(Math.cos(fyaw), 0, -Math.sin(fyaw)), A.lean);   // leaned forward, pivoting on the feet   // sway: tilted side to side on the beat, pivoting on the feet
     D.holder.updateMatrixWorld(true);
     if (A.arm || A.armB) {
       D.aimSaved = [D.L, D.R, D.foreL, D.foreR].filter(Boolean).map(bone => [bone, bone.quaternion.clone()]);
@@ -1620,7 +1636,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.deck = lift;
     const up = Math.max(0, footY(D) / s - D.restFoot - lift / s) * (1 - flat);
     const hp = D.hips ? D.hips.getWorldPosition(_pb) : D.holder.position;
-    D.shadow.position.set(hp.x, 0.012 + lift, hp.z); D.shadow.rotation.z = 0; D.shadow.scale.setScalar(s * Math.max(0.5, 1 - up * 0.8) * (A.ground === 'mesh' ? 1.5 : 1));
+    D.shadow.position.set(hp.x, (map.shadowY ?? 0.012) + lift - hitHop, hp.z); D.shadow.rotation.z = 0;   // a hit's hop leaves the shadow on the floor D.shadow.scale.setScalar(s * Math.max(0.5, 1 - up * 0.8) * (A.ground === 'mesh' ? 1.5 : 1));
     if (flat > 0) lieShadow(D, flat);
     D.shadow.material.uniforms.uShadow.value = SHADOW * Math.max(0.35, 1 - up);
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
@@ -1761,7 +1777,8 @@ function danceFrame(t) {
   // whip-in: the first ~0.25 s pans fast into place; the 2D layer smears the frame by window.WHIP
   const whip = cam.whip ? Math.exp(-(t - t0) * 16) : 0; camera.rotateY(whip * 0.9); window.WHIP = whip;
   // jolt: the bass through the walls kicks the whole frame on every beat (a drop and a small roll, decaying through the beat)
-  if (P.jolt) { const pos = bp(t), nb = Math.floor(pos + 1e-6), f = pos - nb, j = nb >= 0 ? Math.exp(-f * 7) : 0; camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * (nb % 2 ? 1 : -1)); }
+  if (Array.isArray(P.jolt)) { let j = 0, sg = 1; P.jolt.forEach((h, q) => { const d = t - t0 - h; if (d >= 0 && d < 0.6) { const v = 2.2 * Math.exp(-d * 9); if (v > j) { j = v; sg = q % 2 ? 1 : -1; } } }); camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * sg); }   // jolt: [s, ...]: a kick on each listed second (a wall hit)
+  else if (P.jolt) { const pos = bp(t), nb = Math.floor(pos + 1e-6), f = pos - nb, j = nb >= 0 ? Math.exp(-f * 7) : 0; camera.position.y -= 0.045 * j; camera.rotateZ(0.022 * j * (nb % 2 ? 1 : -1)); }
   // roll: a dutch angle in degrees (or [from, …, to] keyframes over the shot, on the move's easing). hand: a handheld operator on top
   // of the path (1 = the loose sway of the ratoshidance references: ~3 cm of drift, ~1° of wobble, ~1.2° of roll).
   const roll = cam.roll == null ? 0 : lerp(cam.roll), hand = cam.hand || 0, hw = (f, p) => Math.sin(t * f + p + i * 7.3);
