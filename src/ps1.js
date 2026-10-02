@@ -27,6 +27,7 @@ import { buildShipMaps } from './maps21.js';
 import { buildWeddingMaps, drawStop } from './maps22.js';
 import { buildBobsledMaps } from './maps23.js';
 import { buildTowerMaps } from './maps24.js';
+import { buildAgencyMaps } from './maps25.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -681,6 +682,8 @@ const PARTNERS = {
     bobsled: 'assets/models/sadi_bobsled.glb',
     // the sleepover: a short pale pink nightdress with white lace trim and puffed sleeves, fluffy pink slippers, her pink bow ("Bring Me To Life", 2026-10-02)
     nightie: 'assets/models/sadi_nightie.glb',
+    // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
+    assistant: 'assets/models/sadi_assistant.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -704,6 +707,8 @@ const PARTNERS = {
     officiant: 'assets/models/kob_officiant.glb',
     // the only one dressed for the snow: a quilted mint puffer parka zipped to the chin, a long pink scarf, a pink bobble hat, mint mittens, grey snow boots ("Jamaican (Bam Bam)", 2026-10-02)
     parka: 'assets/models/kob_parka.glb',
+    // the agency's CEO: a sharp double-breasted black power suit with gold buttons and padded shoulders, a white silk blouse, pearls and pearl earrings, black heels, her bell ("Animal", 2026-10-03)
+    ceo: 'assets/models/kob_ceo.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -819,7 +824,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1103,6 +1108,9 @@ function propMesh(kind) {
     add(new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.26, 5), M(0xff7a1a)), 0, 0.2); for (let k = 0; k < 3; k++) add(box(0.02, 0.1, 0.02, M(0x3fae47)), (k - 1) * 0.02, 0.03).rotation.z = (k - 1) * 0.4;
   } else if (kind === 'stone') {   // a flat grey pebble for skimming (2026-09-27, "Dans ma bulle": it sinks at once)
     const p = new THREE.Mesh(new THREE.IcosahedronGeometry(0.085, 0), mat({ color: 0xe4ded2, unlit: 0.45 })); p.scale.set(1, 0.45, 0.85); add(p);   // pale and a little self-lit: a grey one vanished against the coat at night
+  } else if (kind === 'paperball') {   // "Animal" (2026-10-03): a crumpled sheet of office paper, tossed at the bin and fetched (white and a little self-lit: it must read against the dark office)
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 0), mat({ color: 0xffffff, unlit: 0.85 })));
+    for (const [x, y, z] of [[0.07, 0.04, 0.02], [-0.06, -0.04, 0.05], [0.01, 0.06, -0.06]]) add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.05, 0), mat({ color: 0xf0f0ea, unlit: 0.8 })), x, y, z);
   } else if (kind === 'wallet') {  // an open wallet between both paws, empty: two red leather halves in a V (a brown one vanished on the black turtleneck), pale card slots
     for (const sd of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.11, 0.014, 0.085, M(0xc8322a)), sd * 0.056, 0, 0)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, -0.022)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, 0.012)); h.rotation.z = -sd * 0.35; G.add(h); }
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
@@ -1276,6 +1284,7 @@ const SWINGS = {
   drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
   paddle: { up: [[0.2, 0.32, 0.93], [0.2, -0.3, 0.93]], fore: [[0.15, 0.22, 0.96], [0.1, -0.7, 0.71]], alt: 0.5, every: 1 },   // reaching forward at chest height, then pulling down (paws at the chin or chest read as nothing, the reviewer)   // "SWIM": the doggy paddle, paws down in front of the chest on the beat, the right half a beat after the left
   bail: { up: [[0.1, -0.55, 0.83], [0.12, 0.72, 0.68]], fore: [[0.06, -0.45, 0.89], [0.06, 0.9, 0.43]], alt: 0, every: 1 },   // paws close together on the bucket (spread wide it floated between them)   // up to the bucket over her head on the beat (at chest height its handle crossed her muzzle)   // "SWIM": bailing, both paws low (the scoop), then the bucket swung up to the chest on the beat   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
+  claw: { up: [[0.62, 0.62, 0.48], [0.3, 0.45, 0.84]], fore: [[0.5, 0.45, 0.74], [0.25, -0.2, 0.95]], alt: 0, every: 1 },   // "Animal" (2026-10-03): the clip's claw move, paws raised beside the head and angled forward (pose A, held by flap 0), striking forward on the beat (pose B); arms out at shoulder height read as a T-pose and paws at the cheeks as worry, so neither is a pose
 }, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
 function swingK(A, t, side) {   // 1 at pose B (on the beat), 0 at pose A half a swing later
   const S = SWINGS[A.aim], b = (bp(t) - (A.flapPh || 0) - (side === 'R' ? S.alt : 0)) / (A.flapEvery || S.every);
@@ -1781,7 +1790,10 @@ function danceFrame(t) {
   // layer greys it: window.MONO, 0-1). photo: s into the shot, the frozen frame becomes an instant photo (window.PHOTO: s since)
   { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null;
     // white: [s, …] a lightning flash over the whole frame at each listed second (two flickers, gone by 0.35 s; the 2D layer whites it out: window.WHITE, 0-1)
-    window.WHITE = (P.white || []).reduce((m, f) => { const e = sIn - f; return e >= 0 && e < 0.35 ? Math.max(m, e < 0.06 ? 0.9 : e < 0.12 ? 0.25 : e < 0.18 ? 0.7 : 0.7 * Math.exp(-(e - 0.18) * 14)) : m; }, 0); }
+    window.WHITE = (P.white || []).reduce((m, f) => { const e = sIn - f; return e >= 0 && e < 0.35 ? Math.max(m, e < 0.06 ? 0.9 : e < 0.12 ? 0.25 : e < 0.18 ? 0.7 : 0.7 * Math.exp(-(e - 0.18) * 14)) : m; }, 0);
+    // cctv: the shot is a security camera's feed ("Animal", 2026-10-03): its label (e.g. 'CAM 03 · CEO'), drawn by the 2D layer with a REC dot, a timecode and scanlines (window.CCTV);
+    // cctvLost (s into the shot): the feed dies there, a white flash and then static with NO SIGNAL (the cat swats the camera)
+    window.CCTV = P.cctv ? { label: P.cctv, s: sIn, clock: P.cctvClock ?? 85632, lost: P.cctvLost } : null; }
   const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0, !!P.half) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
   // [from, to], or [a, b, c…] keyframes spread evenly over the move's easing (a path: over the decks, then down)
@@ -1916,7 +1928,7 @@ if (EP) {
     unswing(); const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
-      window.MONO = 0; window.PHOTO = null; window.WHITE = 0;   // the 2D frame effects belong to dance shots
+      window.MONO = 0; window.PHOTO = null; window.WHITE = 0; window.CCTV = null;   // the 2D frame effects belong to dance shots
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
       for (const g of Object.values(PROPS)) g.visible = false; placeCrowd(null, t, 0, 1, 0);
       window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);

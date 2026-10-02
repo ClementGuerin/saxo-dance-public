@@ -181,6 +181,44 @@ function polaroid(f, s) {
   g.restore();
 }
 
+// a shot's cctv ("Animal", 2026-10-03): the frame as a security camera's feed: scanlines, a vignette, viewfinder corners, a
+// blinking red REC dot with the camera's label bottom left and a running timecode bottom right, both above the watermark.
+// c: { label, s: seconds into the shot, clock: the timecode's start in seconds }
+// the feed dies (a shot's cctvLost): a white flash, then static and NO SIGNAL; the noise is seeded by the frame, so pure in t
+const NOISE = document.createElement('canvas'); NOISE.width = 135; NOISE.height = 240;
+function cctvLost(c) {
+  const e = c.s - c.lost, nx = NOISE.getContext('2d'), img = nx.createImageData(135, 240);
+  let h = (Math.floor(c.s * 30) * 2654435761) >>> 0;
+  for (let i = 0; i < img.data.length; i += 4) {
+    h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
+    const row = Math.floor(i / 4 / 135), band = ((row + Math.floor(c.s * 90)) % 60) < 7 ? 45 : 0;
+    img.data[i] = img.data[i + 1] = img.data[i + 2] = Math.min(255, 30 + (h >>> 24) * 0.75 + band); img.data[i + 3] = 255;
+  }
+  nx.putImageData(img, 0, 0);
+  g.save(); g.drawImage(NOISE, 0, 0, W, H);
+  if (e < 0.08) { g.globalAlpha = 1 - e / 0.08; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); g.globalAlpha = 1; }
+  g.font = '700 84px monospace'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
+  g.lineWidth = 12; g.strokeStyle = 'rgba(0,0,0,0.85)'; g.fillStyle = '#ffffff';
+  g.strokeText('NO SIGNAL', W / 2, H * 0.52); g.fillText('NO SIGNAL', W / 2, H * 0.52);
+  g.restore();
+}
+function cctv(c) {
+  if (c.lost != null && c.s >= c.lost) { cctvLost(c); return; }
+  g.save();
+  g.fillStyle = 'rgba(0,0,0,0.16)'; for (let y = 0; y < H; y += 8) g.fillRect(0, y, W, 3);
+  const vg = g.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.62); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,0.45)');
+  g.fillStyle = vg; g.fillRect(0, 0, W, H);
+  const m = 44, L = 90; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.lineWidth = 6;
+  for (const [x, y, sx, sy] of [[m, m, 1, 1], [W - m, m, -1, 1], [m, H - m, 1, -1], [W - m, H - m, -1, -1]]) { g.beginPath(); g.moveTo(x, y + sy * L); g.lineTo(x, y); g.lineTo(x + sx * L, y); g.stroke(); }
+  const yT = H * 0.845; g.font = '700 46px monospace'; g.textBaseline = 'middle';
+  if (Math.floor(c.s * 1.6) % 2 === 0) { g.fillStyle = '#ff2a2a'; g.beginPath(); g.arc(m + 30, yT, 16, 0, Math.PI * 2); g.fill(); }
+  const sec = c.clock + Math.floor(c.s), two = n => String(n).padStart(2, '0'), clock = `${two(Math.floor(sec / 3600) % 24)}:${two(Math.floor(sec / 60) % 60)}:${two(sec % 60)}`;
+  g.lineJoin = 'round'; g.lineWidth = 8; g.strokeStyle = 'rgba(0,0,0,0.7)'; g.fillStyle = '#ffffff';
+  g.textAlign = 'left'; g.strokeText('REC ' + c.label, m + 60, yT); g.fillText('REC ' + c.label, m + 60, yT);
+  g.textAlign = 'right'; g.strokeText(clock, W - m, yT); g.fillText(clock, W - m, yT);
+  g.restore();
+}
+
 // bottom of the frame, below the characters' feet (at 76% it sat on them in close shots)
 const WM_Y = H * 0.91;
 function watermark() {
@@ -200,6 +238,7 @@ chapter('dance', 0, DUR, [[0, function danceFloor(t) {
     if (wp > 0.04) { g.save(); for (let k = 1; k <= 4; k++) { g.globalAlpha = 0.28; g.drawImage(f, -wp * k * 55, 0, W, H); } g.restore(); }
     const wh = window.WHITE || 0;   // a shot's white: a lightning flash over the whole frame (ps1.js sets it)
     if (wh > 0.01) { g.save(); g.globalAlpha = wh; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); g.restore(); }
+    if (window.CCTV) cctv(window.CCTV);   // a shot's cctv: the security camera's overlay (ps1.js sets it)
   }
   g.imageSmoothingEnabled = true;
   if (CLEAN) return;   // ?clean: the bare 3D frame (profile pictures, thumbnails)
