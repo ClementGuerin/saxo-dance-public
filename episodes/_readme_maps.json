@@ -2468,6 +2468,54 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "agency",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    1.4
+   ],
+   "zone": "office",
+   "door": 0.95,
+   "glow": 1,
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": 1.4
+    },
+    {
+     "who": "sadi",
+     "look": "assistant",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": 1.4
+    }
+   ]
   }
  ]
 }
