@@ -2325,6 +2325,98 @@
      "z": -2.75
     }
    ]
+  },
+  {
+   "beat": 114,
+   "kind": "dance",
+   "map": "kingston",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    -2.95,
+    -1.6
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bobsled",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -3.43,
+     "z": -1.6
+    },
+    {
+     "who": "sadi",
+     "look": "bobsled",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -2.47,
+     "z": -1.6
+    }
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "icetrack",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     178,
+     178
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    1
+   ],
+   "zone": "start",
+   "fans": "cheer",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bobsled",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 1
+    },
+    {
+     "who": "kob",
+     "look": "parka",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 1
+    }
+   ]
   }
  ]
 }
