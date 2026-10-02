@@ -26,6 +26,7 @@ import { buildSelfAwareMaps } from './maps20.js';
 import { buildShipMaps } from './maps21.js';
 import { buildWeddingMaps, drawStop } from './maps22.js';
 import { buildBobsledMaps } from './maps23.js';
+import { buildTowerMaps } from './maps24.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -650,6 +651,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   bouffant: 'assets/models/saxo_bouffant.glb',
   // the bobsled team's captain: a bright yellow racing suit with green side panels and black stripes, a green, yellow and black striped beanie with a pompom, black boots ("Jamaican (Bam Bam)", 2026-10-02)
   bobsled: 'assets/models/saxo_bobsled.glb',
+  // the sleepwalker, the clip's white nightgown: a white cotton nightshirt to the knees with a small frilled collar and three buttons, white bed socks, a long droopy white nightcap with a pompom ("Bring Me To Life", 2026-10-02)
+  sleepwalker: 'assets/models/saxo_sleepwalker.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -676,6 +679,8 @@ const PARTNERS = {
     bride: 'assets/models/sadi_bride.glb',
     // the team's racing suit (yellow, green panels, black stripes) and the striped beanie with her pink bow on it ("Jamaican (Bam Bam)", 2026-10-02)
     bobsled: 'assets/models/sadi_bobsled.glb',
+    // the sleepover: a short pale pink nightdress with white lace trim and puffed sleeves, fluffy pink slippers, her pink bow ("Bring Me To Life", 2026-10-02)
+    nightie: 'assets/models/sadi_nightie.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -718,6 +723,8 @@ const PARTNERS = {
     flowergirl: 'assets/models/compote_flowergirl.glb',
     // the team's racing suit (yellow, green panels, black stripes) and the striped beanie with her carrot clip on it ("Jamaican (Bam Bam)", 2026-10-02)
     bobsled: 'assets/models/compote_bobsled.glb',
+    // the sleepover: red and white checked flannel pyjamas with a white collar and a carrot patch, grey fluffy slippers, her carrot clip ("Bring Me To Life", 2026-10-02)
+    pyjamas: 'assets/models/compote_pyjamas.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
@@ -812,7 +819,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -999,6 +1006,11 @@ function propMesh(kind) {
     add(box(0.07, 0.05, 0.05, M(0xc8ccd4)), -0.035, 0.105); add(box(0.06, 0.036, 0.004, glow(0xffffff)), -0.035, 0.105, 0.027);
   } else if (kind === 'bucket') {   // a red bucket with a grey rim and handle, water inside ("SWIM": Compote bails the sea)
     add(cyl(0.13, 0.1, 0.22, M(0xd8382e), 8), 0, 0); add(cyl(0.135, 0.135, 0.02, M(0xb8bcc4), 8), 0, 0.11); add(cyl(0.118, 0.118, 0.01, mat({ color: 0x3aa8d8, unlit: 0.4 }), 8), 0, 0.085);
+  } else if (kind === 'clock') {   // "Bring Me To Life": a red twin-bell alarm clock, its face forward; held ringing, it shakes (holdProp)
+    const face = mat({ color: 0xfaf6ee }), ink = M(0x141414); add(cyl(0.11, 0.11, 0.08, M(0xe0282e), 10), 0, 0.12).rotation.x = Math.PI / 2; add(cyl(0.09, 0.09, 0.01, face, 10), 0, 0.12, 0.042).rotation.x = Math.PI / 2;
+    add(box(0.012, 0.07, 0.01, ink), 0, 0.15, 0.05); add(box(0.05, 0.012, 0.01, ink), 0.02, 0.12, 0.05);
+    for (const s of [-1, 1]) { add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 1), M(0xd8d8e0)), s * 0.08, 0.24); add(box(0.022, 0.07, 0.022, M(0x2a2a30)), s * 0.065, 0.02).rotation.z = s * 0.4; }
+    G.userData.ring = [-1, 1].flatMap(s => [0, 1, 2].map(k => { const l = add(box(0.016, 0.075, 0.016, glow(0xffffff)), s * (0.2 + k * 0.025), 0.3 - k * 0.07); l.rotation.z = s * (0.5 + k * 0.45); return l; }));   // the ringing: strokes either side of the bells (a still reads it)
   } else if (kind === 'stopsign') {   // "Stop The Wedding!": a red STOP sign on a grey pole, held up beside the face like the FRUIT ONLY placard; an octagon on both faces (a planar UV keeps STOP upright)
     const face = mat({ map: tex(48, 48, x => drawStop(x), 2240), unlit: 0.6 }), oct = new THREE.CircleGeometry(0.23, 8, Math.PI / 8);
     add(new THREE.Mesh(oct, face), 0, 0.5, 0.008); add(new THREE.Mesh(oct, face), 0, 0.5, -0.008).rotation.y = Math.PI;
@@ -1173,6 +1185,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
+  if (kind === 'clock') { g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, 0, 0.22 * Math.sin(t * 55)); (g.userData.ring || []).forEach((l, i) => { l.visible = Math.sin(t * 40 + i) > -0.6; }); return; }   // ringing: it shakes in the paw, its face always to the front (+z, where the lenses are: turned with the body it went edge-on in profile)
   if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' || kind === 'handmirror' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
@@ -1424,9 +1437,13 @@ function thermometer(D) {
   });
   faceAt(D, [0.08, 0.02, 0.38], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.12, 0.35, 0))); g.scale.setScalar(D.curScale || D.scale || 1);
 }
-function sleepMask(D) {   // a navy band over both eyes, a pink trim: asleep
-  const g = faceProp(D, 'sleepmask', () => { const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.16, 0.1), mat({ color: 0x2a3a78, unlit: 0.35 }))); const t = new THREE.Mesh(new THREE.BoxGeometry(0.68, 0.025, 0.105), mat({ color: 0xff8ac0, unlit: 0.5 })); t.position.y = -0.07; q.add(t); return q; });
-  faceAt(D, [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+function sleepMask(D) {   // a pale blue sleep mask over both eyes, pink trim, two closed eyes with lashes printed on it: asleep (the plain navy band read as a censor bar, 2026-10-02)
+  const g = faceProp(D, 'sleepmask', () => {
+    const q = new THREE.Group(), face = tex(48, 16, x => { px(x, '#9ccff2', 0, 0, 48, 16); px(x, '#ff8ac0', 0, 0, 48, 2); px(x, '#ff8ac0', 0, 14, 48, 2); for (const cx of [13, 35]) { for (let i = -6; i <= 6; i++) px(x, '#1a1a2e', cx + i, 6 + Math.round(i * i / 12), 1, 2); for (const i of [-5, -2, 2, 5]) px(x, '#1a1a2e', cx + i, 8 + Math.round(i * i / 12), 1, 3); } }, 2250);
+    const plain = mat({ color: 0x9ccff2, unlit: 0.4 });   // the eyes on the front face only (from above, a second pair showed on its top)
+    q.add(new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.2, 0.1), [plain, plain, plain, plain, mat({ map: face, unlit: 0.4 }), plain])); return q;
+  });
+  faceAt(D, D === CREW.compote ? [0, 0.2, 0.36] : [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);   // Compote's eyes sit lower on her head: hers rode up on her forehead
 }
 function faceMask(D) {
   const g = faceProp(D, 'mask', () => {
@@ -1762,7 +1779,9 @@ function danceFrame(t) {
   map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
   // mono: the frame in black and white (true), or [a, b]: black and white until a s into the shot, colour back by b (the 2D
   // layer greys it: window.MONO, 0-1). photo: s into the shot, the frozen frame becomes an instant photo (window.PHOTO: s since)
-  { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null; }
+  { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null;
+    // white: [s, …] a lightning flash over the whole frame at each listed second (two flickers, gone by 0.35 s; the 2D layer whites it out: window.WHITE, 0-1)
+    window.WHITE = (P.white || []).reduce((m, f) => { const e = sIn - f; return e >= 0 && e < 0.35 ? Math.max(m, e < 0.06 ? 0.9 : e < 0.12 ? 0.25 : e < 0.18 ? 0.7 : 0.7 * Math.exp(-(e - 0.18) * 14)) : m; }, 0); }
   const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0, !!P.half) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
   // [from, to], or [a, b, c…] keyframes spread evenly over the move's easing (a path: over the decks, then down)
@@ -1897,7 +1916,7 @@ if (EP) {
     unswing(); const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
-      window.MONO = 0; window.PHOTO = null;   // the 2D frame effects belong to dance shots
+      window.MONO = 0; window.PHOTO = null; window.WHITE = 0;   // the 2D frame effects belong to dance shots
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
       for (const g of Object.values(PROPS)) g.visible = false; placeCrowd(null, t, 0, 1, 0);
       window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);

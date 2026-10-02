@@ -198,6 +198,8 @@ chapter('dance', 0, DUR, [[0, function danceFloor(t) {
     if (window.PHOTO != null) polaroid(f, window.PHOTO);
     const wp = window.WHIP || 0;   // whip-pan: horizontal smear of the frame while the camera snaps into place
     if (wp > 0.04) { g.save(); for (let k = 1; k <= 4; k++) { g.globalAlpha = 0.28; g.drawImage(f, -wp * k * 55, 0, W, H); } g.restore(); }
+    const wh = window.WHITE || 0;   // a shot's white: a lightning flash over the whole frame (ps1.js sets it)
+    if (wh > 0.01) { g.save(); g.globalAlpha = wh; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); g.restore(); }
   }
   g.imageSmoothingEnabled = true;
   if (CLEAN) return;   // ?clean: the bare 3D frame (profile pictures, thumbnails)
