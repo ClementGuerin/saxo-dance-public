@@ -27,7 +27,7 @@
     <tr>
       <td align="center"><h3>4</h3>characters</td>
       <td align="center"><h3>91</h3>looks</td>
-      <td align="center"><h3>70</h3>maps</td>
+      <td align="center"><h3>60</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
       <td align="center"><h3>21</h3>videos posted</td>
       <td align="center"><h3>2</h3>videos a day</td>
@@ -88,16 +88,16 @@
 </table>
 
 <p align="center">
-  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat, a trench coat, a Parisienne, a bus driver, sick-day pyjamas, a devil suit, a lifeguard, a bathrobe, a soul singer, a banana, a strawberry, a carrot, a leather jacket, Kob the private eye, a sequin dress, the team's football kit, a ship's captain, a life jacket and the poop suit">
+  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat, a trench coat, a Parisienne, a bus driver, sick-day pyjamas, a devil suit, a lifeguard, a bathrobe, a soul singer, a banana, a strawberry, a carrot, a leather jacket, Kob the private eye, a sequin dress, the team's football kit, a ship's captain, a life jacket, a bride, a bobsled suit, a sleepwalker's nightshirt and the poop suit">
 </p>
 
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
 in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic; an episode has to ask for it.
 
-## 70 maps, and counting
+## 60 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom, a schooner that sinks, a white wedding chapel, a Kingston beach and an Olympic bobsled track at night, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom, a schooner that sinks, a white wedding chapel, a Kingston beach, an Olympic bobsled track at night and a gothic tower ledge in the rain, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the

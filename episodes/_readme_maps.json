@@ -2417,6 +2417,57 @@
      "z": 1
     }
    ]
+  },
+  {
+   "beat": 118,
+   "kind": "dance",
+   "map": "tower",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.2,
+     5.2
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": 0.95,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "blow": false,
+   "rainAt": [
+    0,
+    2,
+    5.2
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "sleepwalker",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "nightie",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }

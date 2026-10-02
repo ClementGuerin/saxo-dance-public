@@ -28,18 +28,41 @@ export function castLooks(rev = 'HEAD', files = tree(rev)) {
 }
 
 // maps: the MAPS registry in src/ps1.js, whose spread builders return their maps at the end of src/maps*.js
+// (read in the builder's own file: "Bring Me To Life" returned its map inline over many lines, and a one-line pattern
+// over all the files joined ran on into maps3.js and counted its eleven maps twice, 70 for 60, on 2026-10-02)
 export function mapNames(rev = 'HEAD', files = tree(rev)) {
   const show = p => git(['show', `${rev}:${p}`]);
   const reg = show('src/ps1.js').match(/const MAPS = \{([^\n]*)\};/);
   if (!reg) throw new Error('no MAPS registry in src/ps1.js');
-  const builders = files.filter(p => /^src\/maps\d*\.js$/.test(p)).map(show).join('\n');
+  const builders = files.filter(p => /^src\/maps\d*\.js$/.test(p)).map(show);
   const names = [...reg[1].matchAll(/(\w+): build\w+\(/g)].map(m => m[1]);
   for (const [, b] of reg[1].matchAll(/\.\.\.(build\w+)\(/g)) {
-    const m = builders.match(new RegExp(`export function ${b}\\b[\\s\\S]*?\\n  return \\{([^}]*)\\};`));
-    if (!m) throw new Error(`can't find the maps ${b}() returns`);
-    names.push(...[...m[1].matchAll(/(\w+):/g)].map(x => x[1]));
+    const src = builders.find(s => new RegExp(`export function ${b}\\b`).test(s));
+    const keys = src && returnedKeys(src, b);
+    if (!keys?.length) throw new Error(`can't find the maps ${b}() returns`);
+    names.push(...keys);
   }
   return names;
+}
+
+// the top-level keys of the object a builder returns: its last `  return {` before the function's closing `}` at the
+// start of a line, skipping strings, comments and anything nested in brackets
+function returnedKeys(src, name) {
+  const start = src.search(new RegExp(`export function ${name}\\b`)), close = src.indexOf('\n}', start);
+  const at = src.lastIndexOf('\n  return {', close < 0 ? src.length : close);
+  if (at < start) return null;
+  const skipTo = (s, from) => { const k = src.indexOf(s, from); return k < 0 ? src.length : k + s.length - 1; };
+  let depth = 0, top = '';
+  for (let i = src.indexOf('{', at); i < src.length; i++) {
+    const c = src[i];
+    if (c === '/' && src[i + 1] === '/') i = skipTo('\n', i);
+    else if (c === '/' && src[i + 1] === '*') i = skipTo('*/', i + 2);
+    else if (c === "'" || c === '"' || c === '`') { while (++i < src.length && src[i] !== c) if (src[i] === '\\') i++; }
+    else if ('([{'.includes(c)) depth++;
+    else if (')]}'.includes(c)) { if (--depth === 0) break; }
+    else if (depth === 1) top += c;
+  }
+  return top.split(',').map(e => e.match(/^\s*(\w+)\s*(?::|$)/)?.[1]).filter(Boolean);
 }
 
 export function counts(rev = 'HEAD') {
