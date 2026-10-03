@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-02T19:46:59.648Z",
+ "updated": "2026-10-03T14:19:54.597Z",
  "posts": [
+  {
+   "id": "2026-10-03",
+   "title": "Animal",
+   "artist": "KATSEYE",
+   "date": "2026-10-03T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-03.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7692441798152686881",
+     "id": "7692441798152686881"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeCOmDsiHM7/",
+     "id": "DeCOmDsiHM7"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/Gw_HVjbsQak",
+     "id": "Gw_HVjbsQak"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=979017994487469",
+     "id": "979017994487469"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2106384123342311591",
+     "id": "2106384123342311591"
+    }
+   }
+  },
   {
    "id": "2026-10-02-2",
    "title": "Bring Me To Life",
