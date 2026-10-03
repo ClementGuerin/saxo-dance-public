@@ -28,6 +28,7 @@ import { buildWeddingMaps, drawStop } from './maps22.js';
 import { buildBobsledMaps } from './maps23.js';
 import { buildTowerMaps } from './maps24.js';
 import { buildAgencyMaps } from './maps25.js';
+import { buildParkMaps } from './maps26.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -654,6 +655,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   bobsled: 'assets/models/saxo_bobsled.glb',
   // the sleepwalker, the clip's white nightgown: a white cotton nightshirt to the knees with a small frilled collar and three buttons, white bed socks, a long droopy white nightcap with a pompom ("Bring Me To Life", 2026-10-02)
   sleepwalker: 'assets/models/saxo_sleepwalker.glb',
+  // the singer's look in the clip: a black Nordic knit sweater with a white snowflake and star yoke, cream cuffs and hem, slim blue jeans, white sneakers ("we fell in love in october", 2026-10-03)
+  nordic: 'assets/models/saxo_nordic.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -684,6 +687,8 @@ const PARTNERS = {
     nightie: 'assets/models/sadi_nightie.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
+    // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
+    redsweater: 'assets/models/sadi_redsweater.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -709,6 +714,8 @@ const PARTNERS = {
     parka: 'assets/models/kob_parka.glb',
     // the agency's CEO: a sharp double-breasted black power suit with gold buttons and padded shoulders, a white silk blouse, pearls and pearl earrings, black heels, her bell ("Animal", 2026-10-03)
     ceo: 'assets/models/kob_ceo.glb',
+    // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
+    keeper: 'assets/models/kob_keeper.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -824,7 +831,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -939,7 +946,7 @@ function actorSpec(a, e, map) {
     // "Vamos a la playa" (2026-09-29): hop: [m, beats] hops of that height, one every that many beats (0.5 = two a
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
-    noLie: !!a.noLie,
+    noLie: !!a.noLie, dizzy: a.dizzy ?? null,   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1132,6 +1139,17 @@ function propMesh(kind) {
   } else if (kind === 'hook') {       // the lifeguard's rescue pole: aluminium, a red crook at its far end (holdProp stretches it to what it hooks)
     G.userData.pole = add(box(0.045, 1, 0.045, M(0xd8dce4)), 0, 0.5);
     const crook = new THREE.Group(), arc = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.04, 4, 9, Math.PI), M(0xe8243a)); arc.position.x = -0.19; crook.add(arc); G.userData.crook = crook; G.add(crook);
+  } else if (kind === 'mapleleaf') {  // "we fell in love in october": a big red maple leaf held up like a rose, its stem in the paw: serrated lobes and a dark midrib (a five-point star read as a red star, the critic)
+    const lf = new THREE.Mesh(MAPLE_GEO, mat({ color: 0xff4a1e, unlit: 0.5, side: THREE.DoubleSide })); lf.scale.setScalar(0.34); lf.position.y = 0.2; G.add(lf);
+    const vein = mat({ color: 0x9a1a10, unlit: 0.4, side: THREE.DoubleSide });
+    for (const [a, l] of [[0, 0.3], [0.95, 0.24], [-0.95, 0.24], [1.75, 0.16], [-1.75, 0.16]]) { const v = new THREE.Mesh(new THREE.PlaneGeometry(0.012, l), vein); v.position.set(Math.sin(a) * l / 2, 0.2 + Math.cos(a) * l / 2, 0.003); v.rotation.z = -a; G.add(v); }
+    add(box(0.016, 0.22, 0.016, M(0x7a4a22)), 0, 0.09);
+  } else if (kind === 'rake') {       // "we fell in love in october": the park keeper's leaf rake, a pale wooden handle (holdProp stretches it to the tines' tips on the ground) and a green fan of tines
+    G.userData.pole = add(box(0.045, 1, 0.045, M(0xc8935a)), 0, 0.5);
+    const head = new THREE.Group(), tm = M(0x2e9a44); G.userData.rakeHead = head; G.add(head);
+    head.add(at3(new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.08, 0.06), tm), 0, 0.02, 0));
+    for (let i = 0; i < 11; i++) { const tip = new THREE.Vector3((i / 10 - 0.5) * 0.6, 0.3, 0), tn = new THREE.Mesh(new THREE.BoxGeometry(0.028, tip.length(), 0.012), tm); tn.position.copy(tip).multiplyScalar(0.5); tn.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tip.clone().normalize()); head.add(tn); }
+    head.add(at3(new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.03, 0.025), tm), 0, 0.2, 0));
   } else if (kind === 'tissue') {     // a crumpled white tissue in the paw
     add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xfafafa, unlit: 0.45 })), 0, 0.03); add(box(0.06, 0.07, 0.01, mat({ color: 0xfafafa, unlit: 0.45 })), 0.02, 0.09).rotation.z = 0.4;
   } else if (kind === 'tissuebox') {  // a box of tissues with a blue band, one tissue sticking out (thrown in the ward)
@@ -1188,6 +1206,14 @@ function holdProp(D, kind, side, bodyYaw, t) {
     const d = to.clone().sub(from), len = Math.max(0.2, d.length());
     g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromUnitVectors(_up, d.normalize());
     g.userData.pole.scale.y = len; g.userData.pole.position.y = len / 2; g.userData.crook.position.y = len; return;
+  }
+  if (kind === 'rake') {   // the handle from the paw to its tines' tips: D.hookTo [x, y, z], else 0.95 m ahead of the paw on the ground (pulled along by the rake swing)
+    const from = p.clone(), fwd = new THREE.Vector3(Math.sin(bodyYaw), 0, Math.cos(bodyYaw));
+    const to = Array.isArray(D.hookTo) ? new THREE.Vector3(...D.hookTo) : from.clone().addScaledVector(fwd, 0.95 * s).setY(0.03);
+    const d = to.clone().sub(from), len = Math.max(0.4, d.length()); d.normalize();
+    const xb = new THREE.Vector3().crossVectors(_up, d); if (xb.lengthSq() < 1e-6) xb.set(1, 0, 0); xb.normalize();
+    g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(xb, d, new THREE.Vector3().crossVectors(xb, d)));
+    const pl = len - 0.3; g.userData.pole.scale.y = pl; g.userData.pole.position.y = pl / 2; g.userData.rakeHead.position.y = pl; return;
   }
   if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
@@ -1284,6 +1310,7 @@ const SWINGS = {
   drums: { up: [[0.3, 0.1, 0.95], [0.2, -0.05, 0.98]], fore: [[0.22, 0.38, 0.9], [0.1, -0.42, 0.9]], alt: 1, every: 2 },
   paddle: { up: [[0.2, 0.32, 0.93], [0.2, -0.3, 0.93]], fore: [[0.15, 0.22, 0.96], [0.1, -0.7, 0.71]], alt: 0.5, every: 1 },   // reaching forward at chest height, then pulling down (paws at the chin or chest read as nothing, the reviewer)   // "SWIM": the doggy paddle, paws down in front of the chest on the beat, the right half a beat after the left
   bail: { up: [[0.1, -0.55, 0.83], [0.12, 0.72, 0.68]], fore: [[0.06, -0.45, 0.89], [0.06, 0.9, 0.43]], alt: 0, every: 1 },   // paws close together on the bucket (spread wide it floated between them)   // up to the bucket over her head on the beat (at chest height its handle crossed her muzzle)   // "SWIM": bailing, both paws low (the scoop), then the bucket swung up to the chest on the beat   // a drum kit: taiko's hit with a lower wind-up (the taiko one raised the stick across her face from the side)   // a paw on the heart: the upper arm down, the forearm folded in to the chest (held; a straight arm read as pointing)   // the right paw reaches across to the daisy in the left one on the beat, and pulls away
+  rake: { up: [[0.2, -0.3, 0.93], [0.24, -0.74, 0.63]], fore: [[0.1, -0.42, 0.9], [0.12, -0.82, 0.56]], alt: 0, every: 2 },   // "we fell in love in october": raking, both paws low on the handle, reaching forward, pulled back on every other beat
   claw: { up: [[0.62, 0.62, 0.48], [0.3, 0.45, 0.84]], fore: [[0.5, 0.45, 0.74], [0.25, -0.2, 0.95]], alt: 0, every: 1 },   // "Animal" (2026-10-03): the clip's claw move, paws raised beside the head and angled forward (pose A, held by flap 0), striking forward on the beat (pose B); arms out at shoulder height read as a T-pose and paws at the cheeks as worry, so neither is a pose
 }, _rq = new THREE.Quaternion(), _rf = new THREE.Vector3();
 function swingK(A, t, side) {   // 1 at pose B (on the beat), 0 at pose A half a swing later
@@ -1403,6 +1430,20 @@ const SPLAT = [[0, 0.12, 0.45, 0.2, 0.15], [0.15, 0.22, 0.4, 0.13, 0.11], [-0.16
 function gumSplat(D) {
   const g = faceProp(D, 'splat', () => { const q = new THREE.Group(), m = mat({ color: GUM_PINK, unlit: 0.35 }); SPLAT.forEach(([x, y, z, rx, ry]) => { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), m); b.position.set(x, y, z); b.scale.set(rx, ry, 0.05); q.add(b); }); return q; });
   faceAt(D, [0, 0, 0], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+// "we fell in love in october" (2026-10-03): `dizzy` (true or from s into the shot): cartoon stars circling the head after
+// a fall, five yellow stars on a ring round the head in the world's horizontal plane, 0.3 m above its middle (seen
+// from above they ring a face looking up; standing, they circle the crown), each facing the lens. Pure in t.
+// a maple leaf's outline (base at the origin, its top lobe at y = 1): five serrated lobes
+const MAPLE_GEO = (() => { const R = [[0.18, -0.06], [0.42, -0.22], [0.36, 0.02], [0.72, 0.16], [0.58, 0.28], [0.82, 0.5], [0.5, 0.48], [0.44, 0.6], [0.28, 0.5], [0.2, 0.74], [0.08, 0.68], [0, 1]];
+  const pts = [[0, 0], ...R, ...R.slice(0, -1).reverse().map(([x, y]) => [-x, y])], sh = new THREE.Shape(); pts.forEach(([x, y], i) => i ? sh.lineTo(x, y) : sh.moveTo(x, y)); sh.closePath(); return new THREE.ShapeGeometry(sh); })();
+const STAR_GEO = (() => { const sh = new THREE.Shape(); for (let i = 0; i < 10; i++) { const a = Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 0.45 : 1; if (i) sh.lineTo(Math.cos(a) * r, Math.sin(a) * r); else sh.moveTo(Math.cos(a) * r, Math.sin(a) * r); } sh.closePath(); return new THREE.ShapeGeometry(sh); })();
+function dizzyStars(D, t) {
+  const sc = D.curScale || D.scale || 1, c = faceAt(D, [0, 0.3, 0.05], new THREE.Vector3());
+  const g = faceProp(D, 'dizzy', () => { const q = new THREE.Group(), m = mat({ color: 0xffe23a, unlit: 1, side: THREE.DoubleSide }); for (let i = 0; i < 5; i++) q.add(new THREE.Mesh(STAR_GEO, m)); return q; });
+  g.position.set(0, 0, 0); g.quaternion.identity(); g.scale.setScalar(1);
+  const a0 = bp(t) * Math.PI;   // half a turn a beat
+  g.children.forEach((st, i) => { const a = a0 + i * TAU / 5; st.position.set(c.x + Math.cos(a) * 0.5 * sc, c.y + (0.3 + 0.05 * Math.sin(2 * a)) * sc, c.z + Math.sin(a) * 0.5 * sc); st.quaternion.copy(camera.quaternion); st.scale.setScalar(0.15 * sc); });
 }
 function earbuds(D) {   // small and on the ear line, behind the cheek: bigger and further forward they read as a plaster in a three-quarter view (the reviewer)
   for (const k of ['budL', 'budR']) {
@@ -1689,6 +1730,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.mask && D.head) faceMask(D);
     if (A.sleep && D.head) sleepMask(D);
     if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
+    if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
   window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics

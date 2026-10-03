@@ -2516,6 +2516,47 @@
      "z": 1.4
     }
    ]
+  },
+  {
+   "beat": 122,
+   "kind": "dance",
+   "map": "park",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "twist",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }
