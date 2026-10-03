@@ -220,9 +220,9 @@ add(12, 16, s04, "the park keeper's deadpan: Kob, in her hi-vis vest and beanie,
     v, piles=[pile(P1, burst=-9), P0], stars=['kob'])
 # S05 'fall': Saxo dives into her next pile on the word (the dog-in-a-leaf-pile meme): a run and a leap, the pile explodes
 D0 = (0.05, 0.5); UP = 0.8
-s05 = [A('saxo', 'happy_run', *D0, face='world', yaw=90, at=0.0, mx=1.55, my=UP, myAt=0.8, myDur=0.55, air=True, reveal=0.45, noShadow=True)]
+s05 = [A('saxo', 'happy_run', *D0, face='world', yaw=90, at=0.0, mx=1.55, reveal=0.45)]   # the run alone, cut before the leap: the next shot drops him in from the air (at the top of the leap a trunk, then a building, stood under his sneakers: perched, three review loops)
 v = view((1.0, 0.3, 4.5), (1.5, 1.15, 0.5), 60, p1=(1.05, 0.3, 4.35), ease='lin')   # from the grass: at the top of the leap his feet are over the horizon, against the sky, the trunks off to the side (from x 1.5 a maple's trunk stood under his sneakers: perched in it; level with him, or from above with the shadow, which rises with an actor's lift, he read as standing on the lawn behind)
-add(16, 19, s05, "the run-up: Saxo takes a run at Kob's next pile and leaps, side on, cut at the top of the leap",
+add(16, 19, s05, "the run-up: Saxo takes a run at Kob's next pile, side on, cut as he gets there",
     v, piles=[P2], fall=1.4, noguests=True, stars=['saxo'])
 s05b = [A('saxo', 'happy_run', P2['x'] - 0.45, P2['z'], face='world', yaw=90, at=0.4, speed=0.6, mx=0.45, lift=UP, my=-UP - 0.9, myAt=0.05, myDur=S(19.8, 19) - 0.05, air=True)]
 v = view((P2['x'] + 1.6, 0.85, P2['z'] + 3.0), (P2['x'] - 0.1, 0.95, P2['z']), 60, p1=(P2['x'] + 1.52, 0.85, P2['z'] + 2.85), roll=[-6, -9])
@@ -246,7 +246,7 @@ P3a = dict(x=0.15, z=-2.0, r=0.85, h=0.74)
 _d8 = (BENCH[0] - P3a['x'], BENCH[1] - P3a['z']); _n8 = math.hypot(*_d8); _d8 = (_d8[0] / _n8, _d8[1] / _n8)
 s08 = [A('saxo', 'happy_idle', P3a['x'], P3a['z'], at=1.0, speed=0.15, face='world', yaw=yaw_to((P3a['x'], P3a['z']), BENCH) - 8, lift=-0.18),   # sunk: only his eyes and ears over the top
        A('sadi', 'male_driving_a_car', BENCH[0], BENCH[1] + 0.13, face='world', yaw=yaw_to(BENCH, (P3a['x'], P3a['z'])), at=0.4, speed=0.05, lift=0.24, hold='book', arm='both', aim=[0.2, 0.1, 0.9], fg=True)]   # her back to us, reading
-v = view((BENCH[0] + 1.15, 1.7, BENCH[1] - 1.45), (P3a['x'], 0.85, P3a['z']), 41, p1=(BENCH[0] + 1.1, 1.68, BENCH[1] - 1.33), ease='lin')   # from 1 m behind her head it was a black slab and a pink block
+v = view((BENCH[0] + 1.0, 2.15, BENCH[1] - 1.45), (P3a['x'], 0.8, P3a['z']), 41, p1=(BENCH[0] + 0.95, 2.12, BENCH[1] - 1.33), ease='lin')   # 2.15 m up: from 1.7 m the far wheelbarrow sat on his head like a hat   # from 1 m behind her head it was a black slab and a pink block
 add(30, 34, s08, "'admiring' (b29.33): from the bench, over the shoulder of the girl in red reading: across the lawn, a pile of leaves with his eyes and ears peeking over its top, staring at her",
     v, piles=[P3a], stars=['saxo'])
 # S09 'afar': the wide: the pile creeps across the lawn towards her bench; in front, Kob's head turns to follow it
@@ -338,8 +338,7 @@ s22 = [A('sadi', 'happy_idle', *SD, face='world', yaw=yaw_to(SD, (BIG['x'], BIG[
 v = lens_for(s22, yaw_to(SD, (BIG['x'], BIG['z'])) + 25, 2.1, 86, 88, hs=(0.5, 0.6), fov=44, spread=10, dr=(0.9, 1.2), look=(SD[0], 1.0, SD[1]))
 add(86, 88, s22, "(b85.88) ...hers too...", v, zone='dusk', still=True, stars=['sadi'])
 s23 = [A('compote', 'happy_idle', *CEARS, at=0.4, speed=0.2, lift=0.02, fg=True)]   # their point of view: the giant pile and the ear tips on it (the keeper had S18 and S19)
-_t = (CEARS[0] - MAPLE[0], CEARS[1] - MAPLE[1]); _n = math.hypot(*_t); _t = (_t[0] / _n, _t[1] / _n)   # from the trunk through the ear tips: the dark trunk behind them (against the pale city they read as a grey lump)
-v = view((CEARS[0] + _t[0] * 3.5, 1.0, CEARS[1] + _t[1] * 3.5), (CEARS[0], 1.42, CEARS[1]), 18, p1=(CEARS[0] + _t[0] * 3.1, 1.0, CEARS[1] + _t[1] * 3.1), ease='lin')   # a long lens creeping in (held still it read as a freeze)
+v = view((CEARS[0] + 0.55, 1.75, CEARS[1] + 2.0), (CEARS[0], 1.15, CEARS[1]), 44, p1=(CEARS[0] + 0.52, 1.72, CEARS[1] + 1.88), ease='lin')   # S19's framing, which passed (a long lens, then a low one, read as a floor with rocks on it); creeping in (held still it read as a freeze)
 add(88, 92, s23, "(b87.96) ...the giant pile, as they see it: huge, Compote's ear tips sticking out of its top against the maple",
     v, zone='dusk', still=True, piles=[BIG], stars=['compote'])
 # S24 the held word: they look at each other and grin: the plan
@@ -366,16 +365,16 @@ add(100, 102, s26, "the drop (b100): frontal on the giant pile, the two drop int
 POP = dict(at=0.4, speed=0.4, lift=-0.9, my=0.86, myAt=S(103.77, 102) - 0.28, myDur=0.26, air=True)
 HA, HC, HB = (BIG['x'] - 0.56, BIG['z'] + 0.62), (BIG['x'], BIG['z'] + 0.74), (BIG['x'] + 0.56, BIG['z'] + 0.62)
 s27 = [A('saxo', 'happy_idle', *HA, **POP), A('sadi', 'happy_idle', *HB, **POP),
-       A('compote', 'happy_idle', *HC, hold='carrot', holdL='carrot', arm='both', aim=[0.5, 0.82, 0.28], **{**POP, 'my': 1.25})]   # up to her waist, carrots held up (level with them her paws stayed in the leaves)   # the keeper gets the next shot (behind the three heads she was either hidden or cut by the edge)
+       A('compote', 'happy_idle', *HC, hold='carrot', holdL='carrot', arm='both', aim=[0.3, 0.5, 0.8], **{**POP, 'my': 1.25})]   # up to her waist, a carrot in each paw held out in front of her (level with them her paws stayed in the leaves; held up, a carrot hung over his eye)   # the keeper gets the next shot (behind the three heads she was either hidden or cut by the edge)
 v = view((BIG['x'] + 0.15, 0.92, BIG['z'] + 4.4), (BIG['x'] + 0.12, 0.92, BIG['z'] + 0.3), 52, p1=(BIG['x'] + 0.15, 0.92, BIG['z'] + 4.2), ease='lin', roll=[2, 0])
 add(102, 106, s27, "the held word (b103.77): three heads pop up out of the giant pile on the word, the two grinning, Compote glaring between them with a carrot in each paw (it was her stash), carrots raining down round them",
-    v, zone='dusk', piles=[pile(BIG, burst=-9, puff=True)], carrots=[BIG['x'], BIG['z'] + 0.45, 0.15, 20, 'rain', 1.6], fall=2, leafAt=[BIG['x'], BIG['z'] + 0.6], stars=['compote'])
+    v, zone='dusk', piles=[pile(BIG, burst=-9, puff=True)], carrots=[BIG['x'], BIG['z'] - 0.5, 0.15, 20, 'rain', 1.6], fall=2, leafAt=[BIG['x'], BIG['z'] + 0.6], stars=['compote'])   # the rain behind the three heads: none crosses a face
 # S28 the held word: the park keeper's deadpan as the carrots keep raining on her, one bouncing off her beanie
 KB2 = (BIG['x'] + 1.9, BIG['z'] + 1.4)
 s28 = [A('kob', 'happy_idle', *KB2, at=0.6, speed=0.1, face='world', yaw=-15, hold='rake', arm='R', aim=[0.35, -0.2, 0.9])]
 v = view((KB2[0] + 1.0, 1.1, KB2[1] + 2.2), (KB2[0], 1.15, KB2[1]), 50, p1=(KB2[0] + 0.93, 1.1, KB2[1] + 2.08), roll=[-5, -3])   # from 0.62 m her whiskers hung down like drool
 add(106, 110, s28, "the held word (b107.28): the park keeper's deadpan as carrots rain down round her, one bouncing off her beanie",
-    v, zone='dusk', piles=[pile(BIG, burst=-9, puff=True)], carrots=[KB2[0], KB2[1], -0.05, 20, 'rain', 1.6, 1.36], fall=2, stars=['kob'])   # carrot 0 bonks off her beanie on the word (b107.28), the rest raining round her all shot
+    v, zone='dusk', piles=[pile(BIG, burst=-9, puff=True)], carrots=[KB2[0], KB2[1], -0.05, 24, 'rain', 1.1, 1.36], fall=2, stars=['kob'])   # carrot 0 bonks off her beanie on the word (b107.28), the rest raining round her all shot
 # S29 the two dance in the leaf rain, the carrots she pelts at them flying past
 DA, DB = (BIG['x'] + 0.95, BIG['z'] + 1.8), (BIG['x'] + 1.85, BIG['z'] + 1.8)
 s29 = [A('saxo', 'charleston', *DA, at=0.7), A('sadi', 'charleston', *DB, at=1.5)]
