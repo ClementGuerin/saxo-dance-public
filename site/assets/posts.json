@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-03T14:19:54.597Z",
+ "updated": "2026-10-03T18:17:01.922Z",
  "posts": [
+  {
+   "id": "2026-10-03-2",
+   "title": "we fell in love in october",
+   "artist": "girl in red",
+   "date": "2026-10-03T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-03-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7692503344786541857",
+     "id": "7692503344786541857"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeCp8x-DRMQ/",
+     "id": "DeCp8x-DRMQ"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/i-b5wZn0tVU",
+     "id": "i-b5wZn0tVU"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1610151314144827",
+     "id": "1610151314144827"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2106444502671962149",
+     "id": "2106444502671962149"
+    }
+   }
+  },
   {
    "id": "2026-10-03",
    "title": "Animal",
