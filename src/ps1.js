@@ -32,6 +32,7 @@ import { buildParkMaps } from './maps26.js';
 import { boneLook } from './bones.js';
 import { buildCemeteryMaps } from './maps27.js';
 import { buildCanyonMaps } from './maps28.js';
+import { buildScrubMaps } from './maps29.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -663,6 +664,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   nordic: 'assets/models/saxo_nordic.glb',
   // the indie rock singer's look in the clip: a big mop of dark brown curls over the ears and forehead, a black jacket with a cream fleece collar open over a white t-shirt, slim blue jeans, brown boots ("Beautiful Things", 2026-10-04)
   rocker: 'assets/models/saxo_rocker.glb',
+  // the scrub: a red baseball cap worn backwards, a white ribbed tank top, a chunky gold chain, baggy light-blue jeans, white high-top sneakers ("No Scrubs", 2026-10-05)
+  scrub: 'assets/models/saxo_scrub.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -699,6 +702,8 @@ const PARTNERS = {
     vampire: 'assets/models/sadi_vampire.glb',
     // the band's guitarist and his trainer: a light blue denim jacket, sleeves rolled, over a white t-shirt, black jeans, white sneakers, a brown leather treat pouch at her hip, her pink bow ("Beautiful Things", 2026-10-04)
     denim: 'assets/models/sadi_denim.glb',
+    // the girl group's stage look from the clip: a white zip-up jacket with a high stand-up collar, shiny black vinyl trousers with a wide silver belt and a round red buckle, chunky silver platform sneakers, her pink bow ("No Scrubs", 2026-10-05)
+    chrome: 'assets/models/sadi_chrome.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -728,6 +733,8 @@ const PARTNERS = {
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
     beanie: 'assets/models/kob_beanie.glb',
+    // the girl group's stage look: the white high-collared zip jacket, shiny black vinyl trousers, the silver belt with its red buckle, silver platforms, her bell ("No Scrubs", 2026-10-05)
+    chrome: 'assets/models/kob_chrome.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -751,7 +758,10 @@ const PARTNERS = {
     pyjamas: 'assets/models/compote_pyjamas.glb',
     // the jack-o'-lantern: a round orange padded pumpkin onesie with a carved face printed on the belly, a green stem-and-leaf cap between her ears, her carrot clip ("Spooky, Scary Skeletons", 2026-10-04)
     pumpkin: 'assets/models/compote_pumpkin.glb',
+    // the girl group's stage look: the white high-collared zip jacket with a carrot patch, shiny black vinyl trousers, the silver belt with its red buckle, silver platforms, her carrot clip ("No Scrubs", 2026-10-05)
+    chrome: 'assets/models/compote_chrome.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
+    heads: { chrome: 'compote' },   // the girl-group look came back from Tripo with the top of her head sliced flat (ears and eyes gone): wear her own ("No Scrubs", 2026-10-05)
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
   // "Spooky, Scary Skeletons" (2026-10-04): a cartoon skeleton built from primitives on a clone of Saxo's skeleton
@@ -849,7 +859,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -950,7 +960,7 @@ function actorSpec(a, e, map) {
     // the beat-locked swings and sway (SWINGS, swayRoll), and holdAt: the actor freezes that many seconds into the shot
     // (clip, swing and sway), caught mid-move (2026-09-27; until then these fields never reached the actors)
     flap: a.flap ?? null, flapEvery: a.flapEvery || null, flapPh: a.flapPh || 0, sway: a.sway || 0, swayEvery: a.swayEvery || null, swayPh: a.swayPh || 0, holdAt: a.holdAt ?? null,
-    gum: a.gum || null, splat: a.splat ?? null, buds: a.buds ?? null, bubble: a.bubble || null, moth: a.moth ?? null,   // "Dans ma bulle": bubble gum, its splat, earbuds, the dream bubble, a moth out of the wallet   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
+    gum: a.gum || null, splat: a.splat ?? null, buds: a.buds ?? null, bubble: a.bubble || null, moth: a.moth ?? null, mothPale: !!a.mothPale,   // "Dans ma bulle": bubble gum, its splat, earbuds, the dream bubble, a moth out of the wallet   // moveAt: the mx/mz walk starts that many seconds into the shot   // hat: a prop sitting on the head from hatFrom s (the juice glass upside down), bump: turbulence, jolted up on every beat (m)   // air: the shot means it off the floor (a slide down a rope)   // holdFrom: the held prop shows from that second of the shot   // aim2 from aim2At s (a yank), toss: the held prop flies off, cable: [x, y, z] the held plug's cable runs to
     // "Patient Zero" (2026-09-27): the sick look's face props, a red nose (true, or from s into the shot), a thermometer
     // in the mouth and a surgical mask, and a sneeze: a spray out of the nose s into the shot
     nose: a.nose ?? null, therm: !!a.therm, mask: !!a.mask, sleep: !!a.sleep, sneeze: a.sneeze ?? null,
@@ -1629,11 +1639,12 @@ function dreamBubble(D, B, c, t) {
   gl.position.copy(toCam).multiplyScalar(0.9).addScaledVector(_fu, 0.42).addScaledVector(_fr, -0.36); gl.lookAt(camera.position);
   gl2.position.copy(toCam).multiplyScalar(0.92).addScaledVector(_fu, 0.26).addScaledVector(_fr, -0.5); gl2.lookAt(camera.position);
 }
-function mothOut(D, k) {   // a dusky moth flutters out of the open wallet, up his right side (across his face it read as a plank), dark against the lit shop window
+function mothOut(D, k, pale) {   // a dusky moth flutters out of the open wallet, up his right side (across his face it read as a plank), dark against the lit shop window; pale ("No Scrubs", 2026-10-05): cream wings, bigger, for a night sky
   if (!D.walletAt || k > 1.6) return;
-  const g = faceProp(D, 'moth', () => { const q = new THREE.Group(), m = mat({ color: 0x6a6258 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 0.08), mat({ color: 0x2a2620 }))); for (const sd of [-1, 1]) { const w = new THREE.Group(), p = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.012, 0.08), m); p.position.x = sd * 0.05; w.add(p); q.add(w); } return q; });
-  const s = D.curScale || D.scale || 1; _fr.setFromMatrixColumn(camera.matrixWorld, 0); camera.getWorldPosition(_fc).sub(D.walletAt).normalize();   // up and off to the screen's right, never across his face
-  g.position.copy(D.walletAt).addScaledVector(_fr, (0.5 + 0.35 * k) * s).addScaledVector(_fc, 0.1 * s).add(_fo.set(0.05 * Math.sin(k * 9), (0.08 + 0.55 * k) * s, 0)); g.scale.setScalar(s * 2.2);
+  const g = faceProp(D, pale ? 'mothPale' : 'moth', () => { const q = new THREE.Group(), m = mat({ color: pale ? 0xf4ead0 : 0x6a6258, unlit: pale ? 0.6 : 0 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 0.08), mat({ color: 0x2a2620 }))); for (const sd of [-1, 1]) { const w = new THREE.Group(), p = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.012, 0.08), m); p.position.x = sd * 0.05; w.add(p); q.add(w); } return q; });
+  const s = D.curScale || D.scale || 1; camera.updateMatrixWorld(); _fr.setFromMatrixColumn(camera.matrixWorld, 0); camera.getWorldPosition(_fc).sub(D.walletAt).normalize();   // up and off to the screen's right, never across his face
+  const side = pale ? 0.22 + 0.18 * k : 0.5 + 0.35 * k, rise = pale ? 0.1 + 0.5 * k : 0.08 + 0.55 * k;   // the pale one keeps near the wallet: a close lens lost it off the frame's edge
+  g.position.copy(D.walletAt).addScaledVector(_fr, side * s).addScaledVector(_fc, 0.1 * s).add(_fo.set(0.05 * Math.sin(k * 9), rise * s, 0)); g.scale.setScalar(s * (pale ? 3.2 : 2.2));
   const f = Math.sin(k * 55); g.children[1].rotation.z = 0.9 * f; g.children[2].rotation.z = -0.9 * f; g.rotation.set(0.3, k * 2, 0);
 }
 function splashAt(D, to, k) {   // a tossed prop hits the water: a white ring spreading and droplets thrown up
@@ -1806,7 +1817,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.buds != null && A.buds !== false && (A.buds === true || t - t0 >= A.buds) && D.head) earbuds(D);
     if (A.phones && D.head) headphones(D);
     if (A.bubble) dreamBubble(D, A.bubble, t - t0, t);
-    if (A.moth != null && t - t0 >= A.moth) mothOut(D, t - t0 - A.moth);
+    if (A.moth != null && t - t0 >= A.moth) mothOut(D, t - t0 - A.moth, A.mothPale);
     if (A.nose != null && A.nose !== false && (A.nose === true || t - t0 >= A.nose) && D.head) redNose(D);
     if (A.therm && D.head) thermometer(D);
     if (A.mask && D.head) faceMask(D);
