@@ -268,6 +268,7 @@ export function buildParkMaps(K) {
 
     return {
       group: G, sky: grad([[0, '#7eb0e2'], [0.6, '#cfe0ec'], [1, '#f8d8ac']]), shadowCol: 0x4a4a22,
+      shadowY: 0.03,   // the blob shadows 3 cm up: at 1.2 cm the gravel path (4 mm, polygon offset) drew over them (no shadow under the dancers on it, 2026-10-04 review)
       light() { lights(0xa69e8c, 0xffe4b8, [0.45, -0.75, -0.5], 0xe8dcc6, [22, 70], 9); },
       anim(t, P = {}) {
         const s = shotT(t, P), bb = beat(t), dusk = P.zone === 'dusk';

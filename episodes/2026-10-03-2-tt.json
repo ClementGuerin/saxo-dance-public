@@ -1,0 +1,2604 @@
+{
+ "date": "2026-10-03",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "sisyphus",
+  "scenes": [
+   "leaf pile",
+   "dizzy",
+   "creeping pile",
+   "carrot burst",
+   "sack race",
+   "dump"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "action",
+  "maps": [
+   "park"
+  ],
+  "ref": "dog-leaf-pile",
+  "lyric_literal": "'fell' (he falls flat into the pile), 'fall' (he dives into the next one), 'stars' (he's seeing stars), 'admiring from afar' (he admires her from inside a pile, then creeps after her in it), 'world' (in the sack, the two in their own little world)",
+  "experiment": "Does a seasonal song in its own season (the October surge of a 2018 indie love song, +429k streams a day) with the season's own pet meme (dogs diving into leaf piles), opened on the dance, get more shares per 1,000 views than our non-seasonal story plots? (TikTok cut on the 42 s official sound: the main's chorus and final run moved over, opened on the maple's revenge)"
+ },
+ "n": "2-tt",
+ "song": {
+  "title": "we fell in love in october",
+  "artist": "girl in red",
+  "window": [
+   25.351,
+   68.087
+  ],
+  "rate": 1,
+  "bpm": 129.9953,
+  "tiktok_sound": {
+   "music_id": "6711980022204205826",
+   "title": "we fell in love in october",
+   "author": "girl in red",
+   "seconds": 42,
+   "videos": 1744736
+  }
+ },
+ "logline": "On a golden October afternoon Saxo falls for the girl in red, literally, into the park keeper's leaf piles; at dusk the two dive into the giant pile where Compote hid her carrots, end up hopping off in the keeper's garden sack, and the maple takes its revenge on the two left behind.",
+ "new": [
+  "the cut opens on the main's ending (the maple's revenge on the keeper and Compote) and loops back into it: the official sound is chorus 1 and post-chorus 1, which the main's chorus 2 and final run match word for word, so those shots move over and the half-time verse in between goes"
+ ],
+ "notes": "TikTok muted the main post (itemMute, 2026-10-03). The official sound (girl in red's own, 1,744,736 videos, 42 s) is song 25.351-68.087 s at the song's own speed (20 log-spectrum pieces of 3 s, 0.8 ms residual): pre-chorus 1's last line, chorus 1 (= the main's chorus 2, tt beat = main beat + 12) and post-chorus 1 (= the main's final run, tt beat = main beat - 52). See the generator's header.",
+ "clips": [
+  "happy_idle",
+  "happy_run",
+  "happy_walk",
+  "knocked_out_falling_to_back",
+  "laughing_standing",
+  "male_driving_a_car",
+  "shot_to_the_chest_falling_backwards"
+ ],
+ "shots": [
+  {
+   "beat": -1,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": -5.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.1,
+     "hold": "rake",
+     "arm": "R",
+     "aim": [
+      0.35,
+      -0.2,
+      0.9
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": -5.05,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.4,
+     4.35
+    ],
+    "r": [
+     5.215,
+     5.014
+    ],
+    "h": [
+     1.6,
+     1.55
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.55,
+    -5.75
+   ],
+   "zone": "dusk",
+   "noguests": true,
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9
+    }
+   ],
+   "carrots": [
+    -2,
+    -4.9,
+    -9,
+    20
+   ],
+   "dump": [
+    0.231,
+    -1.4500000000000002,
+    -5.1000000000000005,
+    1.25,
+    0.8
+   ],
+   "stars": [
+    "kob"
+   ],
+   "clear": [
+    [
+     -1.15,
+     -0.55,
+     0.7
+    ],
+    [
+     -1.17,
+     -0.75,
+     0.7
+    ],
+    [
+     -1.2,
+     -1.2,
+     0.5599999999999999
+    ],
+    [
+     -1.25,
+     -1.85,
+     0.5599999999999999
+    ],
+    [
+     -1.3,
+     -2.5,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 3,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": -5.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": -5.05,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.93,
+     3.93
+    ],
+    "r": [
+     5.112,
+     4.75
+    ],
+    "h": [
+     0.8,
+     0.8
+    ],
+    "look": [
+     1.75,
+     1.75
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.75,
+    -6.15
+   ],
+   "zone": "dusk",
+   "noguests": true,
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9
+    }
+   ],
+   "dump": [
+    -9,
+    -1.4500000000000002,
+    -5.1000000000000005,
+    1.25,
+    0.8
+   ],
+   "stars": [
+    "kob"
+   ],
+   "clear": [
+    [
+     -1.4,
+     -1.05,
+     0.7
+    ],
+    [
+     -1.4,
+     -1.05,
+     0.7
+    ],
+    [
+     -1.44,
+     -1.69,
+     0.5599999999999999
+    ],
+    [
+     -1.49,
+     -2.33,
+     0.5599999999999999
+    ],
+    [
+     -1.53,
+     -2.96,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.75
+    },
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": -2.35,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.5,
+     "hold": "rake",
+     "arm": "both",
+     "aim": "rake"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     13.57,
+     13.47,
+     12.61,
+     12.44
+    ],
+    "r": [
+     5.967,
+     4.936,
+     3.894,
+     3.482
+    ],
+    "h": [
+     2.5,
+     1.7,
+     0.75,
+     0.42
+    ],
+    "look": [
+     0.95,
+     0.95,
+     0.95,
+     0.95
+    ],
+    "fov": 60,
+    "roll": [
+     0,
+     -3,
+     -10,
+     -6
+    ],
+    "hand": 0.15
+   },
+   "focus": [
+    -0.3,
+    -0.2
+   ],
+   "piles": [
+    {
+     "x": 0.1,
+     "z": -1.05,
+     "r": 0.78,
+     "h": 0.68
+    },
+    {
+     "x": -3,
+     "z": -2.7,
+     "r": 0.7,
+     "h": 0.6
+    }
+   ],
+   "fall": 1.6,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     1.1,
+     5.6,
+     0.7
+    ],
+    [
+     0.45,
+     3.2,
+     0.7
+    ],
+    [
+     0.93,
+     4.88,
+     0.5599999999999999
+    ],
+    [
+     0.75,
+     4.15,
+     0.5599999999999999
+    ],
+    [
+     0.58,
+     3.43,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 15,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_walk",
+     "x": 1.15,
+     "z": 1.8,
+     "face": "world",
+     "yaw": -75,
+     "at": 0.3,
+     "mx": -0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12.8,
+     -12.09
+    ],
+    "r": [
+     2.256,
+     2.148
+    ],
+    "h": [
+     0.98,
+     0.98
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    1,
+    1.75
+   ],
+   "piles": [
+    {
+     "x": 0.1,
+     "z": -1.05,
+     "r": 0.78,
+     "h": 0.68
+    }
+   ],
+   "fall": 2,
+   "leafAt": [
+    0.8,
+    2.05
+   ],
+   "leafR": 0.3,
+   "stars": [
+    "sadi"
+   ],
+   "clear": [
+    [
+     0.5,
+     3.95,
+     0.7
+    ],
+    [
+     0.55,
+     3.85,
+     0.7
+    ],
+    [
+     0.56,
+     3.67,
+     0.5599999999999999
+    ],
+    [
+     0.63,
+     3.4,
+     0.5599999999999999
+    ],
+    [
+     0.69,
+     3.12,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": 0,
+     "face": "world",
+     "yaw": 18.9,
+     "at": 1.7,
+     "ground": "mesh",
+     "once": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.43,
+     8.03
+    ],
+    "r": [
+     4.094,
+     3.939
+    ],
+    "h": [
+     1.25,
+     1.2
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.15,
+    -0.55
+   ],
+   "piles": [
+    {
+     "x": 0.1,
+     "z": -1.05,
+     "r": 0.78,
+     "h": 0.68,
+     "burst": 0.508
+    },
+    {
+     "x": -3,
+     "z": -2.7,
+     "r": 0.7,
+     "h": 0.6
+    }
+   ],
+   "fall": 1.6,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     0.45,
+     3.5,
+     0.7
+    ],
+    [
+     0.4,
+     3.35,
+     0.7
+    ],
+    [
+     0.38,
+     2.99,
+     0.5599999999999999
+    ],
+    [
+     0.3,
+     2.49,
+     0.5599999999999999
+    ],
+    [
+     0.23,
+     1.98,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "laughing_standing",
+     "x": 0.6,
+     "z": 1.75,
+     "face": "world",
+     "yaw": -161.2,
+     "at": 0.3
+    },
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0,
+     "z": 0,
+     "face": "world",
+     "yaw": 18.9,
+     "at": 3.5,
+     "speed": 0.02,
+     "ground": "mesh",
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -158.91,
+     -158.61
+    ],
+    "r": [
+     3.751,
+     3.619
+    ],
+    "h": [
+     0.62,
+     0.62
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0.6,
+    1.75
+   ],
+   "piles": [
+    {
+     "x": 0.1,
+     "z": -1.05,
+     "r": 0.78,
+     "h": 0.68,
+     "burst": -9
+    },
+    {
+     "x": -3,
+     "z": -2.7,
+     "r": 0.7,
+     "h": 0.6
+    }
+   ],
+   "fall": 2,
+   "leafAt": [
+    0,
+    0
+   ],
+   "clear": [],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -1.85,
+     "z": -2.35,
+     "face": "world",
+     "yaw": 56.3,
+     "at": 0.6,
+     "speed": 0.15,
+     "hold": "rake",
+     "arm": "both",
+     "aim": "rake"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     56.3,
+     56.3
+    ],
+    "r": [
+     3.6,
+     3.45
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.85,
+    -2.35
+   ],
+   "piles": [
+    {
+     "x": 0.1,
+     "z": -1.05,
+     "r": 0.78,
+     "h": 0.68,
+     "burst": -9
+    },
+    {
+     "x": -3,
+     "z": -2.7,
+     "r": 0.7,
+     "h": 0.6
+    }
+   ],
+   "stars": [
+    "kob"
+   ],
+   "clear": [
+    [
+     1.15,
+     -0.35,
+     0.7
+    ],
+    [
+     1.02,
+     -0.44,
+     0.7
+    ],
+    [
+     0.77,
+     -0.6,
+     0.5599999999999999
+    ],
+    [
+     0.4,
+     -0.85,
+     0.5599999999999999
+    ],
+    [
+     0.02,
+     -1.1,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_run",
+     "x": 0.05,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "mx": 1.55,
+     "reveal": 0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -7.13,
+     -6.67
+    ],
+    "r": [
+     4.031,
+     3.876
+    ],
+    "h": [
+     0.3,
+     0.3
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 60,
+    "ease": "lin"
+   },
+   "focus": [
+    1.5,
+    0.5
+   ],
+   "piles": [
+    {
+     "x": 2.45,
+     "z": 0.5,
+     "r": 0.76,
+     "h": 0.66
+    }
+   ],
+   "fall": 1.4,
+   "noguests": true,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     1,
+     4.5,
+     0.7
+    ],
+    [
+     1.05,
+     4.35,
+     0.7
+    ],
+    [
+     1.06,
+     4,
+     0.5599999999999999
+    ],
+    [
+     1.12,
+     3.5,
+     0.5599999999999999
+    ],
+    [
+     1.19,
+     3,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 31,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_run",
+     "x": 2,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.6,
+     "mx": 0.45,
+     "lift": 0.8,
+     "my": -1.7000000000000002,
+     "myAt": 0.05,
+     "myDur": 0.319,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     29.54,
+     29.61
+    ],
+    "r": [
+     3.448,
+     3.278
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 60,
+    "roll": [
+     -6,
+     -9
+    ]
+   },
+   "focus": [
+    2.35,
+    0.5
+   ],
+   "piles": [
+    {
+     "x": 2.45,
+     "z": 0.5,
+     "r": 0.76,
+     "h": 0.66,
+     "burst": 0.369,
+     "puff": true
+    }
+   ],
+   "fall": 1.4,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     4.05,
+     3.5,
+     0.7
+    ],
+    [
+     3.97,
+     3.35,
+     0.7
+    ],
+    [
+     3.84,
+     3.12,
+     0.5599999999999999
+    ],
+    [
+     3.62,
+     2.75,
+     0.5599999999999999
+    ],
+    [
+     3.41,
+     2.37,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": 2.45,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.4,
+     "lift": -0.9,
+     "my": 0.72,
+     "myAt": 0.25,
+     "myDur": 0.3,
+     "air": true
+    },
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": 0.85,
+     "z": -1.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.9,
+     "hold": "rake",
+     "arm": "both",
+     "aim": "rake"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     15,
+     15
+    ],
+    "r": [
+     4.799,
+     4.608
+    ],
+    "h": [
+     0.9,
+     0.9
+    ],
+    "look": [
+     0.67,
+     0.67
+    ],
+    "fov": 52,
+    "roll": [
+     -6,
+     -4
+    ]
+   },
+   "focus": [
+    1.65,
+    -0.325
+   ],
+   "piles": [
+    {
+     "x": 2.45,
+     "z": 0.5,
+     "r": 0.95,
+     "h": 0.5
+    },
+    {
+     "x": -3,
+     "z": -2.7,
+     "r": 0.7,
+     "h": 0.6
+    }
+   ],
+   "fall": 1.2,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     2.89,
+     4.31,
+     0.7
+    ],
+    [
+     2.84,
+     4.13,
+     0.7
+    ],
+    [
+     2.74,
+     3.73,
+     0.5599999999999999
+    ],
+    [
+     2.58,
+     3.15,
+     0.5599999999999999
+    ],
+    [
+     2.43,
+     2.57,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 38,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "shot_to_the_chest_falling_backwards",
+     "x": 2.5,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 9,
+     "speed": 0,
+     "ground": "mesh",
+     "dizzy": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": 3.45,
+     "z": -0.1,
+     "face": "world",
+     "yaw": -115.3,
+     "at": 0.3,
+     "speed": 0.4,
+     "lean": 12,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.15,
+     1.07
+    ],
+    "h": [
+     3.3,
+     3
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 62,
+    "roll": [
+     0,
+     8
+    ]
+   },
+   "focus": [
+    2.8,
+    -0.25
+   ],
+   "piles": [
+    {
+     "x": 2.45,
+     "z": 0.5,
+     "r": 0.76,
+     "h": 0.66,
+     "burst": -9
+    }
+   ],
+   "fall": 1.2,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     2.8,
+     0.9,
+     0.7
+    ],
+    [
+     2.8,
+     0.82,
+     0.7
+    ],
+    [
+     2.8,
+     0.76,
+     0.5599999999999999
+    ],
+    [
+     2.8,
+     0.61,
+     0.5599999999999999
+    ],
+    [
+     2.8,
+     0.47,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 42,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "male_driving_a_car",
+     "x": 2.8,
+     "z": -3.77,
+     "face": "world",
+     "yaw": -49.4,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.24,
+     "lean": 14,
+     "hold": "book",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.45,
+      0.75
+     ]
+    },
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": 1.75,
+     "z": -3,
+     "face": "world",
+     "yaw": 130.6,
+     "at": 1,
+     "speed": 0.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     60,
+     60
+    ],
+    "r": [
+     4.24,
+     4.07
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 50
+   },
+   "focus": [
+    2.275,
+    -3.385
+   ],
+   "piles": [
+    {
+     "x": 1.75,
+     "z": -3,
+     "r": 0.85,
+     "h": 0.74
+    }
+   ],
+   "stars": [
+    "sadi"
+   ],
+   "clear": [
+    [
+     5.95,
+     -1.26,
+     0.7
+    ],
+    [
+     5.8,
+     -1.35,
+     0.7
+    ],
+    [
+     5.49,
+     -1.53,
+     0.5599999999999999
+    ],
+    [
+     5.03,
+     -1.79,
+     0.5599999999999999
+    ],
+    [
+     4.57,
+     -2.06,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": 1.85,
+     "z": -2.85,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.5,
+     "holdL": "mapleleaf",
+     "arm": "L",
+     "aim": [
+      0.8,
+      0.22,
+      0.5
+     ],
+     "upAt": 0.379
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "male_driving_a_car",
+     "x": 2.8,
+     "z": -3.77,
+     "face": "world",
+     "yaw": -17.1,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.24,
+     "hold": "book",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.2,
+      0.85
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -5.01,
+     -5.01
+    ],
+    "r": [
+     4,
+     3.84
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 50
+   },
+   "focus": [
+    2.325,
+    -3.31
+   ],
+   "piles": [
+    {
+     "x": 1.75,
+     "z": -3,
+     "r": 0.85,
+     "h": 0.74,
+     "burst": 0.32899999999999996,
+     "puff": true
+    }
+   ],
+   "hearts": [
+    [
+     2.8,
+     1.6,
+     -3.75,
+     0.923
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     1.98,
+     0.67,
+     0.7
+    ],
+    [
+     1.99,
+     0.52,
+     0.7
+    ],
+    [
+     2.02,
+     0.18,
+     0.5599999999999999
+    ],
+    [
+     2.06,
+     -0.32,
+     0.5599999999999999
+    ],
+    [
+     2.11,
+     -0.82,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": -2.45,
+     "z": -4.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.5,
+     "arm": "both",
+     "aim": [
+      0.38,
+      0.92,
+      0.12
+     ],
+     "upAt": -0.2,
+     "lift": 1.45,
+     "my": -2.35,
+     "myAt": 0.1,
+     "myDur": 0.24,
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": -1.55,
+     "z": -4.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.5,
+     "arm": "both",
+     "aim": [
+      0.38,
+      0.92,
+      0.12
+     ],
+     "upAt": -0.2,
+     "lift": 1.45,
+     "my": -2.35,
+     "myAt": 0.1,
+     "myDur": 0.24,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.35,
+     1.4
+    ],
+    "r": [
+     4.251,
+     4.101
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.75,
+     1.75
+    ],
+    "fov": 58,
+    "roll": [
+     -3,
+     -6
+    ]
+   },
+   "focus": [
+    -2,
+    -4.550000000000001
+   ],
+   "zone": "dusk",
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": 0.3,
+     "puff": true
+    }
+   ],
+   "carrots": [
+    -2,
+    -4.9,
+    0.3,
+    20
+   ],
+   "fall": 2,
+   "leafAt": [
+    -2,
+    -4.4
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     -1.9,
+     -0.3,
+     0.7
+    ],
+    [
+     -1.9,
+     -0.45,
+     0.7
+    ],
+    [
+     -1.91,
+     -0.83,
+     0.5599999999999999
+    ],
+    [
+     -1.92,
+     -1.36,
+     0.5599999999999999
+    ],
+    [
+     -1.94,
+     -1.89,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 50,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": -2.56,
+     "z": -4.28,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.4,
+     "lift": -0.9,
+     "my": 0.86,
+     "myAt": 0.5369999999999999,
+     "myDur": 0.26,
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": -1.44,
+     "z": -4.28,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.4,
+     "lift": -0.9,
+     "my": 0.86,
+     "myAt": 0.5369999999999999,
+     "myDur": 0.26,
+     "air": true
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -2,
+     "z": -4.16,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "hold": "carrot",
+     "holdL": "carrot",
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.5,
+      0.8
+     ],
+     "speed": 0.4,
+     "lift": -0.9,
+     "my": 1.25,
+     "myAt": 0.5369999999999999,
+     "myDur": 0.26,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.42,
+     0.44
+    ],
+    "r": [
+     4.1,
+     3.9
+    ],
+    "h": [
+     0.92,
+     0.92
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 52,
+    "roll": [
+     2,
+     0
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    -1.88,
+    -4.6000000000000005
+   ],
+   "zone": "dusk",
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9,
+     "puff": true
+    }
+   ],
+   "carrots": [
+    -2,
+    -5.4,
+    0.15,
+    20,
+    "rain",
+    1.6
+   ],
+   "fall": 2,
+   "leafAt": [
+    -2,
+    -4.300000000000001
+   ],
+   "stars": [
+    "compote"
+   ],
+   "clear": [
+    [
+     -1.85,
+     -0.5,
+     0.7
+    ],
+    [
+     -1.85,
+     -0.7,
+     0.7
+    ],
+    [
+     -1.85,
+     -1.01,
+     0.5599999999999999
+    ],
+    [
+     -1.86,
+     -1.53,
+     0.5599999999999999
+    ],
+    [
+     -1.86,
+     -2.04,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 54,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": -3.5,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.6,
+     "speed": 0.1,
+     "hold": "rake",
+     "arm": "R",
+     "aim": [
+      0.35,
+      -0.2,
+      0.9
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.44,
+     24.09
+    ],
+    "r": [
+     2.417,
+     2.278
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 50,
+    "roll": [
+     -5,
+     -3
+    ]
+   },
+   "focus": [
+    -0.10000000000000009,
+    -3.5000000000000004
+   ],
+   "zone": "dusk",
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9,
+     "puff": true
+    }
+   ],
+   "carrots": [
+    -0.10000000000000009,
+    -3.5000000000000004,
+    -0.05,
+    24,
+    "rain",
+    1.1,
+    1.36
+   ],
+   "fall": 2,
+   "stars": [
+    "kob"
+   ],
+   "clear": [
+    [
+     0.9,
+     -1.3,
+     0.7
+    ],
+    [
+     0.83,
+     -1.42,
+     0.7
+    ],
+    [
+     0.78,
+     -1.57,
+     0.5599999999999999
+    ],
+    [
+     0.65,
+     -1.85,
+     0.5599999999999999
+    ],
+    [
+     0.53,
+     -2.12,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "charleston",
+     "x": -1.05,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "charleston",
+     "x": -0.15,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.1,
+     1.51
+    ],
+    "r": [
+     4.103,
+     3.801
+    ],
+    "h": [
+     1.05,
+     1.02
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 54,
+    "roll": [
+     -3,
+     2
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    -0.6000000000000001,
+    -3.1000000000000005
+   ],
+   "zone": "dusk",
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9
+    }
+   ],
+   "carrots": [
+    -2,
+    -4.9,
+    -9,
+    20
+   ],
+   "fall": 2,
+   "leafAt": [
+    -0.6000000000000001,
+    -3.1000000000000005
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     -0.45,
+     1,
+     0.7
+    ],
+    [
+     -0.5,
+     0.7,
+     0.7
+    ],
+    [
+     -0.47,
+     0.49,
+     0.5599999999999999
+    ],
+    [
+     -0.49,
+     -0.02,
+     0.5599999999999999
+    ],
+    [
+     -0.51,
+     -0.54,
+     0.5599999999999999
+    ]
+   ],
+   "leafR": 0.25
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "charleston",
+     "x": -1.05,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.35
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -4.4,
+     -4.4
+    ],
+    "r": [
+     2.608,
+     2.608
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -1.05,
+    -3.1000000000000005
+   ],
+   "zone": "dusk",
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9
+    }
+   ],
+   "carrots": [
+    -2,
+    -4.9,
+    -9,
+    20
+   ],
+   "fall": 2,
+   "leafAt": [
+    -1.05,
+    -2.4000000000000004
+   ],
+   "leafR": 0.16,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     -1.25,
+     -0.5,
+     0.7
+    ],
+    [
+     -1.25,
+     -0.5,
+     0.7
+    ],
+    [
+     -1.23,
+     -0.82,
+     0.5599999999999999
+    ],
+    [
+     -1.2,
+     -1.15,
+     0.5599999999999999
+    ],
+    [
+     -1.18,
+     -1.47,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "charleston",
+     "x": -0.15,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.71,
+     5.71
+    ],
+    "r": [
+     2.512,
+     2.512
+    ],
+    "h": [
+     0.92,
+     0.92
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -0.1499999999999999,
+    -3.1000000000000005
+   ],
+   "zone": "dusk",
+   "clear": [],
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9
+    }
+   ],
+   "carrots": [
+    -2,
+    -4.9,
+    -9,
+    20
+   ],
+   "fall": 2,
+   "leafAt": [
+    0.10000000000000009,
+    -1.1000000000000005
+   ],
+   "stars": [
+    "sadi"
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "charleston",
+     "x": -1.05,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "charleston",
+     "x": -0.15,
+     "z": -3.1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.5,
+     3.2
+    ],
+    "h": [
+     0.35,
+     0.35
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 58,
+    "roll": [
+     5,
+     3
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    -0.6000000000000001,
+    -3.1000000000000005
+   ],
+   "zone": "dusk",
+   "piles": [
+    {
+     "x": -2,
+     "z": -4.9,
+     "r": 1.45,
+     "h": 1.2,
+     "burst": -9
+    }
+   ],
+   "carrots": [
+    -2,
+    -4.9,
+    -9,
+    20
+   ],
+   "fall": 2,
+   "leafAt": [
+    -0.6000000000000001,
+    -3.1000000000000005
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     -0.6,
+     0.4,
+     0.7
+    ],
+    [
+     -0.6,
+     0.1,
+     0.7
+    ],
+    [
+     -0.6,
+     -0.04,
+     0.5599999999999999
+    ],
+    [
+     -0.6,
+     -0.48,
+     0.5599999999999999
+    ],
+    [
+     -0.6,
+     -0.91,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -1.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": -0.05,
+     "z": -1.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    },
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -1.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 30,
+     "at": 0.6,
+     "speed": 0.1,
+     "hold": "rake",
+     "arm": "R",
+     "aim": [
+      0.35,
+      -0.2,
+      0.9
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0.65,
+     "z": -0.8,
+     "face": "world",
+     "yaw": -30,
+     "at": 0.6,
+     "speed": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.92,
+     5.683
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.945,
+     0.945
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.45,
+    -1.05
+   ],
+   "zone": "dusk",
+   "noguests": true,
+   "bag": {
+    "x": -0.45,
+    "z": -1.3
+   },
+   "stars": [
+    "kob",
+    "compote"
+   ],
+   "clear": [
+    [
+     -0.45,
+     4.87,
+     0.7
+    ],
+    [
+     -0.45,
+     4.63,
+     0.7
+    ],
+    [
+     -0.45,
+     4.13,
+     0.5599999999999999
+    ],
+    [
+     -0.45,
+     3.39,
+     0.5599999999999999
+    ],
+    [
+     -0.45,
+     2.65,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": -0.81,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 12,
+     "at": 0.4,
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": -0.09,
+     "z": -1.3,
+     "face": "world",
+     "yaw": -12,
+     "at": 0.4,
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.92,
+     0.99
+    ],
+    "r": [
+     3.1,
+     2.9
+    ],
+    "h": [
+     1,
+     0.98
+    ],
+    "look": [
+     0.84,
+     0.84
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.45,
+    -1.3
+   ],
+   "zone": "dusk",
+   "noguests": true,
+   "bag": {
+    "x": -0.45,
+    "z": -1.3
+   },
+   "hearts": [
+    [
+     -0.45,
+     1.2,
+     -1.3,
+     0.138
+    ],
+    [
+     -0.45,
+     1.2,
+     -1.3,
+     1.062
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     -0.4,
+     1.8,
+     0.7
+    ],
+    [
+     -0.4,
+     1.6,
+     0.7
+    ],
+    [
+     -0.41,
+     1.41,
+     0.5599999999999999
+    ],
+    [
+     -0.41,
+     1.02,
+     0.5599999999999999
+    ],
+    [
+     -0.42,
+     0.64,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -1.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "hop": [
+      0.22,
+      1
+     ],
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": -0.05,
+     "z": -1.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "hop": [
+      0.22,
+      1
+     ],
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     49.76,
+     50.08
+    ],
+    "r": [
+     3.406,
+     3.195
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 54,
+    "roll": [
+     -5,
+     -3
+    ]
+   },
+   "focus": [
+    -0.45,
+    -1.3
+   ],
+   "zone": "dusk",
+   "noguests": true,
+   "bag": {
+    "x": -0.45,
+    "z": -1.3,
+    "hop": [
+     0.22,
+     1
+    ]
+   },
+   "hearts": [
+    [
+     -0.45,
+     1.2,
+     -1.3,
+     0.462
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     2.15,
+     0.9,
+     0.7
+    ],
+    [
+     2,
+     0.75,
+     0.7
+    ],
+    [
+     1.82,
+     0.63,
+     0.5599999999999999
+    ],
+    [
+     1.5,
+     0.35,
+     0.5599999999999999
+    ],
+    [
+     1.17,
+     0.08,
+     0.5599999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "park",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "nordic",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 80,
+     "at": 0.4,
+     "hop": [
+      0.22,
+      1
+     ],
+     "mx": 1.35,
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "redsweater",
+     "clip": "happy_idle",
+     "x": -0.05,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 80,
+     "at": 0.4,
+     "hop": [
+      0.22,
+      1
+     ],
+     "mx": 1.35,
+     "lift": 0.04,
+     "speed": 0.4,
+     "air": true
+    },
+    {
+     "who": "kob",
+     "look": "keeper",
+     "clip": "happy_idle",
+     "x": -1.5,
+     "z": -1.05,
+     "face": "world",
+     "yaw": 70,
+     "at": 0.6,
+     "speed": 0.1,
+     "hold": "rake",
+     "arm": "R",
+     "aim": [
+      0.35,
+      -0.2,
+      0.9
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -2.25,
+     "z": -1.05,
+     "face": "world",
+     "yaw": 75,
+     "at": 0.6,
+     "speed": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     25,
+     25
+    ],
+    "r": [
+     8.319,
+     7.988
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -0.45,
+    -1.3
+   ],
+   "zone": "dusk",
+   "noguests": true,
+   "bag": {
+    "x": -0.45,
+    "z": -1.3,
+    "hop": [
+     0.22,
+     1
+    ],
+    "to": [
+     0.9000000000000001,
+     -1.3
+    ],
+    "at": 0,
+    "dur": 1.614,
+    "yaw": -10
+   },
+   "stars": [
+    "saxo",
+    "sadi"
+   ],
+   "clear": [
+    [
+     3.07,
+     6.24,
+     0.7
+    ],
+    [
+     2.93,
+     5.94,
+     0.7
+    ],
+    [
+     2.63,
+     5.3,
+     0.5599999999999999
+    ],
+    [
+     2.19,
+     4.35,
+     0.5599999999999999
+    ],
+    [
+     1.75,
+     3.41,
+     0.5599999999999999
+    ]
+   ]
+  }
+ ]
+}
