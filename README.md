@@ -98,7 +98,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 63 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom, a schooner that sinks, a white wedding chapel, a Kingston beach, an Olympic bobsled track at night, a gothic tower ledge in the rain, a talent agency at night with the CEO's red office and a city park in autumn, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom, a schooner that sinks, a white wedding chapel, a Kingston beach, an Olympic bobsled track at night, a gothic tower ledge in the rain, a talent agency at night with the CEO's red office, a city park in autumn and a graveyard on Halloween night, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
@@ -192,7 +192,9 @@ goes further: up to 99 copies of one look share a single hidden skeleton, so a w
 of one pose, in rows, in a ring or on tiered shelves, even washed to porcelain white (a shrine's display of lucky-cat
 statues, with the real cat hiding among them), or a single copy at a quarter of the size: a tiny devil on Saxo's
 shoulder. Any character can also be scaled up into a giant that rises out of the sea and sinks back, and arm poses
-lock to the beat on top of any clip: paws flapping by the ears, a lucky cat's beckon, sticks beating a taiko.
+lock to the beat on top of any clip: paws flapping by the ears, a lucky cat's beckon, sticks beating a taiko. Even
+a skeleton rides the rig: a cartoon one built from primitives on Saxo's bind pose and skinned rigidly to a clone of
+his skeleton, so the graveyard's dancers play every clip too, and can lose a leg to a hungry dog.
 
 ### A QA gate that can say no
 

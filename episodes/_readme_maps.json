@@ -2557,6 +2557,47 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "cemetery",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "silly_twist",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "silly_twist",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }
