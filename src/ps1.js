@@ -29,6 +29,8 @@ import { buildBobsledMaps } from './maps23.js';
 import { buildTowerMaps } from './maps24.js';
 import { buildAgencyMaps } from './maps25.js';
 import { buildParkMaps } from './maps26.js';
+import { boneLook } from './bones.js';
+import { buildCemeteryMaps } from './maps27.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -540,6 +542,7 @@ function steadiestOffset(T, name, len) {
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
+  if (url === 'proc:bones') { (T.outfits ||= { [T.base]: body })[name] = boneLook(THREE, mat, sm); return; }   // "Spooky, Scary Skeletons" (2026-10-04): the skeleton from primitives (src/bones.js)
   const src = (await loadAny(url)).root; src.updateMatrixWorld(true);
   let mesh = null; src.traverse(o => { if (!mesh && o.isMesh) mesh = o; });
   // rigged body in world space (the skeleton is still in its bind pose, so the raw positions are the skinned ones)
@@ -689,6 +692,8 @@ const PARTNERS = {
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
     redsweater: 'assets/models/sadi_redsweater.glb',
+    // the vampire: a black satin cape with a red lining and a tall stand-up collar fastened with a gold clasp, a short black dress with a red sash, black tights, red shoes, her pink bow ("Spooky, Scary Skeletons", 2026-10-04)
+    vampire: 'assets/models/sadi_vampire.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -737,9 +742,15 @@ const PARTNERS = {
     bobsled: 'assets/models/compote_bobsled.glb',
     // the sleepover: red and white checked flannel pyjamas with a white collar and a carrot patch, grey fluffy slippers, her carrot clip ("Bring Me To Life", 2026-10-02)
     pyjamas: 'assets/models/compote_pyjamas.glb',
+    // the jack-o'-lantern: a round orange padded pumpkin onesie with a carved face printed on the belly, a green stem-and-leaf cap between her ears, her carrot clip ("Spooky, Scary Skeletons", 2026-10-04)
+    pumpkin: 'assets/models/compote_pumpkin.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'punk', stage: 'punk', arcade: 'punk', subway: 'punk', tokyo: 'punk', graveyard: 'punk', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', stadium: 'boxer', school: 'boxer' } },
+  // "Spooky, Scary Skeletons" (2026-10-04): a cartoon skeleton built from primitives on a clone of Saxo's skeleton
+  // (src/bones.js), a fifth body: an episode's `with` loads it, a shot's `actors` and `crowd` place it (`who: 'skel'`),
+  // and an actor's or a crowd's `hideParts` (skull, torso, armL, armR, legL, legR) takes bones away
+  skel: { scale: 1, models: { skel: 'proc:bones' }, byMap: {} },
 };
 const PARTNER = Q.get('with') || (Q.get('cast') !== 'sadi' && PARTNERS[Q.get('cast')] ? Q.get('cast') : null);   // resolved against the episode below
 // ?cast=saxo (default) | sadi | duo. A duo stands side by side, a little apart, dancing the same clip in sync.
@@ -826,12 +837,12 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
   const C = CROWDS[key];
   while (C.copies.length < Math.min(99, c.n || 99)) {
-    C.copies.push(D.outfits[look].map(m => { const k = new THREE.SkinnedMesh(m.geometry, C.mats.get(m)); k.bindMode = THREE.DetachedBindMode; k.bind(C.body.skeleton, m.bindMatrix); k.matrixAutoUpdate = false; k.frustumCulled = false; k.visible = false; scene.add(k); return k; }));
+    C.copies.push(D.outfits[look].map(m => { const k = new THREE.SkinnedMesh(m.geometry, C.mats.get(m)); k.userData.part = m.userData.part; k.bindMode = THREE.DetachedBindMode; k.bind(C.body.skeleton, m.bindMatrix); k.matrixAutoUpdate = false; k.frustumCulled = false; k.visible = false; scene.add(k); return k; }));
     C.shadows.push(makeShadow());
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -946,7 +957,8 @@ function actorSpec(a, e, map) {
     // "Vamos a la playa" (2026-09-29): hop: [m, beats] hops of that height, one every that many beats (0.5 = two a
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
-    noLie: !!a.noLie, dizzy: a.dizzy ?? null,   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
+    noLie: !!a.noLie, dizzy: a.dizzy ?? null,
+    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null,   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1150,6 +1162,18 @@ function propMesh(kind) {
     head.add(at3(new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.08, 0.06), tm), 0, 0.02, 0));
     for (let i = 0; i < 11; i++) { const tip = new THREE.Vector3((i / 10 - 0.5) * 0.6, 0.3, 0), tn = new THREE.Mesh(new THREE.BoxGeometry(0.028, tip.length(), 0.012), tm); tn.position.copy(tip).multiplyScalar(0.5); tn.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tip.clone().normalize()); head.add(tn); }
     head.add(at3(new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.03, 0.025), tm), 0, 0.2, 0));
+  } else if (kind === 'bone') {       // "Spooky, Scary Skeletons" (2026-10-04): a cartoon femur held crosswise in front of the paw (along x, a knob pair at each end), ivory and a little self-lit so it reads at night
+    const iv = mat({ color: 0xf6f0de, unlit: 0.35 }), sh = add(cyl(0.028, 0.028, 0.36, iv), 0, 0.075); sh.rotation.z = Math.PI / 2;
+    for (const x of [-0.18, 0.18]) for (const y of [-0.03, 0.03]) add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.042, 0), iv), x, 0.075 + y);
+  } else if (kind === 'pail') {       // the trick-or-treat pail: an orange jack-o'-lantern bucket with a black face and handle, hanging from the paw, candy on top
+    const o = mat({ color: 0xff7a14, unlit: 0.35 }), ink = mat({ color: 0x15100c }); add(cyl(0.12, 0.1, 0.16, o, 8), 0, -0.13);
+    for (const sd of [-1, 1]) add(new THREE.Mesh(new THREE.ConeGeometry(0.026, 0.04, 3), ink), sd * 0.045, -0.1, 0.116).rotation.x = Math.PI / 2;
+    add(box(0.11, 0.025, 0.01, ink), 0, -0.165, 0.112);
+    const h = add(new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.008, 3, 8, Math.PI), M(0x1a1a1a)), 0, -0.05); h.rotation.y = 0;
+    [[0xff4f9a, -0.04], [0x3fd4ff, 0.03], [0xffe23a, 0.0]].forEach(([c, x], k) => add(box(0.05, 0.03, 0.04, mat({ color: c, unlit: 0.5 })), x, -0.045 + k * 0.012, (k - 1) * 0.03));
+  } else if (kind === 'broom') {      // the witch's broom held upright like a staff, the straw UP beside her head (pale and a little self-lit: bristles down at her feet were out of every close frame and the stick read as a bare cane, review 2026-10-04)
+    add(box(0.034, 0.95, 0.034, M(0x7a5030)), 0, 0.02); add(new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.3, 6), mat({ color: 0xf2d27a, unlit: 0.45 })), 0, 0.62);
+    add(cyl(0.05, 0.05, 0.045, M(0xb8402a), 6), 0, 0.47);
   } else if (kind === 'tissue') {     // a crumpled white tissue in the paw
     add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xfafafa, unlit: 0.45 })), 0, 0.03); add(box(0.06, 0.07, 0.01, mat({ color: 0xfafafa, unlit: 0.45 })), 0.02, 0.09).rotation.z = 0.4;
   } else if (kind === 'tissuebox') {  // a box of tissues with a blue band, one tissue sticking out (thrown in the ward)
@@ -1445,6 +1469,22 @@ function dizzyStars(D, t) {
   const a0 = bp(t) * Math.PI;   // half a turn a beat
   g.children.forEach((st, i) => { const a = a0 + i * TAU / 5; st.position.set(c.x + Math.cos(a) * 0.5 * sc, c.y + (0.3 + 0.05 * Math.sin(2 * a)) * sc, c.z + Math.sin(a) * 0.5 * sc); st.quaternion.copy(camera.quaternion); st.scale.setScalar(0.15 * sc); });
 }
+// "Spooky, Scary Skeletons" (2026-10-04): `chew`, a femur held across the mouth like a dog carries a stick (sticking out on
+// both sides of the muzzle), in the head bone's frame like FACE, so it follows the head through any clip
+function chewBone(D) {
+  const g = faceProp(D, 'chew', () => {
+    const q = new THREE.Group(), iv = mat({ color: 0xf6f0de, unlit: 0.35 }), sh = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.6, 6), iv); sh.rotation.z = Math.PI / 2; q.add(sh);
+    for (const x of [-0.3, 0.3]) for (const y of [-0.035, 0.035]) { const k = new THREE.Mesh(new THREE.IcosahedronGeometry(0.05, 0), iv); k.position.set(x, y, 0); q.add(k); }
+    return q;
+  });
+  faceAt(D, [0, 0.07, 0.38], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+// "Spooky, Scary Skeletons" (2026-10-04): `tongue`, a dog's pink tongue hanging out of the mouth, wagging a little:
+// delight (his drawn mouth can't smile wider), in the head bone's frame like FACE
+function dogTongue(D, t) {
+  const g = faceProp(D, 'tongue', () => { const q = new THREE.Group(), m = mat({ color: 0xff8ab0, unlit: 0.45 }); const tg = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.17, 0.035), m); tg.position.set(0, -0.085, 0); q.add(tg); const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.035, 8), m); tip.rotation.x = Math.PI / 2; tip.position.set(0, -0.17, 0); q.add(tip); return q; });
+  faceAt(D, [0, 0.03, 0.42], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.35, 0, 0.18 * Math.sin(t * 13)))); g.scale.setScalar(D.curScale || D.scale || 1);
+}
 function earbuds(D) {   // small and on the ear line, behind the cheek: bigger and further forward they read as a plaster in a three-quarter view (the reviewer)
   for (const k of ['budL', 'budR']) {
     const g = faceProp(D, k, () => { const q = new THREE.Group(), m = mat({ color: 0xffffff, unlit: 0.7 }); q.add(new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.065, 0.065), m)); const st = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.09, 0.03), m); st.position.set(0, -0.065, 0.012); q.add(st); return q; });
@@ -1675,6 +1715,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     const lift = A.lift + bob + A.my * um + jolt + dip + hitHop;   // my: a rise or a sink; bump: turbulence jolts on the beat
     D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air; D.fg = A.fg || t - t0 < A.reveal;
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
+    if (A.hideParts) for (const m of D.outfits?.[A.look] || []) if (A.hideParts.includes(m.userData.part)) m.visible = false;   // the skeleton's stolen bones
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
     const th = A.holdAt != null ? Math.min(t, t0 + A.holdAt) : t;   // holdAt: frozen from there on
     if (n) { const d = D.clips[n].duration, tc = at + (th - t0) * A.speed; D.actions[n].time = A.once ? Math.min(Math.max(0, tc), d - 1e-3) : ((tc % d) + d) % d; }
@@ -1731,6 +1772,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.sleep && D.head) sleepMask(D);
     if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
     if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
+    if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
+    if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
   window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics
@@ -1801,7 +1844,7 @@ function placeOneCrowd(c, C, t, t0, t1, camAng) {
     const sp = spots[i], parts = C.copies[i]; if (!parts) return null;
     const [x, z, y] = spot(sp);
     _cq.setFromAxisAngle(_up, y + sp.jy).multiply(_cr); _cm.compose(_cp.set(x, ground * s + lift + yb(sp), z), _cq, _cs.setScalar(s)).multiply(inv);
-    for (const k of parts) { k.matrix.multiplyMatrices(_cm, k.bindMatrix); k.matrixWorldNeedsUpdate = true; k.updateMatrixWorld(true); k.visible = true; }
+    for (const k of parts) { k.matrix.multiplyMatrices(_cm, k.bindMatrix); k.matrixWorldNeedsUpdate = true; k.updateMatrixWorld(true); k.visible = !(c.hideParts || []).includes(k.userData.part); }   // hideParts: the skeletons' missing bones
     return _cm;
   };
   // never sink: the lowest point of the first copy (they share the pose) sets a lift for all of them, from its own row's floor

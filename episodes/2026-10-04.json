@@ -1,0 +1,4083 @@
+{
+ "date": "2026-10-04",
+ "song": {
+  "title": "Spooky, Scary Skeletons",
+  "artist": "Andrew Gold"
+ },
+ "logline": "On Halloween night the graveyard's skeletons jump out at the gang one by one and it works every time, Sadi, Compote, Kob, until they try it on Saxo, who is a dog, and they are made of bones: he chomps a leg off, they run screaming and fall apart in fright, he dives into the heap, and the last one-legged skeleton hops up, sees it and falls apart too.",
+ "new": "the procedural skeleton (src/bones.js: a cartoon skeleton from primitives skinned rigidly to a clone of Saxo's skeleton, a fifth body `skel` whose `hideParts` take its bones away); src/maps27.js: cemetery (a graveyard at midnight under a full moon: an iron gate, a gravel path, headstones and crosses, an open grave, a crypt whose doors open, dead trees, jack-o'-lanterns, low fog, bats, a church on the hill, bone heaps with dust, one skeleton's remains (`remains`), clods of earth out of a hole (`dirt`), the moon placed per shot (`moon`), `clouds` off); props bone, pail, broom and a bone in the mouth (`chew`); looks sadi_vampire, compote_pumpkin",
+ "notes": "No clip for this song (a 1996 novelty track; the meme's world is the 1929 cartoon's skeleton dance in a graveyard at midnight), so the world comes from that and from the words: whitelisted keywords per line (shivers, spine, shock, skulls, doom, tonight, speak, shake, surprise, shriek, zombies, skeletons, screams, shout, sneak, leave). Kob wears her existing witch look; the cast is whole: Saxo leads (the dog in the skeletons' line, the fourth scare, the bone), Sadi (the vampire) is scared first, Compote (the pumpkin) second, Kob (the witch) third and ends up in the dead tree; the skeletons are the procedural `skel` (the big one, an actor) and crowds of it.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote",
+  "skel"
+ ],
+ "clips": [
+  "happy_idle",
+  "happy_walk",
+  "happy_run",
+  "silly_run",
+  "laughing_standing",
+  "being_surprised_and_looking_right",
+  "jumping_backwards_dodge",
+  "zombie_attack_with_right_hand",
+  "zombie_screaming",
+  "jump_up",
+  "crawling_forward_on_hands_and_knees",
+  "celebrating_after_a_win",
+  "shot_to_the_chest_falling_backwards",
+  "injured_jumping_while_standing"
+ ],
+ "yt": [
+  0,
+  59.5
+ ],
+ "tags": {
+  "structure": "broken rule of three",
+  "scenes": [
+   "skeletons",
+   "jump scare",
+   "bone theft",
+   "chase",
+   "bone heap"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "cemetery"
+  ],
+  "ref": "none",
+  "lyric_literal": "'shivers' (the girls shiver at the gate), 'spine' (he sniffs a skeleton's spine), 'skulls' (every skull turns to the lens), 'surprise' (the jump scare), 'shriek' (Compote shrieks), 'skeletons' (three at once round Kob), 'screams', 'shout' (the skeletons scream and run), 'sneak' (he sniffs them out), 'leave' (they fall apart)",
+  "experiment": "Does a seasonal throwback whose TikTok sound has 3.46M videos (the October skeleton meme), opened on the dance with the lead in the dancers' line and a reversal built on what the lead is (a dog among bones), get more views at 24 h than our chart-song episodes?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "thriller_4",
+     "x": 0,
+     "z": -3.45,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -28,
+     -28
+    ],
+    "r": [
+     6.44,
+     3.864
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     1.016,
+     1.016
+    ],
+    "fov": 60,
+    "roll": [
+     -7,
+     -4
+    ],
+    "hand": 0.2,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -3.45
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.6,
+     "z0": -2.85,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.8,
+     "z0": -3.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.8,
+     "z0": -3.75,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 1.6,
+     "z0": -4.05,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 1
+    }
+   ],
+   "clear": [
+    [
+     -3.02,
+     2.24,
+     1.15
+    ],
+    [
+     -1.81,
+     -0.04,
+     1.15
+    ],
+    [
+     -2.65,
+     1.53,
+     0.9199999999999999
+    ],
+    [
+     -2.27,
+     0.81,
+     0.9199999999999999
+    ],
+    [
+     -1.89,
+     0.1,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "moon": [
+    76.2,
+    32.9,
+    -88.9
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": -0.08,
+     "z": -3.75,
+     "face": "world",
+     "yaw": 76,
+     "at": 0.5,
+     "speed": 0.4,
+     "lean": 18,
+     "tongue": true
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "x": 0.8,
+     "z": -3.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.3,
+     "star": false,
+     "scale": 1.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6.26,
+     6.31
+    ],
+    "r": [
+     4.125,
+     3.823
+    ],
+    "h": [
+     1.02,
+     1
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 50,
+    "roll": [
+     -3,
+     -5
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    0.42000000000000004,
+    -3.75
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 1.6,
+     "z0": -4.05,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.3
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "thriller_4",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.8,
+     "z0": -3.15,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.3
+    }
+   ],
+   "clear": [
+    [
+     0.87,
+     0.35,
+     1.15
+    ],
+    [
+     0.84,
+     0.05,
+     1.15
+    ],
+    [
+     0.81,
+     -0.16,
+     0.9199999999999999
+    ],
+    [
+     0.76,
+     -0.67,
+     0.9199999999999999
+    ],
+    [
+     0.7,
+     -1.19,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": -0.08,
+     "z": -3.75,
+     "face": "world",
+     "yaw": 76,
+     "at": 0.5,
+     "speed": 0.4,
+     "lean": 18,
+     "tongue": true
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": 0.8,
+     "z": -3.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "star": false,
+     "speed": 0,
+     "scale": 1.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     6.4,
+     6.1
+    ],
+    "h": [
+     1.2,
+     1.18
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 60,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -3.35
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.6,
+     "z0": -2.85,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.8,
+     "z0": -3.15,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 1.6,
+     "z0": -4.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "clear": [
+    [
+     0,
+     3.05,
+     1.15
+    ],
+    [
+     0,
+     2.75,
+     1.15
+    ],
+    [
+     0,
+     2.25,
+     0.9199999999999999
+    ],
+    [
+     0,
+     1.45,
+     0.9199999999999999
+    ],
+    [
+     0,
+     0.65,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "happy_idle",
+     "x": -0.8,
+     "z": 6.25,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "happy_idle",
+     "x": 0.05,
+     "z": 6.45,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "carrot"
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "happy_idle",
+     "x": 0.88,
+     "z": 6.2,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "broom"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     4.94,
+     4.742
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.913,
+     0.913
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.043,
+    6.3
+   ],
+   "stars": [
+    "sadi",
+    "kob"
+   ],
+   "clear": [
+    [
+     0.04,
+     1.36,
+     1.15
+    ],
+    [
+     0.04,
+     1.56,
+     1.15
+    ],
+    [
+     0.04,
+     1.98,
+     0.9199999999999999
+    ],
+    [
+     0.04,
+     2.59,
+     0.9199999999999999
+    ],
+    [
+     0.04,
+     3.21,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "being_surprised_and_looking_right",
+     "x": 0,
+     "z": -3.45,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.88,
+     0.74
+    ],
+    "r": [
+     6.501,
+     6.201
+    ],
+    "h": [
+     1.45,
+     1.4
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 60,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -3.75
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.6,
+     "z0": -2.85,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.2,
+     "mx": -1.5,
+     "arm": "both",
+     "aim": "flail"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.8,
+     "z0": -3.15,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "mx": -1.5,
+     "arm": "both",
+     "aim": "flail"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.8,
+     "z0": -3.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.8,
+     "mx": 1.5,
+     "arm": "both",
+     "aim": "flail"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 1.6,
+     "z0": -4.05,
+     "face": "world",
+     "yaw": 90,
+     "at": 1,
+     "mx": 1.5,
+     "arm": "both",
+     "aim": "flail"
+    }
+   ],
+   "clear": [
+    [
+     0.1,
+     2.75,
+     1.15
+    ],
+    [
+     0.08,
+     2.45,
+     1.15
+    ],
+    [
+     0.09,
+     1.94,
+     0.9199999999999999
+    ],
+    [
+     0.07,
+     1.13,
+     0.9199999999999999
+    ],
+    [
+     0.06,
+     0.31,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.75,
+     3.6
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    -2,
+    2.6
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -2.36,
+     "z0": 2.945,
+     "face": "world",
+     "yaw": 90,
+     "at": 2.125,
+     "speed": 0,
+     "sway": 4,
+     "swayEvery": 0.25,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -2.36,
+     "z0": 2.255,
+     "face": "world",
+     "yaw": 90,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     1.75,
+     2.6,
+     1.15
+    ],
+    [
+     1.6,
+     2.6,
+     1.15
+    ],
+    [
+     1.28,
+     2.6,
+     0.9199999999999999
+    ],
+    [
+     0.81,
+     2.6,
+     0.9199999999999999
+    ],
+    [
+     0.34,
+     2.6,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "happy_walk",
+     "x": -0.55,
+     "z": 3.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.2,
+     "mz": -1.2,
+     "sway": 4,
+     "swayEvery": 0.25
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "happy_walk",
+     "x": 0.35,
+     "z": 3.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.6,
+     "mz": -1.2,
+     "hold": "carrot"
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "happy_walk",
+     "x": 1,
+     "z": 3.1,
+     "face": "world",
+     "yaw": 180,
+     "at": 1,
+     "mz": -1.2,
+     "hold": "broom"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     179.32,
+     179.36
+    ],
+    "r": [
+     4.2,
+     4.5
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 54,
+    "roll": [
+     2,
+     3
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    0.2,
+    2.6
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_walk",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.3,
+     "z0": 4.65,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.5,
+     "mz": -1.2,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_walk",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.75,
+     "z0": 4.85,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.9,
+     "speed": 0.5,
+     "mz": -1.2,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "stars": [
+    "sadi",
+    "compote"
+   ],
+   "clear": [
+    [
+     0.25,
+     -1.6,
+     1.15
+    ],
+    [
+     0.25,
+     -1.9,
+     1.15
+    ],
+    [
+     0.24,
+     -1.07,
+     0.9199999999999999
+    ],
+    [
+     0.24,
+     -0.55,
+     0.9199999999999999
+    ],
+    [
+     0.23,
+     -0.02,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": 2.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0.1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_walk",
+     "x": -0.2,
+     "z": 1.45,
+     "face": "world",
+     "yaw": -10,
+     "at": 0.2,
+     "star": false,
+     "speed": 0.3,
+     "mz": 0.12,
+     "scale": 1.3,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.01,
+     10
+    ],
+    "r": [
+     3.51,
+     3.369
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.38,
+    1.85
+   ],
+   "stars": [
+    "sadi"
+   ],
+   "clear": [
+    [
+     0.23,
+     5.31,
+     1.15
+    ],
+    [
+     0.21,
+     5.17,
+     1.15
+    ],
+    [
+     0.15,
+     4.87,
+     0.9199999999999999
+    ],
+    [
+     0.08,
+     4.44,
+     0.9199999999999999
+    ],
+    [
+     0,
+     4.01,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "jumping_backwards_dodge",
+     "x": -0.5,
+     "z": 2.25,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.45,
+     "speed": 0.9,
+     "hop": [
+      0.18,
+      0.5
+     ],
+     "air": true,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "x": -0.55,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "star": false,
+     "speed": 0.8,
+     "scale": 1.3,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.41,
+     3.24
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.111,
+     1.111
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.525,
+    1.75
+   ],
+   "stars": [
+    "sadi"
+   ],
+   "clear": [
+    [
+     2.89,
+     1.75,
+     1.15
+    ],
+    [
+     2.72,
+     1.75,
+     1.15
+    ],
+    [
+     2.46,
+     1.75,
+     0.9199999999999999
+    ],
+    [
+     2.03,
+     1.75,
+     0.9199999999999999
+    ],
+    [
+     1.61,
+     1.75,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "silly_run",
+     "x": -0.4,
+     "z": 1.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "mz": 1,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     4.18,
+     4.013
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.4,
+    2.45
+   ],
+   "stars": [
+    "sadi"
+   ],
+   "clear": [
+    [
+     3.78,
+     2.45,
+     1.15
+    ],
+    [
+     3.61,
+     2.45,
+     1.15
+    ],
+    [
+     3.26,
+     2.45,
+     0.9199999999999999
+    ],
+    [
+     2.73,
+     2.45,
+     0.9199999999999999
+    ],
+    [
+     2.21,
+     2.45,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "jumping_backwards_dodge",
+     "x": 0.55,
+     "z": 0.1,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.45,
+     "speed": 0.9,
+     "hop": [
+      0.18,
+      0.5
+     ],
+     "air": true,
+     "hold": "carrot",
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5,
+     "toss": {
+      "at": 0.15,
+      "to": [
+       -0.04999999999999993,
+       0,
+       1
+      ],
+      "dur": 0.8,
+      "arc": 1.3
+     }
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "x": 0.5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "star": false,
+     "speed": 0.8,
+     "scale": 1.25,
+     "lift": -1.6,
+     "my": 1.6,
+     "myAt": 0,
+     "myDur": 0.5,
+     "air": true,
+     "reveal": 0.55,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -90,
+     -90
+    ],
+    "r": [
+     4.373,
+     4.154
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.696,
+     0.696
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.525,
+    -0.375
+   ],
+   "dust": [
+    [
+     0.5,
+     -0.85,
+     0.05,
+     0.7
+    ]
+   ],
+   "dirt": [
+    [
+     0.5,
+     -0.85,
+     0,
+     1
+    ]
+   ],
+   "stars": [
+    "compote"
+   ],
+   "clear": [
+    [
+     -3.85,
+     -0.37,
+     1.15
+    ],
+    [
+     -3.63,
+     -0.37,
+     1.15
+    ],
+    [
+     -3.3,
+     -0.37,
+     0.9199999999999999
+    ],
+    [
+     -2.75,
+     -0.37,
+     0.9199999999999999
+    ],
+    [
+     -2.21,
+     -0.37,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "silly_run",
+     "x": 0.45,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "mz": 0.8,
+     "hop": [
+      0.1,
+      0.5
+     ],
+     "air": true,
+     "arm": "both",
+     "aim": "flail"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": -0.05,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 30,
+     "at": 2.125,
+     "star": false,
+     "speed": 0.05,
+     "scale": 1.2,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     50,
+     50
+    ],
+    "r": [
+     4.798,
+     4.605
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.072,
+     1.072
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    0.2,
+    -0.05
+   ],
+   "clear": [
+    [
+     3.88,
+     3.03,
+     1.15
+    ],
+    [
+     3.73,
+     2.91,
+     1.15
+    ],
+    [
+     3.42,
+     2.65,
+     0.9199999999999999
+    ],
+    [
+     2.96,
+     2.26,
+     0.9199999999999999
+    ],
+    [
+     2.5,
+     1.88,
+     0.9199999999999999
+    ],
+    [
+     3.15,
+     -1.9,
+     0.8
+    ],
+    [
+     6,
+     -2.4,
+     1
+    ],
+    [
+     -3.1,
+     1.2,
+     0.8
+    ],
+    [
+     -3.2,
+     -5.2,
+     0.8
+    ],
+    [
+     3,
+     3.4,
+     0.8
+    ],
+    [
+     1.8,
+     4.5,
+     0.8
+    ],
+    [
+     -1.75,
+     4.7,
+     0.8
+    ],
+    [
+     -5.6,
+     -6.2,
+     1
+    ],
+    [
+     -6.6,
+     3.8,
+     1
+    ]
+   ],
+   "stars": [
+    "compote"
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "jump_up",
+     "x": -0.45,
+     "z": -2.3,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.25,
+     "speed": 0.8,
+     "hold": "broom",
+     "scale": 1.35,
+     "hop": [
+      0.5,
+      4
+     ],
+     "hopPh": 63,
+     "air": true,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "x": -1.45,
+     "z": -2.85,
+     "face": "world",
+     "yaw": 45,
+     "at": 0.3,
+     "star": false,
+     "scale": 1.15,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.51,
+     1.49
+    ],
+    "r": [
+     5.702,
+     5.402
+    ],
+    "h": [
+     1.45,
+     1.43
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.45,
+    -2.6999999999999997
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.6,
+     "z0": -2.8,
+     "face": "world",
+     "yaw": -45,
+     "at": 0.5,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.4,
+     "z0": -3.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.1,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.75,
+     "z0": -1.55,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.7,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "stars": [
+    "kob"
+   ],
+   "clear": [
+    [
+     -0.3,
+     3,
+     1.15
+    ],
+    [
+     -0.31,
+     2.7,
+     1.15
+    ],
+    [
+     -0.32,
+     2.29,
+     0.9199999999999999
+    ],
+    [
+     -0.34,
+     1.58,
+     0.9199999999999999
+    ],
+    [
+     -0.36,
+     0.86,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "happy_idle",
+     "x": -2.03,
+     "z": -2.6,
+     "face": "world",
+     "yaw": 60,
+     "at": 2.1,
+     "speed": 0.15,
+     "lift": 1.33,
+     "hold": "broom",
+     "scale": 1.3,
+     "lean": 12,
+     "sway": 4,
+     "swayEvery": 0.25
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     32.98,
+     32.96
+    ],
+    "r": [
+     5.603,
+     5.423
+    ],
+    "h": [
+     2.05,
+     2.05
+    ],
+    "look": [
+     2,
+     2
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    -1.5799999999999998,
+    -2.75
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "celebrating_after_a_win",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.43,
+     "z0": -3.55,
+     "face": "world",
+     "yaw": 40,
+     "at": 1.6,
+     "speed": 0.8
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "celebrating_after_a_win",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.93,
+     "z0": -2.85,
+     "face": "world",
+     "yaw": 70,
+     "at": 2,
+     "speed": 0.8
+    }
+   ],
+   "stars": [
+    "kob"
+   ],
+   "clear": [
+    [
+     1.47,
+     1.95,
+     1.15
+    ],
+    [
+     1.37,
+     1.8,
+     1.15
+    ],
+    [
+     1.09,
+     1.36,
+     0.9199999999999999
+    ],
+    [
+     0.71,
+     0.78,
+     0.9199999999999999
+    ],
+    [
+     0.33,
+     0.19,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": 1.7,
+     "z": -4.35,
+     "face": "world",
+     "yaw": 105,
+     "at": 0.4,
+     "speed": 0.35,
+     "lean": 22,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     80.54,
+     81.03
+    ],
+    "r": [
+     3.041,
+     2.885
+    ],
+    "h": [
+     1,
+     0.98
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 54,
+    "roll": [
+     -4,
+     -6
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    1.45,
+    -4.4
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_walk",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.15,
+     "z0": -4.2,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.2,
+     "speed": 0.5,
+     "mx": 0.4,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_walk",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.45,
+     "z0": -4.9,
+     "face": "world",
+     "yaw": 80,
+     "at": 0.6,
+     "speed": 0.5,
+     "mx": 0.4,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     4.45,
+     -3.9,
+     1.15
+    ],
+    [
+     4.3,
+     -3.95,
+     1.15
+    ],
+    [
+     4.07,
+     -3.96,
+     0.9199999999999999
+    ],
+    [
+     3.7,
+     -4.03,
+     0.9199999999999999
+    ],
+    [
+     3.32,
+     -4.09,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": 1.6,
+     "z": -4.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 0.3
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "zombie_attack_with_right_hand",
+     "x": 2.85,
+     "z": -4.55,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.2,
+     "star": false,
+     "scale": 1.4,
+     "lift": -1.9,
+     "my": 1.9,
+     "myAt": 0.05,
+     "myDur": 0.3,
+     "air": true,
+     "reveal": 0.4,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.95,
+     3.7
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 52
+   },
+   "focus": [
+    2.25,
+    -4.55
+   ],
+   "dust": [
+    [
+     2.85,
+     -4.55,
+     0.05,
+     0.8
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     2.25,
+     -0.6,
+     1.15
+    ],
+    [
+     2.25,
+     -0.85,
+     1.15
+    ],
+    [
+     2.25,
+     -1.09,
+     0.9199999999999999
+    ],
+    [
+     2.25,
+     -1.59,
+     0.9199999999999999
+    ],
+    [
+     2.25,
+     -2.08,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": 1.6,
+     "z": -4.5,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.2,
+     "speed": 0.8,
+     "hop": [
+      0.1,
+      0.5
+     ],
+     "sway": 7,
+     "swayEvery": 0.5,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -60,
+     -60
+    ],
+    "r": [
+     2.75,
+     2.57
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    1.6,
+    -4.5
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     -0.78,
+     -3.12,
+     1.15
+    ],
+    [
+     -0.63,
+     -3.21,
+     1.15
+    ],
+    [
+     -0.48,
+     -3.3,
+     0.9199999999999999
+    ],
+    [
+     -0.19,
+     -3.47,
+     0.9199999999999999
+    ],
+    [
+     0.11,
+     -3.64,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": 2.35,
+     "z": -4.15,
+     "face": "world",
+     "yaw": -35,
+     "at": 0.4,
+     "star": false,
+     "speed": 0.3,
+     "hideParts": [
+      "legL"
+     ],
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -3.55,
+     "face": "world",
+     "yaw": 20,
+     "at": 0.6,
+     "speed": 0.5,
+     "chew": true,
+     "hop": [
+      0.06,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.703,
+     4.515
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.995,
+     0.995
+    ],
+    "fov": 50
+   },
+   "focus": [
+    1.675,
+    -3.85
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     1.68,
+     0.85,
+     1.15
+    ],
+    [
+     1.68,
+     0.66,
+     1.15
+    ],
+    [
+     1.68,
+     0.27,
+     0.9199999999999999
+    ],
+    [
+     1.68,
+     -0.32,
+     0.9199999999999999
+    ],
+    [
+     1.68,
+     -0.91,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": 2.35,
+     "z": -4.15,
+     "face": "world",
+     "yaw": -96,
+     "at": 2.125,
+     "star": false,
+     "speed": 0,
+     "hideParts": [
+      "legL"
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -96,
+     -96
+    ],
+    "r": [
+     3.1,
+     2.95
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    2.35,
+    -4.1499999999999995
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     -0.73,
+     -4.47,
+     1.15
+    ],
+    [
+     -0.58,
+     -4.46,
+     1.15
+    ],
+    [
+     -0.35,
+     -4.43,
+     0.9199999999999999
+    ],
+    [
+     0.04,
+     -4.39,
+     0.9199999999999999
+    ],
+    [
+     0.42,
+     -4.35,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_walk",
+     "x": 1.6,
+     "z": -5,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.3,
+     "speed": 0.8,
+     "mx": -0.3,
+     "mz": 0.05,
+     "chew": true
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": 0.35,
+     "z": -5.95,
+     "face": "world",
+     "yaw": 15,
+     "at": 2.125,
+     "star": false,
+     "speed": 0,
+     "lean": -12,
+     "flap": 0,
+     "upAt": -1,
+     "sway": 4,
+     "swayEvery": 0.25,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     8.25,
+     7.92
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.007,
+     1.007
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -0.063,
+    -5.78
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.55,
+     "z0": -6.05,
+     "face": "world",
+     "yaw": 8,
+     "at": 2.125,
+     "speed": 0,
+     "flap": 0,
+     "upAt": -1,
+     "sway": 4,
+     "swayEvery": 0.25,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.45,
+     "z0": -5.95,
+     "face": "world",
+     "yaw": 14,
+     "at": 2.125,
+     "speed": 0,
+     "flap": 0,
+     "upAt": -1,
+     "sway": 4,
+     "swayEvery": 0.25,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    }
+   ],
+   "clear": [
+    [
+     1.37,
+     2.34,
+     1.15
+    ],
+    [
+     1.31,
+     2.02,
+     1.15
+    ],
+    [
+     1.19,
+     1.33,
+     0.9199999999999999
+    ],
+    [
+     1.01,
+     0.31,
+     0.9199999999999999
+    ],
+    [
+     0.83,
+     -0.7,
+     0.9199999999999999
+    ],
+    [
+     1.23,
+     1.53,
+     0.8
+    ],
+    [
+     1.08,
+     0.72,
+     0.8
+    ],
+    [
+     0.94,
+     -0.09,
+     0.8
+    ],
+    [
+     0.8,
+     -0.91,
+     0.8
+    ],
+    [
+     0.65,
+     -1.72,
+     0.8
+    ],
+    [
+     0.51,
+     -2.53,
+     0.8
+    ],
+    [
+     0.37,
+     -3.34,
+     0.8
+    ],
+    [
+     0.22,
+     -4.16,
+     0.8
+    ],
+    [
+     0.08,
+     -4.97,
+     0.8
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_run",
+     "x": 0.4,
+     "z": -6,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "mx": -0.7,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -34.99,
+     -35
+    ],
+    "r": [
+     6.333,
+     6.079
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.012,
+     1.012
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.944,
+    -6.025
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -1.5,
+     "z0": -6.1,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.2,
+     "mx": -0.75,
+     "arm": "both",
+     "aim": "flail"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.9,
+     "z0": -5.8,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.45,
+     "mx": -0.75,
+     "arm": "both",
+     "aim": "flail"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "silly_run",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.3,
+     "z0": -6.2,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.7,
+     "mx": -0.75,
+     "arm": "both",
+     "aim": "flail"
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     -4.58,
+     -0.84,
+     1.15
+    ],
+    [
+     -4.43,
+     -1.05,
+     1.15
+    ],
+    [
+     -4.12,
+     -1.49,
+     0.9199999999999999
+    ],
+    [
+     -3.67,
+     -2.13,
+     0.9199999999999999
+    ],
+    [
+     -3.21,
+     -2.78,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_walk",
+     "x": 0.9,
+     "z": -6.5,
+     "face": "world",
+     "yaw": -120,
+     "at": 0.3,
+     "speed": 0.45,
+     "mx": -0.4,
+     "mz": -0.25,
+     "lean": 32,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -78.01,
+     -78.01
+    ],
+    "r": [
+     3.5,
+     3.36
+    ],
+    "h": [
+     0.75,
+     0.75
+    ],
+    "look": [
+     0.823,
+     0.823
+    ],
+    "fov": 52,
+    "ease": "lin"
+   },
+   "focus": [
+    0.287,
+    -6.863
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     -3.14,
+     -6.14,
+     1.15
+    ],
+    [
+     -3,
+     -6.16,
+     1.15
+    ],
+    [
+     -2.71,
+     -6.23,
+     0.9199999999999999
+    ],
+    [
+     -2.28,
+     -6.32,
+     0.9199999999999999
+    ],
+    [
+     -1.85,
+     -6.41,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -35.98,
+     -35.93
+    ],
+    "r": [
+     5.481,
+     5.232
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    2.12,
+    -9.036
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 2.42,
+     "z0": -9.286,
+     "face": "world",
+     "yaw": -36.9,
+     "at": 2.125,
+     "speed": 0,
+     "sway": 4,
+     "swayEvery": 0.25,
+     "arm": "both",
+     "aim": "claw",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "clear": [
+    [
+     -1.1,
+     -4.6,
+     1.15
+    ],
+    [
+     -0.95,
+     -4.8,
+     1.15
+    ],
+    [
+     -0.7,
+     -5.16,
+     0.9199999999999999
+    ],
+    [
+     -0.3,
+     -5.71,
+     0.9199999999999999
+    ],
+    [
+     0.11,
+     -6.26,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_walk",
+     "x": 1.5,
+     "z": -7.25,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.3,
+     "mx": -0.35,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -5,
+     -5
+    ],
+    "r": [
+     7.2,
+     6.912
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 60,
+    "ease": "lin"
+   },
+   "focus": [
+    0.221,
+    -8.348
+   ],
+   "crowd": [
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.5,
+     "z0": -8.66,
+     "face": "world",
+     "yaw": 28,
+     "at": 2.125,
+     "speed": 0,
+     "y0": 0.45,
+     "sway": 5,
+     "swayEvery": 0.25,
+     "flapPh": 0,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": -0.14,
+     "z0": -8.84,
+     "face": "world",
+     "yaw": -6,
+     "at": 2.125,
+     "speed": 0,
+     "y0": 0.45,
+     "sway": 5,
+     "swayEvery": 0.25,
+     "flapPh": 0.25,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.2,
+     "z0": -8.64,
+     "face": "world",
+     "yaw": 34,
+     "at": 2.125,
+     "speed": 0,
+     "y0": 0.45,
+     "sway": 5,
+     "swayEvery": 0.25,
+     "flapPh": 0.5,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "n": 1,
+     "cols": 1,
+     "jitter": 0,
+     "x0": 0.55,
+     "z0": -8.84,
+     "face": "world",
+     "yaw": 2,
+     "at": 2.125,
+     "speed": 0,
+     "y0": 0.45,
+     "sway": 5,
+     "swayEvery": 0.25,
+     "flapPh": 0.75,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5
+    }
+   ],
+   "doors": 0,
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     -0.41,
+     -1.18,
+     1.15
+    ],
+    [
+     -0.38,
+     -1.46,
+     1.15
+    ],
+    [
+     -0.33,
+     -2.07,
+     0.9199999999999999
+    ],
+    [
+     -0.25,
+     -2.97,
+     0.9199999999999999
+    ],
+    [
+     -0.17,
+     -3.87,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "being_surprised_and_looking_right",
+     "x": 0.55,
+     "z": -5.55,
+     "face": "world",
+     "yaw": 200,
+     "at": 0.2,
+     "speed": 0.6,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     41.58,
+     41.93
+    ],
+    "r": [
+     4.144,
+     3.965
+    ],
+    "h": [
+     1.25,
+     1.23
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.15,
+    -6.5
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "s": 0,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     2.9,
+     -3.4,
+     1.15
+    ],
+    [
+     2.8,
+     -3.55,
+     1.15
+    ],
+    [
+     2.56,
+     -3.79,
+     0.9199999999999999
+    ],
+    [
+     2.21,
+     -4.18,
+     0.9199999999999999
+    ],
+    [
+     1.87,
+     -4.56,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_run",
+     "x": -2.4,
+     "z": -6.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "mx": 1,
+     "chew": true,
+     "reveal": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     16.31,
+     17.35
+    ],
+    "r": [
+     4.272,
+     4.191
+    ],
+    "h": [
+     0.32,
+     0.32
+    ],
+    "look": [
+     0.78,
+     0.78
+    ],
+    "fov": 64,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.85,
+    -6.65
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "clear": [
+    [
+     0.35,
+     -2.55,
+     1.15
+    ],
+    [
+     0.4,
+     -2.65,
+     1.15
+    ],
+    [
+     0.2,
+     -3.06,
+     0.9199999999999999
+    ],
+    [
+     0.05,
+     -3.57,
+     0.9199999999999999
+    ],
+    [
+     -0.1,
+     -4.09,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ]
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -6.85,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.5,
+     "lift": 1.73,
+     "my": -1.45,
+     "myAt": 0,
+     "myDur": 0.3,
+     "air": true,
+     "chew": true,
+     "reveal": 0.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.13,
+     7.77
+    ],
+    "r": [
+     3.536,
+     3.331
+    ],
+    "h": [
+     1.4,
+     1.37
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.1,
+    -6.8999999999999995
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "dust": [
+    [
+     0.7,
+     -6.3999999999999995,
+     0.3,
+     0.7
+    ]
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     0.6,
+     -3.4,
+     1.15
+    ],
+    [
+     0.55,
+     -3.6,
+     1.15
+    ],
+    [
+     0.54,
+     -3.84,
+     0.9199999999999999
+    ],
+    [
+     0.48,
+     -4.27,
+     0.9199999999999999
+    ],
+    [
+     0.41,
+     -4.71,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "shot_to_the_chest_falling_backwards",
+     "x": 0,
+     "z": -6.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 9,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.62,
+     "sway": 8,
+     "swayEvery": 1,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     25.64
+    ],
+    "r": [
+     0.3,
+     0.277
+    ],
+    "h": [
+     4.6,
+     4.1
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 54,
+    "roll": [
+     0,
+     10
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -7.3999999999999995
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "stars": [
+    "saxo"
+   ],
+   "clear": [
+    [
+     0,
+     -7.1,
+     1.15
+    ],
+    [
+     0.12,
+     -7.15,
+     1.15
+    ],
+    [
+     0,
+     -7.14,
+     0.9199999999999999
+    ],
+    [
+     0,
+     -7.17,
+     0.9199999999999999
+    ],
+    [
+     0,
+     -7.21,
+     0.9199999999999999
+    ]
+   ]
+  },
+  {
+   "beat": 144,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "happy_idle",
+     "x": -0.9,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "carrot"
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "happy_idle",
+     "x": 0.9,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "broom"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": -2.75,
+     "z": -1.75,
+     "face": "world",
+     "yaw": 165,
+     "at": 2.125,
+     "star": false,
+     "speed": 0,
+     "mx": 1,
+     "mz": -0.25,
+     "hideParts": [
+      "legL"
+     ],
+     "hop": [
+      0.16,
+      0.5
+     ],
+     "air": true,
+     "reveal": 0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     176,
+     175.99
+    ],
+    "r": [
+     5.512,
+     5.292
+    ],
+    "h": [
+     1.8,
+     1.8
+    ],
+    "look": [
+     0.942,
+     0.942
+    ],
+    "fov": 68,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.438,
+    -3.105
+   ],
+   "doors": 0,
+   "fog": 0,
+   "clear": [
+    [
+     -0.05,
+     -8.6,
+     1.15
+    ],
+    [
+     -0.07,
+     -8.38,
+     1.15
+    ],
+    [
+     -0.1,
+     -7.92,
+     0.9199999999999999
+    ],
+    [
+     -0.15,
+     -7.23,
+     0.9199999999999999
+    ],
+    [
+     -0.2,
+     -6.54,
+     0.9199999999999999
+    ],
+    [
+     -2.05,
+     -2.6,
+     0.6
+    ],
+    [
+     -1.75,
+     4.7,
+     0.8
+    ],
+    [
+     -1.6,
+     6.4,
+     0.8
+    ],
+    [
+     -3.1,
+     1.2,
+     0.8
+    ],
+    [
+     1.8,
+     4.5,
+     0.8
+    ],
+    [
+     1.6,
+     6.3,
+     0.8
+    ]
+   ],
+   "stars": [
+    "sadi",
+    "kob"
+   ]
+  },
+  {
+   "beat": 146,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "happy_idle",
+     "x": -0.9,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "carrot"
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "happy_idle",
+     "x": 0.9,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "broom"
+    },
+    {
+     "who": "skel",
+     "look": "skel",
+     "clip": "happy_idle",
+     "x": -1.75,
+     "z": -2,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "star": false,
+     "speed": 0,
+     "hideParts": [
+      "legL"
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     175.99,
+     175.99
+    ],
+    "r": [
+     5.292,
+     5.292
+    ],
+    "h": [
+     1.8,
+     1.8
+    ],
+    "look": [
+     0.942,
+     0.942
+    ],
+    "fov": 68,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.438,
+    -3.105
+   ],
+   "doors": 0,
+   "fog": 0,
+   "clear": [
+    [
+     -0.07,
+     -8.38,
+     1.15
+    ],
+    [
+     -0.07,
+     -8.38,
+     1.15
+    ],
+    [
+     -0.11,
+     -7.72,
+     0.9199999999999999
+    ],
+    [
+     -0.16,
+     -7.06,
+     0.9199999999999999
+    ],
+    [
+     -0.21,
+     -6.4,
+     0.9199999999999999
+    ],
+    [
+     -2.05,
+     -2.6,
+     0.6
+    ],
+    [
+     -1.75,
+     4.7,
+     0.8
+    ],
+    [
+     -1.6,
+     6.4,
+     0.8
+    ],
+    [
+     -3.1,
+     1.2,
+     0.8
+    ],
+    [
+     1.8,
+     4.5,
+     0.8
+    ],
+    [
+     1.6,
+     6.3,
+     0.8
+    ]
+   ],
+   "stars": [
+    "sadi",
+    "kob"
+   ]
+  },
+  {
+   "beat": 149,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "happy_idle",
+     "x": -0.9,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "carrot"
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "happy_idle",
+     "x": 0.9,
+     "z": -3.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "broom"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     175.99,
+     175.99
+    ],
+    "r": [
+     5.292,
+     5.292
+    ],
+    "h": [
+     1.8,
+     1.8
+    ],
+    "look": [
+     0.942,
+     0.942
+    ],
+    "fov": 68,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.438,
+    -3.105
+   ],
+   "remains": {
+    "x": -1.75,
+    "z": -2,
+    "s": 0.05,
+    "yaw": 200,
+    "k": 1.05
+   },
+   "dust": [
+    [
+     -1.85,
+     -1.55,
+     0.02,
+     1.1
+    ]
+   ],
+   "doors": 0,
+   "fog": 0,
+   "clear": [
+    [
+     -0.07,
+     -8.38,
+     1.15
+    ],
+    [
+     -0.07,
+     -8.38,
+     1.15
+    ],
+    [
+     -0.11,
+     -7.72,
+     0.9199999999999999
+    ],
+    [
+     -0.16,
+     -7.06,
+     0.9199999999999999
+    ],
+    [
+     -0.21,
+     -6.4,
+     0.9199999999999999
+    ],
+    [
+     -2.05,
+     -2.6,
+     0.6
+    ],
+    [
+     -1.75,
+     4.7,
+     0.8
+    ],
+    [
+     -1.6,
+     6.4,
+     0.8
+    ],
+    [
+     -3.1,
+     1.2,
+     0.8
+    ],
+    [
+     1.8,
+     4.5,
+     0.8
+    ],
+    [
+     1.6,
+     6.3,
+     0.8
+    ]
+   ],
+   "stars": [
+    "sadi",
+    "kob"
+   ]
+  },
+  {
+   "beat": 152,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "charleston",
+     "x": -1.35,
+     "z": -5.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.951
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "charleston",
+     "x": 0.1,
+     "z": -5.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.951
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "charleston",
+     "x": 1.2,
+     "z": -5.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.951
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "charleston",
+     "x": 0.55,
+     "z": -6.95,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.951,
+     "lift": 0.75,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4,
+     4
+    ],
+    "r": [
+     7.539,
+     7.238
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.113,
+     1.113
+    ],
+    "fov": 58,
+    "ease": "lin"
+   },
+   "focus": [
+    0.125,
+    -5.737
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "remains": {
+    "x": -0.8,
+    "z": -3.95,
+    "yaw": 10,
+    "k": 0.95
+   },
+   "fog": 0,
+   "clouds": false,
+   "clear": [
+    [
+     0.65,
+     1.78,
+     1.15
+    ],
+    [
+     0.63,
+     1.48,
+     1.15
+    ],
+    [
+     0.59,
+     0.84,
+     0.9199999999999999
+    ],
+    [
+     0.52,
+     -0.1,
+     0.9199999999999999
+    ],
+    [
+     0.45,
+     -1.04,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 156,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "charleston",
+     "x": -1.35,
+     "z": -5.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.509
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "charleston",
+     "x": 0.1,
+     "z": -5.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.509
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "charleston",
+     "x": 1.2,
+     "z": -5.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.509
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "charleston",
+     "x": 0.55,
+     "z": -6.95,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.509,
+     "lift": 0.75,
+     "chew": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     14.68,
+     14.53
+    ],
+    "r": [
+     8.683,
+     8.368
+    ],
+    "h": [
+     4,
+     3.9
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 58,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -6.2
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "remains": {
+    "x": -0.8,
+    "z": -3.95,
+    "yaw": 10,
+    "k": 0.95
+   },
+   "moon": [
+    -41.7,
+    17.1,
+    -114.1
+   ],
+   "fog": 0,
+   "clouds": false,
+   "noGrave": true,
+   "clear": [
+    [
+     2.2,
+     2.2,
+     1.15
+    ],
+    [
+     2.1,
+     1.9,
+     1.15
+    ],
+    [
+     1.93,
+     1.15,
+     0.9199999999999999
+    ],
+    [
+     1.65,
+     0.1,
+     0.9199999999999999
+    ],
+    [
+     1.38,
+     -0.95,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  },
+  {
+   "beat": 160,
+   "kind": "dance",
+   "map": "cemetery",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "vampire",
+     "clip": "charleston",
+     "x": -1.35,
+     "z": -5.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "pumpkin",
+     "clip": "charleston",
+     "x": 0.1,
+     "z": -5.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "speed": 0
+    },
+    {
+     "who": "kob",
+     "look": "witch",
+     "clip": "charleston",
+     "x": 1.2,
+     "z": -5.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "speed": 0
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "charleston",
+     "x": 0.55,
+     "z": -6.95,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "lift": 0.75,
+     "chew": true,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -4,
+     -4
+    ],
+    "r": [
+     7.019,
+     7.019
+    ],
+    "h": [
+     2.1,
+     2.1
+    ],
+    "look": [
+     1.113,
+     1.113
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.125,
+    -5.737
+   ],
+   "heap": [
+    {
+     "x": 0,
+     "z": -7.1,
+     "r": 1.15,
+     "h": 1
+    }
+   ],
+   "remains": {
+    "x": -0.8,
+    "z": -3.95,
+    "yaw": 10,
+    "k": 0.95
+   },
+   "moon": [
+    -41.7,
+    17.1,
+    -114.1
+   ],
+   "fog": 0,
+   "clouds": false,
+   "noGrave": true,
+   "clear": [
+    [
+     -0.36,
+     1.26,
+     1.15
+    ],
+    [
+     -0.36,
+     1.26,
+     1.15
+    ],
+    [
+     -0.3,
+     0.39,
+     0.9199999999999999
+    ],
+    [
+     -0.24,
+     -0.49,
+     0.9199999999999999
+    ],
+    [
+     -0.18,
+     -1.36,
+     0.9199999999999999
+    ],
+    [
+     2.55,
+     -7.7,
+     0.9
+    ],
+    [
+     -2.55,
+     -7.6,
+     0.9
+    ]
+   ],
+   "still": true,
+   "stars": [
+    "saxo",
+    "sadi"
+   ]
+  }
+ ]
+}
