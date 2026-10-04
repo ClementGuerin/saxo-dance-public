@@ -29,7 +29,7 @@
       <td align="center"><h3>101</h3>looks</td>
       <td align="center"><h3>64</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
-      <td align="center"><h3>26</h3>videos posted</td>
+      <td align="center"><h3>27</h3>videos posted</td>
       <td align="center"><h3>2</h3>videos a day</td>
       <td align="center"><h3>$0</h3>to render</td>
     </tr>

@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-04T14:17:35.437Z",
+ "updated": "2026-10-04T18:17:33.890Z",
  "posts": [
+  {
+   "id": "2026-10-04-2",
+   "title": "Beautiful Things",
+   "artist": "Benson Boone",
+   "date": "2026-10-04T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-04-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7692874726821137696",
+     "id": "7692874726821137696"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeFO3ssj7Qg/",
+     "id": "DeFO3ssj7Qg"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/QggN56nD7do",
+     "id": "QggN56nD7do"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=2321602918587529",
+     "id": "2321602918587529"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2106806864776196318",
+     "id": "2106806864776196318"
+    }
+   }
+  },
   {
    "id": "2026-10-04",
    "title": "Spooky, Scary Skeletons",
@@ -277,6 +306,10 @@
    "date": "2026-09-29T18:00:00.000Z",
    "thumb": "assets/posts/2026-09-28-4.jpg",
    "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7691019153594961184",
+     "id": "7691019153594961184"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/Dd4W06jjosp/",
      "id": "Dd4W06jjosp"
