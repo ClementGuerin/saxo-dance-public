@@ -2598,6 +2598,60 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 126,
+   "kind": "dance",
+   "map": "canyon",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "noMic": true,
+   "clear": [
+    [
+     1.2,
+     4.2,
+     2
+    ],
+    [
+     0.6,
+     2.8,
+     1.2
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rocker",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "denim",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }
