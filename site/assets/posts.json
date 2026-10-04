@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-04T07:39:28.709Z",
+ "updated": "2026-10-04T14:17:35.437Z",
  "posts": [
+  {
+   "id": "2026-10-04",
+   "title": "Spooky, Scary Skeletons",
+   "artist": "Andrew Gold",
+   "date": "2026-10-04T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-04.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7692812852725435680",
+     "id": "7692812852725435680"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeEzZQpDZIp/",
+     "id": "DeEzZQpDZIp"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/JI-D4lHrI8c",
+     "id": "JI-D4lHrI8c"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1106735715235656",
+     "id": "1106735715235656"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2106746515754479992",
+     "id": "2106746515754479992"
+    }
+   }
+  },
   {
    "id": "2026-10-03-2",
    "title": "we fell in love in october",
@@ -304,6 +333,10 @@
    "date": "2026-09-28T14:00:00.000Z",
    "thumb": "assets/posts/2026-09-28-3.jpg",
    "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7690586349698600225",
+     "id": "7690586349698600225"
+    },
     "instagram": {
      "url": "https://www.instagram.com/reel/Dd1WoSmm2_F/",
      "id": "Dd1WoSmm2_F"
