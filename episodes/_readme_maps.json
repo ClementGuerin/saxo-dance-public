@@ -2652,6 +2652,135 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "chrome",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.1
+   ],
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "chrome",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": -1.1
+    },
+    {
+     "who": "kob",
+     "look": "chrome",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": -1.1
+    }
+   ]
+  },
+  {
+   "beat": 130,
+   "kind": "dance",
+   "map": "curb",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     -55,
+     -55
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": 1,
+    "fov": 56
+   },
+   "focus": [
+    0,
+    0.25
+   ],
+   "noPeds": true,
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "scrub",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.27,
+     "z": -0.14
+    },
+    {
+     "who": "sadi",
+     "look": "chrome",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.27,
+     "z": 0.64
+    }
+   ]
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "cruise",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     150,
+     150
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": 1.2,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    0.6
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "scrub",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0,
+     "z": 1,
+     "lift": 0.42
+    }
+   ]
   }
  ]
 }
