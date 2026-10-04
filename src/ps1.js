@@ -31,6 +31,7 @@ import { buildAgencyMaps } from './maps25.js';
 import { buildParkMaps } from './maps26.js';
 import { boneLook } from './bones.js';
 import { buildCemeteryMaps } from './maps27.js';
+import { buildCanyonMaps } from './maps28.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -660,6 +661,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   sleepwalker: 'assets/models/saxo_sleepwalker.glb',
   // the singer's look in the clip: a black Nordic knit sweater with a white snowflake and star yoke, cream cuffs and hem, slim blue jeans, white sneakers ("we fell in love in october", 2026-10-03)
   nordic: 'assets/models/saxo_nordic.glb',
+  // the indie rock singer's look in the clip: a big mop of dark brown curls over the ears and forehead, a black jacket with a cream fleece collar open over a white t-shirt, slim blue jeans, brown boots ("Beautiful Things", 2026-10-04)
+  rocker: 'assets/models/saxo_rocker.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -694,6 +697,8 @@ const PARTNERS = {
     redsweater: 'assets/models/sadi_redsweater.glb',
     // the vampire: a black satin cape with a red lining and a tall stand-up collar fastened with a gold clasp, a short black dress with a red sash, black tights, red shoes, her pink bow ("Spooky, Scary Skeletons", 2026-10-04)
     vampire: 'assets/models/sadi_vampire.glb',
+    // the band's guitarist and his trainer: a light blue denim jacket, sleeves rolled, over a white t-shirt, black jeans, white sneakers, a brown leather treat pouch at her hip, her pink bow ("Beautiful Things", 2026-10-04)
+    denim: 'assets/models/sadi_denim.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -721,6 +726,8 @@ const PARTNERS = {
     ceo: 'assets/models/kob_ceo.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
+    // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
+    beanie: 'assets/models/kob_beanie.glb',
     spa: 'assets/models/kob_spa.glb' },   // the spa day: a fluffy white bathrobe with a pink belt, a pink towel turban, fluffy slippers, her bell ("Beauty And A Beat": the cat who won't touch the water)   // the city bus driver: pale blue short-sleeved shirt, navy tie, navy trousers, a peaked cap with a gold badge, her bell ("Dans ma bulle")   // a maneki-neko lucky-cat suit: white with calico patches, red bib, gold bell, a gold koban coin ("Caramelldansen")
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
       club: 'popstar', stage: 'popstar', arcade: 'popstar', beach: 'beach', pirate: 'beach', candy: 'beach', volcano: 'beach', tokyo: 'ninja', snow: 'ninja', subway: 'ninja', graveyard: 'witch', supermarket: 'chef', highway: 'moto' } },
@@ -842,7 +849,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -958,7 +965,7 @@ function actorSpec(a, e, map) {
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie, dizzy: a.dizzy ?? null,
-    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null,   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
+    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null,   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1165,6 +1172,8 @@ function propMesh(kind) {
   } else if (kind === 'bone') {       // "Spooky, Scary Skeletons" (2026-10-04): a cartoon femur held crosswise in front of the paw (along x, a knob pair at each end), ivory and a little self-lit so it reads at night
     const iv = mat({ color: 0xf6f0de, unlit: 0.35 }), sh = add(cyl(0.028, 0.028, 0.36, iv), 0, 0.075); sh.rotation.z = Math.PI / 2;
     for (const x of [-0.18, 0.18]) for (const y of [-0.03, 0.03]) add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.042, 0), iv), x, 0.075 + y);
+  } else if (kind === 'biscuit' || kind === 'bigbiscuit') {   // "Beautiful Things" (2026-10-04 2nd): a dog biscuit, bone-shaped, golden and a little self-lit (it must read at 270x480); the big one is the jackpot
+    G.add(biscuitMesh(kind === 'bigbiscuit' ? 2.6 : 1));
   } else if (kind === 'pail') {       // the trick-or-treat pail: an orange jack-o'-lantern bucket with a black face and handle, hanging from the paw, candy on top
     const o = mat({ color: 0xff7a14, unlit: 0.35 }), ink = mat({ color: 0x15100c }); add(cyl(0.12, 0.1, 0.16, o, 8), 0, -0.13);
     for (const sd of [-1, 1]) add(new THREE.Mesh(new THREE.ConeGeometry(0.026, 0.04, 3), ink), sd * 0.045, -0.1, 0.116).rotation.x = Math.PI / 2;
@@ -1481,6 +1490,38 @@ function chewBone(D) {
 }
 // "Spooky, Scary Skeletons" (2026-10-04): `tongue`, a dog's pink tongue hanging out of the mouth, wagging a little:
 // delight (his drawn mouth can't smile wider), in the head bone's frame like FACE
+// "Beautiful Things" (2026-10-04 2nd): a dog biscuit bone-shaped (a bar with two lobes at each end), along x, centred
+function biscuitMesh(k = 1) {
+  const q = new THREE.Group(), m = mat({ color: 0xd8963c, unlit: 0.35 }), dark = mat({ color: 0xb87428, unlit: 0.3 });
+  const bar = new THREE.Mesh(new THREE.BoxGeometry(0.2 * k, 0.05 * k, 0.03 * k), m); q.add(bar);
+  for (const x of [-0.1, 0.1]) for (const y of [-0.028, 0.028]) { const l = new THREE.Mesh(new THREE.CylinderGeometry(0.034 * k, 0.034 * k, 0.03 * k, 8), m); l.rotation.x = Math.PI / 2; l.position.set(x * k, y * k, 0); q.add(l); }
+  for (const x of [-0.04, 0, 0.04]) { const d = new THREE.Mesh(new THREE.BoxGeometry(0.012 * k, 0.012 * k, 0.034 * k), dark); d.position.set(x * k, 0.004 * k, 0); q.add(d); }   // the baked dots
+  return q;
+}
+// `treat` (actor field): the dog-biscuit trick. { nose: s | true (balanced across the top of the muzzle from s), big
+// (the jackpot, x2.6), flip: s (it leaves the nose upwards, spinning, and drops into the mouth over dur, 0.55 s, peaking
+// h m, 0.8, over the line between its start, `from` [x, y, z] or the nose, and the mouth), mouth: s (held across the
+// jaws from s; after a flip, from its end), gone: s (no biscuit from s: eaten, or taken), noseOff / mouthOff (the head
+// bone's frame, measured on Saxo; a cat's muzzle is shorter), mouthRot (rad about the head's up: crosswise reads from the
+// front, PI / 2 along the muzzle reads in profile) }. Pure in t, in the head bone's frame like FACE.
+const NOSE_TOP = [0, 0.22, 0.375];   // on the bridge of the muzzle, between the eyes and the nose tip (lower, it sat behind the nose: two orange cheek blobs from the front)
+const _bq = new THREE.Quaternion(), _be = new THREE.Euler(), _bA = new THREE.Vector3(), _bB = new THREE.Vector3();
+function biscuitTrick(D, T, c) {
+  if (T.gone === true || (T.gone != null && T.gone !== false && c >= T.gone)) return;
+  const k = T.big ? 2.0 : 1.3, sc = D.curScale || D.scale || 1, dur = T.dur || 0.55;   // the jackpot at 2.2: at 2.6 it hid his straining eyes
+  const inMouth = T.mouth === true || (T.mouth != null && T.mouth !== false && c >= T.mouth) || (T.flip != null && c >= T.flip + dur);   // true: from the shot's start (c >= true compared with 1)
+  const flying = T.flip != null && c >= T.flip && c < T.flip + dur;
+  const onNose = !inMouth && !flying && T.nose != null && T.nose !== false && (T.nose === true || c >= T.nose);
+  if (!inMouth && !flying && !onNose) return;
+  const g = faceProp(D, T.big ? 'bigtreat' : 'treat', () => biscuitMesh(k));
+  if (onNose) { faceAt(D, T.noseOff || NOSE_TOP, g.position); g.quaternion.copy(_fq).multiply(_bq.setFromEuler(_be.set(-0.25, 0, 0.08))); g.scale.setScalar(sc); return; }
+  if (inMouth) { faceAt(D, T.mouthOff || [0, 0.06, 0.4], g.position); g.quaternion.copy(_fq).multiply(_bq.setFromEuler(_be.set(0.15, T.mouthRot || 0, 0))); g.scale.setScalar(sc); return; }   // mouthRot: turned about the head's up (PI / 2: along the muzzle, which reads in profile)
+  const u = (c - T.flip) / dur, uu = u * u * (3 - 2 * u);
+  if (T.from) _bA.set(T.from[0], T.from[1], T.from[2]); else faceAt(D, T.noseOff || NOSE_TOP, _bA);
+  faceAt(D, T.mouthOff || [0, 0.06, 0.4], _bB);
+  g.position.copy(_bA).lerp(_bB, uu); g.position.y += (T.h ?? 0.8) * 4 * u * (1 - u);
+  g.quaternion.copy(camera.quaternion).multiply(_bq.setFromEuler(_be.set(0, 0, u * Math.PI * 4))); g.scale.setScalar(sc);   // spinning in the screen's plane: broadside to the lens all the way (tumbling, it went edge-on and read as a stick)
+}
 function dogTongue(D, t) {
   const g = faceProp(D, 'tongue', () => { const q = new THREE.Group(), m = mat({ color: 0xff8ab0, unlit: 0.45 }); const tg = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.17, 0.035), m); tg.position.set(0, -0.085, 0); q.add(tg); const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.035, 8), m); tip.rotation.x = Math.PI / 2; tip.position.set(0, -0.17, 0); q.add(tip); return q; });
   faceAt(D, [0, 0.03, 0.42], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.35, 0, 0.18 * Math.sin(t * 13)))); g.scale.setScalar(D.curScale || D.scale || 1);
@@ -1774,6 +1815,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
+    if (A.treat && D.head) biscuitTrick(D, A.treat, t - t0);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }
   window.STARS = [...new Set(stars.sort((a, b) => a[0] - b[0]).map(s => s[1]))].slice(0, 2);   // more than two faces cover the lyrics
