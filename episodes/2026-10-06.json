@@ -1,0 +1,3445 @@
+{
+ "date": "2026-10-06",
+ "song": {
+  "title": "Golden",
+  "artist": "HUNTR/X"
+ },
+ "logline": "At the GOLDEN premiere the idol trio takes the big high note in turn: Compote screams it and blows the speaker stacks, Sadi swoons it and the front row faints, Kob the manager won't even put down her milk; then the leader, a dog who fetched a fan's tennis ball mid-show, spits it out and HOWLS the note at the moon, the whole arena howls with him and a golden barrier bursts over the stadium, until Kob pulls the plug",
+ "new": "src/maps31.js: premiere (an open-air K-pop arena at night: the stage under a giant GOLDEN LED screen that counts down and turns gold, side towers chasing on the beat, searchlight beams, a centre mic that rises out of a hatch into a spotlight, speaker stacks that blow out in smoke and sparks, confetti cannons, the pit of pet fans in purple tees with lightsticks that wave, cheer, jump, faint, get blown back and howl, a QUEEN banner, stands of lightstick dots that turn gold, the city and a tower on its hill, a full moon; the wings with Kob's gold throne and the power box; the golden barrier, a geodesic dome of gold bars that bursts out of the stage; rings of sound rising from a howl; hearts over the crowd; a tennis ball's keyframes); the actor field ballMouth (a tennis ball in the jaws); three looks: the idol trio in the film's stage colours (Saxo's lavender braid and black-and-gold jacket, Sadi's pink ponytail in white and gold, Compote's black buns and white varsity jacket)",
+ "notes": "The world, from the film's own clip of its Golden sequence (looked at as contact sheets; its burnt-in subtitles not transcribed): the girl group's live premiere of the song under a GOLDEN sign, the fans in purple with lightsticks and banners, the leader's lavender braid and black-and-gold jacket, a countdown, the dressing room; in the film the idols' voices raise a golden barrier over the city. The words, from whitelisted keywords per line (keywords.py: sorted, never the lines): throne, queen, lives, sides, place, wild, stage, born, up, moment, glowing, together, golden, voices. The line-up: the high note, each in character (GAGS 3): Compote violent (the speakers), Sadi the romance (the fainting fans), Kob refuses (her milk), and the lead last and absurd (a dog: he howls it, and the dogs' trend on this song is exactly that). Kob is the manager on her throne in the wings (the watcher's deadpan inserts), and she unplugs things (the 2026-09-25 thread). The karaoke has no blocklisted word. The Short (60 s or less, the end kept) opens on the crowd going wild (S09, a dance).",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "happy_idle",
+  "happy_walk",
+  "happy_run",
+  "sitting_talking",
+  "charleston",
+  "house_dance_variation_two",
+  "female_hip_hop_raise_the_roof_dancing",
+  "being_surprised_and_looking_right",
+  "long_yell_leaning_forward",
+  "long_yell_while_standing_leaning_back"
+ ],
+ "tags": {
+  "structure": "line-up",
+  "scenes": [
+   "idol trio in sync",
+   "the fetch",
+   "spot stolen",
+   "the mic rises",
+   "speaker blow-out",
+   "fans faint",
+   "Kob sips through her turn",
+   "the howl",
+   "golden barrier",
+   "Kob pulls the plug"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "premiere"
+  ],
+  "ref": "spicy-lineup",
+  "lyric_literal": "'throne' (Kob's gold throne), 'queen' (the QUEEN banner), 'place' (his centre mark taken), 'wild' (the crowd), 'up' (the trio jumps), 'glowing, together' (the lightsticks), 'golden' (the screen turns gold, the barrier), 'voices' (the pit sings, then howls)",
+  "experiment": "A line-up of the cast taking the same high note in turn (the spicy-lineup format, each in character, the dog last: he howls it) on a 2.1M-video film hit: more comments per 1,000 views than the last week's story episodes?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.1,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.1,
+     "speed": 1
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.1,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "r": [
+     9.8,
+     6.6,
+     4.8,
+     4.35
+    ],
+    "h": [
+     2.6,
+     1.55,
+     0.8,
+     0.66
+    ],
+    "look": [
+     0.84,
+     0.84,
+     0.84,
+     0.84
+    ],
+    "fov": 68,
+    "roll": [
+     0,
+     -3,
+     -9,
+     -5
+    ],
+    "hand": 0.15,
+    "ease": "out"
+   },
+   "focus": [
+    0,
+    0.4
+   ],
+   "fans": "wave",
+   "clear": [
+    [
+     0,
+     4.75,
+     0.7
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "sitting_talking",
+     "x": -9.2,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.45,
+     "speed": 0,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.227,
+     2.904
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    -9.2,
+    0
+   ],
+   "noguests": true,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.8,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.8,
+     "speed": 1
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.8,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -2,
+     -2
+    ],
+    "r": [
+     4.962,
+     4.664
+    ],
+    "h": [
+     0.28,
+     0.28
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 64,
+    "roll": [
+     -6,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "fans": "wave",
+   "clear": [
+    [
+     -0.17,
+     5.39,
+     0.55
+    ],
+    [
+     -0.16,
+     5.09,
+     0.55
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "female_hip_hop_raise_the_roof_dancing",
+     "x": -1.55,
+     "z": 1.75,
+     "face": "world",
+     "yaw": 12,
+     "at": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -0.73,
+     -0.77
+    ],
+    "r": [
+     3.95,
+     3.7
+    ],
+    "h": [
+     0.62,
+     0.6
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56,
+    "roll": [
+     4,
+     2
+    ]
+   },
+   "focus": [
+    -1.55,
+    1.75
+   ],
+   "banner": true,
+   "fans": "cheer",
+   "clear": [
+    [
+     -1.6,
+     5.7,
+     0.75
+    ],
+    [
+     -1.6,
+     5.1,
+     0.6
+    ],
+    [
+     -1.6,
+     4.55,
+     0.45
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "world",
+     "yaw": -25,
+     "at": 0.5,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11.99,
+     12
+    ],
+    "r": [
+     3.22,
+     3.156
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 42
+   },
+   "focus": [
+    1.1,
+    0.5
+   ],
+   "noguests": true,
+   "clear": [
+    [
+     1.77,
+     3.65,
+     0.95
+    ],
+    [
+     1.69,
+     3.27,
+     0.76
+    ],
+    [
+     1.61,
+     2.89,
+     0.76
+    ],
+    [
+     1.53,
+     2.52,
+     0.76
+    ],
+    [
+     1.76,
+     3.59,
+     0.95
+    ],
+    [
+     1.68,
+     3.22,
+     0.76
+    ],
+    [
+     1.6,
+     2.85,
+     0.76
+    ],
+    [
+     1.52,
+     2.48,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 18,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.1
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "being_surprised_and_looking_right",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.25,
+     "speed": 0.8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.754,
+     4.611
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 64
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "ball": [
+    [
+     0.25,
+     1.9,
+     -0.6,
+     4
+    ],
+    [
+     0.6,
+     1,
+     1.45,
+     2
+    ],
+    [
+     0.9,
+     0.3,
+     0.11,
+     1.1
+    ],
+    [
+     1.15,
+     -0.45,
+     0.62,
+     0.55
+    ],
+    [
+     1.42,
+     -0.55,
+     0.11,
+     -0.3
+    ],
+    [
+     1.62,
+     -0.6,
+     0.36,
+     -0.9
+    ],
+    [
+     1.82,
+     -0.65,
+     0.11,
+     -1.5
+    ],
+    [
+     1.95,
+     -0.7,
+     0.16,
+     -1.75
+    ]
+   ],
+   "fans": "wave",
+   "clear": [
+    [
+     0,
+     5.19,
+     0.95
+    ],
+    [
+     0,
+     4.62,
+     0.76
+    ],
+    [
+     0,
+     4.05,
+     0.76
+    ],
+    [
+     0,
+     3.48,
+     0.76
+    ],
+    [
+     0,
+     5.04,
+     0.95
+    ],
+    [
+     0,
+     4.49,
+     0.76
+    ],
+    [
+     0,
+     3.94,
+     0.76
+    ],
+    [
+     0,
+     3.38,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.8
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_run",
+     "x": 0,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 290,
+     "at": 0.1,
+     "speed": 1.3,
+     "mx": -2.5,
+     "mz": 0.9
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     35.66,
+     35.42
+    ],
+    "r": [
+     5.661,
+     5.522
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -1.4,
+    -0.3
+   ],
+   "ball": [
+    [
+     0,
+     -0.75,
+     0.16,
+     0.6
+    ],
+    [
+     0.5,
+     -1.6,
+     0.15,
+     0.95
+    ],
+    [
+     1.2,
+     -2.6,
+     0.15,
+     1.25
+    ],
+    [
+     1.95,
+     -3.4,
+     0.15,
+     1.45
+    ]
+   ],
+   "fans": "wave",
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 26,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_walk",
+     "x": 1.2,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.2,
+     "mz": 1.3,
+     "ballMouth": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.542,
+     5.376
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0.033,
+    0.183
+   ],
+   "fans": "wave",
+   "clear": [
+    [
+     0.03,
+     5.72,
+     0.95
+    ],
+    [
+     0.03,
+     5.06,
+     0.76
+    ],
+    [
+     0.03,
+     4.39,
+     0.76
+    ],
+    [
+     0.03,
+     3.73,
+     0.76
+    ],
+    [
+     0.03,
+     5.56,
+     0.95
+    ],
+    [
+     0.03,
+     4.91,
+     0.76
+    ],
+    [
+     0.03,
+     4.27,
+     0.76
+    ],
+    [
+     0.03,
+     3.62,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 30,
+     "at": 0.4,
+     "speed": 0.3
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "world",
+     "yaw": -30,
+     "at": 0.6,
+     "speed": 0.3,
+     "ballMouth": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.65,
+     4.464
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.94,
+     0.94
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.55,
+    0.4
+   ],
+   "noguests": true,
+   "clear": [
+    [
+     0.55,
+     5.05,
+     0.95
+    ],
+    [
+     0.55,
+     4.49,
+     0.76
+    ],
+    [
+     0.55,
+     3.93,
+     0.76
+    ],
+    [
+     0.55,
+     3.38,
+     0.76
+    ],
+    [
+     0.55,
+     4.86,
+     0.95
+    ],
+    [
+     0.55,
+     4.33,
+     0.76
+    ],
+    [
+     0.55,
+     3.79,
+     0.76
+    ],
+    [
+     0.55,
+     3.26,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 33,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.05,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.05,
+     "speed": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "gangnam",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.05,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -5,
+     -5
+    ],
+    "r": [
+     4.861,
+     4.52
+    ],
+    "h": [
+     0.28,
+     0.28
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 66,
+    "roll": [
+     7,
+     4
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "fans": "cheer",
+   "clear": [
+    [
+     -0.42,
+     5.28,
+     0.55
+    ],
+    [
+     -0.39,
+     4.94,
+     0.55
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 38,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "charleston",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     23,
+     -7
+    ],
+    "r": [
+     5.137,
+     5.137
+    ],
+    "h": [
+     0.6,
+     0.6
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 64,
+    "ease": "lin",
+    "hand": 1,
+    "roll": [
+     5,
+     -4
+    ]
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "fans": "wave",
+   "clear": [
+    [
+     2.01,
+     5.16,
+     0.95
+    ],
+    [
+     1.77,
+     4.59,
+     0.76
+    ],
+    [
+     1.53,
+     4.03,
+     0.76
+    ],
+    [
+     1.28,
+     3.46,
+     0.76
+    ],
+    [
+     -0.63,
+     5.53,
+     0.95
+    ],
+    [
+     -0.55,
+     4.92,
+     0.76
+    ],
+    [
+     -0.48,
+     4.31,
+     0.76
+    ],
+    [
+     -0.4,
+     3.7,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 42,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "charleston",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "speed": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.6,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     12.72,
+     12.36
+    ],
+    "r": [
+     15.89,
+     14.947
+    ],
+    "h": [
+     6.6,
+     6.2
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "fans": "wave",
+   "moon": [
+    -30,
+    46,
+    -120
+   ],
+   "clear": [
+    [
+     3.5,
+     15.5,
+     0.95
+    ],
+    [
+     3.08,
+     13.64,
+     0.76
+    ],
+    [
+     2.66,
+     11.78,
+     0.76
+    ],
+    [
+     2.24,
+     9.92,
+     0.76
+    ],
+    [
+     3.2,
+     14.6,
+     0.95
+    ],
+    [
+     2.82,
+     12.85,
+     0.76
+    ],
+    [
+     2.43,
+     11.1,
+     0.76
+    ],
+    [
+     2.05,
+     9.34,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 46,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "sitting_talking",
+     "x": -9.2,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.45,
+     "speed": 0,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     140.01,
+     140
+    ],
+    "r": [
+     3.126,
+     2.813
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    -9.2,
+    0
+   ],
+   "noguests": true,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 50,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.65,
+     8.73
+    ],
+    "r": [
+     2.326,
+     2.175
+    ],
+    "h": [
+     0.42,
+     0.42
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    0.9
+   ],
+   "mic": [
+    0.35,
+    0.9
+   ],
+   "spot": [
+    0,
+    0.96
+   ],
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "hush": true,
+   "noguests": true,
+   "clear": [
+    [
+     0.35,
+     3.2,
+     0.95
+    ],
+    [
+     0.31,
+     2.92,
+     0.76
+    ],
+    [
+     0.27,
+     2.65,
+     0.76
+    ],
+    [
+     0.33,
+     3.05,
+     0.95
+    ],
+    [
+     0.29,
+     2.79,
+     0.76
+    ],
+    [
+     0.25,
+     2.53,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 54,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 67.3,
+     "at": 0.4,
+     "speed": 0.4
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.4
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "world",
+     "yaw": -67.3,
+     "at": 0.4,
+     "speed": 0.4,
+     "ballMouth": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.99,
+     22
+    ],
+    "r": [
+     5.578,
+     5.355
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.96
+   ],
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "fans": "still",
+   "stare": [
+    0,
+    0.96
+   ],
+   "clear": [
+    [
+     2.09,
+     5.61,
+     0.95
+    ],
+    [
+     1.84,
+     4.98,
+     0.76
+    ],
+    [
+     1.59,
+     4.36,
+     0.76
+    ],
+    [
+     1.34,
+     3.74,
+     0.76
+    ],
+    [
+     2.01,
+     5.4,
+     0.95
+    ],
+    [
+     1.77,
+     4.8,
+     0.76
+    ],
+    [
+     1.52,
+     4.21,
+     0.76
+    ],
+    [
+     1.28,
+     3.61,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_walk",
+     "x": 0.9,
+     "z": 0.55,
+     "face": "world",
+     "yaw": -55,
+     "at": 0.3,
+     "mx": -0.75,
+     "mz": -0.15,
+     "ballMouth": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     20.01,
+     20
+    ],
+    "r": [
+     3.335,
+     3.135
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 56,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.525,
+    0.475
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.96
+   ],
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "noguests": true,
+   "clear": [
+    [
+     1.67,
+     3.61,
+     0.95
+    ],
+    [
+     1.53,
+     3.23,
+     0.76
+    ],
+    [
+     1.39,
+     2.86,
+     0.76
+    ],
+    [
+     1.26,
+     2.48,
+     0.76
+    ],
+    [
+     1.6,
+     3.42,
+     0.95
+    ],
+    [
+     1.47,
+     3.07,
+     0.76
+    ],
+    [
+     1.34,
+     2.71,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 62,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_walk",
+     "x": -0.55,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.2,
+     "mx": 0.55,
+     "mz": -0.2,
+     "speed": 1.5
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -0.2,
+     "face": "world",
+     "yaw": -45,
+     "at": 0.4,
+     "speed": 0.3,
+     "ballMouth": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     35.01,
+     35
+    ],
+    "r": [
+     4.98,
+     4.831
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.94,
+     0.94
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.362,
+    0.125
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "noguests": true,
+   "clear": [
+    [
+     3.22,
+     4.2,
+     0.95
+    ],
+    [
+     2.88,
+     3.71,
+     0.76
+    ],
+    [
+     2.53,
+     3.22,
+     0.76
+    ],
+    [
+     2.19,
+     2.74,
+     0.76
+    ],
+    [
+     3.13,
+     4.08,
+     0.95
+    ],
+    [
+     2.8,
+     3.61,
+     0.76
+    ],
+    [
+     2.47,
+     3.13,
+     0.76
+    ],
+    [
+     2.14,
+     2.66,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "sitting_talking",
+     "x": -9.2,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.45,
+     "speed": 0,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     115,
+     115
+    ],
+    "r": [
+     3.126,
+     2.814
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    -9.2,
+    0
+   ],
+   "noguests": true,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.99,
+     25.01
+    ],
+    "r": [
+     2.79,
+     2.567
+    ],
+    "h": [
+     0.6,
+     0.6
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    0.35
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "hush": true,
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "noguests": true,
+   "clear": [
+    [
+     1.18,
+     2.88,
+     0.95
+    ],
+    [
+     1.04,
+     2.58,
+     0.76
+    ],
+    [
+     1.09,
+     2.68,
+     0.95
+    ]
+   ]
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "long_yell_leaning_forward",
+     "x": 0,
+     "z": 0.17,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.2,
+     "speed": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     38,
+     38
+    ],
+    "r": [
+     2.791,
+     2.511
+    ],
+    "h": [
+     0.6,
+     0.6
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 58,
+    "roll": [
+     4,
+     9
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    0,
+    0.17
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "noguests": true,
+   "micDrop": 0.22,
+   "waves": [
+    1.171,
+    0.45,
+    0.72,
+    1.6,
+    16726586,
+    [
+     0.59,
+     0,
+     0.81
+    ]
+   ],
+   "jolt": [
+    1.171,
+    1.659,
+    2.147
+   ],
+   "clear": []
+  },
+  {
+   "beat": 77.5,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -26.57,
+     -26.94
+    ],
+    "r": [
+     3.578,
+     3.421
+    ],
+    "h": [
+     1.75,
+     1.75
+    ],
+    "look": [
+     -0.25,
+     -0.25
+    ],
+    "fov": 64
+   },
+   "focus": [
+    5,
+    3.4
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "blow": 0.244,
+   "knock": 0.324,
+   "screen": "count",
+   "count": [
+    48,
+    4
+   ],
+   "key": [
+    5,
+    2.8,
+    3.4,
+    1.3,
+    1.05,
+    0.9
+   ],
+   "clear": [
+    [
+     3.4,
+     6.6,
+     0.8
+    ]
+   ]
+  },
+  {
+   "beat": 82,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "sitting_talking",
+     "x": -9.2,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.45,
+     "speed": 0,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     95,
+     95
+    ],
+    "r": [
+     3.328,
+     3.227
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    -9.2,
+    0
+   ],
+   "noguests": true,
+   "blow": -2,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8,
+     8
+    ],
+    "r": [
+     4.945,
+     4.698
+    ],
+    "h": [
+     0.3,
+     1.25
+    ],
+    "look": [
+     0.927,
+     1.077
+    ],
+    "fov": 66,
+    "roll": [
+     -7,
+     -3
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "confetti": 0,
+   "blow": -4,
+   "screen": "gold",
+   "fans": "jump",
+   "clear": [
+    [
+     0.69,
+     5.33,
+     0.55
+    ],
+    [
+     0.65,
+     5.09,
+     0.55
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 0,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "fg": true
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "house_dance_variation_two",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     178.84,
+     178.82
+    ],
+    "r": [
+     9.902,
+     9.752
+    ],
+    "h": [
+     1.5,
+     1.52
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 74,
+    "roll": [
+     4,
+     2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    7
+   ],
+   "confetti": -1.951,
+   "blow": -6,
+   "fans": "wave",
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.4,
+     "ballMouth": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -30,
+     35
+    ],
+    "r": [
+     2.3,
+     2.3
+    ],
+    "h": [
+     0.4,
+     0.4
+    ],
+    "look": [
+     0.78,
+     0.78
+    ],
+    "fov": 60,
+    "roll": [
+     5,
+     -5
+    ],
+    "hand": 1.1,
+    "ease": "lin"
+   },
+   "focus": [
+    1.1,
+    0.5
+   ],
+   "confetti": -3.902,
+   "blow": -8,
+   "screen": "gold",
+   "noguests": true,
+   "clear": [
+    [
+     -0.05,
+     2.49,
+     0.95
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 1,
+     "hop": [
+      0.32,
+      1
+     ],
+     "air": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 1,
+     "hop": [
+      0.32,
+      1
+     ],
+     "air": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 1,
+     "hop": [
+      0.32,
+      1
+     ],
+     "air": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     42.99,
+     43
+    ],
+    "r": [
+     4.849,
+     4.607
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -5
+    ]
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "confetti": -5.854,
+   "blow": -10,
+   "screen": "gold",
+   "fans": "jump",
+   "clear": [
+    [
+     3.31,
+     3.98,
+     0.95
+    ],
+    [
+     2.91,
+     3.55,
+     0.76
+    ],
+    [
+     2.51,
+     3.13,
+     0.76
+    ],
+    [
+     2.12,
+     2.7,
+     0.76
+    ],
+    [
+     3.14,
+     3.8,
+     0.95
+    ],
+    [
+     2.76,
+     3.4,
+     0.76
+    ],
+    [
+     2.39,
+     2.99,
+     0.76
+    ],
+    [
+     2.01,
+     2.59,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "charleston",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8,
+     8
+    ],
+    "r": [
+     5.401,
+     5.13
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 66,
+    "roll": [
+     -5,
+     -2
+    ],
+    "hand": 0.5
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "confetti": -7.805,
+   "blow": -12,
+   "screen": "gold",
+   "fans": "jump",
+   "clear": [
+    [
+     0.75,
+     5.78,
+     0.55
+    ],
+    [
+     0.71,
+     5.51,
+     0.55
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "charleston",
+     "x": -1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.45,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 1.1,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.45,
+     "speed": 1,
+     "ballMouth": true
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.45,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12,
+     -12
+    ],
+    "r": [
+     5.063,
+     4.81
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0,
+    0.433
+   ],
+   "confetti": -9.756,
+   "blow": -14,
+   "screen": "gold",
+   "fans": "cheer",
+   "clear": [
+    [
+     -1.05,
+     5.39,
+     0.95
+    ],
+    [
+     -0.93,
+     4.79,
+     0.76
+    ],
+    [
+     -0.8,
+     4.2,
+     0.76
+    ],
+    [
+     -0.67,
+     3.6,
+     0.76
+    ],
+    [
+     -1,
+     5.14,
+     0.95
+    ],
+    [
+     -0.88,
+     4.57,
+     0.76
+    ],
+    [
+     -0.76,
+     4.01,
+     0.76
+    ],
+    [
+     -0.64,
+     3.44,
+     0.76
+    ]
+   ],
+   "mic": false
+  },
+  {
+   "beat": 109,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "happy_walk",
+     "x": -0.75,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 55,
+     "at": 0.3,
+     "mx": 0.75,
+     "mz": -0.15
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": 0.75,
+     "face": "world",
+     "yaw": -20,
+     "at": 0.5,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.01,
+     10.01
+    ],
+    "r": [
+     4.949,
+     4.751
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.91,
+     0.91
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.287,
+    0.588
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "confetti": -12.195,
+   "blow": -16,
+   "screen": "gold",
+   "noguests": true,
+   "clear": [
+    [
+     1.15,
+     5.46,
+     0.95
+    ],
+    [
+     1.04,
+     4.88,
+     0.76
+    ],
+    [
+     0.94,
+     4.29,
+     0.76
+    ],
+    [
+     0.84,
+     3.71,
+     0.76
+    ],
+    [
+     1.11,
+     5.27,
+     0.95
+    ],
+    [
+     1.01,
+     4.71,
+     0.76
+    ],
+    [
+     0.91,
+     4.14,
+     0.76
+    ],
+    [
+     0.82,
+     3.58,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.4,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     25,
+     24.99
+    ],
+    "r": [
+     2.925,
+     2.691
+    ],
+    "h": [
+     0.65,
+     0.65
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    0.35
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "hush": true,
+   "confetti": -13.659,
+   "blow": -18,
+   "noguests": true,
+   "clear": [
+    [
+     1.24,
+     3,
+     0.95
+    ],
+    [
+     1.09,
+     2.68,
+     0.76
+    ],
+    [
+     1.14,
+     2.79,
+     0.95
+    ],
+    [
+     1,
+     2.5,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -177.51,
+     -177.4
+    ],
+    "r": [
+     2.302,
+     2.202
+    ],
+    "h": [
+     0.95,
+     0.93
+    ],
+    "look": [
+     -1,
+     -1
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -0.4,
+    4.4
+   ],
+   "hearts": -0.15,
+   "faint": -0.4,
+   "fans": "swoon",
+   "confetti": -15.61,
+   "blow": -20,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "sitting_talking",
+     "x": -9.2,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.45,
+     "speed": 0,
+     "hold": "milk"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     99.99,
+     99.99
+    ],
+    "r": [
+     3.63,
+     2.904
+    ],
+    "h": [
+     2.1,
+     2.1
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 52,
+    "ease": "lin"
+   },
+   "focus": [
+    -9.2,
+    0
+   ],
+   "spot": [
+    -9.200000000000001,
+    0
+   ],
+   "noguests": true,
+   "blow": -22,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "sitting_talking",
+     "x": -9.2,
+     "z": 0,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.45,
+     "speed": 0,
+     "hold": null,
+     "holdL": "milk",
+     "sip": true,
+     "sipHand": "L"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     150,
+     150
+    ],
+    "r": [
+     3.094,
+     2.908
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.22,
+     1.22
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    -9.2,
+    0
+   ],
+   "spot": [
+    -9.200000000000001,
+    0
+   ],
+   "noguests": true,
+   "blow": -24,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 129,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_walk",
+     "x": 0.75,
+     "z": 1,
+     "face": "world",
+     "yaw": -35,
+     "at": 0.3,
+     "mx": -0.75,
+     "mz": -0.65,
+     "ballMouth": true
+    },
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": -1.15,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 40,
+     "at": 0.6,
+     "speed": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 1.2,
+     "z": 0.85,
+     "face": "world",
+     "yaw": -40,
+     "at": 0.2,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8,
+     7.99
+    ],
+    "r": [
+     5.597,
+     5.373
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.142,
+    0.758
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "hush": true,
+   "blow": -26,
+   "fans": "still",
+   "stare": [
+    0,
+    0.35
+   ],
+   "clear": [
+    [
+     0.92,
+     6.3,
+     0.95
+    ],
+    [
+     0.83,
+     5.64,
+     0.76
+    ],
+    [
+     0.73,
+     4.97,
+     0.76
+    ],
+    [
+     0.64,
+     4.31,
+     0.76
+    ],
+    [
+     0.89,
+     6.08,
+     0.95
+    ],
+    [
+     0.8,
+     5.44,
+     0.76
+    ],
+    [
+     0.71,
+     4.8,
+     0.76
+    ],
+    [
+     0.62,
+     4.16,
+     0.76
+    ]
+   ]
+  },
+  {
+   "beat": 134,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     39.99,
+     39.99
+    ],
+    "r": [
+     2.535,
+     2.332
+    ],
+    "h": [
+     0.75,
+     0.75
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    0.35
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "hush": true,
+   "blow": -28,
+   "noguests": true,
+   "ball": [
+    [
+     0,
+     0,
+     0.88,
+     0.8
+    ],
+    [
+     0.62,
+     0,
+     0.88,
+     0.8
+    ],
+    [
+     0.75,
+     0.38,
+     1.22,
+     0.95
+    ],
+    [
+     0.95,
+     0.72,
+     0.95,
+     1.1
+    ],
+    [
+     1.2,
+     1,
+     0.15,
+     1.3
+    ],
+    [
+     1.45,
+     1.22,
+     0.45,
+     1.45
+    ],
+    [
+     1.7,
+     1.42,
+     0.15,
+     1.6
+    ],
+    [
+     1.95,
+     1.6,
+     0.15,
+     1.7
+    ]
+   ],
+   "clear": []
+  },
+  {
+   "beat": 138,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.35,
+     "speed": 0.32
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.1,
+     25.2
+    ],
+    "r": [
+     2.081,
+     1.879
+    ],
+    "h": [
+     0.3,
+     0.28
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 62,
+    "roll": [
+     -5,
+     -8
+    ]
+   },
+   "focus": [
+    0,
+    0.35
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "hush": true,
+   "blow": -30,
+   "noguests": true,
+   "moon": [
+    -21,
+    26,
+    -46
+   ],
+   "clear": []
+  },
+  {
+   "beat": 142.3,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.2,
+     "speed": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     13.74,
+     13.09
+    ],
+    "r": [
+     2.316,
+     2.207
+    ],
+    "h": [
+     0.5,
+     0.45
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 64,
+    "roll": [
+     6,
+     3
+    ]
+   },
+   "focus": [
+    0,
+    0.35
+   ],
+   "mic": true,
+   "spot": [
+    0,
+    0.35
+   ],
+   "blow": -32,
+   "noguests": true,
+   "moon": [
+    -1,
+    40,
+    -50
+   ],
+   "waves": [
+    0.05,
+    0,
+    1.35,
+    0.75
+   ],
+   "dome": [
+    0.15,
+    1
+   ],
+   "gold": true,
+   "clear": [
+    [
+     0.55,
+     2.6,
+     0.95
+    ],
+    [
+     0.5,
+     2.5,
+     0.95
+    ]
+   ]
+  },
+  {
+   "beat": 145,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": -1.1,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 12,
+     "at": 1.2,
+     "speed": 0.1
+    },
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 20,
+     "at": 1.25,
+     "speed": 0.1
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": 1.25,
+     "z": 0.1,
+     "face": "world",
+     "yaw": 28,
+     "at": 1.2,
+     "speed": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     55,
+     55
+    ],
+    "r": [
+     6.226,
+     5.977
+    ],
+    "h": [
+     0.42,
+     0.42
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.05,
+    0.4
+   ],
+   "mic": true,
+   "blow": -34,
+   "fans": "howl",
+   "dome": 1,
+   "gold": true,
+   "screen": "gold",
+   "clear": [
+    [
+     5.15,
+     3.97,
+     0.7
+    ],
+    [
+     4.95,
+     3.83,
+     0.7
+    ]
+   ],
+   "moon": [
+    -43,
+    13,
+    -30
+   ],
+   "waves": [
+    [
+     0,
+     -1.1,
+     1.05,
+     0.95
+    ],
+    [
+     0.1,
+     0,
+     1.1,
+     0.55
+    ],
+    [
+     0.05,
+     1.25,
+     1.05,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 147,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "ceo",
+     "clip": "happy_idle",
+     "x": -9.75,
+     "z": -0.7,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 0.2,
+     "holdL": "plug",
+     "cable": [
+      -9.25,
+      0.03,
+      -1.95
+     ],
+     "arm": "L",
+     "aim": [
+      0.62,
+      -0.12,
+      -0.35
+     ],
+     "aim2": [
+      0.72,
+      0.66,
+      0.25
+     ],
+     "aim2At": 0.39,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     150.8,
+     150.59
+    ],
+    "r": [
+     1.947,
+     1.894
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -9.95,
+    -0.85
+   ],
+   "noguests": true,
+   "blow": -36,
+   "clear": [],
+   "mic": false
+  },
+  {
+   "beat": 148,
+   "kind": "dance",
+   "map": "premiere",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": 0,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "speed": 0
+    },
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": -1.05,
+     "z": 0.6,
+     "face": "world",
+     "yaw": 8,
+     "at": 1.3499999999999999,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "long_yell_while_standing_leaning_back",
+     "x": 1.05,
+     "z": 0.6,
+     "face": "world",
+     "yaw": -8,
+     "at": 1.3499999999999999,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.6,
+     5.54
+    ],
+    "r": [
+     5.124,
+     5.074
+    ],
+    "h": [
+     0.5,
+     0.5
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0,
+    0.5
+   ],
+   "blackout": 0,
+   "still": true,
+   "mic": true,
+   "fans": "howl",
+   "dome": 1,
+   "gold": true,
+   "blow": -38,
+   "moon": [
+    -10,
+    30,
+    -60
+   ],
+   "clear": [
+    [
+     0.5,
+     5.6,
+     0.55
+    ]
+   ]
+  }
+ ]
+}

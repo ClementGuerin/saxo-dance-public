@@ -34,6 +34,7 @@ import { buildCemeteryMaps } from './maps27.js';
 import { buildCanyonMaps } from './maps28.js';
 import { buildScrubMaps } from './maps29.js';
 import { buildFotoMaps } from './maps30.js';
+import { buildGoldenMaps } from './maps31.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -669,6 +670,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   scrub: 'assets/models/saxo_scrub.glb',
   // the DtMF-era straw pava hat (pale woven straw, a black band, a medium brim) over a short-sleeved white guayabera with four pockets and thin pleats, untucked, beige linen trousers, white sneakers ("DtMF", 2026-10-05 2nd)
   pava: 'assets/models/saxo_pava.glb',
+  // the K-pop idol lead in the film's stage look: long straight lavender hair with a thick braid over his left shoulder, his ears out, a cropped black stage jacket with gold baroque embroidery open over a white crop top, white high-waisted trousers, white platform boots, gold hoops ("Golden", 2026-10-06)
+  idol: 'assets/models/saxo_idol.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -709,6 +712,8 @@ const PARTNERS = {
     chrome: 'assets/models/sadi_chrome.glb',
     // the party dress: a white ruffled sundress to the knees with puffed sleeves, a red sash with a red hibiscus on it, red sandals, her pink bow ("DtMF", 2026-10-05 2nd)
     fiesta: 'assets/models/sadi_fiesta.glb',
+    // the idol singer: a long hot-pink high ponytail down her back, her pink bow, a white cropped stage jacket with a high collar and gold trim over a white crop top, white wide trousers with a gold chain belt, gold platform boots ("Golden", 2026-10-06)
+    idol: 'assets/models/sadi_idol.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -765,6 +770,8 @@ const PARTNERS = {
     pumpkin: 'assets/models/compote_pumpkin.glb',
     // the girl group's stage look: the white high-collared zip jacket with a carrot patch, shiny black vinyl trousers, the silver belt with its red buckle, silver platforms, her carrot clip ("No Scrubs", 2026-10-05)
     chrome: 'assets/models/compote_chrome.glb',
+    // the idol rapper: black hair in two round buns low at the sides of her head and a short fringe, her carrot clip, an oversized white varsity jacket with gold trim over a black crop top, black shorts, white high-tops ("Golden", 2026-10-06)
+    idol: 'assets/models/compote_idol.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     heads: { chrome: 'compote' },   // the girl-group look came back from Tripo with the top of her head sliced flat (ears and eyes gone): wear her own ("No Scrubs", 2026-10-05)
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
@@ -865,7 +872,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -989,7 +996,7 @@ function actorSpec(a, e, map) {
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie, dizzy: a.dizzy ?? null,
-    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null,   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
+    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1557,6 +1564,20 @@ function biscuitTrick(D, T, c) {
   g.position.copy(_bA).lerp(_bB, uu); g.position.y += (T.h ?? 0.8) * 4 * u * (1 - u);
   g.quaternion.copy(camera.quaternion).multiply(_bq.setFromEuler(_be.set(0, 0, u * Math.PI * 4))); g.scale.setScalar(sc);   // spinning in the screen's plane: broadside to the lens all the way (tumbling, it went edge-on and read as a stick)
 }
+// "Golden" (2026-10-06): `ballMouth` (true or from s into the shot), a tennis ball held in the jaws (the idol fetched it
+// mid-show), in the head bone's frame like FACE, a little in front of the mouth so it reads from the front and in profile
+function mouthBall(D) {
+  const g = faceProp(D, 'ballmouth', () => { const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.115, 1), mat({ color: 0xd8f02a, unlit: 0.5 }))); const seam = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.012, 4, 14), mat({ color: 0xffffff, unlit: 0.6 })); seam.rotation.x = 0.6; q.add(seam); return q; });
+  faceAt(D, [0, 0.04, 0.47], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+// "Golden" (2026-10-06): `sip` (true or from s), a long pink straw from the cup in the right paw up into the corner of
+// the mouth: chibi arms can't lift a cup to the mouth (it sat on the cheek and read as singing), the straw's line carries it
+const _sa = new THREE.Vector3(), _sb = new THREE.Vector3(), _sy = new THREE.Vector3(0, 1, 0);
+function sipStraw(D, hand = 'R') {   // hand: the paw holding the cup ('L' when that side faces the lens)
+  const sc = D.curScale || D.scale || 1, g = faceProp(D, 'sip', () => { const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 1, 6), mat({ color: 0xff6a9a, unlit: 0.55 }))); return q; });
+  faceAt(D, [hand === 'L' ? 0.08 : -0.08, 0.03, 0.4], _sa); (hand === 'L' ? D.handL : D.handR).getWorldPosition(_sb); _sb.y += 0.14 * sc;
+  g.position.copy(_sa).add(_sb).multiplyScalar(0.5); g.quaternion.setFromUnitVectors(_sy, _sb.clone().sub(_sa).normalize()); g.scale.set(sc, _sa.distanceTo(_sb), sc);
+}
 function dogTongue(D, t) {
   const g = faceProp(D, 'tongue', () => { const q = new THREE.Group(), m = mat({ color: 0xff8ab0, unlit: 0.45 }); const tg = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.17, 0.035), m); tg.position.set(0, -0.085, 0); q.add(tg); const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.035, 8), m); tip.rotation.x = Math.PI / 2; tip.position.set(0, -0.17, 0); q.add(tip); return q; });
   faceAt(D, [0, 0.03, 0.42], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.35, 0, 0.18 * Math.sin(t * 13)))); g.scale.setScalar(D.curScale || D.scale || 1);
@@ -1682,9 +1703,9 @@ function splashAt(D, to, k) {   // a tossed prop hits the water: a white ring sp
   });
 }
 // The held plug's cable: a thick black run from the paw to where it goes into the booth (`cable: [x, y, z]`)
-function plugCable(D, to) {
+function plugCable(D, to, side = 'R') {   // side: the paw holding the plug ('Golden': Kob's left, on the lens side)
   const key = D.base + ':cable'; if (!PROPS[key]) { PROPS[key] = new THREE.Mesh(new THREE.BoxGeometry(0.055, 1, 0.055), mat({ color: 0xff7a1a, unlit: 0.25 })); scene.add(PROPS[key]); }   // the orange lead, like the map's
-  const c = PROPS[key], p = palm(D, 'R'); if (!p) return;
+  const c = PROPS[key], p = palm(D, side); if (!p) return;
   const a = p.clone(), b = new THREE.Vector3(...to), d = b.clone().sub(a);
   c.visible = true; c.position.copy(a).add(b).multiplyScalar(0.5); c.scale.set(1, d.length(), 1); c.quaternion.setFromUnitVectors(_up, d.normalize());
 }
@@ -1832,7 +1853,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, A.holdAt != null ? Math.min(t - t0, A.holdAt) : t - t0);   // a frozen photo freezes it mid-air ("DtMF")
     if (A.pelt) peltFruit(D, A, bodyYaw, t - t0);
-    if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
+    if (A.cable && (A.hold === 'plug' || A.holdL === 'plug') && holding) plugCable(D, A.cable, A.hold === 'plug' ? 'R' : 'L');
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
     if (A.ride === 'trolley') rideTrolley(D, bodyYaw + A.rideYaw, A.rideY ?? 0, t);
     if (A.ride === 'duck') rideDuck(D, bodyYaw + A.rideYaw, A.rideY != null ? A.rideY + 0.15 + bob : lift, t);   // rideY: the float's base (standing in the ring, legs in the water)
@@ -1851,6 +1872,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
+    if (A.ballMouth != null && A.ballMouth !== false && (A.ballMouth === true || t - t0 >= A.ballMouth) && D.head) mouthBall(D);
+    if (A.sip != null && A.sip !== false && (A.sip === true || t - t0 >= A.sip) && D.head && D.handR) sipStraw(D, A.sipHand);
     if (A.treat && D.head) biscuitTrick(D, A.treat, t - t0);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
   }

@@ -14,7 +14,8 @@ export function buildHashtags({ song, artist, extra = [], platform }) {
   const byViews = (a, b) => (b.views || 0) - (a.views || 0);
   // "He's A Pirate (Save Me)" -> hesapirate (the tag people use), "Gabry Ponte, Steve Aoki, KEL" -> gabryponte, steveaoki
   const title = slug(song.replace(/\s*[([].*?[)\]]\s*/g, ' ')) || slug(song);
-  const artists = artist.split(/\s*(?:,|&|\bfeat\.?|\bft\.?|\bx\b|\band\b)\s*/i).map(slug).filter(Boolean).slice(0, 2);
+  // a slash joins a name (HUNTR/X -> huntrx, AC/DC -> acdc): split as it was, "/X" read as an "x" separator (#huntr)
+  const artists = artist.replace(/\//g, '').split(/\s*(?:,|&|\bfeat\.?|\bft\.?|\bx\b|\band\b)\s*/i).map(slug).filter(Boolean).slice(0, 2);
   const tags = [
     ...POOL.always,
     title,
