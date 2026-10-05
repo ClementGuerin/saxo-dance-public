@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-05T15:32:56.171Z",
+ "updated": "2026-10-05T18:17:37.372Z",
  "posts": [
+  {
+   "id": "2026-10-05-2",
+   "title": "DtMF",
+   "artist": "Bad Bunny",
+   "date": "2026-10-05T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-05-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7693245800176028961",
+     "id": "7693245800176028961"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeHztWBkvLG/",
+     "id": "DeHztWBkvLG"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/Rr65Z7pj-MM",
+     "id": "Rr65Z7pj-MM"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1979915949345070",
+     "id": "1979915949345070"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2107169290935836905",
+     "id": "2107169290935836905"
+    }
+   }
+  },
   {
    "id": "2026-10-05",
    "title": "No Scrubs",
