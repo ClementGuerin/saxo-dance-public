@@ -33,6 +33,7 @@ import { boneLook } from './bones.js';
 import { buildCemeteryMaps } from './maps27.js';
 import { buildCanyonMaps } from './maps28.js';
 import { buildScrubMaps } from './maps29.js';
+import { buildFotoMaps } from './maps30.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -666,6 +667,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   rocker: 'assets/models/saxo_rocker.glb',
   // the scrub: a red baseball cap worn backwards, a white ribbed tank top, a chunky gold chain, baggy light-blue jeans, white high-top sneakers ("No Scrubs", 2026-10-05)
   scrub: 'assets/models/saxo_scrub.glb',
+  // the DtMF-era straw pava hat (pale woven straw, a black band, a medium brim) over a short-sleeved white guayabera with four pockets and thin pleats, untucked, beige linen trousers, white sneakers ("DtMF", 2026-10-05 2nd)
+  pava: 'assets/models/saxo_pava.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -704,6 +707,8 @@ const PARTNERS = {
     denim: 'assets/models/sadi_denim.glb',
     // the girl group's stage look from the clip: a white zip-up jacket with a high stand-up collar, shiny black vinyl trousers with a wide silver belt and a round red buckle, chunky silver platform sneakers, her pink bow ("No Scrubs", 2026-10-05)
     chrome: 'assets/models/sadi_chrome.glb',
+    // the party dress: a white ruffled sundress to the knees with puffed sleeves, a red sash with a red hibiscus on it, red sandals, her pink bow ("DtMF", 2026-10-05 2nd)
+    fiesta: 'assets/models/sadi_fiesta.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -859,12 +864,21 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
   }
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT) };
+const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
   const u = MAPS.bus.posterMat.uniforms; u.map.value = pt; u.uUseMap.value = 1; u.uCol.value.set(0xffffff);
 } catch (e) { console.warn('bus poster: none yet'); }
+try {   // "DtMF": the perfect photo (a still of its last print, the bus poster's way) on the prints in paws and in the camera's slot
+  const pt = await new THREE.TextureLoader().loadAsync('assets/ui/dtmf_print.png');
+  pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
+  for (const m of [PRINT_MAT, MAPS.marquesina.printMat]) { const u = m.uniforms; u.map.value = pt; u.uUseMap.value = 1; u.uCol.value.set(0xffffff); }
+  const p1 = await new THREE.TextureLoader().loadAsync('assets/ui/dtmf_print1.png');
+  p1.magFilter = p1.minFilter = THREE.NearestFilter; p1.generateMipmaps = false; p1.colorSpace = THREE.NoColorSpace;
+  { const u = PRINT1_MAT.uniforms; u.map.value = p1; u.uUseMap.value = 1; u.uCol.value.set(0xffffff); }
+} catch (e) { console.warn('dtmf print: none yet'); }
 window.MAP_NAMES = Object.keys(MAPS);
 // Affine UVs warp in proportion to triangle size, so a 60 m floor drawn as one quad folds its texture along the
 // diagonal and swims as the camera moves. PS1 games cut big surfaces into small tiles; do the same here: every plane
@@ -1108,6 +1122,17 @@ function propMesh(kind) {
     add(cyl(0.048, 0.058, 0.16, mat({ color: 0xd8f0ff, unlit: 0.3 })), 0, 0.09); add(cyl(0.05, 0.05, 0.02, M(0xbfe4ff)), 0, 0.005);   // the glass, its base at y = 0 (up in the air once worn)
     add(cyl(0.14, 0.13, 0.03, M(0xff9a2e)), 0, 0.172); add(cyl(0.045, 0.055, 0.05, M(0xff9a2e)), 0, 0.14);   // juice spilt round the rim and the last of it inside
     [[0.11, 0, 0.13], [-0.1, 0.05, 0.1], [0.02, 0.12, 0.2], [-0.04, -0.12, 0.08]].forEach(([x, z, l]) => add(box(0.028, l, 0.028, M(0xff8a1a)), x, 0.18 + l / 2, z));   // drips past the rim: down the head once flipped
+  } else if (kind === 'instant') {   // "DtMF": a mint instant camera, lens forward (+z), a flash window, a red self-timer light; the print slot on top
+    add(box(0.2, 0.15, 0.09, mat({ color: 0x8ee0c8, unlit: 0.3 }))); add(box(0.2, 0.025, 0.092, M(0xf2f6f4)), 0, 0.065);
+    const lens = add(cyl(0.05, 0.054, 0.05, M(0x24282c), 10), 0, -0.008, 0.06); lens.rotation.x = Math.PI / 2;
+    const glass = add(cyl(0.034, 0.034, 0.01, glow(0x3a5a8a), 10), 0, -0.008, 0.087); glass.rotation.x = Math.PI / 2;
+    add(box(0.055, 0.028, 0.006, glow(0xffffff)), -0.06, 0.048, 0.047); add(box(0.026, 0.026, 0.006, M(0x24282c)), 0.065, 0.048, 0.047); add(box(0.016, 0.016, 0.006, glow(0xff2a2a)), 0.07, -0.05, 0.047);
+  } else if (kind === 'glove') {     // "DtMF": a red boxing glove (Compote's spare, thrown at the camera): a padded fist, a thumb, a dark red cuff
+    const red = mat({ color: 0xe02a2a, unlit: 0.35 }), fist = new THREE.Mesh(new THREE.IcosahedronGeometry(0.1, 1), red); fist.scale.set(1.0, 1.15, 0.9); add(fist, 0, 0.1);
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.045, 1), red), 0.08, 0.06, 0.03); add(cyl(0.07, 0.075, 0.07, mat({ color: 0xa81818, unlit: 0.3 }), 8), 0, -0.02); add(cyl(0.076, 0.076, 0.015, M(0xf4f4f0), 8), 0, 0.012);   // a dark red cuff, one white band (a white cuff read as a grey pipe)
+  } else if (kind === 'polaroid' || kind === 'polaroid1') {  // "DtMF": an instant print held up: a white card, its picture one of the episode's own photos on both faces (polaroid: the perfect one, assets/ui/dtmf_print.png; polaroid1: the first failure, dtmf_print1.png)
+    const pm = kind === 'polaroid1' ? PRINT1_MAT : PRINT_MAT; add(box(0.19, 0.23, 0.01, M(0xf6f3ea)));
+    add(new THREE.Mesh(new THREE.PlaneGeometry(0.16, 0.16), pm), 0, 0.02, 0.0062); add(new THREE.Mesh(new THREE.PlaneGeometry(0.16, 0.16), pm), 0, 0.02, -0.0062).rotation.y = Math.PI;
   } else if (kind === 'ticket') {  // a boarding pass held up: white card, a pink band, a black barcode (it must read at 270x480)
     add(box(0.17, 0.25, 0.012, M(0xfafafa))); add(box(0.172, 0.07, 0.014, M(0xff5fa2)), 0, 0.085); for (let k = 0; k < 5; k++) add(box(0.012, 0.07, 0.016, M(0x1a1a1a)), -0.05 + k * 0.025, -0.07);
   } else if (kind === 'bachi') {   // a taiko stick along the forearm, red lacquer with a white grip (festival drummer, 2026-09-27; pale wood vanished against the shoji)
@@ -1265,7 +1290,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
   if (kind === 'clock') { g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, 0, 0.22 * Math.sin(t * 55)); (g.userData.ring || []).forEach((l, i) => { l.visible = Math.sin(t * 40 + i) > -0.6; }); return; }   // ringing: it shakes in the paw, its face always to the front (+z, where the lenses are: turned with the body it went edge-on in profile)
   if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
-  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' || kind === 'handmirror' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
+  g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' || kind === 'handmirror' || kind === 'instant' || kind === 'polaroid' || kind === 'polaroid1' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
   if (g.userData.petals) {   // the petals left: petalsLeft, minus one on every pluckEvery beats since the shot's start (the pluck swing reaches on the beat), or
     // minus the one that falls at petalFall s; the latest plucked petal flutters down to the keys (a mesh of its own in PROPS, hidden each frame)
@@ -1805,7 +1830,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0; D.twoPaw = A.arm === 'both';
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
-    if (tossed) tossProp(D, A, bodyYaw, t - t0);
+    if (tossed) tossProp(D, A, bodyYaw, A.holdAt != null ? Math.min(t - t0, A.holdAt) : t - t0);   // a frozen photo freezes it mid-air ("DtMF")
     if (A.pelt) peltFruit(D, A, bodyYaw, t - t0);
     if (A.cable && A.hold === 'plug' && holding) plugCable(D, A.cable);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);

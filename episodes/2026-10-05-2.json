@@ -1,0 +1,2796 @@
+{
+ "date": "2026-10-05",
+ "song": {
+  "title": "DtMF",
+  "artist": "Bad Bunny"
+ },
+ "logline": "Saxo wants one photo of the whole gang at the family party, and like every pet owner who ever tried, he can't get it: Kob turns her back on his camera, he trips in front of the self-timer, the flash sets off Compote's boxing glove, the frog leaps into Sadi's kiss, then nobody's left but the frog; he gives up and they finally dance, and the frog presses the shutter: the perfect photo, the one nobody posed for",
+ "new": "src/maps30.js: marquesina (a Puerto Rican family party at night: a pastel concrete house with iron-barred windows, the carport under its flat slab with string lights, a speaker and pet guests dancing; the yard with the album cover's two white plastic chairs among plantain plants, a mango tree, the domino table with Kob's chair, the low front wall, the neighbours' houses and the hills' lights, a crescent moon); the frog (a cartoon toad with a crest: sit, hop, leap, press, puff), the instant camera on its tripod (a self-timer light that blinks faster, a flash burst, a print sliding out), the failed prints on the table; props instant (a mint instant camera), polaroid and polaroid1 (a print held up, showing the episode's own photos) and glove (a red boxing glove thrown at the lens, frozen mid-air in the photo); two looks: Saxo's straw pava hat and white guayabera, Sadi's white ruffled sundress with a red hibiscus",
+ "notes": "No clip: the official upload is a visualizer with a history lesson about the island's music. The world is the album's: Puerto Rico, a family party, the cover's two white plastic chairs among plantains, its frog. The words, from whitelisted keywords per line (keywords_es.py: sorted, never the lines): fotos, tirar, tuve, beso, abrazo, nunca, ojala, hoy, calle, corazon. The chorus says the singer should have taken more photos when he had her; ours makes it the pet owner's eternal group photo. The karaoke masks two words (a vulgar one and a drug slang word). Kob is the auntie in her housecoat and curlers who won't be photographed (and secretly dances best), Compote the boxer the flash sets off, Sadi the romance (her kiss goes to the frog first), the frog the photobomber who takes the only good photo. The Short (60 s or less, the end kept) opens on photo 1 (S03).",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "happy_idle",
+  "happy_walk",
+  "happy_run",
+  "sitting_talking",
+  "situps",
+  "charleston",
+  "salsa_dancing_side_to_side",
+  "female_salsa_dancing",
+  "clap_while_standing",
+  "clap_while_seated",
+  "boxing_taunt",
+  "falling_flat_on_face",
+  "shaking_head_no_dismissively",
+  "waving"
+ ],
+ "tags": {
+  "structure": "photo fail",
+  "scenes": [
+   "carport party",
+   "the cat turns her back",
+   "self-timer trip",
+   "flash and the glove",
+   "frog photobomb",
+   "empty chairs",
+   "Kob dances on a chair",
+   "the frog takes the photo"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "marquesina"
+  ],
+  "ref": "none",
+  "lyric_literal": "'fotos' (six photos, two on the chorus downbeats), 'tiro' (the flash on the word), 'beso' (the kiss that lands on the frog, then the real one), 'nunca' (nobody's left in the photo)",
+  "experiment": "A pet-owner universal as the whole story (the impossible group photo of four pets: five failed prints, one perfect) on a Spanish-language global hit with a 1.09M-video sound: more likes per 1,000 views than the last week's chart-song episodes (8-10)?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "charleston",
+     "x": -4,
+     "z": -1.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7,
+     "hold": "instant"
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "salsa_dancing_side_to_side",
+     "x": -4.85,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 18,
+     "at": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "salsa_dancing_side_to_side",
+     "x": -3.2,
+     "z": -1.6,
+     "face": "world",
+     "yaw": -18,
+     "at": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "r": [
+     5.95,
+     4.85,
+     4.1,
+     3.75
+    ],
+    "h": [
+     2.55,
+     1.5,
+     0.75,
+     0.55
+    ],
+    "look": [
+     0.86,
+     0.86,
+     0.86,
+     0.86
+    ],
+    "fov": 64,
+    "roll": [
+     0,
+     -4,
+     -9,
+     -6
+    ],
+    "hand": 0.15,
+    "ease": "out"
+   },
+   "focus": [
+    -4,
+    -1.35
+   ],
+   "clear": [
+    [
+     -4,
+     4.6,
+     0.9
+    ],
+    [
+     -4,
+     2.4,
+     0.9
+    ],
+    [
+     -4,
+     3.86,
+     0.7200000000000001
+    ],
+    [
+     -4,
+     3.11,
+     0.7200000000000001
+    ],
+    [
+     -4,
+     2.37,
+     0.7200000000000001
+    ],
+    [
+     -5.2,
+     -3.7,
+     0.6
+    ],
+    [
+     -3,
+     -3.9,
+     0.6
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 3.1,
+     "z": 2.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.42,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.307,
+     3.141
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.28,
+     1.28
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    3.1,
+    2.75
+   ],
+   "noguests": true,
+   "tripod": false,
+   "frog": {
+    "x": 4.1,
+    "y": 0.56,
+    "z": 3,
+    "yaw": 75,
+    "scale": 0.9
+   },
+   "clear": [
+    [
+     6.41,
+     2.75,
+     0.9
+    ],
+    [
+     6.24,
+     2.75,
+     0.9
+    ],
+    [
+     5.99,
+     2.75,
+     0.7200000000000001
+    ],
+    [
+     5.58,
+     2.75,
+     0.7200000000000001
+    ],
+    [
+     5.17,
+     2.75,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": -4,
+     "z": -1.2,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "hold": "instant",
+     "arm": "R",
+     "aim": [
+      0.75,
+      0.55,
+      0.35
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "clap_while_standing",
+     "x": -4.85,
+     "z": -1.55,
+     "face": "world",
+     "yaw": 30,
+     "at": 0.2
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "boxing_taunt",
+     "x": -3.15,
+     "z": -1.55,
+     "face": "world",
+     "yaw": -30,
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.35,
+     3.828
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -4,
+    -1.433
+   ],
+   "tripod": false,
+   "clear": [
+    [
+     -4,
+     2.92,
+     0.9
+    ],
+    [
+     -4,
+     2.39,
+     0.9
+    ],
+    [
+     -4,
+     2.37,
+     0.7200000000000001
+    ],
+    [
+     -4,
+     1.83,
+     0.7200000000000001
+    ],
+    [
+     -4,
+     1.29,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "clap_while_seated",
+     "x": 3.5,
+     "z": -2.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "lift": 0.42,
+     "speed": 1,
+     "holdAt": 2.224
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "happy_idle",
+     "x": 4.05,
+     "z": -2,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.3,
+     "holdAt": 2.224
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 4.75,
+     "z": -1.9,
+     "face": "world",
+     "yaw": -15,
+     "at": 1,
+     "speed": 0.5,
+     "arm": "both",
+     "aim": [
+      -0.3,
+      -0.1,
+      0.4
+     ],
+     "holdAt": 2.224
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.15,
+     3.15
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    4.1,
+    -2.1
+   ],
+   "tripod": false,
+   "noguests": true,
+   "frog": {
+    "x": 4.38,
+    "y": 0.56,
+    "z": 2.72,
+    "yaw": -70,
+    "scale": 1.25
+   },
+   "flashAt": [
+    2.124
+   ],
+   "photo": 2.244,
+   "stop": 2.224,
+   "still": true,
+   "clear": [
+    [
+     4.1,
+     1.05,
+     0.9
+    ],
+    [
+     4.1,
+     1.05,
+     0.9
+    ],
+    [
+     4.1,
+     0.66,
+     0.7200000000000001
+    ],
+    [
+     4.1,
+     0.26,
+     0.7200000000000001
+    ],
+    [
+     4.1,
+     -0.13,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "shaking_head_no_dismissively",
+     "x": 3.9,
+     "z": -1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "hold": "polaroid1",
+     "holdScale": 1.8,
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.5,
+      0.55
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.687,
+     2.525
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 50
+   },
+   "focus": [
+    3.9,
+    -1
+   ],
+   "tripod": false,
+   "noguests": true,
+   "clear": [
+    [
+     3.9,
+     1.69,
+     0.9
+    ],
+    [
+     3.9,
+     1.52,
+     0.9
+    ],
+    [
+     3.9,
+     1.35,
+     0.7200000000000001
+    ],
+    [
+     3.9,
+     1.02,
+     0.7200000000000001
+    ],
+    [
+     3.9,
+     0.68,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "waving",
+     "x": 4.95,
+     "z": 2.32,
+     "face": "world",
+     "yaw": -127,
+     "at": 0.1,
+     "speed": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -135,
+     -135
+    ],
+    "r": [
+     2.616,
+     2.531
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 50
+   },
+   "focus": [
+    4.45,
+    2.3
+   ],
+   "tripod": {
+    "blink": [
+     1.327,
+     9
+    ]
+   },
+   "noguests": true,
+   "frog": {
+    "x": 4.35,
+    "y": 0.56,
+    "z": 2.85,
+    "yaw": 200,
+    "scale": 1
+   },
+   "clear": [
+    [
+     2.6,
+     0.45,
+     0.9
+    ],
+    [
+     2.66,
+     0.51,
+     0.9
+    ],
+    [
+     2.83,
+     0.68,
+     0.7200000000000001
+    ],
+    [
+     3.06,
+     0.91,
+     0.7200000000000001
+    ],
+    [
+     3.29,
+     1.14,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -162.72,
+     -163.3
+    ],
+    "r": [
+     0.943,
+     0.835
+    ],
+    "h": [
+     0.98,
+     0.97
+    ],
+    "look": [
+     0.86,
+     0.86
+    ],
+    "fov": 44
+   },
+   "focus": [
+    4,
+    2.3
+   ],
+   "tripod": {
+    "blink": [
+     -2,
+     6
+    ]
+   },
+   "noguests": true,
+   "frog": false,
+   "clear": [
+    [
+     3.72,
+     1.4,
+     0.9
+    ],
+    [
+     3.76,
+     1.5,
+     0.9
+    ],
+    [
+     3.75,
+     1.51,
+     0.7200000000000001
+    ],
+    [
+     3.79,
+     1.62,
+     0.7200000000000001
+    ],
+    [
+     3.82,
+     1.74,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "clap_while_seated",
+     "x": 3.5,
+     "z": -2.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "lift": 0.42,
+     "speed": 1
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 4.5,
+     "z": -2.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "lift": 0.42,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 4.98,
+     "z": -1.95,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.5,
+     "arm": "R",
+     "aim": [
+      -0.55,
+      0.15,
+      0.55
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.41,
+     -1.45
+    ],
+    "r": [
+     4.051,
+     3.951
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    4.1,
+    -2.1
+   ],
+   "noguests": true,
+   "tripod": {
+    "blink": [
+     -4,
+     4
+    ]
+   },
+   "clear": [
+    [
+     4,
+     1.95,
+     0.9
+    ],
+    [
+     4,
+     1.85,
+     0.9
+    ],
+    [
+     4.01,
+     1.44,
+     0.7200000000000001
+    ],
+    [
+     4.03,
+     0.94,
+     0.7200000000000001
+    ],
+    [
+     4.04,
+     0.43,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_run",
+     "x": 1.45,
+     "z": -1.15,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.1,
+     "speed": 1.4,
+     "mx": 0.95,
+     "reveal": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.9,
+     2.9
+    ],
+    "h": [
+     0.8,
+     0.8
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 56
+   },
+   "focus": [
+    2.2,
+    -1.15
+   ],
+   "noguests": true,
+   "clear": [
+    [
+     2.2,
+     1.75,
+     0.9
+    ],
+    [
+     2.2,
+     1.75,
+     0.9
+    ],
+    [
+     2.2,
+     1.39,
+     0.7200000000000001
+    ],
+    [
+     2.2,
+     1.02,
+     0.7200000000000001
+    ],
+    [
+     2.2,
+     0.66,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 42.5,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "falling_flat_on_face",
+     "x": 2.6,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0,
+     "speed": 0.33,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -22.48,
+     -22.33
+    ],
+    "r": [
+     3.138,
+     3.027
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 60,
+    "roll": [
+     6,
+     10
+    ]
+   },
+   "focus": [
+    2.95,
+    -1.3
+   ],
+   "noguests": true,
+   "tripod": {
+    "blink": [
+     -6,
+     2
+    ]
+   },
+   "clear": [
+    [
+     1.75,
+     1.6,
+     0.9
+    ],
+    [
+     1.8,
+     1.5,
+     0.9
+    ],
+    [
+     1.9,
+     1.24,
+     0.7200000000000001
+    ],
+    [
+     2.05,
+     0.87,
+     0.7200000000000001
+    ],
+    [
+     2.2,
+     0.51,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "falling_flat_on_face",
+     "x": 3,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.35,
+     "speed": 0.15,
+     "air": true,
+     "holdAt": 1.396
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "clap_while_seated",
+     "x": 3.5,
+     "z": -2.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.55,
+     "lift": 0.42,
+     "speed": 0,
+     "holdAt": 1.396
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 4.5,
+     "z": -2.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "lift": 0.42,
+     "speed": 0,
+     "holdAt": 1.396
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 4.98,
+     "z": -1.95,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.5,
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      -0.55,
+      0.15,
+      0.55
+     ],
+     "holdAt": 1.396
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.25,
+     4.25
+    ],
+    "h": [
+     0.86,
+     0.86
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 68
+   },
+   "focus": [
+    4,
+    -2.1
+   ],
+   "noguests": true,
+   "tripod": false,
+   "frog": false,
+   "flashAt": [
+    1.296
+   ],
+   "photo": 1.416,
+   "stop": 1.396,
+   "still": true,
+   "clear": [
+    [
+     4,
+     2.15,
+     0.9
+    ],
+    [
+     4,
+     2.15,
+     0.9
+    ],
+    [
+     4,
+     1.62,
+     0.7200000000000001
+    ],
+    [
+     4,
+     1.09,
+     0.7200000000000001
+    ],
+    [
+     4,
+     0.56,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 50,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 4.5,
+     "z": -2.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "lift": 0.42,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -5.01,
+     -5
+    ],
+    "r": [
+     3.335,
+     3.168
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.28,
+     1.28
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    4.5,
+    -2.22
+   ],
+   "noguests": true,
+   "tripod": {},
+   "clear": [
+    [
+     4.21,
+     1.1,
+     0.9
+    ],
+    [
+     4.22,
+     0.94,
+     0.9
+    ],
+    [
+     4.25,
+     0.69,
+     0.7200000000000001
+    ],
+    [
+     4.28,
+     0.27,
+     0.7200000000000001
+    ],
+    [
+     4.32,
+     -0.14,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 54,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": -2.45,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "hold": "instant",
+     "arm": "R",
+     "aim": [
+      0.1,
+      0.75,
+      0.6
+     ]
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": -2.45,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5,
+     "arm": "both",
+     "aim": [
+      0.35,
+      0.7,
+      0.5
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     88.85,
+     88.97
+    ],
+    "r": [
+     3.501,
+     3.351
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -2.45,
+    -1.02
+   ],
+   "tripod": false,
+   "guests": "watch",
+   "stare": [
+    -2.45,
+    -1
+   ],
+   "clear": [
+    [
+     1.05,
+     -0.95,
+     0.9
+    ],
+    [
+     0.9,
+     -0.96,
+     0.9
+    ],
+    [
+     0.61,
+     -0.96,
+     0.7200000000000001
+    ],
+    [
+     0.18,
+     -0.97,
+     0.7200000000000001
+    ],
+    [
+     -0.26,
+     -0.98,
+     0.7200000000000001
+    ],
+    [
+     -0.35,
+     -0.98,
+     0.7
+    ],
+    [
+     -0.82,
+     -0.99,
+     0.7
+    ],
+    [
+     -1.28,
+     -1,
+     0.7
+    ],
+    [
+     -1.75,
+     -1.01,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": -2.45,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.5,
+     "hold": "glove",
+     "arm": "R",
+     "aim": [
+      0.15,
+      0.55,
+      0.8
+     ],
+     "upAt": -1,
+     "toss": {
+      "at": 0.3,
+      "to": [
+       -2.48,
+       0.8,
+       -0.55
+      ],
+      "dur": 0.6,
+      "arc": 0.1,
+      "scale": 1.3
+     },
+     "holdAt": 0.65
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.35,
+     1.35
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 64
+   },
+   "focus": [
+    -2.45,
+    -1.6
+   ],
+   "tripod": false,
+   "noguests": true,
+   "flashAt": [
+    0.55
+   ],
+   "photo": 0.67,
+   "stop": 0.65,
+   "still": true,
+   "clear": [
+    [
+     -2.45,
+     -0.25,
+     0.9
+    ],
+    [
+     -2.45,
+     -0.25,
+     0.9
+    ],
+    [
+     -2.45,
+     -0.42,
+     0.7200000000000001
+    ],
+    [
+     -2.45,
+     -0.59,
+     0.7200000000000001
+    ],
+    [
+     -2.45,
+     -0.76,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 61,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "situps",
+     "x": -2.45,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "hold": "instant",
+     "arm": "R",
+     "aim": [
+      0.2,
+      -0.15,
+      0.6
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     30.17,
+     30.34
+    ],
+    "r": [
+     2.487,
+     2.375
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.66,
+     0.66
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -2.45,
+    -0.55
+   ],
+   "tripod": false,
+   "noguests": true,
+   "clear": [
+    [
+     -1.2,
+     1.6,
+     0.9
+    ],
+    [
+     -1.25,
+     1.5,
+     0.9
+    ],
+    [
+     -1.36,
+     1.33,
+     0.7200000000000001
+    ],
+    [
+     -1.51,
+     1.06,
+     0.7200000000000001
+    ],
+    [
+     -1.67,
+     0.79,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "female_salsa_dancing",
+     "x": -4.45,
+     "z": -1.85,
+     "face": "world",
+     "yaw": 10,
+     "at": 2.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "salsa_dancing_side_to_side",
+     "x": -3.55,
+     "z": -1.85,
+     "face": "world",
+     "yaw": -10,
+     "at": 0.9
+    },
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": -5.15,
+     "z": -1.15,
+     "face": "world",
+     "yaw": 55,
+     "at": 0.8,
+     "hold": "instant",
+     "arm": "R",
+     "aim": [
+      0.1,
+      0.75,
+      0.6
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.667,
+     4.434
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.927,
+     0.927
+    ],
+    "fov": 62,
+    "roll": [
+     -5,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -4.383,
+    -1.617
+   ],
+   "tripod": false,
+   "clear": [
+    [
+     -4.38,
+     3.05,
+     0.9
+    ],
+    [
+     -4.38,
+     2.82,
+     0.9
+    ],
+    [
+     -4.38,
+     2.47,
+     0.7200000000000001
+    ],
+    [
+     -4.38,
+     1.88,
+     0.7200000000000001
+    ],
+    [
+     -4.38,
+     1.3,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": -4.05,
+     "z": -1.3,
+     "face": "world",
+     "yaw": -8,
+     "at": 1,
+     "speed": 0.5,
+     "arm": "R",
+     "aim": [
+      0.2,
+      0.85,
+      0.5
+     ],
+     "holdAt": 2.473
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "happy_idle",
+     "x": -4.72,
+     "z": -1.38,
+     "face": "world",
+     "yaw": 55,
+     "at": 0.4,
+     "speed": 0.5,
+     "holdAt": 2.473
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.27,
+     1.27
+    ],
+    "r": [
+     2.251,
+     2.251
+    ],
+    "h": [
+     1.9,
+     1.9
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 74
+   },
+   "focus": [
+    -4.3,
+    -1.35
+   ],
+   "tripod": false,
+   "frog": {
+    "x": -5.6,
+    "y": 0,
+    "z": -0.4,
+    "yaw": 20,
+    "scale": 1.3,
+    "pose": "leap",
+    "at": 1.9930000000000003,
+    "to": [
+     -4.39,
+     0.72,
+     -1.16
+    ],
+    "dur": 0.38,
+    "arc": 0.3
+   },
+   "flashAt": [
+    2.373
+   ],
+   "photo": 2.493,
+   "stop": 2.473,
+   "still": true,
+   "clear": [
+    [
+     -4.25,
+     0.9,
+     0.9
+    ],
+    [
+     -4.25,
+     0.9,
+     0.9
+    ],
+    [
+     -4.26,
+     0.62,
+     0.7200000000000001
+    ],
+    [
+     -4.26,
+     0.34,
+     0.7200000000000001
+    ],
+    [
+     -4.27,
+     0.06,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": -4.05,
+     "z": -1.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.1,
+     "speed": 0
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "shaking_head_no_dismissively",
+     "x": -4.95,
+     "z": -1.45,
+     "face": "world",
+     "yaw": 40,
+     "at": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     3.975,
+     3.657
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -4.5,
+    -1.375
+   ],
+   "tripod": false,
+   "noguests": true,
+   "frog": {
+    "x": -4.05,
+    "y": 1.28,
+    "z": -1.3,
+    "yaw": 0,
+    "scale": 1.25,
+    "pose": "puff"
+   },
+   "clear": [
+    [
+     -3.81,
+     2.54,
+     0.9
+    ],
+    [
+     -3.86,
+     2.23,
+     0.9
+    ],
+    [
+     -3.9,
+     2.05,
+     0.7200000000000001
+    ],
+    [
+     -3.98,
+     1.56,
+     0.7200000000000001
+    ],
+    [
+     -4.07,
+     1.07,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     139.4,
+     139.18
+    ],
+    "r": [
+     0.922,
+     0.872
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.86,
+     0.86
+    ],
+    "fov": 44
+   },
+   "focus": [
+    4,
+    2.3
+   ],
+   "tripod": {
+    "blink": [
+     0.2,
+     6
+    ]
+   },
+   "noguests": true,
+   "frog": false,
+   "photos": 3,
+   "clear": [
+    [
+     4.6,
+     1.6,
+     0.9
+    ],
+    [
+     4.57,
+     1.64,
+     0.9
+    ],
+    [
+     4.53,
+     1.69,
+     0.7200000000000001
+    ],
+    [
+     4.45,
+     1.77,
+     0.7200000000000001
+    ],
+    [
+     4.38,
+     1.86,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.45,
+     4.45
+    ],
+    "h": [
+     0.86,
+     0.86
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 50
+   },
+   "focus": [
+    4,
+    -2.3
+   ],
+   "noguests": true,
+   "tripod": false,
+   "frog": {
+    "x": 3.5,
+    "y": 0.42,
+    "z": -2.3,
+    "yaw": 0,
+    "scale": 1.4
+   },
+   "flashAt": [
+    0.499
+   ],
+   "photo": 0.619,
+   "stop": 0.599,
+   "still": true,
+   "clear": [
+    [
+     4,
+     2.15,
+     0.9
+    ],
+    [
+     4,
+     2.15,
+     0.9
+    ],
+    [
+     4,
+     1.59,
+     0.7200000000000001
+    ],
+    [
+     4,
+     1.04,
+     0.7200000000000001
+    ],
+    [
+     4,
+     0.48,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "sitting_talking",
+     "x": 3.1,
+     "z": 2.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "lift": 0.42,
+     "speed": 0,
+     "hold": "polaroid1",
+     "holdScale": 1.6,
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.5,
+      0.55
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.307,
+     3.141
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.32,
+     1.32
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    3.1,
+    2.75
+   ],
+   "tripod": {},
+   "photos": 5,
+   "noguests": true,
+   "frog": {
+    "x": 4.1,
+    "y": 0.56,
+    "z": 3,
+    "yaw": 75,
+    "scale": 0.9
+   },
+   "clear": [
+    [
+     6.41,
+     2.75,
+     0.9
+    ],
+    [
+     6.24,
+     2.75,
+     0.9
+    ],
+    [
+     5.99,
+     2.75,
+     0.7200000000000001
+    ],
+    [
+     5.58,
+     2.75,
+     0.7200000000000001
+    ],
+    [
+     5.17,
+     2.75,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "happy_walk",
+     "x": 3.95,
+     "z": 1.3,
+     "face": "world",
+     "yaw": 200,
+     "at": 0.1,
+     "mx": -0.3,
+     "mz": -0.7,
+     "arm": "L",
+     "aim": [
+      0.6,
+      0,
+      -0.5
+     ]
+    },
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_walk",
+     "x": 4.75,
+     "z": 1.6,
+     "face": "world",
+     "yaw": 200,
+     "at": 0.5,
+     "mx": -0.3,
+     "mz": -0.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -150.01,
+     -149.99
+    ],
+    "r": [
+     3.307,
+     3.141
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 54
+   },
+   "focus": [
+    4.2,
+    1.1
+   ],
+   "tripod": {},
+   "photos": 5,
+   "noguests": true,
+   "frog": {
+    "x": 4.38,
+    "y": 0.56,
+    "z": 2.72,
+    "yaw": -70,
+    "scale": 1.25
+   },
+   "clear": [
+    [
+     2.55,
+     -1.76,
+     0.9
+    ],
+    [
+     2.63,
+     -1.62,
+     0.9
+    ],
+    [
+     2.75,
+     -1.41,
+     0.7200000000000001
+    ],
+    [
+     2.96,
+     -1.05,
+     0.7200000000000001
+    ],
+    [
+     3.17,
+     -0.69,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "charleston",
+     "x": 2.85,
+     "z": -1.55,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.7
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "female_salsa_dancing",
+     "x": 4.25,
+     "z": -1.65,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.2
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "salsa_dancing_side_to_side",
+     "x": 4.95,
+     "z": -1.55,
+     "face": "world",
+     "yaw": -10,
+     "at": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.85,
+     3.65
+    ],
+    "h": [
+     0.22,
+     0.22
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 74,
+    "roll": [
+     8,
+     5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    3.9,
+    -1.6
+   ],
+   "tripod": {},
+   "noguests": true,
+   "frog": {
+    "x": 4.38,
+    "y": 0.56,
+    "z": 2.72,
+    "yaw": -70,
+    "scale": 1.25
+   },
+   "photos": 5,
+   "clear": [
+    [
+     3.9,
+     2.25,
+     0.9
+    ],
+    [
+     3.9,
+     2.05,
+     0.9
+    ],
+    [
+     3.9,
+     1.77,
+     0.7200000000000001
+    ],
+    [
+     3.9,
+     1.29,
+     0.7200000000000001
+    ],
+    [
+     3.9,
+     0.81,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "charleston",
+     "x": 3.5,
+     "z": -2.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.45,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.45,
+     2.15
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 56,
+    "roll": [
+     -7,
+     -4
+    ]
+   },
+   "focus": [
+    3.5,
+    -2.3
+   ],
+   "tripod": {},
+   "noguests": true,
+   "frog": {
+    "x": 4.38,
+    "y": 0.56,
+    "z": 2.72,
+    "yaw": -70,
+    "scale": 1.25
+   },
+   "photos": 5,
+   "clear": [
+    [
+     3.5,
+     0.15,
+     0.9
+    ],
+    [
+     3.5,
+     -0.15,
+     0.9
+    ],
+    [
+     3.5,
+     -0.16,
+     0.7200000000000001
+    ],
+    [
+     3.5,
+     -0.46,
+     0.7200000000000001
+    ],
+    [
+     3.5,
+     -0.77,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": 3.5,
+     "z": -1.5,
+     "face": "world",
+     "yaw": -20,
+     "at": 0.5,
+     "speed": 0.5
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "happy_idle",
+     "x": 3.02,
+     "z": -1.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 1.2,
+     "speed": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.2,
+     2.39
+    ],
+    "r": [
+     2.602,
+     2.402
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    3.3,
+    -1.5
+   ],
+   "tripod": {},
+   "noguests": true,
+   "frog": {
+    "x": 4.38,
+    "y": 0.56,
+    "z": 2.72,
+    "yaw": -70,
+    "scale": 1.25
+   },
+   "photos": 5,
+   "clear": [
+    [
+     3.4,
+     1.1,
+     0.9
+    ],
+    [
+     3.4,
+     0.9,
+     0.9
+    ],
+    [
+     3.39,
+     0.78,
+     0.7200000000000001
+    ],
+    [
+     3.37,
+     0.45,
+     0.7200000000000001
+    ],
+    [
+     3.36,
+     0.13,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     159.23,
+     158.99
+    ],
+    "r": [
+     1.551,
+     1.478
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 46
+   },
+   "focus": [
+    4.05,
+    2.4
+   ],
+   "tripod": {},
+   "noguests": true,
+   "photos": 5,
+   "frog": {
+    "x": 4.38,
+    "y": 0.56,
+    "z": 2.72,
+    "yaw": 200,
+    "scale": 1,
+    "pose": "hop",
+    "at": 0.6,
+    "to": [
+     4,
+     0.975,
+     2.31
+    ],
+    "dur": 0.45,
+    "arc": 0.3
+   },
+   "clear": [
+    [
+     4.6,
+     0.95,
+     0.9
+    ],
+    [
+     4.58,
+     1.02,
+     0.9
+    ],
+    [
+     4.53,
+     1.13,
+     0.7200000000000001
+    ],
+    [
+     4.46,
+     1.31,
+     0.7200000000000001
+    ],
+    [
+     4.39,
+     1.49,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "charleston",
+     "x": 2.85,
+     "z": -1.55,
+     "face": "world",
+     "yaw": 10,
+     "at": 1.4
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "female_salsa_dancing",
+     "x": 4.25,
+     "z": -1.65,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.2
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "salsa_dancing_side_to_side",
+     "x": 4.95,
+     "z": -1.55,
+     "face": "world",
+     "yaw": -10,
+     "at": 1.4
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "charleston",
+     "x": 3.5,
+     "z": -2.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.75,
+     3.67
+    ],
+    "h": [
+     1.15,
+     1.14
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 74
+   },
+   "focus": [
+    3.9,
+    -1.8
+   ],
+   "tripod": {},
+   "noguests": true,
+   "photos": 5,
+   "frog": {
+    "x": 4,
+    "y": 0.975,
+    "z": 2.31,
+    "yaw": 200,
+    "scale": 1
+   },
+   "clear": [
+    [
+     3.9,
+     1.95,
+     0.9
+    ],
+    [
+     3.9,
+     1.87,
+     0.9
+    ],
+    [
+     3.9,
+     1.48,
+     0.7200000000000001
+    ],
+    [
+     3.9,
+     1.01,
+     0.7200000000000001
+    ],
+    [
+     3.9,
+     0.54,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -157.38,
+     -156.88
+    ],
+    "r": [
+     1.04,
+     0.968
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.04,
+     1.04
+    ],
+    "fov": 44
+   },
+   "focus": [
+    4,
+    2.31
+   ],
+   "tripod": {},
+   "noguests": true,
+   "photos": 5,
+   "frog": {
+    "x": 4,
+    "y": 0.975,
+    "z": 2.31,
+    "yaw": 200,
+    "scale": 1,
+    "pose": "press",
+    "at": 1.912
+   },
+   "clear": [
+    [
+     3.6,
+     1.35,
+     0.9
+    ],
+    [
+     3.62,
+     1.42,
+     0.9
+    ],
+    [
+     3.65,
+     1.47,
+     0.7200000000000001
+    ],
+    [
+     3.7,
+     1.59,
+     0.7200000000000001
+    ],
+    [
+     3.75,
+     1.71,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "charleston",
+     "x": 2.85,
+     "z": -1.55,
+     "face": "world",
+     "yaw": 10,
+     "at": 1.55,
+     "holdAt": 0.1
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "female_salsa_dancing",
+     "x": 4.25,
+     "z": -1.65,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.8,
+     "holdAt": 0.1
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "salsa_dancing_side_to_side",
+     "x": 4.95,
+     "z": -1.55,
+     "face": "world",
+     "yaw": -10,
+     "at": 1.9,
+     "holdAt": 0.1
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "charleston",
+     "x": 3.5,
+     "z": -2.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.55,
+     "lift": 0.42,
+     "holdAt": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.67,
+     0.67
+    ],
+    "r": [
+     4.25,
+     4.25
+    ],
+    "h": [
+     0.86,
+     0.86
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 76
+   },
+   "focus": [
+    3.95,
+    -2.1
+   ],
+   "noguests": true,
+   "tripod": false,
+   "flashAt": [
+    0
+   ],
+   "photo": 0.12,
+   "stop": 0.1,
+   "still": true,
+   "clear": [
+    [
+     4,
+     2.15,
+     0.9
+    ],
+    [
+     4,
+     2.15,
+     0.9
+    ],
+    [
+     3.99,
+     1.62,
+     0.7200000000000001
+    ],
+    [
+     3.99,
+     1.09,
+     0.7200000000000001
+    ],
+    [
+     3.98,
+     0.56,
+     0.7200000000000001
+    ]
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "marquesina",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "happy_idle",
+     "x": 3.6,
+     "z": -1.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.5,
+     "hold": "polaroid",
+     "holdScale": 2.2,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.5,
+      0.6
+     ],
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -2.29,
+     -1.97
+    ],
+    "r": [
+     2.502,
+     2.331
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 50
+   },
+   "focus": [
+    3.45,
+    -1.3
+   ],
+   "tripod": {},
+   "noguests": true,
+   "photos": 5,
+   "frog": {
+    "x": 3.6,
+    "y": 1.28,
+    "z": -1.3,
+    "yaw": 0,
+    "scale": 1,
+    "pose": "puff"
+   },
+   "clear": [
+    [
+     3.35,
+     1.2,
+     0.9
+    ],
+    [
+     3.37,
+     1.03,
+     0.9
+    ],
+    [
+     3.36,
+     0.89,
+     0.7200000000000001
+    ],
+    [
+     3.38,
+     0.58,
+     0.7200000000000001
+    ],
+    [
+     3.39,
+     0.26,
+     0.7200000000000001
+    ]
+   ]
+  }
+ ]
+}

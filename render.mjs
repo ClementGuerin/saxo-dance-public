@@ -104,14 +104,16 @@ const fps = +(args.fps || M.fps), N = Math.round(M.DUR * fps);
 // actor's `scale` > 2, 2026-09-26) is judged by its face: the head bone stays below 30% of the height. An actor marked
 // `fg` (a body across the lens) or inside its `reveal` seconds skips the framing and out-of-frame rules, not the floor ones.
 // Episode rules (the user's calls, 2026-09-25): no bind pose on screen (`clip: "tpose"` reads as a broken rig) and,
-// from 2026-09-26 on, no comic word badges (`word`).
+// from 2026-09-26 on, no comic word badges (`word`). From 2026-10-05, every actor's clip loaded: one in neither MIXAMO nor the
+// episode's `clips` silently played the first loaded clip instead ("DtMF": a wave that never showed).
 const QA = { sink: -0.04, float: 0.05, jump: 0.6, gone: 0.5, faceEdge: 0.05, lyricTop: 0.25, framing: 0.5 };
 async function qa(a, b) {
   if (!(await first.evaluate(() => typeof window.QA_PROBE === 'function'))) { console.log('qa: no QA_PROBE on this page, skipped'); return true; }
   const qfps = +(args['qa-fps'] || 10), rows = [];
   for (let t = a; t < b - 1e-6; t += 1 / qfps) rows.push({ t: +t.toFixed(3), dogs: await first.evaluate(t => window.QA_PROBE(t), t) });
   const K = await first.evaluate(() => ({ lyrics: (window.LYRICS || []).map(l => l[0][0]), ends: window.LINE_END || [], plan: (window.PS1_PLAN || []).map(p => +p.split(' ')[0]),
-    ep: window.EPISODE ? { name: new URLSearchParams(location.search).get('episode') || '', shots: window.EPISODE.shots.map(s => ({ word: s.word || '', clips: [s.clip, ...(s.actors || []).map(x => x.clip)].filter(Boolean) })) } : null }));
+    ep: window.EPISODE ? { name: new URLSearchParams(location.search).get('episode') || '', shots: window.EPISODE.shots.map(s => ({ word: s.word || '', clips: [s.clip, ...(s.actors || []).map(x => x.clip)].filter(Boolean), aclips: (s.actors || []).map(x => x.clip).filter(c => c && c !== 'tpose') })),
+      loaded: Object.keys(window.DBG?.tripo?.actions || {}) } : null }));
   const lyricOn = t => K.lyrics.some((t0, i) => t >= t0 - 0.35 && t < K.ends[i]);   // dance.js shows a line from 0.35 s before its first word
   const fails = [], runs = {};
   const flag = (rule, who, t0, t1, worst, unit = 'm') => fails.push({ rule, who, from: +t0.toFixed(2), to: +t1.toFixed(2), worst, unit });
@@ -146,6 +148,8 @@ async function qa(a, b) {
     if (t1 <= a || t0 >= b) return;
     if (s.clips.includes('tpose')) flag('bind pose on screen (clip "tpose")', `shot ${i}`, t0, t1, 'pick a pose, not the rig', '');
     if (s.word && K.ep.name >= '2026-09-26') flag(`comic word badge "${s.word}"`, `shot ${i}`, t0, t1, 'no word badges', '');
+    const miss = K.ep.loaded.length ? [...new Set(s.aclips.filter(c => !K.ep.loaded.includes(c)))] : [];
+    if (miss.length) flag(`clip not loaded (${miss.join(', ')})`, `shot ${i}`, t0, t1, "add it to the episode's clips", '');
   });
   // merge single-frame sink flags into ranges
   const merged = []; for (const f of fails) { const m = merged.at(-1); if (m && f.rule === 'sinks into the floor' && m.rule === f.rule && m.who === f.who && f.from - m.to <= 1.5 / qfps) { m.to = f.to; m.worst = Math.min(m.worst, f.worst); } else merged.push({ ...f }); }

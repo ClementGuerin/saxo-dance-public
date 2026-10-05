@@ -172,7 +172,8 @@ function polaroid(f, s) {
   const drop = 1 - Math.pow(1 - clamp(s / 0.25), 3), dev = clamp((s - 0.15) / 0.8);
   g.save(); g.fillStyle = `rgba(12,8,20,${0.6 * drop})`; g.fillRect(0, 0, W, H);
   const cw = W * 0.78, pic = cw * 0.88, m = (cw - pic) / 2, ch = m + pic + cw * 0.24;
-  g.translate(W / 2, H * 0.62 + (1 - drop) * H * 0.35); g.rotate(-0.07 * drop);
+  const settle = Math.min(s, 4) / 4;   // it keeps settling for 4 s (a static print read as a frozen frame: "DtMF", 2026-10-05)
+  g.translate(W / 2, H * 0.62 + (1 - drop) * H * 0.35 - settle * H * 0.012); g.rotate(-0.07 * drop + 0.035 * settle); g.scale(1 + 0.03 * settle, 1 + 0.03 * settle);
   g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowOffsetX = 10; g.shadowOffsetY = 14;
   g.fillStyle = '#f4f1e8'; g.fillRect(-cw / 2, -ch / 2, cw, ch); g.shadowColor = 'transparent';
   const px0 = -pic / 2, py0 = -ch / 2 + m, side = f.width, sy = Math.round(f.height * 0.5 - side * 0.52);
