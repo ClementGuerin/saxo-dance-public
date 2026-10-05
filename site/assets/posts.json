@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-04T19:47:30.616Z",
+ "updated": "2026-10-05T14:17:37.833Z",
  "posts": [
+  {
+   "id": "2026-10-05",
+   "title": "No Scrubs",
+   "artist": "TLC",
+   "date": "2026-10-05T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-05.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeHYQ-oEdte/",
+     "id": "DeHYQ-oEdte"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/pc77QbRs79I",
+     "id": "pc77QbRs79I"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=4599481137003001",
+     "id": "4599481137003001"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2107108880278786065",
+     "id": "2107108880278786065"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7693184065645677856",
+     "id": "7693184065645677856"
+    }
+   }
+  },
   {
    "id": "2026-10-04-2",
    "title": "Beautiful Things",
