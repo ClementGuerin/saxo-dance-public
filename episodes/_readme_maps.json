@@ -2839,6 +2839,52 @@
      "z": -1.5
     }
    ]
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "premiere",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "mic": false,
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "idol",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "idol",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0.3
+    }
+   ]
   }
  ]
 }
