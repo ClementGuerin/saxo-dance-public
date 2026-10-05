@@ -2781,6 +2781,64 @@
      "lift": 0.42
     }
    ]
+  },
+  {
+   "beat": 134,
+   "kind": "dance",
+   "map": "marquesina",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.2,
+     4.2
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    -4,
+    -1.5
+   ],
+   "clear": [
+    [
+     -4,
+     2.7,
+     1.2
+    ],
+    [
+     -4,
+     1.4,
+     0.9
+    ]
+   ],
+   "tripod": false,
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "pava",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -4.45,
+     "z": -1.5
+    },
+    {
+     "who": "sadi",
+     "look": "fiesta",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -3.55,
+     "z": -1.5
+    }
+   ]
   }
  ]
 }

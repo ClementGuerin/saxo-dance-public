@@ -89,7 +89,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat, a trench coat, a Parisienne, a bus driver, sick-day pyjamas, a devil suit, a lifeguard, a bathrobe, a soul singer, a banana, a strawberry, a carrot, a leather jacket, Kob the private eye, a sequin dress, the team's football kit, a ship's captain, a life jacket, a bride, a bobsled suit, a sleepwalker's nightshirt, Kob's CEO suit, Sadi's assistant suit, a Nordic knit, Sadi's red sweater, Kob the park keeper, Sadi the vampire, a pumpkin suit, a curly rocker, a denim jacket, Kob's pink beanie and the poop suit">
+  <img src="docs/readme/wardrobe.png" width="100%" alt="The wardrobe: every look of Saxo, Sadi, Kob and Compote, from cowboy and astronaut to SpongeBob, a white tuxedo, Kob's pyjamas, the pirates, the tourist, the air hostess, a pop-star disguise, Kob the bartender, a sailor uniform, a yukata, a lucky-cat suit, a happi coat, a trench coat, a Parisienne, a bus driver, sick-day pyjamas, a devil suit, a lifeguard, a bathrobe, a soul singer, a banana, a strawberry, a carrot, a leather jacket, Kob the private eye, a sequin dress, the team's football kit, a ship's captain, a life jacket, a bride, a bobsled suit, a sleepwalker's nightshirt, Kob's CEO suit, Sadi's assistant suit, a Nordic knit, Sadi's red sweater, Kob the park keeper, Sadi the vampire, a pumpkin suit, a curly rocker, a denim jacket, Kob's pink beanie, a gold chain, the girl group's chrome stage look, a straw hat and guayabera, a white party sundress and the poop suit">
 </p>
 
 Each map dresses the cast for the occasion: astronaut suits on the moon, cowboy hats out west, SpongeBob and Patrick
@@ -98,7 +98,7 @@ in Bikini Bottom, a hot dog in the supermarket. The poop suit is never automatic
 ## 68 maps, and counting
 
 <p align="center">
-  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom, a schooner that sinks, a white wedding chapel, a Kingston beach, an Olympic bobsled track at night, a gothic tower ledge in the rain, a talent agency at night with the CEO's red office, a city park in autumn, a graveyard on Halloween night, a band's stage on a red canyon's rim at golden hour, a girl group's white spaceship set with a giant chrome NO, a night street where a saucer has landed and a lowrider cruising down a boulevard at night, each with the cast in costume">
+  <img src="docs/readme/maps.png" width="100%" alt="The maps, from the street, club and moon to Tokyo, Paris, the yacht, the techno club, the treasure cave, the black ship, the plane, the chapel club, the desert village, the blossom festival, the pier at dusk, the night bus, a house party, a hospital ward, a water park, a radio studio, a fruits-only warehouse party, a film-noir night street, a cup final under the floodlights, a tiny Earth in space, a baobab on the savanna, a Spanish beach, a grey housing estate, a desert stage, a band trailer, a pink childhood bedroom, a schooner that sinks, a white wedding chapel, a Kingston beach, an Olympic bobsled track at night, a gothic tower ledge in the rain, a talent agency at night with the CEO's red office, a city park in autumn, a graveyard on Halloween night, a band's stage on a red canyon's rim at golden hour, a girl group's white spaceship set with a giant chrome NO, a night street where a saucer has landed and a lowrider cruising down a boulevard at night and a family party in a carport, each with the cast in costume">
 </p>
 
 Every map is built from primitives in [`src/maps*.js`](src/) and animated as a pure function of time, mostly on the
@@ -202,7 +202,7 @@ his skeleton, so the graveyard's dancers play every clip too, and can lose a leg
 nobody may sink more than 4 cm into the floor, float more than 5 cm for longer than a jump, or leave the frame for
 more than half a second, and a body lying down must rest on its torso (a chibi head is wider than the torso is thick,
 so the head is allowed through the floor). `--frames` and `--clip` run the gate first and refuse to render on a failure. Every new failure
-found by eye becomes a new rule: a leftover T-pose and a comic word badge now fail it too.
+found by eye becomes a new rule: a leftover T-pose, a comic word badge and a clip that never loaded now fail it too.
 
 ### Deterministic frames
 
