@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-05T19:47:33.789Z",
+ "updated": "2026-10-06T14:17:37.036Z",
  "posts": [
+  {
+   "id": "2026-10-06",
+   "title": "Golden",
+   "artist": "HUNTR/X",
+   "date": "2026-10-06T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-06.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7693555065369546016",
+     "id": "7693555065369546016"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeJ9FnaD4TJ/",
+     "id": "DeJ9FnaD4TJ"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/muomxr8mIjs",
+     "id": "muomxr8mIjs"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1794109604815581",
+     "id": "1794109604815581"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2107471293893185935",
+     "id": "2107471293893185935"
+    }
+   }
+  },
   {
    "id": "2026-10-05-2",
    "title": "DtMF",
