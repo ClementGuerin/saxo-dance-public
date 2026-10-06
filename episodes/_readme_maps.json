@@ -2885,6 +2885,97 @@
      "z": 0.3
     }
    ]
+  },
+  {
+   "beat": 138,
+   "kind": "dance",
+   "map": "honkytonk",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.3
+   ],
+   "patrons": "line",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": -1.3
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": -1.3
+    }
+   ]
+  },
+  {
+   "beat": 140,
+   "kind": "dance",
+   "map": "prairie",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     -84,
+     -84
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    -4,
+    0.03
+   ],
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "twist",
+     "at": "auto",
+     "x": -4,
+     "z": -0.45
+    },
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "twist",
+     "at": "auto",
+     "x": -4,
+     "z": 0.51
+    }
+   ]
   }
  ]
 }
