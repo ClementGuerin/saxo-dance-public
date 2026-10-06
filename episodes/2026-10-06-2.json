@@ -1,0 +1,3557 @@
+{
+ "date": "2026-10-06",
+ "song": {
+  "title": "Choosin' Texas",
+  "artist": "Ella Langley"
+ },
+ "logline": "Sadi, a honky-tonk singer from Tennessee, sings her heart out to cowboy Saxo, but he's a dog in Texas: he turns his back on her for the smell of Kob's barbecue, leaves her for the mechanical bull, chases a Texas-shaped steak across the dance hall, and when she drops to her knees and the whole hall makes him choose, the dog runs to the steak on 'choosin' Texas'",
+ "new": "src/maps32.js: honkytonk (an Abilene dance hall at night: the dance floor with the singer's spotlight, a TEXAS neon shaped like the state, the bar with Kob's duckboard and a Texas-shaped steak on its board (it slides away along the counter), a barrel smoker, a mechanical bull that bucks and throws on a lever Compote pulls, double doors onto the car park with the pickup, pool tables, a jukebox, wagon-wheel chandeliers, the Lone Star flag, pet patrons in cowboy hats who line-dance, two-step in couples, watch, cheer and gather in a ring) and prairie (the road into Abilene at golden hour streaming past a still pickup with its horse trailer, the WELCOME TO ABILENE TEXAS sign passing on the word); the Texas-shaped steak (texasSteak: on a board in both paws, in the jaws: `steakMouth`), the singer's acoustic guitar; two looks: Sadi the singer from the clip (long dark hair with bangs, a white peasant blouse, red flares, cowboy boots) and Kob the barbecue pitmaster (a black cowboy hat, a red bandana, a denim shirt, a leather apron)",
+ "notes": "The world, from the official video (looked at as contact sheets every 3 s; nothing violent in it): a pickup with a horse trailer, the WELCOME TO Abilene sign at golden hour, a dance hall at night (string lights, pool tables, a bar, a Texas-shaped neon), the singer with an acoustic guitar in a spotlight on the floor while couples two-step round her, a cowboy in a white hat. The words, from whitelisted keywords per line (keywords.py: sorted, never the lines): fall, love, tennessee, take, back, abilene, texas, tell, two, smile, face, see, cowboy, always, finds, leave, choosin. Cast: Saxo the cowboy (his wardrobe cowboy look), Sadi the singer (new), Kob the pitmaster with the steak (new), Compote at the bull's lever (her cowgirl look) and in the horse trailer. The TikTok sound (Ella Langley, 60 s) is this cut's own kit 2.014-62.014 s.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "happy_idle",
+  "happy_walk",
+  "happy_run",
+  "sitting_talking",
+  "male_driving_a_car",
+  "playing_a_guitar",
+  "charleston",
+  "being_thrown_to_the_side",
+  "jump_and_catch_with_one_hand",
+  "falling_to_knees_in_prayer"
+ ],
+ "yt": [
+  2.4,
+  61.9
+ ],
+ "tags": {
+  "structure": "choice",
+  "scenes": [
+   "the horse-riding dance",
+   "falls in love",
+   "the drive into Abilene",
+   "Compote in the horse trailer",
+   "the doors swing open",
+   "the counter-peek",
+   "the line dance",
+   "one line together",
+   "the mechanical bull",
+   "thrown off",
+   "the steak slides away",
+   "he follows the steak",
+   "she begs on her knees",
+   "make the dog choose",
+   "the chomp",
+   "the carrot bonk"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "honkytonk",
+   "prairie"
+  ],
+  "ref": "counter-peek",
+  "lyric_literal": "'fall', 'love' (hearts over her), 'tennessee' (the TENN plate on her guitar case), 'abilene' (the sign passes on the word), 'back' (he turns his back on her), 'texas' (the counter-peek at the Texas steak), 'two' (the two of them dancing), 'smile' (his grin on the bull), 'face' (Compote's face at the lever), 'take' (he lunges, the steak slides away), 'see' (her deadpan), 'cowboy, always, finds, leave' (he follows the steak away), 'choosin' Texas' (the dog chooses the Texas steak)",
+  "experiment": "The pet-owner format everyone knows as the payoff (make the dog choose: the one who loves him on her knees, the treat held out, the dog runs to the treat), landing on the song's own title line, on a #2 US country hit with a 385k-video sound: more shares per 1,000 views than the last week's episodes?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "gangnam",
+     "x": 0,
+     "z": 0.9,
+     "face": "camera",
+     "yaw": 0,
+     "at": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.53,
+     2.15,
+     1.23,
+     0
+    ],
+    "r": [
+     6.807,
+     4.803,
+     2.801,
+     2.25
+    ],
+    "h": [
+     2.3,
+     1.5,
+     0.55,
+     0.34
+    ],
+    "look": [
+     0.82,
+     0.82,
+     0.82,
+     0.82
+    ],
+    "fov": 66,
+    "roll": [
+     0,
+     -3,
+     -10,
+     -5
+    ],
+    "hand": 0.15,
+    "ease": "out"
+   },
+   "focus": [
+    0,
+    0.9
+   ],
+   "patrons": "line",
+   "clear": [
+    [
+     0,
+     6.7,
+     1.3
+    ],
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     0,
+     3.3,
+     0.9
+    ],
+    [
+     0,
+     0.9,
+     0.8
+    ]
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.9,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.53
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -27.03,
+     -27.18
+    ],
+    "r": [
+     2.75,
+     2.08
+    ],
+    "h": [
+     0.22,
+     0.2
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 64,
+    "roll": [
+     -10,
+     -6
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    0.9
+   ],
+   "patrons": "line",
+   "clear": [
+    [
+     -1.25,
+     3.35,
+     0.9
+    ],
+    [
+     -1.06,
+     2.98,
+     0.7200000000000001
+    ],
+    [
+     -0.87,
+     2.61,
+     0.7200000000000001
+    ],
+    [
+     -0.69,
+     2.25,
+     0.7200000000000001
+    ],
+    [
+     -0.95,
+     2.75,
+     0.9
+    ],
+    [
+     -0.81,
+     2.47,
+     0.7200000000000001
+    ],
+    [
+     -0.67,
+     2.2,
+     0.7200000000000001
+    ],
+    [
+     -0.52,
+     1.92,
+     0.7200000000000001
+    ],
+    [
+     0,
+     0.9,
+     0.7
+    ],
+    [
+     0,
+     0.9,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     18,
+     17.99
+    ],
+    "r": [
+     2.9,
+     2.667
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56,
+    "roll": [
+     5,
+     2
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "patrons": "twostep",
+   "clear": [
+    [
+     0.9,
+     1.36,
+     0.9
+    ],
+    [
+     0.76,
+     0.94,
+     0.7200000000000001
+    ],
+    [
+     0.63,
+     0.53,
+     0.7200000000000001
+    ],
+    [
+     0.49,
+     0.12,
+     0.7200000000000001
+    ],
+    [
+     0.82,
+     1.14,
+     0.9
+    ],
+    [
+     0.7,
+     0.76,
+     0.7200000000000001
+    ],
+    [
+     0.58,
+     0.38,
+     0.7200000000000001
+    ],
+    [
+     0.45,
+     0,
+     0.7200000000000001
+    ],
+    [
+     0,
+     -1.4,
+     0.7
+    ],
+    [
+     0,
+     -1.4,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "gangnam",
+     "x": 1.15,
+     "z": 0.45,
+     "face": "world",
+     "yaw": -10,
+     "at": 1.1
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": -0.15,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 35,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11,
+     11
+    ],
+    "r": [
+     4.744,
+     4.554
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.5,
+    -0.425
+   ],
+   "patrons": "twostep",
+   "hearts": [
+    [
+     -0.15,
+     1.5,
+     -1.3,
+     0
+    ],
+    [
+     -0.15,
+     1.5,
+     -1.3,
+     1
+    ]
+   ],
+   "clear": [
+    [
+     1.41,
+     4.23,
+     0.9
+    ],
+    [
+     1.27,
+     3.53,
+     0.7200000000000001
+    ],
+    [
+     1.13,
+     2.83,
+     0.7200000000000001
+    ],
+    [
+     1,
+     2.14,
+     0.7200000000000001
+    ],
+    [
+     1.37,
+     4.05,
+     0.9
+    ],
+    [
+     1.24,
+     3.37,
+     0.7200000000000001
+    ],
+    [
+     1.11,
+     2.7,
+     0.7200000000000001
+    ],
+    [
+     0.98,
+     2.03,
+     0.7200000000000001
+    ],
+    [
+     2.6,
+     1.6,
+     1.2
+    ],
+    [
+     2.2,
+     0.2,
+     1
+    ],
+    [
+     1.8,
+     2.8,
+     1.1
+    ],
+    [
+     1.15,
+     0.45,
+     0.8
+    ],
+    [
+     -0.15,
+     -1.3,
+     0.8
+    ]
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "charleston",
+     "x": 0.5,
+     "z": 0.45,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": -1.45,
+     "face": "world",
+     "yaw": 25,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.01,
+     8
+    ],
+    "r": [
+     3.87,
+     3.483
+    ],
+    "h": [
+     0.24,
+     0.24
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 64,
+    "roll": [
+     -8,
+     -5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.025,
+    -0.5
+   ],
+   "patrons": "twostep",
+   "hearts": [
+    [
+     -0.55,
+     1.5,
+     -1.45,
+     0.25
+    ]
+   ],
+   "clear": [
+    [
+     0.51,
+     3.33,
+     0.9
+    ],
+    [
+     0.43,
+     2.76,
+     0.7200000000000001
+    ],
+    [
+     0.35,
+     2.18,
+     0.7200000000000001
+    ],
+    [
+     0.27,
+     1.61,
+     0.7200000000000001
+    ],
+    [
+     0.46,
+     2.95,
+     0.9
+    ],
+    [
+     0.39,
+     2.43,
+     0.7200000000000001
+    ],
+    [
+     0.31,
+     1.91,
+     0.7200000000000001
+    ],
+    [
+     0.24,
+     1.4,
+     0.7200000000000001
+    ],
+    [
+     0.5,
+     0.45,
+     0.7
+    ],
+    [
+     -0.55,
+     -1.45,
+     0.7
+    ],
+    [
+     0.5,
+     0.45,
+     0.7
+    ],
+    [
+     -0.55,
+     -1.45,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "prairie",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "male_driving_a_car",
+     "x": -0.35,
+     "z": 0.44,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.5,
+     "lift": 1.02
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "sitting_talking",
+     "x": -0.35,
+     "z": -0.44,
+     "face": "world",
+     "yaw": 325,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 1.02,
+     "arm": "L",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -109.27,
+     -109.65
+    ],
+    "r": [
+     10.911,
+     10.406
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.45,
+     1.45
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.2,
+    0.2
+   ]
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "prairie",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "male_driving_a_car",
+     "x": -0.35,
+     "z": 0.44,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.5,
+     "lift": 1.02
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "sitting_talking",
+     "x": -0.35,
+     "z": -0.44,
+     "face": "world",
+     "yaw": 325,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 1.02,
+     "arm": "L",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -89.33,
+     -89.3
+    ],
+    "r": [
+     4.25,
+     4.1
+    ],
+    "h": [
+     2.12,
+     2.11
+    ],
+    "look": [
+     1.84,
+     1.84
+    ],
+    "fov": 46,
+    "hand": 0.25
+   },
+   "focus": [
+    -0.35,
+    0
+   ],
+   "hearts": [
+    [
+     -1.15,
+     1.72,
+     -0.42,
+     0.15
+    ],
+    [
+     -1.15,
+     1.72,
+     -0.42,
+     1.1
+    ]
+   ],
+   "heartYaw": -90
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "prairie",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "male_driving_a_car",
+     "x": -0.35,
+     "z": 0.44,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.5,
+     "lift": 1.02
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "sitting_talking",
+     "x": -0.35,
+     "z": -0.44,
+     "face": "world",
+     "yaw": 325,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 1.02,
+     "arm": "L",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -45,
+     -44.6
+    ],
+    "r": [
+     7.212,
+     7.05
+    ],
+    "h": [
+     3.05,
+     3.02
+    ],
+    "look": [
+     1.95,
+     1.95
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -0.8,
+    -1.2
+   ],
+   "sign": 2.04
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "prairie",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "happy_idle",
+     "x": 4.1,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 0.25,
+     "lift": 0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.8,
+     2.7
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.45,
+     1.45
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    4.1,
+    -0.55
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_walk",
+     "x": 10.15,
+     "z": 4.25,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.2,
+     "mx": -1.9,
+     "reveal": 0.6
+    },
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_walk",
+     "x": 10.35,
+     "z": 5,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.6,
+     "mx": -1.9,
+     "reveal": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -100,
+     -100
+    ],
+    "r": [
+     4.436,
+     4.303
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 54
+   },
+   "focus": [
+    8.35,
+    4.625
+   ],
+   "doors": [
+    0,
+    0.35,
+    0,
+    1
+   ],
+   "patrons": "watch",
+   "stare": [
+    9,
+    4.6
+   ],
+   "clear": [
+    [
+     3.98,
+     3.85,
+     0.9
+    ],
+    [
+     4.64,
+     3.97,
+     0.7200000000000001
+    ],
+    [
+     5.29,
+     4.09,
+     0.7200000000000001
+    ],
+    [
+     5.95,
+     4.2,
+     0.7200000000000001
+    ],
+    [
+     4.11,
+     3.88,
+     0.9
+    ],
+    [
+     4.75,
+     3.99,
+     0.7200000000000001
+    ],
+    [
+     5.38,
+     4.1,
+     0.7200000000000001
+    ],
+    [
+     6.02,
+     4.21,
+     0.7200000000000001
+    ],
+    [
+     10.15,
+     4.25,
+     0.7
+    ],
+    [
+     10.35,
+     5,
+     0.7
+    ],
+    [
+     8.25,
+     4.25,
+     0.7
+    ],
+    [
+     8.45,
+     5,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -1.5,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_idle",
+     "x": -1.3,
+     "z": 0.35,
+     "face": "world",
+     "yaw": -52,
+     "at": 0.4,
+     "speed": 0.3,
+     "tongue": true,
+     "lean": 10
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -15.01,
+     -15
+    ],
+    "r": [
+     4.6,
+     4.416
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.85,
+    -0.55
+   ],
+   "patrons": "twostep",
+   "clear": [
+    [
+     -2.04,
+     3.89,
+     0.9
+    ],
+    [
+     -1.86,
+     3.23,
+     0.7200000000000001
+    ],
+    [
+     -1.68,
+     2.56,
+     0.7200000000000001
+    ],
+    [
+     -1.51,
+     1.89,
+     0.7200000000000001
+    ],
+    [
+     -1.99,
+     3.72,
+     0.9
+    ],
+    [
+     -1.82,
+     3.08,
+     0.7200000000000001
+    ],
+    [
+     -1.65,
+     2.44,
+     0.7200000000000001
+    ],
+    [
+     -1.48,
+     1.8,
+     0.7200000000000001
+    ],
+    [
+     0.2,
+     -1.5,
+     0.7
+    ],
+    [
+     -1.3,
+     0.35,
+     0.7
+    ],
+    [
+     0.2,
+     -1.5,
+     0.7
+    ],
+    [
+     -1.3,
+     0.35,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_idle",
+     "x": -7.75,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 0.2,
+     "lift": 0.3,
+     "hold": "steak",
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.12,
+      0.72
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.2,
+     3.08
+    ],
+    "h": [
+     1.44,
+     1.44
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    -7.75,
+    -1.2
+   ],
+   "steak": false,
+   "patrons": "watch",
+   "clear": [
+    [
+     -4.55,
+     -1.2,
+     0.9
+    ],
+    [
+     -5.03,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -5.51,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -5.99,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -4.67,
+     -1.2,
+     0.9
+    ],
+    [
+     -5.13,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -5.59,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -6.06,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -7.75,
+     -1.2,
+     0.7
+    ],
+    [
+     -7.75,
+     -1.2,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": 0.6,
+     "z": -1.2,
+     "face": "world",
+     "yaw": -70,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_walk",
+     "x": -2,
+     "z": -0.3,
+     "face": "world",
+     "yaw": 265,
+     "at": 0.3,
+     "mx": -1.6,
+     "mz": -0.15,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -105.46,
+     -105.39
+    ],
+    "r": [
+     4.876,
+     4.823
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -2.6,
+    -0.7
+   ],
+   "patrons": "twostep",
+   "clear": [
+    [
+     -7.3,
+     -2,
+     0.9
+    ],
+    [
+     -6.59,
+     -1.8,
+     0.7200000000000001
+    ],
+    [
+     -5.89,
+     -1.61,
+     0.7200000000000001
+    ],
+    [
+     -5.18,
+     -1.41,
+     0.7200000000000001
+    ],
+    [
+     -7.25,
+     -1.98,
+     0.9
+    ],
+    [
+     -6.55,
+     -1.79,
+     0.7200000000000001
+    ],
+    [
+     -5.86,
+     -1.6,
+     0.7200000000000001
+    ],
+    [
+     -5.16,
+     -1.4,
+     0.7200000000000001
+    ],
+    [
+     -5.7,
+     0.4,
+     1
+    ],
+    [
+     -5.8,
+     -3,
+     1
+    ],
+    [
+     -5.6,
+     -4.6,
+     1
+    ],
+    [
+     -5.8,
+     3.6,
+     1
+    ],
+    [
+     -2,
+     -0.3,
+     0.8
+    ],
+    [
+     -3.6,
+     -0.45,
+     0.8
+    ]
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_idle",
+     "x": -5.98,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.6,
+     "speed": 0,
+     "lift": -0.16
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -90,
+     -90
+    ],
+    "r": [
+     2.15,
+     2.1
+    ],
+    "h": [
+     1.42,
+     1.41
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    -6,
+    -1.2
+   ],
+   "still": true,
+   "steakTilt": 0.3,
+   "patrons": "watch",
+   "smoke": false,
+   "clear": [
+    [
+     -8.15,
+     -1.2,
+     0.9
+    ],
+    [
+     -7.83,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -7.5,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -7.18,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -8.1,
+     -1.2,
+     0.9
+    ],
+    [
+     -7.79,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -7.47,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -7.15,
+     -1.2,
+     0.7200000000000001
+    ],
+    [
+     -5.98,
+     -1.2,
+     0.7
+    ],
+    [
+     -5.98,
+     -1.2,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": -0.35,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 8,
+     "at": 0.2,
+     "speed": 0.3,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "charleston",
+     "x": 1.35,
+     "z": -2.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     15.2,
+     14.91
+    ],
+    "r": [
+     8.393,
+     7.968
+    ],
+    "h": [
+     3.4,
+     3.25
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    0.4,
+    -2.2
+   ],
+   "patrons": "line",
+   "clear": [
+    [
+     2.6,
+     5.9,
+     0.9
+    ],
+    [
+     2.27,
+     4.68,
+     0.7200000000000001
+    ],
+    [
+     1.94,
+     3.47,
+     0.7200000000000001
+    ],
+    [
+     1.61,
+     2.25,
+     0.7200000000000001
+    ],
+    [
+     2.45,
+     5.5,
+     0.9
+    ],
+    [
+     2.14,
+     4.34,
+     0.7200000000000001
+    ],
+    [
+     1.84,
+     3.19,
+     0.7200000000000001
+    ],
+    [
+     1.53,
+     2.03,
+     0.7200000000000001
+    ],
+    [
+     -0.35,
+     -1.4,
+     0.7
+    ],
+    [
+     1.35,
+     -2.5,
+     0.7
+    ],
+    [
+     -0.35,
+     -1.4,
+     0.7
+    ],
+    [
+     1.35,
+     -2.5,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "charleston",
+     "x": -0.55,
+     "z": -1.25,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "charleston",
+     "x": 0.55,
+     "z": -1.25,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4,
+     3.68
+    ],
+    "h": [
+     0.3,
+     0.3
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 62,
+    "roll": [
+     -7,
+     -4
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -1.25
+   ],
+   "patrons": "line",
+   "hearts": [
+    [
+     -0.55,
+     1.45,
+     -1.25,
+     0.35
+    ]
+   ],
+   "clear": [
+    [
+     0,
+     2.75,
+     0.9
+    ],
+    [
+     0,
+     2.15,
+     0.7200000000000001
+    ],
+    [
+     0,
+     1.55,
+     0.7200000000000001
+    ],
+    [
+     0,
+     0.95,
+     0.7200000000000001
+    ],
+    [
+     0,
+     2.43,
+     0.9
+    ],
+    [
+     0,
+     1.88,
+     0.7200000000000001
+    ],
+    [
+     0,
+     1.33,
+     0.7200000000000001
+    ],
+    [
+     0,
+     0.77,
+     0.7200000000000001
+    ],
+    [
+     -0.55,
+     -1.25,
+     0.7
+    ],
+    [
+     0.55,
+     -1.25,
+     0.7
+    ],
+    [
+     -0.55,
+     -1.25,
+     0.7
+    ],
+    [
+     0.55,
+     -1.25,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "charleston",
+     "x": -0.55,
+     "z": -1.25,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.843
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_walk",
+     "x": 0.6,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 95,
+     "at": 0.2,
+     "mx": 1.7,
+     "mz": -0.15,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -40,
+     -40.01
+    ],
+    "r": [
+     5.577,
+     5.41
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.45,
+    -1.262
+   ],
+   "patrons": "line",
+   "bull": {
+    "buck": 0.15
+   },
+   "clear": [
+    [
+     -3.13,
+     3.01,
+     0.9
+    ],
+    [
+     -2.6,
+     2.37,
+     0.7200000000000001
+    ],
+    [
+     -2.06,
+     1.73,
+     0.7200000000000001
+    ],
+    [
+     -1.52,
+     1.09,
+     0.7200000000000001
+    ],
+    [
+     -3.03,
+     2.88,
+     0.9
+    ],
+    [
+     -2.51,
+     2.26,
+     0.7200000000000001
+    ],
+    [
+     -1.98,
+     1.64,
+     0.7200000000000001
+    ],
+    [
+     -1.46,
+     1.02,
+     0.7200000000000001
+    ],
+    [
+     -0.55,
+     -1.25,
+     0.7
+    ],
+    [
+     0.6,
+     -1.2,
+     0.7
+    ],
+    [
+     -0.55,
+     -1.25,
+     0.7
+    ],
+    [
+     2.3,
+     -1.3499999999999999,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "male_driving_a_car",
+     "x": 5.25,
+     "z": -1.8,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.5,
+     "tongue": true,
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.6,
+      0.15
+     ],
+     "upAt": -1,
+     "lift": 0.86,
+     "hop": [
+      0.05,
+      1
+     ],
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -110,
+     -109.99
+    ],
+    "r": [
+     3.147,
+     2.989
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.76,
+     1.76
+    ],
+    "fov": 54,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.4
+   },
+   "focus": [
+    5.25,
+    -1.8
+   ],
+   "bull": {
+    "buck": 0.8
+   },
+   "patrons": "watch",
+   "stare": [
+    5.2,
+    -1.8
+   ],
+   "clear": [
+    [
+     2.29,
+     -2.88,
+     0.9
+    ],
+    [
+     2.74,
+     -2.71,
+     0.7200000000000001
+    ],
+    [
+     3.18,
+     -2.55,
+     0.7200000000000001
+    ],
+    [
+     3.62,
+     -2.39,
+     0.7200000000000001
+    ],
+    [
+     2.44,
+     -2.82,
+     0.9
+    ],
+    [
+     2.86,
+     -2.67,
+     0.7200000000000001
+    ],
+    [
+     3.28,
+     -2.52,
+     0.7200000000000001
+    ],
+    [
+     3.71,
+     -2.36,
+     0.7200000000000001
+    ],
+    [
+     5.25,
+     -1.8,
+     0.7
+    ],
+    [
+     5.25,
+     -1.8,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 40,
+     "at": 0.5,
+     "speed": 0,
+     "arm": "L",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     20,
+     20
+    ],
+    "r": [
+     2.3,
+     2.2
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     0.97,
+     0.97
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "patrons": "watch",
+   "stare": [
+    5.2,
+    -1.8
+   ],
+   "bull": {
+    "buck": 0.8
+   },
+   "clear": [
+    [
+     0.79,
+     0.76,
+     0.9
+    ],
+    [
+     0.67,
+     0.44,
+     0.7200000000000001
+    ],
+    [
+     0.55,
+     0.11,
+     0.7200000000000001
+    ],
+    [
+     0.43,
+     -0.21,
+     0.7200000000000001
+    ],
+    [
+     0.75,
+     0.67,
+     0.9
+    ],
+    [
+     0.64,
+     0.36,
+     0.7200000000000001
+    ],
+    [
+     0.53,
+     0.05,
+     0.7200000000000001
+    ],
+    [
+     0.41,
+     -0.26,
+     0.7200000000000001
+    ],
+    [
+     0,
+     -1.4,
+     0.7
+    ],
+    [
+     0,
+     -1.4,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "happy_idle",
+     "x": 7.95,
+     "z": 1.3,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.4,
+     "speed": 0.2,
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.12,
+      0.75
+     ],
+     "aim2": [
+      0.3,
+      -0.35,
+      0.25
+     ],
+     "aim2At": 1.821,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -90,
+     -90
+    ],
+    "r": [
+     2.4,
+     2.3
+    ],
+    "h": [
+     1.12,
+     1.12
+    ],
+    "look": [
+     1.06,
+     1.06
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    7.95,
+    1.3
+   ],
+   "patrons": "watch",
+   "bull": {
+    "buck": 0.8
+   },
+   "lever": [
+    1.821,
+    1.982,
+    0,
+    1
+   ],
+   "clear": [
+    [
+     5.55,
+     1.3,
+     0.9
+    ],
+    [
+     5.91,
+     1.3,
+     0.7200000000000001
+    ],
+    [
+     6.27,
+     1.3,
+     0.7200000000000001
+    ],
+    [
+     6.63,
+     1.3,
+     0.7200000000000001
+    ],
+    [
+     5.65,
+     1.3,
+     0.9
+    ],
+    [
+     6,
+     1.3,
+     0.7200000000000001
+    ],
+    [
+     6.34,
+     1.3,
+     0.7200000000000001
+    ],
+    [
+     6.69,
+     1.3,
+     0.7200000000000001
+    ],
+    [
+     7.95,
+     1.3,
+     0.7
+    ],
+    [
+     7.95,
+     1.3,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "being_thrown_to_the_side",
+     "x": 4.75,
+     "z": -1.5,
+     "face": "world",
+     "yaw": 300,
+     "at": 0.75,
+     "speed": 0.6,
+     "once": true,
+     "lift": 1.15,
+     "my": -1.15,
+     "myAt": 0.45,
+     "myDur": 0.6,
+     "mx": -1.3,
+     "mz": 0.9,
+     "moveAt": 0,
+     "air": true,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -47.82,
+     -47.41
+    ],
+    "r": [
+     4.319,
+     4.211
+    ],
+    "h": [
+     1.65,
+     1.65
+    ],
+    "look": [
+     1.38,
+     1.38
+    ],
+    "fov": 62
+   },
+   "focus": [
+    4.3,
+    -1
+   ],
+   "lever": 1,
+   "bull": {
+    "buck": 1,
+    "throw": 0
+   },
+   "patrons": "watch",
+   "stare": [
+    5.2,
+    -1.8
+   ],
+   "clear": [
+    [
+     1.1,
+     1.9,
+     0.9
+    ],
+    [
+     1.58,
+     1.47,
+     0.7200000000000001
+    ],
+    [
+     2.06,
+     1.03,
+     0.7200000000000001
+    ],
+    [
+     2.54,
+     0.6,
+     0.7200000000000001
+    ],
+    [
+     1.2,
+     1.85,
+     0.9
+    ],
+    [
+     1.66,
+     1.42,
+     0.7200000000000001
+    ],
+    [
+     2.13,
+     0.99,
+     0.7200000000000001
+    ],
+    [
+     2.59,
+     0.57,
+     0.7200000000000001
+    ],
+    [
+     4.75,
+     -1.5,
+     0.7
+    ],
+    [
+     3.45,
+     -0.6,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_idle",
+     "x": -5.76,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 270,
+     "at": 0.6,
+     "speed": 0.3,
+     "tongue": true,
+     "lean": 12,
+     "lift": -0.08
+    },
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_idle",
+     "x": -7.75,
+     "z": 0.25,
+     "face": "world",
+     "yaw": 110,
+     "at": 0.5,
+     "speed": 0.2,
+     "lift": 0.3,
+     "arm": "L",
+     "aim": [
+      0.6,
+      -0.12,
+      0.62
+     ],
+     "aim2": [
+      0.35,
+      -0.1,
+      0.3
+     ],
+     "aim2At": 1.5,
+     "upAt": -1,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -98.3,
+     -98.23
+    ],
+    "r": [
+     2.425,
+     2.374
+    ],
+    "h": [
+     1.5,
+     1.49
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -6.2,
+    -0.6
+   ],
+   "boardSlide": [
+    1.5,
+    2.036,
+    1.25
+   ],
+   "patrons": "watch",
+   "steakTilt": 0.25,
+   "clear": [
+    [
+     -5.6,
+     -1.2,
+     1.4
+    ],
+    [
+     -5.7,
+     0.4,
+     1
+    ],
+    [
+     -5.8,
+     -3,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_walk",
+     "x": -3,
+     "z": 0.9,
+     "face": "world",
+     "yaw": 55,
+     "at": 0.3,
+     "mx": 0.75,
+     "mz": 0.55,
+     "hold": "steak",
+     "holdScale": 1.3,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.28,
+      0.7
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_walk",
+     "x": -3.42,
+     "z": -0.24,
+     "face": "world",
+     "yaw": 55,
+     "at": 0.7,
+     "mx": 0.75,
+     "mz": 0.55,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     70,
+     70
+    ],
+    "r": [
+     4.48,
+     4.391
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.94,
+     0.94
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -2.835,
+    0.605
+   ],
+   "patrons": "watch",
+   "steak": false,
+   "clear": [
+    [
+     1.37,
+     2.14,
+     0.9
+    ],
+    [
+     0.74,
+     1.91,
+     0.7200000000000001
+    ],
+    [
+     0.11,
+     1.68,
+     0.7200000000000001
+    ],
+    [
+     -0.52,
+     1.45,
+     0.7200000000000001
+    ],
+    [
+     1.29,
+     2.11,
+     0.9
+    ],
+    [
+     0.67,
+     1.88,
+     0.7200000000000001
+    ],
+    [
+     0.05,
+     1.66,
+     0.7200000000000001
+    ],
+    [
+     -0.57,
+     1.43,
+     0.7200000000000001
+    ],
+    [
+     -3,
+     0.9,
+     0.7
+    ],
+    [
+     -3.42,
+     -0.24,
+     0.7
+    ],
+    [
+     -2.25,
+     1.4500000000000002,
+     0.7
+    ],
+    [
+     -2.67,
+     0.31000000000000005,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0,
+     "hold": "acoustic",
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.12,
+      0.55
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.3,
+     2.18
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     0.97,
+     0.97
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "patrons": "watch",
+   "steak": false,
+   "clear": [
+    [
+     0,
+     0.9,
+     0.9
+    ],
+    [
+     0,
+     0.55,
+     0.7200000000000001
+    ],
+    [
+     0,
+     0.21,
+     0.7200000000000001
+    ],
+    [
+     0,
+     -0.14,
+     0.7200000000000001
+    ],
+    [
+     0,
+     0.78,
+     0.9
+    ],
+    [
+     0,
+     0.45,
+     0.7200000000000001
+    ],
+    [
+     0,
+     0.13,
+     0.7200000000000001
+    ],
+    [
+     0,
+     -0.2,
+     0.7200000000000001
+    ],
+    [
+     0,
+     -1.4,
+     0.7
+    ],
+    [
+     0,
+     -1.4,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_walk",
+     "x": 8.25,
+     "z": 4.85,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.3,
+     "mx": 1.6,
+     "hold": "steak",
+     "holdScale": 1.3,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.28,
+      0.7
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_walk",
+     "x": 7.2,
+     "z": 4.35,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.7,
+     "mx": 1.6,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -118.52,
+     -118.57
+    ],
+    "r": [
+     5.235,
+     5.124
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    9.2,
+    4.7
+   ],
+   "patrons": "watch",
+   "steak": false,
+   "doors": 1,
+   "stare": [
+    9,
+    4.6
+   ],
+   "clear": [
+    [
+     4.6,
+     2.2,
+     0.9
+    ],
+    [
+     5.29,
+     2.58,
+     0.7200000000000001
+    ],
+    [
+     5.98,
+     2.95,
+     0.7200000000000001
+    ],
+    [
+     6.67,
+     3.33,
+     0.7200000000000001
+    ],
+    [
+     4.7,
+     2.25,
+     0.9
+    ],
+    [
+     5.37,
+     2.62,
+     0.7200000000000001
+    ],
+    [
+     6.05,
+     2.98,
+     0.7200000000000001
+    ],
+    [
+     6.72,
+     3.35,
+     0.7200000000000001
+    ],
+    [
+     8.25,
+     4.85,
+     0.7
+    ],
+    [
+     7.2,
+     4.35,
+     0.7
+    ],
+    [
+     9.85,
+     4.85,
+     0.7
+    ],
+    [
+     8.8,
+     4.35,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "falling_to_knees_in_prayer",
+     "x": -1.15,
+     "z": -1.5,
+     "face": "world",
+     "yaw": 26.6,
+     "at": 1.9,
+     "speed": 0.55,
+     "once": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     40.01,
+     40
+    ],
+    "r": [
+     2.7,
+     2.565
+    ],
+    "h": [
+     0.55,
+     0.55
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.15,
+    -1.5
+   ],
+   "patrons": "watch",
+   "ring": [
+    0,
+    -0.6,
+    4.6,
+    100,
+    260
+   ],
+   "steak": false,
+   "clear": [
+    [
+     0.59,
+     0.57,
+     0.9
+    ],
+    [
+     0.33,
+     0.26,
+     0.7200000000000001
+    ],
+    [
+     0.07,
+     -0.05,
+     0.7200000000000001
+    ],
+    [
+     -0.2,
+     -0.36,
+     0.7200000000000001
+    ],
+    [
+     0.5,
+     0.46,
+     0.9
+    ],
+    [
+     0.25,
+     0.17,
+     0.7200000000000001
+    ],
+    [
+     0,
+     -0.12,
+     0.7200000000000001
+    ],
+    [
+     -0.24,
+     -0.42,
+     0.7200000000000001
+    ],
+    [
+     -1.15,
+     -1.5,
+     0.7
+    ],
+    [
+     -1.15,
+     -1.5,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "singer",
+     "clip": "falling_to_knees_in_prayer",
+     "x": -1.15,
+     "z": -1.5,
+     "face": "world",
+     "yaw": 26.6,
+     "at": 3,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": -2.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.2,
+     "hold": "carrot",
+     "holdScale": 1.8,
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.4
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_idle",
+     "x": 1.15,
+     "z": -1.5,
+     "face": "world",
+     "yaw": -30.8,
+     "at": 0.5,
+     "speed": 0.2,
+     "hold": "steak",
+     "holdScale": 1.5,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.28,
+      0.7
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.58,
+     5.301
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0,
+    -1.7
+   ],
+   "patrons": "watch",
+   "ring": [
+    0,
+    -0.6,
+    4.6,
+    95,
+    265
+   ],
+   "steak": false,
+   "clear": [
+    [
+     0,
+     3.88,
+     0.9
+    ],
+    [
+     0,
+     3.04,
+     0.7200000000000001
+    ],
+    [
+     0,
+     2.21,
+     0.7200000000000001
+    ],
+    [
+     0,
+     1.37,
+     0.7200000000000001
+    ],
+    [
+     0,
+     3.6,
+     0.9
+    ],
+    [
+     0,
+     2.81,
+     0.7200000000000001
+    ],
+    [
+     0,
+     2.01,
+     0.7200000000000001
+    ],
+    [
+     0,
+     1.22,
+     0.7200000000000001
+    ],
+    [
+     -1.15,
+     -1.5,
+     0.7
+    ],
+    [
+     0.3,
+     -2.2,
+     0.7
+    ],
+    [
+     1.15,
+     -1.5,
+     0.7
+    ],
+    [
+     -1.15,
+     -1.5,
+     0.7
+    ],
+    [
+     0.3,
+     -2.2,
+     0.7
+    ],
+    [
+     1.15,
+     -1.5,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": 0.6,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.4,
+     2.24
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.1,
+    0.6
+   ],
+   "still": true,
+   "patrons": "watch",
+   "ring": [
+    0,
+    -0.6,
+    4.6,
+    95,
+    265
+   ],
+   "steak": false,
+   "clear": [
+    [
+     -0.1,
+     -1.8,
+     0.9
+    ],
+    [
+     -0.1,
+     -1.44,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     -1.08,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     -0.72,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     -1.64,
+     0.9
+    ],
+    [
+     -0.1,
+     -1.3,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     -0.97,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     -0.63,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     0.6,
+     0.7
+    ],
+    [
+     -0.1,
+     0.6,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 109,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_run",
+     "x": -0.1,
+     "z": 0.6,
+     "face": "world",
+     "yaw": 152.7,
+     "at": 0.1,
+     "speed": 1.2,
+     "mx": 0.8,
+     "mz": -1.55,
+     "moveAt": 0.05,
+     "steakMouth": 0.804,
+     "reveal": 0.45
+    },
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_idle",
+     "x": 1.15,
+     "z": -1.5,
+     "face": "world",
+     "yaw": -30.8,
+     "at": 0.5,
+     "speed": 0.2,
+     "hold": "steak",
+     "holdScale": 1.3,
+     "holdTo": 0.804,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.28,
+      0.7
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     40,
+     40
+    ],
+    "r": [
+     5.135,
+     5.033
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.933,
+     0.933
+    ],
+    "fov": 60
+   },
+   "focus": [
+    1,
+    -1.317
+   ],
+   "patrons": "watch",
+   "ring": [
+    0,
+    -0.6,
+    4.6,
+    150,
+    330
+   ],
+   "steak": false,
+   "clear": [
+    [
+     4.3,
+     2.62,
+     0.9
+    ],
+    [
+     3.81,
+     2.03,
+     0.7200000000000001
+    ],
+    [
+     3.31,
+     1.44,
+     0.7200000000000001
+    ],
+    [
+     2.82,
+     0.85,
+     0.7200000000000001
+    ],
+    [
+     4.24,
+     2.54,
+     0.9
+    ],
+    [
+     3.75,
+     1.96,
+     0.7200000000000001
+    ],
+    [
+     3.26,
+     1.38,
+     0.7200000000000001
+    ],
+    [
+     2.78,
+     0.8,
+     0.7200000000000001
+    ],
+    [
+     -0.1,
+     0.6,
+     0.7
+    ],
+    [
+     1.15,
+     -1.5,
+     0.7
+    ],
+    [
+     0.7000000000000001,
+     -0.9500000000000001,
+     0.7
+    ],
+    [
+     1.15,
+     -1.5,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_idle",
+     "x": 0.7,
+     "z": -0.95,
+     "face": "world",
+     "yaw": 25,
+     "at": 0.4,
+     "speed": 0.4,
+     "steakMouth": true,
+     "dizzy": 1.393
+    },
+    {
+     "who": "kob",
+     "look": "pitmaster",
+     "clip": "happy_idle",
+     "x": 1.5,
+     "z": -1.05,
+     "face": "world",
+     "yaw": -20,
+     "at": 0.5,
+     "speed": 0.2,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.28,
+      0.7
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": -1.45,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.4,
+     "speed": 0.2,
+     "hold": "carrot",
+     "arm": "R",
+     "aim": [
+      0.25,
+      0.08,
+      0.66
+     ],
+     "aim2": [
+      0.55,
+      0.55,
+      0.3
+     ],
+     "aim2At": 1.018,
+     "upAt": -1,
+     "toss": {
+      "at": 1.071,
+      "to": [
+       0.7,
+       1.42,
+       -0.95
+      ],
+      "dur": 0.5,
+      "arc": 0.6,
+      "scale": 1.4
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     15,
+     15
+    ],
+    "r": [
+     5.04,
+     4.839
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.933,
+     0.933
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.55,
+    -1.15
+   ],
+   "patrons": "cheer",
+   "ring": [
+    0,
+    -0.6,
+    4.6,
+    95,
+    265
+   ],
+   "steak": false,
+   "hearts": [
+    [
+     0.7,
+     1.6,
+     -0.95,
+     0.2
+    ]
+   ],
+   "clear": [
+    [
+     1.85,
+     3.72,
+     0.9
+    ],
+    [
+     1.66,
+     2.99,
+     0.7200000000000001
+    ],
+    [
+     1.46,
+     2.26,
+     0.7200000000000001
+    ],
+    [
+     1.27,
+     1.53,
+     0.7200000000000001
+    ],
+    [
+     1.8,
+     3.52,
+     0.9
+    ],
+    [
+     1.61,
+     2.82,
+     0.7200000000000001
+    ],
+    [
+     1.43,
+     2.12,
+     0.7200000000000001
+    ],
+    [
+     1.24,
+     1.42,
+     0.7200000000000001
+    ],
+    [
+     0.7,
+     -0.95,
+     0.7
+    ],
+    [
+     1.5,
+     -1.05,
+     0.7
+    ],
+    [
+     -0.55,
+     -1.45,
+     0.7
+    ],
+    [
+     0.7,
+     -0.95,
+     0.7
+    ],
+    [
+     1.5,
+     -1.05,
+     0.7
+    ],
+    [
+     -0.55,
+     -1.45,
+     0.7
+    ]
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "honkytonk",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cowboy",
+     "clip": "happy_idle",
+     "x": 0.7,
+     "z": -0.95,
+     "face": "world",
+     "yaw": 25,
+     "at": 1.257,
+     "speed": 0,
+     "steakMouth": true,
+     "dizzy": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     15,
+     15
+    ],
+    "r": [
+     3.871,
+     3.871
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.933,
+     0.933
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.55,
+    -1.15
+   ],
+   "still": true,
+   "patrons": "cheer",
+   "stop": 0,
+   "ring": [
+    0,
+    -0.6,
+    4.6,
+    95,
+    265
+   ],
+   "steak": false,
+   "clear": [
+    [
+     1.55,
+     2.59,
+     0.9
+    ],
+    [
+     1.4,
+     2.03,
+     0.7200000000000001
+    ],
+    [
+     1.25,
+     1.47,
+     0.7200000000000001
+    ],
+    [
+     1.1,
+     0.91,
+     0.7200000000000001
+    ],
+    [
+     1.55,
+     2.59,
+     0.9
+    ],
+    [
+     1.4,
+     2.03,
+     0.7200000000000001
+    ],
+    [
+     1.25,
+     1.47,
+     0.7200000000000001
+    ],
+    [
+     1.1,
+     0.91,
+     0.7200000000000001
+    ],
+    [
+     0.7,
+     -0.95,
+     0.7
+    ],
+    [
+     0.7,
+     -0.95,
+     0.7
+    ]
+   ]
+  }
+ ]
+}

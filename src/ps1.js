@@ -35,6 +35,7 @@ import { buildCanyonMaps } from './maps28.js';
 import { buildScrubMaps } from './maps29.js';
 import { buildFotoMaps } from './maps30.js';
 import { buildGoldenMaps } from './maps31.js';
+import { buildTonkMaps, texasSteak } from './maps32.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -714,6 +715,8 @@ const PARTNERS = {
     fiesta: 'assets/models/sadi_fiesta.glb',
     // the idol singer: a long hot-pink high ponytail down her back, her pink bow, a white cropped stage jacket with a high collar and gold trim over a white crop top, white wide trousers with a gold chain belt, gold platform boots ("Golden", 2026-10-06)
     idol: 'assets/models/sadi_idol.glb',
+    // the honky-tonk singer from the clip: a long straight dark brown wig with short blunt bangs above her eyes, her ears out on top and her pink bow, a white peasant blouse with puffed long sleeves, a turquoise stone necklace, red flared bell-bottoms, brown cowboy boots ("Choosin' Texas", 2026-10-06 2nd)
+    singer: 'assets/models/sadi_singer.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -739,6 +742,8 @@ const PARTNERS = {
     parka: 'assets/models/kob_parka.glb',
     // the agency's CEO: a sharp double-breasted black power suit with gold buttons and padded shoulders, a white silk blouse, pearls and pearl earrings, black heels, her bell ("Animal", 2026-10-03)
     ceo: 'assets/models/kob_ceo.glb',
+    // the barbecue pitmaster: a small black cowboy hat between her ears, a red bandana over her bell collar, a light blue denim shirt with rolled sleeves under a brown leather apron with a pocket, dark jeans, brown cowboy boots ("Choosin' Texas", 2026-10-06 2nd)
+    pitmaster: 'assets/models/kob_pitmaster.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -872,7 +877,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -996,7 +1001,7 @@ function actorSpec(a, e, map) {
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie, dizzy: a.dizzy ?? null,
-    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
+    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, steakMouth: a.steakMouth ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1157,6 +1162,17 @@ function propMesh(kind) {
     add(box(0.4, 0.036, 0.032, maple), 0.3, 0.0, 0.004);                                            // the neck
     for (let i = 0; i < 6; i++) add(box(0.006, 0.038, 0.034, M(0x9a8a60)), 0.14 + i * 0.055, 0.0, 0.005);   // frets
     add(box(0.1, 0.055, 0.026, maple), 0.54, 0.012, 0.004).rotation.z = 0.15;                       // the headstock
+  } else if (kind === 'acoustic') {   // "Choosin' Texas" (2026-10-06 2nd): the singer's acoustic guitar, like the red one along +x from its body, its face to +z: a honey sunburst body (two bouts and a dark rim), the sound hole, the bridge, a long brown neck
+    const honey = mat({ color: 0xe8a84a, unlit: 0.25 }), rim = M(0x5a2e14), neck = M(0x7a4a2a), dk = M(0x1a120c);
+    for (const [x, r] of [[-0.12, 0.16], [0.06, 0.12]]) { add(cyl(r + 0.012, r + 0.012, 0.06, rim, 12), x, 0).rotation.x = Math.PI / 2; add(cyl(r, r, 0.064, honey, 12), x, 0).rotation.x = Math.PI / 2; }
+    add(cyl(0.048, 0.048, 0.068, dk, 10), -0.02, 0, 0.002).rotation.x = Math.PI / 2;     // the sound hole
+    add(box(0.03, 0.12, 0.07, dk), -0.19, 0, 0.002);                                     // the bridge
+    add(box(0.4, 0.036, 0.034, neck), 0.33, 0.0, 0.006);                                // the neck
+    for (let i = 0; i < 6; i++) add(box(0.006, 0.038, 0.036, M(0xc8b890)), 0.18 + i * 0.05, 0.0, 0.007);   // frets
+    add(box(0.1, 0.06, 0.03, neck), 0.57, 0.01, 0.006).rotation.z = 0.15;              // the headstock
+  } else if (kind === 'steak' || kind === 'board') {   // "Choosin' Texas": a cutting board with the Texas-shaped steak on it (or empty), carried in both paws
+    add(box(0.42, 0.03, 0.34, M(0xd8a868)), 0, 0); add(box(0.4, 0.008, 0.32, M(0xb8884a)), 0, 0.016);
+    if (kind === 'steak') { const st = texasSteak(MAP_KIT, 0.36); st.position.y = 0.02; G.add(st); }
   } else if (kind === 'daisy') {    // a daisy held up by its stem, its face tilted up; the actor's petalsLeft of 12 petals show (Kob plucks them: love me, love me not)
     add(box(0.012, 0.2, 0.012, M(0x3a8a3a)), 0, 0.06);   // a short stem: held at the chest, the head sits under her chin (longer, it covered her eye)
     const face = add(new THREE.Group(), 0, 0.17, 0.02); face.rotation.x = -0.6;
@@ -1258,14 +1274,14 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'book' || kind === 'wallet' || kind === 'bucket' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
+  if (kind === 'pad' || kind === 'book' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
-    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : -0.75, bodyYaw, 0, 'YXZ');   // the book and the wallet tilt open towards the holder
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : kind === 'steak' || kind === 'board' ? 0.75 : -0.75, bodyYaw, 0, 'YXZ');   // the steak's board tips its face to the lens   // the book and the wallet tilt open towards the holder
     if (kind === 'melon') g.position.addScaledVector(_up, 0.1 * s);   // it sits on the paws
     if (kind === 'wallet') D.walletAt = g.position.clone();
     return;
   }
-  if (kind === 'guitar') {   // the body at the strumming (right) paw, the neck laid towards the fretting (left) paw, the face towards the body's front
+  if (kind === 'guitar' || kind === 'acoustic') {   // the body at the strumming (right) paw, the neck laid towards the fretting (left) paw, the face towards the body's front
     const a = palm(D, 'R')?.clone(), b = palm(D, 'L'); if (!a || !b) return;
     const dir = b.clone().sub(a).normalize(), n = new THREE.Vector3(Math.sin(bodyYaw), 0, Math.cos(bodyYaw)), up = new THREE.Vector3();
     n.addScaledVector(dir, -n.dot(dir)).normalize(); up.crossVectors(n, dir);
@@ -1570,6 +1586,13 @@ function mouthBall(D) {
   const g = faceProp(D, 'ballmouth', () => { const q = new THREE.Group(); q.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.115, 1), mat({ color: 0xd8f02a, unlit: 0.5 }))); const seam = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.012, 4, 14), mat({ color: 0xffffff, unlit: 0.6 })); seam.rotation.x = 0.6; q.add(seam); return q; });
   faceAt(D, [0, 0.04, 0.47], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
 }
+// "Choosin' Texas" (2026-10-06 2nd): `steakMouth` (true or from s into the shot), the Texas-shaped steak carried in the
+// jaws the way a dog carries his prize: its top edge between the teeth, hanging under the muzzle and out to one side,
+// its face (and the state's outline) to the front, so the eyes stay clear; in the head bone's frame like FACE
+function mouthSteak(D) {
+  const g = faceProp(D, 'steakmouth', () => { const q = new THREE.Group(), st = texasSteak(MAP_KIT, 0.46); st.rotation.x = Math.PI / 2; q.add(st); return q; });
+  faceAt(D, [0.3, -0.08, 0.44], g.position);   // out beside the muzzle: hanging under it, it sat on his red bandana and read as a blob g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
 // "Golden" (2026-10-06): `sip` (true or from s), a long pink straw from the cup in the right paw up into the corner of
 // the mouth: chibi arms can't lift a cup to the mouth (it sat on the cheek and read as singing), the straw's line carries it
 const _sa = new THREE.Vector3(), _sb = new THREE.Vector3(), _sy = new THREE.Vector3(0, 1, 0);
@@ -1873,6 +1896,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
     if (A.ballMouth != null && A.ballMouth !== false && (A.ballMouth === true || t - t0 >= A.ballMouth) && D.head) mouthBall(D);
+    if (A.steakMouth != null && A.steakMouth !== false && (A.steakMouth === true || t - t0 >= A.steakMouth) && D.head) mouthSteak(D);
     if (A.sip != null && A.sip !== false && (A.sip === true || t - t0 >= A.sip) && D.head && D.handR) sipStraw(D, A.sipHand);
     if (A.treat && D.head) biscuitTrick(D, A.treat, t - t0);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
