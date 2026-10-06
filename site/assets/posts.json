@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-06T15:18:56.693Z",
+ "updated": "2026-10-06T18:17:40.660Z",
  "posts": [
+  {
+   "id": "2026-10-06-2",
+   "title": "Choosin' Texas",
+   "artist": "Ella Langley",
+   "date": "2026-10-06T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-06-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7693616609759366432",
+     "id": "7693616609759366432"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeKYVSGD48v/",
+     "id": "DeKYVSGD48v"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/xeSDsT1hstk",
+     "id": "xeSDsT1hstk"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1369816868261455",
+     "id": "1369816868261455"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2107531652482130046",
+     "id": "2107531652482130046"
+    }
+   }
+  },
   {
    "id": "2026-10-06",
    "title": "Golden",
