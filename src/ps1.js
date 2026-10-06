@@ -36,6 +36,7 @@ import { buildScrubMaps } from './maps29.js';
 import { buildFotoMaps } from './maps30.js';
 import { buildGoldenMaps } from './maps31.js';
 import { buildTonkMaps, texasSteak } from './maps32.js';
+import { buildAptMaps } from './maps33.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -673,6 +674,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   pava: 'assets/models/saxo_pava.glb',
   // the K-pop idol lead in the film's stage look: long straight lavender hair with a thick braid over his left shoulder, his ears out, a cropped black stage jacket with gold baroque embroidery open over a white crop top, white high-waisted trousers, white platform boots, gold hoops ("Golden", 2026-10-06)
   idol: 'assets/models/saxo_idol.glb',
+  // the APT. duo's punk look from the clip: a black cap worn backwards, small black sunglasses, a black leather biker jacket open over a white t-shirt, a pearl necklace, a red tartan kilt over black leggings, white sneakers ("APT.", 2026-10-07)
+  kilt: 'assets/models/saxo_kilt.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -717,6 +720,8 @@ const PARTNERS = {
     idol: 'assets/models/sadi_idol.glb',
     // the honky-tonk singer from the clip: a long straight dark brown wig with short blunt bangs above her eyes, her ears out on top and her pink bow, a white peasant blouse with puffed long sleeves, a turquoise stone necklace, red flared bell-bottoms, brown cowboy boots ("Choosin' Texas", 2026-10-06 2nd)
     singer: 'assets/models/sadi_singer.glb',
+    // the APT. duo's other half from the clip: a short messy platinum-blonde bob wig with a fringe, her pink bow on it, a black leather biker jacket open over a white cropped top, black leather mini shorts, black ankle boots ("APT.", 2026-10-07)
+    bob: 'assets/models/sadi_bob.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -877,7 +882,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1064,6 +1069,11 @@ function propMesh(kind) {
   if (kind === 'glass') {          // a tall glass of orange juice, pink straw, a lemon slice on the rim
     add(cyl(0.05, 0.04, 0.15, M(0xff9a2e)), 0, 0.075); add(cyl(0.053, 0.053, 0.02, M(0xf4fbff)), 0, 0.155);
     add(cyl(0.008, 0.008, 0.14, M(0xff5fa2), 4), 0.02, 0.2).rotation.z = -0.3; add(box(0.06, 0.014, 0.03, M(0xffd43b)), -0.045, 0.15).rotation.z = 0.5;
+  } else if (kind === 'milkbottle') {   // a glass milk bottle, white with a blue cap and band ("APT.": the critic read the blue milk glass as soda)
+    add(cyl(0.05, 0.05, 0.13, M(0xf8f8f8)), 0, 0.065); add(cyl(0.03, 0.05, 0.05, M(0xf8f8f8)), 0, 0.155); add(cyl(0.032, 0.032, 0.025, M(0x2a7ae8)), 0, 0.19);
+    add(cyl(0.052, 0.052, 0.03, M(0x2a7ae8)), 0, 0.07);
+  } else if (kind === 'redcup') {  // a red party cup with a white rim ("APT.": the clip's drinking game)
+    add(cyl(0.06, 0.042, 0.15, M(0xe02a2a)), 0, 0.075); add(cyl(0.062, 0.062, 0.02, M(0xf6f6f6)), 0, 0.152);
   } else if (kind === 'milk') {    // a glass of milk (Kob stays in)
     add(cyl(0.052, 0.044, 0.16, M(0x6aa8e8)), 0, 0.08); add(cyl(0.046, 0.046, 0.02, M(0xffffff)), 0, 0.15); add(cyl(0.008, 0.008, 0.13, M(0xff5fa2), 4), 0.018, 0.2).rotation.z = -0.3;   // blue glass, white milk: a white glass vanished on her pyjamas
   } else if (kind === 'camera') {  // the private eye's camera, lens forward: a black body under a silver top, a big lens, a flash unit on top ("Billie Jean")
@@ -1647,13 +1657,14 @@ function thermometer(D) {
   });
   faceAt(D, [0.08, 0.02, 0.38], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.12, 0.35, 0))); g.scale.setScalar(D.curScale || D.scale || 1);
 }
-function sleepMask(D) {   // a pale blue sleep mask over both eyes, pink trim, two closed eyes with lashes printed on it: asleep (the plain navy band read as a censor bar, 2026-10-02)
-  const g = faceProp(D, 'sleepmask', () => {
-    const q = new THREE.Group(), face = tex(48, 16, x => { px(x, '#9ccff2', 0, 0, 48, 16); px(x, '#ff8ac0', 0, 0, 48, 2); px(x, '#ff8ac0', 0, 14, 48, 2); for (const cx of [13, 35]) { for (let i = -6; i <= 6; i++) px(x, '#1a1a2e', cx + i, 6 + Math.round(i * i / 12), 1, 2); for (const i of [-5, -2, 2, 5]) px(x, '#1a1a2e', cx + i, 8 + Math.round(i * i / 12), 1, 3); } }, 2250);
-    const plain = mat({ color: 0x9ccff2, unlit: 0.4 });   // the eyes on the front face only (from above, a second pair showed on its top)
+function sleepMask(D, pink = false) {   // a pale blue sleep mask over both eyes, pink trim, two closed eyes with lashes printed on it: asleep (the plain navy band read as a censor bar, 2026-10-02); pink: Kob's own pyjama mask pulled down ("APT.": the blue one read as a second mask)
+  const base = pink ? '#ffb4d2' : '#9ccff2', trim = pink ? '#ff6aa8' : '#ff8ac0';
+  const g = faceProp(D, pink ? 'sleepmaskpink' : 'sleepmask', () => {
+    const q = new THREE.Group(), face = tex(48, 16, x => { px(x, base, 0, 0, 48, 16); px(x, trim, 0, 0, 48, 2); px(x, trim, 0, 14, 48, 2); for (const cx of [13, 35]) { for (let i = -6; i <= 6; i++) px(x, '#1a1a2e', cx + i, 6 + Math.round(i * i / 12), 1, 2); for (const i of [-5, -2, 2, 5]) px(x, '#1a1a2e', cx + i, 8 + Math.round(i * i / 12), 1, 3); } }, 2250);
+    const plain = mat({ color: pink ? 0xffb4d2 : 0x9ccff2, unlit: 0.4 });   // the eyes on the front face only (from above, a second pair showed on its top)
     q.add(new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.2, 0.1), [plain, plain, plain, plain, mat({ map: face, unlit: 0.4 }), plain])); return q;
   });
-  faceAt(D, D === CREW.compote ? [0, 0.2, 0.36] : [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);   // Compote's eyes sit lower on her head: hers rode up on her forehead
+  faceAt(D, D === CREW.compote ? [0, 0.2, 0.36] : [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar((D.curScale || D.scale || 1) * (pink ? 0.82 : 1));   // Compote's eyes sit lower on her head: hers rode up on her forehead; Kob's pink one narrower (the full width floated past her cheeks)
 }
 function faceMask(D) {
   const g = faceProp(D, 'mask', () => {
@@ -1890,7 +1901,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.nose != null && A.nose !== false && (A.nose === true || t - t0 >= A.nose) && D.head) redNose(D);
     if (A.therm && D.head) thermometer(D);
     if (A.mask && D.head) faceMask(D);
-    if (A.sleep && D.head) sleepMask(D);
+    if (A.sleep != null && A.sleep !== false && (A.sleep === true || t - t0 >= A.sleep) && D.head) sleepMask(D, A.look === 'pyjama' && D === CREW.kob);   // true, or from s into the shot
     if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
     if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
