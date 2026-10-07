@@ -3121,6 +3121,52 @@
      "z": -3
     }
    ]
+  },
+  {
+   "beat": 148,
+   "kind": "dance",
+   "map": "comic",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     4,
+     4
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 54
+   },
+   "focus": [
+    0,
+    0.9
+   ],
+   "sketch": false,
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "reader",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.5,
+     "z": 0.9
+    },
+    {
+     "who": "saxo",
+     "look": "racer",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.5,
+     "z": 0.9
+    }
+   ]
   }
  ]
 }
