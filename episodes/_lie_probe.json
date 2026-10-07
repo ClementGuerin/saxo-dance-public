@@ -1,0 +1,350 @@
+{
+ "date": "2026-10-08",
+ "song": "probe",
+ "logline": "lying probe",
+ "notes": "not a video",
+ "with": [
+  "sadi"
+ ],
+ "clips": [
+  "knocked_out_falling_to_back"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 3.4,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.05,
+     1.05
+    ],
+    "h": [
+     2.75,
+     2.75
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  },
+  {
+   "beat": 2,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 3.4,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -59.04,
+     -59.04
+    ],
+    "r": [
+     1.458,
+     1.458
+    ],
+    "h": [
+     2.25,
+     2.25
+    ],
+    "look": [
+     0.1,
+     0.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.1,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 2.6,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -59.04,
+     -59.04
+    ],
+    "r": [
+     1.458,
+     1.458
+    ],
+    "h": [
+     2.25,
+     2.25
+    ],
+    "look": [
+     0.1,
+     0.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.1,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  },
+  {
+   "beat": 6,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 3.4,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -71.57,
+     -71.57
+    ],
+    "r": [
+     1.581,
+     1.581
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.1,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 4.2,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -59.04,
+     -59.04
+    ],
+    "r": [
+     1.458,
+     1.458
+    ],
+    "h": [
+     2.25,
+     2.25
+    ],
+    "look": [
+     0.1,
+     0.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.1,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  },
+  {
+   "beat": 10,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 3.4,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -35.31,
+     -35.31
+    ],
+    "r": [
+     1.471,
+     1.471
+    ],
+    "h": [
+     2.6,
+     2.6
+    ],
+    "look": [
+     0.05,
+     0.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.05,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "london",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "knocked_out_falling_to_back",
+     "x": -5,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -53,
+     "at": 3.4,
+     "speed": 0,
+     "ground": "mesh",
+     "holdL": "bouquet"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -35.31,
+     -35.31
+    ],
+    "r": [
+     1.471,
+     1.471
+    ],
+    "h": [
+     2.6,
+     2.6
+    ],
+    "look": [
+     0.05,
+     0.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.05,
+    -1.15
+   ],
+   "still": true,
+   "zone": "day",
+   "noguests": true,
+   "cab": false
+  }
+ ]
+}

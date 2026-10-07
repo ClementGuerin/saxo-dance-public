@@ -27,12 +27,14 @@
 //   lit      the bookshop's lamps on (always at dusk and night)
 //   gift     { x, z, yaw, to: [x1, z1], at, dur, lid: 0-1 | [s0, s1, a, b], bow }: the big cardboard box with a red bow on
 //            its lid; it slides from (x, z) to `to` over [at, at + dur]; `lid` lifts the lid off and lays it on the
-//            cobbles beside the box (the bow goes with it). false: no box
+//            cobbles beside the box (the bow goes with it); `lin`: the slide is linear (an actor's mx walk pushing it). false: no box
 //   palace   { x, z, yaw, y, to: [x1, z1, y1], at, dur, arc }: the cat palace (a round pink velvet bed under a little
 //            pink canopy with a gold crown), 1 m across; y lifts it (0.03: on the box's floor, its canopy above the rim)
 //   petals   true or s: pink petals drifting down round petalsAt ([x, z], default the origin)
 //   spots    [[x, z], ...]: the first pets stand there instead (the rest hidden), facing `stare` or the shot's middle
 //   shadow   Kob's reading silhouette on the lit blind (true; with the blind down and the lamps lit, dusk or night)
+//   glints   false: no glints on the window (a lens inside the shop, close behind the window, sees them across the frame)
+//   readingLamp false: no reading lamp at the back of the shop (behind the doorway it sat on a head)
 //   noguests, clear [[x, z, r]] (no pet there), key [x, y, z, r, g, b]
 // Never name a flag like a shot field: `crowd`, `cam`, `still`, `focus` are taken.
 import { mapKit } from './mapkit.js';
@@ -158,7 +160,7 @@ export function buildLondonMaps(K) {
     for (let i = 0; i < 18; i++) G.add(flat(1.4, 0.1, mat({ color: 0xe8e4d8, unlit: 0.4 }), -24 + i * 3, ROAD_Y + 0.004, KERB_Z + roadW / 2));
     // the wet road at night: glossy puddles catching the lamps (shown by `zone`)
     const puddles = new THREE.Group(); G.add(puddles);
-    for (const [x, z, w, d, c] of [[-6.2, 3.6, 2.2, 0.8, 0xf0b860], [2.6, 4.4, 2.6, 0.9, 0xe8a858], [8.4, 3.2, 1.8, 0.7, 0xf2c070], [-1.6, 6.0, 2.0, 0.8, 0xd89a58], [-12, 5.2, 2.4, 0.8, 0xf0b860]]) puddles.add(flat(w, d, mat({ color: c, unlit: 0.7, see: 0.35 }), x, ROAD_Y + 0.008, z));
+    for (const [x, z, w, d, c] of [[-6.2, 3.6, 2.2, 0.8, 0xf0b860], [2.6, 4.4, 2.6, 0.9, 0xe8a858], [8.4, 3.2, 1.8, 0.7, 0xf2c070], [-1.6, 6.0, 2.0, 0.8, 0xd89a58], [-12, 5.2, 2.4, 0.8, 0xf0b860]]) puddles.add(flat(w, d, mat({ color: 0x4a4a5e, unlit: 0.35 }), x, ROAD_Y + 0.008, z));
     // across the road: the far pavement, the garden square's railings, its lawn and plane trees
     G.add(flat(W + 40, 1.6, mat({ map: slabT, rep: [(W + 40) / 1.2, 2] }), 0, 0, FAR_Z - 0.8));
     G.add(at(box(W + 40, 0.12, 0.2, M(0xb8b6b0)), 0, -0.06, FAR_Z - 1.6));
@@ -244,8 +246,8 @@ export function buildLondonMaps(K) {
     G.add(at(box(WIN.x1 - WIN.x0 + 0.05, 0.06, 0.24, GREEN), (WIN.x0 + WIN.x1) / 2, WIN.y0 + 0.02, FACADE_Z + 0.1));
     G.add(at(box(DOOR.x1 - WIN.x0, 0.12, 0.16, GREEN), (WIN.x0 + DOOR.x1) / 2, 2.21, FACADE_Z + 0.06));
     // the window: no glass over a face, just a frame and three glints in the corners (a dithered pane veils faces)
-    const glint = mat({ color: 0xf4fbff, unlit: 0.6, see: 0.55 });
-    for (const [gx, gy, gw, gh] of [[WIN.x0 + 0.22, WIN.y1 - 0.38, 0.05, 0.55], [WIN.x0 + 0.34, WIN.y1 - 0.32, 0.03, 0.4], [WIN.x1 - 0.2, WIN.y0 + 0.36, 0.05, 0.45]]) { const gl = at(box(gw, gh, 0.005, glint), gx, gy, FACADE_Z + 0.01); gl.rotation.z = -0.6; G.add(gl); }
+    const glint = mat({ color: 0xf4fbff, unlit: 0.6, see: 0.55 }), glints = [];
+    for (const [gx, gy, gw, gh] of [[WIN.x0 + 0.22, WIN.y1 - 0.38, 0.05, 0.55], [WIN.x0 + 0.34, WIN.y1 - 0.32, 0.03, 0.4], [WIN.x1 - 0.2, WIN.y0 + 0.36, 0.05, 0.45]]) { const gl = at(box(gw, gh, 0.005, glint), gx, gy, FACADE_Z + 0.01); gl.rotation.z = -0.6; G.add(gl); glints.push(gl); }
     // a gold-lettered strip on the riser
     const hours = mat({ map: tex(32, 6, x => { px(x, '#2a5a44', 0, 0, 32, 6); x.font = 'bold 6px monospace'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = '#f2cc5a'; x.fillText('EST 1887', 16, 3); }, 3542), unlit: 0.4 });
     G.add(at(new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.22), hours), (WIN.x0 + WIN.x1) / 2, 0.24, FACADE_Z + 0.145));
@@ -275,7 +277,8 @@ export function buildLondonMaps(K) {
     G.add(at(box(WIN.x1 - WIN.x0, 0.06, 0.4, M(0x5a3a22)), (WIN.x0 + WIN.x1) / 2, WIN.y0 - 0.03, FACADE_Z - 0.2));
     for (let i = 0; i < 4; i++) G.add(at(box(0.3, 0.06 + (i % 3) * 0.04, 0.22, M([0xc83a3a, 0x3a6ac8, 0xe8c040, 0x3a8a4a][i])), WIN.x0 + 0.2 + i * 0.13, WIN.y0 + 0.03 + i * 0.04, FACADE_Z - 0.2));
     const lampM = mat({ color: 0xffe0a0, unlit: 1 });
-    G.add(at(cyl(0.02, 0.02, 1.4, 5, M(0x2a2a2a)), bx1 - 0.6, 0.7, iz0 + 0.6)); G.add(at(cone(0.22, 0.25, 8, lampM), bx1 - 0.6, 1.45, iz0 + 0.6));
+    const readLamp = at(new THREE.Group(), bx1 - 0.6, 0, iz0 + 0.6); G.add(readLamp);
+    readLamp.add(at(cyl(0.02, 0.02, 1.4, 5, M(0x2a2a2a)), 0, 0.7, 0)); readLamp.add(at(cone(0.22, 0.25, 8, lampM), 0, 1.45, 0));
     G.add(at(cyl(0.3, 0.3, 0.05, 10, lampM), (bx0 + bx1) / 2, 2.95, icz));
     for (let i = 0; i < 4; i++) G.add(at(box(0.35, 0.3 + i * 0.12, 0.28, M([0x8a3a3a, 0x3a5a8a, 0xc8a040, 0x4a7a4a][i])), bx1 - 1.3 + (i % 2) * 0.4, (0.3 + i * 0.12) / 2, iz0 + 0.5 + Math.floor(i / 2) * 0.5));
     // the roller blind: cream stripes, rolled up under the transom (`blind` brings it down over the window)
@@ -394,6 +397,8 @@ export function buildLondonMaps(K) {
         pt(2, (BOOKS.x0 + BOOKS.x1) / 2, 2.2, FACADE_Z - 1.2, lit ? 1.1 : 0.7, lit ? 0.85 : 0.6, lit ? 0.5 : 0.4);
         if (P.key) pt(3, P.key[0], P.key[1], P.key[2], P.key[3], P.key[4], P.key[5]);
         cab.visible = P.cab !== false && !night;
+        for (const gl of glints) gl.visible = P.glints !== false;
+        readLamp.visible = P.readingLamp !== false;
         // the blind and the door
         const bl = cl(ramp(P.blind, s)), bh = Math.max(0.02, bl * (WIN.y1 - WIN.y0 - 0.05));
         blind.visible = bl > 0.01; blind.scale.y = bh; blind.position.set((WIN.x0 + WIN.x1) / 2, WIN.y1 - 0.06 - bh / 2, FACADE_Z - 0.07);
@@ -427,7 +432,7 @@ export function buildLondonMaps(K) {
             headZ = Math.sin(i * 1.7 + 0.5) > 0 ? 0.32 : -0.32; headX = -0.18; sway = 0.12 * Math.sin(b * PI * 0.5 + i);
             aL = [-1.25, 0.55]; aR = [-1.25, 0.55]; bob = 0.01;
           } else if (mode === 'cheer') { aL = [0.35, 2.45 + 0.25 * Math.sin(bb * TAU)]; aR = [0.35, 2.45 + 0.25 * Math.sin(bb * TAU + 1)]; bob = 0.05 * kick; }
-          else if (mode === 'gasp') { aL = [-1.6, 0.35]; aR = [-1.6, 0.35]; headX = -0.25; bob = 0; }
+          else if (mode === 'gasp') { aL = [-2.45, 0.12]; aR = [-2.45, 0.12]; headX = -0.22; bob = 0; }   // paws on the cheeks, in front of the skull's sides
           else if (mode === 'stare') { aL = [0, 0.1]; aR = [0, 0.1]; bob = 0; headX = 0; }
           p.g.position.set(x + Math.cos(yaw) * side, 0, z - Math.sin(yaw) * side); p.g.rotation.y = yaw;
           p.body.position.y = bob; p.body.rotation.z = sway; p.head.rotation.set(headX, 0, headZ);
@@ -439,7 +444,7 @@ export function buildLondonMaps(K) {
         // the gift box: slides along, its lid lifts off and lands beside it
         const gf = P.gift; gift.visible = !!gf;
         if (gf) {
-          const u = gf.to ? sm((s - (gf.at ?? 0)) / Math.max(0.01, gf.dur ?? 1)) : 0;
+          const u0 = (s - (gf.at ?? 0)) / Math.max(0.01, gf.dur ?? 1), u = gf.to ? (gf.lin ? cl(u0) : sm(u0)) : 0;
           const gx = gf.to ? gf.x + (gf.to[0] - gf.x) * u : gf.x, gz = gf.to ? gf.z + (gf.to[1] - gf.z) * u : gf.z;
           gift.position.set(gx, 0, gz); gift.rotation.y = (gf.yaw || 0) * PI / 180;
           const lv = cl(ramp(gf.lid, s)), lid = gift.userData.lid, H = GIFT.H;

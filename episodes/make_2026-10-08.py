@@ -231,80 +231,92 @@ def lens_for(actors, ang, dist, b0, b1, hs=(1.0,), fov=50, look=None, spread=40,
     return view(tuple(round(c, 3) for c in cam), tuple(round(c, 3) for c in L), fov, p1=tuple(round(c, 3) for c in p1), **o)
 
 def kob_reads(**o):                              # Kob in her window, reading, never looking up
-    return A('kob', 'happy_idle', *KOB_WIN, face='world', yaw=0, at=o.pop('at', 0.3), speed=o.pop('speed', 0.15), **BOOK, **o)
+    at_ = o.pop('at_', KOB_WIN)
+    return A('kob', 'happy_idle', *at_, face='world', yaw=0, at=o.pop('at', 0.3), speed=o.pop('speed', 0.15), lean=o.pop('lean', 10), **BOOK, **o)
 def hearts_over(x, z, y=1.35, s0=0.0, loop=1): return [round(x, 3), y, round(z, 3), s0, loop]
 SAXO_W = (-0.15, -1.55)                          # his mark on the pavement in front of the window (the window to his right in a frontal lens)
 
 # =====================================================================================================================
 # BEAT 1, chorus 2 (b0-32): everyone falls for the dog in the dress except the bookshop cat
-# S01 the hook (b0-8; 'easy' b4.3): over the black cab's roof and down: Saxo dancing on the pavement in front of the
-# bookshop with a red rose, the pets either side swooning, Kob reading in the window behind him, not looking
-s01 = [A('saxo', 'charleston', *SAXO_W, at=0.55, hold='rose'), kob_reads()]
-v = swoop([(-0.1, 3.0, 4.8), (-0.2, 2.45, 2.45), (-0.25, 1.05, 1.65), (-0.25, 0.42, 1.0)], (-0.45, 0.95, -2.2), fov=60, roll=(0, -3, -9, -4), hand=0.15)
-SWOON = [[-2.35, -1.0], [2.05, -1.15], [-2.7, 0.35], [2.4, 0.2], [-1.9, -2.45], [1.65, -2.5]]
-add(0, 8, s01, "the hook ('easy'): over the black cab's roof and down to the pavement: Saxo in the singer's floral dress and curls dancing with a red rose in front of the bookshop, the pets either side swooning with hearts, Kob reading in the window behind him", v,
-    zone='day', pets='swoon', spots=SWOON, spotsAt=list(SAXO_W))
+# S01 the hook (b0-8; 'easy' b4.3): a swoop down from over the kerb: Saxo dancing with a red rose in front of the bookshop,
+# the pets either side swooning, Kob reading in the window beside his head (review loop 1: he was small, her head sat on
+# his wig and the cab's roof was a black band: the lens from the left so her window sits beside him, closer, no cab)
+s01 = [A('saxo', 'charleston', -0.2, -1.4, face='world', yaw=-30, at=0.55, holdL='rose', holdScale=1.3), kob_reads()]
+v = swoop([(-2.3, 1.5, 1.8), (-2.32, 1.15, 1.75), (-2.36, 0.9, 1.68), (-2.4, 0.78, 1.62)], (-0.42, 1.38, -2.2), fov=60, roll=(0, -3, -8, -4), hand=0.15)
+SWOON = [[0.86, -1.91], [1.4, -2.65], [1.05, -1.2], [-1.8, -2.3], [-3.6, 0.4]]   # pets 0-2 on his right, 3 at the frame's left edge beside Kob's window (nearer, it covered her by the swoop's end), hearts up on frame 1   # pets 0-2 on his right, hearts up on frame 1; 3-4 off the frame
+add(0, 8, s01, "the hook ('easy'): a swoop down from over the kerb: Saxo in the singer's floral dress and curls dancing with a red rose in front of the bookshop, the pets either side swooning with hearts, Kob reading in the window beside his head", v,
+    zone='day', pets='swoon', spots=SWOON, spotsAt=[-0.2, -1.4], cab=False, reach=0.35)
 # S02 (b8-12; 'fall' b8.5): Sadi the florist sees him dance past her stall, hearts, and falls flat on her back for him
 s02 = [A('sadi', 'knocked_out_falling_to_back', *SADI_STALL, face='world', yaw=20, at=1.35, speed=1.0, hold='bouquet', ground='mesh'),
        A('saxo', 'charleston', -3.3, -0.45, face='world', yaw=-60, at=0.55, hold='rose', fg=True)]
 v = view((-4.1, 1.05, 2.6), (-5.0, 0.8, -0.9), 50, p1=(-4.15, 1.0, 2.45))
 add(8, 12, s02, "'fall': Sadi the florist at her flower stall sees him dance past and falls flat on her back for him, hearts popping", v,
     zone='day', pets='swoon', hearts=[hearts_over(-5.15, -0.95, 1.3, 0.0, 1)])
-# S03 (b12-16; 'love' b12.5): from above: Sadi on her back on the pavement, her bouquet on her chest, hearts popping over her
-s03 = [A('sadi', 'knocked_out_falling_to_back', *SADI_STALL, face='world', yaw=20, at=3.4, speed=0.0, hold='bouquet', ground='mesh', lying=True)]
-v = view((-4.95, 2.55, 1.35), (-5.15, 0.1, -1.25), 50, p1=(-4.98, 2.45, 1.2), roll=[0, 5])
-add(12, 16, s03, "'love': from above: Sadi on her back on the pavement among dropped flowers, her bouquet on her chest, hearts popping: she fell for him", v,
-    zone='day', pets='swoon', hearts=[hearts_over(-5.0, -1.3, 0.55, 0.0, 1)], cab=False)
-# S04 (b16-20; 'come' b16.1, 'give' b17.2): side on: he holds the rose up to her window; behind the glass she reads on
-s04 = [A('saxo', 'happy_idle', -0.75, -2.15, face='world', yaw=180, at=0.3, speed=0.2, hold='rose', arm='R', aim=[0.55, 0.62, 0.45], upAt=-1), kob_reads(fg=True)]
-v = view((0.0, 1.2, -4.8), (-0.8, 0.98, -2.0), 46, p1=(-0.02, 1.2, -4.65))
+# S03 (b12-16; 'love' b12.5): from above, on her face's side: Sadi on her back on the pavement, dazed, her bouquet on her
+# chest, hearts popping over her (review loops 1-2: she lay across the frame, then read as hunched over sniffing the
+# bouquet: the clip rolls her head to her right, so the lens comes from that side, the bouquet in her other paw)
+s03 = [A('sadi', 'knocked_out_falling_to_back', -5.0, -0.85, face='world', yaw=-53, at=3.4, speed=0.0, holdL='bouquet', ground='mesh', lying=True)]
+v = view((-6.35, 2.25, -0.4), (-4.94, 0.1, -1.27), 50, p1=(-6.3, 2.2, -0.43))     # (the gate: her ears in the lyric rows: the look a little past her)
+add(12, 16, s03, "'love': from above, on her face's side: Sadi on her back on the pavement, dazed, her bouquet on her chest, hearts popping over her: she fell for him", v,
+    zone='day', pets='swoon', hearts=[hearts_over(-5.05, -0.95, 0.85, 0.0, 1)], heartYaw=-61, cab=False)
+# S04 (b16-20; 'come' b16.1, 'give' b17.2): from inside the shop, over her shoulder as she reads: he holds the rose up to
+# her window (review loop 1: her ear crossed his muzzle and nothing said "inside": she reads further left, the lens deeper
+# in the shop, the window's green frame round him)
+s04 = [A('saxo', 'happy_idle', -0.75, -2.15, face='world', yaw=180, at=0.3, speed=0.2, hold='rose', holdScale=1.5, arm='R', aim=[0.55, 0.62, 0.45], upAt=-1),
+       kob_reads(at_=(-1.45, -3.42), fg=True)]
+v = view((0.2, 1.05, -5.9), (-0.65, 0.98, -2.15), 54, p1=(0.17, 1.05, -5.75))
 add(16, 20, s04, "'come', 'give': from inside the shop, over her shoulder as she reads: he holds the rose up to her window, his face at the glass; she never looks up", v, zone='day', pets='idle', cab=False)
 # S05 (b20-24; 'call' b20.6): her deadpan through the glass: she turns a page, the rose at the frame's edge
 s05 = [kob_reads(speed=0.35, at=0.6)]
 v = deadpan(KOB_WIN, 1.0, 2.95, cam_y=1.04, push=0.12, fov=40, ang=0)
 add(20, 24, s05, "'call': through the glass, Kob's deadpan: she turns a page; he isn't there", v, zone='day', pets='idle', cab=False)
 # S06 (b24-28; 'fall' b25.4): low, frontal: he begs at her window, paws clasped under his chin with the rose
-s06 = [A('saxo', 'falling_to_knees_in_prayer', -0.1, -1.45, face='world', yaw=-32, at=3.0, speed=0.35, hold='rose'), kob_reads()]
+s06 = [A('saxo', 'falling_to_knees_in_prayer', -0.1, -1.45, face='world', yaw=-32, at=3.0, speed=0.35, hold='rose', holdScale=1.6), kob_reads()]
 v = view((-1.6, 0.4, 0.75), (-0.48, 0.9, -2.03), 66, p1=(-1.57, 0.39, 0.64), roll=[-8, -5], hand=0.3)
 add(24, 28, s06, "'fall': low and frontal: he begs at her window, paws clasped under his chin, the rose between them; she reads on behind him", v, zone='day', pets='idle')
-# S07 (b28-32): over his shoulder: without looking up, she pulls the blind down in his face
-s07 = [A('saxo', 'falling_to_knees_in_prayer', -0.6, -1.85, face='world', yaw=180, at=3.4, speed=0.2, hold='rose', fg=True), kob_reads()]
-v = view((-0.2, 1.25, 0.55), (-0.9, 1.0, -3.0), 46, p1=(-0.25, 1.22, 0.4))
-add(28, 32, s07, "over his shoulder: without looking up, she pulls the blind down in his face", v, zone='day', pets='idle', blind=[0.35, 1.15, 0, 1], cab=False)
-
+# S07 (b28-32): from his side: without looking up, she pulls the blind down in his face (review loop 1: the back of his wig
+# filled the frame: his profile now, the whole blind under the BOOKS sign, its bottom bar stopping at his nose)
+s07 = [A('saxo', 'falling_to_knees_in_prayer', -0.3, -2.35, face='world', yaw=180, at=3.4, speed=0.2, hold='rose', holdScale=1.6), kob_reads()]
+v = lens_for(s07, -60, 3.2, 28, 32, hs=(1.0, 1.15, 1.3), fov=58, spread=25, dr=(0.9, 1.45), cab=False, maxoff=110)
+print('S07', v)
+add(28, 32, s07, "from his side: without looking up, she pulls the blind down in his face, its bottom bar stopping at his nose", v, zone='day', pets='idle', blind=[0.3, 0.95, 0, 0.7], cab=False)
 # =====================================================================================================================
 # BEAT 2, chorus 2 (b32-72): the biggest bouquet in London, eaten; dusk; he dances alone under her window
-# S08 (b32-36): Sadi, back on her feet and still swooning, hands him the biggest bouquet in her stall
-s08 = [A('sadi', 'happy_idle', -5.3, -1.05, face='world', yaw=60, at=0.3, speed=0.2, hold='bouquet', holdScale=1.9, arm='R', aim=[0.35, 0.15, 0.85], upAt=-1),
-       A('saxo', 'happy_idle', -4.2, -0.5, face='world', yaw=-110, at=0.4, speed=0.2, arm='L', aim=[0.3, 0.1, 0.85], upAt=-1)]
-v = view((-4.45, 1.05, 2.35), (-4.68, 0.85, -0.8), 50, p1=(-4.45, 1.05, 2.28))
-add(32, 36, s08, "Sadi, back on her feet and still swooning, hands him the biggest bouquet in London", v,
-    zone='day', pets='swoon', hearts=[hearts_over(-5.3, -1.05, 1.35, 0.0, 1)])
+# S08 (b32-36): Sadi, back on her feet and still swooning, has given him the biggest bouquet in London: he holds it up
+# under his chin, her paw on her heart, hearts over her (review loops 1-2: the hand-over never connected: two chibis'
+# arms don't reach, and his reaching paw landed on the barrow's wheel)
+s08 = [A('sadi', 'happy_idle', -5.25, -1.1, face='world', yaw=35, at=0.3, speed=0.2, arm='R', aim='heart', upAt=-1),
+       A('saxo', 'happy_idle', -4.1, -0.75, face='world', yaw=-35, at=0.4, speed=0.2, hold='bouquet', holdScale=1.7, arm='both', aim=[0.1, -0.22, 0.55], upAt=-1)]
+v = lens_for(s08, 0, 3.6, 32, 36, hs=(0.95, 1.1, 1.25), fov=50, spread=25, dr=(0.85, 1.3), facing=True, maxoff=70, cab=False)
+add(32, 36, s08, "Sadi, back on her feet and still swooning, has given him the biggest bouquet in London: he holds it up under his chin, her paw on her heart, hearts over her", v,
+    zone='day', pets='swoon', hearts=[hearts_over(-5.25, -1.1, 1.35, 0.0, 1)])
 # S09 (b36-40; 'night' b38.1; the lipsync-animal reference): dusk: his locked-off diva close-up, the giant bouquet under his
 # chin, the lamp lit behind him: sure of himself
-s09 = [A('saxo', 'happy_idle', 0.2, -1.4, face='world', yaw=0, at=0.25, speed=0.12, hold='bouquet', holdScale=1.6, arm='both', aim=[0.12, -0.1, 0.6], upAt=-1)]
+s09 = [A('saxo', 'happy_idle', 0.2, -1.4, face='world', yaw=0, at=0.25, speed=0.12, hold='bouquet', holdScale=1.6, arm='both', aim=[0.1, -0.22, 0.55], upAt=-1)]
 v = deadpan((0.2, -1.4), 0.98, 2.6, cam_y=1.0, push=0.12, fov=42, ang=0)
 add(36, 40, s09, "'night': dusk falls: his locked-off diva close-up, the giant bouquet under his chin, deadpan sure of himself", v, zone='dusk', pets='idle', cab=False)
-# S10 (b40-44; 'life' b43.1): the shop door opens: Compote, the bookshop's bouncer, takes the bouquet off the doorstep and
-# eats it, glaring at him; his back in the foreground
-s10 = [A('compote', 'happy_idle', 1.25, -2.75, face='world', yaw=0, at=0.3, speed=0.2, hold='bouquet', holdScale=1.6, arm='both', aim=[0.1, 0.05, 0.6], swing='sip', upAt=-1),
-       A('saxo', 'happy_idle', 0.0, -1.1, face='world', yaw=150, at=0.3, speed=0.1, fg=True)]
-v = view((0.85, 1.0, 1.05), (1.15, 0.85, -2.7), 44, p1=(0.86, 1.0, 0.9))
-add(40, 44, s10, "'life': the shop door opens: Compote, the bookshop's bouncer, eats his bouquet on the doorstep, glaring at him", v,
-    zone='dusk', pets='idle', door=[0.0, 0.5, 0.0, 1.0], cab=False)
-# S11 (b44-48; 'heart' b47.0): frontal: his paw on his heart, heartbroken; Compote munching in the doorway behind him
-s11 = [A('saxo', 'happy_idle', 0.4, -1.15, face='world', yaw=0, at=0.3, speed=0.1, arm='R', aim='heart', upAt=-1),
-       A('compote', 'happy_idle', 1.25, -2.75, face='world', yaw=0, at=0.5, speed=0.2, hold='bouquet', holdScale=1.6, arm='both', aim=[0.1, 0.05, 0.6], swing='sip', upAt=-1)]
-v = lens_for(s11, 15, 4.0, 44, 48, hs=(0.95, 1.1, 1.25), fov=48, spread=25, dr=(0.9, 1.35), door=True)
-add(44, 48, s11, "'heart': his paw on his heart, heartbroken; behind him Compote munches his bouquet in the doorway", v, zone='dusk', pets='idle', door=1, cab=False)
+# S10 (b40-44; 'life' b43.1): the shop door opens: Compote, the bookshop's bouncer, eats his bouquet on the doorstep, glaring,
+# petals falling (review loop 1: the shop's lamp sat on her head and the flowers weren't at her mouth: the lens moved,
+# the bouquet at her muzzle)
+s10 = [A('compote', 'happy_idle', 1.25, -2.75, face='world', yaw=0, at=0.3, speed=0.2, hold='bouquet', holdScale=1.4, arm='both', aim=[0.0, 0.1, 0.55], upAt=-1),
+       A('saxo', 'happy_idle', -0.05, -0.85, face='world', yaw=150, at=0.3, speed=0.1, fg=True)]
+v = view((0.45, 1.0, 1.15), (1.15, 0.9, -2.7), 44, p1=(0.46, 1.0, 1.0))
+add(40, 44, s10, "'life': the shop door opens: Compote, the bookshop's bouncer, eats his bouquet on the doorstep, glaring at him, petals falling", v,
+    zone='dusk', pets='idle', door=[0.0, 0.5, 0.0, 1.0], petals=True, petalsAt=[1.2, -2.2], cab=False, readingLamp=False)   # (loop 2: the lamp sat on her head)
+# S11 (b44-48; 'heart' b47.0): his front three-quarter: heartbroken, paws clasped under his chin, as Compote munches his
+# bouquet in the doorway over his shoulder (review loop 1: a grey paw on the floral dress vanished)
+s11 = [A('saxo', 'falling_to_knees_in_prayer', -0.2, -1.2, face='world', yaw=12, at=3.0, speed=0.3),
+       A('compote', 'happy_idle', 1.25, -2.75, face='world', yaw=0, at=0.5, speed=0.2, hold='bouquet', holdScale=1.5, arm='both', aim=[0.0, 0.32, 0.5], upAt=-1)]
+v = lens_for(s11, 10, 4.4, 44, 48, hs=(0.95, 1.1, 1.25, 1.4), fov=52, spread=35, dr=(0.85, 1.5), door=True, facing=False, cab=False)
+add(44, 48, s11, "'heart': heartbroken, paws clasped under his chin, while Compote munches his bouquet in the doorway over his shoulder", v, zone='dusk', pets='idle', door=1, cab=False)
 # S12 (b48-56; 'easy' b54.6): low dolly: undeterred, he dances alone under the lamp in front of the shop; the blind down, lit
-s12 = [A('saxo', 'gangnam', -0.2, -1.3, at=1.1)]
+s12 = [A('saxo', 'charleston', -0.2, -1.3, at=0.6)]           # the kicks land 0.1 and 1.0 s in (review loop 2: gangnam's stance read as sulking)
 v = view((-1.95, 0.25, 1.95), (-0.45, 0.85, -1.95), 60, p1=(-1.75, 0.23, 1.55), roll=[-10, -6], hand=0.3)
 add(48, 56, s12, "'easy': low dolly: undeterred, he dances alone in front of the bookshop at dusk, the blind down and lit, her silhouette reading on it", v,
     zone='dusk', pets='idle', blind=1, shadow=True, cab=False)
 # S13 (b56-64; the Short's first frame at b58.7; 'fall' b61.2, 'love' b62.6): frontal: he dances in front of her lit blind
 # (her silhouette reading on it), then falls flat on his back, lovesick
-s13a = [A('saxo', 'charleston', -0.2, -1.4, face='world', yaw=-22, at=0.7)]
+s13a = [A('saxo', 'charleston', -0.2, -1.4, face='world', yaw=-22, at=0.43)]
 v = view((-1.8, 0.95, 2.3), (-0.55, 0.98, -2.2), 56, p1=(-1.76, 0.95, 2.18))
 add(56, 60, s13a, "the Short's first frame: frontal: he dances on in front of her lit blind, her silhouette reading on it", v,
     zone='dusk', pets='idle', blind=1, shadow=True, cab=False)
@@ -321,45 +333,50 @@ add(64, 72, s14, "from his feet: lovesick on his back on the pavement, hearts po
 # =====================================================================================================================
 # BEAT 3, the bridge (b72-128): night: the whole street dances under her window; the blind goes up; she comes out
 MOB = [0.0, 3.0, 6, 4, 1.15, 1.1, 180]          # 24 pets in the road in four rows, facing the shop
-# S15 (b72-80; 'yeah' b72.2): high behind the crowd: the street's pets gather in rows under her window; Saxo in front
-s15 = [A('saxo', 'happy_idle', -0.4, 1.0, face='world', yaw=180, at=0.3, speed=0.3, arm='R', aim='up', upAt=0.3)]
-v = view((0.4, 4.6, 10.2), (-0.3, 0.9, -1.2), 54, p1=(0.4, 4.4, 9.6))
-add(72, 80, s15, "'yeah': night: high behind them: the street's pets gather in rows in the road under her window, Saxo in front raising a paw", v,
-    zone='night', pets='stare', mob=MOB, stare=[-0.9, -3.0], blind=1, shadow=True)
-# S16 (b80-88): side on: Compote drags in his last gift, a giant box with a red bow, furious
-s16 = [A('compote', 'happy_walk', -2.5, 0.75, face='world', yaw=90, at=0.2, speed=0.8, mx=1.8, arm='both', aim=[0.25, -0.35, -0.85], upAt=-1)]
-v = view((-1.65, 1.05, 5.4), (-1.6, 0.7, 0.6), 56, p1=(-1.55, 1.05, 5.25))
-add(80, 88, s16, "side on: Compote drags in his last gift, a giant box with a red bow, furious", v,
-    zone='night', pets='stare', mob=MOB, stare=[-0.9, -3.0], blind=1, gift={'x': -3.4, 'z': 0.6, 'to': [-1.6, 0.6], 'at': 0.2, 'dur': 3.1})
+# S15 (b72-80; 'yeah' b72.2): low at the shop front, looking out: the street's pets in rows in the road facing her window,
+# Saxo in front raising a paw (review loop 1 and the critic: from high behind them there wasn't a face in it)
+s15 = [A('saxo', 'happy_idle', -0.4, 0.9, face='world', yaw=180, at=0.3, speed=0.3, arm='R', aim=[0.55, 0.75, 0.3], upAt=0.3)]
+v = view((-0.15, 0.55, -2.55), (-0.1, 1.05, 3.0), 56, p1=(-0.15, 0.53, -2.45), roll=[4, 2])
+add(72, 80, s15, "'yeah': night: low at the shop front looking out: the street's pets in rows in the road facing her window, Saxo in front raising a paw", v,
+    zone='night', pets='stare', mob=MOB, stare=[-0.9, -3.0], blind=1, key=[0.0, 3.5, 2.0, 0.6, 0.55, 0.45])
+# S16 (b80-88): low ahead of the box: Compote shoves his last gift, a giant box with a red bow, towards the lens, both
+# paws on it, leaning into it, glaring over its top (review loops 1-2: in profile she just walked past or beside it)
+s16 = [A('compote', 'happy_walk', -4.85, 0.82, face='world', yaw=90, at=0.2, speed=1.6, mx=2.3, lean=25, arm='both', aim=[0.2, -0.25, 0.9], upAt=-1)]
+v = view((0.45, 1.3, 0.85), (-2.6, 0.72, 0.72), 50, p1=(0.43, 1.29, 0.85))      # over the bow, her face beside it (from 0.62 m the bow sat on her muzzle)
+add(80, 88, s16, "low ahead of the box: Compote shoves his last gift, a giant box with a red bow, towards the lens, both paws on it, leaning into it, glaring over its top", v,
+    zone='night', pets='stare', mob=MOB, stare=[-2.5, 0.6], blind=1, gift={'x': -3.9, 'z': 0.6, 'to': [-1.6, 0.6], 'at': 0.0, 'dur': S(88, 80), 'lin': True})
 # S17 (b88-96): Sadi in the crowd's front row, hearts over her: she's still in love with him
 s17 = [A('sadi', 'happy_idle', 1.6, 2.4, face='world', yaw=200, at=0.3, speed=0.2, arm='R', aim='heart', upAt=-1)]
 v = view((2.4, 1.02, -0.55), (1.6, 0.9, 2.4), 44, p1=(2.37, 1.02, -0.4))
 add(88, 96, s17, "Sadi in the crowd's front row, her paw on her heart, hearts over her: she's still in love with him", v,
     zone='night', pets='stare', mob=MOB, stare=[-0.9, -3.0], blind=1, hearts=[hearts_over(1.6, 2.4, 1.35, 0.2, 1)], heartYaw=200, gift={'x': -1.6, 'z': 0.6})
-# S18 (b96-104; 'easy' b98.6): the flash mob, move 1: low along the front row: everyone dancing in sync, Saxo leading
-s18 = [A('saxo', 'charleston', -0.25, 1.05, face='world', yaw=180, at=0.6),
-       A('sadi', 'charleston', 0.8, 1.95, face='world', yaw=180, at=0.6), A('compote', 'charleston', -1.25, 1.95, face='world', yaw=180, at=0.6)]
-v = lens_for(s18, 195, 4.0, 96, 104, hs=(0.35, 0.5, 0.7), fov=66, spread=30, dr=(0.8, 1.16), facing=True, maxoff=70, cab=False, roll=[8, 5], hand=0.3)
-add(96, 104, s18, "'easy': the flash mob, move one: low along the front row from the shop's side: the whole street dancing in sync, Saxo leading", v,
-    zone='night', pets='dance', mob=MOB, blind=1, gift={'x': -1.6, 'z': 0.6}, petals=True, petalsAt=[0, 2])
-# S19 (b104-112; 'easy' b106.6): move two: the blind goes up: Kob's face in the window, looking out at last
+# S18 (b96-104; 'easy' b98.6): the flash mob, move 1: low along the front row: the three of them and the whole street
+# with their paws up on the beat, in sync, Saxo leading (review loops 1-2: three charlestons seen from three angles read
+# as three different moves, and the rows behind were dark: one pose for all, the street lit)
+SYNC = dict(face='world', yaw=180, at=0.3, speed=0.2, arm='both', aim='rave', upAt=-1, hop=[0.05, 1])
+s18 = [A('saxo', 'happy_idle', -0.25, 1.05, **SYNC), A('sadi', 'happy_idle', 0.8, 1.95, **SYNC), A('compote', 'happy_idle', -1.25, 1.95, **SYNC)]
+v = lens_for(s18, 158, 4.0, 96, 104, hs=(0.35, 0.5, 0.7), fov=66, spread=18, dr=(0.8, 1.16), facing=True, maxoff=70, cab=False, roll=[8, 5], hand=0.3)
+add(96, 104, s18, "'easy': the flash mob, move one: low along the front row from the shop's side: Saxo, Sadi, Compote and the whole street behind them, paws up on the beat, in sync", v,
+    zone='night', pets='dance', mob=MOB, blind=1, gift={'x': -1.6, 'z': 0.6}, petals=True, petalsAt=[0, 2], key=[0.0, 2.8, 4.4, 1.4, 1.25, 1.0])
+# S19 (b104-112; 'easy' b106.6): move two: from the street, the whole window in frame: the blind rolls up and Kob looks
+# out at last (review loops 1-2: the same lens as her first deadpan; then the blind was already up)
 s19 = [A('kob', 'happy_idle', *KOB_WIN, face='world', yaw=0, at=0.3, speed=0.1)]
-v = deadpan(KOB_WIN, 0.92, 3.4, cam_y=1.02, push=0.15, fov=38, ang=0)
-add(104, 112, s19, "'easy': move two: the blind goes up, and Kob looks out at last, deadpan, the dancing street reflected", v,
-    zone='night', pets='dance', mob=MOB, blind=[S(105.6, 104), S(106.8, 104), 1, 0], gift={'x': -1.6, 'z': 0.6})
+v = view((-0.75, 1.15, 1.0), (-0.9, 1.2, -3.3), 48, p1=(-0.75, 1.13, 0.85))
+add(104, 112, s19, "'easy': move two: from the street, the whole window in frame: the blind rolls up over her head and Kob looks out at last, deadpan", v,
+    zone='night', pets='dance', mob=MOB, blind=[S(105.6, 104), S(107.0, 104), 1, 0], gift={'x': -1.6, 'z': 0.6})
 # S20 (b112-120; 'easy' b114.6): move three: the crane, high over the street: the whole crowd in sync, the box with its bow
-s20 = [A('saxo', 'gangnam', -0.3, 1.0, face='world', yaw=180, at=1.1),
+s20 = [A('kob', 'happy_idle', *KOB_WIN, face='world', yaw=0, at=0.3, speed=0.1), A('saxo', 'gangnam', -0.3, 1.0, face='world', yaw=180, at=1.1),
        A('sadi', 'gangnam', 0.8, 1.95, face='world', yaw=180, at=1.1), A('compote', 'gangnam', -1.25, 1.95, face='world', yaw=180, at=1.1)]
 v = view((1.2, 5.6, 9.8), (-0.2, 0.5, 0.6), 56, p1=(1.0, 6.4, 10.4))
 add(112, 120, s20, "'easy': move three: the crane over the street: the whole crowd in sync under her window, the giant box with its bow in front of the shop", v,
     zone='night', pets='dance', mob=MOB, blind=0, gift={'x': -1.6, 'z': 0.6}, petals=True, petalsAt=[0, 2.5])
-# S21 (b120-128; 'yeah' b119.6): the door opens and Kob steps out onto the pavement; the crowd freezes; he shows her the box
-s21 = [A('kob', 'happy_walk', 1.25, -2.85, face='world', yaw=0, at=0.4, speed=0.75, mz=1.0, moveAt=0.5),
-       A('saxo', 'happy_idle', -0.4, 0.25, face='world', yaw=40, at=0.3, speed=0.2, arm='L', aim=[0.65, 0.05, 0.4], upAt=-1)]
-v = lens_for(s21, 10, 4.6, 120, 128, hs=(1.2, 1.4), fov=50, spread=25, dr=(0.85, 1.25), door=True, facing=False, cab=False)
-add(120, 128, s21, "'yeah': the door opens and Kob steps out at last; the crowd freezes; he shows her the box", v,
-    zone='night', pets='stare', mob=MOB, stare=[1.25, -2.0], blind=0, door=[0.0, 0.7, 0.0, 1.0], gift={'x': -1.6, 'z': 0.6})
-
+# S21 (b120-128; 'yeah' b119.6): over the crowd's backs: the door opens and Kob steps out; Saxo presents the box between them
+# (review loop 1: neither the box nor the crowd was in frame)
+s21 = [A('kob', 'happy_walk', 1.25, -2.85, face='world', yaw=0, at=0.4, speed=0.75, mz=0.9, moveAt=0.5),
+       A('saxo', 'happy_idle', -2.2, 1.0, face='world', yaw=30, at=0.3, speed=0.2, arm='L', aim=[0.75, 0.1, 0.35], upAt=-1)]
+v = view((-0.7, 2.1, 7.4), (-0.78, 0.85, -0.6), 58, p1=(-0.7, 2.05, 7.15))
+add(120, 128, s21, "'yeah': over the crowd's backs: the door opens and Kob steps out at last; the crowd freezes; Saxo presents the box between them", v,
+    zone='night', pets='stare', mob=MOB, stare=[1.25, -2.0], blind=0, door=[0.0, 0.7, 0.0, 1.0], gift={'x': -1.6, 'z': 0.6}, reach=0.7)
 # =====================================================================================================================
 # BEAT 4, chorus 3 (b128-192): the box
 BOX = (-1.6, 0.6); PAL = (-0.5, 0.72)
@@ -380,58 +397,63 @@ s24 = [A('kob', 'situps', BOX[0] + 0.05, BOX[1] - 0.15, face='world', yaw=0, at=
 v = view((-1.45, 1.0, 3.0), (-1.55, 0.62, 0.45), 46, p1=(-1.45, 0.98, 2.85))
 add(136, 140, s24, "'love': the payoff: the cat in the plain cardboard box, hearts popping over her: she's in love (with the box)", v,
     zone='night', pets='stare', mob=MOB, stare=list(BOX), gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20},
-    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 1.05, 0.15, 1)])
-# S25 (b140-144; 'come' b140.1, 'give' b141.2): he points her to the palace (the gift!); she doesn't open her eyes
-s25 = [A('saxo', 'happy_idle', -0.35, 1.1, face='world', yaw=-60, at=0.3, speed=0.2, arm='R', aim=[0.75, 0.25, 0.55], upAt=-1),
+    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 0.95, 0.15, 1)])
+# S25 (b140-144; 'come' b140.1, 'give' b141.2): beside the palace, he points her to it (the gift!) with his near arm; she sits
+# on in her box (review loop 1: no point, and he looked inside the palace's ring)
+s25 = [A('saxo', 'happy_idle', 0.55, 1.35, at=0.3, speed=0.2, arm='R', aim=[0.85, 0.12, 0.25], upAt=-1),
        A('kob', 'situps', BOX[0] + 0.05, BOX[1] - 0.15, face='world', yaw=0, at=1.0, speed=0, noLie=True, lift=0.02, sit=True)]
-v = lens_for(s25, 15, 4.4, 140, 144, hs=(1.05, 1.25, 1.45), fov=50, spread=30, dr=(0.85, 1.3), facing=False, cab=False)
-add(140, 144, s25, "'come', 'give': he points her to the palace, the gift; she sits on in her box, eyes half shut, hearts", v,
+v = lens_for(s25, 5, 4.6, 140, 144, hs=(1.05, 1.25, 1.45), fov=50, spread=25, dr=(0.85, 1.3), facing=False, cab=False)
+add(140, 144, s25, "'come', 'give': beside the palace, he points her to it, the gift; she sits on in her box, hearts", v,
     zone='night', pets='stare', mob=MOB, stare=list(BOX), gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20},
-    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 1.05, 0.0, 1)])
-# S26 (b144-148; 'call' b144.6): the crowd's gasp, from behind the box: every pet with its paws at its face, Compote glaring
-s26 = [A('compote', 'quickly_pointing_angrily_forward', -1.3, 2.25, face='world', yaw=180, at=0.3, speed=0.6),
-       A('sadi', 'happy_idle', 0.95, 2.25, face='world', yaw=180, at=0.3, speed=0.2, arm='R', aim='heart', upAt=-1)]
-v = view((-0.9, 2.5, -2.55), (-0.2, 0.85, 2.4), 58, p1=(-0.9, 2.46, -2.65))
-add(144, 148, s26, "'call': the crowd gasps, paws at their faces; Compote points at the box, furious; Sadi still only has eyes for him", v,
-    zone='night', pets='gasp', mob=MOB, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20}, cab=False)
-# S27 (b148-152; 'fall' b149.4): side on: he sniffs the palace, then flops into it
+    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 0.95, 0.0, 1)])
+# S26 (b144-148; 'call' b144.6): from behind the cat in her box: the whole street gasps at her, paws to their cheeks (review
+# loop 1: Kob had vanished, the gasp read as arms out; self-check 2: from the side the gasp read as pets holding things up,
+# Compote's point never showed and the box was off the frame: the lens behind her box, the crowd turned to her)
+s26 = [A('kob', 'situps', BOX[0] + 0.05, BOX[1] - 0.15, face='world', yaw=0, at=1.0, speed=0, noLie=True, lift=0.02, sit=True, fg=True)]
+v = view((-1.7, 1.8, -3.75), (-1.25, 0.8, 3.6), 46, p1=(-1.69, 1.78, -3.55))      # from inside her shop, through the window
+add(144, 148, s26, "'call': from behind the cat sitting in her box: the whole street gasps at her, paws to their cheeks", v,
+    zone='night', pets='gasp', mob=MOB, stare=list(BOX), gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20}, cab=False, glints=False)
+# S27 (b148-152; 'fall' b149.4): his front three-quarter: he flops into the cat palace (review loop 1: his face was cut by the
+# frame's edge)
 s27 = [A('saxo', 'situps', PAL[0] + 0.05, PAL[1] + 0.05, face='world', yaw=-20, at=1.0, speed=0, noLie=True, lift=0.45, my=-0.31, myAt=0.25, myDur=0.28, air=True, sit=True)]
-v = view((2.0, 1.05, 2.4), (-0.2, 0.6, 0.6), 50, p1=(1.9, 1.03, 2.3))
-add(148, 152, s27, "'fall': he sniffs the cat palace, then flops into it", v,
+v = view((0.42, 1.2, 3.68), (-0.45, 0.78, 0.77), 50, p1=(0.4, 1.18, 3.52))   # (the gate: his wig in the lyric rows from 2.7 m: back and up)
+add(148, 152, s27, "'fall': he flops into the cat palace", v,
     zone='night', pets='stare', mob=MOB, stare=list(PAL), gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20})
 # S28 (b152-160): the second payoff: the dog in the cat palace, the cat in the box, side by side, hearts over both
 TWO = [A('saxo', 'situps', PAL[0] + 0.05, PAL[1] + 0.05, face='world', yaw=-20, at=1.0, speed=0, noLie=True, lift=0.14, sit=True),
        A('kob', 'situps', BOX[0] + 0.05, BOX[1] - 0.15, face='world', yaw=0, at=1.0, speed=0, noLie=True, lift=0.02, sit=True)]
-v = view((-0.96, 0.8, 3.75), (-0.98, 0.62, 0.55), 52, p1=(-0.96, 0.79, 3.62))
+v = view((-0.96, 0.82, 4.25), (-0.98, 0.64, 0.55), 52, p1=(-0.96, 0.81, 4.1))
 add(152, 160, TWO, "the second payoff: the dog in the cat palace, the cat in the box, side by side, hearts over both", v,
     zone='night', pets='stare', mob=MOB, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20},
-    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 1.05, 0.0, 1), hearts_over(PAL[0] + 0.05, PAL[1] + 0.05, 1.12, 0.4, 1)])
-# S29 (b160-168; 'night' b162.1, 'life' b167.1): the crowd dances in a ring round them, petals falling; a slow orbit
-RING = [-1.05, 0.6, 3.3, 75, 285]
-v = view((-0.9 + 3.9 * math.sin(math.radians(20)), 1.6, 0.6 + 3.9 * math.cos(math.radians(20))), (-0.9, 0.62, 0.55), 54,
-         p1=(-0.9 + 3.9 * math.sin(math.radians(-15)), 1.6, 0.6 + 3.9 * math.cos(math.radians(-15))), ease='lin', hand=0.6)
-add(160, 168, [dict(a) for a in TWO], "'night', 'life': the street dances in a ring round the two of them, petals falling; a slow orbit", v,
-    zone='night', pets='dance', gather=RING, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20}, petals=True, petalsAt=[-0.9, 0.6],
-    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 1.05, 0.0, 1), hearts_over(PAL[0] + 0.05, PAL[1] + 0.05, 1.12, 0.4, 1)])
-# S30 (b168-176; 'heart' b171.0): the girls: Sadi's paw on her heart, Compote finishing his bouquet's last stem
+    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 0.95, 0.0, 1), hearts_over(PAL[0] + 0.05, PAL[1] + 0.05, 1.05, 0.4, 1)])
+# S29 (b160-168; 'night' b162.1, 'life' b167.1): a high crane: the whole street dances in a ring round the two of them,
+# petals falling (review loop 1: a copy of the two-shot with a still row behind)
+RING = [-1.05, 0.6, 3.2, 0, 345]
+v = view((-0.6, 5.2, 7.2), (-1.05, 0.3, 0.45), 52, p1=(-0.4, 5.8, 7.6), ease='lin', hand=0.4)
+add(160, 168, [dict(a) for a in TWO], "'night', 'life': a high crane: the street dances in a ring round the two of them, petals falling", v,
+    zone='night', pets='dance', gather=RING, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20}, petals=True, petalsAt=[-1.05, 0.6],
+    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 0.95, 0.0, 1), hearts_over(PAL[0] + 0.05, PAL[1] + 0.05, 1.05, 0.4, 1)])
+# S30 (b168-176; 'heart' b171.0): the girls: Sadi's paw on her heart for him, Compote finishing his bouquet at her muzzle
 s30 = [A('sadi', 'happy_idle', 1.0, 2.6, face='world', yaw=200, at=0.3, speed=0.2, arm='R', aim='heart', upAt=-1),
-       A('compote', 'happy_idle', 2.0, 2.4, face='world', yaw=200, at=0.5, speed=0.2, hold='bouquet', holdScale=1.2, arm='both', aim=[0.1, 0.05, 0.6], swing='sip', upAt=-1)]
+       A('compote', 'happy_idle', 2.0, 2.4, face='world', yaw=200, at=0.5, speed=0.2, hold='bouquet', holdScale=1.3, arm='both', aim=[0.0, 0.32, 0.5], upAt=-1)]
 v = lens_for(s30, 200, 3.2, 168, 176, hs=(1.0, 1.15), fov=46, spread=20, dr=(0.9, 1.3), facing=False, cab=False)
-add(168, 176, s30, "'heart': Sadi's paw on her heart for him; beside her Compote finishes his bouquet", v,
-    zone='night', pets='dance', gather=RING, hearts=[hearts_over(1.0, 2.6, 1.35, 0.1, 1)], heartYaw=200)
-# S31 (b176-184; 'easy' b178.6): low and close: he dances sitting in the palace, paws up; she purrs in her box
-TWO_D = [dict(TWO[0], clip='situps', aim='rave', arm='both', upAt=-1), dict(TWO[1])]
-v = lens_for(TWO_D, 0, 3.0, 176, 184, hs=(0.45, 0.6, 0.75), fov=56, spread=20, dr=(0.9, 1.4), facing=False, cab=False, roll=[6, 3], hand=0.3)
-add(176, 184, TWO_D, "'easy': low and close: he dances sitting in the cat palace, paws up; she sits on in her box", v,
-    zone='night', pets='dance', gather=RING, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20},
-    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 1.05, 0.0, 1)])
-# S32 (b184-192; 'fall' b185.6, 'love' b186.6): the clip's ending: the camera rises over the street, the crowd dancing in a
-# ring round the cat in her box and the dog in his palace, the string lights, as the song fades
-v = view((-1.0, 1.35, 3.9), (-1.05, 0.55, 0.5), 56, p1=(-0.8, 8.5, 7.8), ly1=0.2, ease='in')
-add(184, 192, [dict(a) for a in TWO], "'fall', 'love': the clip's ending: the camera rises over the night street, the crowd dancing round the cat in her box and the dog in his palace", v,
-    zone='night', pets='dance', gather=RING, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20}, petals=True, petalsAt=[-0.9, 0.6],
-    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 1.05, 0.0, 1), hearts_over(PAL[0] + 0.05, PAL[1] + 0.05, 1.12, 0.4, 1)])
-
+add(168, 176, s30, "'heart': Sadi's paw on her heart for him; beside her Compote munches his bouquet", v,
+    zone='night', pets='dance', gather=[-1.05, 0.6, 3.3, 75, 285], hearts=[hearts_over(1.0, 2.6, 1.3, 0.1, 1)], heartYaw=200, reach=0.9)
+# S31 (b176-184; 'easy' b178.6): really low and close on him: he dances sitting in the palace, elbows out and paws up; the cat
+# in her box over his shoulder (review loop 1: a third copy of the two-shot)
+TWO_D = [dict(TWO[0], aim='rave', arm='both', flapEvery=1000, flapPh=90, upAt=-1, hop=[0.04, 1]), dict(TWO[1], fg=True)]   # the swing pinned at its peak (review loop 2: one paw hidden)
+v = lens_for(TWO_D, -20, 2.6, 176, 184, hs=(0.5, 0.65, 0.8), fov=56, spread=12, dr=(0.9, 1.3), facing=False, cab=False, roll=[6, 3], hand=0.3)   # frontal: both paws beside his head
+add(176, 184, TWO_D, "'easy': low and frontal: he dances sitting in the cat palace, elbows out and both paws up beside his head, bouncing", v,
+    zone='night', pets='dance', gather=[-1.05, 0.6, 3.3, 75, 285], gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20},
+    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 0.95, 0.0, 1)])
+# S32 (b184-192; 'fall' b185.6, 'love' b186.6): the clip's ending: the camera rises over the street to a high three-quarter,
+# the crowd dancing in a ring round the cat in her box and the dog in his palace, the string lights, as the song fades
+# (review loop 2: only the back row showed, under the lyric rows: a tighter ring, the lens higher and steeper)
+RING2 = [-1.05, 0.6, 2.05, 0, 345]
+v = view((-1.0, 1.35, 3.9), (-1.05, 0.55, 0.5), 56, p1=(-0.72, 7.5, 5.0), ly1=0.25, ease='in')
+add(184, 192, [dict(a) for a in TWO], "'fall', 'love': the clip's ending: the camera rises over the night street to a high three-quarter: the whole crowd dancing in a ring round the cat in her box and the dog in his palace", v,
+    zone='night', pets='dance', gather=RING2, gift={'x': BOX[0], 'z': BOX[1], 'lid': 1}, palace={'x': PAL[0], 'z': PAL[1], 'yaw': -20}, petals=True, petalsAt=[-1.05, 0.6],
+    hearts=[hearts_over(BOX[0] + 0.05, BOX[1] - 0.15, 0.95, 0.0, 1), hearts_over(PAL[0] + 0.05, PAL[1] + 0.05, 1.05, 0.4, 1)])
 for s in shots: clean(s['actors'])
 shots.sort(key=lambda x: x['beat'])
 ep = {
