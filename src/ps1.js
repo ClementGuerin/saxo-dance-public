@@ -37,6 +37,7 @@ import { buildFotoMaps } from './maps30.js';
 import { buildGoldenMaps } from './maps31.js';
 import { buildTonkMaps, texasSteak } from './maps32.js';
 import { buildAptMaps } from './maps33.js';
+import { buildComicMaps } from './maps34.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -57,6 +58,9 @@ const U = {
   uPtRange: { value: 7 },
   uFogCol: { value: new THREE.Color() }, uFog: { value: new THREE.Vector2(10, 40) },
   uWaterY: { value: -1e4 }, uWaterCol: { value: new THREE.Color(0x1f6f8f) },   // "SWIM" (2026-10-01): below this y everything is tinted as under water
+  // "Take on Me" (2026-10-07): the drawn world. A fragment where dot(xyz, its world position) < w is drawn in pencil (the
+  // 2D layer's sketchFx); (0, 0, 0, 1) draws everything, (0, 0, 0, -1), the default, nothing
+  uSk: { value: new THREE.Vector4(0, 0, 0, -1) },
 };
 
 const VS = /* glsl */`
@@ -64,7 +68,7 @@ const VS = /* glsl */`
 #include <skinning_pars_vertex>
 uniform vec2 uSnap; uniform vec3 uAmb, uDirCol, uDirDir; uniform vec3 uPtPos[4]; uniform vec3 uPtCol[4]; uniform float uPtRange;
 uniform vec2 uRep, uOff;
-varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY;
+varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY; varying vec3 vWP;
 void main() {
   #include <skinbase_vertex>
   #include <begin_vertex>
@@ -79,7 +83,7 @@ void main() {
     float att = clamp(1.0 - dist / uPtRange, 0.0, 1.0);
     L += uPtCol[i] * att * att * (0.35 + 0.65 * max(dot(n, d / dist), 0.0));
   }
-  vLight = L; vWY = wp.y;
+  vLight = L; vWY = wp.y; vWP = wp.xyz;
   vec4 vp = viewMatrix * wp; vFogD = -vp.z;
   vec4 cp = projectionMatrix * vp;
   cp.xy = floor(cp.xy / cp.w * uSnap + 0.5) / uSnap * cp.w;      // vertex snap to a coarse screen grid
@@ -88,8 +92,18 @@ void main() {
 }`;
 const FS = /* glsl */`
 uniform sampler2D map; uniform float uUseMap; uniform vec3 uCol; uniform vec3 uFogCol; uniform vec2 uFog; uniform float uUnlit; uniform float uLift; uniform float uShadow; uniform vec3 uShadowCol; uniform float uNoFog; uniform float uPale; uniform float uSee;
-uniform float uWaterY; uniform vec3 uWaterCol;
-varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY;
+uniform float uWaterY; uniform vec3 uWaterCol; uniform vec4 uSk; uniform float uKeep;
+varying vec3 vLight; varying vec3 vUvw; varying float vFogD; varying float vWY; varying vec3 vWP;
+// "Take on Me": a drawn fragment is written as a code the 2D layer turns into pencil (dance.js sketchFx): r its luminance
+// (the fog fading it into the paper), g = r + 5/255 (a gap the 15-bit colours below never make: they step by 8 or 9), b
+// its depth (/40 m) for the outlines
+bool drawn() { return uKeep < 0.5 && dot(uSk.xyz, vWP) < uSk.w; }   // uKeep: this material stays real even in the drawn world
+vec4 pencil(vec3 c) {
+  float Y = clamp(dot(c, vec3(0.299, 0.587, 0.114)) * 1.05 + 0.2, 0.0, 1.0);   // lifted: white paper, hatching for the shadows and darks, no solid black (a dark fur scribbled into noise, review 2026-10-07)
+  Y = mix(Y, 1.0, smoothstep(uFog.x, uFog.y, vFogD) * (1.0 - uNoFog) * 0.85);
+  float y = floor(clamp(Y, 0.0, 1.0) * 249.0 + 0.5) / 255.0;
+  return vec4(y, y + 5.0 / 255.0, clamp(vFogD / 40.0, 0.0, 1.0), 1.0);
+}
 vec3 underwater(vec3 c) {                                          // "SWIM": the sea over the deck; a lens under it sees everything through the water
   if (cameraPosition.y < uWaterY) {                                // from below: everything blue by distance, the surface itself bright
     if (vWY > uWaterY - 0.06) return mix(c, vec3(0.72, 0.94, 1.0), 0.62);
@@ -107,6 +121,7 @@ void main() {
   if (uShadow > 0.0) {                                            // blob shadow: radial falloff drawn as a dither pattern
     vec2 q = vUvw.xy / vUvw.z - 0.5; float a = uShadow * (1.0 - 4.0 * dot(q, q));
     if (a <= bayer(gl_FragCoord.xy)) discard;
+    if (drawn()) { gl_FragColor = pencil(uShadowCol * 0.85); return; }
     gl_FragColor = vec4(mix(underwater(uShadowCol), uFogCol, smoothstep(uFog.x, uFog.y, vFogD)), 1.0); return;
   }
   if (uSee > 0.0 && bayer(gl_FragCoord.xy) < uSee) discard;         // see: screen-door see-through (a soap bubble), dithered like the PS1's own
@@ -116,17 +131,18 @@ void main() {
   float glow = max(uUnlit, step(tx.a, 0.9));                     // alpha ~0.8 in a texture = self-lit (windows, lamps)
   vec3 lit = mix(vLight, vec3(1.0), uLift);                       // uLift > 0 keeps the hero readable in dark maps
   vec3 c = underwater(tx.rgb * uCol * mix(lit, vec3(1.0), glow));
+  if (drawn()) { gl_FragColor = pencil(c); return; }
   c = mix(c, uFogCol, smoothstep(uFog.x, uFog.y, vFogD) * (1.0 - uNoFog));   // nofog: the moon and the stars, far beyond the fog
   c = floor(clamp(c, 0.0, 1.0) * 31.0 + bayer(gl_FragCoord.xy)) / 31.0;   // 15-bit colour, ordered dither
   gl_FragColor = vec4(c, 1.0);
 }`;
 
-function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, shadow = 0, side = THREE.FrontSide, nofog = 0, see = 0 } = {}) {
+function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, shadow = 0, side = THREE.FrontSide, nofog = 0, see = 0, keep = 0 } = {}) {
   return new THREE.ShaderMaterial({
     vertexShader: VS, fragmentShader: FS, side,
     uniforms: { ...U, map: { value: map }, uUseMap: { value: map ? 1 : 0 }, uCol: { value: new THREE.Color(color) },
       uRep: { value: new THREE.Vector2(...rep) }, uOff: { value: new THREE.Vector2() }, uUnlit: { value: unlit }, uLift: { value: lift }, uShadow: { value: shadow }, uShadowCol: { value: new THREE.Color(0.22, 0.2, 0.24) }, uNoFog: { value: nofog },
-      uPale: { value: 0 }, uSee: { value: see } },   // every material uploads its own 0: a GL uniform keeps the last value set on the shared program, so the porcelain crowd's paleness leaked onto every character drawn after it (2026-09-27)
+      uPale: { value: 0 }, uSee: { value: see }, uKeep: { value: keep ? 1 : 0 } },   // every material uploads its own 0 (uKeep too): a GL uniform keeps the last value set on the shared program, so the porcelain crowd's paleness leaked onto every character drawn after it (2026-09-27)
   });
 }
 
@@ -676,6 +692,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   idol: 'assets/models/saxo_idol.glb',
   // the APT. duo's punk look from the clip: a black cap worn backwards, small black sunglasses, a black leather biker jacket open over a white t-shirt, a pearl necklace, a red tartan kilt over black leggings, white sneakers ("APT.", 2026-10-07)
   kilt: 'assets/models/saxo_kilt.glb',
+  // the comic's racing hero from "Take on Me": a snug brown leather racing helmet with ear flaps and round goggles pushed up on it, a white one-piece racing overall with a red stripe and a black 13 in a white circle, brown leather gloves, a short red scarf knotted at the neck, brown lace-up boots (2026-10-07 2nd)
+  racer: 'assets/models/saxo_racer.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -722,6 +740,8 @@ const PARTNERS = {
     singer: 'assets/models/sadi_singer.glb',
     // the APT. duo's other half from the clip: a short messy platinum-blonde bob wig with a fringe, her pink bow on it, a black leather biker jacket open over a white cropped top, black leather mini shorts, black ankle boots ("APT.", 2026-10-07)
     bob: 'assets/models/sadi_bob.glb',
+    // the comic's reader from "Take on Me": a big curly blonde 80s perm, her ears and her pink bow on top, an oversized pale grey blazer with the sleeves pushed up over a white t-shirt, light stonewashed jeans, white sneakers, small gold hoops (2026-10-07 2nd)
+    reader: 'assets/models/sadi_reader.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -882,7 +902,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1137,6 +1157,14 @@ function propMesh(kind) {
     add(new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.3, 5), mat({ color: 0xffe23a, unlit: 1 })), 0, -0.03).rotation.x = Math.PI;
     add(box(0.012, 0.16, 0.02, mat({ color: 0xfffbe0, unlit: 1 })), 0.03, -0.02, 0.03).rotation.z = 0.12;   // a glint
     for (let k = 0; k < 3; k++) add(box(0.022, 0.11, 0.022, mat({ color: 0x5ad84a, unlit: 0.4 })), (k - 1) * 0.022, 0.16).rotation.z = (k - 1) * 0.45;
+  } else if (kind === 'comic') {   // "Take on Me": the comic Sadi reads, open between both paws: two pages in a V (panels inked on them) over a cover printed with the racer's 13
+    const pageT = tex(24, 32, x => { x.fillStyle = '#f6f4ec'; x.fillRect(0, 0, 24, 32); x.strokeStyle = '#1c2030'; x.lineWidth = 1; for (const [a, b, w, h] of [[2, 2, 20, 12], [2, 16, 9, 14], [13, 16, 9, 14]]) x.strokeRect(a + 0.5, b + 0.5, w, h); x.fillStyle = '#5a6480'; x.fillRect(5, 7, 12, 3); });
+    const coverT = tex(24, 32, x => { x.fillStyle = '#ffd43b'; x.fillRect(0, 0, 24, 32); x.fillStyle = '#ffffff'; x.beginPath(); x.arc(12, 17, 8, 0, Math.PI * 2); x.fill(); x.fillStyle = '#1c2030'; x.font = 'bold 9px monospace'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('13', 12, 18); x.fillStyle = '#d8343e'; x.fillRect(0, 0, 24, 6); });
+    for (const s of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.15, 0.012, 0.21, mat({ map: coverT, unlit: 0.35 })), s * 0.075, 0, 0)); h.add(at3(box(0.14, 0.02, 0.19, mat({ map: pageT, unlit: 0.3 })), s * 0.072, 0.015, 0)); h.rotation.z = -s * 0.32; G.add(h); }
+  } else if (kind === 'wrench') {  // "Take on Me": the rival's giant spanner, held upright like a club: a red handle, an open C-shaped steel head (a square pipe-wrench jaw read as a letter F)
+    const steel = mat({ color: 0xb8bec8, unlit: 0.3 });
+    add(box(0.07, 0.62, 0.05, mat({ color: 0xd8343e, unlit: 0.3 })), 0, 0.22); add(box(0.075, 0.1, 0.055, steel), 0, 0.57);
+    const head = add(new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.04, 4, 10, Math.PI * 1.45), steel), 0, 0.72); head.rotation.z = Math.PI * 0.5 + Math.PI * 0.275;   // the C opens upwards
   } else if (kind === 'book') {    // Kob's book, open between both paws: two page halves in a V over a red cover (a flat slab read as a board)
     for (const s of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.13, 0.012, 0.19, M(0xc8243a)), s * 0.065, 0, 0)); h.add(at3(box(0.12, 0.02, 0.17, M(0xfaf4e4)), s * 0.062, 0.015, 0));
       for (let k = 0; k < 3; k++) h.add(at3(box(0.08, 0.004, 0.012, M(0x7a7a8a)), s * 0.065, 0.027, -0.05 + k * 0.045)); h.rotation.z = -s * 0.32; G.add(h); }
@@ -1284,7 +1312,7 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'book' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
+  if (kind === 'pad' || kind === 'book' || kind === 'comic' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
     g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : kind === 'steak' || kind === 'board' ? 0.75 : -0.75, bodyYaw, 0, 'YXZ');   // the steak's board tips its face to the lens   // the book and the wallet tilt open towards the holder
     if (kind === 'melon') g.position.addScaledVector(_up, 0.1 * s);   // it sits on the paws
@@ -2006,7 +2034,12 @@ function danceFrame(t) {
   for (const m of Object.values(MAPS)) m.group.visible = m === map;   // set every frame: episode scenes switch maps too
   scene.background = map.sky; curMap = map;
   U.uWaterY.value = -1e4;   // dry unless the map floods this shot ("SWIM")
+  U.uSk.value.set(0, 0, 0, -1);   // nothing drawn in pencil unless the map (its anim) or the shot says so ("Take on Me")
   map.light(); map.anim(t, P);   // anim runs after light, so a map can also relight per shot from P
+  // sketch: the shot in pencil (true), none of it (false), or a plane [nx, ny, nz, d]: drawn where dot(n, p) < d (the
+  // comic page's wall); window.SKETCH tells the 2D layer to turn the coded pixels into pencil (dance.js sketchFx)
+  if (P.sketch != null) U.uSk.value.set(...(P.sketch === true ? [0, 0, 0, 1] : P.sketch === false ? [0, 0, 0, -1] : P.sketch));
+  { const s = U.uSk.value; window.SKETCH = s.w > 0 || s.x !== 0 || s.y !== 0 || s.z !== 0; }
   // mono: the frame in black and white (true), or [a, b]: black and white until a s into the shot, colour back by b (the 2D
   // layer greys it: window.MONO, 0-1). photo: s into the shot, the frozen frame becomes an instant photo (window.PHOTO: s since)
   { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null;
@@ -2149,7 +2182,7 @@ if (EP) {
     unswing(); const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
-      window.MONO = 0; window.PHOTO = null; window.WHITE = 0; window.CCTV = null;   // the 2D frame effects belong to dance shots
+      window.MONO = 0; window.PHOTO = null; window.WHITE = 0; window.CCTV = null; window.SKETCH = false; U.uSk.value.set(0, 0, 0, -1);   // the 2D frame effects belong to dance shots
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
       for (const g of Object.values(PROPS)) g.visible = false; placeCrowd(null, t, 0, 1, 0);
       window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);

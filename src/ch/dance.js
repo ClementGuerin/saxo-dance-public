@@ -220,6 +220,53 @@ function cctv(c) {
   g.restore();
 }
 
+// "Take on Me" (2026-10-07): the drawn world in pencil. ps1.js writes each drawn fragment as a code (r its luminance,
+// g = r + 5, a gap the PS1's 15-bit colours never make, b its depth / 40 m) and sets window.SKETCH; here those pixels
+// become paper, graphite hatching by luminance (the hatching boils: it shifts every 1/8 s, like the clip's redrawn
+// frames) and outlines (depth steps, strong luminance steps, and the edge of the real world seen through a page). Pure
+// in t; the rest of the frame stays as rendered, so a character can be half drawn and half real.
+const SK_PAPER = [236, 239, 243], SK_HATCH = [92, 102, 128], SK_INK = [38, 46, 68];
+const skCv = document.createElement('canvas'), skG = skCv.getContext('2d', { willReadFrequently: true });
+let skY = null, skZ = null, skM = null;
+function sketchFx(f, t) {
+  const w = f.width, h = f.height, n = w * h;
+  if (skCv.width !== w || skCv.height !== h) { skCv.width = w; skCv.height = h; skY = new Float32Array(n); skZ = new Float32Array(n); skM = new Uint8Array(n); }
+  skG.drawImage(f, 0, 0); const im = skG.getImageData(0, 0, w, h), d = im.data;
+  let drawnAny = false;
+  for (let i = 0, j = 0; i < n; i++, j += 4) {
+    const r = d[j], gr = d[j + 1], b = d[j + 2];
+    if (gr - r === 5) { skM[i] = 1; skY[i] = r / 249; skZ[i] = b * (40 / 255); drawnAny = true; }
+    else { skM[i] = 0; skY[i] = (0.299 * r + 0.587 * gr + 0.114 * b) / 255; skZ[i] = 0; }
+  }
+  if (!drawnAny) return f;
+  const ph = Math.floor(t * 8) % 4, put = (j, c) => { d[j] = c[0]; d[j + 1] = c[1]; d[j + 2] = c[2]; };
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x; if (!skM[i]) continue;
+    const j = i * 4, Y = skY[i], Z = skZ[i];
+    let edge = false;
+    for (const [dx, dy] of [[1, 0], [0, 1], [-1, 0], [0, -1]]) {
+      const xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= w || yy >= h) continue;
+      const k = yy * w + xx;
+      if (!skM[k]) { edge = true; break; }   // the edge of a real thing (or a page's opening onto the real world)
+      if (skZ[k] - Z > Math.max(0.35, 0.07 * Z)) { edge = true; break; }   // a silhouette: the far side of a depth step only, so lines stay one pixel
+      if (Math.abs(skY[k] - Y) > 0.2) { edge = true; break; }   // a strong tone step: eyes, a stripe, a number
+    }
+    if (edge) { put(j, SK_INK); continue; }
+    const a = x + y + ph, c = x - y + 4096 + ph;   // diagonal and cross strokes, 1 px every few
+    let ink = 0;
+    if (Y < 0.07) ink = 2;   // only the deepest black is solid: darker tones are denser strokes, as a pencil does it
+    else if (Y < 0.16) ink = a % 2 === 0 ? 1 : 0;
+    else if (Y < 0.28) ink = (a % 3 === 0 || c % 3 === 0) ? 1 : 0;
+    else if (Y < 0.44) ink = (a % 4 === 0 || c % 4 === 0) ? 1 : 0;
+    else if (Y < 0.62) ink = a % 4 === 0 ? 1 : 0;
+    else if (Y < 0.8) ink = a % 7 === 0 ? 1 : 0;
+    if (ink === 2) put(j, SK_INK);
+    else if (ink) put(j, SK_HATCH);
+    else { const gn = ((x * 73856093) ^ (y * 19349663)) & 7; put(j, [SK_PAPER[0] - gn, SK_PAPER[1] - gn, SK_PAPER[2] - gn]); }   // paper grain
+  }
+  skG.putImageData(im, 0, 0); return skCv;
+}
+
 // bottom of the frame, below the characters' feet (at 76% it sat on them in close shots)
 const WM_Y = H * 0.91;
 function watermark() {
@@ -231,7 +278,7 @@ function watermark() {
 chapter('dance', 0, DUR, [[0, function danceFloor(t) {
   g.imageSmoothingEnabled = false;
   if (window.render3d) {
-    const f = window.render3d(t), mono = window.MONO || 0;
+    const f0 = window.render3d(t), f = window.SKETCH ? sketchFx(f0, t) : f0, mono = window.MONO || 0;
     if (mono > 0.01) g.filter = `grayscale(${mono}) contrast(${1 + 0.25 * mono})`;   // a shot's mono: the black-and-white movie opening (ps1.js sets it)
     g.drawImage(f, 0, 0, W, H); g.filter = 'none';
     if (window.PHOTO != null) polaroid(f, window.PHOTO);
