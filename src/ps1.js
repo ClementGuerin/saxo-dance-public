@@ -38,6 +38,7 @@ import { buildGoldenMaps } from './maps31.js';
 import { buildTonkMaps, texasSteak } from './maps32.js';
 import { buildAptMaps } from './maps33.js';
 import { buildComicMaps } from './maps34.js';
+import { buildLondonMaps } from './maps35.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -561,6 +562,10 @@ function steadiestOffset(T, name, len) {
 // Outfits without Mixamo or Blender: an unrigged Tripo model of Saxo in a costume (same T-pose and proportions) is
 // laid over the rigged body and every vertex copies the bone weights of the nearest rigged vertices. The result is a
 // SkinnedMesh on the same skeleton, so every Mixamo clip plays on it unchanged.
+// Looks whose bare arms tore into flat fins when the arms came down ("So Easy", 2026-10-08: the floral dress): the chibi
+// head's underside sits just over the T-posed arms, so a thin arm's top surface took the Head's weights and stayed put.
+// Their arm vertices take weights only from body vertices skinned mostly to that arm's bones (see `nearFor` below).
+const ARM_FIX = new Set(['floral']);
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
@@ -603,12 +608,64 @@ async function addOutfit(T, name, url) {
     if (!best || e / c < best.e * (best.yaw === -Math.PI / 2 ? 0.8 : 1)) best = { g, e: e / c, yaw };
   }
   const g = best.g, P = g.attributes.position, n = P.count, SI = new Uint16Array(n * 4), SW = new Float32Array(n * 4), memo = new Map();
+  // ARM_FIX: a costume vertex within 0.11 m of an arm (its shoulder joint to 0.12 m past the paw, bind pose) and out past
+  // the shoulder joint takes its weights only from the body vertices skinned mostly to that arm's bones
+  let nearFor = (x, y, z) => near(x, y, z, 6);
+  if (ARM_FIX.has(name)) {
+    // first move the costume's arms onto the skeleton's: Tripo drew the floral dress with its arms 0.19 m higher and
+    // 0.075 m further forward than Saxo's (measured at the paw tips once fitted by span). Below the arms' height the
+    // costume is squashed to it (feet kept on the floor), above it shifted down (the head keeps its size); the arms,
+    // out past the shoulder joints, also move back. Then they skin to the arm bones alone (nearFor).
+    const half = (bb.max.x - bb.min.x) / 2, tip = (pts, get) => { let n = 0, y = 0, z = 0; for (const p of pts) { const [px, py, pz] = get(p); if (Math.abs(px) < 0.88 * half) continue; n++; y += py; z += pz; } return n ? [y / n, z / n] : null; };
+    const tb = tip(B, b => b), idx = Array.from({ length: P.count }, (_, k) => k), tc = tip(idx, k => [P.getX(k), P.getY(k), P.getZ(k)]);
+    const shX = Math.abs(sm.skeleton.bones.find(bn => /LeftArm$/.test(bn.name))?.getWorldPosition(new THREE.Vector3()).x || 0.19) + 0.06;
+    if (tb && tc && tc[0] > tb[0] + 0.03) {
+      const [yb, zb] = tb, [yc, zc] = tc, dz = zb - zc;
+      for (let k = 0; k < P.count; k++) {
+        const x = P.getX(k), y = P.getY(k), w = Math.min(1, Math.max(0, (Math.abs(x) - shX) / 0.13)), ws = w * w * (3 - 2 * w);
+        P.setY(k, y <= yc ? y * yb / yc : y - (yc - yb)); P.setZ(k, P.getZ(k) + dz * ws);
+      }
+      P.needsUpdate = true; memo.clear();
+      console.warn(`outfit ${name}: arms moved from y ${yc.toFixed(2)} z ${zc.toFixed(2)} to y ${yb.toFixed(2)} z ${zb.toFixed(2)}`);
+    }
+    const bones = sm.skeleton.bones, wp = re => { const bn = bones.find(b => re.test(b.name)); return bn ? bn.getWorldPosition(new THREE.Vector3()) : null; };
+    const dom = B.map((_, j) => { let bb = -1, w = 0; for (let c = 0; c < 4; c++) if (bw.getComponent(j, c) > w) { w = bw.getComponent(j, c); bb = bi.getComponent(j, c); } return bones[bb]?.name || ''; });
+    const arms = ['Left', 'Right'].map(sd => {
+      const a = wp(new RegExp(sd + 'Arm$')), h = wp(new RegExp(sd + 'Hand$')); if (!a || !h) return null;
+      const d = h.clone().sub(a).normalize(); return { a, b: h.clone().addScaledVector(d, 0.12), re: new RegExp(sd + '(Arm|ForeArm|Hand)') };
+    }).filter(Boolean);
+    const segD = (p, A, Bq) => { const ab = Bq.clone().sub(A), t = Math.max(0, Math.min(1, p.clone().sub(A).dot(ab) / ab.lengthSq())); return p.distanceTo(A.clone().addScaledVector(ab, t)); };
+    // in the arm zone, the costume's texel says what a vertex is: grey fur (low saturation, not dark) is the arm and
+    // takes that arm's bones; a saturated texel (the brown wig's ends, a gold hoop) belongs to the head and takes the
+    // head's; anything else there (a puff of the dress, its print) takes no arm bone
+    const m0t = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material, im = m0t?.map?.image, uvA = g.attributes.uv;
+    let kindOf = () => 'fur';
+    if (im && uvA) {
+      const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height; const cx = cv.getContext('2d'); cx.drawImage(im, 0, 0);
+      const data = cx.getImageData(0, 0, cv.width, cv.height).data, flip = !!m0t.map.flipY;
+      kindOf = k => {
+        let u = uvA.getX(k) % 1, v = uvA.getY(k) % 1; if (u < 0) u += 1; if (v < 0) v += 1;
+        const px = Math.min(cv.width - 1, Math.floor(u * cv.width)), py = Math.min(cv.height - 1, Math.floor((flip ? 1 - v : v) * cv.height)), o = (py * cv.width + px) * 4;
+        const r = data[o], gg = data[o + 1], b2 = data[o + 2], mx = Math.max(r, gg, b2), mn = Math.min(r, gg, b2);
+        const sat = mx ? (mx - mn) / mx : 0, lum = (r + gg + b2) / 765;
+        return sat < 0.2 && lum > 0.3 ? 'fur' : sat > 0.25 ? 'head' : 'body';
+      };
+    }
+    const anyArm = /(Arm|ForeArm|Hand)/, headish = /(Head|Neck)/, pv = new THREE.Vector3();
+    nearFor = (x, y, z, k) => {
+      pv.set(x, y, z);
+      const arm = arms.find(q => Math.sign(x) === Math.sign(q.a.x) && Math.abs(x) > Math.abs(q.a.x) + 0.02 && segD(pv, q.a, q.b) < 0.13);
+      if (!arm) return near(x, y, z, 6);
+      const kd = kindOf(k), pick = near(x, y, z, 160).filter(([, j]) => kd === 'fur' ? arm.re.test(dom[j]) : kd === 'head' ? headish.test(dom[j]) : !anyArm.test(dom[j])).slice(0, 6);
+      return pick.length >= 2 ? pick : near(x, y, z, 6);
+    };
+  }
   for (let k = 0; k < n; k++) {
     const x = P.getX(k), y = P.getY(k), z = P.getZ(k), key = x.toFixed(4) + ',' + y.toFixed(4) + ',' + z.toFixed(4);
     let w = memo.get(key);
     if (!w) {
       const acc = {};   // inverse-distance blend of the 6 nearest body vertices' weights, keep the top 4 bones
-      for (const [d2, j] of near(x, y, z, 6)) { const f = 1 / (d2 + 1e-6); for (let c = 0; c < 4; c++) { const wt = bw.getComponent(j, c); if (wt > 0) acc[bi.getComponent(j, c)] = (acc[bi.getComponent(j, c)] || 0) + wt * f; } }
+      for (const [d2, j] of nearFor(x, y, z, k)) { const f = 1 / (d2 + 1e-6); for (let c = 0; c < 4; c++) { const wt = bw.getComponent(j, c); if (wt > 0) acc[bi.getComponent(j, c)] = (acc[bi.getComponent(j, c)] || 0) + wt * f; } }
       const top = Object.entries(acc).sort((a, b) => b[1] - a[1]).slice(0, 4), sum = top.reduce((a, b) => a + b[1], 0);
       w = top.map(([b, x]) => [+b, x / sum]); memo.set(key, w);
     }
@@ -694,6 +751,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   kilt: 'assets/models/saxo_kilt.glb',
   // the comic's racing hero from "Take on Me": a snug brown leather racing helmet with ear flaps and round goggles pushed up on it, a white one-piece racing overall with a red stripe and a black 13 in a white circle, brown leather gloves, a short red scarf knotted at the neck, brown lace-up boots (2026-10-07 2nd)
   racer: 'assets/models/saxo_racer.glb',
+  // the singer's look from the "So Easy (To Fall In Love)" clip: a long voluminous dark brown curly wig to the shoulders, his ears out on top, gold hoops, an off-the-shoulder white midi sundress printed with big black flowers, black strappy heels (2026-10-08)
+  floral: 'assets/models/saxo_floral.glb',
   banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -742,6 +801,8 @@ const PARTNERS = {
     bob: 'assets/models/sadi_bob.glb',
     // the comic's reader from "Take on Me": a big curly blonde 80s perm, her ears and her pink bow on top, an oversized pale grey blazer with the sleeves pushed up over a white t-shirt, light stonewashed jeans, white sneakers, small gold hoops (2026-10-07 2nd)
     reader: 'assets/models/sadi_reader.glb',
+    // the London flower-stall florist from "So Easy (To Fall In Love)": a dark green canvas apron over a white blouse with rolled sleeves, a pink rose behind one ear beside her bow, light blue jeans, brown ankle boots (2026-10-08)
+    florist: 'assets/models/sadi_florist.glb',
     strawberry: 'assets/models/sadi_strawberry.glb' },   // the strawberry suit: red with yellow seeds, a green leafy collar, a leaf cap with a stalk, her pink bow ("Hootie Frutti", 2026-09-28)   // the Parisienne: a Breton striped top, a red skirt, red ballet flats, a red beret, red lips ("Dans ma bulle")   // a pink cherry-blossom yukata, red obi with a bow at the back, geta, her pink bow ("Caramelldansen")
     heads: { white: 'sadi' },   // the white dress came back from Tripo with a faceless head: wear her own
     byMap: { moon: 'astronaut', club: 'disco', beach: 'beach', western: 'cowgirl', stadium: 'cheer', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'patrick', stage: 'disco', arcade: 'disco', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl', school: 'cheer', pirate: 'beach', candy: 'beach', volcano: 'beach', supermarket: 'hotdog' } },
@@ -902,7 +963,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
