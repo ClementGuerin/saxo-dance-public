@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-07T14:17:39.977Z",
+ "updated": "2026-10-07T18:17:41.669Z",
  "posts": [
+  {
+   "id": "2026-10-07-2",
+   "title": "Take on Me",
+   "artist": "a-ha",
+   "date": "2026-10-07T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-07-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7693987934332095776",
+     "id": "7693987934332095776"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeM9UG5gsqU/",
+     "id": "DeM9UG5gsqU"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/ZhjQon0x5D8",
+     "id": "ZhjQon0x5D8"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=2493092634549002",
+     "id": "2493092634549002"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2107894029446795479",
+     "id": "2107894029446795479"
+    }
+   }
+  },
   {
    "id": "2026-10-07",
    "title": "APT.",
