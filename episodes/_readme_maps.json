@@ -3167,6 +3167,48 @@
      "z": 0.9
     }
    ]
+  },
+  {
+   "beat": 150,
+   "kind": "dance",
+   "map": "london",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "cab": false,
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "floral",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "sadi",
+     "look": "florist",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }
