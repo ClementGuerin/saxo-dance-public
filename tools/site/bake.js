@@ -33,6 +33,8 @@ async function loadSaxo() {
   return { root, gangnam: animations[0] };
 }
 
+// ps1.js ARM_FIX: looks whose bare arms Tripo drew higher than the skeleton's (they tore into fins), by file name
+const ARM_FIX = /_(floral)\.glb$/;
 // ps1.js addOutfit(), minus the PS1 material: fit an unrigged Tripo model over the rigged body and copy the bone
 // weights of the 6 nearest body vertices. Returns the new SkinnedMesh, bound to the body's skeleton.
 async function fitOutfit(root, url) {
@@ -70,12 +72,54 @@ async function fitOutfit(root, url) {
     if (!best || e / c < best.e * (best.yaw === -Math.PI / 2 ? 0.8 : 1)) best = { g, e: e / c, yaw };
   }
   const g = best.g, P = g.attributes.position, n = P.count, SI = new Uint16Array(n * 4), SW = new Float32Array(n * 4), memo = new Map();
+  // ARM_FIX (as in src/ps1.js addOutfit): move the costume's arms onto the skeleton's, then skin the arm zone by texel
+  let nearFor = (x, y, z) => near(x, y, z, 6);
+  if (ARM_FIX.test(url)) {
+    const half = (bb.max.x - bb.min.x) / 2, tip = (pts, get) => { let c = 0, y = 0, z = 0; for (const p of pts) { const [px, py, pz] = get(p); if (Math.abs(px) < 0.88 * half) continue; c++; y += py; z += pz; } return c ? [y / c, z / c] : null; };
+    const tb = tip(B, b => b), idx = Array.from({ length: P.count }, (_, k) => k), tc = tip(idx, k => [P.getX(k), P.getY(k), P.getZ(k)]);
+    const shX = Math.abs(sm.skeleton.bones.find(bn => /LeftArm$/.test(bn.name))?.getWorldPosition(new THREE.Vector3()).x || 0.19) + 0.06;
+    if (tb && tc && tc[0] > tb[0] + 0.03) {
+      const [yb, zb] = tb, [yc, zc] = tc, dz = zb - zc;
+      for (let k = 0; k < P.count; k++) {
+        const x = P.getX(k), y = P.getY(k), w = Math.min(1, Math.max(0, (Math.abs(x) - shX) / 0.13)), ws = w * w * (3 - 2 * w);
+        P.setY(k, y <= yc ? y * yb / yc : y - (yc - yb)); P.setZ(k, P.getZ(k) + dz * ws);
+      }
+      P.needsUpdate = true;
+    }
+    const bones = sm.skeleton.bones, wp = re => { const bn = bones.find(b2 => re.test(b2.name)); return bn ? bn.getWorldPosition(new THREE.Vector3()) : null; };
+    const dom = B.map((_, j) => { let b3 = -1, w = 0; for (let c = 0; c < 4; c++) if (bw.getComponent(j, c) > w) { w = bw.getComponent(j, c); b3 = bi.getComponent(j, c); } return bones[b3]?.name || ''; });
+    const arms = ['Left', 'Right'].map(sd => {
+      const a = wp(new RegExp(sd + 'Arm$')), h = wp(new RegExp(sd + 'Hand$')); if (!a || !h) return null;
+      const d = h.clone().sub(a).normalize(); return { a, b: h.clone().addScaledVector(d, 0.12), re: new RegExp(sd + '(Arm|ForeArm|Hand)') };
+    }).filter(Boolean);
+    const segD = (p, A, Bq) => { const ab = Bq.clone().sub(A), t = Math.max(0, Math.min(1, p.clone().sub(A).dot(ab) / ab.lengthSq())); return p.distanceTo(A.clone().addScaledVector(ab, t)); };
+    const m0t = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material, im = m0t?.map?.image, uvA = g.attributes.uv;
+    let kindOf = () => 'fur';
+    if (im && uvA) {
+      const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height; const cx = cv.getContext('2d'); cx.drawImage(im, 0, 0);
+      const data = cx.getImageData(0, 0, cv.width, cv.height).data, flip = !!m0t.map.flipY;
+      kindOf = k => {
+        let u = uvA.getX(k) % 1, vv = uvA.getY(k) % 1; if (u < 0) u += 1; if (vv < 0) vv += 1;
+        const px = Math.min(cv.width - 1, Math.floor(u * cv.width)), py = Math.min(cv.height - 1, Math.floor((flip ? 1 - vv : vv) * cv.height)), o = (py * cv.width + px) * 4;
+        const r = data[o], gg = data[o + 1], b2 = data[o + 2], mx = Math.max(r, gg, b2), mn = Math.min(r, gg, b2), sat = mx ? (mx - mn) / mx : 0;
+        return sat < 0.2 && (r + gg + b2) / 765 > 0.3 ? 'fur' : sat > 0.25 ? 'head' : 'body';
+      };
+    }
+    const anyArm = /(Arm|ForeArm|Hand)/, headish = /(Head|Neck)/, pv = new THREE.Vector3();
+    nearFor = (x, y, z, k) => {
+      pv.set(x, y, z);
+      const arm = arms.find(q => Math.sign(x) === Math.sign(q.a.x) && Math.abs(x) > Math.abs(q.a.x) + 0.02 && segD(pv, q.a, q.b) < 0.13);
+      if (!arm) return near(x, y, z, 6);
+      const kd = kindOf(k), pick = near(x, y, z, 160).filter(([, j]) => kd === 'fur' ? arm.re.test(dom[j]) : kd === 'head' ? headish.test(dom[j]) : !anyArm.test(dom[j])).slice(0, 6);
+      return pick.length >= 2 ? pick : near(x, y, z, 6);
+    };
+  }
   for (let k = 0; k < n; k++) {
     const x = P.getX(k), y = P.getY(k), z = P.getZ(k), key = x.toFixed(4) + ',' + y.toFixed(4) + ',' + z.toFixed(4);
     let w = memo.get(key);
     if (!w) {
       const acc = {};
-      for (const [d2, j] of near(x, y, z, 6)) { const f = 1 / (d2 + 1e-6); for (let c = 0; c < 4; c++) { const wt = bw.getComponent(j, c); if (wt > 0) acc[bi.getComponent(j, c)] = (acc[bi.getComponent(j, c)] || 0) + wt * f; } }
+      for (const [d2, j] of nearFor(x, y, z, k)) { const f = 1 / (d2 + 1e-6); for (let c = 0; c < 4; c++) { const wt = bw.getComponent(j, c); if (wt > 0) acc[bi.getComponent(j, c)] = (acc[bi.getComponent(j, c)] || 0) + wt * f; } }
       const top = Object.entries(acc).sort((a, b) => b[1] - a[1]).slice(0, 4), sum = top.reduce((a, b) => a + b[1], 0);
       w = top.map(([b, x]) => [+b, x / sum]); memo.set(key, w);
     }
