@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-06T19:46:30.130Z",
+ "updated": "2026-10-07T14:17:39.977Z",
  "posts": [
+  {
+   "id": "2026-10-07",
+   "title": "APT.",
+   "artist": "ROSÉ & Bruno Mars",
+   "date": "2026-10-07T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-07.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7693926075692322080",
+     "id": "7693926075692322080"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeMhwf3jB9l/",
+     "id": "DeMhwf3jB9l"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/xgRvVG9aiiU",
+     "id": "xgRvVG9aiiU"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1814953199500860",
+     "id": "1814953199500860"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2107833727321522211",
+     "id": "2107833727321522211"
+    }
+   }
+  },
   {
    "id": "2026-10-06-2",
    "title": "Choosin' Texas",
