@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-07T20:21:34.369Z",
+ "updated": "2026-10-08T14:17:42.394Z",
  "posts": [
+  {
+   "id": "2026-10-08",
+   "title": "So Easy (To Fall In Love)",
+   "artist": "Olivia Dean",
+   "date": "2026-10-08T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-08.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7694297728402083105",
+     "id": "7694297728402083105"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DePG3m2gppX/",
+     "id": "DePG3m2gppX"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/JgGeCezofsU",
+     "id": "JgGeCezofsU"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1456471686389241",
+     "id": "1456471686389241"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2108196109877174346",
+     "id": "2108196109877174346"
+    }
+   }
+  },
   {
    "id": "2026-10-07-2",
    "title": "Take on Me",
