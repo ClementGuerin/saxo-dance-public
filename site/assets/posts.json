@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-08T14:17:42.394Z",
+ "updated": "2026-10-08T18:17:22.571Z",
  "posts": [
+  {
+   "id": "2026-10-08-2",
+   "title": "Poker Face",
+   "artist": "Lady Gaga",
+   "date": "2026-10-08T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-08-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7694358725200563489",
+     "id": "7694358725200563489"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DePh6BDDuu7/",
+     "id": "DePh6BDDuu7"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/LZgf7aXPhTo",
+     "id": "LZgf7aXPhTo"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1036932672690476",
+     "id": "1036932672690476"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2108256452175429731",
+     "id": "2108256452175429731"
+    }
+   }
+  },
   {
    "id": "2026-10-08",
    "title": "So Easy (To Fall In Love)",
