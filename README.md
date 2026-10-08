@@ -26,7 +26,7 @@
   <table>
     <tr>
       <td align="center"><h3>4</h3>characters</td>
-      <td align="center"><h3>118</h3>looks</td>
+      <td align="center"><h3>119</h3>looks</td>
       <td align="center"><h3>76</h3>maps</td>
       <td align="center"><h3>467</h3>dance and action clips</td>
       <td align="center"><h3>33</h3>videos posted</td>
