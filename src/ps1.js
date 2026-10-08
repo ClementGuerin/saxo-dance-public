@@ -39,6 +39,7 @@ import { buildTonkMaps, texasSteak } from './maps32.js';
 import { buildAptMaps } from './maps33.js';
 import { buildComicMaps } from './maps34.js';
 import { buildLondonMaps } from './maps35.js';
+import { buildMansionMaps } from './maps36.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -753,7 +754,9 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   racer: 'assets/models/saxo_racer.glb',
   // the singer's look from the "So Easy (To Fall In Love)" clip: a long voluminous dark brown curly wig to the shoulders, his ears out on top, gold hoops, an off-the-shoulder white midi sundress printed with big black flowers, black strappy heels (2026-10-08)
   floral: 'assets/models/saxo_floral.glb',
-  banana: 'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
+  // the singer's look from the "Poker Face" clip: a sleek platinum-blonde bob with thick blunt bangs, his ears out on top, a pale-blue lightning bolt painted on his cheek, a glossy teal-blue latex catsuit with long sleeves and diamond cut-outs at the waist, teal fingerless gloves, black ankle boots (2026-10-08 2nd)
+  platinum: 'assets/models/saxo_platinum.glb',
+  banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
 // Kob (a grumpy grey tabby cat girl, sheets in assets/ref/kob/) is built the same way and takes the same slot: the
@@ -963,7 +966,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1087,6 +1090,7 @@ function actorSpec(a, e, map) {
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie, dizzy: a.dizzy ?? null,
+    shades: a.shades ?? null, visor: !!a.visor,   // "Poker Face" (2026-10-08 2nd): dark sunglasses (true, s: dropped onto the eyes landing s into the shot, { at, off }: flown off at off), the dealer's green visor
     hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, steakMouth: a.steakMouth ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
@@ -1199,6 +1203,8 @@ function propMesh(kind) {
   } else if (kind === 'phone') {   // held up filming: screen towards the holder, flash on the back
     add(box(0.11, 0.2, 0.02, mat({ color: 0xffb4dc, unlit: 0.6 }))); add(box(0.094, 0.18, 0.004, glow(0x8fd8ff)), 0, 0, -0.012);   // a candy-pink case (0xff4f9a rendered dark plum at night; a black phone vanished against the shades)
     G.userData.led = add(box(0.03, 0.03, 0.004, glow(0xffffff)), -0.028, 0.07, 0.012);
+  } else if (kind === 'deck') {    // a deck of cards between both paws ("Poker Face": the dealer shuffling): white edges, a red back on top
+    add(box(0.11, 0.05, 0.15, M(0xf2eee6))); add(box(0.112, 0.004, 0.152, mat({ color: 0xc8202e, unlit: 0.3 })), 0, 0.026);
   } else if (kind === 'pad') {     // game controller
     add(box(0.18, 0.036, 0.085, M(0x2a2d36)));
     for (const s of [-1, 1]) { const h = add(cyl(0.032, 0.032, 0.075, M(0x2a2d36)), s * 0.08, -0.012, 0.03); h.rotation.x = Math.PI / 2; }
@@ -1373,7 +1379,7 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'book' || kind === 'comic' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
+  if (kind === 'pad' || kind === 'deck' || kind === 'book' || kind === 'comic' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
     g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : kind === 'steak' || kind === 'board' ? 0.75 : -0.75, bodyYaw, 0, 'YXZ');   // the steak's board tips its face to the lens   // the book and the wallet tilt open towards the holder
     if (kind === 'melon') g.position.addScaledVector(_up, 0.1 * s);   // it sits on the paws
@@ -1755,6 +1761,45 @@ function sleepMask(D, pink = false) {   // a pale blue sleep mask over both eyes
   });
   faceAt(D, D === CREW.compote ? [0, 0.2, 0.36] : [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar((D.curScale || D.scale || 1) * (pink ? 0.82 : 1));   // Compote's eyes sit lower on her head: hers rode up on her forehead; Kob's pink one narrower (the full width floated past her cheeks)
 }
+// "Poker Face" (2026-10-08 2nd): `shades`, dark sunglasses over the eyes: the poker player's face that gives nothing away.
+// true (on all shot), s (they drop from 0.9 m above onto the eyes over 0.35 s, landing s into the shot: the "deal with
+// it" glasses) or { at, off } (at as s; off: they fly up and back off the face over 0.45 s). Black lenses with a white
+// glint each (plain black read as holes), a bar across the top, short temples; in the head bone's frame like the mask.
+function sunglasses(D, S, c) {
+  const at = S === true ? -9 : typeof S === 'number' ? S : (S.at ?? -9), off = typeof S === 'object' && S !== null ? S.off : null;
+  if (c < at - 0.35 || (off != null && c > off + 0.45)) return;
+  const g = faceProp(D, 'shades', () => {
+    const q = new THREE.Group(), blk = mat({ color: 0x0c0c12, unlit: 0.25 }), gl = mat({ color: 0xffffff, unlit: 1 });
+    for (const sd of [-1, 1]) {
+      const l = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.15, 0.04), blk); l.position.set(sd * 0.155, 0, 0); q.add(l);
+      const g1 = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.1, 0.006), gl); g1.position.set(sd * 0.155 - 0.06, 0.01, 0.023); g1.rotation.z = -0.6; q.add(g1);
+      const tp = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 0.34), blk); tp.position.set(sd * 0.3, 0.05, -0.17); q.add(tp);
+    }
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(0.64, 0.035, 0.045), blk); bar.position.set(0, 0.07, 0); q.add(bar);
+    return q;
+  });
+  const sc = D.curScale || D.scale || 1, dn = c < at ? (at - c) / 0.35 : 0, up = off != null && c > off ? (c - off) / 0.45 : 0;
+  const base = D === CREW.compote ? [0, 0.2, 0.41] : [0, 0.3, 0.4];
+  faceAt(D, [base[0], base[1] + 0.9 * dn * dn + 0.9 * up, base[2] + 0.5 * up], g.position); g.quaternion.copy(_fq);
+  if (up) g.rotateX(-up * 5); g.scale.setScalar(sc);
+}
+// the dealer's green visor: a see-through green brim over the eyes on a dark band round the forehead
+function dealerVisor(D) {
+  const g = faceProp(D, 'visor', () => {
+    const w = new THREE.Group(), q = new THREE.Group(), green = mat({ color: 0x3ad87a, unlit: 0.55, see: 0.3 }), edge = mat({ color: 0x1a7a3a, unlit: 0.3 });
+    // a round brim (a half disc over a dark green rim) on a band round the front of the head: a square brim read as a
+    // plank floating off the head in three-quarter views ("Poker Face" review loop 2), a 0.6 m flat one as a tray on her
+    // head, and in profile a brim past the nose on a band to the back of the skull as a stick through it (loop 3)
+    const half = r => new THREE.CylinderGeometry(r, r, 0.018, 12, 1, false, -Math.PI / 2, Math.PI);
+    q.add(new THREE.Mesh(half(0.155), green));
+    const rim = new THREE.Mesh(half(0.172), edge); rim.position.y = -0.006; q.add(rim);
+    q.rotation.x = 0.32; w.add(q);
+    const band = new THREE.Mesh(new THREE.CylinderGeometry(0.43, 0.43, 0.055, 16, 1, true, -1.13, 2.26), edge);
+    band.position.set(0, 0.01, -0.33); band.rotation.x = 0.1; w.add(band);
+    return w;
+  });
+  faceAt(D, [0, 0.43, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
 function faceMask(D) {
   const g = faceProp(D, 'mask', () => {
     const q = new THREE.Group(), blue = mat({ color: 0xbfe0f2, unlit: 0.35 }), pleat = mat({ color: 0x8ab8d8, unlit: 0.35 }), loop = mat({ color: 0xffffff, unlit: 0.5 });
@@ -1992,6 +2037,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.mask && D.head) faceMask(D);
     if (A.sleep != null && A.sleep !== false && (A.sleep === true || t - t0 >= A.sleep) && D.head) sleepMask(D, A.look === 'pyjama' && D === CREW.kob);   // true, or from s into the shot
     if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
+    if (A.shades != null && A.shades !== false && D.head) sunglasses(D, A.shades, t - t0);
+    if (A.visor && D.head) dealerVisor(D);
     if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
