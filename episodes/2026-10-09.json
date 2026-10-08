@@ -1,0 +1,2440 @@
+{
+ "date": "2026-10-09",
+ "song": {
+  "title": "Danza Kuduro",
+  "artist": "Don Omar & Lucenzo"
+ },
+ "logline": "The resort's entertainer calls the Danza Kuduro's moves at the pool and everyone obeys, the cat on her sunbed too, lying down: 'hand up' and her paw goes up for a coconut, 'half turn' and she rolls over to tan the other side; called in her face she obeys again, lying down, his splash attack soaks him instead, and one by one the whole resort goes over to her version, until every guest is lying in rows doing it in sync and the entertainer is the one serving the coconuts",
+ "new": "src/maps37.js: resort (an all-inclusive resort's pool at midday: the aqua-gym class waist-deep in the water, dancing the called moves (`move`: dance, up, hips, turn, heads, splash) and climbing out for the sunbeds (`classOut`); the entertainer's KUDURO podium with speakers and tiki torches; rows of sunbeds whose box-pet sunbathers lie, raise a paw for a coconut (`bedMove: 'paw'`) and roll over in sync (`flip`); Kob's sunbed (a parasol, off unless a shot asks: `parasol`, `parasolTilt`); water dripping off the soaked (`drips`, with puddles); a sheet of water scooped out of the pool (`splashWall`); the pool bar; the clip's white villa with columns, the beach, a white-curtained cabana, the sea, the white yacht and green hills); src/ps1.js: the `coconut`, `tray`, `mic` and `brolly` props and the `cucumbers` face prop (cucumber slices over the eyes); two looks: saxo breton (the singer's white Breton top with navy stripes, white trousers, boat shoes, aviators) and compote waitress (a turquoise Hawaiian shirt, a white waist apron)",
+ "notes": "The world, from the official video (contact sheets every 3 s; nothing violent in it): a white motor yacht off green Caribbean hills, a white villa with columns and a pool terrace, sunbathers in black on the sunpads, dancers on a white beach under a white-curtained cabana; the singer in a white Breton top with navy stripes, white trousers and aviators. The words, from whitelisted keywords per line (keywords.py: sorted, never the lines): a chorus of dance moves called out (hand up, waist alone, a half turn, don't get tired now, move your head), the sea, the sun, the girl, dancing, fire. Kob wears her spa look (the bathrobe and towel turban: the cat who won't touch the water), Sadi her beach look (the life vest and the flower: the keenest pupil in the pool), Compote the new waitress look. The class and the sunbathers are map objects.",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "happy_idle",
+  "samba",
+  "shimmy",
+  "macarena",
+  "charleston",
+  "chicken",
+  "northern_soul_spin",
+  "running_man",
+  "laying_idle",
+  "knocked_out_falling_to_stomach"
+ ],
+ "tags": {
+  "structure": "malicious compliance",
+  "scenes": [
+   "the entertainer on his podium",
+   "the aqua-gym class",
+   "hand up: her paw for a coconut",
+   "half turn: she rolls over",
+   "the waitress",
+   "in her face",
+   "the sleep mask",
+   "the splash backfires",
+   "Sadi lies down",
+   "the class climbs out",
+   "the resort lying down",
+   "paws up in sync",
+   "the synchronised roll over",
+   "the waitress quits",
+   "the entertainer serves"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "resort"
+  ],
+  "ref": "dog-human-job",
+  "lyric_literal": "'hand up' (every paw goes up; the cat's for a coconut), 'waist alone' (the pool's hips), 'half turn' (the class turns round; the cat rolls over to tan the other side; the whole resort rolls over in sync), 'danza kuduro' (the dance), 'don't get tired now' (the cat's cucumber nap; the waitress lies down), 'move your head' (the pool's heads; every head turns to him), 'sea' (the class scoops the pool at her), 'sun' (Sadi lies down to dry), 'girl' (Sadi's coconut), 'dance' (he dances alone), 'fire' (the tiki torches over an empty pool)",
+  "experiment": "A song whose chorus is dance moves called out, acted out as the dance class everyone has been dragged into at a holiday resort, with a pet-owner universal as the twist (the cat obeys every move to the letter, lying down) and a new structure (MALICIOUS COMPLIANCE): does a dance-class gag on a resort anthem everyone in Europe knows earn more likes per 1,000 views on the Short than the last week's chart-song episodes (8-10)?"
+ },
+ "yt": "end",
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.7,
+      0.6,
+      0.2
+     ],
+     "upAt": -1,
+     "hold": "coconut",
+     "holdScale": 1.5
+    },
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "lift": 0.4,
+     "hold": "mic"
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "samba",
+     "x": 0.75,
+     "z": -5.7,
+     "face": "world",
+     "yaw": 180,
+     "at": "auto",
+     "lift": -0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.33,
+     1.37
+    ],
+    "r": [
+     6.452,
+     6.252
+    ],
+    "h": [
+     2.05,
+     2.02
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.1,
+    -2.6
+   ],
+   "move": "dance",
+   "clear": [
+    [
+     0.75,
+     -5.7,
+     0.35
+    ]
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.4,
+     "lift": 0.4,
+     "hold": "mic"
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "samba",
+     "x": 0.75,
+     "z": -5.7,
+     "face": "world",
+     "yaw": 180,
+     "at": "auto",
+     "lift": -0.45,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.04,
+     4.21
+    ],
+    "r": [
+     4.261,
+     3.81
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 50,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -8.4
+   ],
+   "move": "dance",
+   "clear": [
+    [
+     0.75,
+     -5.7,
+     0.35
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.4,
+     "hold": "mic",
+     "speed": 0.4,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.8,
+      0.15
+     ],
+     "upAt": 0.669
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     6,
+     5.8
+    ],
+    "h": [
+     2.6,
+     2.57
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -7.2
+   ],
+   "move": "up",
+   "upAt": 0.669
+  },
+  {
+   "beat": 10,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.85,
+      0.15
+     ],
+     "upAt": 0.138,
+     "hold": "coconutempty",
+     "holdScale": 1.7
+    },
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.4,
+     "hold": "mic",
+     "speed": 0.3,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.8,
+      0.15
+     ],
+     "upAt": -1,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.62,
+     1.67
+    ],
+    "r": [
+     5.302,
+     5.152
+    ],
+    "h": [
+     2,
+     1.97
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.1,
+    -2.2
+   ],
+   "move": "up",
+   "upAt": -1
+  },
+  {
+   "beat": 14,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": -1,
+     "hold": "coconut",
+     "holdScale": 1.5
+    },
+    {
+     "who": "compote",
+     "look": "waitress",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": 2.05,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.2,
+     "hold": "tray",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     4.15,
+     3.984
+    ],
+    "h": [
+     1.95,
+     1.95
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.35,
+    1.25
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.1,
+     "lift": 0.4,
+     "hold": "mic",
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.6,
+      0.5,
+      0.35
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     29.85,
+     30.11
+    ],
+    "r": [
+     7.033,
+     6.878
+    ],
+    "h": [
+     2.2,
+     2.18
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.5,
+    -7
+   ],
+   "move": "turn",
+   "turnAt": 0.462
+  },
+  {
+   "beat": 18,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "knocked_out_falling_to_stomach",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": -126,
+     "at": 3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     64.65,
+     65.32
+    ],
+    "r": [
+     2.102,
+     2.036
+    ],
+    "h": [
+     1.55,
+     1.52
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.15,
+    0.55
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "lift": 0.4,
+     "hold": "mic"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     47.68,
+     47.75
+    ],
+    "r": [
+     7.574,
+     7.362
+    ],
+    "h": [
+     2.6,
+     2.55
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 58,
+    "roll": [
+     5,
+     3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -6.5
+   ],
+   "move": "dance"
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "samba",
+     "x": 0.75,
+     "z": -5.7,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "lift": -0.45,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     170.01,
+     170.63
+    ],
+    "r": [
+     2.132,
+     2.027
+    ],
+    "h": [
+     0.8,
+     0.79
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.75,
+    -5.7
+   ],
+   "move": "dance",
+   "hearts": [
+    [
+     0.75,
+     0.72,
+     -5.7,
+     0.2,
+     0
+    ]
+   ],
+   "heartYaw": 180,
+   "clear": [
+    [
+     0.75,
+     -5.7,
+     0.4
+    ],
+    [
+     -0.75,
+     -5.7,
+     0.4
+    ],
+    [
+     2.25,
+     -5.7,
+     0.4
+    ]
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.1,
+     "lift": 0.4,
+     "hold": "mic",
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.6,
+      0.5,
+      0.35
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.315,
+     3.116
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.45,
+     1.45
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -8.4
+   ],
+   "move": "dance",
+   "clear": [
+    [
+     -0.4,
+     -4.5,
+     0.35
+    ]
+   ],
+   "still": true
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "chicken",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.4,
+     "hold": "mic",
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     130.86,
+     130.73
+    ],
+    "r": [
+     4.892,
+     4.751
+    ],
+    "h": [
+     1.35,
+     1.33
+    ],
+    "look": [
+     0.45,
+     0.45
+    ],
+    "fov": 52,
+    "roll": [
+     -4,
+     -2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.2,
+    -4
+   ],
+   "move": "heads",
+   "clear": []
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "lift": 0.4,
+     "hold": "mic"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     47.68,
+     47.75
+    ],
+    "r": [
+     7.574,
+     7.362
+    ],
+    "h": [
+     2.6,
+     2.55
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 58,
+    "roll": [
+     5,
+     3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -6.5
+   ],
+   "move": "dance"
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": -0.92,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 80,
+     "at": 0.4,
+     "hold": "mic",
+     "speed": 0.3,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.8,
+      0.15
+     ],
+     "upAt": 0.692
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "happy_idle",
+     "x": -0.98,
+     "z": 2,
+     "face": "world",
+     "yaw": 100,
+     "at": 0.6,
+     "speed": 0.3,
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.8,
+      0.1
+     ],
+     "upAt": 0.692
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "knocked_out_falling_to_stomach",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": -126,
+     "at": 3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": 1.015,
+     "hold": "coconutempty",
+     "holdScale": 1.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     65,
+     65.01
+    ],
+    "r": [
+     4.687,
+     4.499
+    ],
+    "h": [
+     1.9,
+     1.9
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.35,
+    1.2
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "knocked_out_falling_to_stomach",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": -126,
+     "at": 3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": -1,
+     "hold": "coconut",
+     "holdScale": 1.5,
+     "holdFrom": 0.415
+    },
+    {
+     "who": "compote",
+     "look": "waitress",
+     "clip": "happy_idle",
+     "x": 1.05,
+     "z": 2,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.2,
+     "hold": "tray",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     55,
+     54.99
+    ],
+    "r": [
+     3.494,
+     3.354
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.55,
+    1.3
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "northern_soul_spin",
+     "x": -0.92,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 80,
+     "at": 0.3,
+     "hold": "mic"
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "northern_soul_spin",
+     "x": -0.98,
+     "z": 2,
+     "face": "world",
+     "yaw": 100,
+     "at": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     19.99,
+     20.01
+    ],
+    "r": [
+     4.592,
+     4.408
+    ],
+    "h": [
+     2.1,
+     2.1
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -0.4,
+    1.2
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "charleston",
+     "x": -0.85,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 55,
+     "at": 0.86,
+     "hold": "mic"
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "samba",
+     "x": 0.75,
+     "z": 0.35,
+     "face": "world",
+     "yaw": -70,
+     "at": 0.5
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4,
+     3.84
+    ],
+    "h": [
+     2.8,
+     2.8
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 58,
+    "roll": [
+     3,
+     2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.05,
+    0.42
+   ],
+   "clear": [
+    [
+     0,
+     3.32,
+     0.35
+    ]
+   ]
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "cucumbers": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.99,
+     3.12
+    ],
+    "r": [
+     1.152,
+     1.102
+    ],
+    "h": [
+     2.55,
+     2.52
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.06,
+    0.6
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": -0.92,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 80,
+     "at": 2.1,
+     "hold": "mic",
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.6,
+      0.5,
+      0.35
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     72,
+     71.99
+    ],
+    "r": [
+     2.686,
+     2.552
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.92,
+    0.95
+   ],
+   "still": true
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": 0.5,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": -1,
+     "hop": [
+      0.05,
+      1
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "cucumbers": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     13.07,
+     13.37
+    ],
+    "r": [
+     2.874,
+     2.724
+    ],
+    "h": [
+     2.5,
+     2.47
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -0.55,
+    0.5
+   ],
+   "clear": [
+    [
+     0,
+     3.32,
+     0.35
+    ]
+   ]
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": 2.123,
+     "hold": "brolly",
+     "holdFrom": 2.123
+    },
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": -0.95,
+     "z": -0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.3,
+     "hold": "mic",
+     "arm": "R",
+     "aim": [
+      0.6,
+      0.5,
+      0.35
+     ],
+     "aim2": [
+      0.85,
+      0.3,
+      0.15
+     ],
+     "aim2At": 2.515
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "happy_idle",
+     "x": 0.9,
+     "z": -0.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.3,
+     "arm": "both",
+     "aim": [
+      0.15,
+      -0.95,
+      0.1
+     ],
+     "upAt": -1,
+     "aim2": [
+      0.85,
+      0.3,
+      0.15
+     ],
+     "aim2At": 2.515
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.15,
+     4.02
+    ],
+    "h": [
+     1.62,
+     1.6
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 66
+   },
+   "focus": [
+    0,
+    -0.6
+   ],
+   "move": "splash",
+   "splashWall": [
+    0,
+    -3,
+    0,
+    -0.35,
+    2.492,
+    1.15
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": -1,
+     "hold": "brolly"
+    },
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": -0.95,
+     "z": -0.3,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.1,
+     "speed": 0
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "happy_idle",
+     "x": 0.9,
+     "z": -0.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 2.1,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.75,
+     3.6
+    ],
+    "h": [
+     1.66,
+     1.64
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 64,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.3
+   ],
+   "drips": [
+    [
+     -0.95,
+     -0.3,
+     1.32
+    ],
+    [
+     0.9,
+     -0.4,
+     1.3
+    ]
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "laying_idle",
+     "x": -2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.85,
+     3.75
+    ],
+    "h": [
+     3.2,
+     3.15
+    ],
+    "look": [
+     0.5,
+     0.5
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -1,
+    0.75
+   ],
+   "beds": 0
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "laying_idle",
+     "x": -2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.12,
+      1,
+      0
+     ],
+     "upAt": -1,
+     "hold": "coconut",
+     "holdScale": 1.5
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    },
+    {
+     "who": "compote",
+     "look": "waitress",
+     "clip": "happy_idle",
+     "x": -1,
+     "z": 2.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.2,
+     "hold": "tray",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.35,
+     4.176
+    ],
+    "h": [
+     2.1,
+     2.1
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -1,
+    1.3
+   ],
+   "beds": 0
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "lift": 0.4,
+     "hold": "mic",
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -168.38,
+     -168.38
+    ],
+    "r": [
+     10.924,
+     10.72
+    ],
+    "h": [
+     4.4,
+     4.35
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    -3.5
+   ],
+   "move": "idle",
+   "classOut": [
+    0,
+    0.06,
+    1
+   ],
+   "beds": 1,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "laying_idle",
+     "x": -2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     8.1,
+     7.7
+    ],
+    "h": [
+     6.2,
+     6
+    ],
+    "look": [
+     0,
+     0
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    1.5
+   ],
+   "classN": 0,
+   "beds": 20,
+   "bedsAt": [
+    0,
+    0.08
+   ],
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "macarena",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "lift": 0.4,
+     "hold": "mic"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.11,
+     2.11
+    ],
+    "r": [
+     6.805,
+     6.504
+    ],
+    "h": [
+     1.9,
+     1.88
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56,
+    "roll": [
+     2,
+     1
+    ]
+   },
+   "focus": [
+    0,
+    -8.4
+   ],
+   "classN": 0,
+   "beds": 20
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "waitress",
+     "clip": "happy_idle",
+     "x": 2.6,
+     "z": -0.9,
+     "face": "world",
+     "yaw": 200,
+     "at": 0.4,
+     "speed": 0.2,
+     "hold": "tray",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     154.54,
+     154.37
+    ],
+    "r": [
+     6.978,
+     6.821
+    ],
+    "h": [
+     1.5,
+     1.47
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 52
+   },
+   "focus": [
+    1.6,
+    2.2
+   ],
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "laying_idle",
+     "x": -2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -65.8,
+     -66.64
+    ],
+    "r": [
+     4.879,
+     4.793
+    ],
+    "h": [
+     2.5,
+     2.47
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 62
+   },
+   "focus": [
+    1.75,
+    0.4
+   ],
+   "bedMove": "paw",
+   "pawAt": 0.6,
+   "coco": true,
+   "cocoAt": -1,
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": 0,
+     "z": -8.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5,
+     "lift": 0.4,
+     "hold": "mic",
+     "sway": 10,
+     "swayEvery": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.65,
+     3.73
+    ],
+    "r": [
+     4.71,
+     4.459
+    ],
+    "h": [
+     0.72,
+     0.73
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 56,
+    "roll": [
+     -4,
+     -2
+    ]
+   },
+   "focus": [
+    0,
+    -8.4
+   ],
+   "classN": 0,
+   "beds": 20
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "laying_idle",
+     "x": -2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -66.64,
+     -67.52
+    ],
+    "r": [
+     4.793,
+     4.708
+    ],
+    "h": [
+     2.47,
+     2.44
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 62
+   },
+   "focus": [
+    1.75,
+    0.4
+   ],
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 113.75,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "knocked_out_falling_to_stomach",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": -126,
+     "at": 3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    },
+    {
+     "who": "sadi",
+     "look": "beach",
+     "clip": "knocked_out_falling_to_stomach",
+     "x": -2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": -126,
+     "at": 3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -67.52,
+     -68.43
+    ],
+    "r": [
+     4.708,
+     4.624
+    ],
+    "h": [
+     2.44,
+     2.41
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 62
+   },
+   "focus": [
+    1.75,
+    0.4
+   ],
+   "flip": -0.4,
+   "headsUp": true,
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "waitress",
+     "clip": "happy_idle",
+     "x": 1.1,
+     "z": 2.15,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.4,
+     "hold": "tray",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     175,
+     174.99
+    ],
+    "r": [
+     3.307,
+     3.174
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 54
+   },
+   "focus": [
+    1.1,
+    2.15
+   ],
+   "bedMove": "paw",
+   "pawAt": -1,
+   "coco": false,
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ]
+   ],
+   "flip": -5
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "waitress",
+     "clip": "laying_idle",
+     "x": 2,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "L",
+     "aim": [
+      0.25,
+      0.65,
+      0.7
+     ],
+     "upAt": 0.277
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "knocked_out_falling_to_stomach",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": -126,
+     "at": 3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.85,
+     3.75
+    ],
+    "h": [
+     3.2,
+     3.15
+    ],
+    "look": [
+     0.5,
+     0.5
+    ],
+    "fov": 60
+   },
+   "focus": [
+    1,
+    0.75
+   ],
+   "bedMove": "front",
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": 2.4,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.3,
+     "hold": "tray",
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": 0.738
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     3.1,
+     2.976
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     0.96,
+     0.96
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.95,
+    2.4
+   ],
+   "bedMove": "front",
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "resort",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "breton",
+     "clip": "samba",
+     "x": -0.8,
+     "z": 1,
+     "face": "camera",
+     "yaw": 0,
+     "at": 0.5,
+     "holdL": "tray",
+     "arm": "L",
+     "aim": [
+      0.55,
+      0.4,
+      0.35
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "spa",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 1.22,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.32,
+     "noShadow": true,
+     "arm": "R",
+     "aim": [
+      0.7,
+      0.6,
+      0.2
+     ],
+     "upAt": -1,
+     "hold": "coconut",
+     "holdScale": 1.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.73,
+     0.75
+    ],
+    "r": [
+     7.801,
+     7.601
+    ],
+    "h": [
+     2.5,
+     2.47
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 60,
+    "hand": 0.3
+   },
+   "focus": [
+    -0.1,
+    -3
+   ],
+   "bedMove": "paw",
+   "pawAt": -1,
+   "coco": true,
+   "cocoAt": -1,
+   "classN": 0,
+   "beds": 20,
+   "clear": [
+    [
+     -2,
+     0.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.3
+    ],
+    [
+     0,
+     3.2,
+     0.3
+    ]
+   ]
+  }
+ ]
+}

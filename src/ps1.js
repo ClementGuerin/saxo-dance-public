@@ -40,6 +40,7 @@ import { buildAptMaps } from './maps33.js';
 import { buildComicMaps } from './maps34.js';
 import { buildLondonMaps } from './maps35.js';
 import { buildMansionMaps } from './maps36.js';
+import { buildResortMaps } from './maps37.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -756,6 +757,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   floral: 'assets/models/saxo_floral.glb',
   // the singer's look from the "Poker Face" clip: a sleek platinum-blonde bob with thick blunt bangs, his ears out on top, a pale-blue lightning bolt painted on his cheek, a glossy teal-blue latex catsuit with long sleeves and diamond cut-outs at the waist, teal fingerless gloves, black ankle boots (2026-10-08 2nd)
   platinum: 'assets/models/saxo_platinum.glb',
+  // the entertainer in the "Danza Kuduro" clip's look: a white Breton top with thin navy stripes, white linen trousers, white boat shoes, black aviator sunglasses (2026-10-09)
+  breton: 'assets/models/saxo_breton.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -866,6 +869,8 @@ const PARTNERS = {
     chrome: 'assets/models/compote_chrome.glb',
     // the idol rapper: black hair in two round buns low at the sides of her head and a short fringe, her carrot clip, an oversized white varsity jacket with gold trim over a black crop top, black shorts, white high-tops ("Golden", 2026-10-06)
     idol: 'assets/models/compote_idol.glb',
+    // the pool bar's waitress: a turquoise Hawaiian shirt with white palm leaves and pink hibiscus, a short white waist apron, white shorts, white sneakers, her carrot clip ("Danza Kuduro", 2026-10-09)
+    waitress: 'assets/models/compote_waitress.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     heads: { chrome: 'compote' },   // the girl-group look came back from Tripo with the top of her head sliced flat (ears and eyes gone): wear her own ("No Scrubs", 2026-10-05)
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
@@ -966,7 +971,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1079,6 +1084,8 @@ function actorSpec(a, e, map) {
     // "Patient Zero" (2026-09-27): the sick look's face props, a red nose (true, or from s into the shot), a thermometer
     // in the mouth and a surgical mask, and a sneeze: a spray out of the nose s into the shot
     nose: a.nose ?? null, therm: !!a.therm, mask: !!a.mask, sleep: !!a.sleep, sneeze: a.sneeze ?? null,
+    // "Danza Kuduro" (2026-10-09): cucumber slices over the eyes (true, or from s into the shot): the spa day's nap
+    cucumbers: a.cucumbers ?? null,
     // "Beauty And A Beat" (2026-09-27): what a held rescue hook reaches, [x, y, z] or a character's name (its collar, at the head bone)
     hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null,
     // "Love Me Not" (2026-09-28): studio headphones on the head, and how many of a held daisy's 12 petals are left
@@ -1151,7 +1158,24 @@ function propMesh(kind) {
   const G = new THREE.Group(), M = c => mat({ color: c }), glow = c => mat({ color: c, unlit: 1 }), at3 = (m, x, y, z) => { m.position.set(x, y, z); return m; };
   const cyl = (rt, rb, h, m, seg = 6) => new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
   const add = (m, x = 0, y = 0, z = 0) => { m.position.set(x, y, z); G.add(m); return m; };
-  if (kind === 'glass') {          // a tall glass of orange juice, pink straw, a lemon slice on the rim
+  if (kind === 'coconut') {        // "Danza Kuduro": a coconut cocktail, a pink straw and a yellow paper umbrella
+    const c = new THREE.Mesh(new THREE.SphereGeometry(0.08, 7, 5, 0, Math.PI * 2, 0, Math.PI * 0.62), M(0x7a4a2a)); add(c, 0, 0.05);
+    add(new THREE.Mesh(new THREE.CircleGeometry(0.066, 7), M(0xf8f4ea)), 0, 0.083).rotation.x = -Math.PI / 2;
+    add(cyl(0.008, 0.008, 0.17, M(0xff5fa2), 4), 0.025, 0.16).rotation.z = -0.3;
+    add(new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.035, 6), M(0xffd43b)), -0.035, 0.2).rotation.z = 0.35;
+  } else if (kind === 'brolly') {   // "Danza Kuduro": a little beach umbrella held up, blue and white panels, a white handle down to the paw
+    add(cyl(0.012, 0.012, 0.5, M(0xf4f4f0), 4), 0, 0.25);
+    for (let i = 0; i < 8; i++) { const p = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.16, 8, 1, true, i * Math.PI / 4, Math.PI / 4), mat({ color: i % 2 ? 0x2a6ae0 : 0xf6f6f2, side: THREE.DoubleSide })); p.position.y = 0.56; G.add(p); }
+    add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.025, 0), M(0xf4f4f0)), 0, 0.66);
+  } else if (kind === 'coconutempty') {   // "Danza Kuduro": an empty coconut shell held up for a refill, tipped towards the lens
+    const c = new THREE.Mesh(new THREE.SphereGeometry(0.08, 7, 5, 0, Math.PI * 2, 0, Math.PI * 0.62), M(0x7a4a2a)); add(c, 0, 0.05).rotation.x = 0.6;
+    add(new THREE.Mesh(new THREE.CircleGeometry(0.066, 7), M(0xf8f4ea)), 0, 0.09, 0.03).rotation.x = -Math.PI / 2 + 0.6;
+  } else if (kind === 'tray') {   // "Danza Kuduro": the waiter's round silver tray with four coconut cocktails, carried flat on one paw
+    add(cyl(0.2, 0.2, 0.02, M(0xd8dce4), 12), 0, 0.01);
+    for (const [x, z] of [[-0.09, -0.07], [0.09, -0.07], [-0.09, 0.08], [0.09, 0.08]]) { add(new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 4, 0, Math.PI * 2, 0, Math.PI * 0.62), M(0x7a4a2a)), x, 0.06, z); add(cyl(0.006, 0.006, 0.13, M(0xff5fa2), 4), x + 0.02, 0.13, z).rotation.z = -0.3; }
+  } else if (kind === 'mic') {    // "Danza Kuduro": the entertainer's handheld mic, a black handle and a silver ball, up beside the muzzle
+    add(cyl(0.022, 0.016, 0.16, M(0x1c1c22), 6), 0, 0.08); add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.045, 1), M(0xc8ccd4)), 0, 0.18);
+  } else if (kind === 'glass') {          // a tall glass of orange juice, pink straw, a lemon slice on the rim
     add(cyl(0.05, 0.04, 0.15, M(0xff9a2e)), 0, 0.075); add(cyl(0.053, 0.053, 0.02, M(0xf4fbff)), 0, 0.155);
     add(cyl(0.008, 0.008, 0.14, M(0xff5fa2), 4), 0.02, 0.2).rotation.z = -0.3; add(box(0.06, 0.014, 0.03, M(0xffd43b)), -0.045, 0.15).rotation.z = 0.5;
   } else if (kind === 'milkbottle') {   // a glass milk bottle, white with a blue cap and band ("APT.": the critic read the blue milk glass as soda)
@@ -1761,6 +1785,19 @@ function sleepMask(D, pink = false) {   // a pale blue sleep mask over both eyes
   });
   faceAt(D, D === CREW.compote ? [0, 0.2, 0.36] : [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar((D.curScale || D.scale || 1) * (pink ? 0.82 : 1));   // Compote's eyes sit lower on her head: hers rode up on her forehead; Kob's pink one narrower (the full width floated past her cheeks)
 }
+// "Danza Kuduro" (2026-10-09): `cucumbers`, two cucumber slices over the eyes, the spa-day cliche: a cat napping in her
+// bathrobe and towel turban. Green rims, pale green flesh with a ring of seeds, in the head bone's frame like the shades.
+function cucumberSlices(D, C = {}) {
+  const g = faceProp(D, 'cucumbers', () => {
+    const q = new THREE.Group(), flesh = tex(16, 16, x => { px(x, '#2e8a3a', 0, 0, 16, 16); px(x, '#cdeeb0', 2, 2, 12, 12); px(x, '#cdeeb0', 1, 4, 14, 8); px(x, '#cdeeb0', 4, 1, 8, 14); for (const [a, b] of [[7, 4], [10, 6], [10, 9], [7, 11], [5, 9], [5, 6]]) px(x, '#e8f8d8', a, b, 2, 1); });
+    const rim = mat({ color: 0x2e8a3a, unlit: 0.35 }), face = mat({ map: flesh, unlit: 0.45 });
+    for (const sd of [-1, 1]) { const c = new THREE.Mesh(new THREE.CylinderGeometry(0.095, 0.095, 0.035, 10), [rim, face, face]); c.rotation.x = Math.PI / 2; c.position.set(sd * 0.155, 0, 0); q.add(c); }
+    return q;
+  });
+  // flush on the eyes (0.36 forward, 0.19 up, x1.2): at [0, 0.3, 0.41] they floated 0.1 m off the face, and a lens at her feet seeing the
+  // face at a grazing angle put them up on her turban, her eyes open below them (the critic: "wide awake"); probed on four lenses
+  faceAt(D, C.off || (D === CREW.compote ? [0, 0.12, 0.38] : [0, 0.19, 0.36]), g.position); g.quaternion.copy(_fq); g.scale.setScalar((D.curScale || D.scale || 1) * (C.r || 1.2));
+}
 // "Poker Face" (2026-10-08 2nd): `shades`, dark sunglasses over the eyes: the poker player's face that gives nothing away.
 // true (on all shot), s (they drop from 0.9 m above onto the eyes over 0.35 s, landing s into the shot: the "deal with
 // it" glasses) or { at, off } (at as s; off: they fly up and back off the face over 0.45 s). Black lenses with a white
@@ -2036,6 +2073,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.therm && D.head) thermometer(D);
     if (A.mask && D.head) faceMask(D);
     if (A.sleep != null && A.sleep !== false && (A.sleep === true || t - t0 >= A.sleep) && D.head) sleepMask(D, A.look === 'pyjama' && D === CREW.kob);   // true, or from s into the shot
+    if (A.cucumbers != null && A.cucumbers !== false && D.head) { const C = typeof A.cucumbers === "object" ? A.cucumbers : { at: A.cucumbers === true ? -9 : A.cucumbers }; if (t - t0 >= (C.at ?? -9)) cucumberSlices(D, C); }   // true, s into the shot, or { at, off, r } (a head-frame offset and a size, per look)
     if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
     if (A.shades != null && A.shades !== false && D.head) sunglasses(D, A.shades, t - t0);
     if (A.visor && D.head) dealerVisor(D);
