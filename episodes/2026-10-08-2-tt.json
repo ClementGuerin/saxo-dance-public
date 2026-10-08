@@ -1,0 +1,3031 @@
+{
+ "date": "2026-10-08",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "tell",
+  "scenes": [
+   "rising out of the pool",
+   "the deal",
+   "the peek",
+   "the dog's tell",
+   "everyone folds",
+   "he eats his winnings",
+   "the sob",
+   "everyone piles in",
+   "the cat's tower",
+   "the sniff",
+   "the cat's poker face",
+   "deal with it sunglasses",
+   "all in",
+   "the bluff",
+   "the cat folds aces",
+   "the reveal",
+   "the victory kick",
+   "the dive"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "mansion"
+  ],
+  "ref": "none",
+  "lyric_literal": "'hold' (he peeks at his cards), 'Texas' (Compote in her cowboy hat), 'fold' (Sadi throws her cards in), 'hit' (Compote slams the table), 'raise' (he shoves his stack in), 'stay' (the cat doesn't move), 'cards', 'spades' (the ace of spades turned over), 'heart' (Sadi's paw on hers), 'show' (the showdown), 'read' (he sniffs at her face; she leans in to read him), 'poker face' (her deadpan; then his, in sunglasses), 'nobody' (the seven and the two; the aces she folds)",
+  "experiment": "A pet-owner universal everyone knows (dogs show everything on their faces, cats show nothing) played as a game the viewer can follow card by card (poker), on a song whose title is the joke, with the 'deal with it' sunglasses on the chorus's first beat: does a story that reads as a game hold the Short's viewers better (more likes per 1,000 views) than our last week's chart-song episodes (8-10)? (TikTok cut on the 60 s official sound: the main's shots on their own bars, the win and the kick squeezed into the last 2.6 beats)"
+ },
+ "n": "2-tt",
+ "song": {
+  "title": "Poker Face",
+  "artist": "Lady Gaga",
+  "window": [
+   14.0003,
+   74.0003
+  ],
+  "rate": 1,
+  "bpm": 118.9986,
+  "tiktok_sound": {
+   "music_id": "6917492138762569730",
+   "title": "Poker Face",
+   "author": "Lady Gaga",
+   "seconds": 60,
+   "videos": 1146898
+  }
+ },
+ "logline": "A dog can't keep a poker face: at Saxo's poker night by his pool, every good hand sets his tongue flopping and every bad one makes him sob, so the cat who never moves a whisker takes every pot; down to his last stack he lets the 'deal with it' sunglasses drop onto his face, goes all in with a seven and a two, and the cat folds her aces; he can't hold the win in, and his victory kick sends the whole pot into the pool, where the video loops back to him rising out of it.",
+ "new": [
+  "the TikTok cut keeps the main's shots on their own bars (the official sound is the main cut itself, 0.21 s earlier and 7 s shorter) and squeezes the post-chorus's win and victory kick into its last 2.6 beats, so the kick loops into the hook's pool full of biscuits"
+ ],
+ "notes": "TikTok muted the main post (itemMute, 2026-10-08). The official sound (Lady Gaga's own, 1,146,898 videos, 60 s) is song 14.0003-74.0003 s at the song's own speed (29 log-spectrum pieces of 3 s, 0.7 ms residual), the main kit's -0.2077 to 59.7923 s (tt beat = main beat). See the generator's header.",
+ "clips": [
+  "celebrating_after_a_win_while_seated",
+  "charleston",
+  "crying_and_rubbing_eyes",
+  "happy_idle",
+  "sitting_talking"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -3.23,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3377,
+     "speed": 0.3,
+     "lift": -0.84,
+     "my": 0.22,
+     "myAt": 0.2077,
+     "myDur": 1.1,
+     "sway": 7,
+     "hop": [
+      0.04,
+      1
+     ],
+     "noShadow": true,
+     "treat": {
+      "mouth": true
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.52,
+     3.29,
+     2.26,
+     0
+    ],
+    "r": [
+     3.587,
+     2.785,
+     2.032,
+     1.68
+    ],
+    "h": [
+     1.5,
+     1.15,
+     0.86,
+     0.74
+    ],
+    "look": [
+     0.58,
+     0.58,
+     0.58,
+     0.58
+    ],
+    "fov": 58,
+    "roll": [
+     0,
+     -2,
+     -6,
+     -3
+    ],
+    "hand": 0.15
+   },
+   "focus": [
+    0,
+    -3.23
+   ],
+   "floaters": [
+    0,
+    -3.9,
+    26
+   ],
+   "danes": false,
+   "key": [
+    -0.75,
+    1.9,
+    0.45,
+    1,
+    0.95,
+    0.85
+   ],
+   "splash": [
+    [
+     0,
+     -3.23,
+     -0.25,
+     1.2
+    ],
+    [
+     -0.95,
+     -4.35,
+     -0.04,
+     0.7
+    ],
+    [
+     0.9,
+     -4.7,
+     0.06,
+     0.6
+    ]
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "charleston",
+     "x": 0,
+     "z": -3.23,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.55,
+     "lift": -0.62,
+     "my": 0.62,
+     "myAt": 0,
+     "myDur": 1.25,
+     "mz": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.9,
+     3.5
+    ],
+    "h": [
+     0.48,
+     0.46
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 58,
+    "roll": [
+     -4,
+     -2
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    0,
+    -2.6
+   ],
+   "floaters": [
+    0,
+    -3.9,
+    26
+   ],
+   "danes": false
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "hold": "deck",
+     "arm": "both",
+     "aim": "clap",
+     "upAt": -1,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     168.01,
+     168.01
+    ],
+    "r": [
+     2.3,
+     2.185
+    ],
+    "h": [
+     1.29,
+     1.29
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    4.18
+   ],
+   "stacks": {
+    "saxo": 14,
+    "sadi": 12,
+    "kob": 14,
+    "compote": 12
+   },
+   "danes": "watch"
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1
+    },
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "sitting_talking",
+     "x": 1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42
+    },
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "hold": "deck",
+     "arm": "both",
+     "aim": "clap",
+     "upAt": -1,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     5.167,
+     4.96
+    ],
+    "h": [
+     1.95,
+     1.95
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0,
+    3
+   ],
+   "stacks": {
+    "saxo": 14,
+    "sadi": 12,
+    "kob": 14,
+    "compote": 12
+   },
+   "hearts": [
+    [
+     -1.18,
+     1.85,
+     3,
+     0,
+     1
+    ]
+   ],
+   "heartYaw": 180,
+   "danes": "watch"
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "charleston",
+     "x": 0.6,
+     "z": 1.15,
+     "face": "world",
+     "yaw": 190,
+     "at": 0.55
+    },
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "hold": "deck",
+     "arm": "both",
+     "aim": "clap",
+     "upAt": -1,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -175,
+     -175
+    ],
+    "r": [
+     4.77,
+     4.579
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.13,
+     1.13
+    ],
+    "fov": 58,
+    "roll": [
+     6,
+     3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.3,
+    2.665
+   ],
+   "stacks": {
+    "saxo": 14,
+    "sadi": 12,
+    "kob": 14,
+    "compote": 12
+   },
+   "danes": "watch"
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     38.66
+    ],
+    "r": [
+     0.11,
+     0.128
+    ],
+    "h": [
+     2.65,
+     2.5
+    ],
+    "look": [
+     0.56,
+     0.56
+    ],
+    "fov": 52,
+    "roll": [
+     0,
+     6
+    ]
+   },
+   "focus": [
+    0,
+    2.95
+   ],
+   "deal": [
+    0.03,
+    0.085
+   ],
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 2,
+   "noLamp": true,
+   "chairs": {
+    "saxo": false,
+    "kob": false
+   },
+   "danes": false
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     0.77,
+     0.72
+    ],
+    "h": [
+     1.22,
+     1.2
+    ],
+    "look": [
+     0.56,
+     0.56
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    2.62
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ],
+     "up": true
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ]
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 2
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "sitting_talking",
+     "x": 1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -75.01,
+     -75.01
+    ],
+    "r": [
+     2.2,
+     2.134
+    ],
+    "h": [
+     1.29,
+     1.29
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    1.18,
+    3
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ]
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 2,
+   "danes": false
+  },
+  {
+   "beat": 26,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.55,
+     "speed": 0.25,
+     "lift": 0.42,
+     "hop": [
+      0.05,
+      1
+     ],
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8,
+     8.01
+    ],
+    "r": [
+     2.4,
+     2.304
+    ],
+    "h": [
+     1.33,
+     1.33
+    ],
+    "look": [
+     1.52,
+     1.52
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ]
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 2,
+   "danes": false
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.15,
+      0.55
+     ],
+     "upAt": -1,
+     "aim2": [
+      0.25,
+      -0.32,
+      0.9
+     ],
+     "aim2At": 0.08
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     64.99,
+     65
+    ],
+    "r": [
+     2.6,
+     2.496
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1.26,
+     1.26
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.18,
+    3
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ],
+     "fold": 0.12
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 0
+   },
+   "pot": 2,
+   "danes": false
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "sitting_talking",
+     "x": 1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": [
+      0.2,
+      0.62,
+      0.5
+     ],
+     "upAt": -1,
+     "aim2": [
+      0.15,
+      -0.45,
+      0.75
+     ],
+     "aim2At": 0.05
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -145.41,
+     -145.01
+    ],
+    "r": [
+     1.761,
+     1.709
+    ],
+    "h": [
+     2.15,
+     2.14
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0.95,
+    3
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ],
+     "fold": -1
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ],
+     "r": 0.72,
+     "fold": 0.16
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "kob": 14
+   },
+   "pot": 2,
+   "bump": 0.1,
+   "chairs": {
+    "saxo": false
+   },
+   "danes": false
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": [
+      0.15,
+      -0.55,
+      0.8
+     ],
+     "upAt": 1.05,
+     "lean": 6,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     140,
+     140
+    ],
+    "r": [
+     2.401,
+     2.281
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.34,
+     1.34
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    4.18
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ],
+     "fold": -1
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ],
+     "fold": -1
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ],
+     "r": 0.72,
+     "fold": 1.25,
+     "slide": true
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 2,
+   "danes": "watch"
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.28,
+      0.75
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     136.03,
+     135
+    ],
+    "r": [
+     1.181,
+     1.131
+    ],
+    "h": [
+     1.45,
+     1.42
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    2.55
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ],
+     "fold": -1
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ],
+     "fold": -1
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ],
+     "fold": -1,
+     "r": 0.72,
+     "slide": true
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 2,
+   "rake": [
+    "saxo",
+    0.3,
+    0.9
+   ],
+   "danes": false
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.58,
+     2.5
+    ],
+    "h": [
+     0.9,
+     0.9
+    ],
+    "look": [
+     1.24,
+     1.24
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    4.18
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ],
+     "show": 0.12
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ],
+     "fold": -1
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ],
+     "fold": -1
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ],
+     "fold": -1
+    }
+   },
+   "stacks": {
+    "saxo": 16,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "chairs": {
+    "saxo": false
+   },
+   "danes": false
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.55,
+     "speed": 0.25,
+     "lift": 0.42,
+     "treat": {
+      "mouth": 0.15
+     },
+     "hop": [
+      0.05,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12,
+     -12
+    ],
+    "r": [
+     2.4,
+     2.304
+    ],
+    "h": [
+     1.33,
+     1.33
+    ],
+    "look": [
+     1.52,
+     1.52
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "As",
+      "Ah"
+     ],
+     "up": true
+    },
+    "sadi": {
+     "c": [
+      "9c",
+      "4d"
+     ],
+     "fold": -1
+    },
+    "compote": {
+     "c": [
+      "Js",
+      "3h"
+     ],
+     "fold": -1
+    },
+    "kob": {
+     "c": [
+      "Qd",
+      "8s"
+     ],
+     "fold": -1
+    }
+   },
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "danes": false
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     101.99,
+     102
+    ],
+    "r": [
+     2.3,
+     2.208
+    ],
+    "h": [
+     1.27,
+     1.27
+    ],
+    "look": [
+     1.46,
+     1.46
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -1.18,
+    3
+   ],
+   "stacks": {
+    "saxo": 14,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "hearts": [
+    [
+     -1.18,
+     1.52,
+     3,
+     0,
+     1
+    ]
+   ],
+   "heartYaw": 90,
+   "danes": false
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     0.77,
+     0.72
+    ],
+    "h": [
+     1.22,
+     1.2
+    ],
+    "look": [
+     0.56,
+     0.56
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    2.62
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "2c",
+      "7d"
+     ],
+     "up": true
+    },
+    "sadi": {
+     "c": [
+      "Tc",
+      "Th"
+     ]
+    },
+    "compote": {
+     "c": [
+      "Jd",
+      "Jc"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Kh",
+      "Kd"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 13,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 3
+  },
+  {
+   "beat": 56,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "crying_and_rubbing_eyes",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.9,
+     "speed": 0.35,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6,
+     6.01
+    ],
+    "r": [
+     2.4,
+     2.304
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.52,
+     1.52
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "2c",
+      "7d"
+     ]
+    },
+    "sadi": {
+     "c": [
+      "Tc",
+      "Th"
+     ]
+    },
+    "compote": {
+     "c": [
+      "Jd",
+      "Jc"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Kh",
+      "Kd"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 13,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 3,
+   "danes": false
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42
+    },
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "visor": true,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     14.26,
+     14.37
+    ],
+    "r": [
+     3.044,
+     2.942
+    ],
+    "h": [
+     2.15,
+     2.13
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    2.3
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "2c",
+      "7d"
+     ],
+     "fold": 1
+    },
+    "sadi": {
+     "c": [
+      "Tc",
+      "Th"
+     ]
+    },
+    "compote": {
+     "c": [
+      "Jd",
+      "Jc"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Kh",
+      "Kd"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 13,
+    "sadi": 11,
+    "kob": 14,
+    "compote": 11
+   },
+   "pot": 3,
+   "push": [
+    [
+     "sadi",
+     0.1,
+     0.4
+    ],
+    [
+     "compote",
+     0.18,
+     0.4
+    ],
+    [
+     "kob",
+     0.26,
+     0.4
+    ]
+   ],
+   "danes": false
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     -1.54
+    ],
+    "r": [
+     2.98,
+     2.981
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "2c",
+      "7d"
+     ],
+     "fold": -1
+    },
+    "sadi": {
+     "c": [
+      "Tc",
+      "Th"
+     ],
+     "show": 0.1
+    },
+    "compote": {
+     "c": [
+      "Jd",
+      "Jc"
+     ],
+     "show": 0.2
+    },
+    "kob": {
+     "c": [
+      "Kh",
+      "Kd"
+     ],
+     "show": 0.4
+    }
+   },
+   "stacks": {
+    "saxo": 13
+   },
+   "pot": 40,
+   "rake": [
+    "kob",
+    1,
+    0.8,
+    0.42
+   ],
+   "chairs": {
+    "kob": false
+   },
+   "danes": false
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.02,
+     8.05
+    ],
+    "r": [
+     3.009,
+     2.929
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "stacks": {
+    "saxo": 13,
+    "kob": 38
+   },
+   "danes": false
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "lean": 14,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.35,
+      0.85
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     30,
+     30
+    ],
+    "r": [
+     2.5,
+     2.2
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "stacks": {
+    "saxo": 13,
+    "kob": 38
+   },
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ]
+   ],
+   "danes": false
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "holdL": "milkbottle",
+     "holdScale": 1.3,
+     "arm": "L",
+     "aim": [
+      0.62,
+      -0.2,
+      0.3
+     ],
+     "upAt": -1,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     158,
+     158
+    ],
+    "r": [
+     2.4,
+     2.28
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.36,
+     1.36
+    ],
+    "fov": 48,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    4.18
+   ],
+   "stacks": {
+    "saxo": 13,
+    "kob": 38
+   },
+   "danes": "watch"
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "shades": 2.017,
+     "arm": "both",
+     "aim": [
+      0.1,
+      -0.25,
+      0.7
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -6,
+     -6
+    ],
+    "r": [
+     2.4,
+     2.208
+    ],
+    "h": [
+     1.33,
+     1.33
+    ],
+    "look": [
+     1.52,
+     1.52
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 13,
+    "kob": 38
+   },
+   "danes": false
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "shades": true
+    },
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     165.88,
+     165.96
+    ],
+    "r": [
+     3.279,
+     3.216
+    ],
+    "h": [
+     1.75,
+     1.75
+    ],
+    "look": [
+     1.36,
+     1.36
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0,
+    4.18
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 13,
+    "kob": 18
+   },
+   "pot": 20,
+   "potIn": [
+    "kob",
+    0.45,
+    1.3
+   ],
+   "danes": "watch"
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "shades": true,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     39.99,
+     40
+    ],
+    "r": [
+     2.6,
+     2.548
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1.38,
+     1.38
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 13,
+    "kob": 18
+   },
+   "stackAt": {
+    "saxo": [
+     0.7,
+     -0.12
+    ]
+   },
+   "pot": 20,
+   "push": [
+    [
+     "saxo",
+     0.5,
+     1
+    ]
+   ],
+   "swing": 4,
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ]
+   ],
+   "danes": false,
+   "still": true
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     0.77,
+     0.74
+    ],
+    "h": [
+     1.22,
+     1.21
+    ],
+    "look": [
+     0.56,
+     0.56
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    2.62
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ],
+     "up": true
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 0,
+    "kob": 18
+   },
+   "pot": 33
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fg": true,
+     "lean": 22,
+     "visor": true
+    },
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "shades": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -20.67,
+     -20.72
+    ],
+    "r": [
+     3.399,
+     3.336
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 0,
+    "kob": 18
+   },
+   "pot": 33,
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ]
+   ],
+   "danes": false
+  },
+  {
+   "beat": 104,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     76.01,
+     76
+    ],
+    "r": [
+     2.2,
+     2.112
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.46,
+     1.46
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -1.18,
+    3
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 0,
+    "kob": 18
+   },
+   "pot": 33,
+   "hearts": [
+    [
+     -1.18,
+     1.52,
+     3,
+     0,
+     1
+    ]
+   ],
+   "heartYaw": 90,
+   "danes": false
+  },
+  {
+   "beat": 106,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cowgirl",
+     "clip": "sitting_talking",
+     "x": 1.18,
+     "z": 3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -99.99,
+     -99.99
+    ],
+    "r": [
+     2.3,
+     2.207
+    ],
+    "h": [
+     1.29,
+     1.29
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 48
+   },
+   "focus": [
+    1.18,
+    3
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 0,
+    "kob": 18
+   },
+   "pot": 33,
+   "danes": false
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "bartender",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 4.18,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "visor": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     113.09,
+     113.03
+    ],
+    "r": [
+     3.544,
+     3.477
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.45,
+     1.45
+    ],
+    "fov": 34
+   },
+   "focus": [
+    0,
+    4.05
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 0,
+    "kob": 18
+   },
+   "pot": 33,
+   "swing": 7,
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ],
+    [
+     -5.6,
+     0.6,
+     0.8
+    ]
+   ],
+   "danes": false
+  },
+  {
+   "beat": 110,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "shades": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     66.91,
+     66.97
+    ],
+    "r": [
+     3.544,
+     3.477
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 34
+   },
+   "focus": [
+    0,
+    1.95
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ]
+    }
+   },
+   "stacks": {
+    "saxo": 0,
+    "kob": 18
+   },
+   "pot": 33,
+   "swing": 7,
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ],
+    [
+     -5.6,
+     0.6,
+     0.8
+    ]
+   ],
+   "danes": false
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "shades": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     -1.54
+    ],
+    "r": [
+     2.98,
+     2.981
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ],
+     "show": 0.15,
+     "fold": 0.8,
+     "foldUp": true,
+     "slide": true,
+     "r": 0.6
+    }
+   },
+   "stacks": {},
+   "pot": 33,
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ]
+   ],
+   "danes": false,
+   "chairs": {
+    "kob": false
+   }
+  },
+  {
+   "beat": 115,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "celebrating_after_a_win_while_seated",
+     "x": 0,
+     "z": 1.82,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.3,
+     "speed": 0.5,
+     "lift": 0.42,
+     "shades": {
+      "off": 0.05
+     },
+     "hop": [
+      0.06,
+      1
+     ],
+     "tongue": true,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -17.99,
+     -17.99
+    ],
+    "r": [
+     2.6,
+     2.496
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    1.82
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ]
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ],
+     "fold": -1,
+     "foldUp": true
+    }
+   },
+   "stacks": {
+    "kob": 18
+   },
+   "pot": 40,
+   "rake": [
+    "saxo",
+    0,
+    0.45
+   ],
+   "clear": [
+    [
+     -7.6,
+     -4,
+     0.8
+    ],
+    [
+     7.4,
+     -4.6,
+     0.8
+    ],
+    [
+     -8.2,
+     3.6,
+     0.8
+    ],
+    [
+     8,
+     4.4,
+     0.8
+    ],
+    [
+     -6,
+     -8.2,
+     0.8
+    ],
+    [
+     6.6,
+     -8,
+     0.8
+    ]
+   ],
+   "danes": false
+  },
+  {
+   "beat": 116.75,
+   "kind": "dance",
+   "map": "mansion",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "platinum",
+     "clip": "charleston",
+     "x": 0,
+     "z": 2.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.707,
+     "lift": 0.64
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     170.54,
+     170.68
+    ],
+    "r": [
+     2.737,
+     2.655
+    ],
+    "h": [
+     1.35,
+     1.33
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 56,
+    "roll": [
+     -4,
+     -2
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    2.4
+   ],
+   "cards": {
+    "saxo": {
+     "c": [
+      "7s",
+      "2h"
+     ],
+     "up": true
+    },
+    "kob": {
+     "c": [
+      "Ad",
+      "Ac"
+     ],
+     "fold": -1,
+     "foldUp": true
+    }
+   },
+   "stacks": {},
+   "pot": 40,
+   "kick": [
+    0.7,
+    2.6,
+    -3.9
+   ],
+   "chairs": {
+    "saxo": false,
+    "kob": false
+   },
+   "danes": [
+    0,
+    3
+   ],
+   "rake": [
+    "saxo",
+    -1,
+    0.01
+   ],
+   "noLamp": true,
+   "key": [
+    0,
+    1.85,
+    3,
+    1.25,
+    1.05,
+    0.72
+   ]
+  }
+ ]
+}
