@@ -569,7 +569,7 @@ function steadiestOffset(T, name, len) {
 // Looks whose bare arms tore into flat fins when the arms came down ("So Easy", 2026-10-08: the floral dress): the chibi
 // head's underside sits just over the T-posed arms, so a thin arm's top surface took the Head's weights and stayed put.
 // Their arm vertices take weights only from body vertices skinned mostly to that arm's bones (see `nearFor` below).
-const ARM_FIX = new Set(['floral', 'riviera', 'poodle']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } };   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
+const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } };   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
@@ -1394,7 +1394,8 @@ function propMesh(kind) {
     G.userData.pole = add(box(0.045, 1, 0.045, M(0xd8dce4)), 0, 0.5);
     const crook = new THREE.Group(), arc = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.04, 4, 9, Math.PI), M(0xe8243a)); arc.position.x = -0.19; crook.add(arc); G.userData.crook = crook; G.add(crook);
   } else if (kind === 'brush') {      // "BIRDS OF A FEATHER": the bather's scrub brush, along the forearm: a wooden handle, a bristle block at its end
-    add(box(0.05, 0.3, 0.05, M(0xc8935a)), 0, 0.15); add(box(0.16, 0.08, 0.1, M(0xd8a868)), 0, 0.32); add(box(0.15, 0.06, 0.1, M(0xf2f2ea)), 0, 0.38);
+    add(box(0.04, 0.42, 0.04, M(0xe8c890)), 0, 0.21); const hd = add(new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.05, 10), M(0x3a8ad8)), 0, 0.45); hd.rotation.x = Math.PI / 2; hd.scale.set(1, 1, 0.75);
+    for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2; add(box(0.018, 0.018, 0.07, M(0xfaf6e8)), Math.cos(a) * 0.075, 0.45 + Math.sin(a) * 0.056, 0.05); }   // a bath brush: a long pale handle, a blue oval head, a fringe of white bristles (a block on a stick read as a mallet)
   } else if (kind === 'scissors') {   // "BIRDS OF A FEATHER": the groomer's steel scissors, held up beside the face, snipping on the beat (holdProp opens and shuts the blades)
     const steelM = mat({ color: 0xe8eef6, unlit: 0.45 }), ringM = M(0xe8547a);
     for (const sd of [-1, 1]) {
@@ -1796,7 +1797,7 @@ function sipStraw(D, hand = 'R') {   // hand: the paw holding the cup ('L' when 
   g.position.copy(_sa).add(_sb).multiplyScalar(0.5); g.quaternion.setFromUnitVectors(_sy, _sb.clone().sub(_sa).normalize()); g.scale.set(sc, _sa.distanceTo(_sb), sc);
 }
 function dogTongue(D, t) {
-  const g = faceProp(D, 'tongue', () => { const q = new THREE.Group(), m = mat({ color: 0xff8ab0, unlit: 0.45 }); const tg = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.17, 0.035), m); tg.position.set(0, -0.085, 0); q.add(tg); const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.035, 8), m); tip.rotation.x = Math.PI / 2; tip.position.set(0, -0.17, 0); q.add(tip); return q; });
+  const g = faceProp(D, 'tongue', () => { const q = new THREE.Group(), m = mat({ color: 0xff8ab0, unlit: 0.45 }); const tg = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.09, 0.05), m); tg.position.set(0, -0.045, 0); q.add(tg); const tip = new THREE.Mesh(new THREE.SphereGeometry(0.062, 8, 6), m); tip.scale.set(1, 0.85, 0.5); tip.position.set(0, -0.1, 0); q.add(tip); return q; });   // short and round (a long flat box read as a pink slab in a close-up, 2026-10-10)
   faceAt(D, [0, 0.03, 0.42], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.35, 0, 0.18 * Math.sin(t * 13)))); g.scale.setScalar(D.curScale || D.scale || 1);
 }
 function earbuds(D) {   // small and on the ear line, behind the cheek: bigger and further forward they read as a plaster in a three-quarter view (the reviewer)

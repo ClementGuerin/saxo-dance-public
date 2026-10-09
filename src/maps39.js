@@ -26,11 +26,15 @@
 //   shower   true or s: rain falling from the head over the tub
 //   splash   [[x, z, s, size]]: a burst out of the tub's water (he lands in it)
 //   shake    [x, y, z, s0, s1]: a wet dog shaking: a ring of drops flung out from the point on every half beat
-//   drips    [[x, z, h]]: drops falling off a soaked one from round the head (h), a wet patch at the feet
+//   soak     [x0, y0, z0, x1, y1, z1, s0, s1]: a dense jet of water from one point to another (a wet dog's shake landing
+//            full in someone's face), the drops bursting off on arrival
+//   drips    [[x, z, h, heavy]]: drops falling off a soaked one from round the head (h), a wet patch at the feet; heavy:
+//            streams of water running off the head and the cap's brim
 //   dryer    [x, y, z, s0]: the dryer's blast from its nozzle to the point from s0 (streaks, drops flying past);
-//            dryerAim [x, z]: where the dryer's head points (default the target, else the tub)
+//            dryerAim [x, z]: where the dryer's head points (default the target, else the tub); dryerReach (0-1): how far along it the streaks go
 //   fluff    [x, z, s0, s1, r, y]: a white cloud of fur puffs swelling round the point from s0, blowing away from s1
-//   hearts   [[x, y, z, s0, loop]], heartYaw
+//   hearts   [[x, y, z, s0, loop]], heartYaw, heartRise (m, default 0.55), heartScale
+//   noShower hides the rain head and its pole (a lens near it)
 //   pets     'wait' (sitting, swinging their feet) | 'stare' (+ `stare` [x, z]) | 'cheer' | 'gasp' | false
 //   fame     true: Saxo's gold frame on the wall of fame holds a picture
 //   mirror   false hides the mirror; noGlass (a lens inside its case); bulbs false
@@ -49,7 +53,7 @@ export const SALON = {
   WAITERS: [[-5.25, 1.3], [-5.25, 2.3], [-5.25, 3.3]], WAITER_Y: 0.42,
   TUB: { x: -2.2, z: -4.4, w: 1.5, d: 0.9, y: 0.55, water: 0.8, rim: 1.02 },
   SHOWER: [-2.2, 2.3, -4.45],
-  DRYER: [0.7, -4.45],
+  DRYER: [0.2, -4.45],
   MIRROR: { x: 2.4, z: -7.9, w: 1.3, h: 1.65, y0: 0.18, depth: 2.4 },
 };
 
@@ -159,7 +163,7 @@ export function buildSalonMaps(K) {
 
     // ---------------- the waiting room's furniture ----------------
     // the clip's lone chair (it tips back on its back legs: the pivot sits under them)
-    const chairPivot = at(new THREE.Group(), CHAIR[0], 0, CHAIR[1] - 0.2); G.add(chairPivot);
+    const chairPivot = at(new THREE.Group(), CHAIR[0], 0, CHAIR[1] - 0.2); G.add(chairPivot); chairPivot.rotation.order = 'YXZ';   // turned (chairYaw), then tipped about its own axis
     const lone = officeChair(M(0x2f7a78)); lone.position.z = 0.2; chairPivot.add(lone);
     // the brown leather sofa against the left wall (facing +x)
     const leather = M(0x7a4426), sofa = at(new THREE.Group(), SOFA.x, 0, (SOFA.z0 + SOFA.z1) / 2); G.add(sofa);
@@ -233,11 +237,12 @@ export function buildSalonMaps(K) {
     for (const e of [-1, 1]) duck.add(at(ico(0.012, 0, M(0x111111)), e * 0.035, 0.17, 0.1));
     // the rain head over the tub on a chrome pole and arm (the pole at the tub's back left corner)
     const poleX = TUB.x - tw / 2 - 0.12, poleZ = TUB.z - td / 2 - 0.1;
-    G.add(at(cyl(0.025, 0.025, SHOWER[1], 6, CHROME), poleX, SHOWER[1] / 2, poleZ));
-    G.add(at(box(SHOWER[0] - poleX + 0.04, 0.04, 0.04, CHROME), (poleX + SHOWER[0]) / 2, SHOWER[1], poleZ));
-    G.add(at(box(0.04, 0.04, Math.abs(SHOWER[2] - poleZ) + 0.04, CHROME), SHOWER[0], SHOWER[1], (SHOWER[2] + poleZ) / 2));
-    G.add(at(cyl(0.16, 0.1, 0.05, 10, CHROME), SHOWER[0], SHOWER[1] - 0.04, SHOWER[2]));
-    const rainM = mat({ color: 0xd8f2ff, unlit: 0.7, see: 0.25 }), rain = Array.from({ length: 40 }, () => { const r = box(0.014, 0.16, 0.014, rainM); r.visible = false; G.add(r); return r; });
+    const showerG = new THREE.Group(); G.add(showerG);
+    showerG.add(at(cyl(0.025, 0.025, SHOWER[1], 6, CHROME), poleX, SHOWER[1] / 2, poleZ));
+    showerG.add(at(box(SHOWER[0] - poleX + 0.04, 0.04, 0.04, CHROME), (poleX + SHOWER[0]) / 2, SHOWER[1], poleZ));
+    showerG.add(at(box(0.04, 0.04, Math.abs(SHOWER[2] - poleZ) + 0.04, CHROME), SHOWER[0], SHOWER[1], (SHOWER[2] + poleZ) / 2));
+    showerG.add(at(cyl(0.16, 0.1, 0.05, 10, CHROME), SHOWER[0], SHOWER[1] - 0.04, SHOWER[2]));
+    const rainM = mat({ color: 0xd8f2ff, unlit: 0.7, see: 0.25 }), rain = Array.from({ length: 80 }, () => { const r = box(0.014, 0.16, 0.014, rainM); r.visible = false; G.add(r); return r; });
     // the dryer: a pedestal blaster on a five-legged base, its head (a hose and a nozzle) turned to the target
     const dryer = at(new THREE.Group(), DRYER[0], 0, DRYER[1]); G.add(dryer);
     dryer.add(at(cyl(0.03, 0.03, 1.0, 6, CHROME), 0, 0.55, 0));
@@ -258,7 +263,10 @@ export function buildSalonMaps(K) {
     const mir = mirrorPortal(G, MIRROR);
 
     // ---------------- drops, rain, the dryer's blast, fluff, hearts ----------------
-    const dropM = mat({ color: 0xf2fbff, unlit: 0.9 }), drops = Array.from({ length: 200 }, () => { const q = ico(1, 0, dropM); q.visible = false; G.add(q); return q; });
+    const dropM = mat({ color: 0xf2fbff, unlit: 0.9 }), drops = Array.from({ length: 320 }, () => { const q = ico(1, 0, dropM); q.visible = false; G.add(q); return q; });
+    const jetM = mat({ color: 0x8fd4ff, unlit: 0.85 }), jet = Array.from({ length: 90 }, () => { const q = ico(1, 0, jetM); q.visible = false; G.add(q); return q; });
+    // a soaked one's heavy drips: small blue drops (big white ones read as snowballs in a close-up)
+    const wet = Array.from({ length: 64 }, () => { const q = ico(1, 0, jetM); q.visible = false; G.add(q); return q; });
     const streakM = mat({ color: 0xffffff, unlit: 0.9, see: 0.3 }), streaks = Array.from({ length: 30 }, () => { const q = box(0.02, 0.02, 0.5, streakM); q.visible = false; G.add(q); return q; });
     const fluffM = mat({ color: 0xfbfaf6, unlit: 0.55 }), fluff = Array.from({ length: 200 }, () => { const q = ico(1, 1, fluffM); q.visible = false; G.add(q); return q; });
     const ringM = mat({ color: 0xf2fdff, unlit: 0.8, see: 0.3 }), rings = Array.from({ length: 2 }, () => { const q = new THREE.Mesh(new THREE.TorusGeometry(1, 0.05, 4, 16), ringM); q.rotation.x = PI / 2; q.visible = false; G.add(q); return q; });
@@ -300,18 +308,18 @@ export function buildSalonMaps(K) {
         // the tub: foam, the duck, the rain, a splash
         foam.forEach((f, i) => { f.visible = !!P.foam; if (!f.visible) return; const a = hash(i, 3921) * TAU, r = 0.15 + 0.5 * hash(i, 3922); f.position.set(Math.cos(a) * r * tw / 1.4, TUB.water + 0.02 + 0.02 * Math.sin(t * 3 + i), Math.sin(a) * r * td / 1.6); });
         duck.visible = !!P.duck; duck.position.y = TUB.water + 0.03 + 0.03 * Math.sin(b * PI); duck.rotation.z = 0.2 * Math.sin(b * PI + 1); duck.rotation.y = 0.6 + 0.3 * Math.sin(t * 0.7);
-        const raining = from(P.shower, s);
+        showerG.visible = !P.noShower; const raining = from(P.shower, s) && !P.noShower;
         rain.forEach((r, i) => { r.visible = raining; if (!raining) return; const e = fr(t * 2.2 + hash(i, 3923)), a = hash(i, 3924) * TAU, rr = 0.14 * Math.sqrt(hash(i, 3925)); r.position.set(SHOWER[0] + Math.cos(a) * rr * (1 + e), SHOWER[1] - 0.08 - e * (SHOWER[1] - TUB.water - 0.1), SHOWER[2] + Math.sin(a) * rr * (1 + e)); });
-        drops.forEach(q => { q.visible = false; }); rings.forEach(q => { q.visible = false; });
-        let di = 0;
+        drops.forEach(q => { q.visible = false; }); wet.forEach(q => { q.visible = false; }); rings.forEach(q => { q.visible = false; });
+        let di = 0, wi = 0;
         (P.splash || []).forEach(([x, z, s0, size = 1], k2) => {
           const age = s - s0; if (age < 0 || age > 0.9) return;
-          for (let j = 0; j < 30 && di < drops.length; j++) {
-            const a = hash(j, 3926) * TAU, v = (1.9 + 1.4 * hash(j, 3927)) * size, sp = (0.5 + 0.8 * hash(j, 3928)) * size, y = TUB.water + v * age - 4.9 * age * age;
+          for (let j = 0; j < 36; j++) {   // blue drops flung up from a ring at his sides (white ones over his face read as snowballs: review loop 3)
+            const a = (j % 2 ? 0 : PI) + (hash(j, 3926) - 0.5) * 1.4, v = (1.7 + 1.3 * hash(j, 3927)) * size, sp = (0.45 + 0.7 * hash(j, 3928)) * size, y = TUB.water + v * age - 4.9 * age * age, r = 0.5 + sp * age;
             if (y < TUB.water - 0.05) continue;
-            const q = drops[di++]; q.visible = true; q.position.set(x + Math.cos(a) * sp * age, y, z + Math.sin(a) * sp * age); q.scale.setScalar((0.035 + 0.025 * hash(j, 3929)) * size);
+            const q = wet[wi++]; if (!q) break; q.visible = true; q.position.set(x + Math.cos(a) * r, y, z + Math.sin(a) * r * 0.6); q.scale.setScalar((0.03 + 0.022 * hash(j, 3929)) * size);
           }
-          const rg = rings[k2 % rings.length]; rg.visible = true; rg.position.set(x, TUB.water + 0.02, z); rg.scale.setScalar(Math.min(0.6, 0.2 + age * 0.9) * size);
+          const rg = rings[k2 % rings.length]; rg.visible = true; rg.position.set(x, TUB.water + 0.02, z); rg.scale.setScalar(Math.min(0.4, (0.2 + age * 0.9) * size));   // inside the tub (wider, it showed through its front panel)
         });
         // the wet dog's shake: a ring of drops flung out on every half beat, falling as they fly
         if (P.shake) {
@@ -326,13 +334,27 @@ export function buildSalonMaps(K) {
           }
         }
         // drips off the soaked: drops from round the head down to the floor, a wet patch at the feet
-        (P.drips || []).forEach(([x, z, h = 1.25], k2) => {
-          for (let j = 0; j < 14 && di < drops.length; j++) {
-            const ph = fr(t * 1.6 + hash(j, k2, 3934)), a = hash(j, k2, 3935) * TAU, r = 0.22 + 0.2 * hash(j, k2, 3936), y = h * (1 - ph * ph);
-            const q = drops[di++]; q.visible = true; q.position.set(x + Math.cos(a) * r, Math.max(0.02, y), z + Math.sin(a) * r); q.scale.setScalar(0.035 + 0.02 * hash(j, k2, 3937));
+        (P.drips || []).forEach(([x, z, h = 1.25, heavy = 0], k2) => {
+          const n = heavy ? 44 : 14;
+          for (let j = 0; j < n; j++) {
+            const ph = fr(t * (heavy ? 2.2 : 1.6) + hash(j, k2, 3934)), a = hash(j, k2, 3935) * TAU, r = (heavy ? 0.16 : 0.22) + (heavy ? 0.3 : 0.2) * hash(j, k2, 3936), y = h * (1 - ph * ph);
+            const q = heavy ? wet[wi++] : drops[di++];
+            if (!q) break;
+            q.visible = true; q.position.set(x + Math.cos(a) * r, Math.max(0.02, y), z + Math.sin(a) * r); q.scale.setScalar(heavy ? 0.018 + 0.014 * hash(j, k2, 3937) : 0.035 + 0.025 * hash(j, k2, 3937));
           }
         });
-        puddles.forEach((q, k2) => { const pd = (P.drips || [])[k2]; q.visible = !!pd; if (pd) q.position.set(pd[0], 0.012, pd[1]); });
+        puddles.forEach((q, k2) => { const pd = (P.drips || [])[k2]; q.visible = !!pd; if (pd) { q.position.set(pd[0], 0.012, pd[1]); q.scale.setScalar(pd[3] ? 1.45 : 1); } });
+        // a jet of water from one point to another: drops streaming along a slight arc, bursting off on arrival
+        jet.forEach(q => { q.visible = false; });
+        if (P.soak) {
+          const [x0, y0, z0, x1, y1, z1, s0 = 0, s1 = 99] = P.soak;
+          if (s >= s0 && s <= s1) jet.forEach((q, j) => {
+            const e = fr(t * 2.4 + hash(j, 3953)), sp = 0.12 + 0.14 * e, oa = hash(j, 3954) * TAU, arc = Math.sin(e * PI) * 0.25;
+            q.visible = true;
+            if (j < 70) { q.position.set(x0 + (x1 - x0) * e + Math.cos(oa) * sp * e, y0 + (y1 - y0) * e + arc + Math.sin(oa) * sp * e, z0 + (z1 - z0) * e + Math.sin(oa * 1.7) * sp * e); q.scale.setScalar(0.03 + 0.03 * hash(j, 3955)); }
+            else { const b = fr(t * 3 + hash(j, 3956)), ba = hash(j, 3957) * TAU; q.position.set(x1 + Math.cos(ba) * 0.35 * b, y1 + 0.25 * b - 1.2 * b * b, z1 + Math.sin(ba) * 0.35 * b); q.scale.setScalar(0.035 + 0.02 * hash(j, 3958)); }
+          });
+        }
         // the dryer: its head turned to the target; the blast's streaks and the drops blown off past it
         const aim = P.dryerAim || (P.dryer ? [P.dryer[0], P.dryer[2]] : [TUB.x, TUB.z]);
         dryHead.rotation.y = Math.atan2(aim[0] - DRYER[0], aim[1] - DRYER[1]);
@@ -341,12 +363,13 @@ export function buildSalonMaps(K) {
           const [tx, ty, tz] = P.dryer, a = dryHead.rotation.y, nx = DRYER[0] + Math.sin(a) * 0.95, nz = DRYER[1] + Math.cos(a) * 0.95, ny = 1.15;
           const dx = tx - nx, dy = ty - ny, dz = tz - nz, L = Math.hypot(dx, dy, dz) || 1;
           streaks.forEach((q, i) => {
-            const e = fr(t * 2.6 + hash(i, 3938)), off = 0.06 + 0.3 * e, oa = hash(i, 3939) * TAU;
-            q.visible = true; q.position.set(nx + dx * e + Math.cos(oa) * off * 0.6, ny + dy * e + Math.sin(oa) * off * 0.6, nz + dz * e); q.lookAt(tx + Math.cos(oa) * off, ty + Math.sin(oa) * off, tz); q.scale.z = 0.6 + 0.8 * e;
+            const e = fr(t * 2.6 + hash(i, 3938)) * (P.dryerReach ?? 1), off = 0.06 + 0.3 * e, oa = hash(i, 3939) * TAU;   // dryerReach: the streaks stop short of the target (a lens behind the nozzle saw them converge on his face)
+            const ox = Math.cos(oa) * 0.22 * hash(i, 3959), oy = Math.sin(oa) * 0.22 * hash(i, 3959);   // parallel streaks: converging on the target they read as an asterisk
+            q.visible = e < 0.92; q.position.set(nx + dx * e + ox, ny + dy * e + oy, nz + dz * e); q.lookAt(nx + dx * e + ox + dx, ny + dy * e + oy + dy, nz + dz * e + dz); q.scale.z = 0.5 + 0.5 * e;
           });
           for (let j = 0; j < 30 && di < drops.length; j++) {
             const e = fr(t * 1.8 + hash(j, 3940)), oa = hash(j, 3941) * TAU, r = 0.25 + 0.5 * e;
-            const q = drops[di++]; q.visible = true; q.position.set(tx + dx / L * e * 1.4 + Math.cos(oa) * r, ty + Math.sin(oa) * r * 0.8 + 0.1, tz + dz / L * e * 1.4 + Math.sin(oa) * r * 0.3); q.scale.setScalar(0.035 + 0.03 * hash(j, 3942));
+            const q = drops[di++]; q.visible = true; q.position.set(tx + dx / L * (0.35 + e * 1.4) + Math.cos(oa) * r * 0.5, ty + Math.sin(oa) * r * 0.6 + 0.1, tz + dz / L * (0.35 + e * 1.4) + Math.sin(oa) * r * 0.3); q.scale.setScalar(0.03 + 0.025 * hash(j, 3942));   // blown off behind him, not across his face
           }
         }
         // the fluff cloud: white puffs swelling round a point, then blowing away
@@ -365,7 +388,7 @@ export function buildSalonMaps(K) {
           const q = (P.hearts || [])[Math.floor(i / 3)]; h.visible = false; if (!q) return;
           let e = s - q[3] - (i % 3) * 0.3; if (q[4] && e > 0) e %= 1.2;
           if (e < 0 || e > 1.4) return;
-          h.visible = true; h.position.set(q[0] + ((i % 3) - 1) * 0.22 + 0.06 * Math.sin(e * 6 + i), q[1] + 0.55 * e, q[2]); h.scale.setScalar(Math.min(1, e * 5) * (1.15 - 0.25 * (e / 1.4)));
+          h.visible = true; h.position.set(q[0] + ((i % 3) - 1) * 0.22 + 0.06 * Math.sin(e * 6 + i), q[1] + (P.heartRise ?? 0.55) * e, q[2]); h.scale.setScalar(Math.min(1, e * 5) * (1.15 - 0.25 * (e / 1.4)) * (P.heartScale ?? 1));
           h.rotation.y = (P.heartYaw ?? 0) * PI / 180;
         });
         mir.set(P);
@@ -387,6 +410,8 @@ export function buildSalonMaps(K) {
     for (let i = 0; i < 5; i++) bulbs.push(at(ico(0.04, 0, bulbM), -w / 2 + (i + 0.5) * w / 5, y0 + h + fw / 2, -0.07));
     for (const sx of [-1, 1]) for (let i = 0; i < 6; i++) bulbs.push(at(ico(0.04, 0, bulbM), sx * (w / 2 + fw / 2), y0 + 0.12 + i * (h - 0.1) / 5, -0.07));
     bulbs.forEach(q => root.add(q));
+    // the same ring of bulbs on the frame's inner face, for a lens inside the case (the mirror's point of view: from there the room-side bulbs can't be seen)
+    const inBulbs = bulbs.map(q => { const b = at(ico(0.04, 0, bulbM), q.position.x, q.position.y, 0.035); root.add(b); return b; });
     const inT = tex(32, 32, (c, r) => { px(c, '#e8eef0', 0, 0, 32, 32); noise(c, r, 32, 32, ['#e2e9ec', '#eef3f4'], 90); px(c, '#c8d2d6', 0, 0, 32, 1); px(c, '#c8d2d6', 0, 0, 1, 32); }, 3950);
     const backT = tex(64, 48, c => { px(c, '#e8eef0', 0, 0, 64, 48); for (let i = 0; i < 64; i += 8) px(c, '#c8d2d6', i, 0, 1, 48); for (let j = 0; j < 48; j += 8) px(c, '#c8d2d6', 0, j, 64, 1); px(c, '#d8b07a', 20, 14, 12, 34); px(c, '#bfe0f0', 24, 18, 4, 4); }, 3951);
     const inside = new THREE.Group(); root.add(inside);
@@ -398,10 +423,10 @@ export function buildSalonMaps(K) {
     const flo = new THREE.Mesh(new THREE.PlaneGeometry(W, depth), mat({ map: floT, rep: [W / 1.2, depth / 1.2] })); flo.rotation.x = -PI / 2; flo.position.set(0, 0.004, depth / 2); inside.add(flo);
     const glass = new THREE.Group(); root.add(glass);
     glass.add(at(new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat({ color: 0xe8f2ff, unlit: 0.6, see: 0.86, side: THREE.DoubleSide })), 0, y0 + h / 2, -0.005));
-    for (const [gx, gl] of [[-0.18, 0.5], [0.05, 0.28]]) { const q = at(box(0.035, gl, 0.004, mat({ color: 0xffffff, unlit: 1, see: 0.35 })), gx, y0 + h * 0.66, -0.01); q.rotation.z = -0.6; glass.add(q); }
+    for (const [gx, gl, gy] of [[w / 2 - 0.36, 0.3, 0.88], [w / 2 - 0.2, 0.18, 0.9]]) { const q = at(box(0.035, gl, 0.004, mat({ color: 0xffffff, unlit: 1, see: 0.35 })), gx, y0 + h * gy, -0.01); q.rotation.z = -0.6; glass.add(q); }   // in the top corner (across the middle they crossed the reflection's eye)
     function set(P) {
       root.visible = P.mirror !== false; glass.visible = !P.noGlass;
-      bulbs.forEach(q => { q.visible = P.bulbs !== false; });
+      bulbs.forEach(q => { q.visible = P.bulbs !== false; }); inBulbs.forEach(q => { q.visible = !!P.noGlass && P.bulbs !== false; });
     }
     return { root, set };
   }
