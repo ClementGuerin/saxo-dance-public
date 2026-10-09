@@ -1172,8 +1172,10 @@ function propMesh(kind) {
     add(new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.045, 0.07, 8, 1, true), mat({ color: 0xfafaf6, side: THREE.DoubleSide })), 0, 0.045); add(cyl(0.056, 0.056, 0.004, M(0x3a2414), 8), 0, 0.07);   // open-topped: a closed cup's top z-fought the coffee (a white wedge in it)
     add(cyl(0.095, 0.09, 0.012, M(0xfafaf6), 10), 0, 0.006);
     add(new THREE.Mesh(new THREE.TorusGeometry(0.024, 0.008, 4, 6, Math.PI), M(0xfafaf6)), 0.066, 0.05).rotation.z = -Math.PI / 2;
-  } else if (kind === 'handset') {   // "Espresso": a black 1960s telephone handset held upright at the ear (a smartphone read as a pink card)
-    add(box(0.05, 0.22, 0.05, M(0x141418))); add(box(0.08, 0.06, 0.07, M(0x141418)), 0, 0.12, 0.02); add(box(0.08, 0.06, 0.07, M(0x141418)), 0, -0.12, 0.02);
+  } else if (kind === 'handset') {   // "Espresso": a red 1960s telephone handset held upright at the ear (a smartphone read as a pink card; a black one read as a hole in the wall), its cups bent to the face, a coiled cord
+    const R = mat({ color: 0xd0303a, unlit: 0.3 });
+    add(box(0.055, 0.24, 0.05, R)); add(box(0.09, 0.07, 0.08, R), 0, 0.13, 0.04); add(box(0.09, 0.07, 0.08, R), 0, -0.13, 0.04);
+    for (let i = 0; i < 5; i++) { const c = new THREE.Mesh(new THREE.TorusGeometry(0.022, 0.007, 3, 8), R); c.rotation.x = Math.PI / 2; add(c, 0, -0.19 - i * 0.03, 0.03); }
   } else if (kind === 'citation') {   // "Espresso": a police citation, a long narrow white slip with printed lines and a red stamp, held up beside the face
     add(box(0.13, 0.3, 0.008, mat({ color: 0xfafaf4, unlit: 0.45 })));
     for (let i = 0; i < 6; i++) add(box(0.09, 0.008, 0.002, M(0x5a5a64)), -0.005, 0.1 - i * 0.035, 0.005);
@@ -1804,7 +1806,7 @@ function thermometer(D) {
   });
   faceAt(D, [0.08, 0.02, 0.38], g.position); g.quaternion.copy(_fq).multiply(_tq.setFromEuler(_te.set(0.12, 0.35, 0))); g.scale.setScalar(D.curScale || D.scale || 1);
 }
-const SLEEP_AT = { riviera: { off: [0, 0.17, 0.47], k: 1.08 } };   // a look whose shades stick out of the face: the mask goes over them (behind them it read as a band on his forehead, the critic)
+const SLEEP_AT = { riviera: { off: [0, 0.18, 0.45], k: 1.02, thin: true } };   // a look whose shades stick out of the face: the mask goes over them (behind them it read as a band on his forehead, the critic)
 function sleepMask(D, pink = false, at = null) {   // a pale blue sleep mask over both eyes, pink trim, two closed eyes with lashes printed on it: asleep (the plain navy band read as a censor bar, 2026-10-02); pink: Kob's own pyjama mask pulled down ("APT.": the blue one read as a second mask)
   const base = pink ? '#ffb4d2' : '#9ccff2', trim = pink ? '#ff6aa8' : '#ff8ac0';
   const g = faceProp(D, pink ? 'sleepmaskpink' : 'sleepmask', () => {
@@ -1813,6 +1815,7 @@ function sleepMask(D, pink = false, at = null) {   // a pale blue sleep mask ove
     q.add(new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.2, 0.1), [plain, plain, plain, plain, mat({ map: face, unlit: 0.4 }), plain])); return q;
   });
   faceAt(D, at ? at.off : D === CREW.compote ? [0, 0.2, 0.36] : [0, 0.3, 0.33], g.position); g.quaternion.copy(_fq); g.scale.setScalar((D.curScale || D.scale || 1) * (pink ? 0.82 : at ? at.k : 1));   // Compote's eyes sit lower on her head: hers rode up on her forehead; Kob's pink one narrower (the full width floated past her cheeks)
+  if (at && at.thin) { g.scale.y *= 0.85; g.scale.z *= 0.35; }   // flat on the eyes: a full-depth box over the shades read as a brick (the critic)
 }
 // "Danza Kuduro" (2026-10-09): `cucumbers`, two cucumber slices over the eyes, the spa-day cliche: a cat napping in her
 // bathrobe and towel turban. Green rims, pale green flesh with a ring of seeds, in the head bone's frame like the shades.
