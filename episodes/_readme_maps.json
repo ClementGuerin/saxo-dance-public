@@ -3352,6 +3352,51 @@
      "z": 1
     }
    ]
+  },
+  {
+   "beat": 158,
+   "kind": "dance",
+   "map": "salon",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "focus": [
+    1.6,
+    2
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "poodle",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 1.12,
+     "z": 2
+    },
+    {
+     "who": "kob",
+     "look": "groomer",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 2.08,
+     "z": 2
+    }
+   ]
   }
  ]
 }
