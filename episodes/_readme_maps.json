@@ -3302,6 +3302,56 @@
      "z": -1
     }
    ]
+  },
+  {
+   "beat": 156,
+   "kind": "dance",
+   "map": "piazza",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.2,
+     4.2
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    1
+   ],
+   "pets": false,
+   "stools": false,
+   "steam": true,
+   "kobLamp": true,
+   "wake": 6,
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 1
+    },
+    {
+     "who": "sadi",
+     "look": "nightie",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 1
+    }
+   ]
   }
  ]
 }
