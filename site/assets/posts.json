@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-08T19:28:31.422Z",
+ "updated": "2026-10-09T14:17:26.534Z",
  "posts": [
+  {
+   "id": "2026-10-09",
+   "title": "Danza Kuduro",
+   "artist": "Don Omar & Lucenzo",
+   "date": "2026-10-09T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-09.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7694668231533104417",
+     "id": "7694668231533104417"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeRrY9AFVWE/",
+     "id": "DeRrY9AFVWE"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/hgmGHfRg9JY",
+     "id": "hgmGHfRg9JY"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1132304242909016",
+     "id": "1132304242909016"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2108558539828449662",
+     "id": "2108558539828449662"
+    }
+   }
+  },
   {
    "id": "2026-10-08-2",
    "title": "Poker Face",
