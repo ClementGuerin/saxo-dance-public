@@ -1,0 +1,592 @@
+{
+ "date": "test",
+ "song": {
+  "title": "BIRDS OF A FEATHER",
+  "artist": "Billie Eilish"
+ },
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "death_falling_backwards",
+  "dying_falling_backward",
+  "falling_to_knees_in_prayer",
+  "happy_idle",
+  "happy_walk",
+  "knocked_out_falling_to_back",
+  "laying_idle",
+  "shot_to_the_chest_falling_backwards",
+  "sitting_talking"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beanie",
+     "clip": "happy_idle",
+     "x": 0.6,
+     "z": 3.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "lean": 22,
+     "speed": 0.2
+    },
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "happy_walk",
+     "x": 1.3,
+     "z": 1.5,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "lean": 14,
+     "hold": "leash",
+     "hookTo": "saxo",
+     "arm": "R",
+     "aim": [
+      0.35,
+      -0.25,
+      -0.5
+     ],
+     "upAt": -1,
+     "speed": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "groomer",
+     "clip": "happy_idle",
+     "x": 1.6,
+     "z": -0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "speed": 0.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     26.57,
+     26.57
+    ],
+    "r": [
+     6.708,
+     6.708
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.6,
+    1.6
+   ],
+   "zone": "wait",
+   "door": 1,
+   "pets": "stare",
+   "stare": [
+    0.6,
+    3.2
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "poodle",
+     "clip": "happy_idle",
+     "x": -2.2,
+     "z": -4.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.3,
+     "lift": 0.55,
+     "speed": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "bather",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": -4,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.3,
+     "speed": 0.2
+    },
+    {
+     "who": "kob",
+     "look": "groomer",
+     "clip": "happy_idle",
+     "x": -0.2,
+     "z": -4.6,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.3,
+     "speed": 0.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.85,
+     1.85
+    ],
+    "r": [
+     3.102,
+     3.102
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -1.6,
+    -4.4
+   ],
+   "zone": "groom",
+   "foam": true,
+   "duck": true,
+   "shower": true,
+   "shake": [
+    -2.2,
+    1.15,
+    -4.4,
+    0,
+    99
+   ],
+   "drips": [
+    [
+     -0.2,
+     -4.6,
+     1.3
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "poodle",
+     "clip": "happy_idle",
+     "x": 2.4,
+     "z": -6.55,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     15.26,
+     15.26
+    ],
+    "r": [
+     3.421,
+     3.421
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    2.4,
+    -7.9
+   ],
+   "zone": "groom",
+   "hearts": [
+    [
+     2.4,
+     1.6,
+     -6.6,
+     0.2,
+     1
+    ]
+   ],
+   "crowd": {
+    "who": "saxo",
+    "look": "poodle",
+    "clip": "happy_idle",
+    "at": 0.3,
+    "speed": 0.3,
+    "n": 1,
+    "cols": 1,
+    "jitter": 0,
+    "x0": 2.4,
+    "z0": -9.25,
+    "yaw": 0,
+    "face": "world"
+   }
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beanie",
+     "clip": "happy_idle",
+     "x": -1.5,
+     "z": 3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.1
+    },
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": 3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.1
+    },
+    {
+     "who": "kob",
+     "look": "groomer",
+     "clip": "happy_idle",
+     "x": 0.5,
+     "z": 3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.1
+    },
+    {
+     "who": "compote",
+     "look": "bather",
+     "clip": "happy_idle",
+     "x": 1.5,
+     "z": 3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    3
+   ],
+   "zone": "wait",
+   "pets": "wait"
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beanie",
+     "clip": "happy_idle",
+     "x": -2.2,
+     "z": -4.4,
+     "face": "world",
+     "yaw": 40,
+     "at": 0.3,
+     "lift": 0.55,
+     "lean": -15,
+     "speed": 0.2
+    },
+    {
+     "who": "kob",
+     "look": "groomer",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": -5.3,
+     "face": "world",
+     "yaw": -70,
+     "at": 0.3,
+     "speed": 0.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.51,
+     34.51
+    ],
+    "r": [
+     3.883,
+     3.883
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -1.6,
+    -4.6
+   ],
+   "zone": "groom",
+   "dryer": [
+    -2.2,
+    1,
+    -4.4,
+    0
+   ],
+   "fluff": [
+    -2.2,
+    -4.4,
+    0.6,
+    1.8,
+    0.9,
+    1
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "beanie",
+     "clip": "sitting_talking",
+     "x": -1.6,
+     "z": 4.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.04
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.5,
+     4.5
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -1.6,
+    4
+   ],
+   "zone": "wait",
+   "tip": 0,
+   "pets": "wait"
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "poodle",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.1,
+     "arm": "both",
+     "aim": "rave",
+     "upAt": -1,
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "hop": [
+      0.04,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.4,
+     2.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    4
+   ],
+   "zone": "wait"
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "poodle",
+     "clip": "shot_to_the_chest_falling_backwards",
+     "x": 0,
+     "z": 4,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.6,
+     "speed": 0.05,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     0.6,
+     0.6
+    ],
+    "h": [
+     2.6,
+     2.6
+    ],
+    "look": [
+     0.1,
+     0.1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    3.6
+   ],
+   "zone": "wait"
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "salon",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "poodle",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.2,
+     "speed": 0.1,
+     "arm": "both",
+     "aim": "caramell",
+     "upAt": -1,
+     "flap": 0.55
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.4,
+     2.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    4
+   ],
+   "zone": "wait"
+  }
+ ]
+}

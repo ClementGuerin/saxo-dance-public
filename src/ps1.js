@@ -42,6 +42,7 @@ import { buildLondonMaps } from './maps35.js';
 import { buildMansionMaps } from './maps36.js';
 import { buildResortMaps } from './maps37.js';
 import { buildPiazzaMaps } from './maps38.js';
+import { buildSalonMaps } from './maps39.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -568,7 +569,7 @@ function steadiestOffset(T, name, len) {
 // Looks whose bare arms tore into flat fins when the arms came down ("So Easy", 2026-10-08: the floral dress): the chibi
 // head's underside sits just over the T-posed arms, so a thin arm's top surface took the Head's weights and stayed put.
 // Their arm vertices take weights only from body vertices skinned mostly to that arm's bones (see `nearFor` below).
-const ARM_FIX = new Set(['floral', 'riviera']);   // riviera ("Espresso"): its bare forearms tore into flat grey blades
+const ARM_FIX = new Set(['floral', 'riviera', 'poodle']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } };   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
@@ -651,15 +652,29 @@ async function addOutfit(T, name, url) {
         const px = Math.min(cv.width - 1, Math.floor(u * cv.width)), py = Math.min(cv.height - 1, Math.floor((flip ? 1 - v : v) * cv.height)), o = (py * cv.width + px) * 4;
         const r = data[o], gg = data[o + 1], b2 = data[o + 2], mx = Math.max(r, gg, b2), mn = Math.min(r, gg, b2);
         const sat = mx ? (mx - mn) / mx : 0, lum = (r + gg + b2) / 765;
-        return sat < 0.2 && lum > 0.3 ? 'fur' : sat > 0.25 ? 'head' : 'body';
+        return sat < 0.15 && lum > 0.72 ? 'white' : sat < 0.2 && lum > 0.5 ? 'light' : sat < 0.2 && lum > 0.3 ? 'fur' : sat > 0.25 ? 'head' : 'body';
       };
     }
     const anyArm = /(Arm|ForeArm|Hand)/, headish = /(Head|Neck)/, pv = new THREE.Vector3();
+    const hv = B.filter((_, j) => /Head$/.test(dom[j])), headC = new THREE.Vector3(); hv.forEach(b => headC.x += b[0] / hv.length); hv.forEach(b => { headC.y += b[1] / hv.length; headC.z += b[2] / hv.length; });
+    const hd = hv.map(b => Math.hypot(b[0] - headC.x, b[1] - headC.y, b[2] - headC.z)).sort((a, b) => a - b), headR = hd[Math.floor(hd.length * 0.92)] || 0.45;   // the chibi head as a sphere: its body vertices' centroid and 92nd-percentile radius
     nearFor = (x, y, z, k) => {
       pv.set(x, y, z);
-      const arm = arms.find(q => Math.sign(x) === Math.sign(q.a.x) && Math.abs(x) > Math.abs(q.a.x) + 0.02 && segD(pv, q.a, q.b) < 0.13);
+      const opt = ARM_OPT[name];
+      if (opt) {
+        const kd0 = kindOf(k), zone = arms.find(q => Math.sign(x) === Math.sign(q.a.x) && Math.abs(x) > Math.abs(q.a.x) + 0.02 && segD(pv, q.a, q.b) < (kd0 === 'white' || kd0 === 'light' ? opt.r : 0.13));   // the fluff's shaded curls are light grey, not white
+        if (!zone) return near(x, y, z, 6);
+        const nn = near(x, y, z, 1)[0]; if (nn && nn[0] < opt.onHead * opt.onHead && headish.test(dom[nn[1]])) return near(x, y, z, 6);
+        const pick = near(x, y, z, 160).filter(([, j]) => zone.re.test(dom[j])).slice(0, 6); return pick.length >= 2 ? pick : near(x, y, z, 6);
+      }
+      const arm = arms.find(q => {   // ARM_OPT (the poodle): its wrist pom-poms reach 0.2 m from the arm (their tops took the head's weights and stood up as spikes), and its grey arms match its grey face (the head's lower sides went down with the arms as flaps)
+        if (Math.sign(x) !== Math.sign(q.a.x) || Math.abs(x) <= Math.abs(q.a.x) + 0.02) return false;
+        const d = segD(pv, q.a, q.b); if (!opt) return d < 0.13;
+        const nn = near(x, y, z, 1)[0]; if (nn && nn[0] < opt.onHead * opt.onHead && /Head$/.test(dom[nn[1]])) return false;
+        return kindOf(k) === 'white' ? d < opt.r : d < 0.13;
+      });
       if (!arm) return near(x, y, z, 6);
-      const kd = kindOf(k), pick = near(x, y, z, 160).filter(([, j]) => kd === 'fur' ? arm.re.test(dom[j]) : kd === 'head' ? headish.test(dom[j]) : !anyArm.test(dom[j])).slice(0, 6);
+      const kd = kindOf(k), pick = near(x, y, z, 160).filter(([, j]) => kd === 'fur' || kd === 'white' || kd === 'light' ? arm.re.test(dom[j]) : kd === 'head' ? headish.test(dom[j]) : !anyArm.test(dom[j])).slice(0, 6);
       return pick.length >= 2 ? pick : near(x, y, z, 6);
     };
   }
@@ -762,6 +777,10 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   breton: 'assets/models/saxo_breton.glb',
   // the singer's look from the "Espresso" clip, as the lakefront's barista: a long wavy platinum-blonde wig with curtain bangs, his ears out on top, a pink silk headscarf tied under the chin, black cat-eye sunglasses, a mint-teal 1960s mini dress with puff sleeves, a white frilly waist apron, white sneakers (2026-10-09 2nd)
   riviera: 'assets/models/saxo_riviera.glb',
+  // the singer's look from the "BIRDS OF A FEATHER" clip: a slouchy black knit beanie with his ears poking out on top, thin round wire-rim glasses, long straight dark brown hair to the shoulders, an oversized white sweatshirt with a small red-and-black print, baggy olive camo cargo trousers, striped socks, black skate sneakers (2026-10-10)
+  beanie: 'assets/models/saxo_beanie.glb',
+  // the groomer's show-poodle cut: fluffy white curls on his chest and shoulders, big pom-poms round his wrists and ankles, a puff of curls on his head with a pink satin bow, a pink collar with a gold heart tag, a pom-pom on his tail ("BIRDS OF A FEATHER", 2026-10-10)
+  poodle: 'assets/models/saxo_poodle.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -841,6 +860,8 @@ const PARTNERS = {
     pitmaster: 'assets/models/kob_pitmaster.glb',
     // the insomniac: an old-fashioned long white cotton nightgown printed with tiny blue flowers, long sleeves, a lace collar, a white frilly nightcap between her ears, grey fluffy slippers, her bell collar ("Espresso", 2026-10-09 2nd)
     nightgown: 'assets/models/kob_nightgown.glb',
+    // the pet groomer: a pale lilac work smock with short sleeves and a front pocket of steel scissors and a comb, a name badge, a small lilac cap between her ears, black leggings, white rubber clogs, her bell collar ("BIRDS OF A FEATHER", 2026-10-10)
+    groomer: 'assets/models/kob_groomer.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -878,6 +899,8 @@ const PARTNERS = {
     waitress: 'assets/models/compote_waitress.glb',
     // the clip's police officer: a light blue short-sleeved uniform shirt with a silver star badge and a navy tie, navy trousers, a black belt, a small navy peaked cap with a silver badge between her ears, black shoes, a whistle on a chain, her carrot clip ("Espresso", 2026-10-09 2nd)
     cop: 'assets/models/compote_cop.glb',
+    // the salon's bather: a bright yellow rubber apron from her chest to her knees over a plum short-sleeved top, long yellow rubber gloves to the elbows, green rubber boots, her carrot clip ("BIRDS OF A FEATHER", 2026-10-10)
+    bather: 'assets/models/compote_bather.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     heads: { chrome: 'compote' },   // the girl-group look came back from Tripo with the top of her head sliced flat (ears and eyes gone): wear her own ("No Scrubs", 2026-10-05)
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
@@ -978,7 +1001,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1370,6 +1393,17 @@ function propMesh(kind) {
   } else if (kind === 'hook') {       // the lifeguard's rescue pole: aluminium, a red crook at its far end (holdProp stretches it to what it hooks)
     G.userData.pole = add(box(0.045, 1, 0.045, M(0xd8dce4)), 0, 0.5);
     const crook = new THREE.Group(), arc = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.04, 4, 9, Math.PI), M(0xe8243a)); arc.position.x = -0.19; crook.add(arc); G.userData.crook = crook; G.add(crook);
+  } else if (kind === 'brush') {      // "BIRDS OF A FEATHER": the bather's scrub brush, along the forearm: a wooden handle, a bristle block at its end
+    add(box(0.05, 0.3, 0.05, M(0xc8935a)), 0, 0.15); add(box(0.16, 0.08, 0.1, M(0xd8a868)), 0, 0.32); add(box(0.15, 0.06, 0.1, M(0xf2f2ea)), 0, 0.38);
+  } else if (kind === 'scissors') {   // "BIRDS OF A FEATHER": the groomer's steel scissors, held up beside the face, snipping on the beat (holdProp opens and shuts the blades)
+    const steelM = mat({ color: 0xe8eef6, unlit: 0.45 }), ringM = M(0xe8547a);
+    for (const sd of [-1, 1]) {
+      const bl = new THREE.Group(); bl.add(at3(box(0.035, 0.26, 0.012, steelM), 0, 0.13, 0)); bl.add(at3(new THREE.Mesh(new THREE.TorusGeometry(0.04, 0.012, 4, 8), ringM), 0, -0.05, 0)); G.add(bl); (G.userData.blades ||= []).push(bl);
+    }
+  } else if (kind === 'leash') {      // "BIRDS OF A FEATHER": a pink lead from the paw to a collar, taut (holdProp stretches it like the hook), a loop in the paw and a chrome clip at the collar
+    G.userData.pole = add(box(0.032, 1, 0.032, mat({ color: 0xff4f9a, unlit: 0.45 })), 0, 0.5);
+    const loop = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.016, 4, 8), mat({ color: 0xff4f9a, unlit: 0.45 })); loop.position.y = -0.04; G.add(loop);
+    const clip = new THREE.Group(); clip.add(new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.07, 0.05), M(0xd8dde6))); G.userData.crook = clip; G.add(clip);
   } else if (kind === 'mapleleaf') {  // "we fell in love in october": a big red maple leaf held up like a rose, its stem in the paw: serrated lobes and a dark midrib (a five-point star read as a red star, the critic)
     const lf = new THREE.Mesh(MAPLE_GEO, mat({ color: 0xff4a1e, unlit: 0.5, side: THREE.DoubleSide })); lf.scale.setScalar(0.34); lf.position.y = 0.2; G.add(lf);
     const vein = mat({ color: 0x9a1a10, unlit: 0.4, side: THREE.DoubleSide });
@@ -1444,7 +1478,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
     return;
   }
   const p = palm(D, side); if (!p) return;
-  if (kind === 'hook') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
+  if (kind === 'hook' || kind === 'leash') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
     const H = D.hookTo, C = typeof H === 'string' ? CREW[H] : null, from = p.clone();
     let to = Array.isArray(H) ? new THREE.Vector3(...H) : C?.head ? C.head.getWorldPosition(new THREE.Vector3()).addScaledVector(_up, 0.02 * (C.curScale || 1)) : null;   // the head bone sits at the neck: the collar (0.3 m under it was his waist)
     if (!to) { D['fore' + side].getWorldPosition(_pd); to = from.clone().addScaledVector(_pa.clone().sub(_pd).normalize(), 2.2); }
@@ -1460,10 +1494,11 @@ function holdProp(D, kind, side, bodyYaw, t) {
     g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(xb, d, new THREE.Vector3().crossVectors(xb, d)));
     const pl = len - 0.3; g.userData.pole.scale.y = pl; g.userData.pole.position.y = pl / 2; g.userData.rakeHead.position.y = pl; return;
   }
-  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov') {   // along the forearm, pointing where the paw points
+  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov' || kind === 'brush') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
+  if (kind === 'scissors') { g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, bodyYaw, 0); const o = 0.12 + 0.3 * Math.abs(Math.sin(t * Math.PI * 105 / 60)); (g.userData.blades || []).forEach((bl, i) => { bl.rotation.z = (i ? 1 : -1) * o; }); return; }   // snipping: the blades open and shut twice a beat at 105 BPM, their faces to the body's front
   if (kind === 'clock') { g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, 0, 0.22 * Math.sin(t * 55)); (g.userData.ring || []).forEach((l, i) => { l.visible = Math.sin(t * 40 + i) > -0.6; }); return; }   // ringing: it shakes in the paw, its face always to the front (+z, where the lenses are: turned with the body it went edge-on in profile)
   if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
   g.rotation.set(0, bodyYaw, 0);
