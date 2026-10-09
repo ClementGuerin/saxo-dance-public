@@ -1,0 +1,2620 @@
+{
+ "date": "2026-10-09",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "escalation",
+  "scenes": [
+   "the barista dances alone at 3 a.m.",
+   "up down left right on the words",
+   "the cat who can't sleep",
+   "an espresso and googly eyes",
+   "the neighbours in nightcaps",
+   "the police car",
+   "the cop on the car roof",
+   "the switch",
+   "the cat on the counter",
+   "the dog in the cat's bed"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "piazza"
+  ],
+  "ref": "rat-chef",
+  "lyric_literal": "'move it up, down, left, right' (Saxo's arms on the words, then the whole lakefront's), 'switch it up like Nintendo' (the levers worked like a game pad; the milk switched for an espresso), 'can't sleep' (the cat awake in bed, ears covered, then googly-eyed), 'espresso' (every cup), 'calling' (the cat phones the police), 'morning coffee, brewed it for ya' (the cop's coffee), 'touch' (her googly eyes)",
+  "experiment": "A dog-wins ending after the critic's 'the cat's laziness beats the dog's energy for the 4th time': the dog's espresso finally beats the cat (she dances, he sleeps). Do a cartoon reaction prop (googly eyes) and a dance instruction acted on the words lift the like rate over the last two episodes' at 24 h? (TikTok cut on the 60 s official sound: the main's last 76 beats on their own bars)"
+ },
+ "n": "2-tt",
+ "song": {
+  "title": "Espresso",
+  "artist": "Sabrina Carpenter",
+  "window": [
+   44.0368,
+   87.8832
+  ],
+  "rate": 1,
+  "bpm": 103.9993,
+  "tiktok_sound": {
+   "music_id": "7364498342501435408",
+   "title": "Espresso",
+   "author": "Sabrina Carpenter",
+   "seconds": 60,
+   "videos": 527734
+  }
+ },
+ "logline": "3 a.m. on an Italian lakefront: everyone who comes to complain about Saxo's espresso bar gets an espresso and googly eyes and joins the dance; Compote the cop rolls up in the clip's police car with a citation and ends up kicking the charleston on its bonnet; the last one awake is Kob, who storms out with her milk: he switches it for an espresso, the cat who never dances outdances them all on the counter, and the dog sleeps in her bed.",
+ "new": [
+  "the TikTok cut is the main cut's last 76 beats on their own bars (the official sound starts 0.256 beats before main b44 and runs 16 s on into verse 2, whose new words would only follow the button), its first shot 0.15 s longer, the loop kept on the beat"
+ ],
+ "notes": "TikTok muted the main post (itemMute, 2026-10-09). The official sound (Sabrina Carpenter's own, 527,734 videos, 60 s) is song 44.0368-104.0367 s at the song's own speed (29 log-spectrum pieces of 3 s, 0.6 ms residual), the main kit's 25.2371 s on (tt beat = main beat - 44). See the generator's header.",
+ "clips": [
+  "happy_idle",
+  "happy_walk",
+  "laying_idle",
+  "male_driving_a_car"
+ ],
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "charleston",
+     "x": 0,
+     "z": 1.6,
+     "face": "world",
+     "yaw": -20,
+     "at": 0.4523
+    },
+    {
+     "who": "sadi",
+     "look": "nightie",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": 1.85,
+     "face": "world",
+     "yaw": -35,
+     "at": 0.2631,
+     "speed": 0.25,
+     "hop": [
+      0.06,
+      0.5
+     ],
+     "sway": 5,
+     "arm": "both",
+     "aim": "rave",
+     "upAt": -1,
+     "googly": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -31.55,
+     -31.61
+    ],
+    "r": [
+     3.344,
+     3.053
+    ],
+    "h": [
+     2.5,
+     2.45
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.45,
+    1.55
+   ],
+   "wake": 10,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     1.39,
+     2.99
+    ],
+    [
+     1.97,
+     2.19
+    ],
+    [
+     1.97,
+     1.21
+    ],
+    [
+     1.39,
+     0.41
+    ],
+    [
+     0.45,
+     0.1
+    ],
+    [
+     -0.49,
+     0.41
+    ],
+    [
+     -1.07,
+     1.21
+    ]
+   ],
+   "spotsAt": [
+    0.45,
+    1.7
+   ],
+   "stools": false,
+   "clear": []
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "male_driving_a_car",
+     "x": -7.45,
+     "z": 2.07,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "lift": 0.45,
+     "mx": 3,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     97.54,
+     97.33
+    ],
+    "r": [
+     3.581,
+     3.529
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -4.45,
+    2.0700000000000003
+   ],
+   "wake": 10,
+   "winPets": "stare",
+   "kobLamp": true,
+   "pets": "stare",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.4,
+     1.3
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     -0.9,
+     2.2
+    ],
+    [
+     0.6,
+     2.6
+    ],
+    [
+     -2.4,
+     0.15
+    ],
+    [
+     2.6,
+     1.9
+    ],
+    [
+     -1.8,
+     3
+    ],
+    [
+     1.6,
+     3.4
+    ],
+    [
+     -5.6,
+     0.6
+    ],
+    [
+     3.2,
+     0.4
+    ],
+    [
+     -0.2,
+     3.6
+    ],
+    [
+     -2.2,
+     -0.95
+    ]
+   ],
+   "stare": [
+    -4.4,
+    2.4
+   ],
+   "police": {
+    "x": -7.4,
+    "z": 2.45,
+    "to": [
+     -4.4,
+     2.45
+    ],
+    "at": 0,
+    "dur": 2.308,
+    "lin": true
+   },
+   "siren": true,
+   "stools": false,
+   "clear": [
+    [
+     -1.44,
+     1.64,
+     0.9
+    ],
+    [
+     -1.98,
+     1.68,
+     0.9
+    ],
+    [
+     -2.52,
+     1.72,
+     0.9
+    ],
+    [
+     -3.07,
+     1.76,
+     0.9
+    ],
+    [
+     -3.61,
+     1.8,
+     0.9
+    ],
+    [
+     -4.15,
+     1.84,
+     0.9
+    ],
+    [
+     -4.69,
+     1.87,
+     0.9
+    ],
+    [
+     -5.23,
+     1.91,
+     0.9
+    ],
+    [
+     -5.78,
+     1.95,
+     0.9
+    ],
+    [
+     -6.32,
+     1.99,
+     0.9
+    ],
+    [
+     -6.86,
+     2.03,
+     0.9
+    ],
+    [
+     -7.4,
+     2.07,
+     0.9
+    ],
+    [
+     -1.4,
+     1.3,
+     0.05
+    ],
+    [
+     -0.9,
+     2.2,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -4.45,
+     "z": 1.25,
+     "face": "world",
+     "yaw": 140,
+     "at": 0.3,
+     "speed": 0.15,
+     "holdL": "citation",
+     "holdScale": 1.5,
+     "arm": "L",
+     "aim": [
+      0.6,
+      0.62,
+      0.42
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     145,
+     145
+    ],
+    "r": [
+     2.887,
+     2.772
+    ],
+    "h": [
+     1.4,
+     1.386
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -4.45,
+    1.25
+   ],
+   "wake": 10,
+   "winPets": "stare",
+   "kobLamp": true,
+   "pets": "stare",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.4,
+     1.3
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     -0.9,
+     2.2
+    ],
+    [
+     0.6,
+     2.6
+    ],
+    [
+     -2.4,
+     0.15
+    ],
+    [
+     2.6,
+     1.9
+    ],
+    [
+     -1.8,
+     3
+    ],
+    [
+     1.6,
+     3.4
+    ],
+    [
+     -5.6,
+     0.6
+    ],
+    [
+     3.2,
+     0.4
+    ],
+    [
+     -0.2,
+     3.6
+    ],
+    [
+     -2.2,
+     -0.95
+    ]
+   ],
+   "stare": [
+    -4.45,
+    1.2500000000000002
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": [
+    0,
+    0.3,
+    0,
+    1
+   ],
+   "stools": false,
+   "clear": [
+    [
+     -3.31,
+     -0.38,
+     0.8
+    ],
+    [
+     -3.83,
+     0.36,
+     0.8
+    ],
+    [
+     -4.35,
+     1.1,
+     0.8
+    ],
+    [
+     -4.86,
+     1.84,
+     0.8
+    ],
+    [
+     -5.38,
+     2.58,
+     0.8
+    ],
+    [
+     -5.9,
+     3.32,
+     0.8
+    ],
+    [
+     -6.42,
+     4.06,
+     0.8
+    ],
+    [
+     -6.93,
+     4.8,
+     0.8
+    ],
+    [
+     -2.2,
+     -0.95,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 14,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 175,
+     "at": 0.3,
+     "speed": 0.15,
+     "hold": "citation",
+     "holdScale": 1.6,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.62,
+      0.58
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": -1.3,
+     "face": "world",
+     "yaw": -10,
+     "at": 0.3,
+     "speed": 0.2,
+     "lift": 0.32,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     146.79,
+     146.26
+    ],
+    "r": [
+     3.287,
+     3.187
+    ],
+    "h": [
+     1.62,
+     1.6
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.45,
+    0.95
+   ],
+   "wake": 10,
+   "winPets": "stare",
+   "kobLamp": true,
+   "pets": "stare",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.4,
+     1.3
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     -0.9,
+     2.2
+    ],
+    [
+     0.6,
+     2.6
+    ],
+    [
+     -2.4,
+     0.15
+    ],
+    [
+     2.6,
+     1.9
+    ],
+    [
+     -1.8,
+     3
+    ],
+    [
+     1.6,
+     3.4
+    ],
+    [
+     -5.6,
+     0.6
+    ],
+    [
+     3.2,
+     0.4
+    ],
+    [
+     -0.2,
+     3.6
+    ],
+    [
+     -2.2,
+     -0.95
+    ]
+   ],
+   "stare": [
+    -0.5,
+    0.5
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "counterCups": 2,
+   "clear": [
+    [
+     1,
+     -1.18,
+     0.75
+    ],
+    [
+     0.64,
+     -0.56,
+     0.75
+    ],
+    [
+     0.29,
+     0.06,
+     0.75
+    ],
+    [
+     -0.07,
+     0.68,
+     0.75
+    ],
+    [
+     -0.42,
+     1.3,
+     0.75
+    ],
+    [
+     -0.78,
+     1.92,
+     0.75
+    ],
+    [
+     -1.14,
+     2.54,
+     0.75
+    ],
+    [
+     -1.49,
+     3.16,
+     0.75
+    ],
+    [
+     -1.85,
+     3.78,
+     0.75
+    ],
+    [
+     -2.2,
+     4.4,
+     0.75
+    ]
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 20,
+     "at": 0.3,
+     "speed": 0.2,
+     "lift": 0.32,
+     "holdL": "espresso",
+     "holdScale": 1.8,
+     "arm": "L",
+     "aim": [
+      0.6,
+      0.45,
+      0.55
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": 1.8,
+     "z": 1,
+     "face": "world",
+     "yaw": -139,
+     "at": 0.3,
+     "speed": 0.15,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     29.84,
+     30.08
+    ],
+    "r": [
+     3.92,
+     3.791
+    ],
+    "h": [
+     1.5,
+     1.49
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0.05,
+    -1
+   ],
+   "wake": 10,
+   "kobLamp": true,
+   "pets": "stare",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.4,
+     1.3
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     -0.9,
+     2.2
+    ],
+    [
+     0.6,
+     2.6
+    ],
+    [
+     -2.4,
+     0.15
+    ],
+    [
+     2.6,
+     1.9
+    ],
+    [
+     -1.8,
+     3
+    ],
+    [
+     1.6,
+     3.4
+    ],
+    [
+     -5.6,
+     0.6
+    ],
+    [
+     3.2,
+     0.4
+    ],
+    [
+     -0.2,
+     3.6
+    ],
+    [
+     -2.2,
+     -0.95
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "stools": false,
+   "counterCups": 2,
+   "clear": [
+    [
+     2.6,
+     1.9,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -0.4,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.15,
+     "hold": "espresso",
+     "holdScale": 1.5,
+     "arm": "R",
+     "aim": "sip",
+     "flapPh": 0.6,
+     "upAt": -1,
+     "googly": 0.75
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     172.18,
+     172.1
+    ],
+    "r": [
+     2.574,
+     2.473
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -0.4,
+    0.95
+   ],
+   "wake": 10,
+   "kobLamp": true,
+   "pets": "stare",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.4,
+     1.3
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     -0.9,
+     2.2
+    ],
+    [
+     0.6,
+     2.6
+    ],
+    [
+     -2.4,
+     0.15
+    ],
+    [
+     2.6,
+     1.9
+    ],
+    [
+     -1.8,
+     3
+    ],
+    [
+     1.6,
+     3.4
+    ],
+    [
+     -5.6,
+     0.6
+    ],
+    [
+     3.2,
+     0.4
+    ],
+    [
+     -0.2,
+     3.6
+    ],
+    [
+     -2.2,
+     -0.95
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "stools": false,
+   "counterCups": 0,
+   "clear": [
+    [
+     -0.18,
+     -1,
+     0.8
+    ],
+    [
+     -0.32,
+     -0.4,
+     0.8
+    ],
+    [
+     -0.45,
+     0.2,
+     0.8
+    ],
+    [
+     -0.59,
+     0.8,
+     0.8
+    ],
+    [
+     -0.72,
+     1.4,
+     0.8
+    ],
+    [
+     -0.86,
+     2,
+     0.8
+    ],
+    [
+     -0.99,
+     2.6,
+     0.8
+    ],
+    [
+     -1.13,
+     3.2,
+     0.8
+    ],
+    [
+     -1.26,
+     3.8,
+     0.8
+    ],
+    [
+     -1.4,
+     4.4,
+     0.8
+    ]
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "charleston",
+     "x": -3.1,
+     "z": 2.45,
+     "face": "world",
+     "yaw": 105,
+     "at": 0.55,
+     "lift": 0.75,
+     "googly": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     79.99,
+     80
+    ],
+    "r": [
+     3.28,
+     3.149
+    ],
+    "h": [
+     1.2,
+     1.222
+    ],
+    "look": [
+     1.75,
+     1.75
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -3.1,
+    2.45
+   ],
+   "wake": 12,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.4,
+     1.3
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     -0.9,
+     2.2
+    ],
+    [
+     0.6,
+     2.6
+    ],
+    [
+     -2.4,
+     0.15
+    ],
+    [
+     2.6,
+     1.9
+    ],
+    [
+     -1.8,
+     3
+    ],
+    [
+     1.6,
+     3.4
+    ],
+    [
+     -5.6,
+     0.6
+    ],
+    [
+     3.2,
+     0.4
+    ],
+    [
+     -0.2,
+     3.6
+    ],
+    [
+     -2.2,
+     -0.95
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "clear": [
+    [
+     -0.27,
+     2.95,
+     0.9
+    ],
+    [
+     -0.68,
+     2.88,
+     0.9
+    ],
+    [
+     -1.08,
+     2.81,
+     0.9
+    ],
+    [
+     -1.48,
+     2.74,
+     0.9
+    ],
+    [
+     -1.89,
+     2.66,
+     0.9
+    ],
+    [
+     -2.29,
+     2.59,
+     0.9
+    ],
+    [
+     -2.7,
+     2.52,
+     0.9
+    ],
+    [
+     -3.1,
+     2.45,
+     0.9
+    ],
+    [
+     -0.2,
+     3.6,
+     0.05
+    ],
+    [
+     0.6,
+     2.6,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 35,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "charleston",
+     "x": 3.7,
+     "z": -0.7,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.6
+    },
+    {
+     "who": "sadi",
+     "look": "nightie",
+     "clip": "charleston",
+     "x": 4.7,
+     "z": -0.6,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.6,
+     "googly": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -172.32,
+     -172.87
+    ],
+    "r": [
+     8.981,
+     8.062
+    ],
+    "h": [
+     5,
+     4.4
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    4.2,
+    0.9
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": false,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "mob": [
+    4.2,
+    0.35,
+    6,
+    3,
+    1,
+    0.9,
+    180
+   ],
+   "clear": []
+  },
+  {
+   "beat": 43,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 8.3,
+     "face": "world",
+     "yaw": 180,
+     "at": 1,
+     "speed": 0,
+     "lift": 3.08,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     164.2,
+     164.4
+    ],
+    "r": [
+     1.652,
+     1.599
+    ],
+    "h": [
+     5,
+     4.95
+    ],
+    "look": [
+     3.26,
+     3.26
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    9.09
+   ],
+   "wake": 18,
+   "kobLamp": 0.4
+  },
+  {
+   "beat": 47,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "happy_walk",
+     "x": -2,
+     "z": 4.55,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 1.3,
+     "mz": -1.5,
+     "moveAt": 0.3,
+     "hold": "milkbottle",
+     "holdScale": 1.5,
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.3,
+      0.6
+     ],
+     "upAt": -1,
+     "hop": [
+      0.04,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -179.2,
+     -179.19
+    ],
+    "r": [
+     3.6,
+     3.52
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -2,
+    4.6
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "kobDoor": [
+    0,
+    0.25,
+    0,
+    1
+   ],
+   "clear": [
+    [
+     -2.04,
+     1.5,
+     1
+    ],
+    [
+     -2.04,
+     2,
+     1
+    ],
+    [
+     -2.03,
+     2.5,
+     1
+    ],
+    [
+     -2.02,
+     3,
+     1
+    ],
+    [
+     -2.02,
+     3.5,
+     1
+    ],
+    [
+     -2.01,
+     4,
+     1
+    ],
+    [
+     -2.01,
+     4.5,
+     1
+    ],
+    [
+     -2,
+     5,
+     1
+    ],
+    [
+     -2.6,
+     0.6,
+     0.05
+    ],
+    [
+     -1.6,
+     1.4,
+     0.05
+    ],
+    [
+     -1.9,
+     3.2,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 51,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "happy_walk",
+     "x": -1.45,
+     "z": 2.4,
+     "face": "world",
+     "yaw": 150,
+     "at": 0.3,
+     "speed": 1.4,
+     "mx": 0.9,
+     "mz": -1.5,
+     "hold": "milkbottle",
+     "holdScale": 1.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     110,
+     110
+    ],
+    "r": [
+     4.1,
+     3.936
+    ],
+    "h": [
+     0.8,
+     0.808
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -1,
+    1.6
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "clear": [
+    [
+     -0.9,
+     2.3,
+     0.05
+    ],
+    [
+     1.9,
+     1,
+     0.05
+    ],
+    [
+     3.4,
+     0.4,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 53,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.12,
+     "hold": "milkbottle",
+     "holdScale": 1.3
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     178.83,
+     178.78
+    ],
+    "r": [
+     2.451,
+     2.351
+    ],
+    "h": [
+     1.55,
+     1.54
+    ],
+    "look": [
+     1.28,
+     1.28
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.1,
+    0.95
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "moves",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "movesAt": [
+    0.398,
+    0.877,
+    1.316,
+    1.841
+   ],
+   "clear": []
+  },
+  {
+   "beat": 57,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": -1,
+     "face": "world",
+     "yaw": 40,
+     "at": 0.3,
+     "speed": 0.2,
+     "lift": 0.32,
+     "hold": "espresso",
+     "holdScale": 1.6,
+     "arm": "R",
+     "aim": [
+      0.2,
+      0.18,
+      0.95
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "happy_idle",
+     "x": -0.2,
+     "z": 0.08,
+     "face": "world",
+     "yaw": 150,
+     "at": 0.3,
+     "speed": 0.12,
+     "hold": "milkbottle",
+     "holdScale": 1.3,
+     "arm": "R",
+     "aim": [
+      0.25,
+      0.1,
+      0.9
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.3,
+     3.23
+    ],
+    "h": [
+     1.22,
+     1.22
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    -0.5
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "clear": [
+    [
+     3.4,
+     0.4,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 58.5,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": -1,
+     "face": "world",
+     "yaw": 40,
+     "at": 0.3,
+     "speed": 0.2,
+     "lift": 0.32,
+     "hold": "milkbottle",
+     "holdScale": 1.3,
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "happy_idle",
+     "x": -0.2,
+     "z": 0.08,
+     "face": "world",
+     "yaw": 150,
+     "at": 0.3,
+     "speed": 0.12,
+     "hold": "espresso",
+     "holdScale": 1.6,
+     "arm": "R",
+     "aim": [
+      0.25,
+      0.1,
+      0.9
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.3,
+     3.23
+    ],
+    "h": [
+     1.22,
+     1.22
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    -0.5
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "clear": [
+    [
+     3.4,
+     0.4,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 61,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.3,
+     "speed": 0.12,
+     "hold": "espresso",
+     "holdScale": 1.5,
+     "arm": "R",
+     "aim": "sip",
+     "flapPh": 1.6,
+     "upAt": -1,
+     "googly": 0.681
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     178.88,
+     179.06
+    ],
+    "r": [
+     2.55,
+     2.45
+    ],
+    "h": [
+     1.52,
+     1.52
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -0.1,
+    0.95
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "dance",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "counterCups": 0,
+   "clear": []
+  },
+  {
+   "beat": 65,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "nightgown",
+     "clip": "charleston",
+     "x": -0.1,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.55,
+     "speed": 1.15,
+     "lift": 0.84,
+     "googly": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     7.77,
+     7.35
+    ],
+    "r": [
+     3.331,
+     3.126
+    ],
+    "h": [
+     0.65,
+     0.6
+    ],
+    "look": [
+     1.85,
+     1.85
+    ],
+    "fov": 56,
+    "roll": [
+     6,
+     3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -0.1,
+    -0.55
+   ],
+   "wake": 18,
+   "winPets": "dance",
+   "kobLamp": true,
+   "pets": "cheer",
+   "wired": true,
+   "cups": true,
+   "spots": [
+    [
+     -1.6,
+     1.4
+    ],
+    [
+     1.9,
+     1
+    ],
+    [
+     -0.9,
+     2.3
+    ],
+    [
+     0.7,
+     2.7
+    ],
+    [
+     -2.6,
+     0.6
+    ],
+    [
+     2.8,
+     2
+    ],
+    [
+     -1.9,
+     3.2
+    ],
+    [
+     1.7,
+     3.6
+    ],
+    [
+     -3.4,
+     4.1
+    ],
+    [
+     3.4,
+     0.4
+    ],
+    [
+     -0.2,
+     3.7
+    ],
+    [
+     -3.3,
+     0.45
+    ],
+    [
+     4.2,
+     1.6
+    ],
+    [
+     -4.6,
+     -0.6
+    ],
+    [
+     4.6,
+     -0.4
+    ],
+    [
+     -2.9,
+     4
+    ],
+    [
+     2.9,
+     4
+    ],
+    [
+     5.4,
+     2.6
+    ],
+    [
+     -5.6,
+     0.4
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     -1,
+     -3
+    ],
+    [
+     1.4,
+     -3.2
+    ],
+    [
+     -3.2,
+     -2.4
+    ],
+    [
+     3.4,
+     -2.2
+    ]
+   ],
+   "police": {
+    "x": -4.4,
+    "z": 2.45
+   },
+   "siren": true,
+   "carDoor": 1,
+   "stools": false,
+   "clear": [
+    [
+     0.7,
+     2.7,
+     0.05
+    ]
+   ]
+  },
+  {
+   "beat": 73,
+   "kind": "dance",
+   "map": "piazza",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "riviera",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": 8.3,
+     "face": "world",
+     "yaw": 180,
+     "at": 1,
+     "speed": 0,
+     "lift": 3.08,
+     "ground": "mesh",
+     "sleep": true,
+     "hold": "milkbottle",
+     "holdScale": 1.3,
+     "arm": "R",
+     "aim": [
+      0.25,
+      0.6,
+      0.7
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     164.2,
+     164.4
+    ],
+    "r": [
+     1.652,
+     1.599
+    ],
+    "h": [
+     5,
+     4.95
+    ],
+    "look": [
+     3.26,
+     3.26
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0,
+    9.09
+   ],
+   "wake": 18,
+   "kobLamp": 0.4
+  }
+ ]
+}
