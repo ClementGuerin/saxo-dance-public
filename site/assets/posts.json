@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-09T14:17:26.534Z",
+ "updated": "2026-10-09T18:17:25.090Z",
  "posts": [
+  {
+   "id": "2026-10-09-2",
+   "title": "Espresso",
+   "artist": "Sabrina Carpenter",
+   "date": "2026-10-09T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-09-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7694730161689824545",
+     "id": "7694730161689824545"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeSGyNZgYzY/",
+     "id": "DeSGyNZgYzY"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/XyeY5mkzqbQ",
+     "id": "XyeY5mkzqbQ"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1255297416807760",
+     "id": "1255297416807760"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2108618876304936976",
+     "id": "2108618876304936976"
+    }
+   }
+  },
   {
    "id": "2026-10-09",
    "title": "Danza Kuduro",
