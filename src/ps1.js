@@ -43,6 +43,7 @@ import { buildMansionMaps } from './maps36.js';
 import { buildResortMaps } from './maps37.js';
 import { buildPiazzaMaps } from './maps38.js';
 import { buildSalonMaps } from './maps39.js';
+import { buildHusbandMaps } from './maps40.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -153,6 +154,12 @@ function mat({ map = null, color = 0xffffff, rep = [1, 1], unlit = 0, lift = 0, 
 
 // ---------- tiny canvas textures ----------
 function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+// the backing singers' card ("WHERE IS MY HUSBAND!"): HE'S / BEHIND / YOU! in black capitals on cream, a thin black border (canvas, 64 x 48)
+function drawBehind(x) {
+  x.fillStyle = '#14110e'; x.fillRect(0, 0, 64, 48); x.fillStyle = '#f6f0e0'; x.fillRect(2, 2, 60, 44);
+  x.fillStyle = '#14110e'; x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.font = 'bold 13px Georgia, serif'; x.fillText("HE'S", 32, 11); x.fillText('BEHIND', 32, 24); x.fillText('YOU!', 32, 37);
+}
 function tex(w, h, draw, seed = 1) {
   const c = document.createElement('canvas'); c.width = w; c.height = h;
   const x = c.getContext('2d'); x.imageSmoothingEnabled = false; draw(x, rng(seed), w, h);
@@ -781,6 +788,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   beanie: 'assets/models/saxo_beanie.glb',
   // the groomer's show-poodle cut: fluffy white curls on his chest and shoulders, big pom-poms round his wrists and ankles, a puff of curls on his head with a pink satin bow, a pink collar with a gold heart tag, a pom-pom on his tail ("BIRDS OF A FEATHER", 2026-10-10)
   poodle: 'assets/models/saxo_poodle.glb',
+  // the husband in the "WHERE IS MY HUSBAND!" clip's silhouette at the end of the corridor, as a 1940s gentleman: a charcoal double-breasted pinstripe suit with wide lapels, a white shirt and a burgundy tie, a red rose boutonniere, shiny black shoes, a small charcoal fedora between his ears (2026-10-10)
+  fedora: 'assets/models/saxo_fedora.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -809,6 +818,8 @@ const PARTNERS = {
     bobsled: 'assets/models/sadi_bobsled.glb',
     // the sleepover: a short pale pink nightdress with white lace trim and puffed sleeves, fluffy pink slippers, her pink bow ("Bring Me To Life", 2026-10-02)
     nightie: 'assets/models/sadi_nightie.glb',
+    // the singer's look from the "WHERE IS MY HUSBAND!" clip, a 1940s torch singer: a floor-length ruby-red sequin halter gown, fitted down to a small flare at the hem, pearl drop earrings, red lipstick, her pink bow (2026-10-10)
+    torch: 'assets/models/sadi_torch.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -862,6 +873,8 @@ const PARTNERS = {
     nightgown: 'assets/models/kob_nightgown.glb',
     // the pet groomer: a pale lilac work smock with short sleeves and a front pocket of steel scissors and a comb, a name badge, a small lilac cap between her ears, black leggings, white rubber clogs, her bell collar ("BIRDS OF A FEATHER", 2026-10-10)
     groomer: 'assets/models/kob_groomer.glb',
+    // the clip's backing singer: a short ruby-red sequin cocktail dress on thin straps, small red heels, her bell collar ("WHERE IS MY HUSBAND!", 2026-10-10)
+    sequin: 'assets/models/kob_sequin.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -901,6 +914,8 @@ const PARTNERS = {
     cop: 'assets/models/compote_cop.glb',
     // the salon's bather: a bright yellow rubber apron from her chest to her knees over a plum short-sleeved top, long yellow rubber gloves to the elbows, green rubber boots, her carrot clip ("BIRDS OF A FEATHER", 2026-10-10)
     bather: 'assets/models/compote_bather.glb',
+    // the clip's backing singer: a short ruby-red sequin cocktail dress on thin straps, small red heels, her carrot clip ("WHERE IS MY HUSBAND!", 2026-10-10)
+    sequin: 'assets/models/compote_sequin.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     heads: { chrome: 'compote' },   // the girl-group look came back from Tripo with the top of her head sliced flat (ears and eyes gone): wear her own ("No Scrubs", 2026-10-05)
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
@@ -1001,7 +1016,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1249,6 +1264,20 @@ function propMesh(kind) {
     const face = mat({ map: tex(48, 48, x => drawStop(x), 2240), unlit: 0.6 }), oct = new THREE.CircleGeometry(0.23, 8, Math.PI / 8);
     add(new THREE.Mesh(oct, face), 0, 0.5, 0.008); add(new THREE.Mesh(oct, face), 0, 0.5, -0.008).rotation.y = Math.PI;
     add(cyl(0.016, 0.016, 0.5, M(0x9a9aa4), 4), 0, 0.12);
+  } else if (kind === 'behindsign') {   // "WHERE IS MY HUSBAND!": the backing singers' card (the clip's YOUR HUSBAND IS COMING!): HE'S BEHIND YOU! in black capitals on a cream card, both faces, on a stick, held up beside the face like the STOP sign
+    const face = mat({ map: tex(64, 48, x => drawBehind(x), 2241), unlit: 0.6 }), card = new THREE.PlaneGeometry(0.5, 0.375);
+    add(new THREE.Mesh(card, face), 0, 0.52, 0.008); add(new THREE.Mesh(card, face), 0, 0.52, -0.008).rotation.y = Math.PI;
+    add(cyl(0.014, 0.014, 0.42, M(0x8a6a4a), 4), 0, 0.14);
+  } else if (kind === 'ringbox') {   // "WHERE IS MY HUSBAND!": a red velvet ring box, shut, a gold band round it (hidden behind his back between tries)
+    add(box(0.09, 0.07, 0.08, mat({ color: 0xc8102e, unlit: 0.3 })), 0, 0.035); add(box(0.094, 0.012, 0.084, M(0xe8c040)), 0, 0.045);
+  } else if (kind === 'ringopen') {   // the ring box open to the front: the red base, the lid swung back with its white satin lining, a gold ring standing in the slot, a diamond on top that sparkles (holdProp flickers the strokes)
+    const red = mat({ color: 0xc8102e, unlit: 0.3 });
+    add(box(0.09, 0.045, 0.08, red), 0, 0.0225); add(box(0.08, 0.004, 0.07, mat({ color: 0xf6f2ea, unlit: 0.5 })), 0, 0.046);
+    const lid = new THREE.Group(); lid.position.set(0, 0.045, -0.04); G.add(lid); lid.rotation.x = -1.9;
+    lid.add(at3(box(0.09, 0.03, 0.08, red), 0, 0.015, 0.04)); lid.add(at3(box(0.08, 0.004, 0.07, mat({ color: 0xf6f2ea, unlit: 0.55 })), 0, -0.002, 0.04));
+    add(new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.008, 4, 10), mat({ color: 0xf2c84a, unlit: 0.45 })), 0, 0.075, 0.005);
+    add(new THREE.Mesh(new THREE.OctahedronGeometry(0.022, 0), mat({ color: 0xffffff, unlit: 0.95 })), 0, 0.115, 0.005);
+    G.userData.sparkle = [0, 1, 2, 3].map(k => { const l = add(box(0.008, 0.075, 0.008, mat({ color: 0xffffff, unlit: 1 })), 0, 0.115, 0.03); l.rotation.z = k * Math.PI / 4; return l; });
   } else if (kind === 'rose') {   // a red rose, the flower girl's ammunition: a faceted bloom, a green stem and a leaf
     add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xe8203c, unlit: 0.35 })), 0, 0.2);
     for (let q = 0; q < 3; q++) add(box(0.05, 0.03, 0.05, mat({ color: 0xff4a6a, unlit: 0.35 })), Math.sin(q * 2.1) * 0.035, 0.22, Math.cos(q * 2.1) * 0.035).rotation.y = q;
@@ -1505,6 +1534,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' || kind === 'handmirror' || kind === 'instant' || kind === 'polaroid' || kind === 'polaroid1' || kind === 'espresso' || kind === 'handset' || kind === 'citation' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
+  if (g.userData.sparkle) g.userData.sparkle.forEach((l, i) => { l.visible = Math.sin(t * 7 + i * 1.9) > -0.35; l.scale.y = 0.7 + 0.5 * Math.abs(Math.sin(t * 5 + i)); });   // the ring's diamond twinkles
   if (g.userData.petals) {   // the petals left: petalsLeft, minus one on every pluckEvery beats since the shot's start (the pluck swing reaches on the beat), or
     // minus the one that falls at petalFall s; the latest plucked petal flutters down to the keys (a mesh of its own in PROPS, hidden each frame)
     let n = D.petalsLeft ?? 12, k = -1;

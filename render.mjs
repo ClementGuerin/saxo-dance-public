@@ -266,7 +266,7 @@ try {
     const mix = await buildAudio(); mkdirSync(dirname(out), { recursive: true });
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
       ...(mix ? ['-ss', String(a), '-t', String(b - a), '-i', mix, '-map', '0:v', '-map', '1:a', '-c:a', 'aac', '-b:a', '192k', '-shortest'] : []),
-      '-vf', EVEN, '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', ...TAGS, '-movflags', '+faststart', out], { stdio: ['pipe', 'inherit', 'inherit'] });
+      '-vf', EVEN, '-c:v', 'libx264', '-preset', args.preset || 'medium', '-crf', String(args.crf || 20), ...TAGS, ...(args['no-faststart'] ? [] : ['-movflags', '+faststart']), out], { stdio: ['pipe', 'inherit', 'inherit'] });   // --crf / --preset as for --encode: on a disk too full for a frames folder, --clip=0:<duration> --crf=18 --no-faststart is the final render (faststart rewrites the whole file a second time at the end: on 2026-10-10 that second copy hit a full disk)
     const n = Math.round((b - a) * fps), start = Date.now();
     for (let i = 0; i < n; i++) {
       const buf = await frameOf(first, a + i / fps, 'image/jpeg', .92);
