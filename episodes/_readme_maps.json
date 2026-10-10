@@ -3397,6 +3397,95 @@
      "z": 2
     }
    ]
+  },
+  {
+   "beat": 160,
+   "kind": "dance",
+   "map": "ballroom",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "mic": false,
+   "pets": "watch",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "sequin",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "compote",
+     "look": "sequin",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "beat": 162,
+   "kind": "dance",
+   "map": "hotel",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -23
+   ],
+   "zone": "hall",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "torch",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.48,
+     "z": -23
+    },
+    {
+     "who": "saxo",
+     "look": "fedora",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": 0.48,
+     "z": -23
+    }
+   ]
   }
  ]
 }
