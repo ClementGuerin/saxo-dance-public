@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-10T15:47:23.822Z",
+ "updated": "2026-10-10T18:17:20.607Z",
  "posts": [
+  {
+   "id": "2026-10-10-2",
+   "title": "WHERE IS MY HUSBAND!",
+   "artist": "RAYE",
+   "date": "2026-10-10T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-10-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695101181961571616",
+     "id": "7695101181961571616"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeUrmJOgvQQ/",
+     "id": "DeUrmJOgvQQ"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/RS7ndNbF94o",
+     "id": "RS7ndNbF94o"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1750379959587127",
+     "id": "1750379959587127"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2108981252128731264",
+     "id": "2108981252128731264"
+    }
+   }
+  },
   {
    "id": "2026-10-10",
    "title": "BIRDS OF A FEATHER",
