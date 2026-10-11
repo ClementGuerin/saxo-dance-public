@@ -204,11 +204,11 @@ export function buildRumbleMaps(K) {
           if (P.stare && mode !== 'point') { const a = Math.atan2(P.stare[0] - x, P.stare[1] - z) - yaw; q.head.rotation.y = Math.max(-1.1, Math.min(1.1, Math.atan2(Math.sin(a), Math.cos(a)))); }
           if (mode === 'square') { q.body.position.y = 0.025 * Math.abs(Math.sin(ph * PI)); q.arms.forEach((a, j) => { a.rotation.x = -1.25 - 0.1 * hit; a.rotation.z = (j ? 1 : -1) * 0.2; }); }
           else if (mode === 'claw') { q.arms.forEach((a, j) => { a.rotation.x = -2.5 + 0.9 * hit; a.rotation.z = (j ? 1 : -1) * 0.35; }); q.mouth.visible = true; q.body.rotation.x = 0.12 * hit; }
-          else if (mode === 'stomp') { q.legs[1].rotation.x = 0.7 * (1 - hit); q.body.position.y = 0.07 * (1 - hit); q.arms.forEach((a, j) => { a.rotation.x = -1.0; a.rotation.z = (j ? 1 : -1) * 0.25; }); }
-          else if (mode === 'point') { const pa = P.pointAt || R.DOOR, a = Math.atan2(pa[0] - x, pa[1] - z) - yaw; q.g.rotation.y = yaw + a * 0.5; q.arms[1].rotation.set(-1.55, 0, 0); q.arms[1].rotation.y = a * 0.5; q.head.rotation.y = a * 0.5; }
-          else if (mode === 'throw') { const u = fr(ph); q.arms[1].rotation.x = u < 0.6 ? -2.9 + 0.9 * (u / 0.6) : -2.0 + 3.2 * ((u - 0.6) / 0.4) - 3.2 * Math.max(0, (u - 0.6) / 0.4 - 0.5); q.body.rotation.x = 0.1 * Math.sin(u * TAU); q.legs[0].rotation.x = -0.3; }
+          else if (mode === 'stomp') { const up = Math.sin(Math.PI * Math.min(1, fr(ph) / 0.8)); q.legs[1].rotation.x = 1.3 * up; q.legs[0].rotation.x = -0.15 * up; q.body.position.y = 0.12 * up; q.body.rotation.x = 0.22 * up; q.arms.forEach((a, j) => { a.rotation.x = 0.15; a.rotation.z = (j ? 1 : -1) * 0.12; }); q.mouth.visible = true; }   // a thump: up off the floor, one hind foot raised, slammed down on the beat
+          else if (mode === 'point') { const pa = P.pointAt || R.DOOR; let la = Math.atan2(pa[0] - x, pa[1] - z) - yaw; la = Math.atan2(Math.sin(la), Math.cos(la)); const j = la > 0 ? 1 : 0; q.arms[j].rotation.set(-0.35 * Math.cos(la), 0, (j ? 1 : -1) * 1.45); q.arms[1 - j].rotation.z = (j ? -1 : 1) * 0.15; q.head.rotation.y = Math.max(-1.0, Math.min(1.0, la * 0.7)); q.mouth.visible = true; }   // the arm on the door's side held out sideways at it (pointed at the lens, an arm foreshortened to nothing)
+          else if (mode === 'throw') { const u = fr(bt), w = u < 0.45 ? 0 : u < 0.7 ? (u - 0.45) / 0.25 : u < 0.9 ? 1 : 1 - (u - 0.9) / 0.1; q.arms[1].rotation.x = -2.9 + 1.7 * w; q.arms[0].rotation.x = -0.5 - 0.3 * w; q.body.rotation.x = -0.12 + 0.24 * w; q.legs[0].rotation.x = -0.3; }   // in sync: up and back off the beat, whipped forward-up on it
           else if (mode === 'stare') { q.mouth.visible = true; q.arms.forEach((a, j) => { a.rotation.z = (j ? 1 : -1) * 0.15; }); }
-          else if (mode === 'pant') { q.body.rotation.x = 0.42 + 0.06 * Math.sin(t * 9 + i); q.body.position.y = -0.02; q.arms.forEach((a, j) => { a.rotation.x = -0.35; a.rotation.z = (j ? 1 : -1) * 0.1; }); q.head.rotation.x = -0.3; q.mouth.visible = true; }
+          else if (mode === 'pant') { q.body.rotation.x = 0.78 + 0.07 * Math.sin(t * 9 + i); q.body.position.y = -0.04; q.arms.forEach((a, j) => { a.rotation.x = 0.55; a.rotation.z = (j ? 1 : -1) * 0.12; }); q.head.rotation.x = -0.55; q.mouth.visible = true; }   // bent double, paws on the knees
           else if (mode === 'dance') { const up = Math.abs(Math.sin(ph * PI)); q.body.position.y = 0.06 * up; q.body.rotation.z = 0.12 * Math.sin(ph * PI); q.arms.forEach((a, j) => { a.rotation.x = -0.4 - 0.4 * up; a.rotation.z = (j ? 1 : -1) * (0.5 + 0.3 * up); }); q.legs.forEach((l, j) => { l.rotation.x = 0.35 * Math.sin(ph * PI + j * PI); }); }
           else if (mode === 'cheer') { q.arms.forEach((a, j) => { a.rotation.z = (j ? 1 : -1) * 2.45; }); q.mouth.visible = true; q.body.position.y = 0.05 * Math.abs(Math.sin(bt * PI)); }
         });
@@ -219,7 +219,8 @@ export function buildRumbleMaps(K) {
           const h = flying[j]; Object.values(h.children).forEach(c => { c.visible = false; }); const m = getMesh(j, kind); m.visible = true; h.visible = true;
           const u = Math.min(1, e / dur);
           h.position.set(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u + arc * 4 * u * (1 - u), z0 + (z1 - z0) * u);
-          if (u < 1) h.rotation.set(e * 9 + j, e * 5, e * 3); else h.rotation.set(0, j * 1.3, 0);
+          const flat = kind === 'fish' || kind === 'frisbee', dir = Math.atan2(x1 - x0, z1 - z0);
+          if (u < 1) { if (flat) h.rotation.set(0.15 * Math.sin(e * 12), dir, 0.2 * Math.sin(e * 9)); else h.rotation.set(e * 9 + j, e * 5, e * 3); } else h.rotation.set(0, flat ? dir : j * 1.3, 0);   // a tumbling fish read as a club
           h.scale.setScalar(1.25);
         });
         // the pile of fetched things on the floor

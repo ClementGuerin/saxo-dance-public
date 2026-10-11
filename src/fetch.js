@@ -23,7 +23,7 @@ export function fetchMesh(K, kind) {   // K: the renderer's map kit (THREE, mat)
     const seam = add(new THREE.Mesh(new THREE.TorusGeometry(0.105, 0.012, 4, 14), M(0xffffff, 0.6))); seam.rotation.x = 0.6;
   } else if (kind === 'fish') {   // a silver-blue fish (the cats' prize), along x, head at +x
     const body = add(ico(0.1, 1, M(0x8ab4d8, 0.4))); body.scale.set(2.2, 0.85, 0.55);
-    const tail = add(new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.16, 4), M(0x6a94c0, 0.4)), -0.27, 0, 0); tail.rotation.z = PI / 2; tail.scale.set(1, 1, 0.35);
+    const tail = add(new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.16, 4), M(0x9cc4e4, 0.55)), -0.27, 0, 0);   // light: a dark tail read as a black square tail.rotation.z = PI / 2; tail.scale.set(1, 1, 0.35);
     for (const s of [-1, 1]) { add(ico(0.025, 0, M(0x101010, 0.2)), 0.15, 0.03, s * 0.045); add(ico(0.009, 0, M(0xffffff, 1)), 0.162, 0.038, s * 0.055); }
     const fin = add(box(0.12, 0.06, 0.012, M(0x6a94c0, 0.4)), -0.02, 0.09, 0); fin.rotation.z = 0.25;
   } else if (kind === 'yarn') {   // a red ball of yarn with a loose strand (the cats' toy)
