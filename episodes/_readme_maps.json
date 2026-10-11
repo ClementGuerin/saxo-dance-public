@@ -3542,6 +3542,51 @@
      "z": 7.6
     }
    ]
+  },
+  {
+   "beat": 166,
+   "kind": "dance",
+   "map": "candyclub",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": 1,
+    "fov": 54
+   },
+   "focus": [
+    0,
+    2.75
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "bandeau",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 2.75
+    },
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 2.75
+    }
+   ]
   }
  ]
 }
