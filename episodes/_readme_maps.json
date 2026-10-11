@@ -3587,6 +3587,47 @@
      "z": 2.75
     }
    ]
+  },
+  {
+   "beat": 168,
+   "kind": "dance",
+   "map": "rumble",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": 1,
+    "fov": 50
+   },
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "redjacket",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0
+    },
+    {
+     "who": "kob",
+     "look": "greaser",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0
+    }
+   ]
   }
  ]
 }
