@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-10T19:45:06.659Z",
+ "updated": "2026-10-11T14:17:50.566Z",
  "posts": [
+  {
+   "id": "2026-10-11",
+   "title": "Dracula",
+   "artist": "Tame Impala, JENNIE",
+   "date": "2026-10-11T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-11.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695410406034050336",
+     "id": "7695410406034050336"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeW1A1hDJ9U/",
+     "id": "DeW1A1hDJ9U"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/nSNgf2eVAxw",
+     "id": "nSNgf2eVAxw"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=2075965999702944",
+     "id": "2075965999702944"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2109283211226361974",
+     "id": "2109283211226361974"
+    }
+   }
+  },
   {
    "id": "2026-10-10-2",
    "title": "WHERE IS MY HUSBAND!",
