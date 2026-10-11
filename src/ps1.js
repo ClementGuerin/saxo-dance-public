@@ -44,6 +44,7 @@ import { buildResortMaps } from './maps37.js';
 import { buildPiazzaMaps } from './maps38.js';
 import { buildSalonMaps } from './maps39.js';
 import { buildHusbandMaps } from './maps40.js';
+import { buildDraculaMaps } from './maps41.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -790,6 +791,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   poodle: 'assets/models/saxo_poodle.glb',
   // the husband in the "WHERE IS MY HUSBAND!" clip's silhouette at the end of the corridor, as a 1940s gentleman: a charcoal double-breasted pinstripe suit with wide lapels, a white shirt and a burgundy tie, a red rose boutonniere, shiny black shoes, a small charcoal fedora between his ears (2026-10-10)
   fedora: 'assets/models/saxo_fedora.glb',
+  // Dracula: slicked-back black hair with a widow's peak between his ears, a black tailcoat and waistcoat, a white ruffled jabot with a red jewel, a long black cape lined in red with a high stand-up collar, black shoes ("Dracula", 2026-10-11)
+  dracula: 'assets/models/saxo_dracula.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -875,6 +878,8 @@ const PARTNERS = {
     groomer: 'assets/models/kob_groomer.glb',
     // the clip's backing singer: a short ruby-red sequin cocktail dress on thin straps, small red heels, her bell collar ("WHERE IS MY HUSBAND!", 2026-10-10)
     sequin: 'assets/models/kob_sequin.glb',
+    // the vampire countess: a black velvet dress to the ankles with a red sash, a tall white lace ruff collar, lace cuffs, a red rose at the chest, black shoes, her bell collar and her own little fangs ("Dracula", 2026-10-11)
+    countess: 'assets/models/kob_countess.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -916,6 +921,8 @@ const PARTNERS = {
     bather: 'assets/models/compote_bather.glb',
     // the clip's backing singer: a short ruby-red sequin cocktail dress on thin straps, small red heels, her carrot clip ("WHERE IS MY HUSBAND!", 2026-10-10)
     sequin: 'assets/models/compote_sequin.glb',
+    // the mummy: wrapped head to toe in cream bandages, ears included, her angry face and paws showing, her carrot clip on the wrappings, a carrot patch on the chest, her cotton tail ("Dracula", 2026-10-11)
+    mummy: 'assets/models/compote_mummy.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
     heads: { chrome: 'compote' },   // the girl-group look came back from Tripo with the top of her head sliced flat (ears and eyes gone): wear her own ("No Scrubs", 2026-10-05)
     byMap: { moon: 'astronaut', mars: 'astronaut', spaceship: 'astronaut', underwater: 'astronaut', bikini: 'astronaut', western: 'cowgirl', farm: 'cowgirl', jungle: 'cowgirl', pyramids: 'cowgirl',
@@ -1016,7 +1023,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1329,6 +1336,10 @@ function propMesh(kind) {
     const pageT = tex(24, 32, x => { x.fillStyle = '#f6f4ec'; x.fillRect(0, 0, 24, 32); x.strokeStyle = '#1c2030'; x.lineWidth = 1; for (const [a, b, w, h] of [[2, 2, 20, 12], [2, 16, 9, 14], [13, 16, 9, 14]]) x.strokeRect(a + 0.5, b + 0.5, w, h); x.fillStyle = '#5a6480'; x.fillRect(5, 7, 12, 3); });
     const coverT = tex(24, 32, x => { x.fillStyle = '#ffd43b'; x.fillRect(0, 0, 24, 32); x.fillStyle = '#ffffff'; x.beginPath(); x.arc(12, 17, 8, 0, Math.PI * 2); x.fill(); x.fillStyle = '#1c2030'; x.font = 'bold 9px monospace'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('13', 12, 18); x.fillStyle = '#d8343e'; x.fillRect(0, 0, 24, 6); });
     for (const s of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.15, 0.012, 0.21, mat({ map: coverT, unlit: 0.35 })), s * 0.075, 0, 0)); h.add(at3(box(0.14, 0.02, 0.19, mat({ map: pageT, unlit: 0.3 })), s * 0.072, 0.015, 0)); h.rotation.z = -s * 0.32; G.add(h); }
+  } else if (kind === 'hammer') {  // "Dracula": a claw hammer held along the forearm (the taiko swing hammers on the beat): a wooden handle, a steel head across its end
+    add(box(0.045, 0.4, 0.045, mat({ color: 0xa8743a, unlit: 0.2 })), 0, 0.12); add(box(0.24, 0.08, 0.08, mat({ color: 0xc8ccd4, unlit: 0.35 })), 0.03, 0.34); add(box(0.06, 0.05, 0.07, mat({ color: 0xc8ccd4, unlit: 0.35 })), -0.11, 0.37);
+  } else if (kind === 'goblet') {  // "Dracula": the countess's crystal goblet of red juice, held upright
+    add(cyl(0.05, 0.06, 0.012, M(0xd8e4ee), 8), 0, 0.006); add(cyl(0.008, 0.008, 0.09, M(0xd8e4ee), 5), 0, 0.05); add(cyl(0.065, 0.03, 0.08, mat({ color: 0xe8f2fa, unlit: 0.35 }), 8), 0, 0.13); add(cyl(0.058, 0.04, 0.05, mat({ color: 0xb0142a, unlit: 0.35 }), 8), 0, 0.125);
   } else if (kind === 'wrench') {  // "Take on Me": the rival's giant spanner, held upright like a club: a red handle, an open C-shaped steel head (a square pipe-wrench jaw read as a letter F)
     const steel = mat({ color: 0xb8bec8, unlit: 0.3 });
     add(box(0.07, 0.62, 0.05, mat({ color: 0xd8343e, unlit: 0.3 })), 0, 0.22); add(box(0.075, 0.1, 0.055, steel), 0, 0.57);
@@ -1524,7 +1535,7 @@ function holdProp(D, kind, side, bodyYaw, t) {
     g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(xb, d, new THREE.Vector3().crossVectors(xb, d)));
     const pl = len - 0.3; g.userData.pole.scale.y = pl; g.userData.pole.position.y = pl / 2; g.userData.rakeHead.position.y = pl; return;
   }
-  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov' || kind === 'brush') {   // along the forearm, pointing where the paw points
+  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov' || kind === 'brush' || kind === 'hammer') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
@@ -2129,7 +2140,9 @@ function placeActors(P, t, t0, t1, camAng, map) {
     plans.push({ A, D, n, at, fyaw, yaw: A.face === 'world' ? A.yaw : -fyaw + camAng + A.yaw, ground: n && A.ground === 'toe' ? clipGround(tripo, n, at, span) : 0 });
   }
   // pass 2: pose, place and ground each one, then its props
-  const stars = [];
+  // The stickers' projection needs this frame's camera: its matrices only update at the render, and a parked actor
+  // behind the lens read as on screen ("Dracula", 2026-10-11: Kob's face over the trucker's and the empty inserts)
+  const stars = []; camera.updateMatrixWorld();
   for (const { A, D, n, at, fyaw, yaw, ground } of plans) {
     const s = (D.scale || 1) * A.scale, bob = A.ride && A.ride !== 'trolley' ? 0.035 * Math.sin(t * 3.1) + 0.02 * Math.sin(t * 5.3 + 1) : 0;
     const um = A.my ? sm((t - t0 - A.myAt) / (A.myDur ?? Math.max(0.01, len - A.myAt))) : 0, bb = bp(t), jolt = A.bump && bb >= 0 ? A.bump * Math.exp(-fr(bb) * 7) : 0;
