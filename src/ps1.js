@@ -45,6 +45,7 @@ import { buildPiazzaMaps } from './maps38.js';
 import { buildSalonMaps } from './maps39.js';
 import { buildHusbandMaps } from './maps40.js';
 import { buildDraculaMaps } from './maps41.js';
+import { buildCandyClubMaps } from './maps42.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -577,7 +578,7 @@ function steadiestOffset(T, name, len) {
 // Looks whose bare arms tore into flat fins when the arms came down ("So Easy", 2026-10-08: the floral dress): the chibi
 // head's underside sits just over the T-posed arms, so a thin arm's top surface took the Head's weights and stayed put.
 // Their arm vertices take weights only from body vertices skinned mostly to that arm's bones (see `nearFor` below).
-const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } };   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
+const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie', 'bandeau']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } }, ARM_CUFFS = new Set(['bandeau']);   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
@@ -682,7 +683,9 @@ async function addOutfit(T, name, url) {
         return kindOf(k) === 'white' ? d < opt.r : d < 0.13;
       });
       if (!arm) return near(x, y, z, 6);
-      const kd = kindOf(k), pick = near(x, y, z, 160).filter(([, j]) => kd === 'fur' || kd === 'white' || kd === 'light' ? arm.re.test(dom[j]) : kd === 'head' ? headish.test(dom[j]) : !anyArm.test(dom[j])).slice(0, 6);
+      // ARM_CUFFS (the bandeau's gold cuffs): a saturated or dark texel on the arm outside the head's sphere is a cuff or the arm's shaded fur, not a hoop or the wig: it follows the arm
+      const kd = kindOf(k), cuff = (kd === 'head' || kd === 'body') && ARM_CUFFS.has(name) && pv.distanceTo(headC) > headR + 0.05;
+      const pick = near(x, y, z, 160).filter(([, j]) => kd === 'fur' || kd === 'white' || kd === 'light' || cuff ? arm.re.test(dom[j]) : kd === 'head' ? headish.test(dom[j]) : !anyArm.test(dom[j])).slice(0, 6);
       return pick.length >= 2 ? pick : near(x, y, z, 6);
     };
   }
@@ -793,6 +796,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   fedora: 'assets/models/saxo_fedora.glb',
   // Dracula: slicked-back black hair with a widow's peak between his ears, a black tailcoat and waistcoat, a white ruffled jabot with a red jewel, a long black cape lined in red with a high stand-up collar, black shoes ("Dracula", 2026-10-11)
   dracula: 'assets/models/saxo_dracula.glb',
+  // the "Don't Stop The Music" clip's club look: a sleek jet-black bob with blunt bangs, his ears out on top, small gold hoops, a fitted black satin strapless bandeau mini dress, wide gold cuffs on both wrists, black strappy heels (2026-10-11 2nd)
+  bandeau: 'assets/models/saxo_bandeau.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -1023,7 +1028,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
