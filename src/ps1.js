@@ -46,6 +46,8 @@ import { buildSalonMaps } from './maps39.js';
 import { buildHusbandMaps } from './maps40.js';
 import { buildDraculaMaps } from './maps41.js';
 import { buildCandyClubMaps } from './maps42.js';
+import { buildRumbleMaps } from './maps43.js';
+import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
 import { buildPlaneMaps, jetModel } from './maps8.js';
@@ -798,6 +800,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   dracula: 'assets/models/saxo_dracula.glb',
   // the "Don't Stop The Music" clip's club look: a sleek jet-black bob with blunt bangs, his ears out on top, small gold hoops, a fitted black satin strapless bandeau mini dress, wide gold cuffs on both wrists, black strappy heels (2026-10-11 2nd)
   bandeau: 'assets/models/saxo_bandeau.glb',
+  // the "Beat It" clip's look: a shiny red leather zip-up jacket with black ribbed panels on the shoulders and sleeves, open over a white t-shirt, slim black trousers, white socks, black loafers (2026-10-12)
+  redjacket: 'assets/models/saxo_redjacket.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -885,6 +889,8 @@ const PARTNERS = {
     sequin: 'assets/models/kob_sequin.glb',
     // the vampire countess: a black velvet dress to the ankles with a red sash, a tall white lace ruff collar, lace cuffs, a red rose at the chest, black shoes, her bell collar and her own little fangs ("Dracula", 2026-10-11)
     countess: 'assets/models/kob_countess.glb',
+    // the alley-cat gang leader: a black leather biker jacket with the collar up and silver zips, a white t-shirt, cuffed blue jeans, black boots, a red bandana over her bell collar ("Beat It", 2026-10-12)
+    greaser: 'assets/models/kob_greaser.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -1028,7 +1034,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1158,7 +1164,7 @@ function actorSpec(a, e, map) {
     hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie, dizzy: a.dizzy ?? null,
     shades: a.shades ?? null, visor: !!a.visor,   // "Poker Face" (2026-10-08 2nd): dark sunglasses (true, s: dropped onto the eyes landing s into the shot, { at, off }: flown off at off), the dealer's green visor
-    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, steakMouth: a.steakMouth ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
+    hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, steakMouth: a.steakMouth ?? null, fetch: a.fetch ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
 function planShots() {
@@ -1214,7 +1220,8 @@ function bounce(t, t0, half = false) {   // half: the breakdown punches every ot
 const PROPS = {}; if (window.DBG) window.DBG.PROPS = PROPS;
 const _pa = new THREE.Vector3(), _pb = new THREE.Vector3(), _pc = new THREE.Vector3(), _pd = new THREE.Vector3(), _up = new THREE.Vector3(0, 1, 0);
 function propMesh(kind) {
-  if (FRUITS.includes(kind) || kind === 'strawberry' || kind === 'fruitsign') return fruitMesh(MAP_KIT, kind);   // fruit in paws and in flight, the FRUIT ONLY placard (src/fruit.js)
+  if (FRUITS.includes(kind) || kind === 'strawberry' || kind === 'fruitsign') return fruitMesh(MAP_KIT, kind);
+  if (FETCH.includes(kind) && kind !== 'bone') return fetchMesh(MAP_KIT, kind);   // "Beat It": the things thrown for the dog (src/fetch.js)   // fruit in paws and in flight, the FRUIT ONLY placard (src/fruit.js)
   const G = new THREE.Group(), M = c => mat({ color: c }), glow = c => mat({ color: c, unlit: 1 }), at3 = (m, x, y, z) => { m.position.set(x, y, z); return m; };
   const cyl = (rt, rb, h, m, seg = 6) => new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
   const add = (m, x = 0, y = 0, z = 0) => { m.position.set(x, y, z); G.add(m); return m; };
@@ -1832,7 +1839,22 @@ function mouthBall(D) {
 // its face (and the state's outline) to the front, so the eyes stay clear; in the head bone's frame like FACE
 function mouthSteak(D) {
   const g = faceProp(D, 'steakmouth', () => { const q = new THREE.Group(), st = texasSteak(MAP_KIT, 0.46); st.rotation.x = Math.PI / 2; q.add(st); return q; });
-  faceAt(D, [0.3, -0.08, 0.44], g.position);   // out beside the muzzle: hanging under it, it sat on his red bandana and read as a blob g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+  faceAt(D, [0.3, -0.08, 0.44], g.position);   // out beside the muzzle: hanging under it, it sat on his red bandana and read as a blob
+  g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+// "Beat It" (2026-10-12): `fetch`, a thing carried in the jaws the way a dog brings it back: 'stick' | 'ball' | 'fish' |
+// 'yarn' | 'frisbee' | 'sock' | 'bone' (src/fetch.js), or { kind, at, until } (s into the shot). Long things go crosswise
+// (sticking out on both sides of the muzzle), balls a little in front of the mouth, the frisbee upright; in the head
+// bone's frame like FACE, so it follows the head through any clip
+const FETCH_AT = { stick: [0, 0.07, 0.4], bone: [0, 0.07, 0.4], fish: [0, 0.05, 0.42], sock: [0, 0.05, 0.42], ball: [0, 0.04, 0.47], yarn: [0, 0.04, 0.48], frisbee: [0, -0.02, 0.52] };
+const _ffq = new THREE.Quaternion(), _ffe = new THREE.Euler();
+function mouthFetch(D, F, c) {
+  const kind = typeof F === 'string' ? F : F.kind, from = typeof F === 'object' ? (F.at ?? -1) : -1, until = typeof F === 'object' ? (F.until ?? 1e9) : 1e9;
+  if (!FETCH_AT[kind] || c < from || c >= until) return;
+  const g = faceProp(D, 'fetch:' + kind, () => { const q = new THREE.Group(); q.add(fetchMesh(MAP_KIT, kind)); q.scale.setScalar(1.15); return q; });
+  faceAt(D, FETCH_AT[kind], g.position); g.quaternion.copy(_fq);
+  if (kind === 'frisbee') g.quaternion.multiply(_ffq.setFromEuler(_ffe.set(0.35, 0, 0)));   // flat in the jaws, tipped up a little: held upright it covered his whole face
+  g.scale.setScalar(D.curScale || D.scale || 1);
 }
 // "Golden" (2026-10-06): `sip` (true or from s), a long pink straw from the cup in the right paw up into the corner of
 // the mouth: chibi arms can't lift a cup to the mouth (it sat on the cheek and read as singing), the straw's line carries it
@@ -2221,6 +2243,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
     if (A.ballMouth != null && A.ballMouth !== false && (A.ballMouth === true || t - t0 >= A.ballMouth) && D.head) mouthBall(D);
     if (A.steakMouth != null && A.steakMouth !== false && (A.steakMouth === true || t - t0 >= A.steakMouth) && D.head) mouthSteak(D);
+    if (A.fetch != null && A.fetch !== false && D.head) mouthFetch(D, A.fetch, t - t0);
     if (A.sip != null && A.sip !== false && (A.sip === true || t - t0 >= A.sip) && D.head && D.handR) sipStraw(D, A.sipHand);
     if (A.treat && D.head) biscuitTrick(D, A.treat, t - t0);
     if (A.star && D.head) { D.head.getWorldPosition(_pa).project(camera); if (Math.abs(_pa.x) < 1.1 && _pa.z < 1) stars.push([_pa.x, A.who]); }
