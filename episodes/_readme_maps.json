@@ -3486,6 +3486,62 @@
      "z": -23
     }
    ]
+  },
+  {
+   "beat": 164,
+   "kind": "dance",
+   "map": "farmhouse",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": 1,
+    "fov": 54
+   },
+   "focus": [
+    0,
+    7.6
+   ],
+   "zone": "night",
+   "gather": [
+    0,
+    7.7,
+    3.3,
+    110,
+    250,
+    14,
+    165,
+    195
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "dracula",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 7.6
+    },
+    {
+     "who": "kob",
+     "look": "countess",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 7.6
+    }
+   ]
   }
  ]
 }
