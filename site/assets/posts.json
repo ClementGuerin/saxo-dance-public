@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-11T14:47:45.869Z",
+ "updated": "2026-10-11T18:17:52.955Z",
  "posts": [
+  {
+   "id": "2026-10-11-2",
+   "title": "Don't Stop The Music",
+   "artist": "Rihanna",
+   "date": "2026-10-11T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-11-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695473191040355617",
+     "id": "7695473191040355617"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeXQydXEr1T/",
+     "id": "DeXQydXEr1T"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/cR-ULKElvaE",
+     "id": "cR-ULKElvaE"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1411962521028650",
+     "id": "1411962521028650"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2109343656956100847",
+     "id": "2109343656956100847"
+    }
+   }
+  },
   {
    "id": "2026-10-11",
    "title": "Dracula",
