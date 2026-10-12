@@ -47,6 +47,7 @@ import { buildHusbandMaps } from './maps40.js';
 import { buildDraculaMaps } from './maps41.js';
 import { buildCandyClubMaps } from './maps42.js';
 import { buildRumbleMaps } from './maps43.js';
+import { buildMojaveMaps } from './maps44.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -802,6 +803,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   bandeau: 'assets/models/saxo_bandeau.glb',
   // the "Beat It" clip's look: a shiny red leather zip-up jacket with black ribbed panels on the shoulders and sleeves, open over a white t-shirt, slim black trousers, white socks, black loafers (2026-10-12)
   redjacket: 'assets/models/saxo_redjacket.glb',
+  // the "Everybody Wants To Rule The World" clip's look (1985): a short-sleeved salmon-pink polo shirt with a soft collar and two buttons, tucked into pleated light grey trousers with a thin black belt, white socks, white canvas sneakers (2026-10-12 2nd)
+  polo: 'assets/models/saxo_polo.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -832,6 +835,8 @@ const PARTNERS = {
     nightie: 'assets/models/sadi_nightie.glb',
     // the singer's look from the "WHERE IS MY HUSBAND!" clip, a 1940s torch singer: a floor-length ruby-red sequin halter gown, fitted down to a small flare at the hem, pearl drop earrings, red lipstick, her pink bow (2026-10-10)
     torch: 'assets/models/sadi_torch.glb',
+    // the roadside diner's waitress: a short-sleeved mint-green dress to the knee with a white collar and cuffs, a small white frilled apron, a name badge, a little white paper cap between her ears beside her pink bow, white socks and sneakers ("Everybody Wants To Rule The World", 2026-10-12 2nd)
+    waitress: 'assets/models/sadi_waitress.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -891,6 +896,8 @@ const PARTNERS = {
     countess: 'assets/models/kob_countess.glb',
     // the alley-cat gang leader: a black leather biker jacket with the collar up and silver zips, a white t-shirt, cuffed blue jeans, black boots, a red bandana over her bell collar ("Beat It", 2026-10-12)
     greaser: 'assets/models/kob_greaser.glb',
+    // the clip's driver: a bomber jacket covered in a bold black-and-white zig-zag chevron pattern, black ribbed collar, cuffs and hem, over a black t-shirt, slim black trousers, black loafers, her bell collar ("Everybody Wants To Rule The World", 2026-10-12 2nd)
+    zigzag: 'assets/models/kob_zigzag.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -1034,7 +1041,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1219,6 +1226,16 @@ function bounce(t, t0, half = false) {   // half: the breakdown punches every ot
 // both paws, the foam finger follows the forearm. A jet-ski is fitted under a seated rider from his hips and paws.
 const PROPS = {}; if (window.DBG) window.DBG.PROPS = PROPS;
 const _pa = new THREE.Vector3(), _pb = new THREE.Vector3(), _pc = new THREE.Vector3(), _pd = new THREE.Vector3(), _up = new THREE.Vector3(0, 1, 0);
+let _mapTex = null;
+function mapTex() {   // the road map's face: the desert's roads in red, a blue river, green parks, the fold lines
+  if (_mapTex) return _mapTex;
+  const c = document.createElement('canvas'); c.width = 32; c.height = 24; const x = c.getContext('2d');
+  x.fillStyle = '#f2ead2'; x.fillRect(0, 0, 32, 24); x.fillStyle = '#a8d48a'; x.fillRect(3, 3, 7, 5); x.fillRect(22, 15, 7, 6);
+  x.strokeStyle = '#3a7ad8'; x.lineWidth = 1; x.beginPath(); x.moveTo(0, 18); x.lineTo(10, 14); x.lineTo(18, 20); x.lineTo(32, 17); x.stroke();
+  x.strokeStyle = '#e01818'; x.lineWidth = 3; x.beginPath(); x.moveTo(0, 10); x.lineTo(14, 9); x.lineTo(20, 4); x.lineTo(32, 6); x.stroke(); x.beginPath(); x.moveTo(14, 9); x.lineTo(16, 24); x.stroke();   // bold red roads
+  x.fillStyle = '#c8bea0'; x.fillRect(10, 0, 1, 24); x.fillRect(21, 0, 1, 24); x.fillRect(0, 12, 32, 1);
+  _mapTex = new THREE.CanvasTexture(c); _mapTex.magFilter = THREE.NearestFilter; _mapTex.minFilter = THREE.NearestFilter; return _mapTex;
+}
 function propMesh(kind) {
   if (FRUITS.includes(kind) || kind === 'strawberry' || kind === 'fruitsign') return fruitMesh(MAP_KIT, kind);
   if (FETCH.includes(kind) && kind !== 'bone') return fetchMesh(MAP_KIT, kind);   // "Beat It": the things thrown for the dog (src/fetch.js)   // fruit in paws and in flight, the FRUIT ONLY placard (src/fruit.js)
@@ -1255,6 +1272,13 @@ function propMesh(kind) {
   } else if (kind === 'tray') {   // "Danza Kuduro": the waiter's round silver tray with four coconut cocktails, carried flat on one paw
     add(cyl(0.2, 0.2, 0.02, M(0xd8dce4), 12), 0, 0.01);
     for (const [x, z] of [[-0.09, -0.07], [0.09, -0.07], [-0.09, 0.08], [0.09, 0.08]]) { add(new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 4, 0, Math.PI * 2, 0, Math.PI * 0.62), M(0x7a4a2a)), x, 0.06, z); add(cyl(0.006, 0.006, 0.13, M(0xff5fa2), 4), x + 0.02, 0.13, z).rotation.z = -0.3; }
+  } else if (kind === 'nozzle') {   // "Everybody Wants To Rule The World": a fuel pump's nozzle, a black grip and trigger guard, a chrome spout forward and down (its hose: `cable`)
+    add(box(0.06, 0.16, 0.07, M(0x1a1a1e))); add(box(0.05, 0.04, 0.16, M(0x1a1a1e)), 0, 0.08, 0.05);
+    const sp = add(cyl(0.018, 0.018, 0.2, mat({ color: 0xd8dce4, unlit: 0.3 })), 0, 0.06, 0.2); sp.rotation.x = 1.25;
+  } else if (kind === 'squeegee') {   // a gas station's windscreen squeegee: a yellow handle along the forearm, a black rubber blade across its end, a green sponge
+    add(cyl(0.022, 0.022, 0.42, mat({ color: 0xf0c020, unlit: 0.3 })), 0, 0.12); add(box(0.32, 0.05, 0.05, M(0x1a1a1e)), 0, 0.34); add(box(0.3, 0.06, 0.04, mat({ color: 0x4ab84a, unlit: 0.2 })), 0, 0.3, 0.03);
+  } else if (kind === 'roadmap') {   // a big unfolded paper road map between both paws: pale paper, a red highway, blue rivers, green parks, its folds
+    const mt = mapTex(); add(new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.46), mat({ map: mt, unlit: 0.35, side: THREE.DoubleSide })), 0, 0.18, 0.02);
   } else if (kind === 'mic') {    // "Danza Kuduro": the entertainer's handheld mic, a black handle and a silver ball, up beside the muzzle
     add(cyl(0.022, 0.016, 0.16, M(0x1c1c22), 6), 0, 0.08); add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.045, 1), M(0xc8ccd4)), 0, 0.18);
   } else if (kind === 'glass') {          // a tall glass of orange juice, pink straw, a lemon slice on the rim
@@ -1515,9 +1539,9 @@ function palm(D, side) {   // world point in the middle of a paw
 }
 function holdProp(D, kind, side, bodyYaw, t) {
   const g = propFor(D, kind, side === 'L' ? ':L' : ''), s = D.curScale || D.scale || 1; g.visible = true; g.scale.setScalar(s * 1.25 * (D.holdScale || 1));   // a little oversized so it reads at 270x480
-  if (kind === 'pad' || kind === 'deck' || kind === 'book' || kind === 'comic' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
+  if (kind === 'pad' || kind === 'deck' || kind === 'book' || kind === 'comic' || kind === 'wallet' || kind === 'bucket' || kind === 'steak' || kind === 'board' || kind === 'roadmap' || (kind === 'melon' && D.twoPaw)) {   // held in both paws (a melon only when both arms carry it)
     const a = palm(D, 'L')?.clone(), b = palm(D, 'R'); if (!a || !b) return;
-    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : kind === 'steak' || kind === 'board' ? 0.75 : -0.75, bodyYaw, 0, 'YXZ');   // the steak's board tips its face to the lens   // the book and the wallet tilt open towards the holder
+    g.position.copy(a).add(b).multiplyScalar(0.5); g.rotation.set(kind === 'pad' ? 0.35 : kind === 'melon' ? 0 : kind === 'bucket' ? 0.45 : kind === 'steak' || kind === 'board' ? 0.75 : kind === 'roadmap' ? -0.45 : -0.75, bodyYaw, 0, 'YXZ');   // the steak's board tips its face to the lens   // the book and the wallet tilt open towards the holder
     if (kind === 'melon') g.position.addScaledVector(_up, 0.1 * s);   // it sits on the paws
     if (kind === 'wallet') D.walletAt = g.position.clone();
     return;
@@ -2066,8 +2090,8 @@ function splashAt(D, to, k) {   // a tossed prop hits the water: a white ring sp
   });
 }
 // The held plug's cable: a thick black run from the paw to where it goes into the booth (`cable: [x, y, z]`)
-function plugCable(D, to, side = 'R') {   // side: the paw holding the plug ('Golden': Kob's left, on the lens side)
-  const key = D.base + ':cable'; if (!PROPS[key]) { PROPS[key] = new THREE.Mesh(new THREE.BoxGeometry(0.055, 1, 0.055), mat({ color: 0xff7a1a, unlit: 0.25 })); scene.add(PROPS[key]); }   // the orange lead, like the map's
+function plugCable(D, to, side = 'R', hose = false) {   // side: the paw holding the plug ('Golden': Kob's left, on the lens side); hose: the fuel nozzle's black hose
+  const key = D.base + (hose ? ':hose' : ':cable'); if (!PROPS[key]) { PROPS[key] = new THREE.Mesh(new THREE.BoxGeometry(hose ? 0.05 : 0.055, 1, hose ? 0.05 : 0.055), mat({ color: hose ? 0x1a1a1e : 0xff7a1a, unlit: 0.25 })); scene.add(PROPS[key]); }   // the orange lead, like the map's
   const c = PROPS[key], p = palm(D, side); if (!p) return;
   const a = p.clone(), b = new THREE.Vector3(...to), d = b.clone().sub(a);
   c.visible = true; c.position.copy(a).add(b).multiplyScalar(0.5); c.scale.set(1, d.length(), 1); c.quaternion.setFromUnitVectors(_up, d.normalize());
@@ -2219,6 +2243,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (tossed) tossProp(D, A, bodyYaw, A.holdAt != null ? Math.min(t - t0, A.holdAt) : t - t0);   // a frozen photo freezes it mid-air ("DtMF")
     if (A.pelt) peltFruit(D, A, bodyYaw, t - t0);
     if (A.cable && (A.hold === 'plug' || A.holdL === 'plug') && holding) plugCable(D, A.cable, A.hold === 'plug' ? 'R' : 'L');
+    if (A.cable && (A.hold === 'nozzle' || A.holdL === 'nozzle') && holding) plugCable(D, A.cable, A.hold === 'nozzle' ? 'R' : 'L', true);
     if (A.ride === 'jetski') rideJetski(D, bodyYaw, lift, t);
     if (A.ride === 'trolley') rideTrolley(D, bodyYaw + A.rideYaw, A.rideY ?? 0, t);
     if (A.ride === 'duck') rideDuck(D, bodyYaw + A.rideYaw, A.rideY != null ? A.rideY + 0.15 + bob : lift, t);   // rideY: the float's base (standing in the ring, legs in the water)
