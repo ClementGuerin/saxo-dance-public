@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-11T19:42:58.904Z",
+ "updated": "2026-10-12T14:18:04.129Z",
  "posts": [
+  {
+   "id": "2026-10-12",
+   "title": "Beat It",
+   "artist": "Michael Jackson",
+   "date": "2026-10-12T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-12.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695781551778336033",
+     "id": "7695781551778336033"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeZZy_qjIFM/",
+     "id": "DeZZy_qjIFM"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/fqn8A_H75GE",
+     "id": "fqn8A_H75GE"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=4077853872510375",
+     "id": "4077853872510375"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2109645619585302821",
+     "id": "2109645619585302821"
+    }
+   }
+  },
   {
    "id": "2026-10-11-2",
    "title": "Don't Stop The Music",
