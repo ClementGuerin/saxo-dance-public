@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-12T14:47:51.528Z",
+ "updated": "2026-10-12T18:17:54.842Z",
  "posts": [
+  {
+   "id": "2026-10-12-2",
+   "title": "Everybody Wants To Rule The World",
+   "artist": "Tears For Fears",
+   "date": "2026-10-12T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-12-2.jpg",
+   "links": {
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695843334895455521",
+     "id": "7695843334895455521"
+    },
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeZ1K80j55P/",
+     "id": "DeZ1K80j55P"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/GswFhZ6U82M",
+     "id": "GswFhZ6U82M"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1391968212921963",
+     "id": "1391968212921963"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2109705997153395059",
+     "id": "2109705997153395059"
+    }
+   }
+  },
   {
    "id": "2026-10-12",
    "title": "Beat It",
