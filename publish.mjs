@@ -48,8 +48,10 @@
 //
 // --studio (2026-09-27) posts the TikTok through TikTok Studio in our own signed-in Chrome (tools/tiktok_studio.mjs),
 // with the episode's official sound (`tiktok_sound`, or --sound-id=) added as the post's music, the caption and real
-// hashtags, public, at once: the official-sound re-cut of a muted TikTok (the user: "you can probably publish the new
-// tiktok, add the good sound, add the description and publish"). --inbox stays the fallback when it fails.
+// hashtags, public, at once or scheduled at --when (Studio's own schedule, since 2026-10-12): every new video's TikTok
+// (its `<id>-tt` cut on the official sound, at the video's slot) and the re-cut of a muted one (the user: "you can
+// probably publish the new tiktok, add the good sound, add the description and publish"). --inbox stays the fallback
+// when it fails.
 //
 // Keys: POSTIZ_API_KEY and ZERNIO_API_KEY from the environment, else ~/.postiz-saxo.env and ~/.zernio-saxo.env.
 // The Postiz public API allows 30 requests an hour; a run uses 3 (the list, one upload, the X post).
@@ -75,8 +77,8 @@ if (args.via) {   // gone on 2026-09-27: an old --via=postiz re-cut would otherw
   console.error('--via is gone (Postiz is X only): send a TikTok to the app inbox with --only=tiktok --inbox');
   process.exit(1);
 }
-if (args.studio && (args.inbox || args.when || args.draft)) {   // Studio posts now, public: never a draft or a schedule
-  console.error('--studio posts the TikTok now: not with --inbox, --when or --draft');
+if (args.studio && (args.inbox || args.draft)) {   // Studio posts public, now or at --when: never a draft
+  console.error('--studio posts the TikTok public: not with --inbox or --draft');
   process.exit(1);
 }
 const previewOnly = args.preview === true;   // the TikTok draft alone: nothing posted, logged or messaged
@@ -112,6 +114,13 @@ const only = previewOnly ? ['tiktok'] : typeof args.only === 'string' ? args.onl
 const studio = args.studio === true && only.includes('tiktok');
 const route = p => (p === 'x' ? 'postiz' : p === 'tiktok' && studio ? 'studio' : 'zernio');
 const type = args.draft ? 'draft' : args.when ? 'schedule' : 'now';
+// A new video's TikTok is its official-sound cut through Studio (the user, 2026-10-12: "for new video generation from
+// now directly do the tiktok version with the official tiktok sound", the song in the file was muted almost every
+// time): a scheduled TikTok with the song in its own audio goes nowhere unless --own-audio says it's meant.
+if (type === 'schedule' && only.includes('tiktok') && !studio && !args.inbox && args['own-audio'] !== true) {
+  console.error('a scheduled TikTok is the official-sound cut: node publish.mjs out/<id>-tt.mp4 --only=tiktok --studio --when=<slot> --episode=<id>-tt --sound="<title>", and the main render --only=instagram,youtube,facebook,x (--own-audio to send this one anyway)');
+  process.exit(1);
+}
 const date = args.when ? new Date(args.when).toISOString() : new Date().toISOString();
 
 const epFile = n => new URL(`./episodes/${episode}${n}`, import.meta.url);
@@ -274,7 +283,7 @@ async function viaStudio() {
   const soundId = (typeof args['sound-id'] === 'string' && args['sound-id']) || soundOf(EP?.tiktok_sound) || soundOf(EP?.song?.tiktok_sound);
   const title = typeof args.sound === 'string' ? args.sound : song;
   const { postTikTok } = await import('./tools/tiktok_studio.mjs');
-  const r = await postTikTok({ file: fileFor('tiktok'), soundId, queries: [`${title} ${artist}`, title], caption: caption.tiktok });
+  const r = await postTikTok({ file: fileFor('tiktok'), soundId, queries: [`${title} ${artist}`, title], caption: caption.tiktok, when: args.when ? new Date(args.when) : null });
   console.log(`studio: tiktok ${r.ok ? r.detail : 'FAILED: ' + r.detail}${r.url ? ' ' + r.url : ''}`);
   if (!r.ok) throw new Error(r.detail);
   // out, but muted or with another sound: logged (the post check hides a mute) and failed, so the run falls back to --inbox
