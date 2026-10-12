@@ -3628,6 +3628,110 @@
      "z": 0
     }
    ]
+  },
+  {
+   "beat": 170,
+   "kind": "dance",
+   "map": "mojave",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     55,
+     55
+    ],
+    "r": [
+     4.8,
+     4.8
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": 0.95,
+    "fov": 52
+   },
+   "focus": [
+    3.6,
+    -1.25
+   ],
+   "pets": "stare",
+   "stare": [
+    0.35,
+    0.95
+   ],
+   "clear": [
+    [
+     4.3,
+     -2.6,
+     0.9
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "polo",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 3.325,
+     "z": -0.857
+    },
+    {
+     "who": "kob",
+     "look": "zigzag",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 3.875,
+     "z": -1.643
+    }
+   ]
+  },
+  {
+   "beat": 172,
+   "kind": "dance",
+   "map": "mojaveroad",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     48,
+     48
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": 1.2,
+    "fov": 50
+   },
+   "focus": [
+    -0.2,
+    0
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "polo",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.18,
+     "z": -0.5,
+     "lift": 0.45
+    },
+    {
+     "who": "sadi",
+     "look": "waitress",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.18,
+     "z": 0.5,
+     "lift": 0.45
+    }
+   ]
   }
  ]
 }
