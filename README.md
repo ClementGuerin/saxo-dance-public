@@ -127,7 +127,8 @@ A scheduled run wakes every 30 minutes, asks `tools/night.mjs` whether anything 
 due, and follows `research/DAILY_ROUTINE.md` to make one video at a time, with no
 approval step and a budget per video. The first starts at 21:00 and the second no earlier than 23:00;
 each is scheduled for one of the next day's slots, at 16:00 and 20:00. Every wake also refreshes
-saxo.dance and checks this README against the code, rebuilding any image that no longer matches it.
+saxo.dance, deletes the rendered frames of videos already scheduled, and checks this README against the code,
+rebuilding any image that no longer matches it.
 
 1. **Scout.** [`tools/trends.mjs`](tools/trends.mjs) scans what is going viral in our niches, and live meme formats
    land in `research/MEMES.md`. Songs asked for in
@@ -147,14 +148,15 @@ saxo.dance and checks this README against the code, rebuilding any image that no
    ffmpeg encodes the frames with the song, loudness-normalised to −14 LUFS.
 5. **Check.** The QA gate runs before a single frame is rendered (see below), then come contact sheets, zoomed stills,
    an independent reviewer that sees one frame per shot, and a critic's score before anything is posted.
-6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on TikTok, Instagram Reels, YouTube Shorts, Facebook and
-   X for its slot, with per-platform captions and hashtags (X gets the video alone); the TikTok also lands in the app's
-   inbox at once as a preview draft, to watch before its slot. YouTube gets a cut of 60 s or less that keeps the
-   episode's ending. Ten minutes after each post goes out,
-   `tools/post_check.mjs` checks it is live, public and audible; when TikTok mutes a song, the
-   post goes private at once and the video is re-cut to that song's official TikTok sound, then posted again with it
-   (`tools/tiktok_studio.mjs` does both in TikTok Studio). [`tools/notify.mjs`](tools/notify.mjs) sends a Discord
-   message when a post is muted or blocked, and again if the re-cut has to wait in the TikTok inbox.
+6. **Ship.** [`publish.mjs`](publish.mjs) schedules the video on Instagram Reels, YouTube Shorts, Facebook and X for
+   its slot, with per-platform captions and hashtags (X gets the video alone). YouTube gets a cut of 60 s or less that
+   keeps the episode's ending. TikTok muted 19 of the first 41 TikToks that carried the song in their own audio, so
+   every video now gets a TikTok cut of its own on the window of the song's official TikTok sound, rendered and checked
+   like the main one and scheduled for the same slot in TikTok Studio with that sound as its music
+   (`tools/tiktok_studio.mjs`). Ten minutes after each post goes out,
+   `tools/post_check.mjs` checks it is live, public and audible; a TikTok muted anyway goes
+   private at once and is posted again on the official sound. [`tools/notify.mjs`](tools/notify.mjs) sends a Discord
+   message when a post is muted or blocked, and again if a re-cut has to wait in the TikTok inbox.
 7. **Measure.** [`tools/metrics.mjs`](tools/metrics.mjs) snapshots every post on TikTok, Instagram, YouTube and
    Facebook (X charges to read its numbers) and compares it at 24 h and 72 h with the channel median. Rules that hold
    up go into `research/PLAYBOOK.md`, which the next run reads.
