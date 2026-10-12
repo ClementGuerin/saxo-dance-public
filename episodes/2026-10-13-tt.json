@@ -1,0 +1,2212 @@
+{
+ "date": "2026-10-13",
+ "tiktok_sound": "7515269970908252177",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "tags": {
+  "structure": "framed",
+  "scenes": [
+   "the dog dances on the boardroom table",
+   "the kitten pushes the glass off",
+   "the CEO turns back round",
+   "the board stares",
+   "the BAD DOG sign",
+   "the vase of roses off the edge",
+   "the rose in his teeth",
+   "the cone of shame",
+   "the dog dancing in the cone",
+   "the kitten cradled",
+   "the instant camera",
+   "the camera ready",
+   "paws in the cake",
+   "the flash and the photo",
+   "busted, paws up",
+   "BAD CAT",
+   "the crowning",
+   "the celebration dance",
+   "the dog pushes the last glass off"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "boardroom"
+  ],
+  "ref": "evil-puppy",
+  "lyric_literal": "'hands' (the kitten's paw on the glass, the vase and the cake; her paws up when she's caught), 'Gabriela' (a cut to the kitten each time), 'back' (the CEO turns back round on the crash; the cone and the sign go back onto the cat), 'lover' (the CEO cradles the kitten), 'come' (the kitten creeps to the cake)",
+  "experiment": "Does dramatic irony the viewer is in on (we watch the kitten do it, the boss blames the dog, every time) on a K-pop hit with a big TikTok sound (Gabriela, 823k videos) earn more comments per 1,000 views than our last week's episodes (0-3)? (TikTok cut on the 60 s official sound: the main's shots on their own beats, opened on the payoff's photo)"
+ },
+ "song": {
+  "title": "Gabriela",
+  "artist": "KATSEYE",
+  "window": [
+   30.0558,
+   90.0558
+  ],
+  "rate": 1,
+  "bpm": 146.011,
+  "tiktok_sound": {
+   "music_id": "7515269970908252177",
+   "title": "Gabriela",
+   "author": "KATSEYE",
+   "seconds": 60,
+   "videos": 822934
+  }
+ },
+ "logline": "The boss's new white kitten knocks everything at Gabriela Enterprises off the table and the dog in the red rose dress takes the blame every time, until his camera flash catches her paws in the retirement cake.",
+ "new": [
+  "the TikTok cut keeps the main's shots on their own beats (the official sound starts 2.27 s before the main cut and ends 2.5 bars after the payoff) and opens on the payoff's photo; 146 beats, so the loop keeps the beat"
+ ],
+ "notes": "The official sound (KATSEYE's own, 822,934 videos, 60 s) is song 30.0558-90.0558 s (29 log-spectrum pieces of 3 s, 0.6 ms residual), the main kit's -2.2661 to 57.7339 s (tt beat = main beat). See the generator's header.",
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "happy_walk",
+  "situps"
+ ],
+ "shots": [
+  {
+   "beat": -7.51,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.1,
+     "face": "world",
+     "yaw": 188,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "both",
+     "aim": [
+      0.05,
+      -0.7,
+      0.7
+     ],
+     "upAt": -1,
+     "holdAt": 0.12,
+     "frosting": true,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     128.05,
+     128.05
+    ],
+    "r": [
+     1.46,
+     1.46
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.13,
+     1.13
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.2,
+    -2.25
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "topper",
+    "m1",
+    "glasses"
+   ],
+   "cakePaws": 0,
+   "photo": -1,
+   "still": true,
+   "stop": 0.12,
+   "board": false
+  },
+  {
+   "beat": -2,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": 2.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "R",
+     "aim": [
+      0.1,
+      -0.55,
+      0.8
+     ],
+     "upAt": -1,
+     "aim2": [
+      0.15,
+      -0.3,
+      1
+     ],
+     "aim2At": 0.986,
+     "scale": 0.5
+    },
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "x": 0.32,
+     "z": -0.2,
+     "face": "world",
+     "yaw": -8,
+     "at": 1.189,
+     "lift": 0.74,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.99,
+     -2.1
+    ],
+    "r": [
+     3.452,
+     3.282
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.34,
+     1.34
+    ],
+    "fov": 52,
+    "roll": [
+     4,
+     2
+    ]
+   },
+   "focus": [
+    0,
+    1
+   ],
+   "knock": [
+    [
+     "g0",
+     1.007,
+     0,
+     1,
+     0.25
+    ]
+   ],
+   "board": "dance",
+   "hide": [
+    "g5",
+    "g1"
+   ],
+   "flashAt": [
+    0
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": 2.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "R",
+     "aim": [
+      0.15,
+      -0.3,
+      1
+     ],
+     "upAt": -1,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8,
+     8
+    ],
+    "r": [
+     1.885,
+     1.81
+    ],
+    "h": [
+     0.97,
+     0.97
+    ],
+    "look": [
+     1.17,
+     1.17
+    ],
+    "fov": 40
+   },
+   "focus": [
+    -0.3,
+    2.3
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "g5",
+    "g1"
+   ],
+   "board": "dance"
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "x": 0,
+     "z": 1.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.162,
+     "lift": 0.74,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6.15,
+     6.23
+    ],
+    "r": [
+     3.269,
+     2.766
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 56,
+    "roll": [
+     -8,
+     -5
+    ]
+   },
+   "focus": [
+    0,
+    1.05
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "board": "dance"
+  },
+  {
+   "beat": 14,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -4.65,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 0.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     13.54,
+     13.5
+    ],
+    "r": [
+     2.777,
+     2.571
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.8,
+    -5
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "board": "sit"
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -4.65,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.1,
+     "arm": "both",
+     "aim": "caramell",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3,
+     2.15
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     0.98,
+     1
+    ],
+    "fov": 46,
+    "ease": "out"
+   },
+   "focus": [
+    0.95,
+    -4.65
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "board": "stare",
+   "stare": [
+    0.95,
+    -4.65
+   ],
+   "clear": [
+    [
+     1.38,
+     -1.9,
+     0.3
+    ],
+    [
+     1.38,
+     -0.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "x": -0.3,
+     "z": 2.5,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.778,
+     "lift": 0.74,
+     "tongue": true,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -15.1,
+     -15.29
+    ],
+    "r": [
+     3.263,
+     3.11
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.3,
+    2.95
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "board": "stare",
+   "stare": [
+    -0.3,
+    2.5
+   ]
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": 2.3,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.3,
+     "lift": 0.74,
+     "speed": 0.2,
+     "shame": 0.822,
+     "tongue": true
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": -1.08,
+     "z": 3.05,
+     "face": "world",
+     "yaw": 8,
+     "at": 0.4,
+     "speed": 0.1,
+     "shades": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.25,
+     3.08
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.7,
+    2.6
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "board": "stare",
+   "stare": [
+    -0.3,
+    2.3
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "x": -0.3,
+     "z": 2.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.423,
+     "lift": 0.74,
+     "shame": true,
+     "tongue": true,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.99,
+     1.03
+    ],
+    "r": [
+     2.9,
+     2.78
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.78,
+     1.78
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -0.3,
+    2.3
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "board": "stare",
+   "stare": [
+    -0.3,
+    2.3
+   ]
+  },
+  {
+   "beat": 42,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -4.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.15,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.12,
+      0.85
+     ],
+     "upAt": -1,
+     "lean": 0
+    },
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "situps",
+     "x": 1.09,
+     "z": -4.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.24,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -7.67,
+     -7.67
+    ],
+    "r": [
+     2.623,
+     2.472
+    ],
+    "h": [
+     1.22,
+     1.22
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 46
+   },
+   "focus": [
+    1,
+    -4.55
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0"
+   ],
+   "hearts": [
+    [
+     0.95,
+     1.75,
+     -4.55,
+     0.1,
+     1
+    ]
+   ],
+   "heartYaw": 0,
+   "board": "swoon",
+   "clear": [
+    [
+     1.38,
+     -1.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 46,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": -0.18,
+     "z": 0.1,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "R",
+     "aim": [
+      0.25,
+      -0.2,
+      0.9
+     ],
+     "upAt": -1,
+     "scale": 0.5
+    },
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "x": -0.3,
+     "z": 2.5,
+     "face": "world",
+     "yaw": 200,
+     "at": 0.573,
+     "lift": 0.74,
+     "shame": true,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -165,
+     -165
+    ],
+    "r": [
+     3.77,
+     3.581
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.4,
+    1.05
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "m0",
+    "g1"
+   ],
+   "board": "dance",
+   "clear": [
+    [
+     -1.38,
+     -1.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 51,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": -0.18,
+     "z": 0.1,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "R",
+     "aim": [
+      0.25,
+      -0.2,
+      0.9
+     ],
+     "upAt": -1,
+     "aim2": [
+      0.3,
+      -0.1,
+      1
+     ],
+     "aim2At": 0.411,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -83.75,
+     -83.88
+    ],
+    "r": [
+     2.113,
+     1.971
+    ],
+    "h": [
+     1.42,
+     1.41
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -0.4,
+    0.07
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "m0"
+   ],
+   "knock": [
+    [
+     "vase",
+     0.452,
+     -1,
+     0,
+     0.4
+    ]
+   ],
+   "board": "dance",
+   "clear": [
+    [
+     -1.38,
+     0.7,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 55,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -2.115,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -70,
+     "at": 0.4,
+     "speed": 0.15,
+     "shame": true,
+     "fetch": {
+      "kind": "rose",
+      "at": 1.027
+     },
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": 1.027
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -75,
+     -75
+    ],
+    "r": [
+     2.7,
+     2.538
+    ],
+    "h": [
+     0.6,
+     0.6
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 56,
+    "roll": [
+     6,
+     4
+    ]
+   },
+   "focus": [
+    -2.115,
+    0.2
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "dance"
+  },
+  {
+   "beat": 61,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -2.115,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -55,
+     "at": 0.4,
+     "speed": 0.15,
+     "shame": true,
+     "fetch": "rose"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -54.46,
+     -54.58
+    ],
+    "r": [
+     3.441,
+     3.313
+    ],
+    "h": [
+     2.05,
+     2.03
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.9150000000000003,
+    0.1
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "stare",
+   "stare": [
+    -2.115,
+    0.2
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -2.6,
+     "z": 3.6,
+     "face": "world",
+     "yaw": -20,
+     "at": 0.4,
+     "speed": 0.15,
+     "shame": true,
+     "fetch": "rose",
+     "cone": 0.822
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": -3.25,
+     "z": 3.35,
+     "face": "world",
+     "yaw": 69,
+     "at": 0.4,
+     "speed": 0.1,
+     "shades": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -31.12,
+     -31.8
+    ],
+    "r": [
+     3.096,
+     2.942
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -2.85,
+    3.45
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "sit"
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "x": -2.6,
+     "z": 3.6,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.367,
+     "speed": 1,
+     "shame": true,
+     "fetch": "rose",
+     "cone": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     19.13,
+     19.52
+    ],
+    "r": [
+     2.593,
+     2.334
+    ],
+    "h": [
+     0.62,
+     0.62
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 58,
+    "roll": [
+     -8,
+     -5
+    ]
+   },
+   "focus": [
+    -2.6,
+    3.6
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "sit"
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 4.55,
+     "z": 1,
+     "face": "world",
+     "yaw": -110,
+     "at": 0.4,
+     "speed": 0.15,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.12,
+      0.85
+     ],
+     "upAt": -1,
+     "lean": 0
+    },
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "situps",
+     "x": 4.22,
+     "z": 1.029,
+     "face": "world",
+     "yaw": -110,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.24,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -69.35,
+     -69.32
+    ],
+    "r": [
+     2.779,
+     2.662
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.98,
+     0.98
+    ],
+    "fov": 46
+   },
+   "focus": [
+    4.55,
+    1
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "g6",
+    "g3"
+   ],
+   "hearts": [
+    [
+     4.55,
+     1.75,
+     1,
+     0.2,
+     1
+    ]
+   ],
+   "heartYaw": -110,
+   "board": "swoon",
+   "clear": [
+    [
+     1.38,
+     2,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 82,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -2.6,
+     "z": 3.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "shame": true,
+     "fetch": "rose",
+     "cone": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.3,
+     2.15
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -2.6,
+    3.6
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "sit",
+   "still": true
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -4.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.15,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.12,
+      0.85
+     ],
+     "upAt": -1,
+     "lean": 0
+    },
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "situps",
+     "x": 1.09,
+     "z": -4.25,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.24,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -7.67,
+     -7.67
+    ],
+    "r": [
+     2.623,
+     2.472
+    ],
+    "h": [
+     1.22,
+     1.22
+    ],
+    "look": [
+     0.93,
+     0.93
+    ],
+    "fov": 46
+   },
+   "focus": [
+    1,
+    -4.55
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "hearts": [
+    [
+     0.95,
+     1.75,
+     -4.55,
+     0.1,
+     1
+    ]
+   ],
+   "heartYaw": 0,
+   "board": "swoon",
+   "clear": [
+    [
+     1.38,
+     -1.9,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -2.6,
+     "z": 3.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.1,
+     "shame": true,
+     "cone": true,
+     "hold": "camera",
+     "arm": "R",
+     "aim": [
+      0.75,
+      0.55,
+      0.35
+     ],
+     "upAt": 1.233,
+     "holdFrom": 1.233
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     7.13,
+     7.94
+    ],
+    "r": [
+     2.419,
+     2.171
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.18,
+     1.18
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -2.65,
+    3.6
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "sit"
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_walk",
+     "x": 0.2,
+     "z": -0.6,
+     "face": "world",
+     "yaw": 180,
+     "at": "auto",
+     "lift": 0.74,
+     "mz": -1.32,
+     "speed": 0.7,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     17.35,
+     16.82
+    ],
+    "r": [
+     2.514,
+     2.246
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.17,
+     1.17
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.2,
+    -1.5
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "m1",
+    "g4"
+   ],
+   "board": "sit",
+   "clear": [
+    [
+     1.38,
+     0.7,
+     0.3
+    ],
+    [
+     1.38,
+     2,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 106,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "happy_idle",
+     "x": -2.6,
+     "z": 3.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.1,
+     "shame": true,
+     "cone": true,
+     "hold": "camera",
+     "arm": "R",
+     "aim": [
+      0.75,
+      0.55,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     7.13,
+     7.94
+    ],
+    "r": [
+     2.419,
+     2.171
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.18,
+     1.18
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -2.65,
+    3.6
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase"
+   ],
+   "board": "sit"
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 4.75,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -73.03,
+     -73.11
+    ],
+    "r": [
+     3.084,
+     2.926
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 54
+   },
+   "focus": [
+    5.3,
+    -1.45
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "m1",
+    "g4",
+    "g6"
+   ],
+   "board": "sit",
+   "clear": [
+    [
+     1.38,
+     -0.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.05,
+     "face": "world",
+     "yaw": 188,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "both",
+     "aim": [
+      0.35,
+      0.55,
+      0.55
+     ],
+     "upAt": -1,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     167.74,
+     167.36
+    ],
+    "r": [
+     1.177,
+     1.097
+    ],
+    "h": [
+     1.8,
+     1.79
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0.2,
+    -2.1
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "m1",
+    "glasses"
+   ],
+   "board": false
+  },
+  {
+   "beat": 126,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.1,
+     "face": "world",
+     "yaw": 188,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "both",
+     "aim": [
+      0.35,
+      0.55,
+      0.55
+     ],
+     "upAt": -1,
+     "aim2": [
+      0.05,
+      -0.7,
+      0.7
+     ],
+     "aim2At": 0.247,
+     "frosting": 0.329,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     129.21,
+     128.05
+    ],
+    "r": [
+     1.613,
+     1.46
+    ],
+    "h": [
+     1.65,
+     1.6
+    ],
+    "look": [
+     1.13,
+     1.13
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.2,
+    -2.25
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "topper",
+    "m1",
+    "glasses"
+   ],
+   "cakePaws": 0.288,
+   "board": false
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.1,
+     "face": "world",
+     "yaw": 188,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "both",
+     "aim": [
+      0.05,
+      -0.7,
+      0.7
+     ],
+     "upAt": -1,
+     "holdAt": 0.12,
+     "frosting": true,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     128.05,
+     128.05
+    ],
+    "r": [
+     1.46,
+     1.46
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.13,
+     1.13
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.2,
+    -2.25
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "topper",
+    "m1",
+    "glasses"
+   ],
+   "cakePaws": 0,
+   "flashAt": [
+    0
+   ],
+   "photo": 0.12,
+   "still": true,
+   "stop": 0.12,
+   "board": false
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "happy_idle",
+     "x": 4.75,
+     "z": -1.3,
+     "face": "world",
+     "yaw": -100,
+     "at": 0.4,
+     "speed": 0.1,
+     "arm": "both",
+     "aim": "caramell",
+     "flap": 0,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -99.78,
+     -99.76
+    ],
+    "r": [
+     2.943,
+     2.182
+    ],
+    "h": [
+     1.25,
+     1.23
+    ],
+    "look": [
+     0.98,
+     1
+    ],
+    "fov": 46,
+    "ease": "out"
+   },
+   "focus": [
+    4.75,
+    -1.3
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "topper",
+    "m1",
+    "g4",
+    "g6"
+   ],
+   "cakePaws": 0,
+   "board": "gasp",
+   "clear": [
+    [
+     1.38,
+     -1.9,
+     0.3
+    ],
+    [
+     1.38,
+     -0.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "boardroom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "persian",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -2.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.15,
+     "lift": 0.74,
+     "arm": "both",
+     "aim": [
+      0.55,
+      0.65,
+      0.3
+     ],
+     "upAt": -1,
+     "frosting": true,
+     "scale": 0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     1.92,
+     1.824
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.14,
+     1.14
+    ],
+    "fov": 44
+   },
+   "focus": [
+    0.2,
+    -2
+   ],
+   "mess": [
+    [
+     "water",
+     -0.3,
+     3.245,
+     0
+    ],
+    [
+     "roses",
+     -1.365,
+     0.05,
+     0
+    ]
+   ],
+   "hide": [
+    "g0",
+    "vase",
+    "topper",
+    "m1",
+    "g4"
+   ],
+   "cakePaws": 0,
+   "board": "gasp",
+   "clear": [
+    [
+     1.38,
+     -0.6,
+     0.3
+    ],
+    [
+     1.38,
+     0.7,
+     0.3
+    ]
+   ]
+  }
+ ]
+}

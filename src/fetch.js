@@ -3,7 +3,7 @@
 // flying throws and pile (src/maps43.js). About twice real size so they read at 270x480 next to a 1.25 m dog; light
 // colours with a little `unlit` (a hex renders darker through the linear conversion, and the warehouse is dark).
 // Each is built along x (its long axis), centred, so a dog carries it crosswise in his jaws.
-export const FETCH = ['stick', 'ball', 'fish', 'yarn', 'frisbee', 'bone', 'sock', 'tyre'];
+export const FETCH = ['stick', 'ball', 'fish', 'yarn', 'frisbee', 'bone', 'sock', 'tyre', 'rose'];
 
 export function fetchMesh(K, kind) {   // K: the renderer's map kit (THREE, mat)
   const { THREE, mat } = K, G = new THREE.Group(), PI = Math.PI;
@@ -40,6 +40,13 @@ export function fetchMesh(K, kind) {   // K: the renderer's map kit (THREE, mat)
     const w = M(0xf4f4f0, 0.45), r = M(0xe84a4a, 0.45);
     add(box(0.3, 0.1, 0.07, w), -0.05, 0, 0); add(box(0.12, 0.1, 0.07, w), 0.14, -0.05, 0).rotation.z = -0.6;
     for (const x of [-0.16, -0.06]) add(box(0.03, 0.105, 0.075, r), x, 0, 0);
+  } else if (kind === 'rose') {   // "Gabriela" (2026-10-13): a long-stemmed red rose, the bloom at +x (the telenovela rose between the teeth)
+    const st = add(cyl(0.014, 0.016, 0.42, 5, M(0x3a8a3a, 0.35)), -0.05, 0, 0); st.rotation.z = PI / 2;
+    for (const [x, s] of [[-0.12, 1], [0.02, -1]]) { const lf = add(ico(0.045, 0, M(0x4aa04a, 0.4)), x, 0.03 * s, 0.02); lf.scale.set(1.6, 0.35, 0.8); lf.rotation.z = 0.5 * s; }
+    const red = M(0xe0283a, 0.45), deep = M(0xa8141e, 0.4);
+    const bud = add(ico(0.075, 1, red), 0.2, 0, 0); bud.scale.set(0.9, 1, 1);
+    for (let i = 0; i < 5; i++) { const a = i / 5 * PI * 2, p = add(ico(0.05, 0, i % 2 ? deep : red), 0.19, Math.sin(a) * 0.06, Math.cos(a) * 0.06); p.scale.set(0.6, 1, 1); }
+    add(ico(0.03, 0, deep), 0.27, 0, 0);
   } else if (kind === 'tyre') {   // a bike tyre: the biggest thing they throw
     add(new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.05, 5, 14), M(0x2a2a2e, 0.2))).rotation.x = PI / 2;
     add(cyl(0.04, 0.04, 0.03, 8, M(0x9a9aa4, 0.4)));

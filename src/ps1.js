@@ -48,6 +48,7 @@ import { buildDraculaMaps } from './maps41.js';
 import { buildCandyClubMaps } from './maps42.js';
 import { buildRumbleMaps } from './maps43.js';
 import { buildMojaveMaps } from './maps44.js';
+import { buildBoardroomMaps } from './maps45.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -581,7 +582,7 @@ function steadiestOffset(T, name, len) {
 // Looks whose bare arms tore into flat fins when the arms came down ("So Easy", 2026-10-08: the floral dress): the chibi
 // head's underside sits just over the T-posed arms, so a thin arm's top surface took the Head's weights and stayed put.
 // Their arm vertices take weights only from body vertices skinned mostly to that arm's bones (see `nearFor` below).
-const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie', 'bandeau']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } }, ARM_CUFFS = new Set(['bandeau']);   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
+const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie', 'bandeau', 'rosedress']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } }, ARM_CUFFS = new Set(['bandeau']);   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
@@ -805,6 +806,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   redjacket: 'assets/models/saxo_redjacket.glb',
   // the "Everybody Wants To Rule The World" clip's look (1985): a short-sleeved salmon-pink polo shirt with a soft collar and two buttons, tucked into pleated light grey trousers with a thin black belt, white socks, white canvas sneakers (2026-10-12 2nd)
   polo: 'assets/models/saxo_polo.glb',
+  // the "Gabriela" clip's look (KATSEYE, 2025): a fitted red satin halter-neck mini dress with a big red satin rose at the collar, bare arms, thin gold hoops, red strappy heels; no wig (2026-10-13)
+  rosedress: 'assets/models/saxo_rosedress.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -837,6 +840,8 @@ const PARTNERS = {
     torch: 'assets/models/sadi_torch.glb',
     // the roadside diner's waitress: a short-sleeved mint-green dress to the knee with a white collar and cuffs, a small white frilled apron, a name badge, a little white paper cap between her ears beside her pink bow, white socks and sneakers ("Everybody Wants To Rule The World", 2026-10-12 2nd)
     waitress: 'assets/models/sadi_waitress.glb',
+    // the CEO of Gabriela Enterprises: a bright red double-breasted power suit with gold buttons and peak lapels over a red silk blouse, a red pencil skirt, red pointed heels, a gold chain and gold drop earrings, her pink bow ("Gabriela", 2026-10-13)
+    redsuit: 'assets/models/sadi_redsuit.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -898,6 +903,8 @@ const PARTNERS = {
     greaser: 'assets/models/kob_greaser.glb',
     // the clip's driver: a bomber jacket covered in a bold black-and-white zig-zag chevron pattern, black ribbed collar, cuffs and hem, over a black t-shirt, slim black trousers, black loafers, her bell collar ("Everybody Wants To Rule The World", 2026-10-12 2nd)
     zigzag: 'assets/models/kob_zigzag.glb',
+    // the boss's white Persian kitten: a fluffy white long-haired fur suit over her body, arms and legs, a fluffy white ruff, a gold collar with a heart-shaped gold tag and a small red rose in place of her bell; her own face ("Gabriela", 2026-10-13: worn at scale 0.5, the kitten)
+    persian: 'assets/models/kob_persian.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
     keeper: 'assets/models/kob_keeper.glb',
     // the clip's drummer: a bright pink knitted beanie between her ears, a beige canvas work jacket open over a white t-shirt, light blue jeans, white sneakers, her bell ("Beautiful Things", 2026-10-04)
@@ -1041,7 +1048,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1170,7 +1177,7 @@ function actorSpec(a, e, map) {
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
     noLie: !!a.noLie, dizzy: a.dizzy ?? null,
-    shades: a.shades ?? null, visor: !!a.visor,   // "Poker Face" (2026-10-08 2nd): dark sunglasses (true, s: dropped onto the eyes landing s into the shot, { at, off }: flown off at off), the dealer's green visor
+    shades: a.shades ?? null, visor: !!a.visor, cone: a.cone ?? null, shame: a.shame ?? null, frosting: a.frosting ?? null,   // "Poker Face" (2026-10-08 2nd): dark sunglasses (true, s: dropped onto the eyes landing s into the shot, { at, off }: flown off at off), the dealer's green visor
     hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, steakMouth: a.steakMouth ?? null, fetch: a.fetch ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
     lean: (a.lean || 0) * Math.PI / 180 };   // lean: deg pitched forward from the feet ("Jamaican (Bam Bam)": shoving a bathtub, the body leaned into it)   // noLie: never settle as lying (a crawl on all fours sank to its nose, 2026-09-28)
 }
@@ -1452,6 +1459,10 @@ function propMesh(kind) {
     for (const sd of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.11, 0.014, 0.085, M(0xc8322a)), sd * 0.056, 0, 0)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, -0.022)); h.add(at3(box(0.09, 0.018, 0.02, M(0xf2d8b0)), sd * 0.056, 0.012, 0.012)); h.rotation.z = -sd * 0.35; G.add(h); }
   } else if (kind === 'plug') {    // the booth's big yellow power plug, pins forward (a little self-lit: it must read in the blackout)
     add(box(0.14, 0.14, 0.2, mat({ color: 0xffd21f, unlit: 0.85 }))); add(box(0.16, 0.05, 0.05, M(0x2a5ad8)), 0, 0, -0.08); for (const x of [-0.035, 0.035]) add(box(0.02, 0.02, 0.07, M(0xd8d8e0)), x, 0, 0.13);
+  } else if (kind === 'crown') {   // "Gabriela": a gold crown with five points and red jewels, built upside down like the party hat (wearHat flips hats: the points' tips at the anchor, the band below them)
+    const gold = mat({ color: 0xf2c43a, unlit: 0.5 });
+    add(new THREE.Mesh(new THREE.CylinderGeometry(0.095, 0.095, 0.06, 10, 1, true), gold), 0, 0.12);
+    for (let i = 0; i < 5; i++) { const a = i / 5 * Math.PI * 2, pk = new THREE.Mesh(new THREE.ConeGeometry(0.03, 0.09, 4), gold); pk.rotation.x = Math.PI; add(pk, Math.sin(a) * 0.09, 0.05, Math.cos(a) * 0.09); add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.016, 0), mat({ color: 0xe0283a, unlit: 0.7 })), Math.sin(a) * 0.1, 0.12, Math.cos(a) * 0.1); }
   } else if (kind === 'partyhat') {   // "Patient Zero": a striped party cone, built upside down (wearHat flips hats: the tip at the anchor, the brim below it)
     const c = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.2, 6), mat({ color: 0xff5fa2, unlit: 0.35 })); c.rotation.x = Math.PI; add(c, 0, 0.1);
     for (const y of [0.07, 0.13]) add(cyl(0.075 * y / 0.2 + 0.006, 0.075 * (y + 0.02) / 0.2 + 0.006, 0.02, mat({ color: 0xffd43b, unlit: 0.35 })), 0, y);
@@ -1870,7 +1881,7 @@ function mouthSteak(D) {
 // 'yarn' | 'frisbee' | 'sock' | 'bone' (src/fetch.js), or { kind, at, until } (s into the shot). Long things go crosswise
 // (sticking out on both sides of the muzzle), balls a little in front of the mouth, the frisbee upright; in the head
 // bone's frame like FACE, so it follows the head through any clip
-const FETCH_AT = { stick: [0, 0.07, 0.4], bone: [0, 0.07, 0.4], fish: [0, 0.05, 0.42], sock: [0, 0.05, 0.42], ball: [0, 0.04, 0.47], yarn: [0, 0.04, 0.48], frisbee: [0, -0.02, 0.52] };
+const FETCH_AT = { rose: [0, 0.06, 0.42], stick: [0, 0.07, 0.4], bone: [0, 0.07, 0.4], fish: [0, 0.05, 0.42], sock: [0, 0.05, 0.42], ball: [0, 0.04, 0.47], yarn: [0, 0.04, 0.48], frisbee: [0, -0.02, 0.52] };
 const _ffq = new THREE.Quaternion(), _ffe = new THREE.Euler();
 function mouthFetch(D, F, c) {
   const kind = typeof F === 'string' ? F : F.kind, from = typeof F === 'object' ? (F.at ?? -1) : -1, until = typeof F === 'object' ? (F.until ?? 1e9) : 1e9;
@@ -2001,6 +2012,44 @@ function sunglasses(D, S, c) {
   const base = D === CREW.compote ? [0, 0.2, 0.41] : [0, 0.3, 0.4];
   faceAt(D, [base[0], base[1] + 0.9 * dn * dn + 0.9 * up, base[2] + 0.5 * up], g.position); g.quaternion.copy(_fq);
   if (up) g.rotateX(-up * 5); g.scale.setScalar(sc);
+}
+// "Gabriela" (2026-10-13): the cone of shame, a white plastic lampshade round the neck opening forward with the chibi
+// head inside it (it must be wider than the 0.95 m head), in the head bone's frame like FACE; and the dog-shaming sign,
+// a cardboard placard hung on a string under the chin, BAD DOG in black marker, facing forward
+function shameCone(D) {
+  const g = faceProp(D, 'cone', () => {
+    const q = new THREE.Group(), white = mat({ color: 0xeef4f8, unlit: 0.35, side: THREE.DoubleSide });
+    const c = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.4, 0.5, 18, 1, true), white); c.rotation.x = Math.PI / 2; q.add(c);   // the wide end forward (at 0.8 m it filled half the frame like a satellite dish)
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(0.6, 0.028, 4, 22), mat({ color: 0xc4d0d8, unlit: 0.3 })); rim.position.z = 0.25; q.add(rim);
+    const tabs = mat({ color: 0xb8c4cc, unlit: 0.3 });
+    for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2, tb = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.03, 0.1), tabs); tb.position.set(Math.cos(a) * 0.41, Math.sin(a) * 0.41, -0.24); tb.rotation.z = a; q.add(tb); }
+    return q;
+  });
+  faceAt(D, [0, 0.26, 0.14], g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+const shameTex = word => tex(48, 32, x => { px(x, '#c8a46a', 0, 0, 48, 32); px(x, '#a8844a', 0, 0, 48, 1); px(x, '#a8844a', 0, 31, 48, 1); px(x, '#a8844a', 0, 0, 1, 32); px(x, '#a8844a', 47, 0, 1, 32); x.fillStyle = '#141414'; x.font = 'bold 13px monospace'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('BAD', 24, 9); x.fillText(word, 24, 23); });
+const SHAME_T = shameTex('DOG'), SHAME_CAT_T = shameTex('CAT');   // the cat's says BAD CAT
+function shameSign(D) {
+  const g = faceProp(D, 'shame', () => {
+    const q = new THREE.Group(), card = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.31, 0.012), mat({ map: D === CREW.kob ? SHAME_CAT_T : SHAME_T, unlit: 0.45 })); q.add(card);
+    const str = mat({ color: 0xf0e8d8, unlit: 0.4 });
+    for (const sd of [-1, 1]) { const l = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.3, 0.012), str); l.position.set(sd * 0.13, 0.27, -0.06); l.rotation.z = -sd * 0.45; q.add(l); }
+    return q;
+  });
+  faceAt(D, [0, -0.24, 0.36], g.position); g.quaternion.copy(_fq); g.rotateX(0.12); g.scale.setScalar(D.curScale || D.scale || 1);
+}
+// "Gabriela": `frosting` (true or from s into the shot): caught in the cake, white frosting and red crumbs on the muzzle
+// (in the head bone's frame like SPLAT) and on both paws (at the hand bones)
+const FROST = [[0, 0.02, 0.45, 0.1, 0.065], [0.11, 0.07, 0.42, 0.065, 0.05], [-0.1, 0.09, 0.42, 0.065, 0.05], [0.03, -0.07, 0.43, 0.07, 0.05], [-0.06, 0.14, 0.41, 0.045, 0.035]];
+function frostFace(D) {
+  const w = () => mat({ color: 0xfaf6f0, unlit: 0.5 }), r = () => mat({ color: 0xb8202c, unlit: 0.35 }), sc = D.curScale || D.scale || 1;
+  const g = faceProp(D, 'frost', () => { const q = new THREE.Group(), mw = w(), mr = r(); FROST.forEach(([x, y, z, rx, ry], i) => { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), i === 3 ? mr : mw); b.position.set(x, y, z); b.scale.set(rx, ry, 0.045); q.add(b); }); return q; });
+  faceAt(D, [0, 0, 0], g.position); g.quaternion.copy(_fq); g.scale.setScalar(sc);
+  for (const side of ['L', 'R']) {
+    const hb = side === 'L' ? D.handL : D.handR; if (!hb) continue;
+    const q = faceProp(D, 'frostpaw' + side, () => { const o = new THREE.Group(), mw = w(), mr = r(); [[0, 0, 0, 0.1, mw], [0.06, 0.04, 0.02, 0.055, mr], [-0.05, 0.03, 0.04, 0.06, mw]].forEach(([x, y, z, s, m]) => { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(s, 0), m); b.position.set(x, y, z); o.add(b); }); return o; });
+    hb.getWorldPosition(q.position); q.scale.setScalar(sc);
+  }
 }
 // the dealer's green visor: a see-through green brim over the eyes on a dark band round the forehead
 function dealerVisor(D) {
@@ -2263,6 +2312,9 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.googly != null && A.googly !== false && D.head) { const Gy = typeof A.googly === 'object' ? A.googly : { at: A.googly === true ? -9 : A.googly }; if (t - t0 >= (Gy.at ?? -9)) googlyEyes(D, Gy, t - t0 - (Gy.at ?? -9), t); }   // the espresso hits
     if (A.shades != null && A.shades !== false && D.head) sunglasses(D, A.shades, t - t0);
     if (A.visor && D.head) dealerVisor(D);
+    if (A.cone != null && A.cone !== false && (A.cone === true || t - t0 >= A.cone) && D.head) shameCone(D);   // "Gabriela": the cone of shame, true or from s into the shot
+    if (A.shame != null && A.shame !== false && (A.shame === true || t - t0 >= A.shame) && D.head) shameSign(D);   // the dog-shaming sign on the chest
+    if (A.frosting != null && A.frosting !== false && (A.frosting === true || t - t0 >= A.frosting) && D.head) frostFace(D);   // cake frosting on the muzzle and the paws: caught in the cake
     if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t);
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
