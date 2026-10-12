@@ -3732,6 +3732,52 @@
      "lift": 0.45
     }
    ]
+  },
+  {
+   "beat": 174,
+   "kind": "dance",
+   "map": "boardroom",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    3.2
+   ],
+   "board": "clap",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "rosedress",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 3.2
+    },
+    {
+     "who": "sadi",
+     "look": "redsuit",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 3.2
+    }
+   ]
   }
  ]
 }
