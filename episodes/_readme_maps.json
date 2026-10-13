@@ -3778,6 +3778,57 @@
      "z": 3.2
     }
    ]
+  },
+  {
+   "beat": 176,
+   "kind": "dance",
+   "map": "muaythai",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.75,
+     1.75
+    ],
+    "look": 1.5,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "ringside": "cheer",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0.3,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0.3,
+     "lift": 0.6
+    }
+   ]
   }
  ]
 }
