@@ -50,6 +50,7 @@ import { buildRumbleMaps } from './maps43.js';
 import { buildMojaveMaps } from './maps44.js';
 import { buildBoardroomMaps } from './maps45.js';
 import { buildRingMaps } from './maps46.js';
+import { buildFloorClubMaps } from './maps47.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -811,6 +812,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   rosedress: 'assets/models/saxo_rosedress.glb',
   // the "SaWaDiKa" clip's look (LISA, 2026): a sleek platinum-blonde bob wig with blunt bangs, his ears out on top, a glossy black leather long-sleeved catsuit with a short black feather collar, black fingerless gloves, black lace-up knee-high boots (2026-10-13 2nd)
   lisa: 'assets/models/saxo_lisa.glb',
+  // the "On The Floor" clip's featured rapper's look (2011): a slim black suit buttoned once, a white shirt open at the collar, mirrored aviator sunglasses, a thin gold chain, a white pocket square, black shoes (2026-10-14)
+  worldwide: 'assets/models/saxo_worldwide.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -845,6 +848,8 @@ const PARTNERS = {
     waitress: 'assets/models/sadi_waitress.glb',
     // the CEO of Gabriela Enterprises: a bright red double-breasted power suit with gold buttons and peak lapels over a red silk blouse, a red pencil skirt, red pointed heels, a gold chain and gold drop earrings, her pink bow ("Gabriela", 2026-10-13)
     redsuit: 'assets/models/sadi_redsuit.glb',
+    // the "On The Floor" clip's singer (2011): a silver sequined long-sleeved catsuit, a long wavy caramel-blonde wig past her shoulders, her pink bow, small silver hoops, silver strappy heels (2026-10-14)
+    sequins: 'assets/models/sadi_sequins.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -1053,7 +1058,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1181,7 +1186,7 @@ function actorSpec(a, e, map) {
     // "Vamos a la playa" (2026-09-29): hop: [m, beats] hops of that height, one every that many beats (0.5 = two a
     // beat), a parabola off the floor, the shadow shrinking under it (the hot-sand hop); hopPh shifts it
     hop: a.hop || null, hopPh: a.hopPh || 0,
-    noLie: !!a.noLie, dizzy: a.dizzy ?? null, dizzyR: a.dizzyR || 0.5,
+    noLie: !!a.noLie, dizzy: a.dizzy ?? null, dizzyR: a.dizzyR || 0.5, dizzyY: a.dizzyY ?? 0.3, cord: a.cord || null, swig: a.swig ?? null,   // swig: true or from s, the held milk tipped up at the mouth   // cord: [x, y, z], a bungee cord from the feet up to there ("On The Floor")
     bow: a.bow || null,   // "SaWaDiKa" (2026-10-13 2nd): [[s, deg], ...] the body bent forward at the waist (bowSpine): the wai's bow
     shades: a.shades ?? null, visor: !!a.visor, cone: a.cone ?? null, shame: a.shame ?? null, frosting: a.frosting ?? null,   // "Poker Face" (2026-10-08 2nd): dark sunglasses (true, s: dropped onto the eyes landing s into the shot, { at, off }: flown off at off), the dealer's green visor
     hideParts: a.hideParts || null, chew: a.chew ?? null, tongue: a.tongue ?? null, treat: a.treat || null, ballMouth: a.ballMouth ?? null, steakMouth: a.steakMouth ?? null, fetch: a.fetch ?? null, sip: a.sip ?? null, sipHand: a.sipHand || 'R',   // "Spooky, Scary Skeletons": a skeleton's parts taken away (src/bones.js BONE_PARTS); chew: a bone across the mouth (true or from s)   // dizzy: true or from s, cartoon stars circling the head ("we fell in love in october")
@@ -1387,6 +1392,10 @@ function propMesh(kind) {
     for (const s of [-1, 1]) { const h = new THREE.Group(); h.add(at3(box(0.15, 0.012, 0.21, mat({ map: coverT, unlit: 0.35 })), s * 0.075, 0, 0)); h.add(at3(box(0.14, 0.02, 0.19, mat({ map: pageT, unlit: 0.3 })), s * 0.072, 0.015, 0)); h.rotation.z = -s * 0.32; G.add(h); }
   } else if (kind === 'hammer') {  // "Dracula": a claw hammer held along the forearm (the taiko swing hammers on the beat): a wooden handle, a steel head across its end
     add(box(0.045, 0.4, 0.045, mat({ color: 0xa8743a, unlit: 0.2 })), 0, 0.12); add(box(0.24, 0.08, 0.08, mat({ color: 0xc8ccd4, unlit: 0.35 })), 0.03, 0.34); add(box(0.06, 0.05, 0.07, mat({ color: 0xc8ccd4, unlit: 0.35 })), -0.11, 0.37);
+  } else if (kind === 'mallet') {  // "On The Floor": the whack-a-mole mallet, held along the forearm: a long yellow handle, a fat red head across its end with a yellow band
+    add(box(0.05, 0.62, 0.05, mat({ color: 0xf0c83a, unlit: 0.3 })), 0, 0.2);
+    const head = add(cyl(0.13, 0.13, 0.34, mat({ color: 0xe0303a, unlit: 0.35 }), 10), 0, 0.56); head.rotation.z = Math.PI / 2;
+    const band = add(cyl(0.135, 0.135, 0.06, mat({ color: 0xf0c83a, unlit: 0.35 }), 10), 0, 0.56); band.rotation.z = Math.PI / 2;
   } else if (kind === 'goblet') {  // "Dracula": the countess's crystal goblet of red juice, held upright
     add(cyl(0.05, 0.06, 0.012, M(0xd8e4ee), 8), 0, 0.006); add(cyl(0.008, 0.008, 0.09, M(0xd8e4ee), 5), 0, 0.05); add(cyl(0.065, 0.03, 0.08, mat({ color: 0xe8f2fa, unlit: 0.35 }), 8), 0, 0.13); add(cyl(0.058, 0.04, 0.05, mat({ color: 0xb0142a, unlit: 0.35 }), 8), 0, 0.125);
   } else if (kind === 'wrench') {  // "Take on Me": the rival's giant spanner, held upright like a club: a red handle, an open C-shaped steel head (a square pipe-wrench jaw read as a letter F)
@@ -1588,13 +1597,18 @@ function holdProp(D, kind, side, bodyYaw, t) {
     g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(xb, d, new THREE.Vector3().crossVectors(xb, d)));
     const pl = len - 0.3; g.userData.pole.scale.y = pl; g.userData.pole.position.y = pl / 2; g.userData.rakeHead.position.y = pl; return;
   }
-  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov' || kind === 'brush' || kind === 'hammer') {   // along the forearm, pointing where the paw points
+  if (kind === 'finger' || kind === 'bachi' || kind === 'dstick' || kind === 'carrotpoke' || kind === 'selfie' || kind === 'selfiepov' || kind === 'brush' || kind === 'hammer' || kind === 'mallet') {   // along the forearm, pointing where the paw points
     D['fore' + side].getWorldPosition(_pd); const dir = _pa.clone().sub(_pd).normalize();
     g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(p); return;
   }
   if (kind === 'scissors') { g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, bodyYaw, 0); const o = 0.12 + 0.3 * Math.abs(Math.sin(t * Math.PI * 105 / 60)); (g.userData.blades || []).forEach((bl, i) => { bl.rotation.z = (i ? 1 : -1) * o; }); return; }   // snipping: the blades open and shut twice a beat at 105 BPM, their faces to the body's front
   if (kind === 'clock') { g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, 0, 0.22 * Math.sin(t * 55)); (g.userData.ring || []).forEach((l, i) => { l.visible = Math.sin(t * 40 + i) > -0.6; }); return; }   // ringing: it shakes in the paw, its face always to the front (+z, where the lenses are: turned with the body it went edge-on in profile)
   if (kind === 'balloon' || kind === 'getwell' || kind === 'goldfish') { g.position.copy(p); g.rotation.set(0.12 * Math.sin(t * 1.3), bodyYaw, 0.1 * Math.sin(t * 1.7 + 1)); return; }
+  if (D.swig && (kind === 'milkbottle' || kind === 'milk')) {   // "On The Floor": a swig, the bottle tipped up with its neck at the mouth, its base raised forward (held upright at the mouth it went inside the chibi head, at the cheek it read as no sip)
+    const m = faceAt(D, D === CREW.kob ? [0, 0.04, 0.38] : [0, 0.06, 0.42], new THREE.Vector3()), L = 0.2 * 1.25 * (D.holdScale || 1) * s;
+    const dir = m.clone().sub(p).normalize(), base = m.clone().addScaledVector(dir, -L);   // along the line from the paw to the mouth: its base in the paw (a chibi arm can't reach a bottle tipped out in front: reviews 1-2, no paw on it)
+    g.quaternion.setFromUnitVectors(_up, dir); g.position.copy(base); return;
+  }
   g.rotation.set(0, bodyYaw, 0);
   g.position.copy(p).addScaledVector(_up, kind === 'phone' || kind === 'ticket' || kind === 'camera' || kind === 'handmirror' || kind === 'instant' || kind === 'polaroid' || kind === 'polaroid1' || kind === 'espresso' || kind === 'handset' || kind === 'citation' ? 0.02 : -0.075 * s);   // drinks are gripped around the middle
   if (g.userData.led) g.userData.led.material.uniforms.uCol.value.setScalar(0.6 + 0.4 * (Math.sin(t * 40) > 0.6));
@@ -1818,12 +1832,22 @@ function gumSplat(D) {
 const MAPLE_GEO = (() => { const R = [[0.18, -0.06], [0.42, -0.22], [0.36, 0.02], [0.72, 0.16], [0.58, 0.28], [0.82, 0.5], [0.5, 0.48], [0.44, 0.6], [0.28, 0.5], [0.2, 0.74], [0.08, 0.68], [0, 1]];
   const pts = [[0, 0], ...R, ...R.slice(0, -1).reverse().map(([x, y]) => [-x, y])], sh = new THREE.Shape(); pts.forEach(([x, y], i) => i ? sh.lineTo(x, y) : sh.moveTo(x, y)); sh.closePath(); return new THREE.ShapeGeometry(sh); })();
 const STAR_GEO = (() => { const sh = new THREE.Shape(); for (let i = 0; i < 10; i++) { const a = Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 0.45 : 1; if (i) sh.lineTo(Math.cos(a) * r, Math.sin(a) * r); else sh.moveTo(Math.cos(a) * r, Math.sin(a) * r); } sh.closePath(); return new THREE.ShapeGeometry(sh); })();
-function dizzyStars(D, t, rr = 0.5) {   // rr: the ring's radius (0.72 keeps the stars off a face looking up at a lens above)
+function dizzyStars(D, t, rr = 0.5, ry = 0.3) {   // rr: the ring's radius (0.72 keeps the stars off a face looking up at a lens above); ry: its height over the head (a lying face seen from its feet: 0.6, or the near stars sat on her face)
   const sc = D.curScale || D.scale || 1, c = faceAt(D, [0, 0.3, 0.05], new THREE.Vector3());
   const g = faceProp(D, 'dizzy', () => { const q = new THREE.Group(), m = mat({ color: 0xffe23a, unlit: 1, side: THREE.DoubleSide }); for (let i = 0; i < 5; i++) q.add(new THREE.Mesh(STAR_GEO, m)); return q; });
   g.position.set(0, 0, 0); g.quaternion.identity(); g.scale.setScalar(1);
   const a0 = bp(t) * Math.PI;   // half a turn a beat
-  g.children.forEach((st, i) => { const a = a0 + i * TAU / 5; st.position.set(c.x + Math.cos(a) * rr * sc, c.y + (0.3 + 0.05 * Math.sin(2 * a)) * sc, c.z + Math.sin(a) * rr * sc); st.quaternion.copy(camera.quaternion); st.scale.setScalar(0.15 * sc); });
+  g.children.forEach((st, i) => { const a = a0 + i * TAU / 5; st.position.set(c.x + Math.cos(a) * rr * sc, c.y + (ry + 0.05 * Math.sin(2 * a)) * sc, c.z + Math.sin(a) * rr * sc); st.quaternion.copy(camera.quaternion); st.scale.setScalar(0.15 * sc); });
+}
+// "On The Floor" (2026-10-14): `cord` [x, y, z], a striped bungee cord from the feet up to that point: the dog hung upside
+// down out of the cat's ceiling by his feet kept his nose 0.46 m above hers (the reviewer's "not nose to nose"); on a
+// bungee he hangs as low as her face
+function bungeeCord(D, P3) {
+  const g = faceProp(D, 'cord', () => { const q = new THREE.Group(); for (let i = 0; i < 8; i++) q.add(new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.024, 1, 5), mat({ color: i % 2 ? 0x2aa8e8 : 0xffd23a, unlit: 0.5 }))); return q; });
+  const a = D.feet[0].getWorldPosition(new THREE.Vector3()).add(D.feet[1].getWorldPosition(new THREE.Vector3())).multiplyScalar(0.5);
+  const d = new THREE.Vector3(...P3).sub(a), len = Math.max(0.05, d.length());
+  g.position.copy(a); g.quaternion.setFromUnitVectors(_up, d.normalize()); g.scale.setScalar(1);
+  g.children.forEach((c, i) => { c.scale.y = len / 8; c.position.set(0, (i + 0.5) * len / 8, 0); });
 }
 // "Spooky, Scary Skeletons" (2026-10-04): `chew`, a femur held across the mouth like a dog carries a stick (sticking out on
 // both sides of the muzzle), in the head bone's frame like FACE, so it follows the head through any clip
@@ -2255,7 +2279,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
   // stayed on: Kob kept a raised paw into the next shot (2026-09-27). Put the aimed bones back before anyone is posed.
   for (const D of Object.values(CREW)) if (D.aimSaved) { for (const [bone, q] of D.aimSaved) bone.quaternion.copy(q); D.aimSaved = null; }
   for (const D of Object.values(CREW)) if (D.bowSaved) { for (const [bone, q] of D.bowSaved) bone.quaternion.copy(q); D.bowSaved = null; }   // the bow's spine, the same way
-  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.fg = false; D.deck = 0; D.lying = 0; D.lyingWhy = null; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
+  for (const D of Object.values(CREW)) { D.holder.visible = false; D.shadow.visible = false; D.air = false; D.fg = false; D.deck = 0; D.lying = 0; D.lyingWhy = null; D.flipped = false; D.curScale = D.scale || 1; D.holder.scale.setScalar(D.curScale); }
   const len = t1 - t0, plans = [];
   // pass 1: facing, start offset and ground are measured on Saxo's rig (shared caches) before anyone is posed this frame
   for (const A of P.actors) {
@@ -2275,7 +2299,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     const dip = A.dip ? -A.dip[0] * (0.5 + 0.5 * Math.sin((t - t0) * A.dip[1])) : 0;   // dip: [m, rad/s], bobbing under the waves (a swimmer in trouble)
     let hitHop = 0; if (A.bumps) for (const h of A.bumps) { const d = t - t0 - h; if (d >= 0 && d < 0.25) { const v = (A.bumpAmp ?? 0.09) * Math.sin(d / 0.25 * Math.PI); if (Math.abs(v) > Math.abs(hitHop)) hitHop = v; } }   // bumps: the bathtub's wall hits ("Jamaican (Bam Bam)")
     const lift = A.lift + bob + A.my * um + jolt + dip + hitHop;   // my: a rise or a sink; bump: turbulence jolts on the beat
-    D.curScale = s; D.holdScale = A.holdScale; D.holder.scale.setScalar(s); D.air = A.air; D.fg = A.fg || t - t0 < A.reveal;
+    D.curScale = s; D.holdScale = A.holdScale; D.swig = A.swig === true || (A.swig != null && A.swig !== false && t - t0 >= A.swig); D.holder.scale.setScalar(s); D.air = A.air; D.flipped = Math.abs(A.lean) > 2.1; D.fg = A.fg || t - t0 < A.reveal;   // flipped: upside down, the QA judges its face, not its feet
     wearOutfit(D, A.look); D.holder.visible = true; D.shadow.visible = !A.ride && !A.noShadow;
     if (A.hideParts) for (const m of D.outfits?.[A.look] || []) if (A.hideParts.includes(m.userData.part)) m.visible = false;   // the skeleton's stolen bones
     for (const [k, a] of Object.entries(D.actions)) a.weight = k === n ? 1 : 0;
@@ -2342,7 +2366,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.cone != null && A.cone !== false && (A.cone === true || t - t0 >= A.cone) && D.head) shameCone(D);   // "Gabriela": the cone of shame, true or from s into the shot
     if (A.shame != null && A.shame !== false && (A.shame === true || t - t0 >= A.shame) && D.head) shameSign(D);   // the dog-shaming sign on the chest
     if (A.frosting != null && A.frosting !== false && (A.frosting === true || t - t0 >= A.frosting) && D.head) frostFace(D);   // cake frosting on the muzzle and the paws: caught in the cake
-    if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t, A.dizzyR);
+    if (A.dizzy != null && A.dizzy !== false && (A.dizzy === true || t - t0 >= A.dizzy) && D.head) dizzyStars(D, t, A.dizzyR, A.dizzyY);
+    if (A.cord && D.feet) bungeeCord(D, A.cord);
     if (A.chew != null && A.chew !== false && (A.chew === true || t - t0 >= A.chew) && D.head) chewBone(D);
     if (A.tongue != null && A.tongue !== false && (A.tongue === true || t - t0 >= A.tongue) && D.head) dogTongue(D, t);
     if (A.ballMouth != null && A.ballMouth !== false && (A.ballMouth === true || t - t0 >= A.ballMouth) && D.head) mouthBall(D);
@@ -2551,7 +2576,7 @@ function qaDog(D, who) {
   if (spineFlat(D) > 0) { const L = partLows(D), w = lyingWeight(D, L, D.curScale || 1); if (w > 0) low = Math.min(L.torso, L.legL, L.legR, L.armL, L.armR); if (w > 0.99) lie = +(L.torso - (D.deck || 0)).toFixed(3); }
   // the head bone on screen (0..1): where the face is, for the framing rules (an arm past the edge reads fine, a face doesn't)
   const h = D.head ? D.head.getWorldPosition(_qv).project(camera) : null;
-  return { who, low: +(low - (D.deck || 0)).toFixed(3), lie, air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2, fg: !!D.fg };
+  return { who, low: +(low - (D.deck || 0)).toFixed(3), lie, air: !!D.air, box: B.map(v => +v.toFixed(3)), head: h && h.z < 1 ? [+((h.x + 1) / 2).toFixed(3), +((1 - h.y) / 2).toFixed(3)] : null, giant: (D.curScale || 1) > 2 || !!D.flipped, fg: !!D.fg };
 }
 window.QA_PROBE = t => {
   window.render3d(t);

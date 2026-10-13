@@ -1,0 +1,3999 @@
+{
+ "date": "2026-10-14",
+ "song": {
+  "title": "On The Floor",
+  "artist": "Jennifer Lopez"
+ },
+ "logline": "The song tells every animal on the dance floor to tear it up, so the dog in the rapper's suit and shades digs straight through it: he drops out of the grumpy cat's ceiling downstairs, pops up all over the club while the bunny bouncer plays whack-a-mole, and on the drop the whole dance floor caves in and the party lands in her living room.",
+ "new": "src/maps47.js: floorclub (two storeys of one building: the clip's old theatre nightclub upstairs, its dance floor of gold tiles over a concrete slab that is the ceiling of the grumpy cat's flat downstairs; holes that grow through both, a digger's splinter spray, plaster falling, a tunnel bulge under the tiles, whack-a-mole bonks, the whole dance floor caving in tile by tile into her living room with the guests on it, a cutaway view of both rooms stacked in one frame); the whack-a-mole `mallet` prop; looks saxo worldwide (the rapper's suit and shades) and sadi sequins (the singer's silver catsuit); the structure DOWNSTAIRS",
+ "notes": "The world, from the official video (contact sheets): an old theatre turned nightclub at night, red velvet, theatre boxes and crystal chandeliers, a packed dance floor, the singer in a silver sequined catsuit before a gold wall crossed by glowing gold bars, the rapper in a black suit and shades. Our club keeps it and puts a floor under it: the dance floor is the ceiling of the cat downstairs. The words, from whitelisted keywords per line: the call-outs name party-goers and what each must do on the floor ('go hard', 'party freak ... step', 'animal ... tear up', 'break a sweat', 'work'); verse 1 'keep moving', 'drinks up', 'pick your body up and drop it', 'change your world', 'tonight'; the chorus's city list (eight cities), 'dance the night away', 'live your life', 'grab somebody, drink a little more'; the hook 'tonight ... on the floor' twice, the first ending as the beat drops. Cast: Saxo in the rapper's black suit and shades (the dog who takes 'animal, tear up the floor' literally), Sadi in the singer's silver sequined catsuit (the diva on the stage; the lambada), Kob in her pink housecoat and curlers (the neighbour downstairs who never moves), Compote in her bouncer suit (security, the whack-a-mole mallet). The cave-in lands on the drop, after the hook's 'floor'.",
+ "tiktok_sound": "6917324503026501634",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "happy_run",
+  "laying_idle",
+  "samba",
+  "sitting_talking"
+ ],
+ "tags": {
+  "structure": "downstairs",
+  "scenes": [
+   "the cutaway: party upstairs, the cat downstairs",
+   "the dog digs the dance floor",
+   "waist-deep, his feet through her ceiling",
+   "drinks up and her milk",
+   "upside down out of her ceiling",
+   "whack-a-mole on the city list",
+   "dancing half out of a hole",
+   "the ceiling full of holes",
+   "the lambada",
+   "the mallet on the drop",
+   "the dance floor caves in",
+   "the party in her living room",
+   "he pops up out of her floor"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "floorclub"
+  ],
+  "ref": "none",
+  "lyric_literal": "'animal ... tear up the floor' (the dog digs it), 'break a sweat' (tongue out), 'work' (waist-deep), 'drinks up' (the glasses, her milk), 'drop it on the floor' (he drops through it), 'change your world' (upside down in her world), the city list (a whack-a-mole pop or slam on every city), 'dance the night away' (out of his hole), 'grab somebody' (the lambada), 'drink a little more' (her milk), 'on the floor' (the mallet, then the cave-in on the drop), 'tonight ... on the floor' (the party on her floor)",
+  "experiment": "Does a physical payoff the whole video builds to (the dance floor caving in on the beat drop, the party landing in the grumpy neighbour's living room), seen in a cutaway of both floors from frame 1, on a 2011 club anthem climbing again with a 702k-video TikTok sound, beat our last two throwback episodes' views at 24 h (Beat It 2.42x, Everybody Wants To Rule The World 3.06x)?"
+ },
+ "shots": [
+  {
+   "beat": -0.5,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "x": 0.45,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.631,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "samba",
+     "x": -0.7,
+     "z": -6.95,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.3,
+     "speed": 1,
+     "lift": 0.45
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     7.3,
+     6.9
+    ],
+    "h": [
+     0.06,
+     0.06
+    ],
+    "look": [
+     0.06,
+     0.06
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -1
+   ],
+   "zone": "cut",
+   "guests": "dance",
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "x": 0.45,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.585,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.23,
+     9.73
+    ],
+    "r": [
+     3.29,
+     1.776
+    ],
+    "h": [
+     2.7,
+     0.32
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 62,
+    "roll": [
+     0,
+     -9
+    ],
+    "hand": 0.15,
+    "ease": "out"
+   },
+   "focus": [
+    0.45,
+    -0.5
+   ],
+   "guests": "dance",
+   "clear": [
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     -4.6,
+     -4.8,
+     0.3
+    ],
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "x": 0.35,
+     "z": -1.9,
+     "face": "world",
+     "yaw": -3.2,
+     "at": 0.585,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -3.18,
+     -2.9
+    ],
+    "r": [
+     4.507,
+     4.356
+    ],
+    "h": [
+     0.45,
+     0.44
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.35,
+    -1.9
+   ],
+   "guests": "dance",
+   "spots": [
+    null,
+    null,
+    null,
+    null,
+    [
+     -0.54,
+     -1.44
+    ],
+    null,
+    [
+     -0.6,
+     -3.65
+    ],
+    null,
+    [
+     1.21,
+     -1.44
+    ],
+    null,
+    null,
+    null,
+    null,
+    [
+     1.51,
+     -3.63
+    ],
+    null,
+    null
+   ],
+   "spotsAt": [
+    0.1,
+    2.6
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.4,
+     2.25
+    ],
+    "h": [
+     -1.47,
+     -1.47
+    ],
+    "look": [
+     -1.58,
+     -1.58
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -0.8
+   ],
+   "zone": "flat",
+   "dustAt": [
+    0.55,
+    -0.7,
+    0.55
+   ],
+   "clear": [
+    [
+     1.8,
+     -3.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 15,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "x": 0.45,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.446,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.88,
+     2.05
+    ],
+    "r": [
+     3.052,
+     2.802
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.45,
+    -0.5
+   ],
+   "guests": "dance",
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 19.38,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0,
+     "lean": 32,
+     "noLie": true,
+     "arm": "both",
+     "aim": "paddle",
+     "flapEvery": 0.5,
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -134.31,
+     -134.27
+    ],
+    "r": [
+     2.935,
+     2.793
+    ],
+    "h": [
+     2.2,
+     2.17
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.55,
+    0.1
+   ],
+   "guests": "dance",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     0.858,
+     1.948
+    ]
+   ],
+   "dig": [
+    0.55,
+    -0.15,
+    0,
+    9,
+    0
+   ],
+   "clear": [
+    [
+     3,
+     0.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     4.4,
+     1.2,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 23.6,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": 0.42,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0,
+     "lean": 30,
+     "noLie": true,
+     "arm": "both",
+     "aim": "paddle",
+     "flapEvery": 0.5,
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     178.92,
+     178.85
+    ],
+    "r": [
+     2.65,
+     2.5
+    ],
+    "h": [
+     1.65,
+     1.62
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.55,
+    0.15
+   ],
+   "guests": "dance",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ]
+   ],
+   "dig": [
+    0.55,
+    -0.15,
+    0,
+    9,
+    0
+   ],
+   "clear": [
+    [
+     0.2,
+     -3.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 27.7,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": -0.15,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -0.62,
+     "noShadow": true,
+     "arm": "both",
+     "aim": "paddle",
+     "flapEvery": 0.5,
+     "upAt": -1,
+     "tongue": true
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     7.3,
+     6.9
+    ],
+    "h": [
+     -0.2,
+     -0.2
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -1
+   ],
+   "zone": "cut",
+   "guests": "dance",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ]
+   ],
+   "plaster": [
+    [
+     -0.04999999999999993,
+     0.05000000000000002,
+     0.2
+    ],
+    [
+     1.25,
+     -0.15,
+     0.9
+    ],
+    [
+     0.15000000000000002,
+     0.25,
+     1.6
+    ]
+   ],
+   "cracks": 0.3,
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 33,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "charleston",
+     "x": -0.7,
+     "z": -6.95,
+     "face": "world",
+     "yaw": 29.1,
+     "at": 0.677,
+     "speed": 1,
+     "lift": 0.45,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 33,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.27,
+     3.08
+    ],
+    "r": [
+     3.506,
+     3.355
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.65,
+    -6.95
+   ],
+   "guests": "dance",
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 37,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "happy_idle",
+     "x": -0.7,
+     "z": -6.95,
+     "face": "world",
+     "yaw": 8,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.45,
+     "arm": "R",
+     "aim": [
+      0.55,
+      0.65,
+      0.35
+     ],
+     "hold": "goblet",
+     "holdScale": 1.4,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.46,
+     2.46
+    ],
+    "r": [
+     4.654,
+     4.654
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -0.65,
+    -6.6
+   ],
+   "guests": "toast",
+   "spots": [
+    null,
+    [
+     -1.84,
+     -7.7,
+     "toast",
+     0.45
+    ],
+    null,
+    null,
+    [
+     -1.36,
+     -5.51
+    ],
+    null,
+    null,
+    null,
+    null,
+    [
+     0.15,
+     -5.58
+    ],
+    null,
+    null,
+    null,
+    [
+     0.44,
+     -7.79,
+     "toast",
+     0.45
+    ],
+    null,
+    null
+   ],
+   "spotsAt": [
+    -0.45,
+    -1.95
+   ]
+  },
+  {
+   "beat": 39.27,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "arm": "R",
+     "aim": "toast",
+     "hold": "milkbottle",
+     "holdScale": 1.15,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     9.87,
+     9.89
+    ],
+    "r": [
+     2.335,
+     2.213
+    ],
+    "h": [
+     -1.45,
+     -1.45
+    ],
+    "look": [
+     -1.55,
+     -1.55
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -0.8
+   ],
+   "zone": "flat",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ]
+   ],
+   "plaster": [
+    [
+     1.55,
+     0.35,
+     0.1
+    ]
+   ],
+   "cracks": 0.3,
+   "clear": [
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 41,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": -0.15,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -0.75,
+     "my": -1.05,
+     "myAt": 1.98,
+     "myDur": 0.22,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     27.41,
+     27.47
+    ],
+    "r": [
+     1.521,
+     1.409
+    ],
+    "h": [
+     2.55,
+     2.45
+    ],
+    "look": [
+     0.3,
+     0.3
+    ],
+    "fov": 55
+   },
+   "focus": [
+    0.55,
+    -0.15
+   ],
+   "guests": "dance",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ]
+   ],
+   "clear": [
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 47.2,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": 0.16,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -2.13,
+     "lean": 180,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "tongue": true,
+     "dip": [
+      0.05,
+      4.5
+     ],
+     "cord": [
+      0.55,
+      -0.15,
+      -0.1
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     3.136,
+     2.912
+    ],
+    "h": [
+     -1.78,
+     -1.78
+    ],
+    "look": [
+     -1.72,
+     -1.72
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -0.22
+   ],
+   "zone": "flat",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ]
+   ],
+   "plaster": [
+    [
+     1.05,
+     0.15,
+     0
+    ],
+    [
+     0.050000000000000044,
+     0.05000000000000002,
+     0.25
+    ]
+   ],
+   "cracks": 0.3,
+   "clear": [
+    [
+     3,
+     0.6,
+     0.3
+    ],
+    [
+     -1.9,
+     1.5,
+     0.3
+    ],
+    [
+     -4.8,
+     0.8,
+     0.3
+    ],
+    [
+     3.1,
+     -1.4,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 57,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": -1.75,
+     "z": -2.75,
+     "face": "world",
+     "yaw": 10.9,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "L",
+     "holdL": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       1.438,
+       [
+        0.62,
+        0.62,
+        0.3
+       ]
+      ]
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     9.58,
+     9.58
+    ],
+    "r": [
+     3.904,
+     3.904
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -1.5,
+    -2.55
+   ],
+   "guests": "stare",
+   "stare": [
+    -1.6,
+    -1.7
+   ],
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ]
+   ],
+   "ridge": [
+    0.55,
+    -0.6,
+    -1.6,
+    -1.7,
+    -2,
+    -1,
+    1
+   ],
+   "clear": [
+    [
+     -3,
+     -3.4,
+     0.3
+    ],
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     -1.9,
+     1.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": -1.6,
+     "z": -1.7,
+     "face": "world",
+     "yaw": 17.7,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -1.3,
+     "my": 0.55,
+     "myAt": 0.05,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     17.65,
+     17.65
+    ],
+    "r": [
+     2.309,
+     2.309
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.48,
+     0.48
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -1.6,
+    -1.7
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     0,
+     0.08
+    ]
+   ],
+   "clear": [
+    [
+     -4.6,
+     -4.8,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 66,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": -2.163,
+     "z": -1.115,
+     "face": "world",
+     "yaw": 136.1,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.3,
+        0.95,
+        -0.1
+       ]
+      ],
+      [
+       0.315,
+       [
+        0.15,
+        -0.35,
+        0.92
+       ]
+      ]
+     ]
+    },
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": -0.35,
+     "z": -3,
+     "face": "world",
+     "yaw": -97.6,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -1.3,
+     "my": 0.55,
+     "myAt": 0.255,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -111.63,
+     -111.63
+    ],
+    "r": [
+     4.952,
+     4.952
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -1.35,
+    -1.96
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     0.175,
+     0.375
+    ]
+   ],
+   "whacks": [
+    [
+     -1.6,
+     -1.7,
+     0.375
+    ]
+   ],
+   "whackYaw": -126.3,
+   "clear": [
+    [
+     -3,
+     -3.4,
+     0.3
+    ],
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     -3.1,
+     -1.6,
+     0.3
+    ],
+    [
+     3,
+     0.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     4.4,
+     1.2,
+     0.3
+    ],
+    [
+     5.6,
+     -3.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": -0.35,
+     "z": -3,
+     "face": "world",
+     "yaw": -17.7,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -1.3,
+     "my": 0.55,
+     "myAt": 0.05,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -17.65,
+     -17.65
+    ],
+    "r": [
+     2.309,
+     2.309
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.48,
+     0.48
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.35,
+    -3
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     0,
+     0.08
+    ]
+   ],
+   "clear": [
+    [
+     0.2,
+     -3.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": -1.025,
+     "z": -3.315,
+     "face": "world",
+     "yaw": 65,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.3,
+        0.95,
+        -0.1
+       ]
+      ],
+      [
+       0.356,
+       [
+        0.15,
+        -0.35,
+        0.92
+       ]
+      ]
+     ]
+    },
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 1.15,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -39.7,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -1.3,
+     "my": 0.55,
+     "myAt": 0.296,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -21.12,
+     -21.12
+    ],
+    "r": [
+     5.712,
+     5.712
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0.295,
+    -2.701666666666666
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     0.21599999999999997,
+     0.416
+    ]
+   ],
+   "whacks": [
+    [
+     -0.35,
+     -3,
+     0.416
+    ]
+   ],
+   "whackYaw": -21.7,
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     -1.9,
+     1.5,
+     0.3
+    ],
+    [
+     4.6,
+     -4.6,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 1.15,
+     "z": -2.3,
+     "face": "world",
+     "yaw": 20.6,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -1.3,
+     "my": 0.55,
+     "myAt": 0.05,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": 1.24,
+     "z": -1.21,
+     "face": "world",
+     "yaw": -175.3,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.22,
+        0.5,
+        0.84
+       ]
+      ]
+     ],
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.48,
+     21.48
+    ],
+    "r": [
+     2.977,
+     2.977
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.62,
+     0.62
+    ],
+    "fov": 60
+   },
+   "focus": [
+    1.0999999999999999,
+    -2.3
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     0,
+     0.08
+    ]
+   ],
+   "clear": [
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     0.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -1.45,
+     "face": "world",
+     "yaw": 170,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.3,
+        0.95,
+        -0.1
+       ]
+      ],
+      [
+       0.282,
+       [
+        0.15,
+        -0.35,
+        0.92
+       ]
+      ]
+     ]
+    },
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 1.8,
+     "z": -0.75,
+     "face": "world",
+     "yaw": 101.2,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -1.15,
+     "my": 0.55,
+     "myAt": 0.22200000000000003,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     4.3,
+     4.3
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 62
+   },
+   "focus": [
+    1.3,
+    -1.5
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     0.14200000000000002,
+     0.342
+    ]
+   ],
+   "whacks": [
+    [
+     1.15,
+     -2.3,
+     0.342
+    ]
+   ],
+   "whackYaw": 79.8,
+   "clear": [
+    [
+     -3,
+     -3.4,
+     0.3
+    ],
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     -3.1,
+     -1.6,
+     0.3
+    ],
+    [
+     3.1,
+     -1.4,
+     0.3
+    ],
+    [
+     -1.9,
+     1.5,
+     0.3
+    ],
+    [
+     -4.6,
+     -4.8,
+     0.3
+    ],
+    [
+     -3,
+     0.4,
+     0.3
+    ],
+    [
+     -4.8,
+     0.8,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 1.8,
+     "z": -0.75,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -0.97,
+     "my": 0.55,
+     "myAt": 0.05,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true,
+     "lean": -12
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": 1.18,
+     "z": -0.75,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.62,
+        0.62,
+        0.3
+       ]
+      ]
+     ],
+     "lean": 22
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.15,
+     3.15
+    ],
+    "h": [
+     0.65,
+     0.65
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 54
+   },
+   "focus": [
+    1.5,
+    -0.75
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     0,
+     0.08
+    ]
+   ],
+   "clear": [
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 78,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": 1.18,
+     "z": -0.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.3,
+        0.95,
+        -0.1
+       ]
+      ],
+      [
+       0.296,
+       [
+        0.15,
+        -0.35,
+        0.92
+       ]
+      ]
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3,
+     3
+    ],
+    "h": [
+     0.98,
+     0.98
+    ],
+    "look": [
+     0.86,
+     0.86
+    ],
+    "fov": 54
+   },
+   "focus": [
+    1.5,
+    -0.75
+   ],
+   "guests": "gasp",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "whacks": [
+    [
+     1.8,
+     -0.75,
+     0.356
+    ]
+   ],
+   "whackYaw": 0,
+   "clear": [
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -2,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -0.62,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": -1,
+     "hop": [
+      0.06,
+      1
+     ],
+     "tongue": true
+    },
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "charleston",
+     "x": -1.05,
+     "z": -1.65,
+     "face": "world",
+     "yaw": 20,
+     "at": 0.446,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.86,
+     3.05
+    ],
+    "r": [
+     4.005,
+     3.755
+    ],
+    "h": [
+     1.05,
+     1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 56,
+    "roll": [
+     -5,
+     -3
+    ]
+   },
+   "focus": [
+    -0.45,
+    -1.9
+   ],
+   "guests": "dance",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 85,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     26.1,
+     25.08
+    ],
+    "r": [
+     2.728,
+     2.595
+    ],
+    "h": [
+     -2.25,
+     -2.25
+    ],
+    "look": [
+     -1.15,
+     -1.15
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0.5,
+    -0.9
+   ],
+   "zone": "flat",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "plaster": [
+    [
+     -1.6,
+     -1.4,
+     0.3
+    ],
+    [
+     2.1,
+     -0.45,
+     1.1
+    ]
+   ],
+   "pour": [
+    [
+     -1.6,
+     -1.7,
+     -2
+    ],
+    [
+     1.15,
+     -2.3,
+     -2
+    ],
+    [
+     0.35,
+     -0.2,
+     -2
+    ]
+   ],
+   "cracks": 0.6,
+   "clear": [
+    [
+     -3,
+     -3.4,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     -4.6,
+     -4.8,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 89,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_run",
+     "x": 2.4,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -120,
+     "at": 0.1,
+     "speed": 0.65,
+     "mx": -1,
+     "mz": -0.55,
+     "arm": "R",
+     "hold": "mallet",
+     "holdScale": 1.25,
+     "upAt": -1,
+     "aim": [
+      0.25,
+      0.9,
+      -0.35
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -25.29,
+     -29.57
+    ],
+    "r": [
+     2.945,
+     2.889
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    1.85,
+    0.1
+   ],
+   "guests": "stare",
+   "stare": [
+    1.85,
+    0.1
+   ],
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "clear": [
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3.1,
+     -1.4,
+     0.3
+    ],
+    [
+     3,
+     0.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     4.6,
+     -4.6,
+     0.3
+    ],
+    [
+     5.6,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 97,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 0.45,
+     "z": -1.15,
+     "face": "world",
+     "yaw": -32,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.32,
+      -0.3,
+      0.9
+     ],
+     "armB": "L",
+     "aimB": [
+      0.72,
+      0.55,
+      0.22
+     ],
+     "upAt": -1,
+     "sway": 12,
+     "swayEvery": 0.5,
+     "hop": [
+      0.03,
+      1
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "happy_idle",
+     "x": -0.45,
+     "z": -1.15,
+     "face": "world",
+     "yaw": 32,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.32,
+      -0.3,
+      0.9
+     ],
+     "armB": "R",
+     "aimB": [
+      0.55,
+      0.78,
+      0.25
+     ],
+     "upAt": -1,
+     "sway": 12,
+     "swayEvery": 0.5,
+     "hop": [
+      0.03,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.45,
+     3.45
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -0.2,
+    -1.15
+   ],
+   "guests": "dance",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "hearts": [
+    [
+     0,
+     1.25,
+     -0.85,
+     0.3,
+     1
+    ]
+   ],
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 103.18,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     29.36,
+     28.52
+    ],
+    "r": [
+     2.754,
+     2.618
+    ],
+    "h": [
+     -2.15,
+     -2.15
+    ],
+    "look": [
+     -1.25,
+     -1.25
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0.5,
+    -0.9
+   ],
+   "zone": "flat",
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "plaster": [
+    [
+     -0.9,
+     -1.4,
+     0.1
+    ],
+    [
+     1.75,
+     -0.45,
+     0.5
+    ]
+   ],
+   "pour": [
+    [
+     -1.6,
+     -1.7,
+     -2
+    ],
+    [
+     1.15,
+     -2.3,
+     -2
+    ],
+    [
+     1.8,
+     -0.75,
+     -2
+    ]
+   ],
+   "cracks": 1,
+   "swing": 0.3,
+   "sag": 0.8,
+   "caveAt": [
+    0.3,
+    -1.5
+   ],
+   "clear": [
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     -4.6,
+     -4.8,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 108,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "x": 0.42,
+     "z": -2.5,
+     "face": "world",
+     "yaw": -30,
+     "at": 1.164,
+     "speed": 1,
+     "arm": "R",
+     "aim": [
+      0.3,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "charleston",
+     "x": -0.54,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 30,
+     "at": 1.164,
+     "speed": 1,
+     "arm": "L",
+     "aim": [
+      0.3,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": 2.32,
+     "z": -2.5,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "L",
+     "holdL": "mallet",
+     "holdScale": 1.45,
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.3,
+        0.88,
+        -0.38
+       ]
+      ],
+      [
+       5.225,
+       [
+        0.15,
+        -0.35,
+        0.92
+       ]
+      ]
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8,
+     8
+    ],
+    "r": [
+     5.25,
+     5.25
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 66
+   },
+   "focus": [
+    0.95,
+    -2.5
+   ],
+   "guests": "stare",
+   "stare": [
+    2.32,
+    -2.5
+   ],
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "whacks": [
+    [
+     1.42,
+     -2.5,
+     5.285
+    ]
+   ],
+   "whackYaw": 0,
+   "sag": 0.25,
+   "caveAt": [
+    0.85,
+    -1.5
+   ],
+   "clear": [
+    [
+     -1.6,
+     -3.6,
+     0.3
+    ],
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "x": 0.42,
+     "z": -2.5,
+     "face": "world",
+     "yaw": -30,
+     "at": 1,
+     "speed": 1,
+     "arm": "R",
+     "aim": [
+      0.3,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "my": -3,
+     "myAt": 0.08,
+     "myDur": 1,
+     "air": true,
+     "moveAt": 0.08,
+     "mx": -0.69,
+     "mz": 0
+    },
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "charleston",
+     "x": -0.54,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 30,
+     "at": 1,
+     "speed": 1,
+     "arm": "L",
+     "aim": [
+      0.3,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "my": -3,
+     "myAt": 0.08,
+     "myDur": 1,
+     "air": true,
+     "moveAt": 0.08,
+     "mx": -0.69,
+     "mz": 0
+    },
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "happy_idle",
+     "x": 2.32,
+     "z": -2.5,
+     "face": "world",
+     "yaw": -60,
+     "at": 0.4,
+     "speed": 0.05,
+     "my": -3,
+     "myAt": 0.08,
+     "myDur": 1,
+     "air": true,
+     "moveAt": 0.08,
+     "mx": -0.25,
+     "mz": 0,
+     "arm": "L",
+     "holdL": "mallet",
+     "holdScale": 1.3,
+     "upAt": -1,
+     "aim": [
+      0.15,
+      -0.35,
+      0.92
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     7.3,
+     7.3
+    ],
+    "h": [
+     -0.5,
+     -0.5
+    ],
+    "look": [
+     -0.5,
+     -0.5
+    ],
+    "fov": 52,
+    "ease": "lin"
+   },
+   "focus": [
+    0.55,
+    -1
+   ],
+   "zone": "cut",
+   "guests": "gasp",
+   "spotsAt": [
+    0.55,
+    6.3
+   ],
+   "holes": [
+    [
+     0.55,
+     -0.15,
+     0.55,
+     -1,
+     -1
+    ],
+    [
+     -1.6,
+     -1.7,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     -0.35,
+     -3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.15,
+     -2.3,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     1.8,
+     -0.75,
+     0.48,
+     -1,
+     -1
+    ],
+    [
+     0,
+     -2,
+     0.48,
+     -1,
+     -1
+    ]
+   ],
+   "cave": 0.02,
+   "caveAt": [
+    0.85,
+    -1.5
+   ],
+   "frontFirst": 1,
+   "clear": [
+    [
+     0.2,
+     -3.5,
+     0.3
+    ],
+    [
+     1.8,
+     -3.6,
+     0.3
+    ],
+    [
+     3,
+     -3.2,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ],
+    [
+     1.9,
+     1.6,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 123,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "bouncer",
+     "clip": "laying_idle",
+     "x": 0.35,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -3,
+     "ground": "mesh",
+     "dizzy": true,
+     "dizzyR": 0.38,
+     "dizzyY": 0.55
+    },
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.8,
+     2.8
+    ],
+    "h": [
+     -1.25,
+     -1.25
+    ],
+    "look": [
+     -2.45,
+     -2.45
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.45,
+    -0.15
+   ],
+   "zone": "flat",
+   "where": "flat",
+   "guests": "fall",
+   "fallen": true,
+   "caveAt": [
+    0.85,
+    -1.5
+   ],
+   "keep": [
+    [
+     0.35,
+     0.95,
+     0.85
+    ],
+    [
+     1.55,
+     -0.6,
+     0.7
+    ]
+   ],
+   "spots": [
+    null,
+    null,
+    null,
+    null,
+    [
+     -0.51,
+     -1.93
+    ],
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "spotsAt": [
+    0.45,
+    2.65
+   ],
+   "rubbleOff": [
+    [
+     0.45,
+     2.65,
+     0.35,
+     0.95,
+     0.75
+    ],
+    [
+     0.45,
+     2.65,
+     0.55,
+     -0.8,
+     0.75
+    ],
+    [
+     0.45,
+     2.65,
+     0.35,
+     0.95,
+     0.75
+    ],
+    [
+     0.45,
+     2.65,
+     0.55,
+     -0.8,
+     0.75
+    ],
+    [
+     0.45,
+     2.65,
+     -0.51,
+     -1.93,
+     0.45
+    ],
+    [
+     0.45,
+     2.65,
+     -0.51,
+     -1.93,
+     0.45
+    ]
+   ]
+  },
+  {
+   "beat": 130,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "arm": "L",
+     "aim": [
+      0.3,
+      -0.12,
+      0.9
+     ],
+     "holdL": "milkbottle",
+     "holdScale": 1.1,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.15,
+     3.15
+    ],
+    "h": [
+     -1.85,
+     -1.85
+    ],
+    "look": [
+     -2,
+     -2
+    ],
+    "fov": 68
+   },
+   "focus": [
+    0.55,
+    -0.9
+   ],
+   "zone": "flat",
+   "where": "flat",
+   "guests": "dance",
+   "noLamp": true,
+   "noTable": true,
+   "fallen": true,
+   "caveAt": [
+    0.85,
+    -1.5
+   ],
+   "keep": [
+    [
+     0.35,
+     0.95,
+     0.85
+    ],
+    [
+     1.55,
+     -0.6,
+     0.7
+    ]
+   ],
+   "spots": [
+    null,
+    null,
+    null,
+    null,
+    [
+     -0.2,
+     -0.75
+    ],
+    null,
+    [
+     1.42,
+     -2.75
+    ],
+    null,
+    [
+     1.3,
+     -0.75
+    ],
+    null,
+    null,
+    null,
+    null,
+    [
+     -0.32,
+     -2.75
+    ],
+    null,
+    null
+   ],
+   "spotsAt": [
+    0.55,
+    2.25
+   ],
+   "clear": [
+    [
+     1.42,
+     -2.75,
+     0.3
+    ],
+    [
+     -0.32,
+     -2.75,
+     0.3
+    ]
+   ],
+   "rubbleOff": [
+    [
+     0.55,
+     2.25,
+     0.55,
+     -0.8,
+     0.75
+    ],
+    [
+     0.55,
+     2.25,
+     0.55,
+     -0.8,
+     0.75
+    ],
+    [
+     0.55,
+     2.25,
+     -0.2,
+     -0.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     1.42,
+     -2.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     1.3,
+     -0.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     -0.32,
+     -2.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     -0.2,
+     -0.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     1.42,
+     -2.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     1.3,
+     -0.75,
+     0.45
+    ],
+    [
+     0.55,
+     2.25,
+     -0.32,
+     -2.75,
+     0.45
+    ]
+   ]
+  },
+  {
+   "beat": 134,
+   "kind": "dance",
+   "map": "floorclub",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "housecoat",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": -2.58,
+     "holdL": "milkbottle",
+     "holdScale": 1.1
+    },
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "happy_idle",
+     "x": 1.55,
+     "z": -0.3,
+     "face": "world",
+     "yaw": -10.9,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": -4.2,
+     "my": 0.5,
+     "myAt": 0.45,
+     "myDur": 0.16,
+     "noShadow": true,
+     "air": true,
+     "arm": "both",
+     "aim": [
+      0.35,
+      -0.3,
+      0.9
+     ],
+     "upAt": -1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.304,
+     3.304
+    ],
+    "h": [
+     -1.45,
+     -1.45
+    ],
+    "look": [
+     -2.05,
+     -2.05
+    ],
+    "fov": 60
+   },
+   "focus": [
+    1.05,
+    -0.65
+   ],
+   "zone": "flat",
+   "where": "flat",
+   "guests": "stare",
+   "stare": [
+    1.55,
+    -0.3
+   ],
+   "fallen": true,
+   "caveAt": [
+    0.85,
+    -1.5
+   ],
+   "keep": [
+    [
+     0.35,
+     0.95,
+     0.85
+    ],
+    [
+     1.55,
+     -0.6,
+     0.7
+    ]
+   ],
+   "holes": [
+    [
+     1.55,
+     -0.3,
+     0.55,
+     -1,
+     -1,
+     -3
+    ]
+   ],
+   "dig": [
+    1.55,
+    -0.3,
+    -1,
+    9,
+    125,
+    -3
+   ],
+   "key": [
+    2.15,
+    -1.8,
+    0.6000000000000001,
+    1.25,
+    1.1,
+    0.95
+   ],
+   "noLamp": true,
+   "still": true,
+   "spots": [
+    null,
+    null,
+    null,
+    null,
+    [
+     2.56,
+     -3.87
+    ],
+    null,
+    null,
+    null,
+    [
+     1.54,
+     -4.3
+    ],
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "spotsAt": [
+    1.05,
+    2.65
+   ],
+   "rubbleOff": [
+    [
+     1.05,
+     2.65,
+     0.55,
+     -0.8,
+     0.75
+    ],
+    [
+     1.05,
+     2.65,
+     1.55,
+     -0.3,
+     0.75
+    ],
+    [
+     1.05,
+     2.65,
+     0.55,
+     -0.8,
+     0.75
+    ],
+    [
+     1.05,
+     2.65,
+     1.55,
+     -0.3,
+     0.75
+    ],
+    [
+     1.05,
+     2.65,
+     2.56,
+     -3.87,
+     0.45
+    ],
+    [
+     1.05,
+     2.65,
+     1.54,
+     -4.3,
+     0.45
+    ],
+    [
+     1.05,
+     2.65,
+     2.56,
+     -3.87,
+     0.45
+    ],
+    [
+     1.05,
+     2.65,
+     1.54,
+     -4.3,
+     0.45
+    ]
+   ]
+  }
+ ]
+}
