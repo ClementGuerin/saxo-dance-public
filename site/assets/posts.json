@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-12T19:24:57.169Z",
+ "updated": "2026-10-13T14:17:53.766Z",
  "posts": [
+  {
+   "id": "2026-10-13",
+   "title": "Gabriela",
+   "artist": "KATSEYE",
+   "date": "2026-10-13T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-13.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Deb-kdSjLdH/",
+     "id": "Deb-kdSjLdH"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/WQyuN_MFpHg",
+     "id": "WQyuN_MFpHg"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=4559485417712953",
+     "id": "4559485417712953"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2110008049704345986",
+     "id": "2110008049704345986"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695903861021674774",
+     "id": "7695903861021674774"
+    }
+   }
+  },
   {
    "id": "2026-10-12-2",
    "title": "Everybody Wants To Rule The World",
