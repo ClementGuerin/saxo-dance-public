@@ -1,0 +1,5085 @@
+{
+ "date": "2026-10-13",
+ "song": {
+  "title": "SaWaDiKa",
+  "artist": "LISA"
+ },
+ "logline": "A polite dog in a Bangkok Muay Thai ring greets the champion with a wai on every 'hello sawadika', and every punch, kick and flying knee sails over his bow into somebody else, until she bows back at the same moment and they bonk heads.",
+ "new": "src/maps46.js: muaythai (a car park at dusk between old concrete housing blocks, the city's towers beyond them, a Muay Thai ring with ropes in the Thai flag's colours, red and blue corners, steps, floodlights, the timekeeper's brass bell, struck by a box-pet timekeeper's mallet, ringing out; a bonk burst of stars where two heads meet; floodlight poles a shot can hide; neon tuk-tuks, string lights; box-pet crowds that cheer, gasp, stare, dance, wai and get knocked flat; LISA's crew in black); the actor fields bow (a keyframed bend at the waist: the wai's bow, src/ps1.js bowSpine) and dizzyR (the dizzy stars' ring); the generator's tidy() (hides the poles and clears the box pets that land on a head) and FREEZE (passed shots keep their placement); looks saxo lisa and kob referee; the structure BROKEN RULE OF THREE with a double-bow bonk",
+ "notes": "The world, from the official video (contact sheets): Bangkok at dusk, a crew in black dancing on the concrete steps and walkways of old housing blocks, a Muay Thai ring in a car park among them with boxers training, neon tuk-tuks, the city's towers; LISA in a platinum bob with blunt bangs and black leather and feathers. The title is the Thai greeting, said with a wai (palms pressed together, a bow). Our version keeps the car park ring, the crew in black, the tuk-tuks and her look, and turns the greeting into slapstick: the dog bows on every 'hello sawadika' and each attack flies over his back into somebody else (the referee, his coach, the front rows), until the champion learns to bow too and they bow into each other. The words, from whitelisted keywords per line: 'hello sawadika' (a wai and a bow each time), 'bang ... bangkok' (the hook), 'up' (up the steps, into the ring, paws up, her gloves up), 'step' (she steps up to him), 'back' (she turns her back), 'call' (the referee calls them in), 'catch' (he catches a glove), 'baby no' (his coach shakes her head), 'go' (each take-off). Cast: Saxo in LISA's platinum bob and black feathers (the polite challenger), Compote the champion in her boxer kit (always angry), Kob the referee (deadpan, flattened first), Sadi his coach in her pink tracksuit (cheering, then knocked off the apron). The bows always read side on (from the front the wig hides the face); the flying bodies are held level (lean) and read side on.",
+ "tiktok_sound": "7681077868771887105",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "boxing_warm_up_exercise",
+  "charleston",
+  "clap_while_standing",
+  "happy_idle",
+  "happy_run",
+  "knocked_down_to_stomach",
+  "knocked_out_falling_to_back",
+  "laying_idle",
+  "shaking_head_no_dismissively"
+ ],
+ "tags": {
+  "structure": "broken rule of three",
+  "scenes": [
+   "the dog leads the crew in black",
+   "the champion shadow-boxing",
+   "the referee deadpan",
+   "up the ring steps",
+   "paws up then the first wai",
+   "the face-off",
+   "the glove caught",
+   "her guard up",
+   "the coach shakes her head",
+   "the bell",
+   "the charge",
+   "the flying punch over the bow",
+   "the referee flattened",
+   "the flying kick over the bow",
+   "the coach knocked off the apron",
+   "look behind you on the corner post",
+   "the leap off the turnbuckle",
+   "into the front rows",
+   "her first wai",
+   "the double bow and the bonk",
+   "the car park answers with a wai",
+   "the wai from the canvas"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "muaythai"
+  ],
+  "ref": "look-behind-you",
+  "lyric_literal": "'hello sawadika' (a wai and a bow on every one: each dodges a bigger attack; the last two bow at once and bonk), 'bang ... bangkok' (the dance hook in a Bangkok car park), 'up' (up the steps, into the ring, paws up, her gloves up), 'step' (she steps up to him), 'back' (she turns her back), 'call' (the referee calls them in), 'catch' (he catches a glove), 'baby no' (his coach shakes her head), 'go' (each take-off)",
+  "experiment": "Does slapstick on the song's own title word (a wai and a bow on every 'hello sawadika', each dodging a bigger attack, then a double-bow bonk) on a K-pop solo hit with a small TikTok sound (77.6k videos) and a huge video (206M views) earn more likes per 1,000 views at 24 h than our last week's dramatic-irony episodes?"
+ },
+ "shots": [
+  {
+   "beat": -0.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -0.25,
+     "bow": [
+      [
+       0,
+       0
+      ],
+      [
+       0.16,
+       58
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0,
+     "lift": 1.55,
+     "lean": 85,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "upAt": -1,
+     "arm": "R",
+     "aim": [
+      0.05,
+      0,
+      1
+     ],
+     "armB": "L",
+     "aimB": [
+      0.15,
+      -0.25,
+      -0.95
+     ],
+     "mx": -1.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -6,
+     -6
+    ],
+    "r": [
+     6.454,
+     6.454
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.3,
+    0.3
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.97,
+     6.72,
+     1
+    ],
+    [
+     -0.97,
+     6.72,
+     1
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 1,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": 0,
+     "z": 6.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.924,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.09,
+     1.6
+    ],
+    "r": [
+     2.736,
+     2.151
+    ],
+    "h": [
+     0.24,
+     0.24
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 62,
+    "roll": [
+     -9,
+     -6
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.1,
+    6.4
+   ],
+   "crew": "dance",
+   "crewAt": [
+    0,
+    5.6,
+    0
+   ],
+   "ringside": "cheer",
+   "key": [
+    0.4,
+    2.4,
+    9.2,
+    1.25,
+    1.05,
+    1.15
+   ],
+   "flashAt": [
+    0
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "poleHide": [
+    0
+   ],
+   "clear": [
+    [
+     0.2,
+     9.13,
+     1
+    ],
+    [
+     0.16,
+     8.55,
+     1
+    ],
+    [
+     -0.47,
+     5.6,
+     0.3
+    ],
+    [
+     0.47,
+     5.6,
+     0.3
+    ],
+    [
+     0,
+     4.7,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 8,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.1,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.45,
+        0.5,
+        0.75
+       ]
+      ],
+      [
+       0.314,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.529,
+       [
+        0.45,
+        0.5,
+        0.75
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.743,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.957,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.45,
+        0.5,
+        0.75
+       ]
+      ],
+      [
+       1.171,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       1.386,
+       [
+        0.45,
+        0.5,
+        0.75
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       1.6,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ]
+     ],
+     "hop": [
+      0.05,
+      0.5
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.93,
+     4.24
+    ],
+    "r": [
+     2.911,
+     2.707
+    ],
+    "h": [
+     1.65,
+     1.65
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 50,
+    "roll": [
+     6,
+     4
+    ]
+   },
+   "focus": [
+    0.2,
+    -0.5
+   ],
+   "ringside": "cheer",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.04,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.38,
+     0.41
+    ],
+    "r": [
+     3.05,
+     2.78
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.65,
+     1.65
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.3,
+    -1.1
+   ],
+   "ringside": "watch",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 18.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": -1.9,
+     "z": 1.233,
+     "face": "world",
+     "yaw": 60,
+     "at": 0.271,
+     "speed": 1,
+     "mx": 1.2,
+     "mz": -0.533,
+     "reveal": 0.75,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.3,
+     1.38
+    ],
+    "r": [
+     4.401,
+     4.151
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.05,
+    0
+   ],
+   "ringside": "cheer",
+   "ropeHide": [
+    "n",
+    "s"
+   ],
+   "poleHide": [
+    0
+   ],
+   "clear": [
+    [
+     -0.95,
+     4.4,
+     1
+    ],
+    [
+     -0.95,
+     4.15,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 24.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": 0.45,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "upAt": -1,
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.52,
+     3.52
+    ],
+    "r": [
+     3.256,
+     3.256
+    ],
+    "h": [
+     1.65,
+     1.65
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    0.45
+   ],
+   "ringside": "cheer",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.2,
+     3.7,
+     1
+    ],
+    [
+     0.2,
+     3.7,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": 0.3,
+     "z": 0.45,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": 0.007,
+     "bow": [
+      [
+       0.257,
+       0
+      ],
+      [
+       0.417,
+       50
+      ],
+      [
+       1.114,
+       50
+      ],
+      [
+       1.414,
+       0
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -5.19,
+     -5.19
+    ],
+    "r": [
+     4.252,
+     4.252
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 50
+   },
+   "focus": [
+    1.1,
+    0.45
+   ],
+   "ringside": "wai",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.72,
+     4.68,
+     1
+    ],
+    [
+     0.72,
+     4.68,
+     1
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 31,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_run",
+     "x": 1.7,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.2,
+     "speed": 0.9,
+     "mx": -1.3,
+     "arm": "both",
+     "aim": [
+      0.15,
+      0.55,
+      0.8
+     ],
+     "upAt": -1,
+     "reveal": 0.9,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.59,
+     4.59
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0.25,
+    0.3
+   ],
+   "ringside": "watch",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.25,
+     4.89,
+     1
+    ],
+    [
+     0.25,
+     4.89,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 34.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": 0.564,
+     "bow": [
+      [
+       0.814,
+       0
+      ],
+      [
+       0.974,
+       32
+      ],
+      [
+       1.671,
+       32
+      ],
+      [
+       1.971,
+       0
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_run",
+     "x": 0.9,
+     "z": 0.2,
+     "face": "world",
+     "yaw": 130,
+     "at": 0.1,
+     "speed": 0.8,
+     "mx": 0.85,
+     "mz": -0.75,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -17.95,
+     -17.95
+    ],
+    "r": [
+     5.943,
+     5.943
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0.15,
+    0.1
+   ],
+   "ringside": "watch",
+   "ropeHide": [
+    "s"
+   ],
+   "poleHide": [
+    1
+   ],
+   "clear": [
+    [
+     -1.68,
+     5.75,
+     1
+    ],
+    [
+     -1.68,
+     5.75,
+     1
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 39,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "clap_while_standing",
+     "x": -2.42,
+     "z": 1.1,
+     "face": "world",
+     "yaw": 105,
+     "at": 0.1,
+     "speed": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     65.75,
+     67
+    ],
+    "r": [
+     2.435,
+     2.303
+    ],
+    "h": [
+     1.75,
+     1.74
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -2.42,
+    1.1
+   ],
+   "ringside": "cheer",
+   "ropeHide": [
+    "s",
+    "w"
+   ],
+   "clear": [
+    [
+     -3.35,
+     0,
+     0.3
+    ],
+    [
+     -4.15,
+     -0.33,
+     0.3
+    ],
+    [
+     -4.15,
+     0.33,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 42.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.55,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 5.3,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "aim": "rave",
+     "upAt": -1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.29,
+     5.15
+    ],
+    "r": [
+     2.712,
+     2.56
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 50,
+    "roll": [
+     -6,
+     -4
+    ]
+   },
+   "focus": [
+    1.55,
+    -1.1
+   ],
+   "ringside": "cheer",
+   "clear": [
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 47,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": -1.2,
+     "z": 1,
+     "face": "world",
+     "yaw": 15,
+     "at": 0.1,
+     "speed": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.95,
+     10.12
+    ],
+    "r": [
+     3.158,
+     2.844
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 58,
+    "roll": [
+     8,
+     5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    -1.2,
+    0.8
+   ],
+   "ringside": "dance",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.6,
+     3.9,
+     1
+    ],
+    [
+     -0.7,
+     3.6,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 55.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.55,
+     "z": -1.1,
+     "face": "world",
+     "yaw": -48.7,
+     "at": 0.4,
+     "speed": 0.04,
+     "arm": "both",
+     "aim": [
+      -0.45,
+      0.15,
+      0.88
+     ],
+     "upAt": -1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -48.72,
+     -48.92
+    ],
+    "r": [
+     2.728,
+     2.587
+    ],
+    "h": [
+     1.8,
+     1.8
+    ],
+    "look": [
+     1.75,
+     1.75
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    1.55,
+    -1.1
+   ],
+   "ringside": "watch",
+   "poleHide": [
+    1
+   ],
+   "clear": [
+    [
+     3.35,
+     -1.97,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 58,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "aim": [
+      0.5,
+      0.75,
+      0.3
+     ],
+     "upAt": 0.814,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.06,
+     1.06
+    ],
+    "r": [
+     2.7,
+     2.7
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.58,
+     1.58
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    -0.4
+   ],
+   "ringside": "watch",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "boxing_warm_up_exercise",
+     "x": 1.55,
+     "z": -1.1,
+     "face": "world",
+     "yaw": -55.1,
+     "at": 0.143,
+     "speed": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -55.1,
+     -55.67
+    ],
+    "r": [
+     2.622,
+     2.482
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 50,
+    "roll": [
+     -8,
+     -10
+    ]
+   },
+   "focus": [
+    1.55,
+    -1.1
+   ],
+   "ringside": "watch",
+   "poleHide": [
+    1
+   ]
+  },
+  {
+   "beat": 70,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "aim": [
+      0.15,
+      0.55,
+      0.8
+     ],
+     "upAt": -0.2,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -81.35,
+     -82.06
+    ],
+    "r": [
+     2.326,
+     2.171
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 50,
+    "roll": [
+     5,
+     3
+    ]
+   },
+   "focus": [
+    0.85,
+    0.2
+   ],
+   "ringside": "watch"
+  },
+  {
+   "beat": 74,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": 0.179,
+     "bow": [
+      [
+       0.429,
+       0
+      ],
+      [
+       0.589,
+       38
+      ],
+      [
+       1.286,
+       38
+      ],
+      [
+       1.586,
+       0
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "aim": [
+      0.15,
+      0.55,
+      0.8
+     ],
+     "upAt": -1,
+     "lift": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": -1.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.04,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.7,
+     0.7
+    ],
+    "r": [
+     4.1,
+     4.1
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ringside": "watch",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.05,
+     4.4,
+     1
+    ],
+    [
+     0.05,
+     4.4,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 77.6,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "shaking_head_no_dismissively",
+     "x": -2.42,
+     "z": 1.1,
+     "face": "world",
+     "yaw": 100,
+     "at": 1.297,
+     "speed": 1,
+     "arm": "both",
+     "aim": [
+      0.32,
+      0.5,
+      0.65
+     ],
+     "upAt": -1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     68.37,
+     68.37
+    ],
+    "r": [
+     2.442,
+     2.442
+    ],
+    "h": [
+     1.72,
+     1.72
+    ],
+    "look": [
+     1.62,
+     1.62
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -2.42,
+    1.1
+   ],
+   "ringside": "watch",
+   "ropeHide": [
+    "s",
+    "w"
+   ],
+   "clear": [
+    [
+     -3.4,
+     1.1,
+     0.9
+    ],
+    [
+     -3.6,
+     0.2,
+     0.7
+    ],
+    [
+     -4.15,
+     -0.33,
+     0.3
+    ],
+    [
+     -4.15,
+     0.33,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 82,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "aim": [
+      0.15,
+      0.55,
+      0.8
+     ],
+     "upAt": -1,
+     "lift": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.9,
+      0.2
+     ],
+     "upAt": -1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.246,
+     4.941
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    0
+   ],
+   "ringside": "stare",
+   "stare": [
+    0,
+    0
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     5.25,
+     1
+    ],
+    [
+     0,
+     4.94,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 87,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "fg": true,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "fg": true,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     2.35,
+     2.35
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    3.15,
+    2.97
+   ],
+   "bell": 0.257,
+   "bellYaw": 90,
+   "ringside": "watch",
+   "ropeHide": [
+    "e",
+    "s"
+   ],
+   "clear": [
+    [
+     5.5,
+     2.97,
+     1
+    ],
+    [
+     5.5,
+     2.97,
+     1
+    ],
+    [
+     3.9,
+     3.1,
+     0.6
+    ]
+   ]
+  },
+  {
+   "beat": 91,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_run",
+     "x": 1.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0,
+     "speed": 1.1,
+     "mx": -0.75,
+     "arm": "both",
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.2,
+        0.3,
+        0.85
+       ],
+       [
+        0.5,
+        0.65,
+        -0.35
+       ]
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     -2.2
+    ],
+    "r": [
+     6.15,
+     5.854
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.45,
+    0.3
+   ],
+   "ringside": "cheer",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.45,
+     6.45,
+     1
+    ],
+    [
+     0.23,
+     6.15,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 95.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.5,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -0.25,
+     "bow": [
+      [
+       0,
+       0
+      ],
+      [
+       0.16,
+       58
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0,
+     "lift": 1.55,
+     "lean": 85,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "upAt": -1,
+     "arm": "R",
+     "aim": [
+      0.05,
+      0,
+      1
+     ],
+     "armB": "L",
+     "aimB": [
+      0.15,
+      -0.25,
+      -0.95
+     ],
+     "mx": -1.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -6,
+     -6
+    ],
+    "r": [
+     6.454,
+     6.454
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.3,
+    0.3
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.97,
+     6.72,
+     1
+    ],
+    [
+     -0.97,
+     6.72,
+     1
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 97,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.16,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0,
+     "lift": 1.15,
+     "lean": 85,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "upAt": -1,
+     "arm": "L",
+     "aim": [
+      0.05,
+      0,
+      1
+     ],
+     "armB": "R",
+     "aimB": [
+      0.15,
+      -0.25,
+      -0.95
+     ],
+     "mx": -0.35
+    },
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "knocked_out_falling_to_back",
+     "x": -1.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 60,
+     "at": 1.25,
+     "speed": 1.4,
+     "ground": "mesh",
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     18.12,
+     18.12
+    ],
+    "r": [
+     4.267,
+     4.267
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.35,
+    0.3
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "poleHide": [
+    0
+   ],
+   "clear": [
+    [
+     -0.02,
+     4.36,
+     1
+    ],
+    [
+     -0.02,
+     4.36,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 99,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "knocked_out_falling_to_back",
+     "x": -1.5,
+     "z": 0.8,
+     "face": "world",
+     "yaw": -60,
+     "at": 3.3,
+     "speed": 0,
+     "ground": "mesh",
+     "dizzy": true,
+     "dizzyR": 0.6,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "knocked_down_to_stomach",
+     "x": -0.55,
+     "z": 0.8,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.6,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0.6
+    },
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": 0.1,
+     "z": -1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "R",
+     "aim": [
+      0.8,
+      0.55,
+      0.25
+     ],
+     "wave": 0.2,
+     "waveRate": 9,
+     "upAt": -1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10,
+     10
+    ],
+    "r": [
+     5.625,
+     5.4
+    ],
+    "h": [
+     3.6,
+     3.5
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -0.7,
+    -0.15
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.28,
+     5.39,
+     1
+    ],
+    [
+     0.24,
+     5.17,
+     1
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 103,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": -0.2,
+     "z": 0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.571,
+     "speed": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.31,
+     5.19
+    ],
+    "r": [
+     7.03,
+     6.627
+    ],
+    "h": [
+     2.3,
+     2.25
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.2,
+    1
+   ],
+   "crew": "dance",
+   "crewAt": [
+    0,
+    4.6,
+    0
+   ],
+   "ringside": "dance",
+   "key": [
+    0,
+    2.6,
+    6.5,
+    1.1,
+    1,
+    1.1
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.45,
+     8,
+     1
+    ],
+    [
+     0.4,
+     7.6,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 107,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.45,
+     "z": -0.2,
+     "face": "world",
+     "yaw": -6,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.1,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.45,
+        0.5,
+        0.75
+       ]
+      ],
+      [
+       0.314,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.529,
+       [
+        0.45,
+        0.5,
+        0.75
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.743,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.957,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.45,
+        0.5,
+        0.75
+       ]
+      ],
+      [
+       1.171,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       1.386,
+       [
+        0.45,
+        0.5,
+        0.75
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       1.6,
+       [
+        0.15,
+        0.55,
+        0.8
+       ],
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": -0.65,
+     "z": -0.45,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.4,
+     "speed": 0.05,
+     "dizzy": true,
+     "sway": 7,
+     "swayEvery": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.65,
+     0.65
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 50,
+    "roll": [
+     4,
+     2
+    ]
+   },
+   "focus": [
+    -0.1,
+    -0.3
+   ],
+   "ringside": "stare",
+   "stare": [
+    0,
+    0
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     -0.05,
+     4.1,
+     1
+    ],
+    [
+     -0.05,
+     4.1,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 111,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": -1.15,
+     "z": 0.85,
+     "face": "world",
+     "yaw": 35,
+     "at": 0.743,
+     "speed": 1,
+     "lift": 0.6
+    },
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "clap_while_standing",
+     "x": -2.42,
+     "z": 1.1,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.2,
+     "speed": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     48.62,
+     48.18
+    ],
+    "r": [
+     2.799,
+     2.55
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 54,
+    "roll": [
+     -5,
+     -3
+    ]
+   },
+   "focus": [
+    -1.5,
+    1
+   ],
+   "ringside": "cheer",
+   "ropeHide": [
+    "s",
+    "w"
+   ],
+   "poleHide": [
+    0
+   ],
+   "clear": [
+    [
+     0.6,
+     2.85,
+     1
+    ],
+    [
+     0.4,
+     2.7,
+     1
+    ],
+    [
+     -3.35,
+     -1.97,
+     0.3
+    ],
+    [
+     -3.35,
+     -1.31,
+     0.3
+    ],
+    [
+     -3.35,
+     -0.66,
+     0.3
+    ],
+    [
+     -4.15,
+     -1.64,
+     0.3
+    ],
+    [
+     -4.15,
+     -0.33,
+     0.3
+    ],
+    [
+     -4.15,
+     0.33,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 115,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": -0.5,
+     "z": 0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.743,
+     "speed": 1,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_run",
+     "x": 1.5,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 200,
+     "at": 0,
+     "speed": 0.7,
+     "mx": 0.3,
+     "mz": 0.6,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     25.2,
+     24.78
+    ],
+    "r": [
+     9.169,
+     8.734
+    ],
+    "h": [
+     2.6,
+     2.5
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.2,
+    0
+   ],
+   "ringside": "dance",
+   "crew": "dance",
+   "crewAt": [
+    0,
+    4.3,
+    0
+   ],
+   "ropeHide": [
+    "e",
+    "s"
+   ],
+   "poleHide": [
+    0
+   ],
+   "clear": [
+    [
+     4.1,
+     8.3,
+     1
+    ],
+    [
+     3.86,
+     7.93,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 119,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": -0.6,
+     "z": 0.4,
+     "face": "world",
+     "yaw": 25,
+     "at": 0.743,
+     "speed": 1,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     23.76,
+     40.37
+    ],
+    "r": [
+     2.469,
+     2.408
+    ],
+    "h": [
+     0.97,
+     0.97
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 60,
+    "roll": [
+     6,
+     -4
+    ],
+    "hand": 1,
+    "ease": "lin"
+   },
+   "focus": [
+    -0.4,
+    0.3
+   ],
+   "ringside": "dance",
+   "ropeHide": [
+    "s"
+   ],
+   "poleHide": [
+    0
+   ]
+  },
+  {
+   "beat": 123,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_run",
+     "x": 1.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.1,
+     "speed": 1.2,
+     "mx": -1.1,
+     "moveAt": 1.376,
+     "my": 0.55,
+     "myAt": 1.796,
+     "myDur": 0.4,
+     "air": true,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.86,
+     4.86
+    ],
+    "h": [
+     1.9,
+     1.9
+    ],
+    "look": [
+     1.75,
+     1.75
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0.95,
+    0.3
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.95,
+     5.16,
+     1
+    ],
+    [
+     0.95,
+     5.16,
+     1
+    ],
+    [
+     1.92,
+     -3.35,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 127.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -1.05,
+     "z": 0.45,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -0.25,
+     "bow": [
+      [
+       0,
+       0
+      ],
+      [
+       0.16,
+       58
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": -0.6,
+     "z": 0.45,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0,
+     "lift": 1.6,
+     "lean": -78,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "upAt": -1,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.3,
+      -0.5
+     ],
+     "mx": -2.33,
+     "reveal": 0.2
+    },
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "happy_idle",
+     "x": -2.42,
+     "z": 0.45,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.29,
+     8.29
+    ],
+    "r": [
+     5.204,
+     5.204
+    ],
+    "h": [
+     2,
+     2
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.5,
+    0.45
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s",
+    "w"
+   ],
+   "poleHide": [
+    0
+   ],
+   "clear": [
+    [
+     -0.75,
+     5.6,
+     1
+    ],
+    [
+     -0.75,
+     5.6,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     -3.35,
+     -1.97,
+     0.3
+    ],
+    [
+     -3.35,
+     -1.31,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 130,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "tracksuit",
+     "clip": "knocked_out_falling_to_back",
+     "x": -3.3,
+     "z": 0.6,
+     "face": "world",
+     "yaw": -60,
+     "at": 3.3,
+     "speed": 0,
+     "ground": "mesh",
+     "lift": 0,
+     "dizzy": true,
+     "dizzyR": 0.72
+    },
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -1.95,
+     "z": 0.25,
+     "face": "world",
+     "yaw": -98.4,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": 0.607,
+     "bow": [
+      [
+       0.857,
+       0
+      ],
+      [
+       1.017,
+       55
+      ],
+      [
+       1.929,
+       55
+      ],
+      [
+       2.229,
+       0
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -13.09,
+     -13.09
+    ],
+    "r": [
+     4.415,
+     4.415
+    ],
+    "h": [
+     2.9,
+     2.9
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -2.6,
+    0.3
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s",
+    "w"
+   ],
+   "clear": [
+    [
+     -3.6,
+     4.6,
+     1
+    ],
+    [
+     -3.6,
+     4.6,
+     1
+    ],
+    [
+     -3.35,
+     0.45,
+     0.75
+    ],
+    [
+     -4.15,
+     0.45,
+     0.6
+    ],
+    [
+     -3.35,
+     -0.66,
+     0.35
+    ],
+    [
+     -4.15,
+     -0.33,
+     0.35
+    ],
+    [
+     -3.75,
+     -1,
+     1.25
+    ],
+    [
+     -3.35,
+     -0.66,
+     0.3
+    ],
+    [
+     -3.35,
+     0,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 135,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": 0.25,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.5,
+     "speed": 0.04,
+     "dizzy": true,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.38,
+     0.4
+    ],
+    "r": [
+     3,
+     2.87
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.65,
+     1.65
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    0.25,
+    -1.2
+   ],
+   "ringside": "watch",
+   "clear": [
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 139,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": 0.007,
+     "bow": [
+      [
+       0.257,
+       0
+      ],
+      [
+       0.417,
+       40
+      ],
+      [
+       1.5,
+       40
+      ],
+      [
+       1.8,
+       0
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.98,
+     "z": -1.98,
+     "face": "world",
+     "yaw": -135,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 1.6800000000000002,
+     "arm": "both",
+     "aim": [
+      0.2,
+      0.6,
+      0.75
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -4.24,
+     -4.24
+    ],
+    "r": [
+     4.467,
+     4.467
+    ],
+    "h": [
+     1.85,
+     1.85
+    ],
+    "look": [
+     1.85,
+     1.85
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.65,
+    -0.5
+   ],
+   "ringside": "gasp",
+   "stare": [
+    1.98,
+    -1.98
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.32,
+     3.95,
+     1
+    ],
+    [
+     0.32,
+     3.95,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 143,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.98,
+     "z": -1.98,
+     "face": "world",
+     "yaw": -135,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 1.6800000000000002,
+     "arm": "both",
+     "aim": [
+      0.2,
+      0.6,
+      0.75
+     ],
+     "upAt": -1,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     79.99,
+     79.99
+    ],
+    "r": [
+     2.589,
+     2.589
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -3.7,
+    -0.1
+   ],
+   "ringside": "gasp",
+   "stare": [
+    1.98,
+    -1.98
+   ],
+   "ropeHide": [
+    "w"
+   ]
+  },
+  {
+   "beat": 147,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.98,
+     "z": -1.98,
+     "face": "world",
+     "yaw": -135,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 1.6800000000000002,
+     "lean": 14,
+     "arm": "both",
+     "aim": [
+      0.2,
+      0.5,
+      0.8
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -53,
+     -53
+    ],
+    "r": [
+     2.164,
+     2.164
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     2.55,
+     2.55
+    ],
+    "fov": 58,
+    "roll": [
+     -10,
+     -12
+    ]
+   },
+   "focus": [
+    1.98,
+    -1.98
+   ],
+   "ringside": "gasp",
+   "stare": [
+    1.98,
+    -1.98
+   ],
+   "poleHide": [
+    1
+   ]
+  },
+  {
+   "beat": 151,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.743,
+     "speed": 1,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.98,
+     "z": -1.98,
+     "face": "world",
+     "yaw": -135,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 1.6800000000000002,
+     "lean": 14,
+     "arm": "both",
+     "aim": [
+      0.2,
+      0.5,
+      0.8
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.1,
+     -1.16
+    ],
+    "r": [
+     5.721,
+     5.446
+    ],
+    "h": [
+     1.75,
+     1.7
+    ],
+    "look": [
+     1.6,
+     1.6
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.55,
+    -0.6
+   ],
+   "ringside": "gasp",
+   "stare": [
+    1.98,
+    -1.98
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0.44,
+     5.12,
+     1
+    ],
+    [
+     0.44,
+     4.84,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 155,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 1.98,
+     "z": -1.98,
+     "face": "world",
+     "yaw": -135,
+     "at": 0.4,
+     "speed": 0.05,
+     "lift": 1.6800000000000002,
+     "lean": 14,
+     "arm": "both",
+     "aim": [
+      0.2,
+      0.5,
+      0.8
+     ],
+     "upAt": -1,
+     "my": 0.5,
+     "myAt": 1.419,
+     "myDur": 0.5,
+     "mx": -0.35,
+     "mz": 0.35,
+     "moveAt": 1.419,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -32.47,
+     -32.47
+    ],
+    "r": [
+     3.26,
+     3.26
+    ],
+    "h": [
+     1.65,
+     1.65
+    ],
+    "look": [
+     2.85,
+     2.85
+    ],
+    "fov": 58,
+    "roll": [
+     -8,
+     -10
+    ]
+   },
+   "focus": [
+    1.95,
+    -1.95
+   ],
+   "ringside": "gasp",
+   "stare": [
+    1.98,
+    -1.98
+   ],
+   "poleHide": [
+    1
+   ]
+  },
+  {
+   "beat": 159.4,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -0.25,
+     "bow": [
+      [
+       0,
+       0
+      ],
+      [
+       0.16,
+       58
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -20.7,
+     "at": 0.4,
+     "speed": 0,
+     "lift": 1.62,
+     "lean": 85,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "upAt": -1,
+     "arm": "R",
+     "aim": [
+      0.05,
+      0,
+      1
+     ],
+     "armB": "L",
+     "aimB": [
+      0.15,
+      -0.25,
+      -0.95
+     ],
+     "mx": -0.75,
+     "mz": 1.75,
+     "reveal": 0.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.1,
+    1
+   ],
+   "noBell": true,
+   "ringside": "gasp",
+   "front": true,
+   "ropeHide": [
+    "e",
+    "s"
+   ],
+   "clear": [
+    [
+     4.7,
+     1,
+     1
+    ],
+    [
+     4.7,
+     1,
+     1
+    ],
+    [
+     3.35,
+     1,
+     0.9
+    ],
+    [
+     3.35,
+     0,
+     0.6
+    ],
+    [
+     4.15,
+     0.6,
+     0.6
+    ],
+    [
+     -3.35,
+     0,
+     0.3
+    ],
+    [
+     -4.15,
+     -0.33,
+     0.3
+    ],
+    [
+     -4.15,
+     0.33,
+     0.3
+    ],
+    [
+     -3.35,
+     -0.66,
+     0.3
+    ],
+    [
+     -4.15,
+     -0.99,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 161.25,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": -0.15,
+     "z": 2.6,
+     "face": "world",
+     "yaw": -20.7,
+     "at": 0.4,
+     "speed": 0,
+     "lift": 1.4,
+     "lean": 85,
+     "noLie": true,
+     "air": true,
+     "noShadow": true,
+     "upAt": -1,
+     "arm": "R",
+     "aim": [
+      0.05,
+      0,
+      1
+     ],
+     "armB": "L",
+     "aimB": [
+      0.15,
+      -0.25,
+      -0.95
+     ],
+     "mx": -0.35,
+     "mz": 0.9,
+     "my": -1.25,
+     "myAt": 0,
+     "myDur": 0.45
+    },
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -1.25,
+     "bow": [
+      [
+       -1,
+       0
+      ],
+      [
+       -0.84,
+       58
+      ],
+      [
+       0.964,
+       58
+      ],
+      [
+       1.264,
+       0
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -40.01,
+     -40.01
+    ],
+    "r": [
+     5.179,
+     5.179
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.45,
+    3.4
+   ],
+   "ringside": "gasp",
+   "front": true,
+   "fall": [
+    -0.55,
+    3.75,
+    1.3,
+    0.3
+   ],
+   "ropeHide": [
+    "s",
+    "w"
+   ],
+   "poleHide": [
+    1
+   ],
+   "clear": [
+    [
+     -3.78,
+     7.37,
+     1
+    ],
+    [
+     -3.78,
+     7.37,
+     1
+    ],
+    [
+     3.35,
+     -1.31,
+     0.3
+    ],
+    [
+     3.35,
+     -0.66,
+     0.3
+    ],
+    [
+     3.35,
+     0,
+     0.3
+    ],
+    [
+     4.15,
+     -1.64,
+     0.3
+    ],
+    [
+     4.15,
+     -0.99,
+     0.3
+    ],
+    [
+     1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.1,
+     3.45,
+     0.3
+    ],
+    [
+     -1.3,
+     4.25,
+     0.3
+    ],
+    [
+     -0.5,
+     4.3,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 167.25,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -0.2,
+     "bow": [
+      [
+       0.05,
+       0
+      ],
+      [
+       0.21,
+       40
+      ],
+      [
+       1.393,
+       40
+      ],
+      [
+       1.693,
+       0
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "dizzy": true,
+     "arm": "both",
+     "aim": [
+      0.15,
+      0.4,
+      0.85
+     ],
+     "upAt": -1,
+     "lift": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": -1.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.04,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.18
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ringside": "stare",
+   "stare": [
+    0,
+    0.3
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     4.7,
+     1
+    ],
+    [
+     0,
+     4.48,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 171.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.75,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -70,
+     "at": 0.4,
+     "speed": 0.05,
+     "arm": "both",
+     "upAt": -1,
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.15,
+        0.55,
+        0.8
+       ]
+      ],
+      [
+       0.729,
+       [
+        -0.2,
+        0.25,
+        0.95
+       ]
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -69.23,
+     -69.3
+    ],
+    "r": [
+     2.877,
+     2.801
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.68,
+     1.68
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    0.62,
+    0.3
+   ],
+   "ringside": "stare",
+   "stare": [
+    0,
+    0.3
+   ],
+   "ropeHide": [
+    "w"
+   ],
+   "clear": [
+    [
+     3.35,
+     -0.66,
+     0.3
+    ],
+    [
+     4.15,
+     -0.99,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 175.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -1,
+     "bow": [
+      [
+       0.05,
+       0
+      ],
+      [
+       0.62,
+       39
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.62,
+      0.2,
+      0.76
+     ],
+     "upAt": -1,
+     "bow": [
+      [
+       0.05,
+       0
+      ],
+      [
+       0.62,
+       39
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.7,
+     4.7
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ringside": "stare",
+   "stare": [
+    0,
+    0.3
+   ],
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 177.05,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "happy_idle",
+     "x": -0.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -1,
+     "bow": [
+      [
+       0,
+       39
+      ]
+     ],
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "happy_idle",
+     "x": 0.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.62,
+      0.2,
+      0.76
+     ],
+     "upAt": -1,
+     "bow": [
+      [
+       0,
+       39
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.7,
+     4.7
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ringside": "gasp",
+   "bonk": [
+    0,
+    1.62,
+    0.3,
+    0
+   ],
+   "bonkYaw": 0,
+   "still": true,
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 177.75,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "knocked_out_falling_to_back",
+     "x": -0.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 90,
+     "at": 1.2,
+     "speed": 1,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": -1,
+     "upEnd": 0.05,
+     "bow": [
+      [
+       0,
+       39
+      ],
+      [
+       0.12,
+       0
+      ]
+     ],
+     "dizzy": 0.05,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "knocked_out_falling_to_back",
+     "x": 0.6,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 1.2,
+     "speed": 1,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.62,
+      0.2,
+      0.76
+     ],
+     "upAt": -1,
+     "upEnd": 0.05,
+     "bow": [
+      [
+       0,
+       39
+      ],
+      [
+       0.12,
+       0
+      ]
+     ],
+     "dizzy": 0.05,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.7,
+     4.7
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     0,
+     5,
+     1
+    ],
+    [
+     -1.92,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     -0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     -1.53,
+     -4.15,
+     0.3
+    ],
+    [
+     -0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     0.38,
+     -3.35,
+     0.3
+    ],
+    [
+     1.15,
+     -3.35,
+     0.3
+    ],
+    [
+     0.77,
+     -4.15,
+     0.3
+    ],
+    [
+     1.53,
+     -4.15,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 178.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "laying_idle",
+     "x": -0.55,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "dizzy": true,
+     "dizzyR": 0.72,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "laying_idle",
+     "x": 0.55,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "noLie": true,
+     "dizzy": true,
+     "dizzyR": 0.72,
+     "lift": 0.6
+    },
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.95,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 0.05,
+     "lean": 18,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.173,
+     3.038
+    ],
+    "h": [
+     4.9,
+     4.75
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    -0.15
+   ],
+   "ringside": "gasp",
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     3.02,
+     1
+    ],
+    [
+     0,
+     2.89,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 183.5,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "referee",
+     "clip": "happy_idle",
+     "x": -0.9,
+     "z": -0.85,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.4,
+     "speed": 0.05,
+     "noLie": true,
+     "arm": "both",
+     "aim": [
+      -0.6,
+      0.2,
+      0.77
+     ],
+     "upAt": 0.2,
+     "bow": [
+      [
+       0.45,
+       0
+      ],
+      [
+       0.61,
+       50
+      ]
+     ],
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -12.8,
+     -12.8
+    ],
+    "r": [
+     3.384,
+     3.384
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 48
+   },
+   "focus": [
+    -1.05,
+    -0.85
+   ],
+   "ringside": "wai",
+   "ropeHide": [
+    "s"
+   ]
+  },
+  {
+   "beat": 188,
+   "kind": "dance",
+   "map": "muaythai",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "lisa",
+     "clip": "laying_idle",
+     "x": -0.55,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "dizzy": true,
+     "dizzyR": 0.72,
+     "lift": 0.6
+    },
+    {
+     "who": "compote",
+     "look": "boxer",
+     "clip": "laying_idle",
+     "x": 0.55,
+     "z": 0.75,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "ground": "mesh",
+     "noLie": true,
+     "dizzy": true,
+     "dizzyR": 0.72,
+     "lift": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.173,
+     3.038
+    ],
+    "h": [
+     4.9,
+     4.75
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    -0.15
+   ],
+   "ringside": "wai",
+   "still": true,
+   "ropeHide": [
+    "s"
+   ],
+   "clear": [
+    [
+     0,
+     3.02,
+     1
+    ],
+    [
+     0,
+     2.89,
+     1
+    ]
+   ]
+  }
+ ]
+}
