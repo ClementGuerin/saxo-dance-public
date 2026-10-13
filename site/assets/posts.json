@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-13T14:17:53.766Z",
+ "updated": "2026-10-13T18:17:56.022Z",
  "posts": [
+  {
+   "id": "2026-10-13-2",
+   "title": "SaWaDiKa",
+   "artist": "LISA",
+   "date": "2026-10-13T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-13-2.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DecZ_jEjf4_/",
+     "id": "DecZ_jEjf4_"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/ysKskpbq3Ow",
+     "id": "ysKskpbq3Ow"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1360757049233117",
+     "id": "1360757049233117"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2110068471564222476",
+     "id": "2110068471564222476"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7695958874486213890",
+     "id": "7695958874486213890"
+    }
+   }
+  },
   {
    "id": "2026-10-13",
    "title": "Gabriela",
