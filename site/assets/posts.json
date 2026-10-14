@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-14T17:47:54.126Z",
+ "updated": "2026-10-14T18:17:56.689Z",
  "posts": [
+  {
+   "id": "2026-10-14-2",
+   "title": "Every Breath You Take",
+   "artist": "The Police",
+   "date": "2026-10-14T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-14-2.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dee-v87j_q_/",
+     "id": "Dee-v87j_q_"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/N_cI59KYR1M",
+     "id": "N_cI59KYR1M"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1799400104687290",
+     "id": "1799400104687290"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2110430767633371427",
+     "id": "2110430767633371427"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7696341160100449558",
+     "id": "7696341160100449558"
+    }
+   }
+  },
   {
    "id": "2026-10-14",
    "title": "On The Floor",
@@ -23,6 +52,10 @@
     "x": {
      "url": "https://x.com/saxodance/status/2110370449829814750",
      "id": "2110370449829814750"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7696302516195069206",
+     "id": "7696302516195069206"
     }
    }
   },
