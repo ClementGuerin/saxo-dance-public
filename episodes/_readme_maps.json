@@ -3920,6 +3920,54 @@
      "z": -5.6
     }
    ]
+  },
+  {
+   "beat": 182,
+   "kind": "dance",
+   "map": "ophelia",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 54
+   },
+   "focus": [
+    0,
+    1.8
+   ],
+   "zone": "number",
+   "chorus": "line",
+   "crew": "cheer",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.5,
+     "z": 1.8
+    },
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.5,
+     "z": 1.8
+    }
+   ]
   }
  ]
 }
