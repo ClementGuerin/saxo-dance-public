@@ -3829,6 +3829,97 @@
      "lift": 0.6
     }
    ]
+  },
+  {
+   "beat": 178,
+   "kind": "dance",
+   "map": "floorclub",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "guests": "dance",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "worldwide",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.5,
+     "z": -1.4
+    },
+    {
+     "who": "sadi",
+     "look": "sequins",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.5,
+     "z": -1.4
+    }
+   ]
+  },
+  {
+   "beat": 180,
+   "kind": "dance",
+   "map": "soundstage",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.6,
+     4.6
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -5.6
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.5,
+     "z": -5.6
+    },
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.5,
+     "z": -5.6
+    }
+   ]
   }
  ]
 }
