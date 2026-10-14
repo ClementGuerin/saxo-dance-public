@@ -53,6 +53,7 @@ import { buildRingMaps } from './maps46.js';
 import { buildFloorClubMaps } from './maps47.js';
 import { buildSoundstageMaps } from './maps48.js';
 import { buildOpheliaMaps } from './maps49.js';
+import { buildParlourMaps } from './maps50.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -820,6 +821,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   shag: 'assets/models/saxo_shag.glb',
   // the "The Fate of Ophelia" clip's swimming number (2025): a sparkly teal sequined vintage swim cap snug on his head, his ears out of it, a teal 1930s tank-style one-piece swimsuit with white trim and a thin white belt, a red whistle on a white cord, bare paws (2026-10-15)
   swimcap: 'assets/models/saxo_swimcap.glb',
+  // the "Umbrella" clip's cabaret routine (Rihanna, 2007): a sleek glossy black bob with a short fringe above his eyes, his ears out on top, a black satin corset bodysuit with a row of silver buttons, long black opera gloves, black fishnet tights, small black heels (2026-10-15 2nd)
+  corset: 'assets/models/saxo_corset.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -858,6 +861,8 @@ const PARTNERS = {
     sequins: 'assets/models/sadi_sequins.glb',
     // Ophelia from the famous painting: a long flowing white gown to the ankles with long fitted sleeves and a lace collar, a crown of wildflowers (red poppies, white daisies, little blue flowers) beside her pink bow ("The Fate of Ophelia", 2026-10-15)
     ophelia: 'assets/models/sadi_ophelia.glb',
+    // the "Umbrella" clip's white dress: a short flowing white satin slip dress on thin straps, a flared skirt to the knees, white ballet flats, her pink bow (2026-10-15 2nd)
+    whitedress: 'assets/models/sadi_whitedress.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -1068,7 +1073,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1188,6 +1193,9 @@ function actorSpec(a, e, map) {
     googly: a.googly ?? null, aimSeq: a.aimSeq || null,
     // "The Fate of Ophelia" (2026-10-15): a life ring round the waist, one framing the face, the director's megaphone, the clapperboard's snap
     buoy: a.buoy ?? null, buoyFace: a.buoyFace ?? null, megaphone: a.megaphone ?? null, clapAt: a.clapAt ?? null, ropeMouth: !!a.ropeMouth,
+    // "Umbrella" (2026-10-15 2nd): an open umbrella's canopy centre ([x, y, z] or { at, bob, spin }; a furled one's tip),
+    // and twist: [deg, hz, s0, s1], the whole body turning fast side to side about its upright (a wet dog's shake)
+    umbrellaTo: a.umbrellaTo ?? null, twist: a.twist || null,
     // "Beauty And A Beat" (2026-09-27): what a held rescue hook reaches, [x, y, z] or a character's name (its collar, at the head bone)
     hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null,
     // "Love Me Not" (2026-09-28): studio headphones on the head, and how many of a held daisy's 12 petals are left
@@ -1573,6 +1581,23 @@ function propMesh(kind) {
   } else if (kind === 'broom') {      // the witch's broom held upright like a staff, the straw UP beside her head (pale and a little self-lit: bristles down at her feet were out of every close frame and the stick read as a bare cane, review 2026-10-04)
     add(box(0.034, 0.95, 0.034, M(0x7a5030)), 0, 0.02); add(new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.3, 6), mat({ color: 0xf2d27a, unlit: 0.45 })), 0, 0.62);
     add(cyl(0.05, 0.05, 0.045, M(0xb8402a), 6), 0, 0.47);
+  } else if (kind === 'umbrella') {   // "Umbrella" (2026-10-15 2nd): a big black umbrella, open; holdProp runs its shaft from the paw to D.umbrellaTo (the canopy's centre), the canopy square to the shaft
+    // built in metres along +y (the shaft scaled to the length), a J handle at the paw, eight glossy black panels with
+    // silver rib tips, a silver ferrule on top; the canopy group sits at the shaft's top (userData)
+    const ink = mat({ color: 0x15151c }), sil = mat({ color: 0xc8ccd6, unlit: 0.35 });
+    G.userData.pole = add(cyl(0.016, 0.016, 1, ink, 5), 0, 0.5);
+    const hk = add(new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.018, 4, 8, Math.PI), M(0x2a1a14)), 0.06, -0.02); hk.rotation.z = Math.PI;
+    const can = new THREE.Group(); G.userData.canopy = can; G.add(can);
+    for (let i = 0; i < 8; i++) { const pn = new THREE.Mesh(new THREE.ConeGeometry(1, 0.42, 8, 1, true, i * Math.PI / 4, Math.PI / 4), mat({ color: i % 2 ? 0x15151c : 0x3a3448, side: THREE.DoubleSide })); pn.position.y = -0.21; can.add(pn); }   // alternate panels a shade apart, so the eight segments read
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(1, 0.025, 3, 16), sil); rim.rotation.x = Math.PI / 2; rim.position.y = -0.42; can.add(rim);
+    for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; can.add(at3(new THREE.Mesh(new THREE.IcosahedronGeometry(0.035, 0), sil), Math.sin(a), -0.42, Math.cos(a))); }
+    can.add(at3(cyl(0.012, 0.024, 0.12, sil, 5), 0, 0.06, 0));
+  } else if (kind === 'umbrellashut') {   // "Umbrella": the same umbrella furled and held like a cane: the J handle in the paw, the black furl down to its tip on the floor (holdProp runs it from the paw to the floor beside the foot)
+    const ink = mat({ color: 0x15151c }), sil = mat({ color: 0xc8ccd6, unlit: 0.35 });
+    G.userData.pole = add(cyl(0.022, 0.022, 1, ink, 5), 0, -0.5);
+    const furl = new THREE.Mesh(new THREE.ConeGeometry(0.075, 1, 6), mat({ color: 0x1e1e28 })); furl.rotation.x = Math.PI; G.userData.furl = furl; G.add(furl);
+    G.userData.tip = add(cyl(0.008, 0.008, 0.08, sil, 4), 0, -1);
+    const hk = add(new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.022, 4, 8, Math.PI), M(0x2a1a14)), -0.07, 0.0); hk.rotation.z = 0;
   } else if (kind === 'tissue') {     // a crumpled white tissue in the paw
     add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.06, 0), mat({ color: 0xfafafa, unlit: 0.45 })), 0, 0.03); add(box(0.06, 0.07, 0.01, mat({ color: 0xfafafa, unlit: 0.45 })), 0.02, 0.09).rotation.z = 0.4;
   } else if (kind === 'tissuebox') {  // a box of tissues with a blue band, one tissue sticking out (thrown in the ward)
@@ -1625,6 +1650,29 @@ function holdProp(D, kind, side, bodyYaw, t) {
   if (kind.startsWith('clap')) {   // "The Fate of Ophelia": the clapperboard held up beside the face, its face to the body's front; the stick open until clapAt s into the shot, then shut
     g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, bodyYaw, 0);
     if (g.userData.stick) g.userData.stick.rotation.z = D.clapAt != null && D.since >= D.clapAt ? 0 : 0.55 * (1 - cl((D.since - (D.clapAt ?? 99) + 0.06) / 0.06));
+    return;
+  }
+  if (kind === 'umbrella') {   // "Umbrella": the shaft from the paw to the canopy's centre D.umbrellaTo ([x, y, z], or { at, bob, spin }), else 1.15 m straight up; the canopy square to the shaft, 1.2 m across its radius x holdScale
+    const U0 = D.umbrellaTo, spec = Array.isArray(U0) ? { at: U0 } : (U0 || {}), from = p.clone();
+    const to = spec.at ? new THREE.Vector3(...spec.at) : from.clone().addScaledVector(_up, 1.15 * s);
+    if (spec.bob) to.y += spec.bob * Math.abs(Math.sin(bp(t) * Math.PI));   // bob: bounced on the beat
+    const d = to.clone().sub(from), len = Math.max(0.3, d.length()); d.normalize();
+    g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromUnitVectors(_up, d);
+    g.userData.pole.scale.y = len + 0.06; g.userData.pole.position.y = (len + 0.06) / 2;
+    const c = g.userData.canopy; c.position.y = len; c.scale.setScalar((D.holdScale || 1) * s * 1.2);
+    // level: 0-1, the canopy turned back towards level (a held-out umbrella's 40 deg tilt read as a kite)
+    if (spec.level) { const q = new THREE.Quaternion().setFromUnitVectors(_up, d).invert(); c.quaternion.copy(q.slerp(new THREE.Quaternion(), 1 - spec.level)); }
+    else c.quaternion.identity();
+    if (spec.spin) c.rotateY(spec.spin * D.since);   // spin: rad/s from the shot's start, about the canopy's own axis
+    return;
+  }
+  if (kind === 'umbrellashut') {   // "Umbrella": furled like a cane, the handle in the paw, the tip on the floor 0.12 m ahead of the paw (or at D.umbrellaTo [x, y, z])
+    const from = p.clone(), fwd = new THREE.Vector3(Math.sin(bodyYaw), 0, Math.cos(bodyYaw));
+    const to = Array.isArray(D.umbrellaTo) ? new THREE.Vector3(...D.umbrellaTo) : D.umbrellaTo === 'up' ? from.clone().addScaledVector(_up, 0.92 * s) : from.clone().addScaledVector(fwd, 0.12 * s).setY(0.01);   // 'up': held up like a baton, the tip 0.92 m over the paw
+    const d = from.clone().sub(to), len = Math.max(0.2, d.length()); d.normalize();
+    g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromUnitVectors(_up, d);
+    g.userData.pole.scale.y = len; g.userData.pole.position.y = -len / 2;
+    g.userData.furl.scale.set(1, len * 0.78, 1); g.userData.furl.position.y = -len * 0.5; g.userData.tip.position.y = -len;
     return;
   }
   if (kind === 'hook' || kind === 'leash' || kind === 'rope') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
@@ -2402,7 +2450,8 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.mixer.update(0);
     const u = cl((t - t0 - A.moveAt) / Math.max(0.01, len - A.moveAt));   // mx, mz: a walk-in across the shot (the clips' own root motion is pinned), from moveAt s
     let shoveX = 0; if (A.shove) for (const [h, dx] of A.shove) { const d = t - t0 - h; shoveX += dx * (d < -0.15 ? 0 : d < 0 ? sm((d + 0.15) / 0.15) : d < 0.12 ? 1 : Math.exp(-(d - 0.12) * 5)); }   // shove: [[s, dx]], slammed sideways into a wall ("Jamaican (Bam Bam)")
-    D.holder.rotation.set(0, yaw, 0); D.holder.position.set(A.x + A.mx * u + shoveX, ground * s + lift, A.z + A.mz * u);
+    let tw = 0; if (A.twist) { const [deg, hz, s0 = 0, s1 = 99] = A.twist, k = th - t0; if (k >= s0 && k <= s1) tw = deg * Math.PI / 180 * Math.sin((k - s0) * hz * 2 * Math.PI) * Math.min(1, (k - s0) / 0.12, (s1 - k) / 0.12); }   // twist: a wet dog's shake
+    D.holder.rotation.set(0, yaw + tw, 0); D.holder.position.set(A.x + A.mx * u + shoveX, ground * s + lift, A.z + A.mz * u);
     D.roll = swayRoll(A, th); if (D.roll) D.holder.rotateOnAxis(_rf.set(Math.sin(fyaw), 0, Math.cos(fyaw)), D.roll);
     if (A.lean) D.holder.rotateOnAxis(_rf.set(Math.cos(fyaw), 0, -Math.sin(fyaw)), A.lean);   // leaned forward, pivoting on the feet   // sway: tilted side to side on the beat, pivoting on the feet
     D.holder.updateMatrixWorld(true);
@@ -2431,7 +2480,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
     const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
-    D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0; D.twoPaw = A.arm === 'both'; D.clapAt = A.clapAt; D.ropeMouth = A.ropeMouth;
+    D.umbrellaTo = A.umbrellaTo; D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0; D.twoPaw = A.arm === 'both'; D.clapAt = A.clapAt; D.ropeMouth = A.ropeMouth;
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, A.holdAt != null ? Math.min(t - t0, A.holdAt) : t - t0);   // a frozen photo freezes it mid-air ("DtMF")

@@ -1,0 +1,3045 @@
+{
+ "date": "2026-10-15",
+ "song": {
+  "title": "Umbrella",
+  "artist": "Rihanna ft. JAY-Z"
+ },
+ "logline": "At a salon party the diva dog does Rihanna's umbrella routine until the haze sets off the sprinklers: the only one with an umbrella, he gives it up one guest per 'ella', until the cat shoves him out into the rain, so he squeezes back in among them and shakes himself dry. (TikTok cut on the official sound: from the first drops to the drips under the umbrella.)",
+ "new": "src/maps50.js: parlour (the clip's white wainscot room washed orange as a salon on a party night: gold sconces, a crystal chandelier, a pale marble floor, gold party chairs with box-pet guests, four box-pet backup dancers in black hoodies and sunglasses, a haze machine and its fog, a fire bell with a red strobe, sprinkler pipes across the ceiling and the indoor downpour with dry circles under umbrellas, run-off from the rim, splashes, puddles, drips, a wet dog's shake); the props `umbrella` (open: its shaft from the paw to `umbrellaTo`, the canopy levelled by `level`, spun by `spin`) and `umbrellashut` (furled, a cane or a baton held up); the actor field `twist` (a fast turn side to side: the shake); two looks: Saxo's corset, Sadi's whitedress; the structure SHELTER",
+ "notes": "The world, from the official video (contact sheets): dancers in black hoodies and sunglasses in a line under a sparkling rain on a black stage, the singer's cabaret routine with a furled umbrella in a room of white wainscot panels washed orange, a white dress dancing in slow-motion splashes, the finale in a downpour with the umbrella held up. The words, from whitelisted keywords per line: arms, alarmed, come into, rain, pour, need, more; sun, shine, forever, friend, oath, raining, each other, the title line and its echo, raining. Cast: Saxo in the singer's cabaret look (the diva with the only umbrella), Sadi in the clip's white dress (the first he shelters), Kob in her own tweed with her milk (the cat who hates water, deadpan in the front row, then the one who shoves him out), Compote in her own hoodie with headphones (the stagehand whose haze machine sets off the sprinklers). Kob won't touch water (the running thread) until the dog's shake.",
+ "tiktok_sound": "6921472986260178945",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "sitting_talking"
+ ],
+ "tags": {
+  "structure": "shelter",
+  "scenes": [
+   "the umbrella routine",
+   "the haze machine",
+   "the fire bell",
+   "the sprinklers burst",
+   "the umbrella snapped open",
+   "the diva strut",
+   "the soaked cat deadpan",
+   "the oath",
+   "the flooded salon",
+   "the huddle",
+   "one more under the umbrella",
+   "shoved out into the rain",
+   "the wet dog shake",
+   "raining under the umbrella"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "parlour"
+  ],
+  "ref": "dog-wig",
+  "lyric_literal": "'alarmed' (the fire bell), 'come into me' (he beckons), 'let the rain pour' (the sprinklers burst on the word), 'sun shines' (the dry diva struts), 'oath' (a paw raised), 'raining more than ever' (the flooded salon), 'each other' (the soaked huddle), 'stand under my umbrella' (one more under it on each line), the echo (the shove, the shake), 'raining' (under the umbrella)",
+  "experiment": "Does a pet universal with a physical payoff (the wet dog who shakes himself dry next to you), on a throwback that's climbing again (Umbrella, in a Rihanna wave) with its hook as the gag's counter (one more under the umbrella per line), hold the Short's views at 24 h against our last three throwbacks?"
+ },
+ "shots": [
+  {
+   "beat": -3.803,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "charleston",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.012,
+     "speed": 1,
+     "umbrellaTo": {
+      "at": [
+       -0.45,
+       2.05,
+       -1.5
+      ],
+      "level": 0.25,
+      "spin": 1.3
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 0.85,
+     "armB": "L",
+     "aimB": [
+      0.55,
+      -0.3,
+      0.32
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     5.96,
+     5.96
+    ],
+    "r": [
+     3.368,
+     3.368
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "alarm": true,
+   "haze": 1,
+   "rain": [
+    0,
+    2.623,
+    0,
+    0.35
+   ],
+   "rainClear": [
+    [
+     0.35,
+     1.95,
+     1.6
+    ],
+    [
+     0.35,
+     1.95,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0.35,
+     1.95,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0.35,
+     1.95,
+     1.6
+    ],
+    [
+     0.35,
+     1.95,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0.35,
+     1.95,
+     0,
+     -1.4,
+     0.3
+    ]
+   ],
+   "dancers": false,
+   "guests": "watch"
+  },
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "charleston",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.565,
+     "speed": 1,
+     "umbrellaTo": {
+      "at": [
+       -0.3,
+       2.3,
+       -1.5
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 0.9,
+     "armB": "L",
+     "aimB": [
+      0.55,
+      -0.3,
+      0.32
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     41.46,
+     41.46
+    ],
+    "r": [
+     4.003,
+     4.003
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -1.1
+   ],
+   "rainClear": [
+    [
+     2.65,
+     1.9,
+     1.6
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     2.65,
+     1.9,
+     1.6
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": [
+    0,
+    3,
+    0.1,
+    0.6
+   ],
+   "dancers": "soaked",
+   "guests": "soaked",
+   "dry": [
+    [
+     -0.3,
+     -1.5,
+     1.05,
+     2.05
+    ]
+   ],
+   "alarm": true,
+   "clear": [
+    [
+     -2.5,
+     -3.4,
+     0.4
+    ],
+    [
+     2.5,
+     -3.4,
+     0.4
+    ]
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "sitting_talking",
+     "x": 0,
+     "z": 2.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     176.29,
+     176.29
+    ],
+    "r": [
+     1.854,
+     1.854
+    ],
+    "h": [
+     1.52,
+     1.52
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 42
+   },
+   "focus": [
+    0,
+    2.4
+   ],
+   "rainClear": [
+    [
+     0.12,
+     0.55,
+     1.6
+    ],
+    [
+     0.12,
+     0.55,
+     0,
+     2.4,
+     0.3
+    ],
+    [
+     0.12,
+     0.55,
+     0,
+     2.4,
+     0.3
+    ],
+    [
+     0.12,
+     0.55,
+     1.6
+    ],
+    [
+     0.12,
+     0.55,
+     0,
+     2.4,
+     0.3
+    ],
+    [
+     0.12,
+     0.55,
+     0,
+     2.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.7,
+   "dancers": false,
+   "guests": "soaked",
+   "drips": [
+    [
+     0,
+     2.3,
+     1.2,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 7.5,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "charleston",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.152,
+     "speed": 1,
+     "umbrellaTo": {
+      "at": [
+       -0.3,
+       2.3,
+       -1.5
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 0.9,
+     "armB": "L",
+     "aimB": [
+      0.55,
+      -0.3,
+      0.32
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -9.9,
+     -9.82
+    ],
+    "r": [
+     3.198,
+     2.639
+    ],
+    "h": [
+     0.5,
+     0.48
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 56,
+    "roll": [
+     7,
+     10
+    ]
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "rainClear": [
+    [
+     -0.55,
+     1.75,
+     1.6
+    ],
+    [
+     -0.55,
+     1.75,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     -0.55,
+     1.75,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     -0.45,
+     1.2,
+     1.6
+    ],
+    [
+     -0.45,
+     1.2,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     -0.45,
+     1.2,
+     0,
+     -1.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.8,
+   "dancers": "soaked",
+   "guests": "soaked",
+   "dry": [
+    [
+     -0.3,
+     -1.5,
+     1.05,
+     2.05
+    ]
+   ],
+   "clear": [
+    [
+     -2.5,
+     -3.4,
+     0.4
+    ],
+    [
+     2.5,
+     -3.4,
+     0.4
+    ],
+    [
+     -0.95,
+     -3.65,
+     0.4
+    ]
+   ]
+  },
+  {
+   "beat": 11.2,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "charleston",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 1.998,
+     "speed": 1,
+     "umbrellaTo": {
+      "at": [
+       -0.3,
+       2.3,
+       -1.5
+      ],
+      "level": 0.6,
+      "spin": 1.4
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 0.9,
+     "armB": "L",
+     "aimB": [
+      0.55,
+      -0.3,
+      0.32
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.3,
+     3.3
+    ],
+    "h": [
+     0.62,
+     0.62
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "rainClear": [
+    [
+     0,
+     1.9,
+     1.6
+    ],
+    [
+     0,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0,
+     1.9,
+     1.6
+    ],
+    [
+     0,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": "soaked",
+   "guests": "soaked",
+   "dry": [
+    [
+     -0.3,
+     -1.5,
+     1.05,
+     2.05
+    ]
+   ],
+   "clear": [
+    [
+     -2.5,
+     -3.4,
+     0.4
+    ],
+    [
+     2.5,
+     -3.4,
+     0.4
+    ]
+   ]
+  },
+  {
+   "beat": 16.6,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "sitting_talking",
+     "x": -1.3,
+     "z": 2.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     178.78,
+     178.78
+    ],
+    "r": [
+     2.351,
+     2.351
+    ],
+    "h": [
+     1.42,
+     1.42
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 40
+   },
+   "focus": [
+    -1.3,
+    2.4
+   ],
+   "rainClear": [
+    [
+     -1.25,
+     0.05,
+     1.6
+    ],
+    [
+     -1.25,
+     0.05,
+     -1.3,
+     2.4,
+     0.3
+    ],
+    [
+     -1.25,
+     0.05,
+     -1.3,
+     2.4,
+     0.3
+    ],
+    [
+     -1.25,
+     0.05,
+     1.6
+    ],
+    [
+     -1.25,
+     0.05,
+     -1.3,
+     2.4,
+     0.3
+    ],
+    [
+     -1.25,
+     0.05,
+     -1.3,
+     2.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "drips": [
+    [
+     -1.3,
+     2.3,
+     1.2,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 20.6,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -5.3,
+     "z": -2.2,
+     "face": "world",
+     "yaw": 43.5,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     41.73,
+     41.73
+    ],
+    "r": [
+     2.479,
+     2.479
+    ],
+    "h": [
+     1.12,
+     1.12
+    ],
+    "look": [
+     1.06,
+     1.06
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -5.05,
+    -2.05
+   ],
+   "rainClear": [
+    [
+     -3.4,
+     -0.2,
+     1.6
+    ],
+    [
+     -3.4,
+     -0.2,
+     -5.3,
+     -2.2,
+     0.3
+    ],
+    [
+     -3.4,
+     -0.2,
+     -5.3,
+     -2.2,
+     0.3
+    ],
+    [
+     -3.4,
+     -0.2,
+     1.6
+    ],
+    [
+     -3.4,
+     -0.2,
+     -5.3,
+     -2.2,
+     0.3
+    ],
+    [
+     -3.4,
+     -0.2,
+     -5.3,
+     -2.2,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "drips": [
+    [
+     -5.3,
+     -2.2,
+     0.95,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 24.5,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": -15,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       -0.264,
+       2.3,
+       -1.574
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 0.9,
+     "armB": "L",
+     "aimB": [
+      0.18,
+      0.38,
+      0.62
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     17.18,
+     17.18
+    ],
+    "r": [
+     2.878,
+     2.878
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "rainClear": [
+    [
+     0.85,
+     1.35,
+     1.6
+    ],
+    [
+     0.85,
+     1.35,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0.85,
+     1.35,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0.85,
+     1.35,
+     1.6
+    ],
+    [
+     0.85,
+     1.35,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     0.85,
+     1.35,
+     0,
+     -1.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "dry": [
+    [
+     -0.264,
+     -1.574,
+     1.05,
+     2.05
+    ]
+   ]
+  },
+  {
+   "beat": 28.9,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "charleston",
+     "x": 0,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.497,
+     "speed": 1,
+     "umbrellaTo": {
+      "at": [
+       -0.3,
+       2.3,
+       -1.5
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 0.9,
+     "armB": "L",
+     "aimB": [
+      0.55,
+      -0.3,
+      0.32
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     41.46,
+     41.46
+    ],
+    "r": [
+     4.003,
+     4.003
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -1.1
+   ],
+   "rainClear": [
+    [
+     2.65,
+     1.9,
+     1.6
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     2.65,
+     1.9,
+     1.6
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ],
+    [
+     2.65,
+     1.9,
+     0,
+     -1.4,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 1,
+   "dancers": "soaked",
+   "guests": "soaked",
+   "dry": [
+    [
+     -0.3,
+     -1.5,
+     1.05,
+     2.05
+    ]
+   ],
+   "clear": [
+    [
+     -2.5,
+     -3.4,
+     0.4
+    ],
+    [
+     2.5,
+     -3.4,
+     0.4
+    ]
+   ]
+  },
+  {
+   "beat": 32.8,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -2.08,
+     "z": -0.62,
+     "face": "world",
+     "yaw": 25,
+     "at": 2.125,
+     "speed": 0,
+     "sway": 2,
+     "swayEvery": 0.125
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": -1.42,
+     "z": -0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "sway": 2,
+     "swayEvery": 0.125
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -0.76,
+     "z": -0.62,
+     "face": "world",
+     "yaw": -25,
+     "at": 2.125,
+     "speed": 0,
+     "sway": 2,
+     "swayEvery": 0.125
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.2,
+     3.2
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -1.42,
+    -0.6
+   ],
+   "rainClear": [
+    [
+     -1.42,
+     2.6,
+     1.6
+    ],
+    [
+     -1.42,
+     2.6,
+     -2.08,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -2.08,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -1.42,
+     -0.6,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -1.42,
+     -0.6,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -0.76,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -0.76,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     1.6
+    ],
+    [
+     -1.42,
+     2.6,
+     -2.08,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -2.08,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -1.42,
+     -0.6,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -1.42,
+     -0.6,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -0.76,
+     -0.62,
+     0.3
+    ],
+    [
+     -1.42,
+     2.6,
+     -0.76,
+     -0.62,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "hide": [
+    "chairs"
+   ],
+   "drips": [
+    [
+     -2.08,
+     -0.62,
+     0.95,
+     1
+    ],
+    [
+     -1.42,
+     -0.6,
+     0.95,
+     1
+    ],
+    [
+     -0.76,
+     -0.62,
+     0.95,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 36.7,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 0.4,
+     "z": -1.95,
+     "face": "world",
+     "yaw": -10,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0,
+       2.4,
+       -1.9
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.42,
+     "z": -1.85,
+     "face": "world",
+     "yaw": 12,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.4,
+     3.4
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -1.9
+   ],
+   "rainClear": [
+    [
+     0,
+     1.5,
+     1.6
+    ],
+    [
+     0,
+     1.5,
+     0.4,
+     -1.95,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     0.4,
+     -1.95,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     -0.42,
+     -1.85,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     -0.42,
+     -1.85,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     1.6
+    ],
+    [
+     0,
+     1.5,
+     0.4,
+     -1.95,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     0.4,
+     -1.95,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     -0.42,
+     -1.85,
+     0.3
+    ],
+    [
+     0,
+     1.5,
+     -0.42,
+     -1.85,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "dry": [
+    [
+     0,
+     -1.9,
+     1.16,
+     2.15
+    ]
+   ],
+   "drips": [
+    [
+     -0.42,
+     -1.85,
+     0.95
+    ]
+   ]
+  },
+  {
+   "beat": 40.15,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -2.05,
+     "face": "world",
+     "yaw": -15,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.05,
+       2.45,
+       -1.9
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 1.2
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -2,
+     "face": "world",
+     "yaw": 15,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0.1,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.69,
+     0.69
+    ],
+    "r": [
+     4.15,
+     4.15
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.05,
+    -1.85
+   ],
+   "rainClear": [
+    [
+     0.1,
+     2.3,
+     1.6
+    ],
+    [
+     0.1,
+     2.3,
+     0.95,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     0.95,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     0.1,
+     -1.6,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     0.1,
+     -1.6,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     1.6
+    ],
+    [
+     0.1,
+     2.3,
+     0.95,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     0.95,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     0.1,
+     -1.6,
+     0.3
+    ],
+    [
+     0.1,
+     2.3,
+     0.1,
+     -1.6,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "hide": [
+    "chairs"
+   ],
+   "dry": [
+    [
+     0.05,
+     -1.9,
+     1.4,
+     2.2
+    ]
+   ],
+   "drips": [
+    [
+     0.1,
+     -1.6,
+     0.95
+    ]
+   ]
+  },
+  {
+   "beat": 44.2,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 1.62,
+     "z": -1.85,
+     "face": "world",
+     "yaw": -10,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.05,
+       2.5,
+       -1.9
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.7,
+      0.45,
+      0.15
+     ],
+     "upAt": -1,
+     "holdScale": 1.2,
+     "mx": 0.15,
+     "mz": 0.3,
+     "moveAt": 0.15,
+     "lean": 16,
+     "hop": [
+      0.06,
+      1
+     ],
+     "air": true
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -2,
+     "face": "world",
+     "yaw": 15,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1.02,
+     "z": -2.36,
+     "face": "world",
+     "yaw": 48,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.12,
+      0.05,
+      1
+     ],
+     "upAt": -1,
+     "mx": 0.15,
+     "mz": 0.3,
+     "moveAt": 0.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -8.97,
+     -8.97
+    ],
+    "r": [
+     2.95,
+     2.95
+    ],
+    "h": [
+     2.55,
+     2.55
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 56
+   },
+   "focus": [
+    1.5,
+    -2
+   ],
+   "rainClear": [
+    [
+     1.04,
+     0.91,
+     1.6
+    ],
+    [
+     1.04,
+     0.91,
+     1.62,
+     -1.85,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.77,
+     -1.55,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.02,
+     -2.36,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.17,
+     -2.06,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.6
+    ],
+    [
+     1.04,
+     0.91,
+     1.62,
+     -1.85,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.77,
+     -1.55,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.02,
+     -2.36,
+     0.3
+    ],
+    [
+     1.04,
+     0.91,
+     1.17,
+     -2.06,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "hide": [
+    "chairs"
+   ],
+   "dry": [
+    [
+     0.05,
+     -1.9,
+     1.4,
+     2.25
+    ]
+   ],
+   "drips": [
+    [
+     1.9200000000000002,
+     -1.85,
+     0.95,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 50.07,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 1.92,
+     "z": -1.85,
+     "face": "world",
+     "yaw": -30,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.05,
+       2.5,
+       -1.9
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.7,
+      0.45,
+      0.15
+     ],
+     "upAt": -1,
+     "holdScale": 1.2
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -2,
+     "face": "world",
+     "yaw": 15,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 0.82,
+     "z": -1.9,
+     "face": "world",
+     "yaw": -10,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.85,
+     5.85
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.5,
+    -1.85
+   ],
+   "rainClear": [
+    [
+     0.5,
+     4,
+     1.6
+    ],
+    [
+     0.5,
+     4,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     1.6
+    ],
+    [
+     0.5,
+     4,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     0.5,
+     4,
+     0.82,
+     -1.9,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "hide": [
+    "chairs"
+   ],
+   "dry": [
+    [
+     0.05,
+     -1.9,
+     1.4,
+     2.25
+    ]
+   ],
+   "drips": [
+    [
+     1.92,
+     -1.85,
+     0.95,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 58.07,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 1.92,
+     "z": -1.85,
+     "face": "world",
+     "yaw": -25,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.05,
+       2.5,
+       -1.9
+      ],
+      "level": 0.6
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.7,
+      0.45,
+      0.15
+     ],
+     "upAt": -1,
+     "holdScale": 1.2
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -2,
+     "face": "world",
+     "yaw": 25,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 0.82,
+     "z": -1.9,
+     "face": "world",
+     "yaw": -10,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     12.77,
+     12.77
+    ],
+    "r": [
+     2.85,
+     2.85
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    1.37,
+    -1.88
+   ],
+   "rainClear": [
+    [
+     2,
+     0.9,
+     1.6
+    ],
+    [
+     2,
+     0.9,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     1.6
+    ],
+    [
+     2,
+     0.9,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     1.92,
+     -1.85,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     -0.85,
+     -2,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0,
+     -1.6,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     0.82,
+     -1.9,
+     0.3
+    ],
+    [
+     2,
+     0.9,
+     1.92,
+     -1.85,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "dry": [
+    [
+     0.05,
+     -1.9,
+     1.4,
+     2.25
+    ]
+   ],
+   "drips": [
+    [
+     1.92,
+     -1.85,
+     0.95,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 65.93,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 0.35,
+     "z": -2.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.25,
+       2.45,
+       -1.95
+      ],
+      "level": 0.7
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 1.25
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.34,
+     "z": -2,
+     "face": "world",
+     "yaw": 10,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -1.1,
+     "z": -1.95,
+     "face": "world",
+     "yaw": 5,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1.04,
+     "z": -2,
+     "face": "world",
+     "yaw": -12,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.9,
+     4.9
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.1,
+    -1.9
+   ],
+   "rainClear": [
+    [
+     0.1,
+     3,
+     1.6
+    ],
+    [
+     0.1,
+     3,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     1.04,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     1.04,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     1.6
+    ],
+    [
+     0.1,
+     3,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     1.04,
+     -2,
+     0.3
+    ],
+    [
+     0.1,
+     3,
+     1.04,
+     -2,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "hide": [
+    "chairs"
+   ],
+   "dry": [
+    [
+     0.25,
+     -1.95,
+     1.46,
+     2.2
+    ]
+   ],
+   "drips": [
+    [
+     0.35,
+     -2.05,
+     0.95,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 70.9,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 0.35,
+     "z": -2.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.25,
+       2.45,
+       -1.95
+      ],
+      "level": 0.7
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 1.25,
+     "twist": [
+      42,
+      4.3,
+      0.15,
+      4.414
+     ],
+     "sway": 16,
+     "swayEvery": 0.25
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.34,
+     "z": -2,
+     "face": "world",
+     "yaw": -60,
+     "at": 2.125,
+     "speed": 0,
+     "sway": 16,
+     "swayEvery": 1000
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -1.1,
+     "z": -1.95,
+     "face": "world",
+     "yaw": 10,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1.04,
+     "z": -2,
+     "face": "world",
+     "yaw": 60,
+     "at": 2.125,
+     "speed": 0,
+     "sway": -16,
+     "swayEvery": 1000
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.4,
+     3.4
+    ],
+    "h": [
+     2.2,
+     2.2
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 66
+   },
+   "focus": [
+    0.35,
+    -2.05
+   ],
+   "rainClear": [
+    [
+     0.35,
+     1.35,
+     1.6
+    ],
+    [
+     0.35,
+     1.35,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     1.04,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     1.04,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     1.6
+    ],
+    [
+     0.35,
+     1.35,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     0.35,
+     -2.05,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -0.34,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     -1.1,
+     -1.95,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     1.04,
+     -2,
+     0.3
+    ],
+    [
+     0.35,
+     1.35,
+     1.04,
+     -2,
+     0.3
+    ]
+   ],
+   "zone": "rain",
+   "rain": 1,
+   "wet": 0.9,
+   "dancers": false,
+   "guests": "soaked",
+   "hide": [
+    "chairs"
+   ],
+   "dry": [
+    [
+     0.25,
+     -1.95,
+     1.46,
+     2.2
+    ]
+   ],
+   "shake": [
+    0.35,
+    0.85,
+    -2.05,
+    0.15,
+    4.414
+   ]
+  },
+  {
+   "beat": 77.6,
+   "kind": "dance",
+   "map": "parlour",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "happy_idle",
+     "x": 0.35,
+     "z": -2.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "umbrellaTo": {
+      "at": [
+       0.25,
+       2.45,
+       -1.95
+      ],
+      "level": 0.7
+     },
+     "hold": "umbrella",
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.3,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 1.25,
+     "tongue": true,
+     "hop": [
+      0.03,
+      1
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "happy_idle",
+     "x": -0.34,
+     "z": -2,
+     "face": "world",
+     "yaw": 10,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "compote",
+     "look": "compote",
+     "clip": "happy_idle",
+     "x": -1.1,
+     "z": -1.95,
+     "face": "world",
+     "yaw": 5,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1.04,
+     "z": -2,
+     "face": "world",
+     "yaw": -12,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.9,
+     4.9
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.1,
+    -1.9
+   ],
+   "zone": "rain",
+   "rain": 0,
+   "wet": 1,
+   "dancers": false,
+   "guests": "soaked",
+   "dry": [
+    [
+     0.25,
+     -1.95,
+     1.46,
+     2.2
+    ]
+   ],
+   "hide": [
+    "chairs"
+   ],
+   "drips": [
+    [
+     -0.34,
+     -2,
+     2.15,
+     1,
+     1.8
+    ],
+    [
+     -1.1,
+     -1.95,
+     2.15,
+     1,
+     1.8
+    ],
+    [
+     1.04,
+     -2,
+     2.15,
+     1,
+     1.8
+    ]
+   ]
+  }
+ ]
+}
