@@ -13,7 +13,7 @@
 //            room red; `strobeAt` [x, y, z] puts its red flash on a subject); `haze` (0-1, true, or [s0, s1, a, b]: a low fog rolling out of the machine across the floor);
 //            `rain` (0-1, true, or a ramp: the sprinklers: streaks fanning down from every head, splashes on the floor);
 //            `dry` [[x, z, r, y]] (an umbrella's canopy: no rain under it below y, water running off its rim); `rainClear` [[x, z, r] or [x0, z0, x1, z1, r]] (no streaks near a lens, or along its line of sight to a face); `wet`
-//            (0-1 or a ramp: puddles spreading); `drips` [[x, z, h, heavy, size]] (water dripping off a soaked one, a puddle at
+//            (0-1 or a ramp: puddles spreading); `drips` [[x, z, h, heavy, size, ring]] (water dripping off a soaked one, a puddle at
 //            the feet; size scales the drops for a wide); `shake` [x, y, z, s0, s1] (a wet dog's shake: a ring of drops flung out on every half beat);
 //            `dancers` 'dance' | 'soaked' | 'stare' | 'cheer' | false; `guests` 'watch' | 'cheer' | 'soaked' | 'gasp' |
 //            'stare' | false (seated); `stare` [x, z]; `hearts` [[x, y, z, s0]] + `heartYaw`; `hide` ['chandelier',
@@ -287,10 +287,10 @@ export function buildParlourMaps(K) {
           }
         }
         // drips off the soaked: small blue drops from round the head to the floor, a puddle at the feet
-        (P.drips || []).forEach(([x, z, h = 1.25, heavy = 0, sz = 1], k2) => {
+        (P.drips || []).forEach(([x, z, h = 1.25, heavy = 0, sz = 1, rs = 1], k2) => {   // rs scales the ring: keep it off a neighbour
           const n = heavy ? 30 : 12;
           for (let j = 0; j < n; j++) {
-            const ph = fr(t * (heavy ? 2.4 : 1.7) + hash(j, k2, 5061)), a = hash(j, k2, 5062) * TAU, r = 0.3 + 0.22 * hash(j, k2, 5063), yy = h * (1 - ph * ph);   // from h (the shoulders) down, 0.3-0.52 m out: off the face
+            const ph = fr(t * (heavy ? 2.4 : 1.7) + hash(j, k2, 5061)), a = hash(j, k2, 5062) * TAU, r = (0.3 + 0.22 * hash(j, k2, 5063)) * rs, yy = h * (1 - ph * ph);   // from h (the shoulders) down, 0.3-0.52 m out: off the face
             const q = wet[wi++]; if (!q) break;
             q.visible = true; q.position.set(x + Math.cos(a) * r, Math.max(0.02, yy), z + Math.sin(a) * r); q.scale.set(0.012 * sz, (0.05 + 0.04 * hash(j, k2, 5064)) * sz, 0.012 * sz);   // a streak running down, not a dot (dots read as confetti)
           }

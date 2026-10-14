@@ -193,7 +193,8 @@ RAIN = dict(zone='rain', rain=1, wet=0.9, dancers=False, guests='soaked')
 def rain_add(beat, b1, actors, lyric, spec, **o):   # a rain shot: its lens fitted first, then the streaks cleared along its sight lines
     zone = 'open' if 'chairs' in o.get('hide', []) else 'room'
     v = fit(spec, beat, b1, actors, zone) if spec[0] == 'V' else spec
-    add(beat, b1, actors, lyric, v, rainClear=corridor(v, faces(actors) + o.pop('also', [])), zone_lens=zone, **{**RAIN, **o})
+    rc = corridor(v, faces(actors) + o.pop('also', []), r=o.pop('cr', 0.3)) + o.pop('clearX', [])   # clearX: more [x0, z0, x1, z1, r] strips
+    add(beat, b1, actors, lyric, v, rainClear=rc, zone_lens=zone, **{**RAIN, **o})
 
 # S00 (k-1..4; 'arms'): the hook, the watcher's shot: over Kob's ears in the front row, the diva dog does his umbrella
 # routine with it open indoors, his two hooded dancers behind him, the fog at the ankles
@@ -215,7 +216,7 @@ add(6.4, 7.6, [PARK], "'alarmed': the fire bell rings on the wall, its strobe fl
 # the diva dancing on under his parasol in the red strobe, a low dolly-in from his left, the umbrella in the paw on that side
 s = [dancer('saxo', *STAGE, 0, S(9.15, 7.6), umbrellaTo=PL, **HOLDL, holdScale=0.85)]
 v = V((0.6, 0.5, 1.75), (0.0, 1.05, -1.4), fov=56, p1=(0.5, 0.48, 1.2), roll=[-7, -10])
-add(7.6, 12, s, "'come into me': unbothered by the alarm, the diva dances on under his parasol in the red strobe, the fog at his feet: a low dolly-in", v, alarm=True, strobeAt=[0.4, 1.8, 0.6], haze=1, clear=[[-2.5, -3.4, 0.4], [2.5, -3.4, 0.4], [0.95, -3.65, 0.4], [-0.95, -3.65, 0.4]], rv=S(9.15, 7.6), **PARTY)
+add(7.6, 12, s, "'come into me': unbothered by the alarm, the diva dances on under his parasol in the red strobe, the fog at his feet: a low dolly-in", v, alarm=True, strobeAt=[0.4, 1.8, 0.6], haze=1, hide=['sconces'], clear=[[-2.5, -3.4, 0.4], [2.5, -3.4, 0.4], [0.95, -3.65, 0.4], [-0.95, -3.65, 0.4]], rv=S(9.15, 7.6), **PARTY)
 # S04 (k12..16.197): Kob deadpan in the front row, her milk up, the strobe red on her
 KOBV = V((0.12, 1.22, 0.55), (0.0, 1.2, 2.4), fov=42)
 s = [seated('kob', *KOB_SEAT, 180)]
@@ -289,18 +290,18 @@ OUT19 = [idle('saxo', *D18, -25, **HOLDOUT), idle('sadi', *S17P, 25, fg=True), i
 rain_add(78.07, 85.93, OUT19, "the wet dog close: dripping, deadpan, his arm out holding his own umbrella over Kob, dry and smug just behind him", V((2.0, 1.2, 0.9), (1.37, 1.1, -1.88), fov=60), dry=[dry(B17, 1.2)], drips=[[D18[0], D18[1], 0.95, 1]], also=[D18], rv=S(81.0, 78.07))
 
 # ============================================ the payoff: the shake ============================================
-ROW = {'compote': (-1.1, -1.95), 'sadi': (-0.34, -2.0), 'saxo': (0.35, -2.05), 'kob': (1.04, -2.0)}
-B20 = {'at': [0.25, 2.45, -1.95], 'level': 0.7}
-WIDE4 = V((0.1, 1.3, 3.0), (0.1, 1.0, -1.9), fov=60)
+ROW = {'compote': (-1.32, -1.95), 'sadi': (-0.56, -2.0), 'saxo': (0.35, -2.05), 'kob': (1.04, -2.0)}   # Sadi 0.91 m from him: his umbrella paw sits in the gap, the pole clear of her bow
+B20 = {'at': [0.1, 2.45, -1.95], 'level': 0.7}
+WIDE4 = V((-0.14, 1.3, 3.2), (-0.14, 1.0, -1.9), fov=60)   # centred on the spaced row
 # S20 (k85.93..90.9; 'umbrella' k87.5, the echo), fallback after three failed loops (the walk-in read as an umbrella hat):
 # S22's passed framing: he's back in among them, the wet dog in the middle dripping onto the floor, the three dry
 s = [idle('saxo', *ROW['saxo'], 0, umbrellaTo=B20, **HOLD, holdScale=1.25),
      idle('sadi', *ROW['sadi'], 10), idle('compote', *ROW['compote'], 5), idle('kob', *ROW['kob'], -12)]
-rain_add(85.93, 90.9, s, "the echo: back in among them, the wet dog in the middle of the three dry ones under his umbrella, dripping on the floor between them", WIDE4, hide=['chairs'], dry=[dry(B20, 1.25)], drips=[[ROW['saxo'][0], ROW['saxo'][1], 0.95, 1]], rv=S(89.5, 85.93))
+rain_add(85.93, 90.9, s, "the echo: back in among them, the wet dog in the middle of the three dry ones under his umbrella, dripping on the floor between them", WIDE4, hide=['chairs'], dry=[dry(B20, 1.25)], cr=0.5, clearX=[[0.1, -2.3, 0.1, -6.0, 1.9]], drips=[[ROW['saxo'][0], ROW['saxo'][1] - 0.35, 0.95, 1, 1.5]], rv=S(89.5, 85.93))
 # S21 (k90.9..97.6; the long echo): THE SHAKE: he shakes himself dry in the middle of them, a ring of spray; they turn their faces away
 s = [idle('saxo', *ROW['saxo'], 0, umbrellaTo=B20, **HOLD, holdScale=1.25, twist=[42, 4.3, 0.15, S(97.3, 90.9)], sway=16, swayEvery=0.25),
-     idle('sadi', *ROW['sadi'], -60, sway=16, swayEvery=1000), idle('compote', *ROW['compote'], 10, fg=True), idle('kob', *ROW['kob'], 60, sway=-16, swayEvery=1000)]
-rain_add(90.9, 97.6, s, "the long echo: THE SHAKE, close and front-on: the wet dog shakes himself dry between Sadi and Kob, a big ring of spray flying into their faces and at the lens, the two leaning away", V((0.35, 2.2, 1.35), (0.35, 0.9, -2.05), fov=66), hide=['chairs'], dry=[dry(B20, 1.25)], shake=[ROW['saxo'][0], 0.85, ROW['saxo'][1], 0.15, S(97.3, 90.9)], rv=S(92.4, 90.9))
+     idle('sadi', *ROW['sadi'], -60, sway=16, swayEvery=1000), idle('kob', *ROW['kob'], 60, sway=-16, swayEvery=1000)]
+rain_add(90.9, 97.6, s, "the long echo: THE SHAKE, close and front-on: the wet dog shakes himself dry between Sadi and Kob, a big ring of spray flying into their faces and at the lens, the two leaning away", V((0.25, 2.2, 1.35), (0.25, 0.9, -2.05), fov=66), hide=['chairs'], dry=[dry(B20, 1.25)], shake=[ROW['saxo'][0], 0.85, ROW['saxo'][1], 0.15, S(97.3, 90.9)], rv=S(93.5, 90.9))
 
 # ============================================ the button ============================================
 # S22 (k97.6..104; 'raining'): the sprinklers stop; under the umbrella it's raining: the three dripping, Kob's dead stare, the dog happy
@@ -309,7 +310,7 @@ s = [idle('saxo', *ROW['saxo'], 0, umbrellaTo=B20, **HOLD, holdScale=1.25, tongu
 v = fit(WIDE4, 97.6, 104, s, 'open')
 add(97.6, 104, s, "'raining': the sprinklers stop, and under the umbrella it's raining: the three dripping, Kob's dead stare, the dog dry and happy, tongue out", v,
     zone='rain', rain=0, wet=1, dancers=False, guests='soaked', dry=[dry(B20, 1.25)], hide=['chairs'], zone_lens='open',
-    drips=[[ROW['sadi'][0], ROW['sadi'][1], 2.15, 1, 1.8], [ROW['compote'][0], ROW['compote'][1], 2.15, 1, 1.8], [ROW['kob'][0], ROW['kob'][1], 2.15, 1, 1.8]], rv=S(100.4, 97.6))
+    drips=[[ROW['sadi'][0] - 0.1, ROW['sadi'][1], 1.7, 1, 1.8, 0.75], [ROW['compote'][0] + 0.27, ROW['compote'][1], 1.7, 1, 1.8, 0.75], [ROW['kob'][0] + 0.2, ROW['kob'][1], 1.7, 1, 1.8, 0.75]], rv=S(100.4, 97.6))   # from under the rim (1.82 m), the rings off his side: he stays dry
 
 shots.sort(key=lambda x: x['beat'])
 ep = {
