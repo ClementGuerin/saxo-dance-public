@@ -1,0 +1,2403 @@
+{
+ "date": "2026-10-15",
+ "song": {
+  "title": "The Fate of Ophelia",
+  "artist": "Taylor Swift"
+ },
+ "logline": "On the shoot of \"Ophelia\" the lifeguard dog thinks the star floating among the flowers is drowning: he dives in and tows her out on every take, from the edge, then from the lifeguard tower, until the director turns it into the clip's swimming number, slips on the wet stage and falls in herself: the cat who hates water floats like the painting, and his ring lands round her.",
+ "new": "src/maps49.js: ophelia (the shoot of 'Ophelia' on a gilded theatre's stage: the famous painting's stream running down into a real pool with flowers and lily pads, a 1920s hand-cranked film camera, the director's chair, a work light, a lifeguard tower, the proscenium and the stalls with an audience, the film crew, a chorus line of swimmers with life rings, painted cut-out waves, the canvas turning to a painted sea for the swimming number, a diver's splash); the props `lifebuoy`, `rope`, the clapperboard `clap<take>` with `clapAt`, and the actor fields `buoy` (a ring round the waist), `buoyFace` (the clip's portrait) and `megaphone` (with rings of sound on `calls`); three looks: Saxo's swimcap, Sadi's ophelia, Kob's director; the structure RESCUER",
+ "notes": "The world, from the official video (contact sheets): a gilded theatre at night, the painting of Ophelia floating among flowers coming alive in its gold frame, stagehands moving painted flats, showgirls in red, a painted ship on cut-out waves, a swimming number of life rings in teal (the singer's face framed by a ring), feathers, a bathtub. The words, from whitelisted keywords per line: calling, megaphone, alone, light, watch, drowned; alone, tower; night, grave, saved, heart, fate and the title name; hundred, sea, hands, night, fate and the name. Cast: Saxo in the singer's swimming-number look (the lifeguard dog), Sadi as Ophelia (the star he keeps rescuing), Kob the director in a beret with the megaphone (the cat who hates water, deadpan until the end), Compote the clapper loader in her drummer look (TAKE 1, 3, 4, 47, angrier each time, soaked by the dive). The lifeguard thread comes back (2026-09-27 4th: the lifeguard who filmed himself; now he saves everyone who doesn't need it) and Kob won't touch water (until she falls in).",
+ "tiktok_sound": "7556815852168759313",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "goalie_overhand_throw",
+  "happy_idle",
+  "happy_walk",
+  "high_enthusiasm_fist_pump",
+  "knocked_out_falling_to_back",
+  "laying_idle",
+  "running_man",
+  "sitting_talking",
+  "situps",
+  "swimming_breastroke_to_edge_of_pool"
+ ],
+ "tags": {
+  "structure": "rescuer",
+  "scenes": [
+   "the film shoot",
+   "the megaphone",
+   "the clapperboard",
+   "Ophelia's tableau",
+   "the panic at the edge",
+   "the dive",
+   "the tow in a life ring",
+   "the lifeguard tower",
+   "the swan dive",
+   "the big splash",
+   "the swimming number",
+   "the face in a life ring",
+   "painted waves",
+   "the kaleidoscope",
+   "the director falls in",
+   "the match cut"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "ophelia"
+  ],
+  "ref": "none",
+  "lyric_literal": "'calling ... megaphone' (the director's call), 'alone' (Ophelia floats alone), 'light' (the follow spot), 'watch' (the dog watches), 'drowned' (he dives in), 'alone ... tower' (alone on the lifeguard tower), 'grave' (Ophelia lies in state), 'saved ... fate of Ophelia' (the swan dive and the splash), 'hundred' (the chorus line of rings), 'sea' (the painted waves), 'hands' (paws up), 'fate ... Ophelia' (the director falls in and floats like the painting)",
+  "experiment": "Does a pet universal everyone has filmed (the dog who thinks you're drowning every time you swim), on the biggest TikTok sound we've had (2.43M videos on Taylor Swift's own), with the clip's own iconic image (the face framed by a life ring) in the chorus, lift the Short's views at 24 h over our last three episodes?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 1.4,
+     "z": -3,
+     "face": "world",
+     "yaw": -90,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      -0.15,
+      0.35,
+      0.6
+     ],
+     "upAt": -1,
+     "hold": "bloom",
+     "holdScale": 1.4
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "charleston",
+     "x": 3.15,
+     "z": -3,
+     "face": "world",
+     "yaw": -80.4,
+     "at": 0.535,
+     "speed": 1,
+     "arm": "R",
+     "aim": [
+      0.8,
+      0.4,
+      0.35
+     ],
+     "hold": "lifebuoy",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -79.15,
+     -80.1
+    ],
+    "r": [
+     3.187,
+     3.025
+    ],
+    "h": [
+     2.2,
+     2.12
+    ],
+    "look": [
+     0.59,
+     0.59
+    ],
+    "fov": 68,
+    "ease": "lin"
+   },
+   "focus": [
+    2.73,
+    -3
+   ]
+  },
+  {
+   "beat": 4,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "director",
+     "clip": "sitting_talking",
+     "x": -3.45,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.5,
+     "megaphone": {
+      "yaw": 26,
+      "pitch": -35,
+      "calls": [
+       0.194,
+       0.677
+      ]
+     },
+     "arm": "R",
+     "aim": [
+      0.35,
+      0.3,
+      0.75
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     58.3,
+     58.51
+    ],
+    "r": [
+     1.998,
+     1.876
+    ],
+    "h": [
+     1.62,
+     1.61
+    ],
+    "look": [
+     1.52,
+     1.52
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    -3.45,
+    -1.1
+   ]
+  },
+  {
+   "beat": 8,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_idle",
+     "x": -2.7,
+     "z": 1.55,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ],
+     "holdL": "clap1",
+     "clapAt": 0.29,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     12.09,
+     12.09
+    ],
+    "r": [
+     2.864,
+     2.864
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -2.55,
+    1.55
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.4,
+     1.3
+    ],
+    "h": [
+     3,
+     2.85
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -2.95
+   ]
+  },
+  {
+   "beat": 18,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1,
+     "fg": true
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 1.12,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "lifebuoy",
+     "arm": "R",
+     "aim": [
+      0.35,
+      -0.35,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     175.53,
+     175.53
+    ],
+    "r": [
+     5.386,
+     5.136
+    ],
+    "h": [
+     0.72,
+     0.71
+    ],
+    "look": [
+     0.88,
+     0.88
+    ],
+    "fov": 40,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    1.12
+   ]
+  },
+  {
+   "beat": 22,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1,
+     "fg": true
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "goalie_overhand_throw",
+     "x": 0,
+     "z": 1.12,
+     "face": "world",
+     "yaw": 180,
+     "at": 0.9,
+     "speed": 1,
+     "hold": "lifebuoy",
+     "toss": {
+      "at": 0.774,
+      "to": [
+       0,
+       -0.05,
+       -2.85
+      ],
+      "dur": 0.7,
+      "arc": 1.1,
+      "scale": 1.25
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     176.16,
+     176.24
+    ],
+    "r": [
+     5.232,
+     5.031
+    ],
+    "h": [
+     0.62,
+     0.6
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    1.12
+   ],
+   "buoys": [
+    [
+     0,
+     -2.85,
+     1.474
+    ]
+   ]
+  },
+  {
+   "beat": 26,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.3
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.4,
+     1.3
+    ],
+    "h": [
+     3,
+     2.85
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -2.95
+   ],
+   "buoys": [
+    [
+     0,
+     -2.85
+    ]
+   ],
+   "splash": [
+    [
+     0,
+     -2.85,
+     0,
+     0.8
+    ]
+   ]
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     26.21,
+     26.19
+    ],
+    "r": [
+     3.622,
+     3.399
+    ],
+    "h": [
+     2.6,
+     2.45
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -2.65
+   ],
+   "spot": [
+    0,
+    -2.75,
+    0.532
+   ]
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 1.12,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.12,
+     1.92
+    ],
+    "h": [
+     1.25,
+     1.24
+    ],
+    "look": [
+     1.18,
+     1.18
+    ],
+    "fov": 44,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    1.12
+   ]
+  },
+  {
+   "beat": 37,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0.55,
+     "z": 1.1,
+     "face": "world",
+     "yaw": 30,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5,
+     "upAt": -1,
+     "hop": [
+      0.1,
+      0.5
+     ],
+     "sway": 7,
+     "swayEvery": 0.5,
+     "air": true,
+     "flap": 0.55
+    },
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.36,
+     24.36
+    ],
+    "r": [
+     5.818,
+     5.818
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.55,
+     0.55
+    ],
+    "fov": 56,
+    "roll": [
+     -6,
+     -3
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0,
+    -1
+   ]
+  },
+  {
+   "beat": 46,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 0.95,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.95,
+     "lean": 95,
+     "arm": "both",
+     "aim": [
+      0.05,
+      0.1,
+      1
+     ],
+     "upAt": -1,
+     "mz": -1.2,
+     "my": -1.45,
+     "myAt": 0.4,
+     "myDur": 0.95,
+     "air": true,
+     "noLie": true,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -88.57,
+     -90.73
+    ],
+    "r": [
+     4.001,
+     3.9
+    ],
+    "h": [
+     0.65,
+     0.5
+    ],
+    "look": [
+     1.05,
+     0.7
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.65
+   ],
+   "hide": [
+    "crew",
+    "chair",
+    "camera"
+   ]
+  },
+  {
+   "beat": 49,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.3
+     ],
+     "upAt": -1,
+     "buoy": {
+      "at": 0.15,
+      "dy": 0,
+      "r": 0.46
+     }
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "running_man",
+     "x": 1.15,
+     "z": -2.45,
+     "face": "world",
+     "yaw": -38.5,
+     "at": 0.4,
+     "speed": 0.55,
+     "lift": -0.8,
+     "arm": "both",
+     "aim": "paddle",
+     "upAt": -1,
+     "dip": [
+      0.04,
+      3
+     ],
+     "noShadow": true,
+     "noLie": true,
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -34.04,
+     -34.04
+    ],
+    "r": [
+     3.165,
+     3.165
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     0.15,
+     0.15
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.3,
+    -2.65
+   ],
+   "splash": [
+    [
+     1.15,
+     -2.45,
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.45,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1,
+     "mz": 1.15,
+     "buoy": {
+      "dy": 0,
+      "r": 0.46
+     }
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "swimming_breastroke_to_edge_of_pool",
+     "x": 0,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.4,
+     "speed": 1,
+     "lift": -0.38,
+     "noShadow": true,
+     "noLie": true,
+     "mz": 1.15,
+     "hold": "rope",
+     "ropeMouth": true,
+     "hookTo": "sadi:hips"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     65.33,
+     65.33
+    ],
+    "r": [
+     6.021,
+     6.021
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     0.25,
+     0.25
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    -1.3
+   ],
+   "hide": [
+    "crew"
+   ]
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "situps",
+     "x": -0.45,
+     "z": 1.05,
+     "face": "world",
+     "yaw": 10,
+     "at": 1,
+     "speed": 0,
+     "noLie": true
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "high_enthusiasm_fist_pump",
+     "x": 0.55,
+     "z": 1.15,
+     "face": "world",
+     "yaw": -20,
+     "at": 0.763,
+     "speed": 1,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.64,
+     1.64
+    ],
+    "r": [
+     3.501,
+     3.501
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.05,
+    1.1
+   ],
+   "drips": [
+    [
+     -0.67,
+     1.05,
+     1.15,
+     true
+    ],
+    [
+     -0.25,
+     1.1500000000000001,
+     1.05,
+     true
+    ]
+   ]
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "director",
+     "clip": "sitting_talking",
+     "x": -3.45,
+     "z": -1.1,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.5,
+     "megaphone": {
+      "yaw": 0,
+      "pitch": 8,
+      "calls": [
+       0.145,
+       0.629,
+       1.113
+      ]
+     },
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.1,
+      0.8
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     2.4,
+     2.4
+    ],
+    "h": [
+     1.74,
+     1.74
+    ],
+    "look": [
+     1.5,
+     1.5
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -3.45,
+    -1.1
+   ],
+   "hide": [
+    "crew"
+   ]
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_idle",
+     "x": -2.7,
+     "z": 1.55,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ],
+     "holdL": "clap3",
+     "clapAt": 0.242,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     32.12,
+     32.12
+    ],
+    "r": [
+     2.539,
+     2.539
+    ],
+    "h": [
+     0.8,
+     0.8
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -2.55,
+    1.55
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_walk",
+     "x": 1.35,
+     "z": 1.45,
+     "face": "world",
+     "yaw": 103.1,
+     "at": 0.3,
+     "speed": 0.9,
+     "mx": 1.5,
+     "mz": -0.35
+    },
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_walk",
+     "x": 2.15,
+     "z": 1.4,
+     "face": "world",
+     "yaw": 103.1,
+     "at": 0.8,
+     "speed": 0.9,
+     "mx": 1.5,
+     "mz": -0.35,
+     "hold": "leash",
+     "hookTo": "saxo"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.55,
+     4.55
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 60
+   },
+   "focus": [
+    2.3,
+    1
+   ],
+   "hide": [
+    "crew"
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "sitting_talking",
+     "x": 3.9,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 2.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -26.98,
+     -26.98
+    ],
+    "r": [
+     6.172,
+     6.172
+    ],
+    "h": [
+     2.35,
+     2.35
+    ],
+    "look": [
+     2.75,
+     2.75
+    ],
+    "fov": 50
+   },
+   "focus": [
+    3.7,
+    -2.3
+   ]
+  },
+  {
+   "beat": 82,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "sitting_talking",
+     "x": 3.9,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 2.4,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     63.91,
+     63.91
+    ],
+    "r": [
+     5.344,
+     5.344
+    ],
+    "h": [
+     4.2,
+     4.2
+    ],
+    "look": [
+     -0.15,
+     -0.15
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.2,
+    -2.95
+   ],
+   "spot": [
+    0,
+    -2.75
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 3.9,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -33.3,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5,
+     "upAt": -1,
+     "hop": [
+      0.06,
+      0.5
+     ],
+     "sway": 7,
+     "swayEvery": 0.5,
+     "air": true,
+     "lift": 2.4,
+     "flap": 0.55
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -33.29,
+     -33.29
+    ],
+    "r": [
+     4.008,
+     4.008
+    ],
+    "h": [
+     2.9,
+     2.9
+    ],
+    "look": [
+     3.05,
+     3.05
+    ],
+    "fov": 50
+   },
+   "focus": [
+    3.9,
+    -2.3
+   ]
+  },
+  {
+   "beat": 96,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      -0.1,
+      0.8,
+      0.15
+     ],
+     "upAt": -1,
+     "hold": "daisy",
+     "holdScale": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.55,
+     1.45
+    ],
+    "h": [
+     2.3,
+     2.2
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 46,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -3.4
+   ],
+   "spot": [
+    0,
+    -2.75
+   ]
+  },
+  {
+   "beat": 100,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 3.8,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 2.4,
+     "lean": 30,
+     "arm": "both",
+     "aim": [
+      0.25,
+      -0.1,
+      0.9
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -30.19,
+     -30.19
+    ],
+    "r": [
+     3.182,
+     3.182
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     3.45,
+     3.45
+    ],
+    "fov": 58,
+    "roll": [
+     8,
+     10
+    ]
+   },
+   "focus": [
+    3.75,
+    -2.3
+   ]
+  },
+  {
+   "beat": 103,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 3.7,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 2.4,
+     "lean": 100,
+     "arm": "both",
+     "aim": [
+      0.05,
+      0.12,
+      1
+     ],
+     "upAt": -1,
+     "mx": -2.45,
+     "moveAt": 0.08,
+     "my": -2.65,
+     "myAt": 0.25,
+     "myDur": 0.95,
+     "air": true,
+     "noLie": true,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.49,
+     -3.58
+    ],
+    "r": [
+     5.9,
+     5.611
+    ],
+    "h": [
+     2,
+     0.95
+    ],
+    "look": [
+     2.6,
+     0.45
+    ],
+    "fov": 60,
+    "ease": "lin"
+   },
+   "focus": [
+    2.1,
+    -2.3
+   ]
+  },
+  {
+   "beat": 105.5,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_idle",
+     "x": -2.35,
+     "z": 2,
+     "face": "world",
+     "yaw": 143.2,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ],
+     "holdL": "clap3",
+     "clapAt": -1,
+     "upAt": -1,
+     "fg": true
+    },
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.3
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "running_man",
+     "x": 1,
+     "z": -2.25,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.4,
+     "speed": 1.3,
+     "lift": -0.9299999999999999,
+     "lean": 178,
+     "air": true,
+     "noLie": true,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -26.74,
+     -26.74
+    ],
+    "r": [
+     7.334,
+     7.334
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     0.35,
+     0.35
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.55,
+    -2.1
+   ],
+   "bigSplash": [
+    1,
+    -2.25,
+    0
+   ],
+   "rainAt": [
+    -2.35,
+    2,
+    0.55,
+    0.75
+   ]
+  },
+  {
+   "beat": 109,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_idle",
+     "x": -2.7,
+     "z": 1.55,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ],
+     "holdL": "clap4",
+     "clapAt": 0.484,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11.31,
+     11.31
+    ],
+    "r": [
+     2.04,
+     2.04
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -2.55,
+    1.55
+   ],
+   "drips": [
+    [
+     -2.7,
+     1.55,
+     1.35
+    ]
+   ],
+   "wet": true
+  },
+  {
+   "beat": 112,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "charleston",
+     "x": 0,
+     "z": 1.85,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.1,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "charleston",
+     "x": -1.15,
+     "z": 1.95,
+     "face": "world",
+     "yaw": 12,
+     "at": 2.167,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     7.616,
+     6.944
+    ],
+    "h": [
+     1.55,
+     1.45
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    0.2
+   ],
+   "zone": "number",
+   "chorus": "line",
+   "crew": "cheer"
+  },
+  {
+   "beat": 116,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 1.85,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "buoyFace": true,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.45,
+      0.55
+     ],
+     "upAt": -1,
+     "hop": [
+      0.03,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.4,
+     3.4
+    ],
+    "h": [
+     1.02,
+     1.02
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    1.85
+   ],
+   "zone": "number",
+   "chorus": "frame"
+  },
+  {
+   "beat": 120,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "charleston",
+     "x": 0.45,
+     "z": 1.75,
+     "face": "world",
+     "yaw": -8,
+     "at": 1.116,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "charleston",
+     "x": -0.55,
+     "z": 1.85,
+     "face": "world",
+     "yaw": 8,
+     "at": 0.816,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.3,
+     3.3
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 54,
+    "roll": [
+     -5,
+     -3
+    ],
+    "hand": 0.25
+   },
+   "focus": [
+    0,
+    1.6
+   ],
+   "zone": "number",
+   "chorus": "line",
+   "waves": [
+    0,
+    0.9,
+    0,
+    1
+   ],
+   "wavesZ": 2.35
+  },
+  {
+   "beat": 124,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 1.15,
+     "z": 1.85,
+     "face": "world",
+     "yaw": -8,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": -1,
+     "hop": [
+      0.05,
+      1
+     ]
+    },
+    {
+     "who": "sadi",
+     "look": "ophelia",
+     "clip": "happy_idle",
+     "x": -1.15,
+     "z": 1.95,
+     "face": "world",
+     "yaw": 8,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": -1,
+     "hop": [
+      0.05,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5.875,
+     5.875
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    1.2
+   ],
+   "zone": "number",
+   "chorus": "up",
+   "waves": 1,
+   "clear": [
+    [
+     1.4,
+     1.2,
+     0.3
+    ],
+    [
+     -1.4,
+     1.2,
+     0.3
+    ]
+   ]
+  },
+  {
+   "beat": 128,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 1.12,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     6.07
+    ],
+    "r": [
+     2.45,
+     2.363
+    ],
+    "h": [
+     4.3,
+     4.1
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 54,
+    "roll": [
+     0,
+     8
+    ],
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -2.3
+   ],
+   "zone": "number",
+   "chorus": "float",
+   "hide": [
+    "crew"
+   ]
+  },
+  {
+   "beat": 132,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 1.12,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "caramell",
+     "flapEvery": 0.5,
+     "upAt": -1,
+     "hop": [
+      0.1,
+      0.5
+     ],
+     "sway": 7,
+     "swayEvery": 0.5,
+     "air": true,
+     "flap": 0.55
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.42,
+     2.42
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 48
+   },
+   "focus": [
+    0,
+    1.12
+   ],
+   "zone": "number"
+  },
+  {
+   "beat": 136,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": 1.95,
+     "face": "world",
+     "yaw": 10,
+     "at": 2.125,
+     "speed": 0,
+     "tongue": true,
+     "hop": [
+      0.03,
+      1
+     ]
+    },
+    {
+     "who": "kob",
+     "look": "director",
+     "clip": "happy_idle",
+     "x": -2.7,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 55,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6.8,
+     6.8
+    ],
+    "r": [
+     5.377,
+     5.377
+    ],
+    "h": [
+     3,
+     3
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.2,
+    1.4
+   ],
+   "zone": "number",
+   "chorus": "pile",
+   "drips": [
+    [
+     -1.7,
+     1.2,
+     1.2
+    ],
+    [
+     -1.2,
+     1.3,
+     0.9
+    ]
+   ],
+   "hide": [
+    "crew"
+   ]
+  },
+  {
+   "beat": 142,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "director",
+     "clip": "happy_idle",
+     "x": -3.05,
+     "z": -1.75,
+     "face": "world",
+     "yaw": -90,
+     "at": 2.125,
+     "speed": 0,
+     "megaphone": {
+      "yaw": -45,
+      "pitch": -15,
+      "calls": [
+       0.194,
+       1.161
+      ]
+     },
+     "arm": "L",
+     "aim": [
+      0.35,
+      0.3,
+      0.75
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -77.74,
+     -77.74
+    ],
+    "r": [
+     2.354,
+     2.354
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -3.05,
+    -1.75
+   ],
+   "zone": "number",
+   "wet": true
+  },
+  {
+   "beat": 146,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "happy_idle",
+     "x": -2.7,
+     "z": 1.55,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ],
+     "holdL": "clap47",
+     "clapAt": 0.194,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.3,
+     24.3
+    ],
+    "r": [
+     1.701,
+     1.701
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 46,
+    "roll": [
+     12,
+     10
+    ]
+   },
+   "focus": [
+    -2.6,
+    1.55
+   ],
+   "zone": "number",
+   "drips": [
+    [
+     -2.7,
+     1.55,
+     1.35
+    ]
+   ]
+  },
+  {
+   "beat": 149,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "director",
+     "clip": "knocked_out_falling_to_back",
+     "x": -3.05,
+     "z": -1.75,
+     "face": "world",
+     "yaw": -90,
+     "at": 1,
+     "speed": 1,
+     "mx": 0.95,
+     "moveAt": 0.25,
+     "my": -0.3,
+     "myAt": 0.45,
+     "myDur": 0.5,
+     "air": true,
+     "ground": "mesh",
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.35,
+     3.35
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -2.6,
+    -1.75
+   ],
+   "wet": true,
+   "bigSplash": [
+    -2.2,
+    -1.75,
+    0.92
+   ]
+  },
+  {
+   "beat": 152,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "director",
+     "clip": "laying_idle",
+     "x": 0,
+     "z": -2.7,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": -0.26,
+     "noShadow": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.6,
+      0.6
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.4,
+     1.3
+    ],
+    "h": [
+     3,
+     2.85
+    ],
+    "look": [
+     -0.2,
+     -0.2
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -2.95
+   ],
+   "buoyToss": [
+    0,
+    1.5,
+    1.2,
+    0,
+    -2.8200000000000003,
+    0.12,
+    0.62
+   ]
+  },
+  {
+   "beat": 154.6,
+   "kind": "dance",
+   "map": "ophelia",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "swimcap",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": 1.12,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "tongue": true,
+     "hop": [
+      0.04,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.32,
+     2.32
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0,
+    1.12
+   ]
+  }
+ ]
+}

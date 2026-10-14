@@ -52,6 +52,7 @@ import { buildBoardroomMaps } from './maps45.js';
 import { buildRingMaps } from './maps46.js';
 import { buildFloorClubMaps } from './maps47.js';
 import { buildSoundstageMaps } from './maps48.js';
+import { buildOpheliaMaps } from './maps49.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -817,6 +818,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   worldwide: 'assets/models/saxo_worldwide.glb',
   // the "Every Breath You Take" clip's look (The Police, 1983): a short spiky bleached-blond haircut, his ears out on top, a loose black shirt open at the collar with its sleeves pushed up, slim black trousers, black ankle boots (2026-10-14 2nd)
   shag: 'assets/models/saxo_shag.glb',
+  // the "The Fate of Ophelia" clip's swimming number (2025): a sparkly teal sequined vintage swim cap snug on his head, his ears out of it, a teal 1930s tank-style one-piece swimsuit with white trim and a thin white belt, a red whistle on a white cord, bare paws (2026-10-15)
+  swimcap: 'assets/models/saxo_swimcap.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -853,6 +856,8 @@ const PARTNERS = {
     redsuit: 'assets/models/sadi_redsuit.glb',
     // the "On The Floor" clip's singer (2011): a silver sequined long-sleeved catsuit, a long wavy caramel-blonde wig past her shoulders, her pink bow, small silver hoops, silver strappy heels (2026-10-14)
     sequins: 'assets/models/sadi_sequins.glb',
+    // Ophelia from the famous painting: a long flowing white gown to the ankles with long fitted sleeves and a lace collar, a crown of wildflowers (red poppies, white daisies, little blue flowers) beside her pink bow ("The Fate of Ophelia", 2026-10-15)
+    ophelia: 'assets/models/sadi_ophelia.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -916,6 +921,8 @@ const PARTNERS = {
     zigzag: 'assets/models/kob_zigzag.glb',
     // the boss's white Persian kitten: a fluffy white long-haired fur suit over her body, arms and legs, a fluffy white ruff, a gold collar with a heart-shaped gold tag and a small red rose in place of her bell; her own face ("Gabriela", 2026-10-13: worn at scale 0.5, the kitten)
     persian: 'assets/models/kob_persian.glb',
+    // the 1920s film director: a small red beret tilted between her ears, a white silk scarf knotted over her bell collar, a navy double-breasted blazer with gold buttons, cream jodhpur breeches, tall brown riding boots ("The Fate of Ophelia", 2026-10-15)
+    director: 'assets/models/kob_director.glb',
     // the boxing referee: a light blue short-sleeved shirt buttoned to the collar with two chest pockets, a black bow tie over her bell collar, black trousers and belt, black shoes ("SaWaDiKa", 2026-10-13 2nd)
     referee: 'assets/models/kob_referee.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
@@ -1061,7 +1068,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1179,6 +1186,8 @@ function actorSpec(a, e, map) {
     // "Espresso" (2026-10-09 2nd): cartoon wide eyes, jittering, when the espresso hits (true, s into the shot, or { at, off, r });
     // aimSeq [[s, aim], [s, aimL, aimR], ...]: the arms snap to each aim from its second (the song's up, down, left, right)
     googly: a.googly ?? null, aimSeq: a.aimSeq || null,
+    // "The Fate of Ophelia" (2026-10-15): a life ring round the waist, one framing the face, the director's megaphone, the clapperboard's snap
+    buoy: a.buoy ?? null, buoyFace: a.buoyFace ?? null, megaphone: a.megaphone ?? null, clapAt: a.clapAt ?? null, ropeMouth: !!a.ropeMouth,
     // "Beauty And A Beat" (2026-09-27): what a held rescue hook reaches, [x, y, z] or a character's name (its collar, at the head bone)
     hookTo: a.hookTo ?? null, waveRate: a.waveRate || 0, dip: a.dip || null,
     // "Love Me Not" (2026-09-28): studio headphones on the head, and how many of a held daisy's 12 petals are left
@@ -1256,6 +1265,13 @@ function mapTex() {   // the road map's face: the desert's roads in red, a blue 
   x.strokeStyle = '#e01818'; x.lineWidth = 3; x.beginPath(); x.moveTo(0, 10); x.lineTo(14, 9); x.lineTo(20, 4); x.lineTo(32, 6); x.stroke(); x.beginPath(); x.moveTo(14, 9); x.lineTo(16, 24); x.stroke();   // bold red roads
   x.fillStyle = '#c8bea0'; x.fillRect(10, 0, 1, 24); x.fillRect(21, 0, 1, 24); x.fillRect(0, 12, 32, 1);
   _mapTex = new THREE.CanvasTexture(c); _mapTex.magFilter = THREE.NearestFilter; _mapTex.minFilter = THREE.NearestFilter; return _mapTex;
+}
+// "The Fate of Ophelia" (2026-10-15): a life ring in eight bands, white and red, in the XY plane (its axis along z):
+// the held `lifebuoy`, the worn `buoy` and the face-framing `buoyFace` (the clip's swimming number)
+function buoyMesh(R, tube, cols = [0xf6f6f2, 0xe0283a]) {
+  const g = new THREE.Group(), ms = cols.map(c => mat({ color: c, unlit: 0.4 }));
+  for (let i = 0; i < 8; i++) { const a = new THREE.Mesh(new THREE.TorusGeometry(R, tube, 5, 3, Math.PI / 4), ms[i % 2]); a.rotation.z = i * Math.PI / 4; g.add(a); }
+  return g;
 }
 function propMesh(kind) {
   if (FRUITS.includes(kind) || kind === 'strawberry' || kind === 'fruitsign') return fruitMesh(MAP_KIT, kind);
@@ -1506,6 +1522,28 @@ function propMesh(kind) {
     for (const sd of [-1, 1]) {
       const bl = new THREE.Group(); bl.add(at3(box(0.035, 0.26, 0.012, steelM), 0, 0.13, 0)); bl.add(at3(new THREE.Mesh(new THREE.TorusGeometry(0.04, 0.012, 4, 8), ringM), 0, -0.05, 0)); G.add(bl); (G.userData.blades ||= []).push(bl);
     }
+  } else if (kind === 'rope') {       // "The Fate of Ophelia": the life ring's line, a thick cream rope from the paw to a collar (holdProp stretches it like the leash)
+    const ropeM = mat({ color: 0xf2e6c6, unlit: 0.35 });
+    G.userData.pole = add(box(0.042, 1, 0.042, ropeM), 0, 0.5);
+    const loop = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.02, 4, 8), ropeM); loop.position.y = -0.04; G.add(loop);
+    const knot = new THREE.Group(); knot.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.055, 0), ropeM)); G.userData.crook = knot; G.add(knot);
+  } else if (kind === 'lifebuoy') {   // "The Fate of Ophelia": a red-and-white life ring held by its rim, the paw at its bottom, its face to the body's front
+    const b = buoyMesh(0.27, 0.075); b.position.y = 0.3; G.add(b);
+  } else if (kind.startsWith('clap')) {   // "The Fate of Ophelia": the clapperboard, 'clap<take>': a black slate in chalk (OPHELIA, TAKE n) under a striped clapstick hinged at its left end (holdProp opens it and snaps it shut at the actor's clapAt)
+    const take = kind.slice(4) || '1';
+    const slate = tex(64, 48, x => {
+      px(x, '#141418', 0, 0, 64, 48); px(x, '#e8e8e2', 2, 15, 60, 1); px(x, '#e8e8e2', 2, 30, 60, 1); px(x, '#e8e8e2', 31, 30, 1, 16);
+      x.fillStyle = '#f4f4ee'; x.textAlign = 'center'; x.textBaseline = 'middle';
+      x.font = 'bold 11px monospace'; x.fillText('OPHELIA', 32, 8.5);
+      x.font = 'bold 12px monospace'; x.fillText('TAKE ' + take, 32, 23);
+      x.font = 'bold 8px monospace'; x.fillText('SCENE', 16, 35); x.fillText('7', 16, 43); x.fillText('ROLL', 48, 35); x.fillText('1', 48, 43);
+    }, 2400 + take.length * 13 + take.charCodeAt(0));
+    add(box(0.42, 0.32, 0.02, mat({ map: slate, unlit: 0.55 })), 0, 0.24);
+    const stickT = tex(32, 4, x => { for (let i = 0; i < 32; i += 8) { px(x, '#f4f4ee', i, 0, 4, 4); px(x, '#141418', i + 4, 0, 4, 4); } });
+    const hinge = new THREE.Group(); hinge.position.set(-0.21, 0.42, 0); G.add(hinge);
+    const stick = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.06, 0.022), mat({ map: stickT, unlit: 0.55 })); stick.position.x = 0.21; hinge.add(stick);
+    add(box(0.42, 0.04, 0.022, mat({ map: stickT, unlit: 0.55 })), 0, 0.42);
+    G.userData.stick = hinge;
   } else if (kind === 'leash') {      // "BIRDS OF A FEATHER": a pink lead from the paw to a collar, taut (holdProp stretches it like the hook), a loop in the paw and a chrome clip at the collar
     G.userData.pole = add(box(0.032, 1, 0.032, mat({ color: 0xff4f9a, unlit: 0.45 })), 0, 0.5);
     const loop = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.016, 4, 8), mat({ color: 0xff4f9a, unlit: 0.45 })); loop.position.y = -0.04; G.add(loop);
@@ -1584,9 +1622,15 @@ function holdProp(D, kind, side, bodyYaw, t) {
     return;
   }
   const p = palm(D, side); if (!p) return;
-  if (kind === 'hook' || kind === 'leash') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
-    const H = D.hookTo, C = typeof H === 'string' ? CREW[H] : null, from = p.clone();
-    let to = Array.isArray(H) ? new THREE.Vector3(...H) : C?.head ? C.head.getWorldPosition(new THREE.Vector3()).addScaledVector(_up, 0.02 * (C.curScale || 1)) : null;   // the head bone sits at the neck: the collar (0.3 m under it was his waist)
+  if (kind.startsWith('clap')) {   // "The Fate of Ophelia": the clapperboard held up beside the face, its face to the body's front; the stick open until clapAt s into the shot, then shut
+    g.position.copy(p).addScaledVector(_up, 0.02 * s); g.rotation.set(0, bodyYaw, 0);
+    if (g.userData.stick) g.userData.stick.rotation.z = D.clapAt != null && D.since >= D.clapAt ? 0 : 0.55 * (1 - cl((D.since - (D.clapAt ?? 99) + 0.06) / 0.06));
+    return;
+  }
+  if (kind === 'hook' || kind === 'leash' || kind === 'rope') {   // from the paw to D.hookTo: [x, y, z], or a character's name (its collar, under the head bone); else 2.2 m along the forearm
+    const H = D.hookTo, [hw, hpart] = typeof H === 'string' ? H.split(':') : [], C = hw ? CREW[hw] : null;
+    const from = kind === 'rope' && D.ropeMouth && D.head ? faceAt(D, FACE.mouth, new THREE.Vector3()) : p.clone();   // "The Fate of Ophelia": the rescue dog tows by the rope in his jaws
+    let to = Array.isArray(H) ? new THREE.Vector3(...H) : hpart === 'hips' && C?.hips ? C.hips.getWorldPosition(new THREE.Vector3()) : C?.head ? C.head.getWorldPosition(new THREE.Vector3()).addScaledVector(_up, 0.02 * (C.curScale || 1)) : null;   // 'who:hips': the life ring round her waist   // the head bone sits at the neck: the collar (0.3 m under it was his waist)
     if (!to) { D['fore' + side].getWorldPosition(_pd); to = from.clone().addScaledVector(_pa.clone().sub(_pd).normalize(), 2.2); }
     const d = to.clone().sub(from), len = Math.max(0.2, d.length());
     g.scale.setScalar(1); g.position.copy(from); g.quaternion.setFromUnitVectors(_up, d.normalize());
@@ -2003,6 +2047,40 @@ function cucumberSlices(D, C = {}) {
   // face at a grazing angle put them up on her turban, her eyes open below them (the critic: "wide awake"); probed on four lenses
   faceAt(D, C.off || (D === CREW.compote ? [0, 0.12, 0.38] : [0, 0.19, 0.36]), g.position); g.quaternion.copy(_fq); g.scale.setScalar((D.curScale || D.scale || 1) * (C.r || 1.2));
 }
+// "The Fate of Ophelia" (2026-10-15): `buoy`, a life ring round the waist (true, s into the shot, or { at, dy, r, lying }):
+// level round a standing or swimming body; with `lying` its axis runs along the body (a floating body threaded through it)
+function wornBuoy(D, B, bodyYaw) {
+  const g = faceProp(D, 'buoy', () => buoyMesh(1, 0.24)), s = D.curScale || D.scale || 1;
+  D.hips.getWorldPosition(g.position); g.position.y += (B.dy ?? 0.1) * s;
+  if (B.lying) g.rotation.set(0, bodyYaw, 0); else g.rotation.set(Math.PI / 2, bodyYaw, 0, 'YXZ');
+  g.scale.setScalar((B.r || 0.44) * s);
+}
+// `buoyFace`: the clip's shot of the singer framed by a life ring, held up round the face (true or from s), in the head bone's frame
+function faceBuoy(D) {
+  const g = faceProp(D, 'buoyface', () => buoyMesh(1, 0.2)), s = D.curScale || D.scale || 1;
+  faceAt(D, [0, 0.2, 0.5], g.position); g.quaternion.copy(_fq); g.scale.setScalar(0.58 * s);
+}
+// `megaphone`: the director's megaphone at the muzzle (true, s into the shot, or { at, yaw, pitch, off, calls: [s, ...] }): a
+// cream cone with a red band, its narrow end at the mouth, turned `yaw` deg off the head's front (straight at a frontal lens
+// the bell hides the face); on each call three rings of sound come out of the bell, 0.12 s apart
+function megaphoneProp(D, Mg, c) {
+  const g = faceProp(D, 'megaphone', () => {
+    const q = new THREE.Group(), cone = new THREE.Group(); q.add(cone);
+    const two = c0 => mat({ color: c0, unlit: 0.4, side: THREE.DoubleSide });
+    const bell = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.25, 0.6, 10, 1, true), two(0xf0e6c8)); bell.rotation.x = -Math.PI / 2; bell.position.z = 0.3; cone.add(bell);
+    const band = new THREE.Mesh(new THREE.CylinderGeometry(0.236, 0.256, 0.07, 10, 1, true), two(0xd8283a)); band.rotation.x = -Math.PI / 2; band.position.z = 0.56; cone.add(band);
+    const piece = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.06, 8), mat({ color: 0x2a2a30 })); piece.rotation.x = Math.PI / 2; cone.add(piece);
+    const handle = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.14, 0.04), mat({ color: 0x2a2a30 })); handle.position.set(0, -0.1, 0.18); cone.add(handle);
+    const rings = [0, 1, 2].map(() => { const r = new THREE.Mesh(new THREE.TorusGeometry(1, 0.06, 4, 16), mat({ color: 0xfff4c8, unlit: 1 })); r.visible = false; cone.add(r); return r; });
+    q.userData.cone = cone; q.userData.rings = rings; return q;
+  });
+  faceAt(D, Mg.off || FACE.mouth, g.position); g.quaternion.copy(_fq); g.scale.setScalar(D.curScale || D.scale || 1);
+  g.userData.cone.rotation.set((Mg.pitch || 0) * Math.PI / 180, (Mg.yaw || 0) * Math.PI / 180, 0);
+  g.userData.rings.forEach((r, i) => {
+    r.visible = false;
+    for (const c0 of Mg.calls || []) { const age = c - c0 - i * 0.12; if (age < 0 || age > 0.45) continue; r.visible = true; r.position.z = 0.66 + age * 1.4; r.scale.setScalar(0.24 + age * 0.9); }
+  });
+}
 // "Espresso" (2026-10-09 2nd): `googly`, cartoon wide eyes over the eyes, the moment the espresso hits: two white discs
 // ringed in black with black pupils that jitter (pure in t), popping in over 0.12 s; in the head bone's frame like the
 // shades. true, s into the shot, or { at, off, r } (a head-frame offset and a size, per look).
@@ -2353,7 +2431,7 @@ function placeActors(P, t, t0, t1, camAng, map) {
     D.shadow.material.uniforms.uShadowCol.value.set(map.shadowCol || 0x333333);
     const bodyYaw = yaw + fyaw;
     const tossed = A.toss && t - t0 >= A.toss.at, holding = (A.holdFrom == null || t - t0 >= A.holdFrom) && (A.holdTo == null || t - t0 < A.holdTo);
-    D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0; D.twoPaw = A.arm === 'both';
+    D.hookTo = A.hookTo; D.petalsLeft = A.petalsLeft; D.petalFall = A.petalFall; D.pluckEvery = A.pluckEvery; D.since = t - t0; D.twoPaw = A.arm === 'both'; D.clapAt = A.clapAt; D.ropeMouth = A.ropeMouth;
     if (A.hold && !tossed && holding) holdProp(D, A.hold, 'R', bodyYaw, t);
     if (A.holdL && (A.hold || holding)) holdProp(D, A.holdL, 'L', bodyYaw, t);   // with no right-paw prop, holdFrom/holdTo time the left one
     if (tossed) tossProp(D, A, bodyYaw, A.holdAt != null ? Math.min(t - t0, A.holdAt) : t - t0);   // a frozen photo freezes it mid-air ("DtMF")
@@ -2377,6 +2455,9 @@ function placeActors(P, t, t0, t1, camAng, map) {
     if (A.cucumbers != null && A.cucumbers !== false && D.head) { const C = typeof A.cucumbers === "object" ? A.cucumbers : { at: A.cucumbers === true ? -9 : A.cucumbers }; if (t - t0 >= (C.at ?? -9)) cucumberSlices(D, C); }   // true, s into the shot, or { at, off, r } (a head-frame offset and a size, per look)
     if (A.sneeze != null && D.head) sneezeSpray(D, t - t0 - A.sneeze);
     if (A.googly != null && A.googly !== false && D.head) { const Gy = typeof A.googly === 'object' ? A.googly : { at: A.googly === true ? -9 : A.googly }; if (t - t0 >= (Gy.at ?? -9)) googlyEyes(D, Gy, t - t0 - (Gy.at ?? -9), t); }   // the espresso hits
+    if (A.buoy != null && A.buoy !== false && D.hips) { const B = typeof A.buoy === 'object' ? A.buoy : { at: A.buoy === true ? -9 : A.buoy }; if (t - t0 >= (B.at ?? -9)) wornBuoy(D, B, bodyYaw); }   // "The Fate of Ophelia": a life ring round the waist
+    if (A.buoyFace != null && A.buoyFace !== false && (A.buoyFace === true || t - t0 >= A.buoyFace) && D.head) faceBuoy(D);
+    if (A.megaphone != null && A.megaphone !== false && D.head) { const Mg = typeof A.megaphone === 'object' ? A.megaphone : { at: A.megaphone === true ? -9 : A.megaphone }; if (t - t0 >= (Mg.at ?? -9)) megaphoneProp(D, Mg, t - t0); }
     if (A.shades != null && A.shades !== false && D.head) sunglasses(D, A.shades, t - t0);
     if (A.visor && D.head) dealerVisor(D);
     if (A.napkin && D.head) napkinBib(D);
