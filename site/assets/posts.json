@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-13T20:18:20.220Z",
+ "updated": "2026-10-14T14:17:55.396Z",
  "posts": [
+  {
+   "id": "2026-10-14",
+   "title": "On The Floor",
+   "artist": "Jennifer Lopez",
+   "date": "2026-10-14T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-14.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DeejbR0Drr3/",
+     "id": "DeejbR0Drr3"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/14IOMH9x1ZM",
+     "id": "14IOMH9x1ZM"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1676368850720970",
+     "id": "1676368850720970"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2110370449829814750",
+     "id": "2110370449829814750"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7696302516195069206",
+     "id": "7696302516195069206"
+    }
+   }
+  },
   {
    "id": "2026-10-13-2",
    "title": "SaWaDiKa",
