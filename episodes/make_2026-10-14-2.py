@@ -182,6 +182,11 @@ def swing_seq(b0, b1, first=FISH_UP, second=FISH_ACROSS):   # the fish swung fro
     while b < b1: out.append([round(S(b, b0) - 0.04, 3), second if k % 2 else first]); b += 1; k += 1
     return out
 
+# The fallback (DAILY_ROUTINE "Fallback", 2026-10-14 03:55): six shots failed three review loops (the bass toppling behind
+# the dance-off, the walk-up, the high two-shot, keep-away, the drummer's and the violinists' stares, the over-the-shoulder
+# stare): the dance-off runs through the walk-up's beats with the bass left standing, the two-shot and the last stare take the
+# passed S19 frame (with the roles swapped for the two-shot), and the stare, the stay and the pianist's stare take the beats of
+# keep-away and the band inserts.
 # =====================================================================================================================
 def along(face, toward, dist):              # a point `dist` m from a face, on the floor-plane line through `toward`
     dx, dz = toward[0] - face[0], toward[1] - face[1]; n = math.hypot(dx, dz)
@@ -203,48 +208,49 @@ add(9.4, 14.4, s, "'move': the cat swings her fish by the tail on the beat, the 
 # S02 (k14.4..21.6; 'bond ... break'): the Short opens here: he dances off his mark towards the fish, the charleston, and
 # behind him his abandoned bass topples and crashes to the floor on 'break'
 BREAK = W(2, 3)
-D2 = (0.35, -4.75); D2E = (1.05, -3.55)
+D2 = (0.7, -4.4); D2E = (1.3, -3.25)
 s = [dancer('saxo', *D2, yaw_to(D2, PLATE), S(18.6, 14.4), mx=round(D2E[0] - D2[0], 2), mz=round(D2E[1] - D2[1], 2))]
-v = V((0.2, 0.35, -1.6), (0.85, 0.85, -4.0), fov=60, p1=(0.25, 0.33, -1.75), roll=(-8, -5), hand=0.3)
-add(14.4, 21.6, s, "'bond ... break': he dances off towards the fish and his abandoned bass topples over behind him, crashing on 'break'", v,
-    bass=[*BASS, 25, 10], bassFall=[round(S(BREAK, 14.4) - 0.5, 3), -70], shaft=False, rv=round(S(BREAK, 14.4) - 0.2, 3))
+v = V((0.75, 0.42, -1.05), (0.9, 0.85, -3.9), fov=62, p1=(0.8, 0.4, -1.25), roll=(-8, -5), hand=0.3)
+add(14.4, 25.4, s, "'bond ... break ... step': he has left his bass standing and dances off towards the fish, step by step", v,
+    bass=[*BASS, 25, 10], shaft=False, washer=False, hide=['drums', 'candle', 'milk', 'chair'], rv=S(18.6, 14.4))
 # S03 (k21.6..25.4; 'step'): he walks up beside her chair, every step closer, his eyes on her plate
 DS = (DOG_T[0] + 0.45, DOG_T[1] - 0.55)
 s = [kob_fish(), A('saxo', 'happy_walk', *DS, yaw=yaw_to(DS, DOG_T), at=0.3, speed=0.9, mx=round(DOG_T[0] - DS[0], 2), mz=round(DOG_T[1] - DS[1], 2), reveal=1.4)]
 v = V((3.3, 1.15, 0.5), (1.9, 0.95, -2.1), fov=54)
-add(21.6, 25.4, s, "'step': he walks up beside her chair, step by step, his eyes on her fish", v, shaft=False, plateFish=False, rv=S(24.6, 21.6))
+add(21.6, 25.4, s, drop=True, lyric="'step': he walks up beside her chair, step by step, his eyes on her fish", v=v, shaft=False, plateFish=False, hide=['piano', 'drums'], rv=S(24.6, 21.6))
 # S04 (k25.4..32; 'watching'): from beyond her plate (the fish's point of view): his face leaning in at the table's edge,
 # staring down the lens, the fish on the plate at the bottom of the frame
 FT = leaned(DOG_T, YAW_T, 14); L04 = along(FT, PLATE, 2.25)
-STARE_V = V((L04[0], 0.98, L04[1]), (FT[0], 1.12, FT[1]), fov=42, p1=(L04[0] + 0.04, 0.98, L04[1] - 0.05), ease='lin')
-add(25.4, 32, [starer(lean=14)], "'watching': from beyond her plate: his face leaning in at the table's edge, staring down the lens, the fish at the bottom", STARE_V, shaft=False, hide=['milk', 'candle'], rv=S(27.5, 25.4))
+STARE_V = V((L04[0], 1.3, L04[1]), (FT[0], 1.1, FT[1]), fov=46, p1=(L04[0] + 0.04, 1.3, L04[1] - 0.05), ease='lin')
+add(25.4, 36.5, [starer(lean=14)], "'watching': from beyond her plate: his face leaning in at the table's edge, staring down the lens, the fish at the bottom", STARE_V, shaft=False, hide=['milk', 'candle'], rv=S(27.5, 25.4))
 
 # ---- verse 2: at her elbow ----
 # S05 (k32..41.5; 'day'): the wide two-shot, locked off: she eats, he stares at every bite, the band playing behind them
-s = [kob_fish(), starer()]
-v = V((1.95, 2.55, 0.15), (2.0, 0.85, -1.95), fov=54)
-add(32, 41.5, s, "'every single day': from high over the table: the cat eats her fish, the dog at her elbow stares at every bite", v, shaft=False, plateFish=False, hide=['drums'], rv=S(36.5, 32))
+KE = (2.5, -2.3)
+s = [kob_fish(), A('saxo', 'happy_idle', *KE, yaw=yaw_to(KE, KOB_SEAT), at=2.125, speed=0, lean=10)]
+v = V((0.9, 1.3, 0.2), (2.0, 1.1, -2.35), fov=58)   # S19's setup (passed), the roles the other way round, the lens on his front side
+add(32, 41.5, s, drop=True, lyric="'every single day': she eats her fish in her chair, the fish at her mouth, and the dog at her elbow stares at every bite", v=v, plateFish=False, shaft=False, washer=False, hide=['candle', 'drums', 'milk'], rv=S(36.05, 32))
 # S06 (k41.5..45.2; 'word'): his point of view: she says the word, no: a slow head shake, deadpan, the fish in her paw
 KF = (KOB_SEAT[0], KOB_SEAT[1]); L06 = along(KF, (KF[0] + math.sin(math.radians(68)), KF[1] + math.cos(math.radians(68))), 2.3)
 s = [A('kob', 'shaking_head_no_dismissively', *KOB_SEAT, yaw=68, at=0.5, speed=1, lift=SEAT_Y, napkin=True, holdL='fish', holdScale=1.15)]
 v = V((L06[0], 1.3, L06[1]), (KF[0], 1.38, KF[1]), fov=44)
-add(41.5, 45.2, s, "'word': his point of view: the cat says no, a slow head shake, deadpan", v, plateFish=False, hide=['candle'], rv=S(43.3, 41.5))
+add(36.5, 45.2, s, "'day ... word': his point of view: the cat says no, a slow head shake, deadpan", v, plateFish=False, hide=['candle'], rv=S(43.3, 36.5))
 # S07 (k45.2..47; 'say'): the reverse: his stare hasn't moved: S04's frame again
-add(45.2, 47, [starer(lean=14)], "'say': the reverse: his stare hasn't moved: the same frame again", STARE_V, shaft=False, hide=['milk', 'candle'], rv=S(46.2, 45.2))
+add(45.2, 50.0, [starer(lean=14)], "'say': the reverse: his stare hasn't moved: the same frame again", STARE_V, shaft=False, hide=['milk', 'candle'], rv=S(46.2, 45.2))
 # S08 (k47..53.8; 'game ... play'): keep-away: she holds the fish up out of his reach, he hops for it on every beat
-HOPM = (2.6, -2.25)    # she stands up on her chair with the fish dangling high on her far side; he hops for it below on her near side
-s = [A('kob', 'happy_idle', *KOB_SEAT, yaw=0, at=2.125, speed=0, lift=SEAT_Y, napkin=True, arm='R', aim=[0.62, 0.75, 0.12], hold='fish', holdScale=1.35, upAt=-1),
-     A('saxo', 'happy_idle', *HOPM, yaw=yaw_to(HOPM, (1.4, -2.4)), at=2.125, speed=0, arm='both', aim=[0.2, 0.75, 0.55], upAt=-1, hop=[0.24, 1], air=True)]
-v = V((1.95, 1.35, 1.35), (2.0, 1.3, -2.4), fov=62)
-add(47, 53.8, s, "'game ... play': keep-away: up on her chair she holds the fish high out of reach and he hops for it on every beat", v, plateFish=False, shaft=False, hide=['drums'], rv=S(50.5, 47))
+HOPM = (2.55, -1.3)    # the cat up on her table with the fish dangling high on her far side; he jumps for it at the table's edge, paws up
+s = [A('kob', 'happy_idle', *TABLE, yaw=15, at=2.125, speed=0, lift=TY, napkin=True, arm='R', aim=[0.62, 0.75, 0.12], hold='fish', holdScale=1.35, upAt=-1),
+     A('saxo', 'happy_idle', *HOPM, yaw=yaw_to(HOPM, TABLE), at=2.125, speed=0, arm='both', aim=[0.2, 0.75, 0.55], upAt=-1, hop=[0.3, 1], air=True)]
+v = V((2.75, 0.95, 1.2), (2.05, 1.3, -1.55), fov=62)
+add(47, 53.8, s, drop=True, lyric="'game ... play': keep-away: up on her table she holds the fish high out of reach and he jumps for it on every beat", v=v, plateFish=False, shaft=False, hide=['drums', 'plate', 'milk', 'candle'], rv=S(50.5, 47))
 # S09 (k53.8..57.5; 'night ... stay'): side on, in front of her table: she's up, the fish in her other paw, and gives the
 # order, stay, her paw out at him; he sits, good boy
 STAY = W(8, 3)
 KST, DST = (0.95, -0.75), (2.45, -0.75)
-s = [A('kob', 'happy_idle', *KST, yaw=90, at=2.125, speed=0, arm='R', aim=[0.15, 0.45, 0.88], upAt=-1),
-     A('saxo', 'situps', *DST, yaw=-90, at=1.2, speed=0, noLie=True)]
+s = [A('kob', 'happy_idle', *KST, yaw=90, at=2.125, speed=0, arm='R', aim=[0.05, 0.08, 1.0], upAt=-1),
+     A('saxo', 'situps', *DST, yaw=-90, at=0.8, speed=0, noLie=True)]
 v = V((1.68, 0.95, 2.35), (1.68, 0.72, -0.75), fov=58)
-add(53.8, 57.5, s, "'stay': side on, in front of her table: she's up and gives the order, her paw up at him; he sits, good boy", v, rv=S(STAY + 0.2, 53.8))
+add(50.0, 57.5, s, "'stay': side on, in front of her table: she's up and gives the order, her paw up at him; he sits, good boy", v, hide=['chair'], rv=S(STAY + 0.2, 50.0))
 # S10 (k57.5..64; 'watching'): she eats at the big window, her back to it, and his face is pressed to the glass behind
 # her, out on the window washer's cradle, the washer staring at him
 KW = (-0.35, -8.25); DW = (-0.85, CRADLE_Z)
@@ -258,7 +264,7 @@ add(57.5, 64, s, "'watching': she eats at the big window with her back to it, an
 # S11 (k64..73.6; 'see'): her point of view from her chair: the beg, up on his hind legs, paws together, gazing at her
 BEG = (1.75, -0.4)
 s = [A('saxo', 'happy_idle', *BEG, yaw=180, at=2.125, speed=0, arm='both', aim=[-0.12, 0.12, 0.9], upAt=-1, lean=6, hop=[0.03, 1])]
-v = V((1.7, 1.45, -2.65), (1.75, 1.0, -0.4), fov=50)
+v = V((1.7, 1.45, -2.65), (1.75, 0.95, -0.4), fov=50)
 add(64, 73.6, s, "'see': her point of view from her chair, her fish on the plate in front: across the table he begs, paws together, gazing at her", v, hide=['chair', 'candle', 'milk'], shaft=False, rv=S(69.6, 64))
 # S12 (k73.6..77.2; 'belong'): the pianist turns on her bench to the singer and melts, paw on her heart, hearts rising:
 # she thinks the love line is sung to her
@@ -297,7 +303,7 @@ add(90.2, 95.4, s, "'step': she gives in: over him, she drops the fish and his j
 # the beat, and behind him, where he stood at his bass, the cat leans after it
 KB = (0.35, -4.4)
 s = [seated('saxo', *KOB_SEAT, 0, SEAT_Y, fetch='fish', sway=10, swayEvery=1, swayPh=0.0), A('kob', 'happy_idle', *KB, yaw=yaw_to(KB, KOB_SEAT), at=2.125, speed=0, lean=14, sway=10, swayEvery=1, swayPh=0.0)]
-add(95.4, 103.4, s, "'move': the match cut: now he's in her chair with the fish, swaying it on the beat, and the cat behind him leans after it", MATCH, plateFish=False, shaft=False, bass=[0.36, -4.6, 160, 90], rv=S(99.1, 95.4))
+add(95.4, 103.4, s, "'move': the match cut: now he's in her chair with the fish, swaying it on the beat, and the cat behind him leans after it", MATCH, plateFish=False, shaft=False, bass=[0.36, -4.6, 160, 90], hide=['drums'], rv=S(99.1, 95.4))
 # S18 (k103.4..109.6): he dances in her chair, the fish in his jaws, paws up
 s = [seated('saxo', *KOB_SEAT, 0, SEAT_Y, fetch='fish', arm='both', aim='rave', flapEvery=1, upAt=-1)]
 v = V((1.95, 1.3, -0.2), (1.7, 1.15, -2.5), fov=52)
@@ -308,31 +314,30 @@ KR = (1.0, -2.2)
 KE = (2.5, -2.3)
 s = [seated('saxo', *KOB_SEAT, 0, SEAT_Y, fetch='fish'), A('kob', 'happy_idle', *KE, yaw=yaw_to(KE, KOB_SEAT), at=2.125, speed=0, lean=10)]
 v = V((2.15, 1.3, 0.5), (2.05, 1.1, -2.4), fov=58)
-add(109.6, 112.7, s, "'break': the band breaks off; the cat at his elbow stares at the fish in his jaws, the way he stared at hers", v, strings='stare', stare=list(KOB_SEAT), washer='stare', plateFish=False, shaft=False, hide=['candle', 'drums'], rv=S(110.6, 109.6))
+add(109.6, 114.5, s, "'break': the band breaks off; the cat at his elbow stares at the fish in his jaws, the way he stared at hers", v, strings='stare', stare=list(KOB_SEAT), washer=False, plateFish=False, shaft=False, hide=['candle', 'drums'], rv=S(110.6, 109.6))
 # S20 (k112.7..115.3): the pianist's stare
 PY = yaw_to(PIANIST, KOB_SEAT); LP = along(PIANIST, KOB_SEAT, 2.25)
 s = [pianist(aim=[0.2, -0.3, 0.6], yaw=PY)]
 v = V((LP[0], 1.3, LP[1]), (PIANIST[0], 1.42, PIANIST[1]), fov=46)
-add(112.7, 115.3, s, "the pianist stares at him", v, shaft=False, rv=S(113.8, 112.7))
+add(114.5, 121.2, s, "the pianist stares at him", v, shaft=False, rv=S(116.0, 114.5))
 # S21 (k115.3..118): the drummer's glare over her kit
 CY = yaw_to(DRUMMER, KOB_SEAT); LC = along(DRUMMER, KOB_SEAT, 2.3)
-s = [drummer(aim=[0.25, 0.1, 0.7], yaw=CY)]
+s = [drummer(aim=[0.15, -0.35, 0.75], yaw=CY)]
 v = V((LC[0], 1.35, LC[1]), (DRUMMER[0], 1.42, DRUMMER[1]), fov=46)
-add(115.3, 118, s, "the drummer glares at him over her kit", v, shaft=False, rv=S(116.5, 115.3))
+add(115.3, 118, s, drop=True, lyric="the drummer glares at him over her kit", v=v, shaft=False, rv=S(116.5, 115.3))
 # S22 (k118..121.2): the reverse from him: the violinists all turned to him, bows down, staring
 s = [A('kob', 'happy_idle', *KR, yaw=yaw_to(KR, KOB_SEAT), at=2.125, speed=0, fg=True)]
-v = V((-0.75, 1.35, -2.35), (-4.25, 0.9, -4.45), fov=60)
-add(118, 121.2, s, "the reverse from him: the violinists all turned his way, bows down, staring", v, strings='stare', stare=list(KOB_SEAT), washer='stare', shaft=False, key=[-2.6, 2.3, -2.6, 1.3, 1.25, 1.2], rv=S(119.5, 118))
+v = V((-0.55, 1.35, -2.15), (-4.25, 0.9, -4.45), fov=62)
+add(118, 121.2, s, drop=True, lyric="the reverse from him: the violinists all turned his way, violins down, staring", v=v, strings='stare', stare=list(KOB_SEAT), washer='stare', shaft=False, clear=[[-5.55, -4.75, 0.3]], key=[-2.6, 2.3, -2.6, 1.3, 1.25, 1.2], rv=S(119.5, 118))
 # S23 (k121.2..124.6; 'watching'): the mirror of S04: from the fish in his jaws, the cat's face leaning in, staring
-KL = (1.7, -0.95)
-s = [A('kob', 'happy_idle', *KL, yaw=180, at=2.125, speed=0, lean=16), seated('saxo', *KOB_SEAT, 0, SEAT_Y, fetch='fish', fg=True)]
-v = V((0.95, 2.2, -3.0), (1.6, 1.05, -1.3), fov=50, p1=(0.98, 2.18, -2.95), ease='lin')
-add(121.2, 123.6, s, "'watching': over his shoulder, the fish across his jaws in the foreground: the cat leans in over the table, staring at it", v, plateFish=False, shaft=False, hide=['candle', 'milk'], rv=S(122.7, 121.2))
+s = [seated('saxo', *KOB_SEAT, 0, SEAT_Y, fetch='fish'), A('kob', 'happy_idle', *KE, yaw=yaw_to(KE, KOB_SEAT), at=2.125, speed=0, lean=12)]
+v = V((2.15, 1.3, 0.5), (2.05, 1.1, -2.4), fov=58)   # the passed S19 frame again, on the last 'watching'
+add(121.2, 123.6, s, drop=True, lyric="'watching': S19's frame again: the cat at his elbow stares at the fish in his jaws", v=v, washer=False, plateFish=False, shaft=False, hide=['candle', 'drums'], rv=S(122.7, 121.2))
 # S24 (k124.6..128; the button): S15's frame with the roles turned: the cat flat on her back by the chair, paws in the
 # air: she learned the trick; he looks down at her from her chair with the fish
 s = [seated('saxo', *KOB_SEAT, yaw_to(KOB_SEAT, FL), SEAT_Y, fetch='fish'), A('kob', 'laying_idle', *FL, yaw=90, at=1.0, speed=0, arm='both', aim=[0.3, 0.7, 0.65], upAt=-1, ground='mesh')]
 v = V((2.95, 1.55, 0.9), (2.25, 0.7, -2.05), fov=58)
-add(123.6, 128, s, "the button: the roles turned: the cat flat on her back by the chair, paws in the air: she learned the trick; he looks down at her from her chair with the fish", v, plateFish=False, shaft=False, hide=['drums'], rv=S(126.0, 123.6))
+add(121.2, 128, s, "'watching' and the button: the roles turned: the cat flat on her back by the chair, paws in the air: she learned the trick; he looks down at her from her chair with the fish", v, plateFish=False, shaft=False, hide=['drums', 'cradle'], rv=S(126.0, 121.2))
 
 shots.sort(key=lambda x: x['beat'])
 ep = {

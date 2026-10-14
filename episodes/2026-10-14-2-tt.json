@@ -17,7 +17,9 @@
   "charleston",
   "happy_idle",
   "laying_idle",
-  "sitting_talking"
+  "shaking_head_no_dismissively",
+  "sitting_talking",
+  "situps"
  ],
  "tags": {
   "structure": "stare",
@@ -145,35 +147,35 @@
      "who": "saxo",
      "look": "shag",
      "clip": "charleston",
-     "x": 0.35,
-     "z": -4.75,
+     "x": 0.7,
+     "z": -4.4,
      "face": "world",
-     "yaw": 22.1,
+     "yaw": 18.6,
      "at": 1.92,
      "speed": 1,
-     "mx": 0.7,
-     "mz": 1.2
+     "mx": 0.6,
+     "mz": 1.15
     }
    ],
    "cam": {
     "steady": true,
     "ang": [
-     -15.15,
-     -14.93
+     -3.01,
+     -2.16
     ],
     "r": [
-     2.486,
-     2.329
+     2.854,
+     2.652
     ],
     "h": [
-     0.55,
-     0.53
+     0.62,
+     0.6
     ],
     "look": [
      1.05,
      1.05
     ],
-    "fov": 60,
+    "fov": 62,
     "roll": [
      -8,
      -5
@@ -181,8 +183,8 @@
     "hand": 0.3
    },
    "focus": [
-    0.85,
-    -4
+    0.9,
+    -3.9
    ],
    "bass": [
     0.42,
@@ -190,11 +192,14 @@
     25,
     10
    ],
-   "bassFall": [
-    2.318,
-    -70
-   ],
-   "shaft": false
+   "shaft": false,
+   "washer": false,
+   "hide": [
+    "drums",
+    "candle",
+    "milk",
+    "chair"
+   ]
   },
   {
    "beat": 9,
@@ -225,14 +230,14 @@
      2.186
     ],
     "h": [
-     0.98,
-     0.98
+     1.3,
+     1.3
     ],
     "look": [
-     1.12,
-     1.12
+     1.1,
+     1.1
     ],
-    "fov": 42,
+    "fov": 46,
     "ease": "lin"
    },
    "focus": [
@@ -253,62 +258,46 @@
     {
      "who": "kob",
      "look": "kob",
-     "clip": "sitting_talking",
+     "clip": "shaking_head_no_dismissively",
      "x": 1.7,
      "z": -2.5,
      "face": "world",
-     "yaw": 0,
-     "at": 0.05,
-     "speed": 0,
+     "yaw": 68,
+     "at": 0.5,
+     "speed": 1,
      "lift": 0.42,
      "napkin": true,
-     "arm": "R",
-     "aim": "sip",
-     "hold": "fish",
-     "holdScale": 1.25,
-     "upAt": -1
-    },
-    {
-     "who": "saxo",
-     "look": "shag",
-     "clip": "happy_idle",
-     "x": 2.45,
-     "z": -2.25,
-     "face": "world",
-     "yaw": -42.1,
-     "at": 2.125,
-     "speed": 0,
-     "lean": 12
+     "holdL": "fish",
+     "holdScale": 1.15
     }
    ],
    "cam": {
     "steady": true,
     "ang": [
-     -1.36,
-     -1.36
+     68,
+     68
     ],
     "r": [
-     2.353,
-     2.353
+     2.301,
+     2.301
     ],
     "h": [
-     3,
-     3
+     1.4,
+     1.4
     ],
     "look": [
-     1.3,
-     1.3
+     1.48,
+     1.48
     ],
-    "fov": 54
+    "fov": 44
    },
    "focus": [
-    2,
-    -1.95
+    1.7,
+    -2.5
    ],
-   "shaft": false,
    "plateFish": false,
    "hide": [
-    "drums"
+    "candle"
    ]
   },
   {
@@ -442,76 +431,59 @@
      "who": "kob",
      "look": "kob",
      "clip": "happy_idle",
-     "x": 1.7,
-     "z": -2.5,
+     "x": 0.95,
+     "z": -0.75,
      "face": "world",
-     "yaw": 0,
+     "yaw": 90,
      "at": 2.125,
      "speed": 0,
-     "lift": 0.42,
-     "napkin": true,
      "arm": "R",
      "aim": [
-      0.62,
-      0.75,
-      0.12
+      0.05,
+      0.08,
+      1
      ],
-     "hold": "fish",
-     "holdScale": 1.35,
      "upAt": -1
     },
     {
      "who": "saxo",
      "look": "shag",
-     "clip": "happy_idle",
-     "x": 2.6,
-     "z": -2.25,
+     "clip": "situps",
+     "x": 2.45,
+     "z": -0.75,
      "face": "world",
-     "yaw": -97.1,
-     "at": 2.125,
+     "yaw": -90,
+     "at": 0.8,
      "speed": 0,
-     "arm": "both",
-     "aim": [
-      0.2,
-      0.75,
-      0.55
-     ],
-     "upAt": -1,
-     "hop": [
-      0.24,
-      1
-     ],
-     "air": true
+     "noLie": true
     }
    ],
    "cam": {
     "steady": true,
     "ang": [
-     -0.76,
-     -0.76
+     0,
+     0
     ],
     "r": [
-     3.75,
-     3.75
+     3.472,
+     3.472
     ],
     "h": [
-     1.35,
-     1.35
+     0.95,
+     0.95
     ],
     "look": [
-     1.3,
-     1.3
+     0.72,
+     0.72
     ],
-    "fov": 62
+    "fov": 58
    },
    "focus": [
-    2,
-    -2.4
+    1.68,
+    -0.75
    ],
-   "plateFish": false,
-   "shaft": false,
    "hide": [
-    "drums"
+    "chair"
    ]
   },
   {
@@ -642,8 +614,8 @@
      1.55
     ],
     "look": [
-     1.1,
-     1.1
+     1.05,
+     1.05
     ],
     "fov": 50
    },
@@ -924,6 +896,9 @@
     -4.6,
     160,
     90
+   ],
+   "hide": [
+    "drums"
    ]
   },
   {
@@ -931,18 +906,6 @@
    "kind": "dance",
    "map": "soundstage",
    "actors": [
-    {
-     "who": "kob",
-     "look": "kob",
-     "clip": "happy_idle",
-     "x": 1.7,
-     "z": -0.95,
-     "face": "world",
-     "yaw": 180,
-     "at": 2.125,
-     "speed": 0,
-     "lean": 16
-    },
     {
      "who": "saxo",
      "look": "shag",
@@ -954,40 +917,56 @@
      "at": 0.05,
      "speed": 0,
      "lift": 0.42,
-     "fetch": "fish",
-     "fg": true
+     "fetch": "fish"
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 2.5,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -104,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 10
     }
    ],
    "cam": {
     "steady": true,
     "ang": [
-     -159.08,
-     -159.41
+     1.97,
+     1.97
     ],
     "r": [
-     1.82,
-     1.763
+     2.902,
+     2.902
     ],
     "h": [
-     2.2,
-     2.18
+     1.3,
+     1.3
     ],
     "look": [
-     1.05,
-     1.05
+     1.1,
+     1.1
     ],
-    "fov": 50,
-    "ease": "lin"
+    "fov": 58
    },
    "focus": [
-    1.6,
-    -1.3
+    2.05,
+    -2.4
    ],
+   "strings": "stare",
+   "stare": [
+    1.7,
+    -2.5
+   ],
+   "washer": false,
    "plateFish": false,
    "shaft": false,
    "hide": [
     "candle",
-    "milk"
+    "drums"
    ]
   },
   {
@@ -1055,7 +1034,8 @@
    "plateFish": false,
    "shaft": false,
    "hide": [
-    "drums"
+    "drums",
+    "cradle"
    ]
   }
  ]

@@ -19,16 +19,17 @@ def swing_seq(b0, b1, first=FISH_UP, second=FISH_ACROSS):   # the fish swung fro
     out = [[-1, first]]; b = math.floor(b0) + 1; k = 1
     while b < b1: out.append([round(S(b, b0) - 0.04, 3), second if k % 2 else first]); b += 1; k += 1
     return out
-PLAN = [   # (main shot index, tt start beat, tt end beat)
-    (0, -2.82, 3.0), (2, 3.0, 9.0), (4, 9.0, 14.4), (5, 14.4, 18.2), (1, 18.2, 21.3), (8, 21.3, 25.8), (10, 25.8, 29.3),
-    (11, 29.3, 33.8), (14, 33.8, 37.0), (15, 37.0, 41.0), (16, 41.0, 44.8), (17, 44.8, 48.6), (23, 48.6, 50.4), (24, 50.4, 52.15)]
+PLAN = [   # (the main shot's start beat, tt start beat, tt end beat); after the main's fallback keep-away is gone, so the stay takes its place
+    (0, -2.82, 3.0), (14.4, 3.0, 9.0), (25.4, 9.0, 14.4), (36.5, 14.4, 18.2), (9.4, 18.2, 21.3), (50.0, 21.3, 25.8), (57.5, 25.8, 29.3),
+    (64, 29.3, 33.8), (81.7, 33.8, 37.0), (85.8, 37.0, 41.0), (90.2, 41.0, 44.8), (95.4, 44.8, 48.6), (109.6, 48.6, 50.4), (121.2, 50.4, 52.15)]
 shots = []
-for k, (i, b0, b1) in enumerate(PLAN):
-    s = copy.deepcopy(M[i]); s['beat'] = b0; s['lyric'] = f"(main S{i:02d}) " + s['lyric']
-    if i == 1:   # the swing re-timed on this shot's beats
+BY_BEAT = {round(s['beat'], 2): k for k, s in enumerate(M)}
+for k, (mb, b0, b1) in enumerate(PLAN):
+    i = BY_BEAT[round(mb, 2)]
+    s = copy.deepcopy(M[i]); s['beat'] = b0; s['lyric'] = f"(main shot at k{mb}) " + s['lyric']
+    if mb == 9.4:   # the swing re-timed on this shot's beats
         for a in s['actors']:
             if a['who'] == 'kob' and a.get('aimSeq'): a['aimSeq'] = swing_seq(b0, b1)
-    if i == 2 and s.get('bassFall'): s['bassFall'] = [round(S(b1, b0) - 0.75, 3), s['bassFall'][1]]   # it lands just before the cut
     shots.append(s)
 ep = {
     'date': main['date'], 'song': main['song'],

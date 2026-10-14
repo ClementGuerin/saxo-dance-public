@@ -263,11 +263,11 @@ export function buildSoundstageMaps(K) {
           q.body.position.set(0, 0.1, 0); q.body.rotation.set(0, 0, 0); q.head.rotation.set(0, 0, 0); q.mouth.visible = false;
           q.legs.forEach(l => { l.rotation.x = -PI / 2; }); q.arms.forEach(a => a.rotation.set(0, 0, 0));
           q.arms[0].rotation.set(-1.9, 0.3, 0.5);                                   // the left paw up on the violin's neck
-          if (q.vio) { q.vio.position.set(-0.16, 0.74, 0.14); q.vio.rotation.set(0.25, -0.75, 0.55); }
+          if (q.vio) { q.vio.visible = true; q.vio.position.set(-0.16, 0.74, 0.14); q.vio.rotation.set(0.25, -0.75, 0.55); }
           const ph = bt + i * 0.07;
           if (sm === 'play') { q.arms[1].rotation.set(-1.2, 0, -0.35 + 0.45 * Math.sin(ph * PI)); q.head.rotation.z = 0.25; q.body.rotation.z = 0.04 * Math.sin(ph * PI); }
           else if (sm === 'swell') { q.arms[1].rotation.set(-1.25, 0, -0.5 + 0.8 * Math.sin(ph * PI * 0.5)); q.head.rotation.z = 0.45 + 0.1 * Math.sin(t * 2 + i); q.body.rotation.x = 0.22; q.body.rotation.z = 0.12 * Math.sin(ph * PI * 0.5); }
-          else if (sm === 'stare') { q.arms[1].rotation.set(-0.3, 0, -0.15); q.arms[0].rotation.set(-0.5, 0, 0.2); q.mouth.visible = true; turnTo(q, vx, vz, P, yaw); if (q.vio) { q.vio.position.set(-0.24, 0.42, 0.16); q.vio.rotation.set(1.35, 0, 0.3); } }   // bows and violins down (held at the chin they read as sticks in their mouths)
+          else if (sm === 'stare') { q.arms[1].rotation.set(-0.3, 0, -0.15); q.arms[0].rotation.set(-0.5, 0, 0.2); q.mouth.visible = true; turnTo(q, vx, vz, P, yaw); if (q.vio) q.vio.visible = false; }   // violins put down (at the chin they read as sticks in their mouths, at the chest as dark slabs)
         });
         // steam off the fish
         steam.forEach((p, i) => {
