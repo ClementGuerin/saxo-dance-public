@@ -1,0 +1,1716 @@
+{
+ "date": "2026-10-14",
+ "song": {
+  "title": "Every Breath You Take",
+  "artist": "The Police"
+ },
+ "logline": "The singer can't sing the most famous love song of 1983 without staring at the cat's fish dinner: every move she makes, his whole body follows it, closer on every line, until his drama-queen flop on 'heart aches' wins it; then every move he makes, the cat follows, and on the last bar she flops too.",
+ "new": "src/maps48.js: soundstage (the clip's black-and-white sound stage: the arched window with its round pane glowing white, the window washer in a fedora on his cradle behind the glass, a grand piano, a drum kit behind a glowing bass drum with a paw on it, a string section of box-pet violinists who play, swell and stare, a chandelier, a shaft of light onto the cat's dinner table, a steaming fish, an upright bass that topples); the `napkin` face prop; Saxo's look shag (the singer's short bleached-blond crop and black shirt); the structure THE STARE",
+ "notes": "The world, from the official video (contact sheets): a black-and-white sound stage in hard light, the singer at an upright bass, a grand piano silhouetted before a tall arched window with a round pane, a window washer on his cradle behind the glass, violinists, a drummer behind a glowing bass drum, a chandelier, a table top in a shaft of light. The words, from whitelisted keywords per line: every line of the verses names something the one being watched does (breath, move, break, step, word, say, game, play, night, stay), each verse ending on 'watching'; the bridge's 'see', 'belong', 'heart aches'. TikTok uses this song for pets staring at their owners. Cast: Saxo in the singer's look (the dog who stares), Kob in her own tweed with a napkin tucked in (the cat at her fish dinner), Sadi in her glam dress at the piano (she thinks the love line is for her), Compote in her drummer look (the band). The live reference food-tantrum (the drama-queen dog denied a bite) is the bridge's flop.",
+ "tiktok_sound": "7432444695299787553",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "happy_walk",
+  "laying_idle",
+  "shaking_head_no_dismissively",
+  "sitting_talking",
+  "situps"
+ ],
+ "tags": {
+  "structure": "stare",
+  "scenes": [
+   "the fish's point of view",
+   "the fish swung, his body following",
+   "the bass toppling",
+   "at her elbow",
+   "no",
+   "keep-away hops",
+   "stay",
+   "his face pressed to the window",
+   "the beg",
+   "the pianist melts",
+   "paw on the fish",
+   "paw on his heart, the strings swell",
+   "the drama-queen flop",
+   "the fish dropped on him",
+   "the match cut: he swings it, she follows",
+   "the whole set stares",
+   "the cat's stare",
+   "the cat flops too"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "soundstage"
+  ],
+  "ref": "food-tantrum",
+  "lyric_literal": "'breath' (the fish steaming), 'move' (she swings it, his body follows), 'break' (his bass crashes to the floor), 'step' (he steps up to her chair), 'watching' (his stare from the fish's point of view, his face at the window, her stare at the end), 'word' (she says no), 'game ... play' (keep-away), 'stay' (he sits), 'belong' (his paw on the fish; the pianist thinks it's her), 'heart aches' (paw on his heart, the flop), 'step' (she gives in), 'move' (he swings it, she follows), 'break' (the band breaks off)",
+  "experiment": "Does a pet universal that TikTok already uses this exact song for (the pet's stare at your food: 615k videos on The Police's own sound, 983k on its 'watching you' clip), told as a role swap on the same lines (verse 1 he stares at her fish, verse 3 she stares at it in his jaws), earn more likes per 1,000 views on the Short at 24 h than our last week's episodes?"
+ },
+ "shots": [
+  {
+   "beat": 0,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -5,
+     "face": "world",
+     "yaw": 25.4,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.55,
+      0.62,
+      0.4
+     ],
+     "armB": "R",
+     "aimB": [
+      -0.35,
+      -0.15,
+      0.85
+     ],
+     "upAt": -1,
+     "hop": [
+      0.03,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     25.79,
+     25.92
+    ],
+    "r": [
+     4.942,
+     4.759
+    ],
+    "h": [
+     1,
+     0.99
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 58,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -5
+   ],
+   "bass": [
+    0.42,
+    -4.8,
+    25,
+    10
+   ],
+   "shaft": false,
+   "hide": [
+    "candle",
+    "milk",
+    "chair"
+   ],
+   "key": [
+    0.6,
+    2.1,
+    -3.7,
+    1.35,
+    1.3,
+    1.25
+   ]
+  },
+  {
+   "beat": 9.4,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "napkin": true,
+     "arm": "R",
+     "aimSeq": [
+      [
+       -1,
+       [
+        0.45,
+        0.62,
+        0.45
+       ]
+      ],
+      [
+       0.267,
+       [
+        -0.25,
+        0.6,
+        0.65
+       ]
+      ],
+      [
+       0.778,
+       [
+        0.45,
+        0.62,
+        0.45
+       ]
+      ],
+      [
+       1.289,
+       [
+        -0.25,
+        0.6,
+        0.65
+       ]
+      ],
+      [
+       1.801,
+       [
+        0.45,
+        0.62,
+        0.45
+       ]
+      ],
+      [
+       2.312,
+       [
+        -0.25,
+        0.6,
+        0.65
+       ]
+      ]
+     ],
+     "hold": "fish",
+     "holdScale": 1.25,
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -5,
+     "face": "world",
+     "yaw": 34.2,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.55,
+      0.62,
+      0.4
+     ],
+     "armB": "R",
+     "aimB": [
+      -0.35,
+      -0.15,
+      0.85
+     ],
+     "upAt": -1,
+     "hop": [
+      0.03,
+      1
+     ],
+     "lean": 14,
+     "sway": 10,
+     "swayEvery": 1,
+     "swayPh": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -2.41,
+     -2.52
+    ],
+    "r": [
+     4.754,
+     4.554
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 66
+   },
+   "focus": [
+    1.25,
+    -3.4
+   ],
+   "bass": [
+    0.42,
+    -4.8,
+    25,
+    10
+   ],
+   "plateFish": false,
+   "shaft": false
+  },
+  {
+   "beat": 14.4,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "charleston",
+     "x": 0.35,
+     "z": -4.75,
+     "face": "world",
+     "yaw": 22.1,
+     "at": 1.92,
+     "speed": 1,
+     "mx": 0.7,
+     "mz": 1.2
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -15.15,
+     -14.93
+    ],
+    "r": [
+     2.486,
+     2.329
+    ],
+    "h": [
+     0.55,
+     0.53
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 60,
+    "roll": [
+     -8,
+     -5
+    ],
+    "hand": 0.3
+   },
+   "focus": [
+    0.85,
+    -4
+   ],
+   "bass": [
+    0.42,
+    -4.8,
+    25,
+    10
+   ],
+   "bassFall": [
+    2.762,
+    -70
+   ],
+   "shaft": false
+  },
+  {
+   "beat": 21.6,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "napkin": true,
+     "arm": "R",
+     "aim": "sip",
+     "hold": "fish",
+     "holdScale": 1.25,
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_walk",
+     "x": 2.9,
+     "z": -2.8,
+     "face": "world",
+     "yaw": -39.3,
+     "at": 0.3,
+     "speed": 0.9,
+     "mx": -0.45,
+     "mz": 0.55,
+     "reveal": 1.4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     28.3,
+     28.3
+    ],
+    "r": [
+     2.953,
+     2.953
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.15,
+     1.15
+    ],
+    "fov": 54
+   },
+   "focus": [
+    1.9,
+    -2.1
+   ],
+   "shaft": false,
+   "plateFish": false
+  },
+  {
+   "beat": 25.4,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 2.45,
+     "z": -2.25,
+     "face": "world",
+     "yaw": -42.1,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 14
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -42.12,
+     -42.22
+    ],
+    "r": [
+     2.25,
+     2.186
+    ],
+    "h": [
+     0.98,
+     0.98
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    2.304,
+    -2.088
+   ],
+   "shaft": false,
+   "hide": [
+    "milk",
+    "candle"
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "napkin": true,
+     "arm": "R",
+     "aim": "sip",
+     "hold": "fish",
+     "holdScale": 1.25,
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 2.45,
+     "z": -2.25,
+     "face": "world",
+     "yaw": -42.1,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 12
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.36,
+     -1.36
+    ],
+    "r": [
+     2.353,
+     2.353
+    ],
+    "h": [
+     3,
+     3
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 54
+   },
+   "focus": [
+    2,
+    -1.95
+   ],
+   "shaft": false,
+   "plateFish": false,
+   "hide": [
+    "drums"
+   ]
+  },
+  {
+   "beat": 41.5,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "shaking_head_no_dismissively",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 68,
+     "at": 0.5,
+     "speed": 1,
+     "lift": 0.42,
+     "napkin": true,
+     "holdL": "fish",
+     "holdScale": 1.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     68,
+     68
+    ],
+    "r": [
+     2.301,
+     2.301
+    ],
+    "h": [
+     1.4,
+     1.4
+    ],
+    "look": [
+     1.48,
+     1.48
+    ],
+    "fov": 44
+   },
+   "focus": [
+    1.7,
+    -2.5
+   ],
+   "plateFish": false,
+   "hide": [
+    "candle"
+   ]
+  },
+  {
+   "beat": 45.2,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 2.45,
+     "z": -2.25,
+     "face": "world",
+     "yaw": -42.1,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 14
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -42.12,
+     -42.22
+    ],
+    "r": [
+     2.25,
+     2.186
+    ],
+    "h": [
+     0.98,
+     0.98
+    ],
+    "look": [
+     1.12,
+     1.12
+    ],
+    "fov": 42,
+    "ease": "lin"
+   },
+   "focus": [
+    2.304,
+    -2.088
+   ],
+   "shaft": false,
+   "hide": [
+    "milk",
+    "candle"
+   ]
+  },
+  {
+   "beat": 47,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.42,
+     "napkin": true,
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.75,
+      0.12
+     ],
+     "hold": "fish",
+     "holdScale": 1.35,
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 2.6,
+     "z": -2.25,
+     "face": "world",
+     "yaw": -97.1,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.2,
+      0.75,
+      0.55
+     ],
+     "upAt": -1,
+     "hop": [
+      0.24,
+      1
+     ],
+     "air": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -0.76,
+     -0.76
+    ],
+    "r": [
+     3.75,
+     3.75
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 62
+   },
+   "focus": [
+    2,
+    -2.4
+   ],
+   "plateFish": false,
+   "shaft": false,
+   "hide": [
+    "drums"
+   ]
+  },
+  {
+   "beat": 53.8,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 0.95,
+     "z": -0.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.15,
+      0.45,
+      0.88
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "situps",
+     "x": 2.45,
+     "z": -0.75,
+     "face": "world",
+     "yaw": -90,
+     "at": 1.2,
+     "speed": 0,
+     "noLie": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.472,
+     3.472
+    ],
+    "h": [
+     0.95,
+     0.95
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": 58
+   },
+   "focus": [
+    1.68,
+    -0.75
+   ]
+  },
+  {
+   "beat": 57.5,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": -0.35,
+     "z": -8.25,
+     "face": "world",
+     "yaw": 8,
+     "at": 2.125,
+     "speed": 0,
+     "napkin": true,
+     "arm": "R",
+     "aim": "sip",
+     "hold": "fish",
+     "holdScale": 1.2,
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": -0.85,
+     "z": -9.48,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.05,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.45,
+      0.9
+     ],
+     "upAt": -1,
+     "noShadow": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -6.89,
+     -6.89
+    ],
+    "r": [
+     3.401,
+     3.401
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.55,
+    -8.6
+   ],
+   "cradle": 0.05,
+   "washer": "stare",
+   "stare": [
+    -0.85,
+    -9.1
+   ],
+   "key": [
+    -0.4,
+    1.6,
+    -7.2,
+    1.15,
+    1.1,
+    1.05
+   ],
+   "shaft": false,
+   "plateFish": false
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 1.75,
+     "z": -0.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      -0.12,
+      0.12,
+      0.9
+     ],
+     "upAt": -1,
+     "lean": 6,
+     "hop": [
+      0.03,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -178.73,
+     -178.73
+    ],
+    "r": [
+     2.251,
+     2.251
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    1.75,
+    -0.4
+   ],
+   "hide": [
+    "chair",
+    "candle",
+    "milk"
+   ],
+   "shaft": false
+  },
+  {
+   "beat": 73.6,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.72,
+     "z": -7,
+     "face": "world",
+     "yaw": 62,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     61.99,
+     61.99
+    ],
+    "r": [
+     2.8,
+     2.8
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -1.72,
+    -7
+   ],
+   "hearts": [
+    [
+     -1.4477064935841832,
+     1.32,
+     -7.512109603858177,
+     0,
+     1
+    ]
+   ],
+   "heartYaw": 62,
+   "heartScale": 0.55
+  },
+  {
+   "beat": 77.2,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 35,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "napkin": true
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": 2.27,
+     "z": -1.47,
+     "face": "world",
+     "yaw": -92,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": [
+      0.12,
+      -0.2,
+      0.95
+     ],
+     "upAt": -1,
+     "lean": 4
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -38.42,
+     -38.42
+    ],
+    "r": [
+     2.591,
+     2.591
+    ],
+    "h": [
+     2.55,
+     2.55
+    ],
+    "look": [
+     1.27,
+     1.27
+    ],
+    "fov": 52
+   },
+   "focus": [
+    1.9,
+    -1.6
+   ],
+   "shaft": false,
+   "hide": [
+    "candle"
+   ]
+  },
+  {
+   "beat": 81.7,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "happy_idle",
+     "x": -2.45,
+     "z": -3.35,
+     "face": "world",
+     "yaw": 52.7,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "R",
+     "aim": "heart",
+     "upAt": -1,
+     "sway": 8,
+     "swayEvery": 2,
+     "lean": -6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     49.97,
+     49.97
+    ],
+    "r": [
+     3.265,
+     3.265
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -2.85,
+    -3.85
+   ],
+   "strings": "swell",
+   "shaft": false
+  },
+  {
+   "beat": 85.8,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 2.55,
+     "z": -2.55,
+     "face": "world",
+     "yaw": 26.6,
+     "at": 2.125,
+     "speed": 0,
+     "napkin": true
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "laying_idle",
+     "x": 2.95,
+     "z": -1.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 1,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.7,
+      0.65
+     ],
+     "upAt": -1,
+     "tongue": true,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.96,
+     2.96
+    ],
+    "r": [
+     2.904,
+     2.904
+    ],
+    "h": [
+     2.05,
+     2.05
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    2.6,
+    -1.95
+   ],
+   "shaft": false,
+   "hide": [
+    "drums"
+   ]
+  },
+  {
+   "beat": 90.2,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 2.65,
+     "z": -2.45,
+     "face": "world",
+     "yaw": 23.2,
+     "at": 2.125,
+     "speed": 0,
+     "napkin": true,
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.2,
+      0.75
+     ],
+     "upAt": -1,
+     "hold": "fish",
+     "holdScale": 1.2,
+     "holdTo": 0.098
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "laying_idle",
+     "x": 2.95,
+     "z": -1.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 1,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.7,
+      0.65
+     ],
+     "upAt": -1,
+     "ground": "mesh",
+     "fetch": {
+      "kind": "fish",
+      "at": 0.398
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     8.13,
+     8.13
+    ],
+    "r": [
+     2.828,
+     2.828
+    ],
+    "h": [
+     1.95,
+     1.95
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 58
+   },
+   "focus": [
+    2.75,
+    -1.95
+   ],
+   "plateFish": false,
+   "shaft": false,
+   "hide": [
+    "drums"
+   ]
+  },
+  {
+   "beat": 95.4,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fetch": "fish",
+     "sway": 10,
+     "swayEvery": 1,
+     "swayPh": 0
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 0.35,
+     "z": -4.4,
+     "face": "world",
+     "yaw": 35.4,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 14,
+     "sway": 10,
+     "swayEvery": 1,
+     "swayPh": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -2.41,
+     -2.52
+    ],
+    "r": [
+     4.754,
+     4.554
+    ],
+    "h": [
+     1.25,
+     1.22
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 66
+   },
+   "focus": [
+    1.25,
+    -3.4
+   ],
+   "plateFish": false,
+   "shaft": false,
+   "bass": [
+    0.36,
+    -4.6,
+    160,
+    90
+   ]
+  },
+  {
+   "beat": 103.4,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fetch": "fish",
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1,
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     6.2,
+     6.2
+    ],
+    "r": [
+     2.314,
+     2.314
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 52
+   },
+   "focus": [
+    1.7,
+    -2.5
+   ],
+   "plateFish": false,
+   "shaft": false,
+   "hide": [
+    "candle",
+    "milk",
+    "drums"
+   ],
+   "washer": false
+  },
+  {
+   "beat": 109.6,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fetch": "fish"
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 2.5,
+     "z": -2.3,
+     "face": "world",
+     "yaw": -104,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 10
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.97,
+     1.97
+    ],
+    "r": [
+     2.902,
+     2.902
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.1,
+     1.1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    2.05,
+    -2.4
+   ],
+   "strings": "stare",
+   "stare": [
+    1.7,
+    -2.5
+   ],
+   "washer": "stare",
+   "plateFish": false,
+   "shaft": false,
+   "hide": [
+    "candle",
+    "drums"
+   ]
+  },
+  {
+   "beat": 112.7,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "glam",
+     "clip": "sitting_talking",
+     "x": -1.72,
+     "z": -7,
+     "face": "world",
+     "yaw": 37.2,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.3,
+      0.6
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     37.23,
+     37.23
+    ],
+    "r": [
+     2.249,
+     2.249
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -1.72,
+    -7
+   ],
+   "shaft": false
+  },
+  {
+   "beat": 115.3,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "drummer",
+     "clip": "sitting_talking",
+     "x": 2.7,
+     "z": -7.55,
+     "face": "world",
+     "yaw": -11.2,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.4,
+     "arm": "both",
+     "aim": [
+      0.25,
+      0.1,
+      0.7
+     ],
+     "hold": "dstick",
+     "holdL": "dstick",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -11.21,
+     -11.21
+    ],
+    "r": [
+     2.3,
+     2.3
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.42,
+     1.42
+    ],
+    "fov": 46
+   },
+   "focus": [
+    2.7,
+    -7.55
+   ],
+   "shaft": false
+  },
+  {
+   "beat": 118,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1,
+     "z": -2.2,
+     "face": "world",
+     "yaw": 113.2,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     59.04,
+     59.04
+    ],
+    "r": [
+     4.082,
+     4.082
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -4.25,
+    -4.45
+   ],
+   "strings": "stare",
+   "stare": [
+    1.7,
+    -2.5
+   ],
+   "washer": "stare",
+   "shaft": false,
+   "key": [
+    -2.6,
+    2.3,
+    -2.6,
+    1.3,
+    1.25,
+    1.2
+   ]
+  },
+  {
+   "beat": 121.2,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 1.7,
+     "z": -0.95,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 16
+    },
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fetch": "fish",
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -159.08,
+     -159.41
+    ],
+    "r": [
+     1.82,
+     1.763
+    ],
+    "h": [
+     2.2,
+     2.18
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 50,
+    "ease": "lin"
+   },
+   "focus": [
+    1.6,
+    -1.3
+   ],
+   "plateFish": false,
+   "shaft": false,
+   "hide": [
+    "candle",
+    "milk"
+   ]
+  },
+  {
+   "beat": 123.6,
+   "kind": "dance",
+   "map": "soundstage",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "shag",
+     "clip": "sitting_talking",
+     "x": 1.7,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 59,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.42,
+     "fetch": "fish"
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "laying_idle",
+     "x": 2.95,
+     "z": -1.75,
+     "face": "world",
+     "yaw": 90,
+     "at": 1,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.7,
+      0.65
+     ],
+     "upAt": -1,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     13.35,
+     13.35
+    ],
+    "r": [
+     3.032,
+     3.032
+    ],
+    "h": [
+     1.7,
+     1.7
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 58
+   },
+   "focus": [
+    2.25,
+    -2.05
+   ],
+   "plateFish": false,
+   "shaft": false,
+   "hide": [
+    "drums"
+   ]
+  }
+ ]
+}
