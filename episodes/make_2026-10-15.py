@@ -250,7 +250,7 @@ v = V((0.15, 1.15, 4.6), (0.05, 0.8, 1.1), fov=50)
 add(60, 64, s, "hauled out: Ophelia sits on the edge soaked, the dog proud beside her, a fist pump, tongue out", v, drips=[[SE[0] - 0.22, SE[1], 1.15, True], [SE[0] + 0.2, SE[1] + 0.1, 1.05, True]], rv=S(62.0, 60))
 # S14 (k64..68): CUT!: the megaphone's bell straight at the lens, her eyes over it, the rings of sound coming at us
 s = [director(megaphone={'yaw': 0, 'pitch': 8, 'calls': [S(64.3, 64), S(65.3, 64), S(66.3, 64)]}, arm='R', aim=[0.3, 0.1, 0.8], upAt=-1)]
-v = view((-1.05, 1.74, -1.1), (-3.45, 1.5, -1.1), 46)
+v = view((-0.45, 1.8, -1.1), (-3.45, 1.5, -1.1), 40)   # loop 3: 0.6 m further back, the bell crossed the near plane
 add(64, 68, s, "CUT: the megaphone's bell straight at the lens, the director's eyes over it", v, hide=['crew'], rv=S(65.5, 64))
 # S15 (k68..72): TAKE 3
 s = [clapper(3, *CL, 20, S(68.5, 68))]
@@ -293,7 +293,7 @@ s = [A('compote', 'happy_idle', *CF, yaw=yaw_to(CF, (0.9, -2.35)), at=2.125, spe
 v = view((-2.75, 1.6, 4.45), (0.55, 0.35, -2.1), 52)
 add(105.5, 109, s, "'fate of Ophelia': the splash, behind the clapper loader's slate: his legs kicking up out of the water beside Ophelia, the drops raining on the set", v, bigSplash=[1.0, -2.25, 0.0], rainAt=[CF[0], CF[1], 0.55, 0.75], rv=S(106.4, 105.5))
 s = [clapper(4, *CL, 20, S(110.0, 109))]
-v = V((-2.15, 1.2, 3.55), (-2.55, 1.12, 1.55), fov=46)          # closer: the wet face
+v = V((-1.7, 1.15, 4.3), (-2.55, 1.12, 1.55), fov=44)            # fallback: the lens that passed (closer, the drops read as ice cubes)
 add(109, 112, s, "Compote dripping, glaring: TAKE 4", v, drips=[[CL[0], CL[1], 1.35]], wet=True, rv=S(110.3, 109))
 
 # ---- the chorus: the swimming number, and its rescue ----
@@ -316,18 +316,18 @@ add(128, 132, s, "the number's big moment: the whole chorus lies back and floats
 # S30 (k132..136): the dog at the edge sees ten bodies floating: panic
 s = [panic(*EDGE, (0.0, -0.9), flap=0.55)]
 v = V((0.0, 1.1, -1.3), (0.0, 1.08, 1.12), fov=48)
-add(132, 136, s, "the dog sees ten bodies floating: panic", v, zone='number', zone_lens='water', rv=S(133.6, 132))
+add(132, 138, s, "the dog sees ten bodies floating: panic", v, zone='number', zone_lens='water', rv=S(133.6, 132))
 # S31 (k136..142): rescued, all ten: a dripping heap on the stage's edge, the dog panting proudly beside it, the director
 # staring at it
 DP = (-0.55, 1.95)                         # in front of the heap's right end: from behind it a top swimmer's cap sat on his mouth
 s = [idle('saxo', *DP, 10, tongue=True, hop=[0.03, 1]), idle('kob', -2.7, 0.55, 55)]
 v = V((-1.3, 3.0, 6.2), (-1.2, 0.85, 1.4), fov=52)
-add(136, 142, s, "rescued, all ten: a dripping heap of swimmers on the edge, the dog panting proudly beside it, the director staring", v, zone='number', chorus='pile', drips=[[-1.7, 1.2, 1.2], [-1.2, 1.3, 0.9]], hide=['crew'], rv=S(139.0, 136))
+add(136, 142, s, "rescued, all ten: a dripping heap of swimmers on the edge, the dog panting proudly beside it, the director staring", v, drop=True, zone='number', chorus='pile', drips=[[-1.7, 1.2, 1.2], [-1.2, 1.3, 0.9]], hide=['crew'], rv=S(139.0, 136))
 # S32 (k142..146; 'night'): the director, her back to the pool, raises the megaphone: that's a wrap
 KF = (-3.05, -1.75)
-s = [idle('kob', *KF, -90, megaphone={'yaw': -45, 'pitch': -15, 'calls': [S(142.4, 142), S(144.4, 142)]}, arm='L', aim=[0.35, 0.3, 0.75], upAt=-1)]
+s = [idle('kob', *KF, -90, megaphone={'yaw': -45, 'pitch': -15, 'calls': [S(140.4, 138), S(142.4, 138), S(144.4, 138)]}, arm='L', aim=[0.35, 0.3, 0.75], upAt=-1)]
 v = view((-5.35, 1.4, -1.25), (-3.05, 1.3, -1.75), 46)
-add(142, 146, s, "'night': the director, her back to the pool, calls the wrap through her megaphone", v, zone='number', wet=True, rv=S(143.5, 142))
+add(138, 146, s, "'night': the director, her back to the pool, calls the wrap through her megaphone", v, zone='number', wet=True, rv=S(143.5, 138))
 s = [clapper(47, *CL, 20, S(146.4, 146))]
 v = V((-1.9, 1.3, 3.1), (-2.6, 1.1, 1.55), fov=46, roll=[12, 10])  # a dutch close-up: take 47
 add(146, 149, s, "TAKE 47: the last clap", v, zone='number', drips=[[CL[0], CL[1], 1.35]], rv=S(146.8, 146))
