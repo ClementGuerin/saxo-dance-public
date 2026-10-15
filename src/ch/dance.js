@@ -203,6 +203,27 @@ function cctvLost(c) {
   g.strokeText('NO SIGNAL', W / 2, H * 0.52); g.fillText('NO SIGNAL', W / 2, H * 0.52);
   g.restore();
 }
+// "Ordinary" (2026-10-16): a shot's porthole: the frame seen from inside a machine's drum, through its round door: a
+// brushed-steel face round a round hole (centre cy of the height, radius r of the width), the rubber gasket, chrome rings,
+// the drum's laundry tumbling past the rim in the foreground, and the glass's glint (pure in t)
+const PH_COLS = ['#a8e6d4', '#ffc2d6', '#d6c2f0', '#fff0a8', '#f8f6f0', '#a8d4f4', '#ffd0a8'];
+function porthole(p, t) {
+  const cx = W / 2, cy = H * (p.cy ?? 0.52), R = W * (p.r ?? 0.44), TAU = Math.PI * 2;
+  g.save();
+  const st = g.createLinearGradient(0, 0, W, H); st.addColorStop(0, '#cdd2da'); st.addColorStop(0.5, '#9ca4ae'); st.addColorStop(1, '#c4cad2');
+  g.fillStyle = st; g.beginPath(); g.rect(0, 0, W, H); g.arc(cx, cy, R * 1.16, 0, TAU, true); g.fill('evenodd');
+  g.lineWidth = R * 0.16; g.strokeStyle = '#2a2e36'; g.beginPath(); g.arc(cx, cy, R * 1.08, 0, TAU); g.stroke();
+  g.lineWidth = R * 0.05; g.strokeStyle = '#eef2f6'; g.beginPath(); g.arc(cx, cy, R * 1.0, 0, TAU); g.stroke();
+  g.lineWidth = R * 0.025; g.strokeStyle = '#7d8590'; g.beginPath(); g.arc(cx, cy, R * 1.15, 0, TAU); g.stroke();
+  g.beginPath(); g.arc(cx, cy, R * 0.985, 0, TAU); g.clip();
+  for (let k = 0; k < 9; k++) {
+    const a = k * 0.7 + t * 1.6 + Math.sin(k * 3.1) * 0.4, rr = R * (0.95 + 0.04 * Math.sin(k * 1.7 + t)), w = R * (0.3 + 0.12 * ((k * 37) % 5) / 5), h = R * 0.15;
+    g.save(); g.translate(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); g.rotate(a + Math.PI / 2 + Math.sin(t * 2 + k) * 0.3);
+    g.fillStyle = PH_COLS[k % PH_COLS.length]; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, h * 0.4); g.fill(); g.restore();
+  }
+  g.globalAlpha = 0.16; g.fillStyle = '#ffffff'; g.beginPath(); g.ellipse(cx - R * 0.35, cy - R * 0.45, R * 0.42, R * 0.1, -0.6, 0, TAU); g.fill();
+  g.restore();
+}
 function cctv(c) {
   if (c.lost != null && c.s >= c.lost) { cctvLost(c); return; }
   g.save();
@@ -287,6 +308,7 @@ chapter('dance', 0, DUR, [[0, function danceFloor(t) {
     const wh = window.WHITE || 0;   // a shot's white: a lightning flash over the whole frame (ps1.js sets it)
     if (wh > 0.01) { g.save(); g.globalAlpha = wh; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); g.restore(); }
     if (window.CCTV) cctv(window.CCTV);   // a shot's cctv: the security camera's overlay (ps1.js sets it)
+    if (window.PORTHOLE) porthole(window.PORTHOLE, t);   // a shot's porthole: seen from inside the drum (ps1.js sets it)
   }
   g.imageSmoothingEnabled = true;
   if (CLEAN) return;   // ?clean: the bare 3D frame (profile pictures, thumbnails)

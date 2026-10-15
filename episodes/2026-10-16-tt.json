@@ -1,0 +1,1667 @@
+{
+ "date": "2026-10-16",
+ "song": {
+  "title": "Ordinary",
+  "artist": "Alex Warren"
+ },
+ "logline": "In a late-night laundromat Sadi folds her laundry while the pets who love her undo every load: the cat sleeps on each fresh stack, the dog steals her socks and dives into the warm laundry pouring out of the dryer like an angel in the clouds, until she folds them too. (TikTok cut on the official sound: from the cat on the fresh stack to the two pets folded like laundry.)",
+ "new": "src/maps51.js: laundromat (the clip's late-night laundromat: stacked dryers whose drums tumble and glow, front-loaders with swirling suds, the folding table, a wire cart, the attendant's counter, a NO PETS sign, the warm laundry pouring out of a dryer onto a heap, folded stacks that grow and topple, gold light, steam, rays and sparkles for the heavenly moments, and a dead stop that freezes the set); the actor fields `halo` (a gold ring over the head) and `burrito` (rolled up in a towel to the chin); the props `towel` (held up between both paws) and `nopets` (the attendant's paddle); the `fold` swing; three looks: Saxo's cream work jacket (the singer's), Sadi's laundry-day hoodie, Compote's attendant smock; the structure SISYPHUS again",
+ "notes": "The world, from the official video (contact sheets): a teal-lit laundromat at night, a man in a cream work jacket waiting by the machines, the girl across them, their hands touching over the laundry, a drum's light as a portal, a golden-hour journey. The words, from whitelisted keywords per line: ordinary, want, down, angels, up, clouds, found, ground, touch, world, light, die. Cast: Saxo in the singer's cream work jacket (the dog who loves her laundry: socks, the warm heap, the zoomies), Sadi in a laundry-day hoodie (the folder), Kob at 0.6 scale (the cat who sleeps on the fresh laundry), Compote in an attendant's smock (NO PETS). The cut ends where the final chorus's drums would come in: the drop that never comes.",
+ "tiktok_sound": "7467450862064879632",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "happy_run",
+  "laying_idle",
+  "situps"
+ ],
+ "tags": {
+  "structure": "sisyphus",
+  "scenes": [
+   "the cat on the fresh laundry",
+   "the sock thief",
+   "the warm laundry cloud",
+   "the zoomies",
+   "the cat in the warm cart",
+   "NO PETS",
+   "the innocent face",
+   "the hypnotising drum",
+   "face down in the laundry",
+   "the dog burrito",
+   "the purrito",
+   "the perfect stack",
+   "the exploding stack"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "laundromat"
+  ],
+  "ref": "none",
+  "lyric_literal": "'down' (the cat set down on the floor), 'angels up in the clouds' (the dog in the warm laundry heap with a halo, three times), 'ordinary ordinary' (two folds), 'ground ground' (the stack to the ground), 'touch' (her paw finds the cat in the cart), 'light' (the drum's glow), 'die' (she flops face down), 'down' (the purrito set down in the cart)",
+  "experiment": "Does a pet-owner universal everyone has lived through at home (the pets who wreck every load of laundry you fold: the cat on the fresh stack, the dog with the socks, the warm towels from the dryer), on a slow chart ballad with the biggest TikTok sound of the week (Alex Warren's Ordinary, 1.98M videos), hold the Short's views at 24 h against our last three upbeat episodes?"
+ },
+ "shots": [
+  {
+   "beat": -2,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "charleston",
+     "x": -1.4,
+     "z": -1.3,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.281,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0.2,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.12,
+     "hold": "towel",
+     "arm": "both",
+     "aim": "fold",
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "situps",
+     "x": 1,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 21.5,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.96,
+     "noLie": true,
+     "sleep": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     23.66,
+     24.48
+    ],
+    "r": [
+     4.405,
+     4.074
+    ],
+    "h": [
+     1.3,
+     1.28
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -0.1,
+    -0.55
+   ],
+   "stack": [
+    {
+     "x": 1,
+     "z": 0.55,
+     "y": 0.48,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0.62,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 30,
+     "at": 0.6,
+     "speed": 0.12,
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.1,
+      0.97
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "situps",
+     "x": 0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -33.7,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.96,
+     "noLie": true,
+     "sleep": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -25.14,
+     -25.14
+    ],
+    "r": [
+     2.706,
+     2.706
+    ],
+    "h": [
+     1.55,
+     1.55
+    ],
+    "look": [
+     1.05,
+     1.05
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.6,
+    -0.15
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "beat": 6.8,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "situps",
+     "x": 0.95,
+     "z": 1.15,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0,
+     "noLie": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.2,
+     1.2
+    ],
+    "h": [
+     0.45,
+     0.45
+    ],
+    "look": [
+     0.52,
+     0.52
+    ],
+    "fov": 46
+   },
+   "focus": [
+    0.95,
+    1.15
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "beat": 8.6,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "charleston",
+     "x": -1.3,
+     "z": -2.5,
+     "face": "world",
+     "yaw": 8,
+     "at": 0.171,
+     "speed": 1,
+     "fetch": "sock"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.22,
+     9.59
+    ],
+    "r": [
+     3.099,
+     2.282
+    ],
+    "h": [
+     0.84,
+     0.82
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 62,
+    "roll": [
+     -8,
+     -11
+    ]
+   },
+   "focus": [
+    -1.3,
+    -2.5
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": -0.55,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.6,
+     "speed": 0.12,
+     "hold": "sock",
+     "holdScale": 1.1,
+     "arm": "R",
+     "aim": [
+      0.62,
+      0.6,
+      0.3
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "charleston",
+     "x": -1.35,
+     "z": -2.75,
+     "face": "world",
+     "yaw": 15,
+     "at": 0.457,
+     "speed": 1,
+     "fetch": "sock"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     13.39,
+     13.39
+    ],
+    "r": [
+     3.238,
+     3.238
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -0.35,
+    -1.4
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "beat": 15,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "happy_idle",
+     "x": -1.4,
+     "z": -1.75,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     180,
+     180
+    ],
+    "r": [
+     2.75,
+     2.75
+    ],
+    "h": [
+     0.8,
+     0.8
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 58
+   },
+   "focus": [
+    -1.4,
+    -1.75
+   ],
+   "porthole": true,
+   "key": [
+    -1.4,
+    1,
+    -3,
+    1.7,
+    1.05,
+    0.45
+   ],
+   "doors": [
+    [
+     2,
+     0,
+     [
+      0.3,
+      1,
+      0,
+      1
+     ]
+    ]
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 6
+    }
+   ],
+   "heaven": [
+    1.4,
+    2.4,
+    0,
+    0.45
+   ]
+  },
+  {
+   "beat": 19.3,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "laying_idle",
+     "x": -1.3,
+     "z": -3.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.1,
+     "ground": "mesh",
+     "tongue": true,
+     "halo": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.7,
+      0.65
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2,
+     2
+    ],
+    "h": [
+     3,
+     3
+    ],
+    "look": [
+     0.3,
+     0.3
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -1.3,
+    -4.2
+   ],
+   "doors": [
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "cloud": [
+    {
+     "from": [
+      2,
+      0
+     ],
+     "x": -1.3,
+     "z": -3.4,
+     "s0": -1.6,
+     "n": 90,
+     "r": 1,
+     "h": 0.42
+    }
+   ],
+   "heaven": [
+    0,
+    0.5,
+    0,
+    0.6
+   ],
+   "sparkle": [
+    [
+     -1.3,
+     0.3,
+     -3.4,
+     0.9
+    ]
+   ],
+   "steam": [
+    [
+     -1.65,
+     0.3,
+     -4.15
+    ],
+    [
+     -0.9,
+     0.3,
+     -4.05
+    ]
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "beat": 23.7,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.12,
+     "hold": "towel",
+     "arm": "both",
+     "aim": "fold",
+     "upAt": -1,
+     "flapEvery": 0.5
+    },
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "charleston",
+     "x": -1.3,
+     "z": -2.4,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.067,
+     "speed": 1,
+     "fetch": "sock"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     10.38,
+     10.38
+    ],
+    "r": [
+     3.363,
+     3.363
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.2,
+    -0.4
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "grow": [
+      0,
+      0.5,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "beat": 28.4,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "happy_run",
+     "x": 2.2,
+     "z": 1.3,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.2,
+     "speed": 1.3,
+     "mx": -1.8,
+     "mz": 0,
+     "reveal": 0.4
+    },
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 1.6,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0.12,
+     "hold": "towel",
+     "arm": "both",
+     "aim": "fold",
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 62
+   },
+   "focus": [
+    1,
+    0.6
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": 1.2,
+     "dir": 0,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 31.4,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0,
+     "z": -0.55,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.05,
+      0.42,
+      0.6
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "laying_idle",
+     "x": 0.75,
+     "z": 1.3,
+     "face": "world",
+     "yaw": 22,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.08,
+     "ground": "mesh",
+     "sleep": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.61,
+     21.61
+    ],
+    "r": [
+     3.192,
+     3.192
+    ],
+    "h": [
+     2.55,
+     2.55
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.55,
+    0.75
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 35,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": -1.74,
+     "z": 1.65,
+     "face": "world",
+     "yaw": -90,
+     "at": 0.6,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.45,
+      0.88
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "situps",
+     "x": -2.38,
+     "z": 1.6,
+     "face": "world",
+     "yaw": 25,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.7,
+     "noLie": true,
+     "sleep": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     12.99,
+     12.99
+    ],
+    "r": [
+     2.001,
+     2.001
+    ],
+    "h": [
+     2.5,
+     2.5
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -2.15,
+    1.55
+   ],
+   "pile": [
+    {
+     "x": -2.6,
+     "z": 1.6,
+     "y": 0.46,
+     "r": 0.42,
+     "h": 0.28,
+     "n": 30
+    }
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 41.9,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "laying_idle",
+     "x": -1.3,
+     "z": -3.4,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.1,
+     "ground": "mesh",
+     "tongue": true,
+     "halo": true,
+     "arm": "both",
+     "aim": [
+      0.3,
+      0.7,
+      0.65
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "laying_idle",
+     "x": -1.25,
+     "z": -3.05,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.45,
+     "ground": "mesh",
+     "halo": true,
+     "sleep": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -24,
+     -24
+    ],
+    "r": [
+     1.8,
+     1.8
+    ],
+    "h": [
+     3.6,
+     3.6
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -1,
+    -4.1
+   ],
+   "doors": [
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "cloud": [
+    {
+     "from": [
+      2,
+      0
+     ],
+     "x": -1.3,
+     "z": -3.4,
+     "s0": -9,
+     "n": 90,
+     "r": 1,
+     "h": 0.42
+    }
+   ],
+   "heaven": [
+    0,
+    0.5,
+    0,
+    0.6
+   ],
+   "sparkle": [
+    [
+     -1.3,
+     0.3,
+     -3.4,
+     0.9
+    ]
+   ],
+   "steam": [
+    [
+     -1.65,
+     0.3,
+     -4.15
+    ],
+    [
+     -0.9,
+     0.3,
+     -4.05
+    ]
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "attendant",
+     "clip": "happy_idle",
+     "x": 5.95,
+     "z": 2.7,
+     "face": "world",
+     "yaw": -90,
+     "at": 2.125,
+     "speed": 0,
+     "hold": "nopets",
+     "arm": "R",
+     "aim": [
+      0.45,
+      0.62,
+      0.64
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -86.1,
+     -86.57
+    ],
+    "r": [
+     2.205,
+     2.004
+    ],
+    "h": [
+     1.4,
+     1.38
+    ],
+    "look": [
+     1.25,
+     1.25
+    ],
+    "fov": 40
+   },
+   "focus": [
+    5.95,
+    2.7
+   ]
+  },
+  {
+   "beat": 52,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "happy_idle",
+     "x": -0.6,
+     "z": -1.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "fetch": "sock",
+     "halo": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.4,
+     1.4
+    ],
+    "r": [
+     2.051,
+     2.051
+    ],
+    "h": [
+     1.35,
+     1.35
+    ],
+    "look": [
+     1.2,
+     1.2
+    ],
+    "fov": 44
+   },
+   "focus": [
+    -0.6,
+    -1.6
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 55,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "charleston",
+     "x": -1.3,
+     "z": -2.5,
+     "face": "world",
+     "yaw": -10,
+     "at": 1.567,
+     "speed": 1,
+     "hold": "sock",
+     "holdScale": 1.2,
+     "arm": "R",
+     "aim": [
+      0.72,
+      0.4,
+      0.4
+     ],
+     "upAt": -1,
+     "fetch": "sock"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     30.02,
+     -31.37
+    ],
+    "r": [
+     2.599,
+     2.401
+    ],
+    "h": [
+     0.85,
+     0.87
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 60,
+    "roll": [
+     -6,
+     5
+    ],
+    "hand": 1.2
+   },
+   "focus": [
+    -1.3,
+    -2.5
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 61.2,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "situps",
+     "x": -2.55,
+     "z": -3.8,
+     "face": "world",
+     "yaw": -165,
+     "at": 1,
+     "speed": 0,
+     "lift": 0,
+     "noLie": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     31.33,
+     31.33
+    ],
+    "r": [
+     2.693,
+     2.693
+    ],
+    "h": [
+     0.9,
+     0.9
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -2.6,
+    -4.6
+   ],
+   "heaven": [
+    3.4,
+    5.2,
+    0,
+    0.55
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 66.6,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0.62,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 30,
+     "at": 0.6,
+     "speed": 0.12,
+     "arm": "both",
+     "aim": [
+      0.2,
+      -0.1,
+      0.97
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "situps",
+     "x": 0.85,
+     "z": 0.2,
+     "face": "world",
+     "yaw": -33.7,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.64,
+     "noLie": true,
+     "sleep": true,
+     "scale": 0.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -25.14,
+     -25.14
+    ],
+    "r": [
+     2.706,
+     2.706
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    0.6,
+    -0.15
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 2
+    },
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 69.7,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "laying_idle",
+     "x": 0.6,
+     "z": 1.65,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.08,
+     "ground": "mesh"
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     1.95,
+     1.95
+    ],
+    "h": [
+     2.4,
+     2.4
+    ],
+    "look": [
+     0.2,
+     0.2
+    ],
+    "fov": 50
+   },
+   "focus": [
+    0.6,
+    1.4
+   ],
+   "stack": [
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 71.7,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "laying_idle",
+     "x": -0.45,
+     "z": -0.02,
+     "face": "world",
+     "yaw": 90,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.48,
+     "ground": "mesh",
+     "tongue": true,
+     "burrito": {
+      "col": 11069140,
+      "r": 0.29
+     }
+    },
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": -0.3,
+     "z": -0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.6,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.15,
+      -0.5,
+      0.82
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     27.85,
+     27.85
+    ],
+    "r": [
+     2.997,
+     2.997
+    ],
+    "h": [
+     2.45,
+     2.45
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.5,
+    -0.25
+   ],
+   "stack": [
+    {
+     "x": 1.3,
+     "z": 0.25,
+     "y": 0.48,
+     "n": 4
+    },
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 76.4,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.48,
+     "tongue": true,
+     "burrito": {
+      "col": 11069140,
+      "r": 0.36,
+      "back": 0.27,
+      "top": 0.95
+     }
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.48,
+     "burrito": {
+      "col": 16761558,
+      "r": 0.33,
+      "back": 0.24,
+      "top": 0.95
+     },
+     "sleep": true,
+     "scale": 0.6
+    },
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0.75,
+     "z": -0.5,
+     "face": "world",
+     "yaw": -15,
+     "at": 0.6,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.12,
+      -0.55,
+      0.8
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     3.64,
+     3.64
+    ],
+    "r": [
+     3.307,
+     3.307
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.05,
+    0.1
+   ],
+   "stack": [
+    {
+     "x": 1.3,
+     "z": 0.25,
+     "y": 0.48,
+     "n": 4
+    },
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "laundromat",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.48,
+     "tongue": true,
+     "burrito": {
+      "col": 11069140,
+      "r": 0.36,
+      "back": 0.27,
+      "top": 0.95
+     }
+    },
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "happy_idle",
+     "x": 0.15,
+     "z": 0.35,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.48,
+     "burrito": {
+      "col": 16761558,
+      "r": 0.33,
+      "back": 0.24,
+      "top": 0.95
+     },
+     "sleep": true,
+     "scale": 0.6
+    },
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "happy_idle",
+     "x": 0.75,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -0.73,
+     -0.73
+    ],
+    "r": [
+     3.9,
+     3.9
+    ],
+    "h": [
+     1.6,
+     1.6
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.3,
+    0.1
+   ],
+   "hearts": [
+    [
+     0.75,
+     1.62,
+     -0.5,
+     0
+    ]
+   ],
+   "stack": [
+    {
+     "x": 1.3,
+     "z": 0.25,
+     "y": 0.48,
+     "n": 4
+    },
+    {
+     "x": 0.85,
+     "z": 0.2,
+     "y": 0.48,
+     "n": 12,
+     "fall": -9,
+     "dir": 10,
+     "spread": 1.6
+    }
+   ]
+  }
+ ]
+}

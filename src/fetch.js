@@ -36,10 +36,14 @@ export function fetchMesh(K, kind) {   // K: the renderer's map kit (THREE, mat)
   } else if (kind === 'bone') {   // a chew bone
     const m = M(0xf6f0de, 0.4); add(cyl(0.035, 0.035, 0.4, 6, m)).rotation.z = PI / 2;
     for (const x of [-0.2, 0.2]) for (const y of [-0.04, 0.04]) add(ico(0.055, 0, m), x, y, 0);
-  } else if (kind === 'sock') {   // a striped sock (stolen from the laundry)
+  } else if (kind === 'sock') {   // a striped sock (stolen from the laundry): a long leg, the foot bent down at the heel, a red toe, heel and cuff
+    // stripes (a short box with two red bands read as a gift box, "Ordinary" review 2)
     const w = M(0xf4f4f0, 0.45), r = M(0xe84a4a, 0.45);
-    add(box(0.3, 0.1, 0.07, w), -0.05, 0, 0); add(box(0.12, 0.1, 0.07, w), 0.14, -0.05, 0).rotation.z = -0.6;
-    for (const x of [-0.16, -0.06]) add(box(0.03, 0.105, 0.075, r), x, 0, 0);
+    add(box(0.32, 0.07, 0.05, w), -0.04, 0, 0);
+    add(box(0.16, 0.07, 0.05, w), 0.16, -0.065, 0).rotation.z = -1.0;
+    add(box(0.05, 0.074, 0.055, r), 0.2, -0.13, 0).rotation.z = -1.0;
+    add(box(0.06, 0.074, 0.055, r), 0.11, -0.03, 0).rotation.z = -0.5;
+    for (const x of [-0.18, -0.13]) add(box(0.022, 0.075, 0.055, r), x, 0, 0);
   } else if (kind === 'rose') {   // "Gabriela" (2026-10-13): a long-stemmed red rose, the bloom at +x (the telenovela rose between the teeth)
     const st = add(cyl(0.014, 0.016, 0.42, 5, M(0x3a8a3a, 0.35)), -0.05, 0, 0); st.rotation.z = PI / 2;
     for (const [x, s] of [[-0.12, 1], [0.02, -1]]) { const lf = add(ico(0.045, 0, M(0x4aa04a, 0.4)), x, 0.03 * s, 0.02); lf.scale.set(1.6, 0.35, 0.8); lf.rotation.z = 0.5 * s; }
