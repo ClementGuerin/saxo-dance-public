@@ -1,6 +1,31 @@
 {
- "updated": "2026-10-15T14:16:59.598Z",
+ "updated": "2026-10-15T18:17:03.551Z",
  "posts": [
+  {
+   "id": "2026-10-15-2",
+   "title": "Umbrella",
+   "artist": "Rihanna ft. JAY-Z",
+   "date": "2026-10-15T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-15-2.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DehjkbDlNZ2/",
+     "id": "DehjkbDlNZ2"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/in9vdHnGeTc",
+     "id": "in9vdHnGeTc"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=966836202591196",
+     "id": "966836202591196"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2110793225950614001",
+     "id": "2110793225950614001"
+    }
+   }
+  },
   {
    "id": "2026-10-15",
    "title": "The Fate of Ophelia",
@@ -23,10 +48,6 @@
     "x": {
      "url": "https://x.com/saxodance/status/2110732886341009495",
      "id": "2110732886341009495"
-    },
-    "tiktok": {
-     "url": "https://www.tiktok.com/@saxo.dance/video/7696636650654403862",
-     "id": "7696636650654403862"
     }
    }
   },
