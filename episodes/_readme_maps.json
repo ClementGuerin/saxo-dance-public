@@ -3968,6 +3968,65 @@
      "z": 1.8
     }
    ]
+  },
+  {
+   "beat": 184,
+   "kind": "dance",
+   "map": "parlour",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     20,
+     20
+    ],
+    "r": [
+     3.6,
+     3.6
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -1.4
+   ],
+   "dancers": "dance",
+   "guests": "watch",
+   "clear": [
+    [
+     -2.5,
+     -3.4,
+     0.4
+    ],
+    [
+     0.95,
+     -3.65,
+     0.4
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "corset",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": -1.4
+    },
+    {
+     "who": "sadi",
+     "look": "whitedress",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": -1.4
+    }
+   ]
   }
  ]
 }
