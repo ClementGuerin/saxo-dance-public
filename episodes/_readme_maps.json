@@ -4027,6 +4027,54 @@
      "z": -1.4
     }
    ]
+  },
+  {
+   "beat": 186,
+   "kind": "dance",
+   "map": "laundromat",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    -2.4
+   ],
+   "hide": [
+    "table"
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "cherry",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": -2.4
+    },
+    {
+     "who": "sadi",
+     "look": "laundry",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": -2.4
+    }
+   ]
   }
  ]
 }
