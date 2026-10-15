@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15T18:17:03.551Z",
+ "updated": "2026-10-15T18:46:58.288Z",
  "posts": [
   {
    "id": "2026-10-15-2",
@@ -23,6 +23,10 @@
     "x": {
      "url": "https://x.com/saxodance/status/2110793225950614001",
      "id": "2110793225950614001"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7696673820349959446",
+     "id": "7696673820349959446"
     }
    }
   },
@@ -48,6 +52,10 @@
     "x": {
      "url": "https://x.com/saxodance/status/2110732886341009495",
      "id": "2110732886341009495"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7696636650654403862",
+     "id": "7696636650654403862"
     }
    }
   },
