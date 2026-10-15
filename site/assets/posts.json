@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-14T19:29:10.671Z",
+ "updated": "2026-10-15T14:16:59.598Z",
  "posts": [
+  {
+   "id": "2026-10-15",
+   "title": "The Fate of Ophelia",
+   "artist": "Taylor Swift",
+   "date": "2026-10-15T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-15.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DehIJDeiTfm/",
+     "id": "DehIJDeiTfm"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/FZpPnsEVlQk",
+     "id": "FZpPnsEVlQk"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=28595184663509106",
+     "id": "28595184663509106"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2110732886341009495",
+     "id": "2110732886341009495"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7696636650654403862",
+     "id": "7696636650654403862"
+    }
+   }
+  },
   {
    "id": "2026-10-14-2",
    "title": "Every Breath You Take",
