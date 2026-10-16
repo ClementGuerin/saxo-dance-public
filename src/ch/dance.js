@@ -255,6 +255,11 @@ function cctv(c) {
   g.fillStyle = vg; g.fillRect(0, 0, W, H);
   const m = 44, L = 90; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.lineWidth = 6;
   for (const [x, y, sx, sy] of [[m, m, 1, 1], [W - m, m, -1, 1], [m, H - m, 1, -1], [W - m, H - m, -1, -1]]) { g.beginPath(); g.moveTo(x, y + sy * L); g.lineTo(x, y); g.lineTo(x + sx * L, y); g.stroke(); }
+  if (c.box && Math.floor(c.s * 2.5) % 3 !== 2) {   // "As It Was": a motion-detection box round what moves on the feed, blinking red, labelled (frame fractions)
+    const [x0, y0, x1, y1] = c.box; g.strokeStyle = '#ff2a2a'; g.lineWidth = 8; g.strokeRect(x0 * W, y0 * H, (x1 - x0) * W, (y1 - y0) * H);
+    g.font = '700 40px monospace'; g.textAlign = 'left'; g.textBaseline = 'bottom'; g.lineJoin = 'round'; g.lineWidth = 7; g.strokeStyle = 'rgba(0,0,0,0.7)'; g.fillStyle = '#ff2a2a';
+    g.strokeText('MOTION', x0 * W, y0 * H - 8); g.fillText('MOTION', x0 * W, y0 * H - 8);
+  }
   const yT = H * 0.845; g.font = '700 46px monospace'; g.textBaseline = 'middle';
   if (Math.floor(c.s * 1.6) % 2 === 0) { g.fillStyle = '#ff2a2a'; g.beginPath(); g.arc(m + 30, yT, 16, 0, Math.PI * 2); g.fill(); }
   const sec = c.clock + Math.floor(c.s), two = n => String(n).padStart(2, '0'), clock = `${two(Math.floor(sec / 3600) % 24)}:${two(Math.floor(sec / 60) % 60)}:${two(sec % 60)}`;

@@ -56,6 +56,7 @@ import { buildOpheliaMaps } from './maps49.js';
 import { buildParlourMaps } from './maps50.js';
 import { buildLaundromatMaps } from './maps51.js';
 import { buildDejaVuMaps } from './maps52.js';
+import { buildFlatMaps } from './maps53.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -829,6 +830,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   cherry: 'assets/models/saxo_cherry.glb',
   // the "deja vu" clip's look (Olivia Rodrigo, 2021): a long voluminous dark brown wavy wig past the shoulders, his ears out on top, a fitted emerald green satin slip dress on thin straps with a flared hem at the knees, a thin gold chain, small gold hoops, bare paws (2026-10-16 2nd)
   greendress: 'assets/models/saxo_greendress.glb',
+  // the "As It Was" clip's stage look (Harry Styles, 2022): a sleeveless glossy red sequin jumpsuit with a deep V neckline and wide tank straps, fitted at the waist, wide flared legs, small red shoes; his grey arms bare
+  redsequin: 'assets/models/saxo_redsequin.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -938,6 +941,8 @@ const PARTNERS = {
     persian: 'assets/models/kob_persian.glb',
     // the 1920s film director: a small red beret tilted between her ears, a white silk scarf knotted over her bell collar, a navy double-breasted blazer with gold buttons, cream jodhpur breeches, tall brown riding boots ("The Fate of Ophelia", 2026-10-15)
     director: 'assets/models/kob_director.glb',
+    // the "As It Was" clip's dancer: a sleeveless glossy royal-blue sequin jumpsuit on thin straps, flared legs, small black shoes, her bell collar (2026-10-17)
+    bluesequin: 'assets/models/kob_bluesequin.glb',
     // the boxing referee: a light blue short-sleeved shirt buttoned to the collar with two chest pockets, a black bow tie over her bell collar, black trousers and belt, black shoes ("SaWaDiKa", 2026-10-13 2nd)
     referee: 'assets/models/kob_referee.glb',
     // the park keeper: a dark olive work jacket under a fluorescent yellow high-visibility vest with silver stripes, green work trousers, green rubber boots, brown work gloves, a dark green beanie, her bell ("we fell in love in october", 2026-10-03)
@@ -1087,7 +1092,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT), ...buildLaundromatMaps(MAP_KIT), ...buildDejaVuMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT), ...buildLaundromatMaps(MAP_KIT), ...buildDejaVuMaps(MAP_KIT), ...buildFlatMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1348,6 +1353,11 @@ function propMesh(kind) {
     add(cyl(0.052, 0.052, 0.03, M(0x2a7ae8)), 0, 0.07);
   } else if (kind === 'redcup') {  // a red party cup with a white rim ("APT.": the clip's drinking game)
     add(cyl(0.06, 0.042, 0.15, M(0xe02a2a)), 0, 0.075); add(cyl(0.062, 0.062, 0.02, M(0xf6f6f6)), 0, 0.152);
+  } else if (kind === 'pizza') {   // "As It Was": a slice of pizza held by its crust, tip up, its face to where the holder faces: cheese, three pepperoni, a brown crust on the arc
+    const W = Math.PI / 3.2, R = 0.22, lift = 0.15;
+    const cheese = add(new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.03, 5, 1, false, -W / 2, W), mat({ color: 0xffd060, unlit: 0.35 })), 0, lift); cheese.rotation.x = Math.PI / 2;
+    const crust = add(new THREE.Mesh(new THREE.CylinderGeometry(R + 0.012, R + 0.012, 0.045, 5, 1, true, -W / 2, W), mat({ color: 0xc07a32, unlit: 0.25, side: THREE.DoubleSide })), 0, lift); crust.rotation.x = Math.PI / 2;
+    for (const [x, y] of [[0.012, 0.09], [-0.03, 0.035], [0.035, 0.01], [-0.015, -0.035]]) add(cyl(0.017, 0.017, 0.036, M(0xd8322a), 6), x, lift - 0.06 - y, 0.004).rotation.x = Math.PI / 2;   // four small slices of pepperoni, scattered: three read as a face in grey
   } else if (kind === 'milk') {    // a glass of milk (Kob stays in)
     add(cyl(0.052, 0.044, 0.16, M(0x6aa8e8)), 0, 0.08); add(cyl(0.046, 0.046, 0.02, M(0xffffff)), 0, 0.15); add(cyl(0.008, 0.008, 0.13, M(0xff5fa2), 4), 0.018, 0.2).rotation.z = -0.3;   // blue glass, white milk: a white glass vanished on her pyjamas
   } else if (kind === 'camera') {  // the private eye's camera, lens forward: a black body under a silver top, a big lens, a flash unit on top ("Billie Jean")
@@ -2697,7 +2707,7 @@ function danceFrame(t) {
     window.WHITE = (P.white || []).reduce((m, f) => { const e = sIn - f; return e >= 0 && e < 0.35 ? Math.max(m, e < 0.06 ? 0.9 : e < 0.12 ? 0.25 : e < 0.18 ? 0.7 : 0.7 * Math.exp(-(e - 0.18) * 14)) : m; }, 0);
     // cctv: the shot is a security camera's feed ("Animal", 2026-10-03): its label (e.g. 'CAM 03 · CEO'), drawn by the 2D layer with a REC dot, a timecode and scanlines (window.CCTV);
     // cctvLost (s into the shot): the feed dies there, a white flash and then static with NO SIGNAL (the cat swats the camera)
-    window.CCTV = P.cctv ? { label: P.cctv, s: sIn, clock: P.cctvClock ?? 85632, lost: P.cctvLost } : null;
+    window.CCTV = P.cctv ? { label: P.cctv, s: sIn, clock: P.cctvClock ?? 85632, lost: P.cctvLost, box: P.cctvBox } : null;   // cctvBox: [x0, y0, x1, y1] (frame fractions), a blinking MOTION box
     // porthole: the shot seen from inside a machine's drum ("Ordinary", 2026-10-16): the 2D layer frames it in the round door, true or { cy, r } (window.PORTHOLE)
     window.PORTHOLE = P.porthole ? { s: sIn, ...(typeof P.porthole === 'object' ? P.porthole : {}) } : null;
     // crt: the shot is a memory replayed on an old TV ("deja vu", 2026-10-16 2nd): the 2D layer fades it like a home video and frames it in a CRT's casing, true or { date } (window.CRT)
