@@ -224,6 +224,29 @@ function porthole(p, t) {
   g.globalAlpha = 0.16; g.fillStyle = '#ffffff'; g.beginPath(); g.ellipse(cx - R * 0.35, cy - R * 0.45, R * 0.42, R * 0.1, -0.6, 0, TAU); g.fill();
   g.restore();
 }
+// "deja vu" (2026-10-16 2nd): a shot's crt: a memory replayed on an old TV: the frame faded like a home video (the 2D
+// layer's filter while it draws the 3D frame), scanlines, a rolling tracking band, a curved vignette, then a wood-grain
+// CRT casing round a rounded screen, its knobs and speaker grille in the bottom panel (under the watermark), PLAY and a
+// date stamp in the screen's bottom corners, clear of the lyric rows at the top (pure in t)
+function crt(c, t) {
+  const x0 = W * 0.045, x1 = W * 0.955, y0 = H * 0.03, y1 = H * 0.835, rr = W * 0.07;
+  g.save();
+  g.fillStyle = 'rgba(0,0,0,0.13)'; for (let y = y0; y < y1; y += 7) g.fillRect(x0, y, x1 - x0, 2);
+  const by = y0 + ((c.s * 0.35 + 0.2) % 1) * (y1 - y0); g.fillStyle = 'rgba(255,255,255,0.07)'; g.fillRect(x0, by, x1 - x0, H * 0.025);
+  g.fillStyle = 'rgba(255,190,140,0.07)'; g.fillRect(x0, y0, x1 - x0, y1 - y0);
+  const vg = g.createRadialGradient(W / 2, (y0 + y1) / 2, H * 0.22, W / 2, (y0 + y1) / 2, H * 0.5); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,0.5)');
+  g.fillStyle = vg; g.fillRect(x0, y0, x1 - x0, y1 - y0);
+  const wood = g.createLinearGradient(0, 0, W, 0); wood.addColorStop(0, '#5a3418'); wood.addColorStop(0.5, '#7a4a26'); wood.addColorStop(1, '#5a3418');
+  g.fillStyle = wood; g.beginPath(); g.rect(0, 0, W, H); g.roundRect(x0, y0, x1 - x0, y1 - y0, rr); g.fill('evenodd');
+  g.strokeStyle = '#1a120c'; g.lineWidth = W * 0.012; g.beginPath(); g.roundRect(x0, y0, x1 - x0, y1 - y0, rr); g.stroke();
+  g.strokeStyle = 'rgba(255,220,180,0.25)'; g.lineWidth = 3; for (let y = y1 + H * 0.02; y < H; y += H * 0.012) { g.beginPath(); g.moveTo(W * 0.08, y); g.lineTo(W * 0.55, y); g.stroke(); }
+  for (const [kx, ky] of [[0.72, 0.885], [0.86, 0.885]]) { g.fillStyle = '#1e1a16'; g.beginPath(); g.arc(W * kx, H * ky, W * 0.045, 0, Math.PI * 2); g.fill(); g.fillStyle = '#c8b89a'; g.fillRect(W * kx - 3, H * ky - W * 0.04, 6, W * 0.03); }
+  g.font = '700 46px monospace'; g.textBaseline = 'alphabetic'; g.lineJoin = 'round'; g.lineWidth = 8; g.strokeStyle = 'rgba(0,0,0,0.75)';
+  const ty = y1 - H * 0.025;
+  if (Math.floor(c.s * 1.4) % 2 === 0) { g.textAlign = 'left'; g.fillStyle = '#ffffff'; g.strokeText('PLAY \u25B6', x0 + W * 0.05, ty); g.fillText('PLAY \u25B6', x0 + W * 0.05, ty); }
+  g.textAlign = 'right'; g.fillStyle = '#ffd04a'; g.strokeText(c.date || 'JUL 4 2025', x1 - W * 0.05, ty); g.fillText(c.date || 'JUL 4 2025', x1 - W * 0.05, ty);
+  g.restore();
+}
 function cctv(c) {
   if (c.lost != null && c.s >= c.lost) { cctvLost(c); return; }
   g.save();
@@ -301,6 +324,7 @@ chapter('dance', 0, DUR, [[0, function danceFloor(t) {
   if (window.render3d) {
     const f0 = window.render3d(t), f = window.SKETCH ? sketchFx(f0, t) : f0, mono = window.MONO || 0;
     if (mono > 0.01) g.filter = `grayscale(${mono}) contrast(${1 + 0.25 * mono})`;   // a shot's mono: the black-and-white movie opening (ps1.js sets it)
+    if (window.CRT) g.filter = 'sepia(0.35) saturate(0.85) contrast(0.92) brightness(1.06)';   // a shot's crt: the memory's home-video colours
     g.drawImage(f, 0, 0, W, H); g.filter = 'none';
     if (window.PHOTO != null) polaroid(f, window.PHOTO);
     const wp = window.WHIP || 0;   // whip-pan: horizontal smear of the frame while the camera snaps into place
@@ -309,6 +333,7 @@ chapter('dance', 0, DUR, [[0, function danceFloor(t) {
     if (wh > 0.01) { g.save(); g.globalAlpha = wh; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); g.restore(); }
     if (window.CCTV) cctv(window.CCTV);   // a shot's cctv: the security camera's overlay (ps1.js sets it)
     if (window.PORTHOLE) porthole(window.PORTHOLE, t);   // a shot's porthole: seen from inside the drum (ps1.js sets it)
+    if (window.CRT) crt(window.CRT, t);   // a shot's crt: a memory on an old TV (ps1.js sets it)
   }
   g.imageSmoothingEnabled = true;
   if (CLEAN) return;   // ?clean: the bare 3D frame (profile pictures, thumbnails)

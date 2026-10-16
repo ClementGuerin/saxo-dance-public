@@ -55,6 +55,7 @@ import { buildSoundstageMaps } from './maps48.js';
 import { buildOpheliaMaps } from './maps49.js';
 import { buildParlourMaps } from './maps50.js';
 import { buildLaundromatMaps } from './maps51.js';
+import { buildDejaVuMaps } from './maps52.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -826,6 +827,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   corset: 'assets/models/saxo_corset.glb',
   // the "Ordinary" clip's laundromat look (Alex Warren, 2025): a cream canvas work jacket worn open with red script lettering on its back and a red patch on the chest pocket, a white t-shirt, light blue jeans, brown work boots (2026-10-16)
   cherry: 'assets/models/saxo_cherry.glb',
+  // the "deja vu" clip's look (Olivia Rodrigo, 2021): a long voluminous dark brown wavy wig past the shoulders, his ears out on top, a fitted emerald green satin slip dress on thin straps with a flared hem at the knees, a thin gold chain, small gold hoops, bare paws (2026-10-16 2nd)
+  greendress: 'assets/models/saxo_greendress.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -868,6 +871,8 @@ const PARTNERS = {
     whitedress: 'assets/models/sadi_whitedress.glb',
     // laundry day: an oversized lavender hoodie, loose light grey joggers, fluffy white slippers, her pink bow ("Ordinary", 2026-10-16)
     laundry: 'assets/models/sadi_laundry.glb',
+    // the "deja vu" clip's driving look: a pastel paisley silk headscarf tied under her chin, her pink bow on top, black cat-eye sunglasses pushed up on it, a soft pink cardigan over a light blue camisole, white jeans, white sneakers (2026-10-16 2nd)
+    newgirl: 'assets/models/sadi_newgirl.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -978,6 +983,8 @@ const PARTNERS = {
     sequin: 'assets/models/compote_sequin.glb',
     // the laundromat's attendant: a mint short-sleeved work smock with a white collar and a name badge, yellow rubber gloves to the elbows, a red bandana at the neck, dark trousers, white sneakers, her carrot clip ("Ordinary", 2026-10-16)
     attendant: 'assets/models/compote_attendant.glb',
+    // the parcel courier: a brown short-sleeved uniform shirt with a small gold parcel patch, brown shorts, a small brown peaked cap between her ears, a black parcel scanner on her belt, white sneakers, her carrot clip ("deja vu", 2026-10-16 2nd)
+    courier: 'assets/models/compote_courier.glb',
     // the mummy: wrapped head to toe in cream bandages, ears included, her angry face and paws showing, her carrot clip on the wrappings, a carrot patch on the chest, her cotton tail ("Dracula", 2026-10-11)
     mummy: 'assets/models/compote_mummy.glb',
     carrot: 'assets/models/compote_carrot.glb' },   // the carrot suit: orange with brown rings, carrot leaves on her head between the ears, her carrot clip ("Hootie Frutti", 2026-09-28: a vegetable at the fruits-only party)   // the festival taiko drummer: indigo happi coat with white waves, red sash, white shorts, a hachimaki headband ("Caramelldansen")
@@ -1080,7 +1087,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT), ...buildLaundromatMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT), ...buildLaundromatMaps(MAP_KIT), ...buildDejaVuMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -1401,6 +1408,11 @@ function propMesh(kind) {
     G.userData.led = add(box(0.03, 0.03, 0.004, glow(0xffffff)), -0.028, 0.07, 0.012);
   } else if (kind === 'deck') {    // a deck of cards between both paws ("Poker Face": the dealer shuffling): white edges, a red back on top
     add(box(0.11, 0.05, 0.15, M(0xf2eee6))); add(box(0.112, 0.004, 0.152, mat({ color: 0xc8202e, unlit: 0.3 })), 0, 0.026);
+  } else if (kind === 'icecream' || kind === 'icecup') {   // "deja vu": the clip's strawberry ice cream, a paper cup with pink bands, a pink scoop with sprinkles and a blue plastic spoon; 'icecup' once the scoop has dropped
+    add(cyl(0.065, 0.048, 0.1, mat({ color: 0xfaf6f0, unlit: 0.3 }), 8), 0, 0.05);
+    for (const y of [0.03, 0.07]) add(cyl(0.062, 0.058, 0.012, mat({ color: 0xf47aa0, unlit: 0.4 }), 8), 0, y);
+    if (kind === 'icecream') { const sc = add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.07, 1), mat({ color: 0xf6a0b8, unlit: 0.3 })), 0, 0.12); sc.scale.set(1, 0.85, 1); for (let i = 0; i < 6; i++) add(box(0.016, 0.008, 0.008, glow([0xffe14a, 0x6ad0ff, 0xffffff][i % 3])), Math.cos(i * 2.4) * 0.05, 0.15 + (i % 2) * 0.02, Math.sin(i * 2.4) * 0.05); }
+    add(box(0.016, 0.16, 0.01, mat({ color: 0x3a8ae8, unlit: 0.4 })), 0.03, 0.15, 0).rotation.z = -0.35;
   } else if (kind === 'towel') {   // "Ordinary": a folded towel carried flat between both paws (hanging open it went down through the folding table): mint with a darker band and its rounded fold
     const tw = mat({ color: 0xa8e6d4, unlit: 0.25 }), band = mat({ color: 0x86c8b6, unlit: 0.2 });
     add(new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.06, 0.3), tw), 0, 0.03, 0.06); add(new THREE.Mesh(new THREE.BoxGeometry(0.425, 0.025, 0.305), band), 0, 0.02, 0.06);
@@ -2687,7 +2699,9 @@ function danceFrame(t) {
     // cctvLost (s into the shot): the feed dies there, a white flash and then static with NO SIGNAL (the cat swats the camera)
     window.CCTV = P.cctv ? { label: P.cctv, s: sIn, clock: P.cctvClock ?? 85632, lost: P.cctvLost } : null;
     // porthole: the shot seen from inside a machine's drum ("Ordinary", 2026-10-16): the 2D layer frames it in the round door, true or { cy, r } (window.PORTHOLE)
-    window.PORTHOLE = P.porthole ? { s: sIn, ...(typeof P.porthole === 'object' ? P.porthole : {}) } : null; }
+    window.PORTHOLE = P.porthole ? { s: sIn, ...(typeof P.porthole === 'object' ? P.porthole : {}) } : null;
+    // crt: the shot is a memory replayed on an old TV ("deja vu", 2026-10-16 2nd): the 2D layer fades it like a home video and frames it in a CRT's casing, true or { date } (window.CRT)
+    window.CRT = P.crt ? { s: sIn, ...(typeof P.crt === 'object' ? P.crt : {}) } : null; }
   const u = cl((t - t0) / (t1 - t0)), sh = shake(t, i * 10), bo = bounce(t, t0, !!P.half) * (P.still ? 0 : 1);
   const k = cam.ease === 'lin' ? u : cam.ease === 'out' ? 1 - (1 - u) ** 3 : u * (0.35 + 0.65 * u);   // default: ease in, no ease out
   // [from, to], or [a, b, c…] keyframes spread evenly over the move's easing (a path: over the decks, then down)
@@ -2822,7 +2836,7 @@ if (EP) {
     unswing(); const p = PLAN[shotIndex(t)];
     for (const [k, r] of Object.entries(R)) if (k !== p.key) r.hide();
     if (p.kind === 'action') {
-      window.MONO = 0; window.PHOTO = null; window.WHITE = 0; window.CCTV = null; window.PORTHOLE = null; window.SKETCH = false; U.uSk.value.set(0, 0, 0, -1);   // the 2D frame effects belong to dance shots
+      window.MONO = 0; window.PHOTO = null; window.WHITE = 0; window.CCTV = null; window.PORTHOLE = null; window.CRT = null; window.SKETCH = false; U.uSk.value.set(0, 0, 0, -1);   // the 2D frame effects belong to dance shots
       for (const [n, D] of Object.entries(CREW)) if (D !== tripo && D !== sadi) { D.holder.visible = false; D.shadow.visible = false; }   // the scenes only know Saxo and the partner
       for (const g of Object.values(PROPS)) g.visible = false; placeCrowd(null, t, 0, 1, 0);
       window.STARS = p.scene === 'fight' ? ['saxo', WITH] : [p.who === 'saxo' ? 'saxo' : WITH]; return R[p.key]((p.from || 0) + t - p.t0, p.sceneCam ?? null);

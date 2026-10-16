@@ -1,0 +1,1866 @@
+{
+ "date": "2026-10-16",
+ "song": {
+  "title": "deja vu",
+  "artist": "Olivia Rodrigo"
+ },
+ "logline": "Sadi's new robot vacuum gets every one of the dog's moments, her lap, the convertible's passenger seat, her strawberry ice cream, matching cardigans, even the cat, each one replayed on the old TV and then the same frame now, until a robot dog pops out of a parcel and the vacuum gets déjà vu too.",
+ "new": "src/maps52.js: beachhouse (the clip's pink room in a Spanish house on the Malibu cliff at dusk: the sunset sea in the arched windows, a stained-glass window, the pink velvet sofa, a wall of old TVs whose screens switch per shot, the front door on the porch) and coastroad (the Pacific Coast Highway at golden hour streaming past the clip's cream convertible); the robot vacuum (a character: LED eyes dot, heart, sad, happy, a cardigan, sunglasses, a booster cushion, spinning, sucking up a scoop and a ball), the robot dog, the parcel; the 2D `crt` frame (a memory replayed on an old TV, faded like a home video); the props `icecream` and `icecup`; three looks: Saxo's green slip dress and long brunette hair (the singer's), Sadi's paisley headscarf and pink cardigan, Compote the courier; the structure REPLACED",
+ "notes": "The world, from the official video (contact sheets): a cream 1960s convertible on the Malibu coast with the new girl at the wheel in a paisley headscarf, strawberry ice cream with a blue spoon, a Spanish house on the cliff, a pink room, a green dress, a dark room of stacked old TVs replaying the memories. The words, from whitelisted keywords per line: show, played, song, singing, strawberry, ice cream, Malibu, jackets, play, girl, new. Cast: Saxo in the singer's green dress (the dog replaced), Sadi in the new girl's headscarf and cardigan (the one who moved on), the robot vacuum (the new girl), Kob at 0.6 scale (the cat who rides it), Compote the courier (delivers the robot dog). The memories wear the base looks.",
+ "tiktok_sound": "6945541245435381761",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "happy_run",
+  "laying_idle",
+  "male_driving_a_car",
+  "sitting_talking",
+  "situps"
+ ],
+ "tags": {
+  "structure": "replaced",
+  "scenes": [
+   "the vacuum on her lap",
+   "the memories on the old TV",
+   "the vacuum in his seat",
+   "the dog chasing the car",
+   "the scoop sucked up",
+   "matching cardigans",
+   "the cat on the vacuum",
+   "the ball swallowed",
+   "the bark",
+   "the TV wall",
+   "the parcel",
+   "the robot dog",
+   "the duo",
+   "riding the vacuum",
+   "both couples"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "beachhouse",
+   "coastroad"
+  ],
+  "ref": "none",
+  "lyric_literal": "'show' (watching the TV), 'played ... song ... singing' (she sings to the vacuum), 'strawberry ice cream' (her scoop drops), 'Malibu' (the coast road), 'jackets' (matching cardigans), 'play' (his ball), 'girl ... new' (every TV switches to the vacuum)",
+  "experiment": "Does a gadget as the rival (the dog replaced by a robot vacuum, every moment replayed on the old TV then the same frame now, the vacuum replaced in turn by a robot dog) read as a story with no second face, and hold the Short's views against our pet-rival episodes?"
+ },
+ "shots": [
+  {
+   "beat": -1.47,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "charleston",
+     "x": -0.55,
+     "z": -1.45,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.228,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "sitting_talking",
+     "x": 0.62,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "R",
+     "aim": [
+      0.7,
+      -0.45,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     4.69,
+     4.24
+    ],
+    "r": [
+     4.284,
+     3.79
+    ],
+    "h": [
+     0.4,
+     0.38
+    ],
+    "look": [
+     0.82,
+     0.82
+    ],
+    "fov": 60,
+    "roll": [
+     -8,
+     -5
+    ]
+   },
+   "focus": [
+    0.05,
+    -2.3
+   ],
+   "vac": [
+    {
+     "x": 0,
+     "z": -3.25,
+     "y": 0.2,
+     "yaw": 10,
+     "tilt": 26,
+     "eyes": "heart",
+     "hearts": 0
+    }
+   ],
+   "hearts": [
+    [
+     0.62,
+     1.25,
+     -3.0999999999999996,
+     0
+    ]
+   ]
+  },
+  {
+   "beat": 2,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "sitting_talking",
+     "x": 0.62,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "R",
+     "aim": [
+      0.7,
+      -0.45,
+      0.35
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": 1.72,
+     "z": -3.15,
+     "face": "world",
+     "yaw": -40,
+     "at": 2.125,
+     "speed": 0,
+     "lift": -0.5
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -1.04,
+     -1.04
+    ],
+    "r": [
+     3.851,
+     3.851
+    ],
+    "h": [
+     0.9,
+     0.9
+    ],
+    "look": [
+     0.5,
+     0.5
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0.8,
+    -3.2
+   ],
+   "vac": [
+    {
+     "x": 0,
+     "z": -3.25,
+     "y": 0.2,
+     "yaw": 10,
+     "tilt": 26,
+     "eyes": "heart",
+     "hearts": 0
+    }
+   ],
+   "hearts": [
+    [
+     0.62,
+     1.2,
+     -3.0999999999999996,
+     0
+    ]
+   ]
+  },
+  {
+   "beat": 6.6,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": -0.45,
+     "z": -0.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0
+    },
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "sitting_talking",
+     "x": 0.62,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "R",
+     "aim": [
+      0.7,
+      -0.45,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -0.52,
+     -0.59
+    ],
+    "r": [
+     3.08,
+     2.73
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.18,
+     1.18
+    ],
+    "fov": 46
+   },
+   "focus": [
+    -0.4,
+    -0.6
+   ],
+   "vac": [
+    {
+     "x": 0,
+     "z": -3.25,
+     "y": 0.2,
+     "yaw": 10,
+     "tilt": 26,
+     "eyes": "heart",
+     "hearts": 0
+    }
+   ]
+  },
+  {
+   "beat": 9.3,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": -0.55,
+     "z": 2.4,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -178.73,
+     -179.48
+    ],
+    "r": [
+     4.501,
+     2.2
+    ],
+    "h": [
+     1.35,
+     1.33
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.3,
+    5.4
+   ],
+   "tvs": [
+    "memory",
+    "show",
+    "heart",
+    "memory",
+    "show",
+    "memory",
+    "heart",
+    "memory",
+    "show",
+    "memory",
+    "heart",
+    "show"
+   ]
+  },
+  {
+   "beat": 12,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "charleston",
+     "x": -0.48,
+     "z": -0.4,
+     "face": "world",
+     "yaw": 12,
+     "at": 0.539,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "charleston",
+     "x": 0.48,
+     "z": -0.4,
+     "face": "world",
+     "yaw": -12,
+     "at": 0.239,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4,
+     4
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -0.5
+   ],
+   "crt": {
+    "date": "JUL 4 2025"
+   },
+   "hearts": [
+    [
+     0,
+     1.85,
+     -0.4,
+     0
+    ]
+   ],
+   "zone": "day"
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "charleston",
+     "x": 0.48,
+     "z": -0.4,
+     "face": "world",
+     "yaw": -12,
+     "at": 0.239,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4,
+     4
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -0.5
+   ],
+   "vac": [
+    {
+     "x": -0.3,
+     "z": -0.3,
+     "yaw": 25,
+     "eyes": "heart",
+     "tilt": 34,
+     "bump": [
+      0.332,
+      0.995,
+      1.658,
+      2.321
+     ]
+    }
+   ],
+   "hearts": [
+    [
+     0.1,
+     1.85,
+     -0.4,
+     0
+    ]
+   ]
+  },
+  {
+   "beat": 20,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "sitting_talking",
+     "x": 0.62,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "R",
+     "aim": [
+      0.3,
+      -0.35,
+      0.8
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "laying_idle",
+     "x": 0.57,
+     "z": -2.94,
+     "face": "world",
+     "yaw": 90,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.28,
+     "ground": "mesh",
+     "tongue": true,
+     "arm": "both",
+     "aim": [
+      0.45,
+      0.45,
+      0.8
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.78,
+     34.78
+    ],
+    "r": [
+     2.191,
+     2.191
+    ],
+    "h": [
+     1.95,
+     1.95
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.45,
+    -3
+   ],
+   "crt": {
+    "date": "AUG 2 2025"
+   },
+   "hearts": [
+    [
+     0.62,
+     1.35,
+     -3.1999999999999997,
+     0
+    ]
+   ],
+   "zone": "day"
+  },
+  {
+   "beat": 24,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "sitting_talking",
+     "x": 0.62,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "both",
+     "aim": [
+      0.15,
+      -0.45,
+      0.85
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     34.78,
+     34.78
+    ],
+    "r": [
+     2.191,
+     2.191
+    ],
+    "h": [
+     1.95,
+     1.95
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 54
+   },
+   "focus": [
+    0.45,
+    -3
+   ],
+   "vac": [
+    {
+     "x": 0.62,
+     "z": -2.94,
+     "y": 0.27,
+     "yaw": 0,
+     "tilt": 18,
+     "eyes": "heart"
+    }
+   ],
+   "hearts": [
+    [
+     0.62,
+     1.35,
+     -3.1999999999999997,
+     0
+    ]
+   ]
+  },
+  {
+   "beat": 28,
+   "kind": "dance",
+   "map": "coastroad",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "sadi",
+     "clip": "male_driving_a_car",
+     "x": -0.18,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 1,
+     "lift": 0.45
+    },
+    {
+     "who": "saxo",
+     "look": "saxo",
+     "clip": "happy_idle",
+     "x": -0.1,
+     "z": 0.62,
+     "face": "world",
+     "yaw": 90,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.45,
+     "tongue": true,
+     "arm": "both",
+     "aim": [
+      0.15,
+      -0.25,
+      0.95
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     54.66,
+     54.66
+    ],
+    "r": [
+     3.371,
+     3.371
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.15,
+    0.25
+   ],
+   "crt": {
+    "date": "SEP 9 2025"
+   },
+   "hide": [
+    "palms"
+   ]
+  },
+  {
+   "beat": 30,
+   "kind": "dance",
+   "map": "coastroad",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "male_driving_a_car",
+     "x": -0.18,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 1,
+     "lift": 0.45
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     54.66,
+     54.66
+    ],
+    "r": [
+     3.371,
+     3.371
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     1.3,
+     1.3
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -0.15,
+    0.25
+   ],
+   "hide": [
+    "palms"
+   ],
+   "vac": [
+    {
+     "x": -0.16,
+     "z": 0.5,
+     "y": 0.45,
+     "booster": 0.62,
+     "yaw": 90,
+     "tilt": 30,
+     "shades": true,
+     "eyes": "happy"
+    }
+   ]
+  },
+  {
+   "beat": 32,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "situps",
+     "x": 0.75,
+     "z": -2.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0,
+     "noLie": true,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.73,
+     0.73
+    ],
+    "r": [
+     2.35,
+     2.35
+    ],
+    "h": [
+     0.75,
+     0.75
+    ],
+    "look": [
+     0.45,
+     0.45
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.72,
+    -1.75
+   ],
+   "snack": [
+    {
+     "kind": "scoop",
+     "from": [
+      1.25,
+      1.55,
+      -1.75
+     ],
+     "to": [
+      1.05,
+      -1.6
+     ],
+     "s0": 0.663,
+     "dur": 0.45,
+     "arc": 0
+    }
+   ]
+  },
+  {
+   "beat": 34,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "situps",
+     "x": 0.75,
+     "z": -2.2,
+     "face": "world",
+     "yaw": 0,
+     "at": 1,
+     "speed": 0,
+     "lift": 0,
+     "noLie": true,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0.73,
+     0.73
+    ],
+    "r": [
+     2.35,
+     2.35
+    ],
+    "h": [
+     0.75,
+     0.75
+    ],
+    "look": [
+     0.45,
+     0.45
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.72,
+    -1.75
+   ],
+   "vac": [
+    {
+     "x": -0.5,
+     "z": -1.6,
+     "yaw": 90,
+     "to": [
+      0.82,
+      -1.6
+     ],
+     "at": 0.05,
+     "dur": 0.55,
+     "eyes": "happy",
+     "tilt": 12
+    }
+   ],
+   "snack": [
+    {
+     "kind": "scoop",
+     "from": [
+      1.05,
+      0.03,
+      -1.6
+     ],
+     "to": [
+      1.05,
+      -1.6
+     ],
+     "s0": -1,
+     "dur": 0.1,
+     "gone": 0.55
+    }
+   ]
+  },
+  {
+   "beat": 36,
+   "kind": "dance",
+   "map": "coastroad",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "male_driving_a_car",
+     "x": -0.18,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 1,
+     "lift": 0.45
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_run",
+     "x": -4.7,
+     "z": 0.65,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.6,
+     "speed": 1.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     66.37,
+     66.37
+    ],
+    "r": [
+     5.868,
+     5.868
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.2,
+    0.2
+   ],
+   "vac": [
+    {
+     "x": -0.16,
+     "z": 0.5,
+     "y": 0.45,
+     "booster": 0.5,
+     "yaw": 90,
+     "tilt": 12,
+     "eyes": "heart",
+     "hearts": 0.3
+    }
+   ],
+   "snack": [
+    {
+     "kind": "scoop",
+     "from": [
+      -0.16,
+      1.0999999999999999,
+      0.5
+     ],
+     "to": [
+      -0.16,
+      0.5
+     ],
+     "s0": 99
+    }
+   ]
+  },
+  {
+   "beat": 40,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "happy_idle",
+     "x": 0.5,
+     "z": -0.75,
+     "face": "world",
+     "yaw": -20,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": "heart",
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": -0.6,
+     "z": -0.15,
+     "face": "world",
+     "yaw": 30,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -21.4,
+     -21.4
+    ],
+    "r": [
+     3.084,
+     3.084
+    ],
+    "h": [
+     1.25,
+     1.25
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.15,
+    -0.6
+   ],
+   "vac": [
+    {
+     "x": 0.05,
+     "z": -0.4,
+     "yaw": 10,
+     "tilt": 30,
+     "cardigan": 0.796,
+     "eyes": "heart",
+     "hearts": 0.862
+    }
+   ]
+  },
+  {
+   "beat": 44,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "kob",
+     "clip": "situps",
+     "x": 0.95,
+     "z": -1.75,
+     "face": "world",
+     "yaw": -35,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.1,
+     "noLie": true,
+     "mx": -0.75,
+     "mz": 1.15,
+     "scale": 0.6
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": -0.75,
+     "z": -1.2,
+     "face": "world",
+     "yaw": 40,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     17.04,
+     17.04
+    ],
+    "r": [
+     3.119,
+     3.119
+    ],
+    "h": [
+     0.65,
+     0.65
+    ],
+    "look": [
+     0.7,
+     0.7
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.2,
+    -1
+   ],
+   "vac": [
+    {
+     "x": 0.95,
+     "z": -1.75,
+     "yaw": -35,
+     "to": [
+      0.2,
+      -0.6
+     ],
+     "at": 0,
+     "dur": 2.65,
+     "lin": true,
+     "eyes": "happy"
+    }
+   ]
+  },
+  {
+   "beat": 48,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": 0.1,
+     "z": -1,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "fetch": {
+      "kind": "ball",
+      "until": 1.061
+     }
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     2.54,
+     2.54
+    ],
+    "r": [
+     3.153,
+     3.153
+    ],
+    "h": [
+     1.5,
+     1.5
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0.1,
+    -0.75
+   ],
+   "vac": [
+    {
+     "x": -1.2,
+     "z": -0.25,
+     "yaw": 90,
+     "to": [
+      0.15,
+      -0.25
+     ],
+     "at": 1.326,
+     "dur": 0.7,
+     "eyes": "happy"
+    }
+   ],
+   "snack": [
+    {
+     "kind": "ball",
+     "from": [
+      0.1,
+      0.62,
+      -0.62
+     ],
+     "to": [
+      0.15,
+      -0.25
+     ],
+     "s0": 1.061,
+     "dur": 0.35,
+     "arc": 0.05,
+     "gone": 1.956
+    }
+   ]
+  },
+  {
+   "beat": 54,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_idle",
+     "x": -0.45,
+     "z": 2.7,
+     "face": "world",
+     "yaw": 180,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -163.79,
+     -163.79
+    ],
+    "r": [
+     4.478,
+     4.478
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     1.35,
+     1.35
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0.2,
+    5.4
+   ],
+   "tvs": "show",
+   "tvs2": [
+    1.989,
+    "vac"
+   ],
+   "zone": "night"
+  },
+  {
+   "beat": 60,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "charleston",
+     "x": 0.15,
+     "z": 3.35,
+     "face": "world",
+     "yaw": 185,
+     "at": 0.274,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     174.05,
+     174.29
+    ],
+    "r": [
+     2.413,
+     2.01
+    ],
+    "h": [
+     0.32,
+     0.3
+    ],
+    "look": [
+     0.92,
+     0.92
+    ],
+    "fov": 62,
+    "roll": [
+     9,
+     6
+    ]
+   },
+   "focus": [
+    0.2,
+    3.35
+   ],
+   "tvs": "vac",
+   "zone": "night"
+  },
+  {
+   "beat": 64,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "courier",
+     "clip": "happy_idle",
+     "x": 6.75,
+     "z": 1.45,
+     "face": "world",
+     "yaw": -90,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.45,
+      -0.2,
+      0.7
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -87.32,
+     -87.32
+    ],
+    "r": [
+     3.204,
+     3.204
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    6.4,
+    1.6
+   ],
+   "door": [
+    0,
+    0.6,
+    0,
+    1
+   ],
+   "parcel": {
+    "x": 5.4,
+    "z": 1.25
+   }
+  },
+  {
+   "beat": 68,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "happy_idle",
+     "x": 2.75,
+     "z": 1.3,
+     "face": "world",
+     "yaw": 50,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.05,
+      0.42,
+      0.6
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.06,
+     1.06
+    ],
+    "r": [
+     2.7,
+     2.7
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 54
+   },
+   "focus": [
+    3.25,
+    1.3
+   ],
+   "parcel": {
+    "x": 3.75,
+    "z": 1.1,
+    "open": 0.398
+   },
+   "robo": {
+    "x": 3.75,
+    "z": 1.1,
+    "yaw": -15,
+    "pop": [
+     0.47800000000000004,
+     0.35
+    ],
+    "eyes": "heart",
+    "wag": true,
+    "hearts": 0.597
+   },
+   "hearts": [
+    [
+     2.75,
+     1.3,
+     1.3,
+     0.597
+    ]
+   ]
+  },
+  {
+   "beat": 72,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "sitting_talking",
+     "x": 0.55,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "R",
+     "aim": [
+      -0.85,
+      -0.35,
+      0.3
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     2.45,
+     2.45
+    ],
+    "h": [
+     1,
+     1
+    ],
+    "look": [
+     0.6,
+     0.6
+    ],
+    "fov": 60
+   },
+   "focus": [
+    0.25,
+    -3
+   ],
+   "robo": {
+    "x": -0.15,
+    "z": -3.3,
+    "y": 0.2,
+    "yaw": 15,
+    "pose": "sit",
+    "eyes": "heart",
+    "wag": true
+   },
+   "hearts": [
+    [
+     0.2,
+     1.05,
+     -3.2,
+     0
+    ]
+   ],
+   "vac": [
+    {
+     "x": 0.05,
+     "z": -2.1,
+     "yaw": 0,
+     "eyes": "sad",
+     "tilt": 30
+    }
+   ]
+  },
+  {
+   "beat": 76,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "situps",
+     "x": -0.3,
+     "z": -0.75,
+     "face": "world",
+     "yaw": 10,
+     "at": 1,
+     "speed": 0,
+     "lift": 0,
+     "noLie": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.55,
+     1.55
+    ],
+    "r": [
+     1.851,
+     1.851
+    ],
+    "h": [
+     1.1,
+     1.1
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -0.05,
+    -0.6
+   ],
+   "vac": [
+    {
+     "x": 1.25,
+     "z": -0.2,
+     "yaw": -95,
+     "to": [
+      0.25,
+      -0.5
+     ],
+     "at": 0.2,
+     "dur": 1.5,
+     "eyes": "sad",
+     "tilt": 25,
+     "bump": [
+      1.525
+     ]
+    }
+   ]
+  },
+  {
+   "beat": 80,
+   "kind": "dance",
+   "map": "coastroad",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "male_driving_a_car",
+     "x": -0.18,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.5,
+     "speed": 1,
+     "lift": 0.45
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "happy_run",
+     "x": -4.7,
+     "z": 0.65,
+     "face": "world",
+     "yaw": 90,
+     "at": 0.6,
+     "speed": 1.6
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     66.37,
+     66.37
+    ],
+    "r": [
+     5.868,
+     5.868
+    ],
+    "h": [
+     1.3,
+     1.3
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -1.2,
+    0.2
+   ],
+   "robo": {
+    "x": -0.18,
+    "z": 0.5,
+    "y": 0.45,
+    "yaw": 90,
+    "pose": "sit",
+    "eyes": "heart",
+    "wag": true
+   },
+   "vac": [
+    {
+     "x": -4.2,
+     "z": 1.35,
+     "yaw": 90,
+     "eyes": "happy",
+     "tilt": 30,
+     "bump": [
+      0.332,
+      0.995,
+      1.658,
+      2.321
+     ]
+    }
+   ],
+   "hide": [
+    "palms"
+   ]
+  },
+  {
+   "beat": 84,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "charleston",
+     "x": -0.3,
+     "z": -0.5,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.274,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     1.19,
+     1.19
+    ],
+    "r": [
+     2.401,
+     2.401
+    ],
+    "h": [
+     0.85,
+     0.85
+    ],
+    "look": [
+     0.65,
+     0.65
+    ],
+    "fov": 56
+   },
+   "focus": [
+    0,
+    -0.5
+   ],
+   "vac": [
+    {
+     "x": 0.35,
+     "z": -0.35,
+     "spin": 270,
+     "eyes": "heart",
+     "tilt": 22
+    }
+   ]
+  },
+  {
+   "beat": 88,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "situps",
+     "x": -1.3,
+     "z": -1.4,
+     "face": "world",
+     "yaw": 40,
+     "at": 1,
+     "speed": 0,
+     "lift": 0.1,
+     "noLie": true,
+     "tongue": true,
+     "mx": 1.6,
+     "mz": 1.15
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     24.78,
+     24.78
+    ],
+    "r": [
+     2.148,
+     2.148
+    ],
+    "h": [
+     0.72,
+     0.72
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 60
+   },
+   "focus": [
+    -0.3,
+    -0.7
+   ],
+   "vac": [
+    {
+     "x": -1.3,
+     "z": -1.4,
+     "yaw": 40,
+     "to": [
+      0.3,
+      -0.25
+     ],
+     "at": 0,
+     "dur": 2.65,
+     "lin": true,
+     "eyes": "happy"
+    }
+   ]
+  },
+  {
+   "beat": 92,
+   "kind": "dance",
+   "map": "beachhouse",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "sitting_talking",
+     "x": 0.95,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "R",
+     "aim": [
+      0.7,
+      -0.45,
+      0.35
+     ],
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "sitting_talking",
+     "x": -0.95,
+     "z": -3.3,
+     "face": "world",
+     "yaw": 0,
+     "at": 0.05,
+     "speed": 0,
+     "lift": 0.02,
+     "arm": "L",
+     "aim": [
+      0.7,
+      -0.45,
+      0.35
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.625,
+     3.625
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": [
+     0.5,
+     0.5
+    ],
+    "fov": 62
+   },
+   "focus": [
+    0,
+    -3.1
+   ],
+   "hearts": [
+    [
+     -0.65,
+     1.15,
+     -3.1,
+     0.4
+    ],
+    [
+     0.65,
+     1.15,
+     -3.1,
+     0
+    ]
+   ],
+   "robo": {
+    "x": 0.33,
+    "z": -3.28,
+    "y": 0.2,
+    "yaw": 0,
+    "pose": "sit",
+    "eyes": "heart",
+    "wag": true,
+    "scale": 0.85
+   },
+   "vac": [
+    {
+     "x": -0.35,
+     "z": -3.25,
+     "y": 0.2,
+     "yaw": -5,
+     "eyes": "heart",
+     "tilt": 26
+    }
+   ]
+  }
+ ]
+}
