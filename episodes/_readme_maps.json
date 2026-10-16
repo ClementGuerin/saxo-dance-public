@@ -4167,6 +4167,65 @@
      "lift": 0.45
     }
    ]
+  },
+  {
+   "beat": 192,
+   "kind": "dance",
+   "map": "petflat",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.4,
+     4.4
+    ],
+    "h": [
+     1.2,
+     1.2
+    ],
+    "look": 1,
+    "fov": 52
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "guests": "cheer",
+   "mess": 0.5,
+   "clear": [
+    [
+     0,
+     2.4,
+     1.3
+    ],
+    [
+     0,
+     3.8,
+     1
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "redsequin",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": 0.3
+    },
+    {
+     "who": "kob",
+     "look": "bluesequin",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": 0.3
+    }
+   ]
   }
  ]
 }
