@@ -218,19 +218,19 @@ add(30, 32, s, "now, the same frame: the robot vacuum in his seat on a pink boos
     M3, map_='coastroad', hide=['palms'], vac=[{'x': CAR_PASS[0] + 0.02, 'z': CAR_PASS[1], 'y': CSEAT, 'booster': 0.62, 'yaw': 90, 'tilt': 30, 'shades': True, 'eyes': 'happy'}], rv=S(31.3, 30))
 
 # ============================================ the bridge: everything that was his ============================================
-# S10 (k32..34; 'strawberry ice cream'): Sadi's strawberry ice cream: the scoop slips out of her cup; the dog sitting below her lights up
+# S10 (k32..34; dropped with S11 after the critic: the scoop flew through the lyric rows and nothing read as stolen; their beats went to S09 and S12): Sadi's strawberry ice cream: the scoop slips out of her cup; the dog sitting below her lights up
 CUP = (SADI_M[0] + 0.36, 0.76, SADI_M[1] + 0.38)
 s = [sit('saxo', 0.75, -2.2, 0, tongue=True)]
 add(32, 34, s, "'strawberry ice cream': Sadi's scoop of strawberry ice cream slips out of her cup; the dog sitting at her feet lights up, tongue out (catching what falls is his job)",
-    view((0.75, 0.75, 0.6), (0.72, 0.45, -1.75), 58), snack=[{'kind': 'scoop', 'from': [1.25, 1.55, -1.75], 'to': [1.05, -1.6], 's0': S(33.0, 32), 'dur': 0.45, 'arc': 0.0}], rv=S(33.0, 32) + 0.25)
+    view((0.75, 0.75, 0.6), (0.72, 0.45, -1.75), 58), snack=[{'kind': 'scoop', 'from': [1.25, 1.55, -1.75], 'to': [1.05, -1.6], 's0': S(33.0, 32), 'dur': 0.45, 'arc': 0.0}], drop=True, rv=S(33.0, 32) + 0.25)
 # S11 (k34..36; 'Malibu'): on the floor: the vacuum zooms in under his nose and sucks the scoop up
 s = [sit('saxo', 0.75, -2.2, 0, tongue=True)]
 add(34, 36, s, "'... in Malibu': on the floor: the vacuum zooms in under his nose and sucks the scoop up, the dog's tongue out over nothing",
     V((0.75, 0.75, 0.6), (0.72, 0.45, -1.75), fov=58), vac=[{'x': -0.5, 'z': -1.6, 'yaw': 90, 'to': [0.82, -1.6], 'at': 0.05, 'dur': 0.55, 'eyes': 'happy', 'tilt': 12}],
-    snack=[{'kind': 'scoop', 'from': [1.05, 0.03, -1.6], 'to': [1.05, -1.6], 's0': -1, 'dur': 0.1, 'gone': 0.55}], rv=0.62)
+    snack=[{'kind': 'scoop', 'from': [1.05, 0.03, -1.6], 'to': [1.05, -1.6], 's0': -1, 'dur': 0.1, 'gone': 0.55}], drop=True, rv=0.62)
 # S12 (k36..40): the coast road: the vacuum shares her ice cream in Malibu (a scoop on its lid), the dog running after the car
 s = [A('sadi', 'male_driving_a_car', *CAR_DRV, yaw=90, at=0.5, speed=1, lift=CSEAT), A('saxo', 'happy_run', -4.7, 0.65, yaw=90, at=0.6, speed=1.6)]
-M12 = add(36, 40, s, "the coast road at sunset: the vacuum on its booster with a scoop of strawberry ice cream on its lid, heart eyes, Sadi at the wheel; the dog still running after the car",
+M12 = add(34, 40, s, "the coast road at sunset: the vacuum on its booster with a scoop of strawberry ice cream on its lid, heart eyes, Sadi at the wheel; the dog still running after the car",
     V((3.6, 1.3, 2.3), (-1.2, 0.95, 0.2), fov=52), map_='coastroad', vac=[{'x': CAR_PASS[0] + 0.02, 'z': CAR_PASS[1], 'y': CSEAT, 'booster': 0.5, 'yaw': 90, 'tilt': 12, 'eyes': 'heart', 'hearts': 0.3}],
     snack=[{'kind': 'scoop', 'from': [CAR_PASS[0] + 0.02, CSEAT + 0.5 + 0.15, CAR_PASS[1]], 'to': [CAR_PASS[0] + 0.02, CAR_PASS[1]], 's0': 99}], rv=S(38, 36))
 # S13 (k40..44; 'jackets'): twinning: the vacuum in a pink cardigan just like hers, Sadi posing beside it, hearts; the dog stares
@@ -295,7 +295,7 @@ add(88, 92, s, "he rides it: the dog sitting on the vacuum, tongue out, cruising
 # S26 (k92..98; the hook line, the last chord): both couples on the sofa: Sadi and the robot dog, the dog with the vacuum on his lap: hearts over both
 s = [sofa('sadi', x=0.95, arm='R', aim=[0.7, -0.45, 0.35], upAt=-1), sofa('saxo', x=-0.95, arm='L', aim=[0.7, -0.45, 0.35], upAt=-1)]
 add(92, 98.0, s, "the hook line and the last chord: both couples on the sofa: Sadi with the robot dog on her lap, the dog with the vacuum on his, hearts over both",
-    V((0.0, 1.05, -0.2), (0.0, 0.5, -3.1), fov=62), hearts=[[-0.65, 1.15, -3.1, 0.4], [0.65, 1.15, -3.1, 0.0]], robo={'x': 0.33, 'z': -3.28, 'y': SEAT_Y, 'yaw': 0, 'pose': 'sit', 'eyes': 'heart', 'wag': True, 'scale': 0.85},
+    V((0.0, 1.25, 2.0), (0.0, 1.05, -3.2), fov=54), hearts=[[-0.65, 1.15, -3.1, 0.4], [0.65, 1.15, -3.1, 0.0]], robo={'x': 0.33, 'z': -3.28, 'y': SEAT_Y, 'yaw': 0, 'pose': 'sit', 'eyes': 'heart', 'wag': True, 'scale': 0.85},
     vac=[{'x': -0.35, 'z': -3.25, 'y': SEAT_Y, 'yaw': -5, 'eyes': 'heart', 'tilt': 26}], rv=S(95, 92))
 
 shots.sort(key=lambda x: x['beat'])
