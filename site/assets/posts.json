@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-16T14:17:00.666Z",
+ "updated": "2026-10-16T18:16:51.917Z",
  "posts": [
+  {
+   "id": "2026-10-16-2",
+   "title": "deja vu",
+   "artist": "Olivia Rodrigo",
+   "date": "2026-10-16T18:00:00.000Z",
+   "thumb": "assets/posts/2026-10-16-2.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DekIcqPmd3Q/",
+     "id": "DekIcqPmd3Q"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/ZBmXyMtx2Pc",
+     "id": "ZBmXyMtx2Pc"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1584094459663664",
+     "id": "1584094459663664"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2111155880037089511",
+     "id": "2111155880037089511"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7697054828534549782",
+     "id": "7697054828534549782"
+    }
+   }
+  },
   {
    "id": "2026-10-16",
    "title": "Ordinary",
