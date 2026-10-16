@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-15T19:59:38.521Z",
+ "updated": "2026-10-16T14:17:00.666Z",
  "posts": [
+  {
+   "id": "2026-10-16",
+   "title": "Ordinary",
+   "artist": "Alex Warren",
+   "date": "2026-10-16T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-16.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/Dejs72mFDIa/",
+     "id": "Dejs72mFDIa"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/HqthhW_LDSM",
+     "id": "HqthhW_LDSM"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1422145646797997",
+     "id": "1422145646797997"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2111095501328109661",
+     "id": "2111095501328109661"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7697020218459180310",
+     "id": "7697020218459180310"
+    }
+   }
+  },
   {
    "id": "2026-10-15-2",
    "title": "Umbrella",
