@@ -4075,6 +4075,98 @@
      "z": -2.4
     }
    ]
+  },
+  {
+   "beat": 188,
+   "kind": "dance",
+   "map": "beachhouse",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4,
+     4
+    ],
+    "h": [
+     1.05,
+     1.05
+    ],
+    "look": 1,
+    "fov": 54
+   },
+   "focus": [
+    0,
+    -0.5
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -0.48,
+     "z": -0.4
+    },
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "charleston",
+     "at": "auto",
+     "x": 0.48,
+     "z": -0.4
+    }
+   ]
+  },
+  {
+   "beat": 190,
+   "kind": "dance",
+   "map": "coastroad",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     130,
+     130
+    ],
+    "r": [
+     5,
+     5
+    ],
+    "h": [
+     1.75,
+     1.75
+    ],
+    "look": 1.3,
+    "fov": 50
+   },
+   "focus": [
+    -0.2,
+    0
+   ],
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "newgirl",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.18,
+     "z": -0.5,
+     "lift": 0.45
+    },
+    {
+     "who": "saxo",
+     "look": "greendress",
+     "clip": "shimmy",
+     "at": "auto",
+     "x": -0.18,
+     "z": 0.5,
+     "lift": 0.45
+    }
+   ]
   }
  ]
 }
