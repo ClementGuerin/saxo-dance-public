@@ -170,7 +170,7 @@ function sceneFx(fx, t) {
 // 0.8 s. Drawn under the karaoke and the watermark, which stay on top. s: seconds since the shot's photo moment
 function polaroid(f, s) {
   const drop = 1 - Math.pow(1 - clamp(s / 0.25), 3), dev = clamp((s - 0.15) / 0.8);
-  g.save(); g.fillStyle = `rgba(12,8,20,${0.6 * drop})`; g.fillRect(0, 0, W, H);
+  g.save(); g.fillStyle = `rgba(12,8,20,${(window.PHOTO_DIM ?? 0.6) * drop})`; g.fillRect(0, 0, W, H);
   const cw = W * 0.78, pic = cw * 0.88, m = (cw - pic) / 2, ch = m + pic + cw * 0.24;
   const settle = Math.min(s, 4) / 4;   // it keeps settling for 4 s (a static print read as a frozen frame: "DtMF", 2026-10-05)
   g.translate(W / 2, H * 0.62 + (1 - drop) * H * 0.35 - settle * H * 0.012); g.rotate(-0.07 * drop + 0.035 * settle); g.scale(1 + 0.03 * settle, 1 + 0.03 * settle);

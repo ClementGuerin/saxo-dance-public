@@ -57,6 +57,7 @@ import { buildParlourMaps } from './maps50.js';
 import { buildLaundromatMaps } from './maps51.js';
 import { buildDejaVuMaps } from './maps52.js';
 import { buildFlatMaps } from './maps53.js';
+import { buildShapeMaps } from './maps54.js';
 import { fetchMesh, FETCH } from './fetch.js';
 import { fruitMesh, FRUITS } from './fruit.js';
 import { buildPirateMaps } from './maps7.js';
@@ -590,7 +591,7 @@ function steadiestOffset(T, name, len) {
 // Looks whose bare arms tore into flat fins when the arms came down ("So Easy", 2026-10-08: the floral dress): the chibi
 // head's underside sits just over the T-posed arms, so a thin arm's top surface took the Head's weights and stayed put.
 // Their arm vertices take weights only from body vertices skinned mostly to that arm's bones (see `nearFor` below).
-const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie', 'bandeau', 'rosedress']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } }, ARM_CUFFS = new Set(['bandeau']);   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
+const ARM_FIX = new Set(['floral', 'riviera', 'poodle', 'beanie', 'bandeau', 'rosedress', 'prom']), ARM_OPT = { poodle: { r: 0.26, onHead: 0.05 } }, ARM_CUFFS = new Set(['bandeau', 'prom']);   // prom (Sadi, "Shape of You"): her wrist corsage tore into a pink blade up to her cheek and her tan fur is a saturated texel, so in the arm zone both follow the arm   // ARM_OPT (the poodle: white fluff from the neck onto the upper arm, big white cuffs): in the arm zone (near-white texels out to r m) a vertex takes that arm's bones alone (blending the spine's, its cuffs' tops still stood up as spikes); one lying on the head's own surface (nearest body vertex the head's, within onHead m) keeps the plain rule   // riviera ("Espresso"): its bare forearms tore into flat grey blades; poodle ("BIRDS OF A FEATHER"): its arms tore into white wings from the shoulders to the pom-poms
 async function addOutfit(T, name, url) {
   const body = []; T.root.traverse(o => { if (o.isSkinnedMesh) body.push(o); });
   const sm = body[0]; T.root.updateMatrixWorld(true);
@@ -832,6 +833,8 @@ const OUTFITS = { cowboy: 'assets/models/saxo_cowboy.glb', astronaut: 'assets/mo
   greendress: 'assets/models/saxo_greendress.glb',
   // the "As It Was" clip's stage look (Harry Styles, 2022): a sleeveless glossy red sequin jumpsuit with a deep V neckline and wide tank straps, fitted at the waist, wide flared legs, small red shoes; his grey arms bare
   redsequin: 'assets/models/saxo_redsequin.glb',
+  // the "Shape of You" clip's diner look (Ed Sheeran, 2017): a navy wool varsity jacket with cream leather sleeves, cream ribbed collar, cuffs and waistband, a cream letter S patch on the chest, worn open over a heather grey hoodie with the hood down, dark jeans, white sneakers (2026-10-17 2nd)
+  varsity: 'assets/models/saxo_varsity.glb',
   banana:'assets/models/saxo_banana.glb' };   // the banana suit: a yellow onesie, a snug hood ending in the brown stem, three peel flaps round the shoulders ("Hootie Frutti", 2026-09-28)   // the soul singer: a long dark curly wig, gold hoops, a butter-yellow quilted jacket open over a white camisole, cream trousers, white sneakers ("Love Me Not", the Live Lounge, 2026-09-28)
 // Sadi (a black-and-tan terrier girl, sheets in assets/ref/sadi/) is modelled on Saxo's T-pose and proportions, so she
 // rides a clone of his skeleton: her base look and every costume are fitted like outfits, and all his clips play on her.
@@ -876,6 +879,8 @@ const PARTNERS = {
     laundry: 'assets/models/sadi_laundry.glb',
     // the "deja vu" clip's driving look: a pastel paisley silk headscarf tied under her chin, her pink bow on top, black cat-eye sunglasses pushed up on it, a soft pink cardigan over a light blue camisole, white jeans, white sneakers (2026-10-16 2nd)
     newgirl: 'assets/models/sadi_newgirl.glb',
+    // prom night ("Shape of You", 2026-10-17 2nd): a knee-length pastel baby-blue satin dress on thin straps with a fitted bodice and a full skirt, a small pink rose corsage on her left wrist, sparkly silver heels, her pink bow
+    prom: 'assets/models/sadi_prom.glb',
     // the talent agency's staff uniform: a fitted black suit jacket over a white shirt and a thin black tie, a black pencil skirt, black tights and flats, a white staff badge, her pink bow ("Animal", 2026-10-03)
     assistant: 'assets/models/sadi_assistant.glb',
     // the girl in red: a chunky bright red cable-knit sweater over a black turtleneck, slim blue jeans, black ankle boots, her pink bow ("we fell in love in october", 2026-10-03)
@@ -1092,7 +1097,7 @@ if (tripo && EP) for (const sh of EP.shots) for (const [ci, c] of [].concat(sh.c
 }
 const MAP_KIT = { THREE, mat, tex, px, noise, box, selfLit, U, TAU, beat: bp };
 const PRINT_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 }), PRINT1_MAT = mat({ color: 0x6a8aa8, unlit: 0.6 });   // an instant print's picture ("DtMF"): its photos, loaded below
-const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT), ...buildLaundromatMaps(MAP_KIT), ...buildDejaVuMaps(MAP_KIT), ...buildFlatMaps(MAP_KIT) };
+const MAPS = { street: buildStreet(), beach: buildBeach(), ...buildMoreMaps(MAP_KIT), ...buildIndoorMaps(MAP_KIT), ...buildOutdoorMaps(MAP_KIT), ...buildSeaMaps(MAP_KIT), ...buildClubMaps(MAP_KIT), ...buildTechnoMaps(MAP_KIT), ...buildPirateMaps(MAP_KIT), ...buildPlaneMaps(MAP_KIT), ...buildDieYoungMaps(MAP_KIT), ...buildMatsuriMaps(MAP_KIT), ...buildBubbleMaps(MAP_KIT), ...buildPatientMaps(MAP_KIT), ...buildPoolMaps(MAP_KIT), ...buildStudioMaps(MAP_KIT), ...buildWarehouseMaps(MAP_KIT), ...buildNoirMaps(MAP_KIT), ...buildWorldCupMaps(MAP_KIT), ...buildPlayaMaps(MAP_KIT), ...buildEstateMaps(MAP_KIT), ...buildSelfAwareMaps(MAP_KIT), ...buildShipMaps(MAP_KIT), ...buildWeddingMaps(MAP_KIT), ...buildBobsledMaps(MAP_KIT), ...buildTowerMaps(MAP_KIT), ...buildAgencyMaps(MAP_KIT), ...buildParkMaps(MAP_KIT), ...buildCemeteryMaps(MAP_KIT), ...buildCanyonMaps(MAP_KIT), ...buildScrubMaps(MAP_KIT), ...buildFotoMaps(MAP_KIT), ...buildGoldenMaps(MAP_KIT), ...buildTonkMaps(MAP_KIT), ...buildAptMaps(MAP_KIT), ...buildComicMaps(MAP_KIT), ...buildLondonMaps(MAP_KIT), ...buildMansionMaps(MAP_KIT), ...buildResortMaps(MAP_KIT), ...buildPiazzaMaps(MAP_KIT), ...buildSalonMaps(MAP_KIT), ...buildHusbandMaps(MAP_KIT), ...buildDraculaMaps(MAP_KIT), ...buildCandyClubMaps(MAP_KIT), ...buildRumbleMaps(MAP_KIT), ...buildMojaveMaps(MAP_KIT), ...buildBoardroomMaps(MAP_KIT), ...buildRingMaps(MAP_KIT), ...buildFloorClubMaps(MAP_KIT), ...buildSoundstageMaps(MAP_KIT), ...buildOpheliaMaps(MAP_KIT), ...buildParlourMaps(MAP_KIT), ...buildLaundromatMaps(MAP_KIT), ...buildDejaVuMaps(MAP_KIT), ...buildFlatMaps(MAP_KIT), ...buildShapeMaps(MAP_KIT) };
 try {
   const pt = await new THREE.TextureLoader().loadAsync('assets/ui/bus_poster.png');
   pt.magFilter = pt.minFilter = THREE.NearestFilter; pt.generateMipmaps = false; pt.colorSpace = THREE.NoColorSpace;
@@ -2702,7 +2707,7 @@ function danceFrame(t) {
   { const s = U.uSk.value; window.SKETCH = s.w > 0 || s.x !== 0 || s.y !== 0 || s.z !== 0; }
   // mono: the frame in black and white (true), or [a, b]: black and white until a s into the shot, colour back by b (the 2D
   // layer greys it: window.MONO, 0-1). photo: s into the shot, the frozen frame becomes an instant photo (window.PHOTO: s since)
-  { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null;
+  { const sIn = t - t0, m = P.mono; window.MONO = m === true ? 1 : Array.isArray(m) ? 1 - cl((sIn - m[0]) / Math.max(0.01, m[1] - m[0])) : 0; window.PHOTO = P.photo != null && sIn >= P.photo ? sIn - P.photo : null; window.PHOTO_DIM = P.photoDim ?? 0.6;
     // white: [s, …] a lightning flash over the whole frame at each listed second (two flickers, gone by 0.35 s; the 2D layer whites it out: window.WHITE, 0-1)
     window.WHITE = (P.white || []).reduce((m, f) => { const e = sIn - f; return e >= 0 && e < 0.35 ? Math.max(m, e < 0.06 ? 0.9 : e < 0.12 ? 0.25 : e < 0.18 ? 0.7 : 0.7 * Math.exp(-(e - 0.18) * 14)) : m; }, 0);
     // cctv: the shot is a security camera's feed ("Animal", 2026-10-03): its label (e.g. 'CAM 03 · CEO'), drawn by the 2D layer with a REC dot, a timecode and scanlines (window.CCTV);

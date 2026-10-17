@@ -1,0 +1,1828 @@
+{
+ "date": "2026-10-17",
+ "song": {
+  "title": "Shape of You",
+  "artist": "Ed Sheeran"
+ },
+ "logline": "The velcro dog can't stand Sadi going to prom without him, so he goes to her in a straight line, bursting through his front door, a boxing gym and a diner, leaving his shape in each; every time Compote throws him out he's back through a new wall; and through the first hole the gang sees the tunnel of dog-shaped holes all the way back home. (TikTok cut on the official sound: from Sadi dancing at the prom to the restroom door.)",
+ "new": "src/maps54.js: prom (the school gym decorated for prom: a maple court, cinderblock walls, folded bleachers, the stage with a balloon arch, the PROM backdrop and a box-pet DJ, the punch table, the photo booth's star backdrop, the NO DOGS double doors, the girls' restroom with mirrors and sinks; box-pet guests in suits and gowns) and, west of it on one straight line, the town he crosses: his house, a tall picket fence, a yellow taxi van, the clip's brick boxing gym with box-pet boxers, a diner with a couple on a milkshake date; every wall on the line bursts in his exact silhouette (rasterised from his skinned mesh in jumping jacks at 0.2 s and traced: an extruded cell with the shape cut out and a dark broken rim, its plug, debris flung off the rim, a crack that draws his outline on both faces, planks across it); the town dims when seen from the prom, lit for the tunnel; two looks: Saxo's navy varsity jacket over a grey hoodie (the clip's), Sadi's baby-blue prom dress with a rose corsage (her bare arms and the corsage join ARM_FIX and ARM_CUFFS); the structure VELCRO; a burst lens solver in the generator",
+ "notes": "The world, from the official video (contact sheets): a boxer in a blue hoodie training in a red-brick gym, a diner date in a varsity jacket, runs past freight trains, an underground sumo bout. The words, from whitelisted keywords per line: dance, singing, love, lead, crazy, talk, waist, body, shape, push, pull, magnet, heart, falling, night, room, bed, smell, day, discovering, new. Cast: Saxo the velcro dog in the clip's varsity jacket; Sadi at prom in her new dress (the romance thread: she melts); Kob the prom queen (her sequin dress, the crown), unimpressed until she finally dances; Compote the school's security (her police uniform) who keeps throwing him out.",
+ "tiktok_sound": "6705004477235070977",
+ "with": [
+  "sadi",
+  "kob",
+  "compote"
+ ],
+ "clips": [
+  "charleston",
+  "happy_idle",
+  "standard_jumping_jacks"
+ ],
+ "tags": {
+  "structure": "velcro",
+  "scenes": [
+   "the cold open",
+   "home alone at the door",
+   "the run-up",
+   "the door burst",
+   "the fence",
+   "the taxi van",
+   "the boxing gym",
+   "the diner date",
+   "the street",
+   "the punch bowl",
+   "Sadi dances",
+   "the thud",
+   "the crack",
+   "the shape burst",
+   "thrown out",
+   "back through the wall",
+   "falling hearts",
+   "the duet",
+   "the planks",
+   "the sip",
+   "at her feet",
+   "beside the guard",
+   "the PROM backdrop",
+   "the prom photo",
+   "everyone dances",
+   "the tunnel of holes",
+   "the restroom door"
+  ],
+  "cast": [
+   "saxo",
+   "sadi",
+   "kob",
+   "compote"
+  ],
+  "hook": "dance",
+  "maps": [
+   "prom"
+  ],
+  "ref": "none",
+  "lyric_literal": "'shape' (he bursts through his own outline, twice), 'push' / 'pull ... magnet' (thrown out, straight back), 'heart falling' (hearts falling round Sadi), 'bed' (he sits at her feet), 'dance' (the cold open), 'lead' (the run to her), 'body' (a new burst on every one)",
+  "experiment": "Does a cartoon-physics visual gag that reads with the sound off (a dog-shaped hole in every wall, ending on a tunnel of them) hold the Short's viewers better than our pet-universal gags, on a song everyone knows?"
+ },
+ "shots": [
+  {
+   "beat": -1.3,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "charleston",
+     "x": 0,
+     "z": 0.2,
+     "face": "world",
+     "yaw": 15,
+     "at": 0.887,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     11.31,
+     11.31
+    ],
+    "r": [
+     3.059,
+     2.55
+    ],
+    "h": [
+     0.3,
+     0.32
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 60,
+    "roll": [
+     -7,
+     -4
+    ]
+   },
+   "focus": [
+    0,
+    0.2
+   ],
+   "clear": [
+    [
+     0.4,
+     2.6,
+     1.3
+    ]
+   ]
+  },
+  {
+   "beat": 3.75,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "happy_idle",
+     "x": 40,
+     "z": 40,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     5.5,
+     5.3
+    ],
+    "h": [
+     1.35,
+     1.34
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 54
+   },
+   "focus": [
+    -9.9,
+    0
+   ],
+   "crack": {
+    "prom": [
+     0.6060000000000001,
+     2.131
+    ]
+   },
+   "stare": [
+    -10,
+    0.4
+   ],
+   "gmode": [
+    "gasp",
+    "gasp",
+    "gasp",
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gspots": [
+    [
+     -8.2,
+     0.72,
+     -100
+    ],
+    [
+     -8.25,
+     -0.72,
+     -80
+    ],
+    [
+     -9,
+     1.45,
+     -125
+    ],
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "beat": 6.21,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -8.55,
+     "z": 4.7,
+     "face": "world",
+     "yaw": 205,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     144.83,
+     144.06
+    ],
+    "r": [
+     2.691,
+     2.47
+    ],
+    "h": [
+     1.12,
+     1.12
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 42
+   },
+   "focus": [
+    -8.55,
+    4.7
+   ]
+  },
+  {
+   "beat": 9.18,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "happy_idle",
+     "x": 40,
+     "z": 40,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     5.8,
+     5.5
+    ],
+    "h": [
+     1.42,
+     1.4
+    ],
+    "look": [
+     0.75,
+     0.75
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -9.9,
+    0
+   ],
+   "crack": {
+    "prom": [
+     -0.3,
+     2.887
+    ]
+   },
+   "gmode": [
+    "gasp",
+    "gasp",
+    "gasp",
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gspots": [
+    [
+     -6.6,
+     0.45,
+     -95
+    ],
+    [
+     -6.4,
+     -0.48,
+     -85
+    ],
+    [
+     -5.5,
+     0.95,
+     -100
+    ],
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "stare": [
+    -10,
+    0
+   ]
+  },
+  {
+   "beat": 14.2,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": -10,
+     "z": 0,
+     "face": "world",
+     "yaw": 73.6,
+     "at": 0.2,
+     "speed": 0,
+     "mx": 4.45,
+     "mz": 1.31,
+     "moveAt": -0.1,
+     "air": true,
+     "lean": 22,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "fg": true,
+     "lift": 0.02,
+     "my": 0.83,
+     "myAt": -0.1,
+     "myDur": 0.32
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     100.32,
+     100.32
+    ],
+    "r": [
+     4.797,
+     4.557
+    ],
+    "h": [
+     0.95,
+     0.983
+    ],
+    "look": [
+     1.614,
+     1.614
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -8.575,
+    0.419
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -0.1
+   },
+   "noguests": true,
+   "hide": [
+    "spots"
+   ]
+  },
+  {
+   "beat": 16,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": -10.45,
+     "z": 6,
+     "face": "world",
+     "yaw": -105.4,
+     "at": 0.2,
+     "speed": 0,
+     "mx": -2.55,
+     "mz": -0.7,
+     "moveAt": -0.05,
+     "air": true,
+     "lean": 22,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "lift": 0.7,
+     "my": 0.4,
+     "myAt": -0.05,
+     "myDur": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -9.55,
+     "z": 6.2,
+     "face": "world",
+     "yaw": -95,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.62,
+      0.32,
+      0.55
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -73.35,
+     -73.35
+    ],
+    "r": [
+     4.6,
+     4.37
+    ],
+    "h": [
+     0.45,
+     0.517
+    ],
+    "look": [
+     1.8,
+     1.8
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -11.7,
+    5.6
+   ],
+   "zone": "street",
+   "doors": 1,
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -2
+   }
+  },
+  {
+   "beat": 17.19,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": -10,
+     "z": 2.6,
+     "face": "world",
+     "yaw": 114.4,
+     "at": 0.2,
+     "speed": 0,
+     "mx": 2.2,
+     "mz": -1,
+     "moveAt": -0.1,
+     "air": true,
+     "lean": 22,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "lift": 0.02,
+     "my": 1.23,
+     "myAt": -0.1,
+     "myDur": 0.32
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     132,
+     132.01
+    ],
+    "r": [
+     4.845,
+     4.602
+    ],
+    "h": [
+     0.95,
+     0.998
+    ],
+    "look": [
+     1.911,
+     1.911
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -8.845,
+    2.076
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -3,
+    "side": -0.1
+   },
+   "stare": [
+    -8.5,
+    2.3
+   ],
+   "hide": [
+    "spots"
+   ]
+  },
+  {
+   "beat": 19.87,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "happy_idle",
+     "x": -5.2,
+     "z": 1,
+     "face": "world",
+     "yaw": 70,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": "heart",
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "happy_idle",
+     "x": -5.95,
+     "z": 1.5,
+     "face": "world",
+     "yaw": 100,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 8
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     46.43,
+     46.43
+    ],
+    "r": [
+     2.829,
+     2.829
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.45,
+    1.25
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -5,
+    "side": -2
+   },
+   "rain": [
+    0,
+    -5.4,
+    1.25
+   ]
+  },
+  {
+   "beat": 23.76,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "charleston",
+     "x": -0.55,
+     "z": 0.3,
+     "face": "world",
+     "yaw": 12,
+     "at": 0.013,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "charleston",
+     "x": 0.55,
+     "z": 0.3,
+     "face": "world",
+     "yaw": -12,
+     "at": 2.18,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     3.1,
+     2.65
+    ],
+    "h": [
+     0.32,
+     0.34
+    ],
+    "look": [
+     0.9,
+     0.9
+    ],
+    "fov": 60,
+    "roll": [
+     6,
+     3
+    ]
+   },
+   "focus": [
+    0,
+    0.3
+   ],
+   "guests": "cheer",
+   "clear": [
+    [
+     0,
+     2.8,
+     1.3
+    ]
+   ]
+  },
+  {
+   "beat": 27.75,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -9.15,
+     "z": 1.3,
+     "face": "world",
+     "yaw": 50,
+     "at": 2.125,
+     "speed": 0,
+     "holdL": "hammer",
+     "arm": "L",
+     "aim": [
+      0.62,
+      0.62,
+      0.3
+     ],
+     "upAt": -1,
+     "holdScale": 1.7
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     5,
+     4.8
+    ],
+    "h": [
+     1.3,
+     1.29
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 66
+   },
+   "focus": [
+    -9.6,
+    1.3
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -6,
+    "side": -4
+   },
+   "planks": [
+    "prom",
+    "side"
+   ],
+   "noguests": true
+  },
+  {
+   "beat": 31.12,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "sequin",
+     "clip": "happy_idle",
+     "x": -4.8,
+     "z": -4.55,
+     "face": "world",
+     "yaw": 29,
+     "at": 2.125,
+     "speed": 0,
+     "holdL": "redcup",
+     "arm": "L",
+     "aim": "sip",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": -1,
+     "hat": "crown",
+     "hatY": 0.68
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     29.17,
+     29.29
+    ],
+    "r": [
+     2.462,
+     2.351
+    ],
+    "h": [
+     1.28,
+     1.27
+    ],
+    "look": [
+     1.08,
+     1.08
+    ],
+    "fov": 42
+   },
+   "focus": [
+    -4.8,
+    -4.55
+   ]
+  },
+  {
+   "beat": 33.33,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "happy_idle",
+     "x": -5.2,
+     "z": 1,
+     "face": "world",
+     "yaw": 70,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "L",
+     "aim": "heart",
+     "upAt": -1
+    },
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "happy_idle",
+     "x": -5.9,
+     "z": 1.42,
+     "face": "world",
+     "yaw": 104,
+     "at": 2.125,
+     "speed": 0,
+     "lean": 16,
+     "tongue": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     46.43,
+     46.43
+    ],
+    "r": [
+     2.829,
+     2.829
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     0.95,
+     0.95
+    ],
+    "fov": 50
+   },
+   "focus": [
+    -5.45,
+    1.25
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -6,
+    "side": -4
+   },
+   "planks": [
+    "prom",
+    "side"
+   ]
+  },
+  {
+   "beat": 36.02,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": -10.45,
+     "z": 6,
+     "face": "world",
+     "yaw": -105.4,
+     "at": 0.2,
+     "speed": 0,
+     "mx": -10.761,
+     "mz": -2.954,
+     "moveAt": 0.362,
+     "air": true,
+     "lean": 22,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "fg": true,
+     "lift": 0.7,
+     "my": 0.4,
+     "myAt": 0.362,
+     "myDur": 0.3
+    },
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -9.55,
+     "z": 6.2,
+     "face": "world",
+     "yaw": -95,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "both",
+     "aim": [
+      0.62,
+      0.32,
+      0.55
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -73.35,
+     -73.35
+    ],
+    "r": [
+     4.6,
+     4.37
+    ],
+    "h": [
+     0.45,
+     0.517
+    ],
+    "look": [
+     1.8,
+     1.8
+    ],
+    "fov": 56
+   },
+   "focus": [
+    -11.7,
+    5.6
+   ],
+   "zone": "street",
+   "doors": 1,
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -8,
+    "side": -6
+   },
+   "planks": [
+    "prom",
+    "side"
+   ]
+  },
+  {
+   "beat": 39.73,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": -11.3,
+     "z": -1.86,
+     "face": "world",
+     "yaw": 101.3,
+     "at": 0.2,
+     "speed": 0,
+     "mx": 3.7,
+     "mz": -0.74,
+     "moveAt": 1.626,
+     "air": true,
+     "lean": 22,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "lift": 0.02,
+     "my": 0.98,
+     "myAt": 1.744,
+     "myDur": 0.32
+    },
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "happy_idle",
+     "x": -9.15,
+     "z": -0.62,
+     "face": "world",
+     "yaw": 88,
+     "at": 2.125,
+     "speed": 0
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     119.94,
+     119.94
+    ],
+    "r": [
+     3.857,
+     3.664
+    ],
+    "h": [
+     0.7,
+     0.751
+    ],
+    "look": [
+     1.726,
+     1.726
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -8.012,
+    -2.494
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -10,
+    "side": -8,
+    "comp": 1.744
+   },
+   "planks": [
+    "prom",
+    "side"
+   ],
+   "noguests": true,
+   "hide": [
+    "spots"
+   ]
+  },
+  {
+   "beat": 43.33,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "charleston",
+     "x": -0.5,
+     "z": -0.4,
+     "face": "world",
+     "yaw": 20,
+     "at": 2.398,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "charleston",
+     "x": 0.55,
+     "z": -0.35,
+     "face": "world",
+     "yaw": -15,
+     "at": 2.398,
+     "speed": 1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     21.52,
+     -18.2
+    ],
+    "r": [
+     3.816,
+     3.842
+    ],
+    "h": [
+     2,
+     2.1
+    ],
+    "look": [
+     0.8,
+     0.8
+    ],
+    "fov": 54,
+    "ease": "lin"
+   },
+   "focus": [
+    0,
+    -0.35
+   ],
+   "guests": "cheer",
+   "clear": [
+    [
+     0,
+     1.6,
+     1.3
+    ]
+   ]
+  },
+  {
+   "beat": 49.6,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": 10.2,
+     "z": -0.553,
+     "face": "world",
+     "yaw": -51.7,
+     "at": 0.2,
+     "speed": 0,
+     "mx": -2.6,
+     "mz": 2.053,
+     "moveAt": 0,
+     "air": true,
+     "lean": 22,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "lift": 0.92,
+     "my": 0.28,
+     "myAt": 0.488,
+     "myDur": 0.32
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -95.13,
+     -95.13
+    ],
+    "r": [
+     4.463,
+     4.24
+    ],
+    "h": [
+     1.6,
+     1.623
+    ],
+    "look": [
+     2.054,
+     2.054
+    ],
+    "fov": 56
+   },
+   "focus": [
+    8.493,
+    0.7
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "banner": 0.488
+   },
+   "noguests": true,
+   "hide": [
+    "spots"
+   ]
+  },
+  {
+   "beat": 52.5,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "happy_idle",
+     "x": 7.4,
+     "z": 1.25,
+     "face": "world",
+     "yaw": -95,
+     "at": 2.125,
+     "speed": 0,
+     "lift": 0.9,
+     "arm": "both",
+     "aim": "rave",
+     "flapEvery": 1000,
+     "flapPh": 90,
+     "upAt": -1,
+     "hop": [
+      0.06,
+      1
+     ]
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -91.1,
+     -90.99
+    ],
+    "r": [
+     7.801,
+     7.501
+    ],
+    "h": [
+     1.45,
+     1.45
+    ],
+    "look": [
+     1.55,
+     1.55
+    ],
+    "fov": 46
+   },
+   "focus": [
+    7.4,
+    0.6
+   ],
+   "gmode": [
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gspots": [
+    [
+     3,
+     -1.7,
+     90
+    ],
+    [
+     3,
+     -0.55,
+     90
+    ],
+    [
+     3,
+     0.6,
+     90
+    ],
+    [
+     3,
+     1.75,
+     90
+    ],
+    [
+     4.4,
+     -1.15,
+     90
+    ],
+    [
+     4.4,
+     0,
+     90
+    ],
+    [
+     4.4,
+     1.15,
+     90
+    ],
+    [
+     5.6,
+     -1.9,
+     90
+    ],
+    [
+     5.6,
+     2,
+     90
+    ],
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "banner": -2
+   }
+  },
+  {
+   "beat": 55.5,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "sequin",
+     "clip": "happy_idle",
+     "x": -5.45,
+     "z": 6.6,
+     "face": "world",
+     "yaw": 169.7,
+     "at": 2.125,
+     "speed": 0,
+     "hat": "crown",
+     "hatY": 0.68
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     175.29,
+     175.48
+    ],
+    "r": [
+     4.264,
+     4.063
+    ],
+    "h": [
+     1.22,
+     1.2
+    ],
+    "look": [
+     1.02,
+     1.02
+    ],
+    "fov": 52
+   },
+   "focus": [
+    -5.1,
+    7
+   ],
+   "noguests": true
+  },
+  {
+   "beat": 58.51,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "kob",
+     "look": "sequin",
+     "clip": "happy_idle",
+     "x": -5.45,
+     "z": 6.6,
+     "face": "world",
+     "yaw": 169.7,
+     "at": 2.125,
+     "speed": 0,
+     "hat": "crown",
+     "hatY": 0.68,
+     "holdAt": 0
+    },
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": -3.7,
+     "z": 6.45,
+     "face": "world",
+     "yaw": -144.2,
+     "at": 0.2,
+     "speed": 0,
+     "lift": 0.55,
+     "air": true,
+     "lean": 14,
+     "holdAt": 0,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     -176.63,
+     -176.63
+    ],
+    "r": [
+     4.257,
+     4.257
+    ],
+    "h": [
+     1.22,
+     1.22
+    ],
+    "look": [
+     1.4,
+     1.4
+    ],
+    "fov": 62
+   },
+   "focus": [
+    -4.5,
+    7
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "photo": -0.16
+   },
+   "stop": 0,
+   "flashAt": [
+    0
+   ],
+   "photo": 0.05,
+   "photoDim": 0.88,
+   "still": true,
+   "noguests": true
+  },
+  {
+   "beat": 63.85,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "compote",
+     "look": "cop",
+     "clip": "charleston",
+     "x": -1.45,
+     "z": -0.35,
+     "face": "world",
+     "yaw": 10,
+     "at": 0.131,
+     "speed": 1
+    },
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "charleston",
+     "x": -0.45,
+     "z": 0.55,
+     "face": "world",
+     "yaw": 4,
+     "at": 0.131,
+     "speed": 1
+    },
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "charleston",
+     "x": 0.45,
+     "z": 0.55,
+     "face": "world",
+     "yaw": -4,
+     "at": 0.131,
+     "speed": 1
+    },
+    {
+     "who": "kob",
+     "look": "sequin",
+     "clip": "charleston",
+     "x": 1.45,
+     "z": -0.35,
+     "face": "world",
+     "yaw": -10,
+     "at": 0.131,
+     "speed": 1,
+     "hat": "crown",
+     "hatY": 0.68
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     6.1,
+     5.95
+    ],
+    "h": [
+     2.3,
+     2.28
+    ],
+    "look": [
+     0.85,
+     0.85
+    ],
+    "fov": 58
+   },
+   "focus": [
+    0,
+    0.2
+   ],
+   "gmode": [
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    "dance",
+    false
+   ],
+   "gspots": [
+    [
+     -3.3,
+     -5.6,
+     0
+    ],
+    [
+     -2.2,
+     -5.6,
+     0
+    ],
+    [
+     -1.1,
+     -5.6,
+     0
+    ],
+    [
+     0,
+     -5.6,
+     0
+    ],
+    [
+     1.1,
+     -5.6,
+     0
+    ],
+    [
+     2.2,
+     -5.6,
+     0
+    ],
+    [
+     3.3,
+     -5.6,
+     0
+    ],
+    [
+     -2.75,
+     -6.6,
+     0
+    ],
+    [
+     -1.65,
+     -6.6,
+     0
+    ],
+    [
+     -0.55,
+     -6.6,
+     0
+    ],
+    [
+     0.55,
+     -6.6,
+     0
+    ],
+    [
+     1.65,
+     -6.6,
+     0
+    ],
+    [
+     2.75,
+     -6.6,
+     0
+    ],
+    null
+   ]
+  },
+  {
+   "beat": 67.51,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "happy_idle",
+     "x": 40,
+     "z": 40,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "fg": true
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     89.97,
+     89.97
+    ],
+    "r": [
+     38.5,
+     38.3
+    ],
+    "h": [
+     0.66,
+     0.66
+    ],
+    "look": [
+     0.72,
+     0.72
+    ],
+    "fov": [
+     24,
+     13
+    ]
+   },
+   "focus": [
+    -40,
+    0
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "prom": -14
+   },
+   "townLit": true,
+   "noguests": true,
+   "hide": [
+    "booth",
+    "spots"
+   ],
+   "lit": [
+    "diner",
+    "gym",
+    "home"
+   ]
+  },
+  {
+   "beat": 75,
+   "kind": "dance",
+   "map": "prom",
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "standard_jumping_jacks",
+     "x": 3,
+     "z": 7.4,
+     "face": "world",
+     "yaw": -36.5,
+     "at": 0.2,
+     "speed": 0,
+     "mx": -1,
+     "mz": 1.35,
+     "moveAt": 0.469,
+     "air": true,
+     "lean": 0,
+     "arm": "both",
+     "aim": [
+      0.6,
+      0.55,
+      0.2
+     ],
+     "upAt": -1,
+     "lift": 0.3,
+     "my": -0.3,
+     "myAt": 0.469,
+     "myDur": 0.4
+    },
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "happy_idle",
+     "x": 1.15,
+     "z": 8.6,
+     "face": "world",
+     "yaw": 0,
+     "at": 2.125,
+     "speed": 0,
+     "arm": "R",
+     "aim": [
+      0.3,
+      0.82,
+      0.25
+     ],
+     "upAt": -1
+    }
+   ],
+   "cam": {
+    "steady": true,
+    "ang": [
+     0,
+     0
+    ],
+    "r": [
+     4.3,
+     4.2
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": [
+     1,
+     1
+    ],
+    "fov": 70
+   },
+   "focus": [
+    2.14,
+    8
+   ],
+   "holes": {
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9,
+    "wc": 0.469
+   },
+   "still": true,
+   "noguests": true
+  }
+ ]
+}
