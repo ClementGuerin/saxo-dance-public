@@ -1,6 +1,35 @@
 {
- "updated": "2026-10-16T19:54:24.299Z",
+ "updated": "2026-10-17T14:17:35.970Z",
  "posts": [
+  {
+   "id": "2026-10-17",
+   "title": "As It Was",
+   "artist": "Harry Styles",
+   "date": "2026-10-17T14:00:00.000Z",
+   "thumb": "assets/posts/2026-10-17.jpg",
+   "links": {
+    "instagram": {
+     "url": "https://www.instagram.com/reel/DemRu3ZCXKh/",
+     "id": "DemRu3ZCXKh"
+    },
+    "youtube": {
+     "url": "https://www.youtube.com/shorts/qOoLZVx0qFw",
+     "id": "qOoLZVx0qFw"
+    },
+    "facebook": {
+     "url": "https://www.facebook.com/watch/?v=1427080952730757",
+     "id": "1427080952730757"
+    },
+    "x": {
+     "url": "https://x.com/saxodance/status/2111457566727221366",
+     "id": "2111457566727221366"
+    },
+    "tiktok": {
+     "url": "https://www.tiktok.com/@saxo.dance/video/7697382277646519574",
+     "id": "7697382277646519574"
+    }
+   }
+  },
   {
    "id": "2026-10-16-2",
    "title": "deja vu",
