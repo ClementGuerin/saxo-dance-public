@@ -4226,6 +4226,73 @@
      "z": 0.3
     }
    ]
+  },
+  {
+   "beat": 194,
+   "kind": "dance",
+   "map": "prom",
+   "move": "push",
+   "still": true,
+   "cam": {
+    "ang": [
+     90,
+     90
+    ],
+    "r": [
+     6.1,
+     6.1
+    ],
+    "h": [
+     1.15,
+     1.15
+    ],
+    "look": 1.05,
+    "fov": 56
+   },
+   "focus": [
+    -8.6,
+    0
+   ],
+   "holes": {
+    "prom": -6,
+    "door": -9,
+    "fence": -9,
+    "cab1": -9,
+    "cab2": -9,
+    "gym1": -9,
+    "gym2": -9,
+    "din1": -9,
+    "din2": -9
+   },
+   "guests": "cheer",
+   "hide": [
+    "spots"
+   ],
+   "clear": [
+    [
+     -5.5,
+     0,
+     2.2
+    ]
+   ],
+   "actors": [
+    {
+     "who": "saxo",
+     "look": "varsity",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -8.1,
+     "z": 0.95
+    },
+    {
+     "who": "sadi",
+     "look": "prom",
+     "clip": "charleston",
+     "at": "auto",
+     "x": -8.1,
+     "z": -0.95
+    }
+   ]
   }
  ]
 }
